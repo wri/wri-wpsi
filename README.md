@@ -24,5 +24,6 @@ Check it out for things you might test locally
 * Deployment instructions
 Staging is deployed to heroku at `https://git.heroku.com/wri-wpsi.git`
 Exception monitoring is via sentry.io https://sentry.io/organizations/green-river/issues/?project=1484102
+Test deploy hook
 
 * ...
