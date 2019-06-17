@@ -14,7 +14,7 @@ script:
   - bin/ci-build
 
 addons:
-  postgresql: "11"
+  postgresql: 11.3
   chrome: stable
 
 services:
