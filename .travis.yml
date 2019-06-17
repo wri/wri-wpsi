@@ -1,22 +1,7 @@
 dist: xenial
 language: ruby
-cache:
-  directories:
-    - vendor/bundle
-    - node_modules
-    - /home/travis/.rvm/
-    - /home/.cache/yarn
-
-env:
-  - RAILS_ENV=test
-
 script:
   - bin/ci-build
 
 addons:
-  postgresql: 11.3
-  chrome: stable
-
-services:
   - postgresql
-  - redis-server
