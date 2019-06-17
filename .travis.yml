@@ -6,6 +6,9 @@ cache:
     - node_modules
     - /home/travis/.rvm/
     - /home/.cache/yarn
+addons:
+  postgresql: "11.3"
+  chrome: stable
 services:
   - postgresql
 script:
