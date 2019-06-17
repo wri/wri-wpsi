@@ -1,7 +1,15 @@
 dist: xenial
 language: ruby
+cache:
+  bundler: true
+  directories:
+    - vendor/bundle
+    - node_modules
+    - /home/travis/.rvm/
+    - /home/.cache/yarn
+
+services:
+  - postgresql
+
 script:
   - bin/ci-build
-
-addons:
-  - postgresql
