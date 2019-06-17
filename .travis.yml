@@ -1,6 +1,6 @@
 dist: xenial
 language: ruby
-addons:
+services:
   - postgresql
 script:
   - bin/ci-build
