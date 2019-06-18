@@ -5,10 +5,12 @@ require 'rails/test_help'
 require 'simplecov'
 require 'simplecov-console'
 if ENV['COVERAGE'].present?
-  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-    SimpleCov::Formatter::HTMLFormatter,
-    SimpleCov::Formatter::Console,
-  ])
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
+    [
+      SimpleCov::Formatter::HTMLFormatter,
+      SimpleCov::Formatter::Console,
+    ],
+  )
   SimpleCov.start 'rails'
 end
 

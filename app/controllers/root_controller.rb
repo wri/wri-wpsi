@@ -1,6 +1,5 @@
 class RootController < ApplicationController
-  def index
-  end
+  def index; end
 
   def health_check
     render plain: 'OK'
