@@ -1,0 +1,40 @@
+module.exports = {
+    "env": {
+      "browser": false,
+      "es6": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "globals": {
+      "window": true,
+      "alert": true,
+      "console": true,
+      "document": true,
+      "localStorage": true,
+      "setInterval": true,
+      "setTimeout": true,
+      "clearTimeout": true
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
+      },
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react"
+    ],
+    "rules": {
+      'no-console': 'off',
+    }
+};
