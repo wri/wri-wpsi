@@ -1,11 +1,13 @@
 import React from 'react'
+import TopBanner from 'components/TopBanner'
+import MenuBar from 'components/MenuBar'
 import MainMap from 'components/MainMap'
 
 class App extends React.Component {
   render () {
     return <React.Fragment>
-      <h1>Water, Peace & Security</h1>
-      <p>Proof of concept with data from <a href="https://resourcewatch.org/data/explore/Powerwatch">resourcewatch.org</a>.</p>
+      <TopBanner />
+      <MenuBar selectedItem='map' />
       <MainMap />
     </React.Fragment>
   }

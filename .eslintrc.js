@@ -20,6 +20,7 @@ module.exports = {
       "localStorage": true,
       "setInterval": true,
       "setTimeout": true,
+      "fetch": true,
       "clearTimeout": true
     },
     "parser": "babel-eslint",
@@ -35,6 +36,6 @@ module.exports = {
       "react"
     ],
     "rules": {
-      'no-console': 'off',
+      'no-console': 1,
     }
 };
