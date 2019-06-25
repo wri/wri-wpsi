@@ -5,19 +5,22 @@ const SearchBox = (props) => {
   const { options, onSelection, name } = props
 
   const [selectedOption, setSelectedOption] = useState(null)
+  const loading = options.length === 0
 
   const handleChange = (selectedOpt) => {
     setSelectedOption(selectedOpt)
     onSelection(selectedOpt ? selectedOpt.value : null)
   }
 
-  return <div style={{width: 500}}>
+  return <div style={{width: 500, margin: 20}}>
     <Select
       options={options}
       value={selectedOption}
       onChange={handleChange}
       isSearchable={true}
       isClearable={true}
+      isLoading={loading}
+      isDisabled={loading}
       placeholder={`Search ${name}`}
     />
   </div>
