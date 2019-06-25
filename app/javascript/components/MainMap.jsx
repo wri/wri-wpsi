@@ -43,7 +43,7 @@ class MainMap extends React.Component {
         value: value,
         label: dictionary[value],
       }
-    })
+    }).sort((a, b) => (a.label > b.label) ? 1 : -1)
   }
 
   getSelectedRegion() {
