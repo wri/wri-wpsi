@@ -1,8 +1,9 @@
 import React from 'react'
 import { GeoJSON } from 'react-leaflet'
+import RegionPopup from 'components/RegionPopup'
 
 const ConflictRiskLayer = (props) => {
-  const { features, selectedRegionGid0, selectedRegionGid2, onEachFeature, renderPopup, getRiskColor } = props
+  const { features, selectedRegionGid0, selectedRegionGid2, onEachFeature, getRiskColor } = props
 
   const style = (feature) => {
     return {
@@ -15,17 +16,19 @@ const ConflictRiskLayer = (props) => {
   }
 
   const featureToGeoJSON = (feature) => {
-    feature.selected = feature.properties.gid_0 == selectedRegionGid0 || feature.properties.gid_2 == selectedRegionGid2
+    feature.selected = feature.properties.gid_0 == selectedRegionGid0
+    const region = feature.properties
 
-    return <GeoJSON
+    return <ExtendedGeoJSON
       data={feature}
       selected={feature.selected ? 1 : 0}
       key={feature.properties.cartodb_id}
       onEachFeature={onEachFeature}
       style={style}
+      isOpen={region.gid_2 == selectedRegionGid2}
     >
-      {renderPopup(feature.properties)}
-    </GeoJSON>
+      <RegionPopup region={region} />
+    </ExtendedGeoJSON>
   }
 
   let ret = features.map(featureToGeoJSON).sort((a, b) => {
@@ -35,10 +38,29 @@ const ConflictRiskLayer = (props) => {
   return ret
 }
 
+const ExtendedGeoJSON = (props) => {
+  const { isOpen } = props
+
+  const openPopup = (feature) => {
+    if (isOpen) {
+      feature && feature.leafletElement.openPopup()
+    } else {
+      feature && feature.leafletElement.closePopup()
+    }
+  }
+
+  return (
+    <GeoJSON ref={el => openPopup(el)} {...props}/>
+  )
+}
+
 import PropTypes from 'prop-types'
 ConflictRiskLayer.propTypes = {
   features: PropTypes.array.isRequired,
   selectedRegionGid0: PropTypes.string,
+}
+ExtendedGeoJSON.propTypes = {
+  isOpen: PropTypes.bool,
 }
 
 export default ConflictRiskLayer

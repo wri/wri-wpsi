@@ -1,7 +1,8 @@
 import React from 'react'
-import { Map, TileLayer, Popup, ZoomControl } from 'react-leaflet'
+import { Map, TileLayer, ZoomControl } from 'react-leaflet'
 import Legend from 'components/Legend'
 import SearchBox from 'components/SearchBox'
+import RegionInfoBox from 'components/RegionInfoBox'
 import ConflictRiskLayer from 'components/ConflictRiskLayer'
 
 class MainMap extends React.Component {
@@ -43,6 +44,19 @@ class MainMap extends React.Component {
         label: dictionary[value],
       }
     })
+  }
+
+  getSelectedRegion() {
+    const features = this.state.data && this.state.data.features || []
+    let selectedRegion = null
+
+    features.forEach((feature) => {
+      if (feature.properties.gid_2 === this.state.selectedRegionGid2) {
+        selectedRegion = feature
+      }
+    })
+
+    return selectedRegion
   }
 
   countries() {
@@ -89,8 +103,6 @@ class MainMap extends React.Component {
   handleLayerSelection(selectedLayer) {
     selectedLayer.bringToFront()
 
-    console.log("Selected layer: ", selectedLayer)
-
     this.setState({
       selectedLayer: selectedLayer,
     })
@@ -112,57 +124,10 @@ class MainMap extends React.Component {
     })
   }
 
-  renderPopup(region) {
-    const attributes = [
-      // 'cartodb_id',
-      // 'cc_1',
-      // 'cc_2',
-      // 'engtype_1',
-      // 'engtype_2',
-      // 'fid_1',
-      // 'gid_0',
-      // 'gid_01',
-      // 'gid_1',
-      // 'gid_2',
-      // 'gid_23',
-      // 'gid_23_24',
-      // 'hasc_1',
-      // 'hasc_2',
-      // 'name_0',
-      // 'name_1',
-      // 'name_2',
-      // 'nl_name_1', // Empty
-      // 'nl_name_2', // Empty
-      // 'type_1',
-      // 'type_2',
-      // 'varname_1',
-      // 'varname_2',
-      // 'aug2018',
-      // 'dec2018',
-      // 'july2018',
-      // 'june2018',
-      // 'nov2018',
-      // 'oct2018',
-      // 'sept2018',
-    ]
-    return <Popup>
-      <h3>{region.name_2}</h3>
-      <div><b>State:</b> {region.name_1}</div>
-      <div><b>Country:</b> {region.name_0}</div>
-      {attributes.map((attribute) => {
-          return (
-            <div key={attribute}><b>{attribute}:</b> {region[attribute]}</div>
-          )
-        })
-      }
-      <h1>Risk of conflict: {Math.round(region.dec2018 * 100)}%</h1>
-      <div>(December 2018)</div>
-    </Popup>
-  }
-
   render() {
     const position = [this.state.lat, this.state.lng]
     const features = this.state.data && this.state.data.features || []
+    const selectedRegion = this.getSelectedRegion()
 
     return <React.Fragment>
       <Map
@@ -185,26 +150,25 @@ class MainMap extends React.Component {
           selectedRegionGid0={this.state.selectedRegionGid0}
           selectedRegionGid2={this.state.selectedRegionGid2}
           onEachFeature={this.onEachFeature.bind(this)}
-          renderPopup={this.renderPopup.bind(this)}
           getRiskColor={this.getRiskColor}
         />
 
         <Legend getColor={this.getRiskColor} />
       </Map>
 
-      <p>Country search:</p>
       <SearchBox
         name='countries'
         options={this.optionsForCountrySearch()}
         onSelection={this.handleCountrySelection.bind(this)}
       />
 
-      <p>Region search:</p>
       <SearchBox
         name='regions'
         options={this.optionsForRegionSearch()}
         onSelection={this.handleRegionSelection.bind(this)}
       />
+
+      {selectedRegion && <RegionInfoBox region={selectedRegion} />}
     </React.Fragment>
   }
 }
