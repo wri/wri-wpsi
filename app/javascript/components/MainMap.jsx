@@ -1,6 +1,8 @@
 import React from 'react'
-import { Map, TileLayer, GeoJSON, Popup } from 'react-leaflet'
+import { Map, TileLayer, Popup, ZoomControl } from 'react-leaflet'
 import Legend from 'components/Legend'
+import SearchBox from 'components/SearchBox'
+import ConflictRiskLayer from 'components/ConflictRiskLayer'
 
 class MainMap extends React.Component {
   constructor(props) {
@@ -18,13 +20,43 @@ class MainMap extends React.Component {
     this.fetchMapData()
   }
 
-  fetchMapData() {
-    const countries = [
+  optionsForCountrySearch() {
+    return this.optionsForSearch('gid_0', 'name_0')
+  }
+
+  optionsForRegionSearch() {
+    return this.optionsForSearch('gid_2', 'name_2')
+  }
+
+  optionsForSearch(valueField, labelField) {
+    const features = this.state.data && this.state.data.features || []
+
+    let dictionary = {}
+
+    features.forEach((feature) => (
+      dictionary[feature.properties[valueField]] = feature.properties[labelField]
+    ))
+
+    return Object.keys(dictionary).map((value) => {
+      return {
+        value: value,
+        label: dictionary[value],
+      }
+    })
+  }
+
+  countries() {
+    return [
       'ETH',
       'SOM',
       'KEN',
     ]
-    const query = `SELECT * FROM "wri-rw".wpsi_may2019_geospatial_current_only_rfe_true WHERE gid_0 IN ('${countries.join("', '")}')`
+  }
+
+  fetchMapData() {
+    const tableName = `"wri-rw".wpsi_may2019_geospatial_current_only_rfe_true`
+    const whereClause = `WHERE gid_0 IN ('${this.countries().join("', '")}')`
+    const query = `SELECT * FROM ${tableName} ${whereClause}`
 
     fetch(`https://wri-rw.carto.com:443/api/v2/sql?format=geojson&q=${query}`)
       .then(response => response.json())
@@ -42,12 +74,34 @@ class MainMap extends React.Component {
                            '#FFEDA0';
   }
 
+  handleCountrySelection(selectedRegionGid0) {
+    this.setState({
+      selectedRegionGid0: selectedRegionGid0,
+    })
+  }
+
+  handleRegionSelection(selectedRegionGid2) {
+    this.setState({
+      selectedRegionGid2: selectedRegionGid2,
+    })
+  }
+
+  handleLayerSelection(selectedLayer) {
+    selectedLayer.bringToFront()
+
+    console.log("Selected layer: ", selectedLayer)
+
+    this.setState({
+      selectedLayer: selectedLayer,
+    })
+  }
+
   clickToFeature(e) {
     const layer = e.target
+
     // console.log(e.target.getBounds())
-    this.setState({
-      selectedRegion: layer.feature.properties,
-    })
+    this.handleLayerSelection(layer)
+    this.handleRegionSelection(layer.feature.properties.gid_2)
   }
 
   onEachFeature(feature, layer) {
@@ -110,37 +164,48 @@ class MainMap extends React.Component {
     const position = [this.state.lat, this.state.lng]
     const features = this.state.data && this.state.data.features || []
 
-    const regions = features.map((feature) => {
-      return <GeoJSON
-        data={feature}
-        key={feature.properties.cartodb_id}
-        onEachFeature={this.onEachFeature.bind(this)}
-        style={() => {
-          return {
-            'color': 'white',
-            'fillColor': this.getRiskColor(feature.properties.dec2018),
-            'weight': 1,
-            'opacity': 1,
-            'fillOpacity': 1,
-          }
-        }}
+    return <React.Fragment>
+      <Map
+        center={position}
+        zoomControl={false}
+        zoom={this.state.zoom}
+        style={{height: 800}}
       >
-        {this.renderPopup(feature.properties)}
-      </GeoJSON>
-    })
+        <ZoomControl position='topright' />
 
-    return (
-      <Map center={position} zoom={this.state.zoom} style={{height: 1000}}>
         <TileLayer
           url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{z}/{x}/{y}.png'
           attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
           subdomains='abcd'
           maxZoom={19}
         />
-        {regions}
+
+        <ConflictRiskLayer
+          features={features}
+          selectedRegionGid0={this.state.selectedRegionGid0}
+          selectedRegionGid2={this.state.selectedRegionGid2}
+          onEachFeature={this.onEachFeature.bind(this)}
+          renderPopup={this.renderPopup.bind(this)}
+          getRiskColor={this.getRiskColor}
+        />
+
         <Legend getColor={this.getRiskColor} />
       </Map>
-    )
+
+      <p>Country search:</p>
+      <SearchBox
+        name='countries'
+        options={this.optionsForCountrySearch()}
+        onSelection={this.handleCountrySelection.bind(this)}
+      />
+
+      <p>Region search:</p>
+      <SearchBox
+        name='regions'
+        options={this.optionsForRegionSearch()}
+        onSelection={this.handleRegionSelection.bind(this)}
+      />
+    </React.Fragment>
   }
 }
 
