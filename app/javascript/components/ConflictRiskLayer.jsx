@@ -7,50 +7,50 @@ const ConflictRiskLayer = (props) => {
 
   const style = (feature) => {
     return {
-      'color': feature.selected ? 'black' : 'white',
+      'color': feature.highlighted ? 'black' : 'white',
       'fillColor': getRiskColor(feature.properties.dec2018),
-      'weight': feature.selected ? 5 : 1,
+      'weight': feature.highlighted ? 5 : 1,
       'opacity': 1,
       'fillOpacity': 1,
     }
   }
 
   const featureToGeoJSON = (feature) => {
-    feature.selected = feature.properties.gid_0 == selectedRegionGid0
     const region = feature.properties
+
+    feature.highlighted = region.gid_0 == selectedRegionGid0
+    feature.selected = region.gid_2 == selectedRegionGid2
 
     return <ExtendedGeoJSON
       data={feature}
-      selected={feature.selected ? 1 : 0}
-      key={feature.properties.cartodb_id}
+      key={region.cartodb_id}
       onEachFeature={onEachFeature}
       style={style}
-      isOpen={region.gid_2 == selectedRegionGid2}
+      isOpen={feature.selected}
+      isInFront={feature.highlighted}
     >
       <RegionPopup region={region} />
     </ExtendedGeoJSON>
   }
 
-  let ret = features.map(featureToGeoJSON).sort((a, b) => {
-    return b.props.selected - a.props.selected
-  })
-
-  return ret
+  return features.map(featureToGeoJSON)
 }
 
 const ExtendedGeoJSON = (props) => {
-  const { isOpen } = props
+  const { isOpen, isInFront } = props
 
-  const openPopup = (feature) => {
+  const highjackElement = (feature) => {
     if (isOpen) {
       feature && feature.leafletElement.openPopup()
     } else {
       feature && feature.leafletElement.closePopup()
     }
+
+    if (isInFront) feature && feature.leafletElement.bringToFront()
   }
 
   return (
-    <GeoJSON ref={el => openPopup(el)} {...props}/>
+    <GeoJSON ref={el => highjackElement(el)} {...props}/>
   )
 }
 
@@ -61,6 +61,7 @@ ConflictRiskLayer.propTypes = {
 }
 ExtendedGeoJSON.propTypes = {
   isOpen: PropTypes.bool,
+  isInFront: PropTypes.bool,
 }
 
 export default ConflictRiskLayer
