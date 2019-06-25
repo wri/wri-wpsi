@@ -15,8 +15,8 @@ const Legend = (props) => {
       0.4,
     ]
 
-    return grades.map((grade) => {
-      return <div
+    return grades.map((grade) => (
+      <div
         style={{
           margin: 10,
         }}
@@ -32,7 +32,7 @@ const Legend = (props) => {
         }}></i>
         &ge; {`${grade * 100}%`} <br />
       </div>
-    })
+    ))
   }
 
   return <Control position="bottomright">
@@ -40,8 +40,7 @@ const Legend = (props) => {
       style={{
         padding: '6px 8px',
         font: '14px/16px Arial, Helvetica, sans-serif',
-        background: 'white',
-        // background: 'rgba(255,255,255,0.8)',
+        background: 'rgba(255,255,255,0.8)',
         boxShadow: '0 0 15px rgba(0,0,0,0.2)',
         borderRadius: '5px',
         lineHeight: '18px',

@@ -1,6 +1,9 @@
 import React from 'react'
-import { Map, TileLayer, GeoJSON, Popup } from 'react-leaflet'
+import { Map, TileLayer, ZoomControl } from 'react-leaflet'
 import Legend from 'components/Legend'
+import SearchBox from 'components/SearchBox'
+import RegionInfoBox from 'components/RegionInfoBox'
+import ConflictRiskLayer from 'components/ConflictRiskLayer'
 
 class MainMap extends React.Component {
   constructor(props) {
@@ -18,13 +21,56 @@ class MainMap extends React.Component {
     this.fetchMapData()
   }
 
-  fetchMapData() {
-    const countries = [
+  optionsForCountrySearch() {
+    return this.optionsForSearch('gid_0', 'name_0')
+  }
+
+  optionsForRegionSearch() {
+    return this.optionsForSearch('gid_2', 'name_2')
+  }
+
+  optionsForSearch(valueField, labelField) {
+    const features = this.state.data && this.state.data.features || []
+
+    let dictionary = {}
+
+    features.forEach((feature) => (
+      dictionary[feature.properties[valueField]] = feature.properties[labelField]
+    ))
+
+    return Object.keys(dictionary).map((value) => {
+      return {
+        value: value,
+        label: dictionary[value],
+      }
+    }).sort((a, b) => (a.label > b.label) ? 1 : -1)
+  }
+
+  getSelectedRegion() {
+    const features = this.state.data && this.state.data.features || []
+    let selectedRegion = null
+
+    features.forEach((feature) => {
+      if (feature.properties.gid_2 === this.state.selectedRegionGid2) {
+        selectedRegion = feature
+      }
+    })
+
+    return selectedRegion
+  }
+
+  countries() {
+    return [
       'ETH',
       'SOM',
       'KEN',
     ]
-    const query = `SELECT * FROM "wri-rw".wpsi_may2019_geospatial_current_only_rfe_true WHERE gid_0 IN ('${countries.join("', '")}')`
+  }
+
+  fetchMapData() {
+    const tableName = `"wri-rw".wpsi_may2019_geospatial_current_only_rfe_true`
+    const whereClause = `WHERE gid_0 IN ('${this.countries().join("', '")}')`
+    const query = `SELECT * FROM ${tableName} ${whereClause}`
 
     fetch(`https://wri-rw.carto.com:443/api/v2/sql?format=geojson&q=${query}`)
       .then(response => response.json())
@@ -42,12 +88,32 @@ class MainMap extends React.Component {
                            '#FFEDA0';
   }
 
+  handleCountrySelection(selectedRegionGid0) {
+    this.setState({
+      selectedRegionGid0: selectedRegionGid0,
+    })
+  }
+
+  handleRegionSelection(selectedRegionGid2) {
+    this.setState({
+      selectedRegionGid2: selectedRegionGid2,
+    })
+  }
+
+  handleLayerSelection(selectedLayer) {
+    selectedLayer.bringToFront()
+
+    this.setState({
+      selectedLayer: selectedLayer,
+    })
+  }
+
   clickToFeature(e) {
     const layer = e.target
+
     // console.log(e.target.getBounds())
-    this.setState({
-      selectedRegion: layer.feature.properties,
-    })
+    this.handleLayerSelection(layer)
+    this.handleRegionSelection(layer.feature.properties.gid_2)
   }
 
   onEachFeature(feature, layer) {
@@ -58,89 +124,52 @@ class MainMap extends React.Component {
     })
   }
 
-  renderPopup(region) {
-    const attributes = [
-      // 'cartodb_id',
-      // 'cc_1',
-      // 'cc_2',
-      // 'engtype_1',
-      // 'engtype_2',
-      // 'fid_1',
-      // 'gid_0',
-      // 'gid_01',
-      // 'gid_1',
-      // 'gid_2',
-      // 'gid_23',
-      // 'gid_23_24',
-      // 'hasc_1',
-      // 'hasc_2',
-      // 'name_0',
-      // 'name_1',
-      // 'name_2',
-      // 'nl_name_1', // Empty
-      // 'nl_name_2', // Empty
-      // 'type_1',
-      // 'type_2',
-      // 'varname_1',
-      // 'varname_2',
-      // 'aug2018',
-      // 'dec2018',
-      // 'july2018',
-      // 'june2018',
-      // 'nov2018',
-      // 'oct2018',
-      // 'sept2018',
-    ]
-    return <Popup>
-      <h3>{region.name_2}</h3>
-      <div><b>State:</b> {region.name_1}</div>
-      <div><b>Country:</b> {region.name_0}</div>
-      {attributes.map((attribute) => {
-          return (
-            <div key={attribute}><b>{attribute}:</b> {region[attribute]}</div>
-          )
-        })
-      }
-      <h1>Risk of conflict: {Math.round(region.dec2018 * 100)}%</h1>
-      <div>(December 2018)</div>
-    </Popup>
-  }
-
   render() {
     const position = [this.state.lat, this.state.lng]
     const features = this.state.data && this.state.data.features || []
+    const selectedRegion = this.getSelectedRegion()
 
-    const regions = features.map((feature) => {
-      return <GeoJSON
-        data={feature}
-        key={feature.properties.cartodb_id}
-        onEachFeature={this.onEachFeature.bind(this)}
-        style={() => {
-          return {
-            'color': 'white',
-            'fillColor': this.getRiskColor(feature.properties.dec2018),
-            'weight': 1,
-            'opacity': 1,
-            'fillOpacity': 1,
-          }
-        }}
+    return <React.Fragment>
+      <Map
+        center={position}
+        zoomControl={false}
+        zoom={this.state.zoom}
+        style={{height: 800}}
       >
-        {this.renderPopup(feature.properties)}
-      </GeoJSON>
-    })
+        <ZoomControl position='topright' />
 
-    return (
-      <Map center={position} zoom={this.state.zoom} style={{height: 1000}}>
         <TileLayer
           url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{z}/{x}/{y}.png'
           attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
           subdomains='abcd'
           maxZoom={19}
         />
-        {regions}
+
+        <ConflictRiskLayer
+          features={features}
+          selectedRegionGid0={this.state.selectedRegionGid0}
+          selectedRegionGid2={this.state.selectedRegionGid2}
+          onEachFeature={this.onEachFeature.bind(this)}
+          getRiskColor={this.getRiskColor}
+        />
+
         <Legend getColor={this.getRiskColor} />
       </Map>
-    )
+
+      <SearchBox
+        name='countries'
+        options={this.optionsForCountrySearch()}
+        onSelection={this.handleCountrySelection.bind(this)}
+      />
+
+      <SearchBox
+        name='regions'
+        options={this.optionsForRegionSearch()}
+        onSelection={this.handleRegionSelection.bind(this)}
+      />
+
+      {selectedRegion && <RegionInfoBox region={selectedRegion} />}
+    </React.Fragment>
   }
 }
 
