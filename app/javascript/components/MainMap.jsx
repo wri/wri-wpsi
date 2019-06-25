@@ -1,5 +1,5 @@
 import React from 'react'
-import { Map, TileLayer, GeoJSON, Popup } from 'react-leaflet'
+import { Map, TileLayer, GeoJSON, Popup, LayersControl, FeatureGroup } from 'react-leaflet'
 import Legend from 'components/Legend'
 
 class MainMap extends React.Component {
@@ -131,14 +131,30 @@ class MainMap extends React.Component {
 
     return (
       <Map center={position} zoom={this.state.zoom} style={{height: 1000}}>
-        <TileLayer
-          url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{z}/{x}/{y}.png'
-          attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-          subdomains='abcd'
-          maxZoom={19}
-        />
-        {regions}
-        <Legend getColor={this.getRiskColor} />
+        <LayersControl position='topright'>
+          <LayersControl.BaseLayer name='cartodb.light_nolabels' checked={true}>
+            <TileLayer
+              url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{z}/{x}/{y}.png'
+              attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+              subdomains='abcd'
+              maxZoom={19}
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name='cartodb.dark_nolabels'>
+            <TileLayer
+              url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png'
+              attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+              subdomains='abcd'
+              maxZoom={19}
+            />
+          </LayersControl.BaseLayer>
+          <LayersControl.Overlay name='Conflict risk model output' checked={true}>
+            <FeatureGroup>
+              {regions}
+              <Legend getColor={this.getRiskColor} />
+            </FeatureGroup>
+          </LayersControl.Overlay>
+        </LayersControl>
       </Map>
     )
   }
