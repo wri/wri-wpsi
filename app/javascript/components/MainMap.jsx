@@ -1,5 +1,5 @@
 import React from 'react'
-import { Map, TileLayer, ZoomControl } from 'react-leaflet'
+import { Map, TileLayer, ZoomControl, LayersControl, FeatureGroup } from 'react-leaflet'
 import Legend from 'components/Legend'
 import SearchBox from 'components/SearchBox'
 import RegionInfoBox from 'components/RegionInfoBox'
@@ -124,6 +124,36 @@ class MainMap extends React.Component {
     })
   }
 
+  renderBasemaps() {
+    const maxZoom = 19
+    const attribution = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+    const basemaps = [
+      {name: 'Positron',                         url: 'http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'              },
+      {name: 'Dark Matter',                      url: 'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'               },
+      {name: 'Positron (No Labels)',             url: 'http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png'         },
+      {name: 'Dark Matter (No Labels)',          url: 'http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png'          },
+      {name: 'CartoDB World Antique',            url: 'https://cartocdn_{s}.global.ssl.fastly.net/base-antique/{z}/{x}/{y}.png' },
+      {name: 'CartoDB World Eco',                url: 'https://cartocdn_{s}.global.ssl.fastly.net/base-eco/{z}/{x}/{y}.png'     },
+      {name: 'CartoDB World Flat Blue',          url: 'https://cartocdn_{s}.global.ssl.fastly.net/base-flatblue/{z}/{x}/{y}.png'},
+      {name: 'CartoDB World Midnight Commander', url: 'https://cartocdn_{s}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}.png'},
+    ]
+    const initialBasemap = 'Positron'
+
+    return basemaps.map((basemap) => (
+      <LayersControl.BaseLayer
+        key={basemap.name}
+        name={basemap.name}
+        checked={basemap.name === initialBasemap}
+      >
+        <TileLayer
+          url={basemap.url}
+          attribution={attribution}
+          maxZoom={maxZoom}
+        />
+      </LayersControl.BaseLayer>
+    ))
+  }
+
   render() {
     const position = [this.state.lat, this.state.lng]
     const features = this.state.data && this.state.data.features || []
@@ -137,23 +167,24 @@ class MainMap extends React.Component {
         style={{height: 800}}
       >
         <ZoomControl position='topright' />
+        <LayersControl position='topright'>
 
-        <TileLayer
-          url='https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_nolabels/{z}/{x}/{y}.png'
-          attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-          subdomains='abcd'
-          maxZoom={19}
-        />
+          {this.renderBasemaps()}
 
-        <ConflictRiskLayer
-          features={features}
-          selectedRegionGid0={this.state.selectedRegionGid0}
-          selectedRegionGid2={this.state.selectedRegionGid2}
-          onEachFeature={this.onEachFeature.bind(this)}
-          getRiskColor={this.getRiskColor}
-        />
+          <LayersControl.Overlay name='Conflict risk model output' checked={true}>
+            <FeatureGroup>
+              <ConflictRiskLayer
+                features={features}
+                selectedRegionGid0={this.state.selectedRegionGid0}
+                selectedRegionGid2={this.state.selectedRegionGid2}
+                onEachFeature={this.onEachFeature.bind(this)}
+                getRiskColor={this.getRiskColor}
+              />
 
-        <Legend getColor={this.getRiskColor} />
+              <Legend getColor={this.getRiskColor} />
+            </FeatureGroup>
+          </LayersControl.Overlay>
+        </LayersControl>
       </Map>
 
       <SearchBox
