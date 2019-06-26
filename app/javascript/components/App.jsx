@@ -3,14 +3,17 @@ import TopBanner from 'components/TopBanner'
 import MenuBar from 'components/MenuBar'
 import MainMap from 'components/MainMap'
 
-class App extends React.Component {
-  render () {
-    return <React.Fragment>
-      <TopBanner />
-      <MenuBar selectedItem='map' />
-      <MainMap />
-    </React.Fragment>
+const App = () => {
+  const globalStyles = {
+    font: '14px/16px Arial, Helvetica, sans-serif',
+    color: '#555',
   }
+
+  return <div style={globalStyles}>
+    <TopBanner />
+    <MenuBar selectedItem='map' />
+    <MainMap />
+  </div>
 }
 
 export default App

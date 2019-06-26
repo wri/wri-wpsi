@@ -1,9 +1,10 @@
 import React from 'react'
-import { GeoJSON } from 'react-leaflet'
+import { GeoJSON, FeatureGroup } from 'react-leaflet'
+import Legend from 'components/Legend'
 import RegionPopup from 'components/RegionPopup'
 
 const ConflictRiskLayer = (props) => {
-  const { features, selectedRegionGid0, selectedRegionGid2, onEachFeature, getRiskColor } = props
+  const { features, selectedRegionGid0, selectedRegionGid2, onEachFeature } = props
 
   const style = (feature) => {
     return {
@@ -13,6 +14,17 @@ const ConflictRiskLayer = (props) => {
       'opacity': 1,
       'fillOpacity': 1,
     }
+  }
+
+  const getRiskColor = (risk) => {
+    return risk >= 1 ?   '#800026' :
+           risk >= 0.9 ? '#BD0026' :
+           risk >= 0.8 ? '#E31A1C' :
+           risk >= 0.7 ? '#FC4E2A' :
+           risk >= 0.6 ? '#FD8D3C' :
+           risk >= 0.5 ? '#FEB24C' :
+           risk >= 0.4 ? '#FED976' :
+                         '#FFEDA0';
   }
 
   const featureToGeoJSON = (feature) => {
@@ -33,20 +45,22 @@ const ConflictRiskLayer = (props) => {
     </ExtendedGeoJSON>
   }
 
-  return features.map(featureToGeoJSON)
+  return <FeatureGroup>
+    {features.map(featureToGeoJSON)}
+    <Legend title='Risk of Conflict' getColor={getRiskColor} />
+  </FeatureGroup>
 }
 
 const ExtendedGeoJSON = (props) => {
   const { isOpen, isInFront } = props
 
   const highjackElement = (feature) => {
-    if (isOpen) {
-      feature && feature.leafletElement.openPopup()
-    } else {
-      feature && feature.leafletElement.closePopup()
-    }
+    const leafletElement = feature && feature.leafletElement
 
-    if (isInFront) feature && feature.leafletElement.bringToFront()
+    if (leafletElement) {
+      isOpen ? leafletElement.openPopup() : leafletElement.closePopup()
+      if (isInFront) leafletElement.bringToFront()
+    }
   }
 
   return (
@@ -58,6 +72,8 @@ import PropTypes from 'prop-types'
 ConflictRiskLayer.propTypes = {
   features: PropTypes.array.isRequired,
   selectedRegionGid0: PropTypes.string,
+  selectedRegionGid2: PropTypes.string,
+  onEachFeature: PropTypes.func.isRequired,
 }
 ExtendedGeoJSON.propTypes = {
   isOpen: PropTypes.bool,
