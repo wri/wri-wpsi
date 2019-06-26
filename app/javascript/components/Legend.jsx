@@ -6,12 +6,10 @@ const Legend = (props) => {
 
   const containerStyle = {
     padding: '6px 18px',
-    font: '14px/16px Arial, Helvetica, sans-serif',
     background: 'rgba(255,255,255,0.8)',
     boxShadow: '0 0 15px rgba(0,0,0,0.2)',
     borderRadius: '5px',
     lineHeight: '18px',
-    color: '#555',
   }
 
   const grades = [
