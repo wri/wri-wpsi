@@ -181,7 +181,7 @@ class MainMap extends React.Component {
                 getRiskColor={this.getRiskColor}
               />
 
-              <Legend getColor={this.getRiskColor} />
+              <Legend title='Risk of Conflict' getColor={this.getRiskColor} />
             </FeatureGroup>
           </LayersControl.Overlay>
         </LayersControl>

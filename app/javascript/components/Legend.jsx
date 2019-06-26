@@ -2,19 +2,29 @@ import React from 'react'
 import Control from 'react-leaflet-control'
 
 const Legend = (props) => {
-  const {getColor} = props
+  const { title, getColor } = props
+
+  const containerStyle = {
+    padding: '6px 18px',
+    font: '14px/16px Arial, Helvetica, sans-serif',
+    background: 'rgba(255,255,255,0.8)',
+    boxShadow: '0 0 15px rgba(0,0,0,0.2)',
+    borderRadius: '5px',
+    lineHeight: '18px',
+    color: '#555',
+  }
+
+  const grades = [
+    1,
+    0.9,
+    0.8,
+    0.7,
+    0.6,
+    0.5,
+    0.4,
+  ]
 
   const renderLegend = () => {
-    const grades = [
-      1,
-      0.9,
-      0.8,
-      0.7,
-      0.6,
-      0.5,
-      0.4,
-    ]
-
     return grades.map((grade) => (
       <div
         style={{
@@ -36,17 +46,8 @@ const Legend = (props) => {
   }
 
   return <Control position="bottomright">
-    <div
-      style={{
-        padding: '6px 8px',
-        font: '14px/16px Arial, Helvetica, sans-serif',
-        background: 'rgba(255,255,255,0.8)',
-        boxShadow: '0 0 15px rgba(0,0,0,0.2)',
-        borderRadius: '5px',
-        lineHeight: '18px',
-        color: '#555',
-      }}
-    >
+    <div style={containerStyle}>
+      <h3>{title}</h3>
       {renderLegend()}
     </div>
   </Control>
@@ -54,6 +55,7 @@ const Legend = (props) => {
 
 import PropTypes from 'prop-types'
 Legend.propTypes = {
+  title: PropTypes.string.isRequired,
   getColor: PropTypes.func.isRequired,
 }
 
