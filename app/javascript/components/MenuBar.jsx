@@ -3,11 +3,11 @@ import MenuBarLink from 'components/MenuBarLink'
 
 const MenuBar = (props) => {
   const {selectedItem} = props
-  return <div>
+  return <p>
     <MenuBarLink to='/' selected={selectedItem === 'map'} text='Map' />
     <MenuBarLink to='/methodology' selected={selectedItem === 'methodology'} text='Methodology' />
     <MenuBarLink to='/about' selected={selectedItem === 'about'} text='About Us' />
-  </div>
+  </p>
 }
 
 import PropTypes from 'prop-types'
