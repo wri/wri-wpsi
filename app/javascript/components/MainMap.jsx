@@ -9,9 +9,11 @@ class MainMap extends React.Component {
     super(props)
 
     this.state = {
-      lat: 0,
-      lng: 0,
-      zoom: 4,
+      initialPosition: [
+        0, // Latitude
+        0, // Longitude
+      ],
+      intitialZoom: 4,
       data: null,
     }
   }
@@ -87,6 +89,7 @@ class MainMap extends React.Component {
 
   handleLayerSelection(selectedLayer) {
     selectedLayer.bringToFront()
+    this.zoomToLayer(selectedLayer)
     this.setState({selectedLayer: selectedLayer})
   }
 
@@ -137,16 +140,15 @@ class MainMap extends React.Component {
   }
 
   render() {
-    const position = [this.state.lat, this.state.lng]
     const features = this.state.data && this.state.data.features || []
     const selectedRegion = this.getSelectedRegion()
 
     return <React.Fragment>
       <Map
-        center={position}
+        center={this.state.initialPosition}
         bounds={this.state.mapBounds}
         zoomControl={false}
-        zoom={this.state.zoom}
+        zoom={this.state.intitialZoom}
         style={{height: 800}}
       >
         <ZoomControl position='topright' />
