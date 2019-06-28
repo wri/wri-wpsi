@@ -10,6 +10,7 @@ const Legend = (props) => {
     boxShadow: '0 0 15px rgba(0,0,0,0.2)',
     borderRadius: '5px',
     lineHeight: '18px',
+    maxWidth: '150px',
   }
 
   const grades = [
