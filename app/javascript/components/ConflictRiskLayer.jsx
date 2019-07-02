@@ -1,10 +1,9 @@
 import React from 'react'
 import { GeoJSON, FeatureGroup } from 'react-leaflet'
-import Legend from 'components/Legend'
 import RegionPopup from 'components/RegionPopup'
 
 const ConflictRiskLayer = (props) => {
-  const { features, selectedRegionGid0, selectedRegionGid2, onEachFeature, name } = props
+  const { features, selectedRegionGid0, selectedRegionGid2, onEachFeature } = props
 
   const style = (feature) => {
     return {
@@ -47,7 +46,6 @@ const ConflictRiskLayer = (props) => {
 
   return <FeatureGroup>
     {features.map(featureToGeoJSON)}
-    <Legend title={name} getColor={getRiskColor} />
   </FeatureGroup>
 }
 
@@ -70,7 +68,6 @@ const ExtendedGeoJSON = (props) => {
 
 import PropTypes from 'prop-types'
 ConflictRiskLayer.propTypes = {
-  name: PropTypes.string.isRequired,
   features: PropTypes.array.isRequired,
   selectedRegionGid0: PropTypes.string,
   selectedRegionGid2: PropTypes.string,

@@ -1,4 +1,5 @@
 import React from 'react'
+import Legend from 'components/Legend'
 import { Map, TileLayer, ZoomControl, LayersControl } from 'react-leaflet'
 import SearchBox from 'components/SearchBox'
 import RegionInfoBox from 'components/RegionInfoBox'
@@ -16,7 +17,7 @@ class MainMap extends React.Component {
     this.state = {
       initialPosition: [
         0, // Latitude
-        0, // Longitude
+        40, // Longitude
       ],
       intitialZoom: 4,
       data: null,
@@ -191,6 +192,8 @@ class MainMap extends React.Component {
               />
             </LayersControl.Overlay>
           </LayersControl>
+
+          <Legend title={this.state.name} legendConfig={this.state.legendConfig} />
         </Map>
       }
 
