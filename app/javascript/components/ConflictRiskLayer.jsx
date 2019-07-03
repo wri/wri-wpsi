@@ -7,23 +7,23 @@ const ConflictRiskLayer = (props) => {
 
   const style = (feature) => {
     return {
-      'color': feature.highlighted ? 'black' : 'white',
+      'color': feature.highlighted ? 'black' : '#FFF',
       'fillColor': getRiskColor(feature.properties.dec2018),
-      'weight': feature.highlighted ? 5 : 1,
+      'weight': feature.highlighted ? 5 : 0.5,
       'opacity': 1,
       'fillOpacity': 1,
     }
   }
 
   const getRiskColor = (risk) => {
-    return risk >= 1 ?   '#800026' :
-           risk >= 0.9 ? '#BD0026' :
-           risk >= 0.8 ? '#E31A1C' :
-           risk >= 0.7 ? '#FC4E2A' :
-           risk >= 0.6 ? '#FD8D3C' :
-           risk >= 0.5 ? '#FEB24C' :
-           risk >= 0.4 ? '#FED976' :
-                         '#FFEDA0';
+    return risk >= 0.9 ? '#b10026' :
+           risk >= 0.8 ? '#e31a1c' :
+           risk >= 0.7 ? '#fc4e2a' :
+           risk >= 0.6 ? '#fd8d3c' :
+           risk >= 0.5 ? '#feb24c' :
+           risk >= 0.4 ? '#fed976' :
+           risk >= 0.0001 ? '#ffffb2' :
+                         '#bdbdbd';
   }
 
   const featureToGeoJSON = (feature) => {
