@@ -1,4 +1,5 @@
 import React from 'react'
+import Legend from 'components/Legend'
 import { Map, TileLayer, ZoomControl, LayersControl } from 'react-leaflet'
 import SearchBox from 'components/SearchBox'
 import RegionInfoBox from 'components/RegionInfoBox'
@@ -8,18 +9,26 @@ class MainMap extends React.Component {
   constructor(props) {
     super(props)
 
+    const datasetId = '0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3'
+    const layerId = '107b72a6-6a52-4c8e-a261-d01706627322'
+    this.layerURL = `http://api.resourcewatch.org/v1/dataset/${datasetId}/layer/${layerId}`
+    this.mapHeight = 800
+
     this.state = {
       initialPosition: [
         0, // Latitude
-        0, // Longitude
+        40, // Longitude
       ],
       intitialZoom: 4,
       data: null,
+      layerConfig: null,
+      legendConfig: null,
+      loading: true,
     }
   }
 
   componentDidMount() {
-    this.fetchMapData()
+    this.fetchLayer(this.layerURL)
   }
 
   optionsForCountrySearch() {
@@ -69,14 +78,22 @@ class MainMap extends React.Component {
     ]
   }
 
-  fetchMapData() {
-    const tableName = `"wri-rw".wpsi_may2019_geospatial_current_only_rfe_true`
-    const whereClause = `WHERE gid_0 IN ('${this.countries().join("', '")}')`
-    const query = `SELECT * FROM ${tableName} ${whereClause}`
-
-    fetch(`https://wri-rw.carto.com:443/api/v2/sql?format=geojson&q=${query}`)
+  fetchLayer(url) {
+    fetch(url)
       .then(response => response.json())
-      .then(data => this.setState({ data }))
+      .then(layer => {
+        this.setState(layer.data.attributes)
+        this.fetchLayerData(this.state.layerConfig.body.layers[0])
+      })
+  }
+
+  fetchLayerData(layer) {
+    const sql = layer.options.sql
+    const scope = `WHERE gid_0 IN ('${this.countries().join("', '")}')`
+
+    fetch(`https://wri-rw.carto.com:443/api/v2/sql?format=geojson&q=${sql} ${scope}`)
+      .then(response => response.json())
+      .then(data => this.setState({ data, loading: false }))
   }
 
   handleCountrySelection(selectedRegionGid0) {
@@ -144,28 +161,41 @@ class MainMap extends React.Component {
     const selectedRegion = this.getSelectedRegion()
 
     return <React.Fragment>
-      <Map
-        center={this.state.initialPosition}
-        bounds={this.state.mapBounds}
-        zoomControl={false}
-        zoom={this.state.intitialZoom}
-        style={{height: 800}}
-      >
-        <ZoomControl position='topright' />
-        <LayersControl position='topright'>
+      {this.state.loading ?
+        <div style={{height: this.mapHeight, backgroundColor: '#EEE'}}>
+          <div style={{maxWidth: '200px', margin: 'auto', paddingTop: this.mapHeight / 2}}>
+            Loading...
+          </div>
+        </div>
+        :
+        <Map
+          center={this.state.initialPosition}
+          bounds={this.state.mapBounds}
+          zoomControl={false}
+          zoom={this.state.intitialZoom}
+          minZoom={this.state.layerConfig.body.minzoom}
+          maxZoom={this.state.layerConfig.body.maxzoom}
+          style={{height: this.mapHeight}}
+        >
+          <ZoomControl position='topright' />
+          <LayersControl position='topright'>
 
-          {this.renderBasemaps()}
+            {this.renderBasemaps()}
 
-          <LayersControl.Overlay name='Conflict risk model output' checked={true}>
-            <ConflictRiskLayer
-              features={features}
-              selectedRegionGid0={this.state.selectedRegionGid0}
-              selectedRegionGid2={this.state.selectedRegionGid2}
-              onEachFeature={this.onEachFeature.bind(this)}
-            />
-          </LayersControl.Overlay>
-        </LayersControl>
-      </Map>
+            <LayersControl.Overlay name={this.state.name} checked={true}>
+              <ConflictRiskLayer
+                name={this.state.name}
+                features={features}
+                selectedRegionGid0={this.state.selectedRegionGid0}
+                selectedRegionGid2={this.state.selectedRegionGid2}
+                onEachFeature={this.onEachFeature.bind(this)}
+              />
+            </LayersControl.Overlay>
+          </LayersControl>
+
+          <Legend title={this.state.name} legendConfig={this.state.legendConfig} />
+        </Map>
+      }
 
       <SearchBox
         name='countries'
