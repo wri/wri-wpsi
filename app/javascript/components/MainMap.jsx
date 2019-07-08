@@ -4,15 +4,18 @@ import { Map, TileLayer, ZoomControl, LayersControl } from 'react-leaflet'
 import SearchBox from 'components/SearchBox'
 import RegionInfoBox from 'components/RegionInfoBox'
 import ConflictRiskLayer from 'components/ConflictRiskLayer'
+import WriLayer from 'components/WriLayer'
 
 class MainMap extends React.Component {
   constructor(props) {
     super(props)
 
     const datasetId = '0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3'
-    const layerId = '107b72a6-6a52-4c8e-a261-d01706627322'
-    this.layerURL = `https://api.resourcewatch.org/v1/dataset/${datasetId}/layer/${layerId}`
+    this.outputLayerId = '107b72a6-6a52-4c8e-a261-d01706627322'
+    this.outputLayerURL = `https://api.resourcewatch.org/v1/dataset/${datasetId}/layer/${this.outputLayerId}`
     this.mapHeight = 800
+
+    this.layers = []
 
     this.state = {
       initialPosition: [
@@ -28,7 +31,20 @@ class MainMap extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchLayer(this.layerURL)
+    const layers = [
+      {
+        url: this.outputLayerURL,
+        scope: `WHERE gid_0 IN ('${this.countries().join("', '")}')`,
+      },
+      {
+        url: 'http://api.resourcewatch.org/v1/dataset/a86d906d-9862-4783-9e30-cdb68cd808b8/layer/2a694289-fec9-4bfe-a6d2-56c3864ec349',
+        scope: `WHERE country IN ('${this.countries().join("', '")}')`,
+      },
+    ]
+
+    layers.forEach((layer) => {
+      this.fetchLayer(layer.url, layer.scope)
+    })
   }
 
   optionsForCountrySearch() {
@@ -78,22 +94,30 @@ class MainMap extends React.Component {
     ]
   }
 
-  fetchLayer(url) {
+  fetchLayer(url, scope) {
+    this.setState({loading: true})
+
     fetch(url)
       .then(response => response.json())
-      .then(layer => {
-        this.setState(layer.data.attributes)
-        this.fetchLayerData(this.state.layerConfig.body.layers[0])
+      .then(response => {
+        const layer = response.data
+        if (layer.id == this.outputLayerId) {
+          this.setState(layer.attributes)
+        }
+        this.fetchLayerData(layer, scope)
       })
   }
 
-  fetchLayerData(layer) {
-    const sql = layer.options.sql
-    const scope = `WHERE gid_0 IN ('${this.countries().join("', '")}')`
+  fetchLayerData(layer, scope) {
+    const sql = layer.attributes.layerConfig.body.layers[0].options.sql
 
     fetch(`https://wri-rw.carto.com:443/api/v2/sql?format=geojson&q=${sql} ${scope}`)
       .then(response => response.json())
-      .then(data => this.setState({ data, loading: false }))
+      .then(data => {
+        layer.data = data
+        this.layers.push(layer)
+        this.setState({ data, loading: false })
+      })
   }
 
   handleCountrySelection(selectedRegionGid0) {
@@ -156,8 +180,24 @@ class MainMap extends React.Component {
     ))
   }
 
+  renderLayers() {
+    return this.layers.map((layer) => {
+      const isMainLayer = layer.id == this.outputLayerId
+      const Layer = isMainLayer ? ConflictRiskLayer : WriLayer
+
+      return <LayersControl.Overlay key={layer.id} name={layer.attributes.name} checked={isMainLayer}>
+        <Layer
+          name={layer.attributes.name}
+          features={layer.data && layer.data.features || []}
+          selectedRegionGid0={this.state.selectedRegionGid0}
+          selectedRegionGid2={this.state.selectedRegionGid2}
+          onEachFeature={isMainLayer ? this.onEachFeature.bind(this) : () => null}
+        />
+      </LayersControl.Overlay>
+    })
+  }
+
   render() {
-    const features = this.state.data && this.state.data.features || []
     const selectedRegion = this.getSelectedRegion()
 
     return <React.Fragment>
@@ -179,18 +219,8 @@ class MainMap extends React.Component {
         >
           <ZoomControl position='topright' />
           <LayersControl position='topright'>
-
             {this.renderBasemaps()}
-
-            <LayersControl.Overlay name={this.state.name} checked={true}>
-              <ConflictRiskLayer
-                name={this.state.name}
-                features={features}
-                selectedRegionGid0={this.state.selectedRegionGid0}
-                selectedRegionGid2={this.state.selectedRegionGid2}
-                onEachFeature={this.onEachFeature.bind(this)}
-              />
-            </LayersControl.Overlay>
+            {this.renderLayers()}
           </LayersControl>
 
           <Legend title={this.state.name} legendConfig={this.state.legendConfig} />
