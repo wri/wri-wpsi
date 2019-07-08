@@ -11,7 +11,7 @@ class MainMap extends React.Component {
 
     const datasetId = '0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3'
     const layerId = '107b72a6-6a52-4c8e-a261-d01706627322'
-    this.layerURL = `http://api.resourcewatch.org/v1/dataset/${datasetId}/layer/${layerId}`
+    this.layerURL = `https://api.resourcewatch.org/v1/dataset/${datasetId}/layer/${layerId}`
     this.mapHeight = 800
 
     this.state = {
