@@ -1,16 +1,29 @@
 import React from 'react'
+import MenuBar from 'components/MenuBar'
 
 const TopBanner = () => {
-  return <React.Fragment>
-    <h1>Water, Peace & Security</h1>
-    <p>
-      Proof of concept with data from <a
-        href="https://api.resourcewatch.org/v1/dataset/0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3"
-      >
-        Resource Watch API
-      </a>.
-    </p>
-  </React.Fragment>
+  return <div style={{
+      position: 'sticky',
+      top: 0,
+      zIndex: 10000,
+      backgroundColor: 'white',
+    }}>
+    <div style={{
+      display: 'flex',
+      alignItems: 'flex-end',
+      justifyContent: 'space-between',
+      borderBottom: '1px solid #B8C5D0',
+    }}>
+      <div style={{
+        margin: '19px',
+        fontSize: '33px',
+        lineHeight: '40px',
+      }}>
+        Water, Peace & Security
+      </div>
+      <MenuBar selectedItem='map' onClick={() => null} />
+    </div>
+  </div>
 }
 
 export default TopBanner

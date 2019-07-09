@@ -6,7 +6,7 @@ import RegionInfoBox from 'components/RegionInfoBox'
 import ConflictRiskLayer from 'components/ConflictRiskLayer'
 import WriLayer from 'components/WriLayer'
 
-class MainMap extends React.Component {
+class MapPage extends React.Component {
   constructor(props) {
     super(props)
 
@@ -110,13 +110,16 @@ class MainMap extends React.Component {
 
   fetchLayerData(layer, scope) {
     const sql = layer.attributes.layerConfig.body.layers[0].options.sql
+    const isMainLayer = layer.id == this.outputLayerId
 
     fetch(`https://wri-rw.carto.com:443/api/v2/sql?format=geojson&q=${sql} ${scope}`)
       .then(response => response.json())
       .then(data => {
         layer.data = data
         this.layers.push(layer)
-        this.setState({ data, loading: false })
+        if (isMainLayer) {
+          this.setState({ data, loading: false })
+        }
       })
   }
 
@@ -244,4 +247,4 @@ class MainMap extends React.Component {
   }
 }
 
-export default MainMap
+export default MapPage
