@@ -37,7 +37,7 @@ class MainMap extends React.Component {
         scope: `WHERE gid_0 IN ('${this.countries().join("', '")}')`,
       },
       {
-        url: 'http://api.resourcewatch.org/v1/dataset/a86d906d-9862-4783-9e30-cdb68cd808b8/layer/2a694289-fec9-4bfe-a6d2-56c3864ec349',
+        url: 'https://api.resourcewatch.org/v1/dataset/a86d906d-9862-4783-9e30-cdb68cd808b8/layer/2a694289-fec9-4bfe-a6d2-56c3864ec349',
         scope: `WHERE country IN ('${this.countries().join("', '")}')`,
       },
     ]
