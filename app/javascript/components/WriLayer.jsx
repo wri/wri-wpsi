@@ -1,9 +1,9 @@
 import React from 'react'
 import { GeoJSON, FeatureGroup } from 'react-leaflet'
-import GenericPopup from 'components/GenericPopup'
+import GenericInteraction from 'components/GenericInteraction'
 
 const WriLayer = (props) => {
-  const { features, onEachFeature } = props
+  const { layer, onEachFeature } = props
 
   const featureToGeoJSON = (feature) => {
     return <GeoJSON
@@ -11,18 +11,21 @@ const WriLayer = (props) => {
       key={feature.properties.cartodb_id}
       onEachFeature={onEachFeature}
     >
-      <GenericPopup attributes={feature.properties} />
+      <GenericInteraction
+        attributes={feature.properties}
+        config={layer.attributes.interactionConfig}
+      />
     </GeoJSON>
   }
 
   return <FeatureGroup>
-    {features.map(featureToGeoJSON)}
+    {layer.data.features.map(featureToGeoJSON)}
   </FeatureGroup>
 }
 
 import PropTypes from 'prop-types'
 WriLayer.propTypes = {
-  features: PropTypes.array.isRequired,
+  layer: PropTypes.object.isRequired,
   onEachFeature: PropTypes.func.isRequired,
 }
 

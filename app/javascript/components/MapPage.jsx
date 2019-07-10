@@ -190,8 +190,7 @@ class MapPage extends React.Component {
 
       return <LayersControl.Overlay key={layer.id} name={layer.attributes.name} checked={isMainLayer}>
         <Layer
-          name={layer.attributes.name}
-          features={layer.data && layer.data.features || []}
+          layer={layer}
           selectedRegionGid0={this.state.selectedRegionGid0}
           selectedRegionGid2={this.state.selectedRegionGid2}
           onEachFeature={isMainLayer ? this.onEachFeature.bind(this) : () => null}
