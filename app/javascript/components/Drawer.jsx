@@ -1,5 +1,6 @@
 import React from 'react'
 import Control from 'react-leaflet-control'
+import Graph from 'images/placeholder_graph.png';
 
 const Drawer = ({ selectedRegion, onClose }) => {
   const containerStyle = {
@@ -46,7 +47,7 @@ const Drawer = ({ selectedRegion, onClose }) => {
           <h3>Risk of Conflict</h3>
           <div style={{padding: '10px', fontSize: '20px'}}>{Math.round(region.dec2018 * 100)}%</div>
         </div>
-        <img src={`assets/placeholder_graph.png`} style={{width: '400px'}} alt=""/>
+        <img src={Graph} style={{width: '400px'}} alt="Risk of Conflict Graph"/>
       </div>
     </div>
   </Control>
