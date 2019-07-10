@@ -132,6 +132,10 @@ class MapPage extends React.Component {
     this.setState({selectedRegionGid2: selectedRegionGid2})
   }
 
+  handleDrawerClose() {
+    this.setState({selectedRegionGid2: null})
+  }
+
   handleLayerSelection(selectedLayer) {
     selectedLayer.bringToFront()
     this.zoomToLayer(selectedLayer)
@@ -227,15 +231,21 @@ class MapPage extends React.Component {
           </LayersControl>
 
           <Legend title={this.state.name} legendConfig={this.state.legendConfig} />
-          {selectedRegion && <Drawer selectedRegion={selectedRegion} />}
+
+          {
+            selectedRegion && <Drawer
+              selectedRegion={selectedRegion}
+              onClose={this.handleDrawerClose.bind(this)}
+            />
+          }
         </Map>
       }
 
-      <SearchBox
-        name='countries'
-        options={this.optionsForCountrySearch()}
-        onSelection={this.handleCountrySelection.bind(this)}
-      />
+      {'hide_for_now' == true && <SearchBox
+              name='countries'
+              options={this.optionsForCountrySearch()}
+              onSelection={this.handleCountrySelection.bind(this)}
+            />}
 
       <SearchBox
         name='regions'
@@ -243,7 +253,7 @@ class MapPage extends React.Component {
         onSelection={this.handleRegionSelection.bind(this)}
       />
 
-      {selectedRegion && <RegionInfoBox region={selectedRegion} />}
+      {selectedRegion == 'hide_for_now' && <RegionInfoBox region={selectedRegion} />}
     </React.Fragment>
   }
 }

@@ -36,7 +36,7 @@ const Legend = (props) => {
     ))
   }
 
-  return <Control position="bottomright">
+  return <Control position="bottomleft">
     <div style={containerStyle}>
       <h3>{title}</h3>
       {renderLegendItems()}

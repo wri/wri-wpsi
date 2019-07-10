@@ -3,7 +3,7 @@ import { GeoJSON, FeatureGroup } from 'react-leaflet'
 import RegionPopup from 'components/RegionPopup'
 
 const ConflictRiskLayer = (props) => {
-  const { layer, selectedRegionGid0, selectedRegionGid2, onEachFeature } = props
+  const { layer, selectedRegionGid2, onEachFeature } = props
 
   const style = (feature) => {
     return {
@@ -29,7 +29,7 @@ const ConflictRiskLayer = (props) => {
   const featureToGeoJSON = (feature) => {
     const region = feature.properties
 
-    feature.highlighted = region.gid_0 == selectedRegionGid0
+    feature.highlighted = region.gid_2 == selectedRegionGid2
     feature.selected = region.gid_2 == selectedRegionGid2
 
     return <ExtendedGeoJSON
@@ -40,7 +40,7 @@ const ConflictRiskLayer = (props) => {
       isOpen={feature.selected}
       isInFront={feature.highlighted}
     >
-      <RegionPopup region={region} />
+      {region == 'hide_for_now' && <RegionPopup region={region} />}
     </ExtendedGeoJSON>
   }
 
