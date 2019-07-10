@@ -1,6 +1,7 @@
 import React from 'react'
-import Legend from 'components/Legend'
 import { Map, TileLayer, ZoomControl, LayersControl } from 'react-leaflet'
+import Legend from 'components/Legend'
+import Drawer from 'components/Drawer'
 import SearchBox from 'components/SearchBox'
 import RegionInfoBox from 'components/RegionInfoBox'
 import ConflictRiskLayer from 'components/ConflictRiskLayer'
@@ -226,6 +227,7 @@ class MapPage extends React.Component {
           </LayersControl>
 
           <Legend title={this.state.name} legendConfig={this.state.legendConfig} />
+          {selectedRegion && <Drawer selectedRegion={selectedRegion} />}
         </Map>
       }
 

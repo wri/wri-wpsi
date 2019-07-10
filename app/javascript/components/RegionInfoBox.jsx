@@ -1,8 +1,6 @@
 import React from 'react'
 
-const RegionInfoBox = (props) => {
-  const { region } = props
-
+const RegionInfoBox = ({ region }) => {
   const style = {
     margin: 20,
     padding: 20,
