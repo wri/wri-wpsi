@@ -1,9 +1,11 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import TopBanner from 'components/TopBanner'
 import MapPage from 'components/MapPage'
 import AboutPage from 'components/AboutPage'
 import MethodologyPage from 'components/MethodologyPage'
+import LayersList from 'components/LayersList'
+import LayerMap from 'components/LayerMap'
 
 const App = () => {
   const globalStyles = {
@@ -12,15 +14,17 @@ const App = () => {
   }
 
   return (
-    <Router>
+    <BrowserRouter basename={'map'}>
       <div style={globalStyles}>
         <TopBanner />
 
         <Route path="/" exact component={MapPage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/methodology" component={MethodologyPage} />
+        <Route path="/layers" exact component={LayersList} />
+        <Route path="/layers/:layerId" component={LayerMap} />
       </div>
-    </Router>
+    </BrowserRouter>
   )
 }
 

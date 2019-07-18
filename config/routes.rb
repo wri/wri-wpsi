@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'root#index'
 
+  # Single page app endpoint
+  get '/map', to: 'root#index'
+  get '/map/*ignored', to: 'root#index'
+
   # default AWS ELB health check path
   get 'health-check', to: 'root#health_check'
   # a check to force an exception notification
