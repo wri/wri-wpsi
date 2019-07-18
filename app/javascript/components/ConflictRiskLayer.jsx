@@ -16,14 +16,14 @@ const ConflictRiskLayer = (props) => {
   }
 
   const getRiskColor = (risk) => {
-    return risk >= 0.9 ? '#b10026' :
-           risk >= 0.8 ? '#e31a1c' :
-           risk >= 0.7 ? '#fc4e2a' :
-           risk >= 0.6 ? '#fd8d3c' :
-           risk >= 0.5 ? '#feb24c' :
-           risk >= 0.4 ? '#fed976' :
+    return risk >= 0.9 ?    '#b10026' :
+           risk >= 0.8 ?    '#e31a1c' :
+           risk >= 0.7 ?    '#fc4e2a' :
+           risk >= 0.6 ?    '#fd8d3c' :
+           risk >= 0.5 ?    '#feb24c' :
+           risk >= 0.4 ?    '#fed976' :
            risk >= 0.0001 ? '#ffffb2' :
-                         '#bdbdbd';
+                            '#bdbdbd'
   }
 
   const featureToGeoJSON = (feature) => {
