@@ -29,6 +29,31 @@ class LayerMap extends React.Component {
         const layer = response.data
         this.setState(layer.attributes)
 
+        const account = this.state.layerConfig.account
+        const url = `http://${account}.carto.com/api/v1/map`
+        const data = this.state.layerConfig.body
+        const payload = {
+          method: 'POST',
+          mode: 'cors',
+          cache: 'no-cache',
+          credentials: 'same-origin',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          redirect: 'follow',
+          referrer: 'no-referrer',
+          body: JSON.stringify(data),
+        }
+
+        fetch(url, payload)
+          .then(response => response.json())
+          .then(response => {
+            console.log(response)
+            this.setState({cdn_url: `${response.cdn_url.templates.https.url}/${account}/api/v1/map/${response.layergroupid}/{z}/{x}/{y}.png`})
+
+            L.tileLayer(this.state.cdn_url).addTo(this.map)
+          })
+
         layer.attributes.layerConfig.type == 'gee' && alert(`GEE layers not supported`)
 
         const layers = layer.attributes.layerConfig.body.layers
@@ -74,7 +99,7 @@ class LayerMap extends React.Component {
       <div style={infoStyle}>
         <h1>{this.state.name}</h1>
         <p>{this.state.description}</p>
-        <i>Note: all layers are limited to {this.featureLimit} features.</i>
+        <i>Note: all layers are limited to {this.featureLimit} GeoJSON features.</i>
       </div>
       <div style={mapStyle} id='map' />
     </React.Fragment>
