@@ -30,7 +30,7 @@ class LayerMap extends React.Component {
         this.setState(layer.attributes)
 
         const account = this.state.layerConfig.account
-        const url = `http://${account}.carto.com/api/v1/map`
+        const url = `https://${account}.carto.com/api/v1/map`
         const data = this.state.layerConfig.body
         const payload = {
           method: 'POST',
