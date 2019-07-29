@@ -1,5 +1,6 @@
 import React from 'react'
 import L from 'leaflet'
+import VizzMap from 'components/VizzMap'
 
 class LayerMap extends React.Component {
   state = {}
@@ -87,9 +88,16 @@ class LayerMap extends React.Component {
       padding: 19,
     }
 
-    const mapStyle = {
+    const leafletMapStyle = {
       position: 'absolute',
       top: 85,
+      height: 500,
+      width: '100%',
+    }
+
+    const vizzMapStyle = {
+      position: 'absolute',
+      top: 585,
       bottom: 200,
       width: '100%',
     }
@@ -100,7 +108,10 @@ class LayerMap extends React.Component {
         <p>{this.state.description}</p>
         <i>Note: all layers are limited to {this.featureLimit} GeoJSON features.</i>
       </div>
-      <div style={mapStyle} id='map' />
+      <div style={leafletMapStyle} id='map' />
+      <div style={vizzMapStyle}>
+        <VizzMap match={this.props.match} />
+      </div>
     </React.Fragment>
   }
 }
