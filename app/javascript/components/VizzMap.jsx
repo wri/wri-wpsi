@@ -1,8 +1,9 @@
 import React from 'react'
 import { Map } from 'vizzuality-components'
-import { LayerManager } from 'layer-manager/dist/components';
+import { LayerManager, Layer } from 'layer-manager/dist/components';
 import { PluginLeaflet } from 'layer-manager';
 import { BASEMAPS, LABELS } from 'components/constants'
+import { layers } from 'components/sampleLayers'
 
 class VizzMap extends React.Component {
   render() {
@@ -27,7 +28,14 @@ class VizzMap extends React.Component {
           plugin={PluginLeaflet}
           onReady={() => {/* Layer preprocessing? */}}
         >
-          {/* Layers will go here */}
+          {layers.map((l, i) => (
+            <Layer
+              {...l}
+              key={l.id}
+              opacity={l.opacity || 1}
+              zIndex={1000 - i}
+            />
+          ))}
         </LayerManager>
       )}
     </Map>
