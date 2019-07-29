@@ -1,5 +1,4 @@
 import React from 'react'
-import L from 'leaflet'
 import VizzMap from 'components/VizzMap'
 
 class LayerMap extends React.Component {
@@ -8,19 +7,11 @@ class LayerMap extends React.Component {
 
   addDataToMap(data) {
     const { features } = data
-    features.forEach((feature) => L.geoJSON(feature).addTo(this.map))
+    // TODO: Add each feature to the map?
+    features.forEach((feature) => feature ? 'a' : 'b')
   }
 
   componentDidMount() {
-    this.map = new L.map('map').setView([20, 40], 3);
-
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.streets',
-        accessToken: 'pk.eyJ1IjoibGJyYXVuLWdyIiwiYSI6ImNqeThvbTFvNTAxcG0zY3IxbzN4ZTVzcHoifQ.28KO3JiOr7491pBkBJHVbA'
-    }).addTo(this.map);
-
     const layerId = this.props.match.params.layerId
     const layerUrl = `https://api.resourcewatch.org/v1/layer/${layerId}`
 
@@ -51,7 +42,7 @@ class LayerMap extends React.Component {
           .then(response => {
             this.setState({cdn_url: `${response.cdn_url.templates.https.url}/${account}/api/v1/map/${response.layergroupid}/{z}/{x}/{y}.png`})
 
-            L.tileLayer(this.state.cdn_url).addTo(this.map)
+            // TODO: Add layer based on cdn_url or some other way
           })
 
         layer.attributes.layerConfig.type == 'gee' && alert(`GEE layers not supported`)
@@ -88,16 +79,9 @@ class LayerMap extends React.Component {
       padding: 19,
     }
 
-    const leafletMapStyle = {
-      position: 'absolute',
-      top: 85,
-      height: 500,
-      width: '100%',
-    }
-
     const vizzMapStyle = {
       position: 'absolute',
-      top: 585,
+      top: 85,
       bottom: 200,
       width: '100%',
     }
@@ -108,7 +92,6 @@ class LayerMap extends React.Component {
         <p>{this.state.description}</p>
         <i>Note: all layers are limited to {this.featureLimit} GeoJSON features.</i>
       </div>
-      <div style={leafletMapStyle} id='map' />
       <div style={vizzMapStyle}>
         <VizzMap match={this.props.match} />
       </div>
