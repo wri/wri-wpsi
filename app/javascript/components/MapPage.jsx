@@ -6,6 +6,7 @@ import SearchBox from 'components/SearchBox'
 import RegionInfoBox from 'components/RegionInfoBox'
 import ConflictRiskLayer from 'components/ConflictRiskLayer'
 import WriLayer from 'components/WriLayer'
+import { Spinner } from 'vizzuality-components'
 
 class MapPage extends React.Component {
   constructor(props) {
@@ -209,9 +210,9 @@ class MapPage extends React.Component {
 
     return <React.Fragment>
       {this.state.loading ?
-        <div style={{height: this.mapHeight, backgroundColor: '#EEE'}}>
+        <div style={{height: this.mapHeight}}>
           <div style={{maxWidth: '200px', margin: 'auto', paddingTop: this.mapHeight / 2}}>
-            Loading...
+            <Spinner position='relative' />
           </div>
         </div>
         :

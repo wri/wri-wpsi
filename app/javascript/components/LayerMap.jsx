@@ -48,7 +48,6 @@ class LayerMap extends React.Component {
         fetch(url, payload)
           .then(response => response.json())
           .then(response => {
-            console.log(response)
             this.setState({cdn_url: `${response.cdn_url.templates.https.url}/${account}/api/v1/map/${response.layergroupid}/{z}/{x}/{y}.png`})
 
             L.tileLayer(this.state.cdn_url).addTo(this.map)
