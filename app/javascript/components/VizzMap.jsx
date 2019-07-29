@@ -1,16 +1,15 @@
 import React from 'react'
 import { Map } from 'vizzuality-components'
+import { LayerManager } from 'layer-manager/dist/components';
+import { PluginLeaflet } from 'layer-manager';
 import { BASEMAPS, LABELS } from 'components/constants'
 
 class VizzMap extends React.Component {
-  state = {
-  }
-
   render() {
     const mapConfig = {
       mapOptions: {
-        zoom: 5,
-        center: { lat: 56, lng: -119 },
+        zoom: 1,
+        center: { lat: 0, lng: 0 },
       },
       basemap: {
         url: BASEMAPS.dark.value,
@@ -21,17 +20,18 @@ class VizzMap extends React.Component {
         options: LABELS.light.options,
       },
     }
-
     return <Map {...mapConfig}>
-      {(map) => (<div>Hello World {map ? '!' : '?'}</div>
+      {(map) => (
+        <LayerManager
+          map={map}
+          plugin={PluginLeaflet}
+          onReady={() => {/* Layer preprocessing? */}}
+        >
+          {/* Layers will go here */}
+        </LayerManager>
       )}
     </Map>
   }
-}
-
-import PropTypes from 'prop-types'
-VizzMap.propTypes = {
-  match: PropTypes.object.isRequired,
 }
 
 export default VizzMap
