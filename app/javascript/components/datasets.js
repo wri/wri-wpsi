@@ -1,8 +1,8 @@
 const LAYERS = [
   {id: '107b72a6-6a52-4c8e-a261-d01706627322', name: 'WPSI Risk of Conflict Model Output'},
-  {id: '16a5729f-0f2e-4cd6-84bc-0f72c9132dda', name: 'Global Power Plant Database'},
+  {id: '16a5729f-0f2e-4cd6-84bc-0f72c9132dda', name: 'Recent Internal Displacement'},
   {id: '969fe99d-b861-46a1-8c8e-7c44cbafd1d6', name: 'Population Density (Grid, 1 km)'},
-  {id: '2a694289-fec9-4bfe-a6d2-56c3864ec349', name: 'Recent Internal Displacement'},
+  {id: '2a694289-fec9-4bfe-a6d2-56c3864ec349', name: 'Global Power Plant Database'},
   {id: '3a52f7ed-0c20-4691-981b-3a3521b069aa', name: 'Food Price Spikes'},
   {id: '1ee0784f-654f-4caf-a059-f03dc46724b6', name: 'Food Price Spikes'},
   {id: '253437ed-1e21-4544-8bb3-1ec2d2656522', name: 'Food Price Spikes'},
