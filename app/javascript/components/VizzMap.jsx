@@ -1,21 +1,13 @@
 import React from 'react'
-import flatten from 'lodash/flatten';
-import {
-  Map,
-  MapControls,
-  ZoomControl,
-  Legend,
-  LegendListItem,
-  LegendItemTypes,
-  LegendItemToolbar,
-} from 'vizzuality-components';
-import { LayerManager, Layer } from 'layer-manager/dist/components';
-import { PluginLeaflet } from 'layer-manager';
-import { BASEMAPS, LABELS } from 'components/constants'
+import LayerGroupsMap from 'components/LayerGroupsMap'
 
 class VizzMap extends React.Component {
   state = {
-    layerGroups: [],
+    layerGroups: {},
+  }
+
+  handleLayerGroupUpdate(updatedLayerGroups) {
+    this.setState({layerGroups: updatedLayerGroups})
   }
 
   reformLayer(layer) {
@@ -28,27 +20,27 @@ class VizzMap extends React.Component {
 
   fetchLayer(layerId) {
     const layerUrl = `https://api.resourcewatch.org/v1/layer/${layerId}`
+
     fetch(layerUrl)
       .then(response => response.json())
       .then(response => {
         const layers = [response.data].map(this.reformLayer)
 
         layers[0].active = true
+        const datasetId = layers[0].dataset
 
-        const newLayerGroup = {
-          dataset: layers[0].dataset,
+        let newLayerGroup = {}
+        newLayerGroup[datasetId] = {
+          dataset: datasetId,
           visibility: true,
           layers: layers,
         }
 
-        const updatedLayerGroups = this.state.layerGroups
-        updatedLayerGroups.push(newLayerGroup)
-        this.setState({layerGroups: updatedLayerGroups})
+        this.handleLayerGroupUpdate({...this.state.layerGroups, ...newLayerGroup})
       })
   }
 
   fetchDataset(datasetId) {
-    console.info(datasetId)
     const datasetUrl = `https://api.resourcewatch.org/v1/dataset/${datasetId}/layer`
 
     fetch(datasetUrl)
@@ -56,17 +48,21 @@ class VizzMap extends React.Component {
       .then(response => {
         const layers = response.data.map(this.reformLayer)
 
+        if (layers.length == 0) {
+          console.error(`Dataset ${datasetId} has no layers!`)
+          return
+        }
+
         layers[0].active = true
 
-        const newLayerGroup = {
+        let newLayerGroup = {}
+        newLayerGroup[datasetId] = {
           dataset: datasetId,
           visibility: true,
           layers: layers,
         }
 
-        const updatedLayerGroups = this.state.layerGroups
-        updatedLayerGroups.push(newLayerGroup)
-        this.setState({layerGroups: updatedLayerGroups})
+        this.handleLayerGroupUpdate({...this.state.layerGroups, ...newLayerGroup})
     })
   }
 
@@ -84,94 +80,27 @@ class VizzMap extends React.Component {
 
   render() {
     const { layerGroups } = this.state
+    const { datasets, toggleMapLayerGroup, bottomGutter } = this.props
+    const filteredLayerGroups = datasets ?
+      datasets.map((dataset) => layerGroups[dataset]).filter((d) => !!d) :
+      Object.values(layerGroups)
 
-    const mapConfig = {
-      mapOptions: {
-        zoom: 3,
-        center: { lat: 0, lng: 40 },
-      },
-      basemap: {
-        url: BASEMAPS.dark.value,
-        options: BASEMAPS.dark.options,
-      },
-      label: {
-        url: LABELS.light.value,
-        options: LABELS.light.options,
-      },
-    }
-
-    const legendHeight = 500
-
-    const mapStyle = {
-      position: 'absolute',
-      top: 85,
-      bottom: legendHeight,
-      width: '100%',
-    }
-
-    const legendStyle = {
-      position: 'absolute',
-      bottom: legendHeight + 10,
-      left: 10,
-      width: '100%',
-    }
-
-    return <React.Fragment>
-      <div>
-        <div style={mapStyle}>
-          <Map {...mapConfig}>
-            {(map) => (
-              <React.Fragment>
-                <MapControls>
-                  <ZoomControl map={map} />
-                </MapControls>
-
-                <LayerManager
-                  map={map}
-                  plugin={PluginLeaflet}
-                  onReady={() => {/* Layer preprocessing? */}}
-                >
-                  {flatten(layerGroups.map(lg =>
-                    lg.layers.filter(l => l.active === true))).map((l, i) => (
-                      <Layer
-                        {...l}
-                        key={l.id}
-                        opacity={l.opacity || 1}
-                        zIndex={1000 - i}
-                      />
-                    ))}
-                </LayerManager>
-              </React.Fragment>
-            )}
-          </Map>
-        </div>
-
-        <div style={legendStyle}>
-          <Legend
-            onChangeOrder={(datasetIds) => {console.info(datasetIds)}}
-            maxHeight={legendHeight}
-            maxWidth={500}
-          >
-            {layerGroups.map((layerGroup, i) => (
-              <LegendListItem
-                index={i}
-                key={layerGroup.dataset}
-                layerGroup={layerGroup}
-                toolbar={<LegendItemToolbar />}
-              >
-                <LegendItemTypes />
-              </LegendListItem>
-            ))}
-          </Legend>
-        </div>
-      </div>
-    </React.Fragment>
+    return <div>
+      <LayerGroupsMap
+        layerGroups={filteredLayerGroups}
+        bottomGutter={bottomGutter}
+        toggleMapLayerGroup={toggleMapLayerGroup}
+      />
+    </div>
   }
 }
 
 import PropTypes from 'prop-types'
 VizzMap.propTypes = {
   params: PropTypes.object.isRequired,
+  datasets: PropTypes.array,
+  toggleMapLayerGroup: PropTypes.func,
+  bottomGutter: PropTypes.number,
 }
 
 export default VizzMap

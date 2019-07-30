@@ -6,11 +6,27 @@ const MapPage = () => {
   const [datasets, setDatasets] = React.useState([DATASETS[0]])
 
   const handleAdd = (e) => {
-    setDatasets(datasets.concat({id: e.target.id}))
+    addDataset({id: e.target.id})
   }
 
   const handleRemove = (e) => {
-    setDatasets(datasets.filter((d) => d.id != e.target.id))
+    removeDataset({id: e.target.id})
+  }
+
+  const addDataset = (dataset) => {
+    setDatasets([dataset].concat(datasets))
+  }
+
+  const removeDataset = (dataset) => {
+    setDatasets(datasets.filter((d) => d.id != dataset.id))
+  }
+
+  const toggleMapLayerGroup = ({ dataset, toggle }) => {
+    if (toggle) {
+      addDataset(dataset)
+    } else {
+      removeDataset(dataset)
+    }
   }
 
   const renderDatasetsTable = (title, rows) => {
@@ -46,10 +62,15 @@ const MapPage = () => {
   }
 
   return <React.Fragment>
-    <VizzMap params={{
-      datasetIds: datasets.map((dataset) => dataset.id),
-      // datasetIds: ['0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3'],
-    }} />
+    <VizzMap
+      params={{
+        datasetIds: DATASETS.map((dataset) => dataset.id),
+        // datasetIds: ['0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3'],
+      }}
+      datasets={datasets.map((dataset) => dataset.id)}
+      toggleMapLayerGroup={toggleMapLayerGroup}
+      bottomGutter={500}
+    />
     <div style={tableStyle}>
       {renderDatasetsTable('Datasets', DATASETS)}
     </div>

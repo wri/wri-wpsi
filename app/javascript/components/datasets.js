@@ -11,6 +11,7 @@ const LAYERS = [
 ]
 
 const DATASETS = [
+  {name: 'WPSI Risk of Conflict Model Output ',               id: '0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3'},
   {name: 'Local Population Density (Grid, 1 km)',             id: '141ef6ab-eed9-4081-8066-7be364a48af0'},
   {name: 'National Infant Mortality',                         id: '6cfd6255-609e-4922-8709-5aaad0db9fae'},
   {name: 'Employment in Agriculture (% of Total Employment)', id: 'cc354f7f-2622-44cb-91c1-73559373de72'},
@@ -22,7 +23,6 @@ const DATASETS = [
   {name: '2000 Soybean Yield Gap (t/ha gap)',                 id: 'bc2c749d-49a0-46c0-9582-eb33946a983e'},
   {name: 'Cropland Area',                                     id: '0ce24533-7877-4926-b962-a6c726332d82'},
   {name: 'Pasture Area ',                                     id: '0ce24533-7877-4926-b962-a6c726332d82'},
-  {name: 'WPSI Risk of Conflict Model Output ',               id: '0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3'},
   {name: 'Asylum Requests by Destination ',                   id: 'c856396d-d0f2-4aae-9671-4903b2ebed4d'},
   {name: 'Asylum Requests by Origin',                         id: '7a8b5296-d283-4832-9be1-edd760bbb58f'},
   {name: 'Recent Internal Displacement by Event',             id: 'd2f6245d-5b9b-4508-874b-d42a2be7d058'},
