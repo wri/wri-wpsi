@@ -10,13 +10,10 @@ class VizzMap extends React.Component {
   }
 
   componentDidMount() {
-    const layerId = this.props.match.params.layerId
-    const layerUrl = `https://api.resourcewatch.org/v1/layer/${layerId}`
-
-    const datasetId = this.props.match.params.datasetId
-    const datasetUrl = `https://api.resourcewatch.org/v1/dataset/${datasetId}/layer`
+    const { layerId, datasetId } = this.props.params
 
     if (layerId) {
+      const layerUrl = `https://api.resourcewatch.org/v1/layer/${layerId}`
       fetch(layerUrl)
         .then(response => response.json())
         .then(response => {
@@ -29,6 +26,7 @@ class VizzMap extends React.Component {
           this.setState({layers: layers})
         })
     } else if (datasetId) {
+      const datasetUrl = `https://api.resourcewatch.org/v1/dataset/${datasetId}/layer`
       fetch(datasetUrl)
         .then(response => response.json())
         .then(response => {
@@ -81,7 +79,7 @@ class VizzMap extends React.Component {
 
 import PropTypes from 'prop-types'
 VizzMap.propTypes = {
-  match: PropTypes.object.isRequired,
+  params: PropTypes.object.isRequired,
 }
 
 export default VizzMap

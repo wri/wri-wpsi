@@ -12,7 +12,7 @@ class LayerMap extends React.Component {
 
     return <React.Fragment>
       <div style={vizzMapStyle}>
-        <VizzMap match={this.props.match} />
+        <VizzMap params={this.props.match.params} />
       </div>
     </React.Fragment>
   }

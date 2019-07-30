@@ -56,7 +56,7 @@ const LayersList = () => {
             {rows.map((row) => {
               return <tr key={row.name + row.id}>
                 <td>{row.name}</td>
-                <td><Link to={`/${title.toLowerCase()}/` + row.id}>{row.id}</Link></td>
+                <td><Link to={`/${title.toLowerCase()}/${row.id}`}>{row.id}</Link></td>
               </tr>
             })}
           </tbody>
