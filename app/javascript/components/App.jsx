@@ -23,6 +23,7 @@ const App = () => {
         <Route path="/methodology" component={MethodologyPage} />
         <Route path="/layers" exact component={LayersList} />
         <Route path="/layers/:layerId" component={LayerMap} />
+        <Route path="/datasets/:datasetId" component={LayerMap} />
       </div>
     </BrowserRouter>
   )

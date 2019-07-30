@@ -3,14 +3,51 @@ import { Map } from 'vizzuality-components'
 import { LayerManager, Layer } from 'layer-manager/dist/components';
 import { PluginLeaflet } from 'layer-manager';
 import { BASEMAPS, LABELS } from 'components/constants'
-import { layers } from 'components/sampleLayers'
 
 class VizzMap extends React.Component {
+  state = {
+    layers: [],
+  }
+
+  componentDidMount() {
+    const layerId = this.props.match.params.layerId
+    const layerUrl = `https://api.resourcewatch.org/v1/layer/${layerId}`
+
+    const datasetId = this.props.match.params.datasetId
+    const datasetUrl = `https://api.resourcewatch.org/v1/dataset/${datasetId}/layer`
+
+    if (layerId) {
+      fetch(layerUrl)
+        .then(response => response.json())
+        .then(response => {
+          const layers = [response.data].map((layer) => ({
+            id: layer.id,
+            type: layer.type,
+            ...layer.attributes,
+          }))
+
+          this.setState({layers: layers})
+        })
+    } else if (datasetId) {
+      fetch(datasetUrl)
+        .then(response => response.json())
+        .then(response => {
+          const layers = response.data.map((layer) => ({
+            id: layer.id,
+            type: layer.type,
+            ...layer.attributes,
+          }))
+
+          this.setState({layers: layers})
+        })
+    }
+  }
+
   render() {
     const mapConfig = {
       mapOptions: {
-        zoom: 1,
-        center: { lat: 0, lng: 0 },
+        zoom: 3,
+        center: { lat: 0, lng: 40 },
       },
       basemap: {
         url: BASEMAPS.dark.value,
@@ -28,7 +65,7 @@ class VizzMap extends React.Component {
           plugin={PluginLeaflet}
           onReady={() => {/* Layer preprocessing? */}}
         >
-          {layers.map((l, i) => (
+          {this.state.layers.map((l, i) => (
             <Layer
               {...l}
               key={l.id}
@@ -40,6 +77,11 @@ class VizzMap extends React.Component {
       )}
     </Map>
   }
+}
+
+import PropTypes from 'prop-types'
+VizzMap.propTypes = {
+  match: PropTypes.object.isRequired,
 }
 
 export default VizzMap
