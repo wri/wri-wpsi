@@ -46,6 +46,9 @@ class LayerGroupsMap extends React.Component {
         url: LABELS.light.value,
         options: LABELS.light.options,
       },
+      onReady: (map) => {
+        this.map = map
+      },
     }
 
     const mapStyle = {
@@ -75,7 +78,6 @@ class LayerGroupsMap extends React.Component {
                 <LayerManager
                   map={map}
                   plugin={PluginLeaflet}
-                  onReady={() => {/* Layer preprocessing? */}}
                 >
                   {flatten(layerGroups.map(lg =>
                     lg.layers.filter(l => l.active === true))).map((l, i) => (
