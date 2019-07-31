@@ -41,7 +41,7 @@ const MapPage = () => {
 
               return <tr key={row.name + row.id}>
                 <td>{row.name}</td>
-                <td>
+                <td style={{width: 80, textAlign: 'right'}}>
                   <button id={row.id} onClick={datasetOnMap ? handleRemove : handleAdd}>
                     {datasetOnMap ? 'Remove' : 'Add'}
                   </button>
@@ -54,25 +54,29 @@ const MapPage = () => {
     )
   }
 
-  const tableStyle = {
+  const sideDrawerStyle = {
     position: 'absolute',
-    height: 500 - 40,
-    bottom: 0,
-    margin: 20,
+    width: 500,
+    right: 0,
   }
 
   return <React.Fragment>
     <ResourceWatchMap
-      params={{
-        datasetIds: DATASETS.map((dataset) => dataset.id),
-        // datasetIds: ['0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3'],
+      style={{
+        position: 'absolute',
+        top: 85,
+        bottom: 0,
+        left: 0,
+        right: 500,
       }}
+      params={{datasetIds: DATASETS.map((dataset) => dataset.id)}}
       datasets={datasets.map((dataset) => dataset.id)}
       toggleMapLayerGroup={toggleMapLayerGroup}
-      bottomGutter={500}
     />
-    <div style={tableStyle}>
-      {renderDatasetsTable('Datasets', DATASETS)}
+    <div style={sideDrawerStyle}>
+      <div style={{margin: 30}}>
+        {renderDatasetsTable('Datasets', DATASETS)}
+      </div>
     </div>
   </React.Fragment>
 }

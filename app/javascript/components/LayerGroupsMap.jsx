@@ -67,7 +67,6 @@ import PropTypes from 'prop-types'
 LayerGroupsMap.propTypes = {
   style: PropTypes.object,
   layerGroups: PropTypes.array.isRequired,
-  bottomGutter: PropTypes.number,
 
   // Legend actions
   // setMapLayerGroupVisibility: PropTypes.func.isRequired,

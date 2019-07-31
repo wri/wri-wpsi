@@ -90,31 +90,31 @@ class ResourceWatchMap extends React.Component {
 
   render() {
     const { layerGroups } = this.state
-    const { datasets, bottomGutter } = this.props
+    const { style, datasets } = this.props
     const filteredLayerGroups = datasets ?
       datasets.map((dataset) => layerGroups[dataset]).filter((d) => !!d) :
       Object.values(layerGroups)
 
     const mapStyle = {
       position: 'absolute',
-      top: 85,
-      bottom: bottomGutter,
-      width: '100%',
+      top: 0,
+      bottom: 0,
+      left: 0,
+      right: 0,
     }
 
     const legendStyle = {
       position: 'absolute',
-      bottom: bottomGutter + 10,
+      bottom: 10,
       left: 10,
       width: '100%',
     }
 
     return (
-      <div>
+      <div style={style}>
         <LayerGroupsMap
           style={mapStyle}
           layerGroups={filteredLayerGroups}
-          bottomGutter={bottomGutter}
         />
         <ResourceWatchLegend
           style={legendStyle}
@@ -128,10 +128,10 @@ class ResourceWatchMap extends React.Component {
 
 import PropTypes from 'prop-types'
 ResourceWatchMap.propTypes = {
+  style: PropTypes.object,
   params: PropTypes.object.isRequired,
   datasets: PropTypes.array,
   toggleMapLayerGroup: PropTypes.func,
-  bottomGutter: PropTypes.number,
 }
 
 export default ResourceWatchMap
