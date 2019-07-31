@@ -1,35 +1,41 @@
 import React from 'react'
 import ResourceWatchMap from 'components/ResourceWatchMap'
-import { DATASETS } from 'components/datasets'
+import { LAYERS } from 'components/datasets'
 
 const MapPage = () => {
-  const [datasets, setDatasets] = React.useState([DATASETS[0]])
+  const [activeLayers, setActiveLayers] = React.useState([LAYERS[0]])
+
+  const getLayer = (id) => {
+    return LAYERS.find((layer) => layer.id === id)
+  }
 
   const handleAdd = (e) => {
-    addDataset({id: e.target.id})
+    const layer = getLayer(e.target.id)
+    addLayer(layer)
   }
 
   const handleRemove = (e) => {
-    removeDataset({id: e.target.id})
+    const layer = getLayer(e.target.id)
+    removeLayer(layer)
   }
 
-  const addDataset = (dataset) => {
-    setDatasets([dataset].concat(datasets))
+  const addLayer = (layer) => {
+    setActiveLayers([layer].concat(activeLayers))
   }
 
-  const removeDataset = (dataset) => {
-    setDatasets(datasets.filter((d) => d.id != dataset.id))
+  const removeLayer = (layer) => {
+    setActiveLayers(activeLayers.filter((activeLayer) => activeLayer.id != layer.id))
   }
 
-  const toggleMapLayerGroup = ({ dataset, toggle }) => {
+  const toggleLayer = ({ layer, toggle }) => {
     if (toggle) {
-      addDataset(dataset)
+      addLayer(layer)
     } else {
-      removeDataset(dataset)
+      removeLayer(layer)
     }
   }
 
-  const renderDatasetsTable = (title, rows) => {
+  const renderLayersTable = (title, rows) => {
     return (
       <React.Fragment>
         <h1>{title}</h1>
@@ -37,13 +43,13 @@ const MapPage = () => {
         <table>
           <tbody>
             {rows.map((row) => {
-              const datasetOnMap = datasets.map((d) => d.id).includes(row.id)
+              const layerOnMap = activeLayers.map((d) => d.id).includes(row.id)
 
               return <tr key={row.name + row.id}>
                 <td>{row.name}</td>
                 <td style={{width: 80, textAlign: 'right'}}>
-                  <button id={row.id} onClick={datasetOnMap ? handleRemove : handleAdd}>
-                    {datasetOnMap ? 'Showing' : 'Hidden'}
+                  <button id={row.id} onClick={layerOnMap ? handleRemove : handleAdd}>
+                    {layerOnMap ? 'Showing' : 'Hidden'}
                   </button>
                 </td>
               </tr>
@@ -69,13 +75,13 @@ const MapPage = () => {
         left: 0,
         right: 500,
       }}
-      params={{datasetIds: DATASETS.map((dataset) => dataset.id)}}
-      datasets={datasets.map((dataset) => dataset.id)}
-      toggleMapLayerGroup={toggleMapLayerGroup}
+      params={{layerIds: LAYERS.map((layer) => layer.id)}}
+      activeLayers={activeLayers}
+      toggleLayer={toggleLayer}
     />
     <div style={sideDrawerStyle}>
       <div style={{margin: 30}}>
-        {renderDatasetsTable('Datasets', DATASETS)}
+        {renderLayersTable('Layers', LAYERS)}
       </div>
     </div>
   </React.Fragment>

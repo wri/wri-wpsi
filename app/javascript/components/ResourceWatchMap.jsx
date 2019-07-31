@@ -1,4 +1,5 @@
 import React from 'react'
+import _ from 'lodash'
 import LayerGroupsMap from 'components/LayerGroupsMap'
 import ResourceWatchLegend from 'components/ResourceWatchLegend'
 
@@ -12,10 +13,10 @@ class ResourceWatchMap extends React.Component {
   }
 
   handleRemoveLayer = (layer) => {
-    const { toggleMapLayerGroup } = this.props
+    const { toggleLayer } = this.props
 
-    toggleMapLayerGroup && toggleMapLayerGroup({
-      dataset: { id: layer.dataset },
+    toggleLayer && toggleLayer({
+      layer: { id: layer.id },
       toggle: false,
     })
   }
@@ -34,19 +35,27 @@ class ResourceWatchMap extends React.Component {
     fetch(layerUrl)
       .then(response => response.json())
       .then(response => {
-        const layers = [response.data].map(this.reformatLayer)
+        const layer = this.reformatLayer(response.data)
+        const datasetId = layer.dataset
 
-        layers[0].active = true
-        const datasetId = layers[0].dataset
+        if (this.state.layerGroups[datasetId]) {
+          // This dataset has already been added, just add the layer
+          let layerGroups = this.state.layerGroups
+          layerGroups[datasetId].layers.push(layer)
+          this.handleLayerGroupUpdate(layerGroups)
+        } else {
+          // Need to add a layer group for the dataset
+          layer.active = true
 
-        let newLayerGroup = {}
-        newLayerGroup[datasetId] = {
-          dataset: datasetId,
-          visibility: true,
-          layers: layers,
+          let newLayerGroup = {}
+          newLayerGroup[datasetId] = {
+            dataset: datasetId,
+            visibility: true,
+            layers: [layer],
+          }
+
+          this.handleLayerGroupUpdate({...this.state.layerGroups, ...newLayerGroup})
         }
-
-        this.handleLayerGroupUpdate({...this.state.layerGroups, ...newLayerGroup})
       })
   }
 
@@ -76,11 +85,33 @@ class ResourceWatchMap extends React.Component {
     })
   }
 
+  filterLayerGroups = () => {
+    const { layerGroups } = this.state
+    const { activeLayers } = this.props
+    const activeLayerIds = activeLayers.map(layer => layer.id)
+
+    if (!activeLayers) return Object.values(layerGroups)
+
+    let filteredLayerGroups = _.uniq(activeLayers.map(layer => layerGroups[layer.dataset]))
+    filteredLayerGroups = filteredLayerGroups.filter(lg => !!lg) // Filter out nulls
+
+    filteredLayerGroups.forEach(layerGroup => {
+      layerGroup.layers.forEach(layer => layer.active = activeLayerIds.includes(layer.id))
+      if (!layerGroup.layers.some(layer => layer.active)) layerGroup.layers[0].active = true
+    })
+
+    console.log(filteredLayerGroups)
+
+    return filteredLayerGroups
+  }
+
   componentDidMount() {
-    const { layerId, datasetId, datasetIds } = this.props.params
+    const { layerId, layerIds, datasetId, datasetIds } = this.props.params
 
     if (layerId) {
       this.fetchLayer(layerId)
+    } else if (layerIds) {
+      layerIds.forEach(this.fetchLayer)
     } else if (datasetId) {
       this.fetchDataset(datasetId)
     } else if (datasetIds) {
@@ -89,11 +120,8 @@ class ResourceWatchMap extends React.Component {
   }
 
   render() {
-    const { layerGroups } = this.state
-    const { style, datasets } = this.props
-    const filteredLayerGroups = datasets ?
-      datasets.map((dataset) => layerGroups[dataset]).filter((d) => !!d) :
-      Object.values(layerGroups)
+    const { style } = this.props
+    const filteredLayerGroups = this.filterLayerGroups()
 
     const mapStyle = {
       position: 'absolute',
@@ -130,8 +158,8 @@ import PropTypes from 'prop-types'
 ResourceWatchMap.propTypes = {
   style: PropTypes.object,
   params: PropTypes.object.isRequired,
-  datasets: PropTypes.array,
-  toggleMapLayerGroup: PropTypes.func,
+  activeLayers: PropTypes.array,
+  toggleLayer: PropTypes.func,
 }
 
 export default ResourceWatchMap
