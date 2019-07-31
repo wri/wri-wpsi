@@ -1,5 +1,5 @@
 import React from 'react'
-import VizzMap from 'components/VizzMap'
+import ResourceWatchMap from 'components/ResourceWatchMap'
 import { DATASETS } from 'components/datasets'
 
 const MapPage = () => {
@@ -62,7 +62,7 @@ const MapPage = () => {
   }
 
   return <React.Fragment>
-    <VizzMap
+    <ResourceWatchMap
       params={{
         datasetIds: DATASETS.map((dataset) => dataset.id),
         // datasetIds: ['0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3'],

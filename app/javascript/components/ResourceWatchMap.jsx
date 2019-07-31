@@ -1,7 +1,7 @@
 import React from 'react'
 import LayerGroupsMap from 'components/LayerGroupsMap'
 
-class VizzMap extends React.Component {
+class ResourceWatchMap extends React.Component {
   state = {
     layerGroups: {},
   }
@@ -96,11 +96,11 @@ class VizzMap extends React.Component {
 }
 
 import PropTypes from 'prop-types'
-VizzMap.propTypes = {
+ResourceWatchMap.propTypes = {
   params: PropTypes.object.isRequired,
   datasets: PropTypes.array,
   toggleMapLayerGroup: PropTypes.func,
   bottomGutter: PropTypes.number,
 }
 
-export default VizzMap
+export default ResourceWatchMap

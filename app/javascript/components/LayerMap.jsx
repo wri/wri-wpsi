@@ -1,9 +1,9 @@
 import React from 'react'
-import VizzMap from 'components/VizzMap'
+import ResourceWatchMap from 'components/ResourceWatchMap'
 
 class LayerMap extends React.Component {
   render() {
-    return <VizzMap params={this.props.match.params} bottom={0} />
+    return <ResourceWatchMap params={this.props.match.params} bottom={0} />
   }
 }
 
