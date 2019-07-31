@@ -10,8 +10,6 @@ const TopBanner = () => {
     }}>
     <div style={{
       display: 'flex',
-      alignItems: 'flex-end',
-      justifyContent: 'space-between',
       borderBottom: '1px solid #B8C5D0',
     }}>
       <div style={{

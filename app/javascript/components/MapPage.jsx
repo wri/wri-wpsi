@@ -43,7 +43,7 @@ const MapPage = () => {
                 <td>{row.name}</td>
                 <td style={{width: 80, textAlign: 'right'}}>
                   <button id={row.id} onClick={datasetOnMap ? handleRemove : handleAdd}>
-                    {datasetOnMap ? 'Remove' : 'Add'}
+                    {datasetOnMap ? 'Showing' : 'Hidden'}
                   </button>
                 </td>
               </tr>
