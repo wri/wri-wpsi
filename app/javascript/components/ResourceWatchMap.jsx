@@ -1,5 +1,6 @@
 import React from 'react'
 import LayerGroupsMap from 'components/LayerGroupsMap'
+import ResourceWatchLegend from 'components/ResourceWatchLegend'
 
 class ResourceWatchMap extends React.Component {
   state = {
@@ -10,7 +11,16 @@ class ResourceWatchMap extends React.Component {
     this.setState({layerGroups: updatedLayerGroups})
   }
 
-  reformLayer = (layer) => {
+  handleRemoveLayer = (layer) => {
+    const { toggleMapLayerGroup } = this.props
+
+    toggleMapLayerGroup && toggleMapLayerGroup({
+      dataset: { id: layer.dataset },
+      toggle: false,
+    })
+  }
+
+  reformatLayer = (layer) => {
     return {
       id: layer.id,
       type: layer.type,
@@ -24,7 +34,7 @@ class ResourceWatchMap extends React.Component {
     fetch(layerUrl)
       .then(response => response.json())
       .then(response => {
-        const layers = [response.data].map(this.reformLayer)
+        const layers = [response.data].map(this.reformatLayer)
 
         layers[0].active = true
         const datasetId = layers[0].dataset
@@ -46,7 +56,7 @@ class ResourceWatchMap extends React.Component {
     fetch(datasetUrl)
       .then(response => response.json())
       .then(response => {
-        const layers = response.data.map(this.reformLayer)
+        const layers = response.data.map(this.reformatLayer)
 
         if (layers.length == 0) {
           console.error(`Dataset ${datasetId} has no layers!`)
@@ -80,18 +90,39 @@ class ResourceWatchMap extends React.Component {
 
   render() {
     const { layerGroups } = this.state
-    const { datasets, toggleMapLayerGroup, bottomGutter } = this.props
+    const { datasets, bottomGutter } = this.props
     const filteredLayerGroups = datasets ?
       datasets.map((dataset) => layerGroups[dataset]).filter((d) => !!d) :
       Object.values(layerGroups)
 
-    return <div>
-      <LayerGroupsMap
-        layerGroups={filteredLayerGroups}
-        bottomGutter={bottomGutter}
-        toggleMapLayerGroup={toggleMapLayerGroup}
-      />
-    </div>
+    const mapStyle = {
+      position: 'absolute',
+      top: 85,
+      bottom: bottomGutter,
+      width: '100%',
+    }
+
+    const legendStyle = {
+      position: 'absolute',
+      bottom: bottomGutter + 10,
+      left: 10,
+      width: '100%',
+    }
+
+    return (
+      <div>
+        <LayerGroupsMap
+          style={mapStyle}
+          layerGroups={filteredLayerGroups}
+          bottomGutter={bottomGutter}
+        />
+        <ResourceWatchLegend
+          style={legendStyle}
+          layerGroups={filteredLayerGroups}
+          onRemoveLayer={this.handleRemoveLayer}
+        />
+      </div>
+    )
   }
 }
 
