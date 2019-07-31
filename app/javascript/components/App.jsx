@@ -6,6 +6,7 @@ import AboutPage from 'components/AboutPage'
 import MethodologyPage from 'components/MethodologyPage'
 import LayersList from 'components/LayersList'
 import LayerMap from 'components/LayerMap'
+import { Icons } from 'vizzuality-components'
 
 const App = () => {
   const globalStyles = {
@@ -25,6 +26,9 @@ const App = () => {
         <Route path="/layers/:layerId" component={LayerMap} />
         <Route path="/datasets/:datasetId" component={LayerMap} />
       </div>
+
+      {/* Include Vizzuality icons for use in other Vizzuality components */}
+      <Icons />
     </BrowserRouter>
   )
 }

@@ -6,11 +6,11 @@ class VizzMap extends React.Component {
     layerGroups: {},
   }
 
-  handleLayerGroupUpdate(updatedLayerGroups) {
+  handleLayerGroupUpdate = (updatedLayerGroups) => {
     this.setState({layerGroups: updatedLayerGroups})
   }
 
-  reformLayer(layer) {
+  reformLayer = (layer) => {
     return {
       id: layer.id,
       type: layer.type,
@@ -18,7 +18,7 @@ class VizzMap extends React.Component {
     }
   }
 
-  fetchLayer(layerId) {
+  fetchLayer = (layerId) => {
     const layerUrl = `https://api.resourcewatch.org/v1/layer/${layerId}`
 
     fetch(layerUrl)
@@ -40,7 +40,7 @@ class VizzMap extends React.Component {
       })
   }
 
-  fetchDataset(datasetId) {
+  fetchDataset = (datasetId) => {
     const datasetUrl = `https://api.resourcewatch.org/v1/dataset/${datasetId}/layer`
 
     fetch(datasetUrl)
@@ -74,7 +74,7 @@ class VizzMap extends React.Component {
     } else if (datasetId) {
       this.fetchDataset(datasetId)
     } else if (datasetIds) {
-      datasetIds.forEach(this.fetchDataset.bind(this))
+      datasetIds.forEach(this.fetchDataset)
     }
   }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import flatten from 'lodash/flatten';
+import flatten from 'lodash/flatten'
 import {
   Map,
   // MapPopup,
@@ -15,19 +15,19 @@ import {
   LegendItemTypes,
   // LegendItemTimeStep,
   // LegendItemTimeline,
-} from 'vizzuality-components';
-import { LayerManager, Layer } from 'layer-manager/dist/components';
-import { PluginLeaflet } from 'layer-manager';
+} from 'vizzuality-components'
+import { LayerManager, Layer } from 'layer-manager/dist/components'
+import { PluginLeaflet } from 'layer-manager'
 import { BASEMAPS, LABELS } from 'components/constants'
 
 class LayerGroupsMap extends React.Component {
-  handleRemoveLayer(layer) {
-    const { toggleMapLayerGroup } = this.props;
+  handleRemoveLayer = (layer) => {
+    const { toggleMapLayerGroup } = this.props
 
     toggleMapLayerGroup && toggleMapLayerGroup({
       dataset: { id: layer.dataset },
       toggle: false,
-    });
+    })
   }
 
   render() {
@@ -113,7 +113,7 @@ class LayerGroupsMap extends React.Component {
                 // onChangeOpacity={this.handleChangeOpacity}
                 // onChangeVisibility={this.handleChangeVisibility}
                 // onChangeLayer={this.handleChangeLayer}
-                onRemoveLayer={this.handleRemoveLayer.bind(this)}
+                onRemoveLayer={this.handleRemoveLayer}
               >
                 <LegendItemTypes />
               </LegendListItem>
