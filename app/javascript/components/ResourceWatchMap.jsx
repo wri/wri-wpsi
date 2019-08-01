@@ -11,8 +11,7 @@ class ResourceWatchMap extends React.Component {
     const { layerGroups } = this.state
 
     layerGroups[layer.id] = {
-      dataset: layer.dataset,
-      legendKey: layer.id,
+      dataset: layer.id,
       visibility: true,
       layers: [layer],
     }
@@ -23,9 +22,9 @@ class ResourceWatchMap extends React.Component {
   }
 
   handleRemoveLayer = (layer) => {
-    const { toggleLayer } = this.props
+    const { onToggleLayer } = this.props
 
-    toggleLayer && toggleLayer({
+    onToggleLayer && onToggleLayer({
       layer: { id: layer.id },
       toggle: false,
     })
@@ -107,7 +106,7 @@ class ResourceWatchMap extends React.Component {
   }
 
   render() {
-    const { style } = this.props
+    const { style, onChangeLayerOrder } = this.props
     const filteredLayerGroups = this.filterLayerGroups()
 
     const mapStyle = {
@@ -135,6 +134,7 @@ class ResourceWatchMap extends React.Component {
           style={legendStyle}
           layerGroups={filteredLayerGroups}
           onRemoveLayer={this.handleRemoveLayer}
+          onChangeOrder={onChangeLayerOrder}
         />
       </div>
     )
@@ -146,7 +146,8 @@ ResourceWatchMap.propTypes = {
   style: PropTypes.object,
   params: PropTypes.object.isRequired,
   activeLayers: PropTypes.array,
-  toggleLayer: PropTypes.func,
+  onToggleLayer: PropTypes.func,
+  onChangeLayerOrder: PropTypes.func,
 }
 
 export default ResourceWatchMap

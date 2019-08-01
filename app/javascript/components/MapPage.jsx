@@ -27,12 +27,14 @@ const MapPage = () => {
     setActiveLayers(activeLayers.filter((activeLayer) => activeLayer.id != layer.id))
   }
 
-  const toggleLayer = ({ layer, toggle }) => {
-    if (toggle) {
-      addLayer(layer)
-    } else {
-      removeLayer(layer)
-    }
+  const handleToggleLayer = ({ layer, toggle }) => {
+    toggle ? addLayer(layer) : removeLayer(layer)
+  }
+
+  const handleChangeLayerOrder = layerIds => {
+    const layers = activeLayers
+    setActiveLayers([]) // TODO: figure out a better way to force an update here
+    setActiveLayers(layers.sort((a, b) => (layerIds.indexOf(a.id) - layerIds.indexOf(b.id))))
   }
 
   const renderLayersTable = (title, rows) => {
@@ -77,7 +79,8 @@ const MapPage = () => {
       }}
       params={{layerIds: LAYERS.map((layer) => layer.id)}}
       activeLayers={activeLayers}
-      toggleLayer={toggleLayer}
+      onToggleLayer={handleToggleLayer}
+      onChangeLayerOrder={handleChangeLayerOrder}
     />
     <div style={sideDrawerStyle}>
       <div style={{margin: 30}}>

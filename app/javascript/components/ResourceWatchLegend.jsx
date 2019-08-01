@@ -12,17 +12,17 @@ import {
   // LegendItemTimeline,
 } from 'vizzuality-components'
 
-const ResourceWatchLegend = ({ style, layerGroups, onRemoveLayer}) => {
+const ResourceWatchLegend = ({ style, layerGroups, onRemoveLayer, onChangeOrder}) => {
   return <div style={style}>
     <Legend
-      onChangeOrder={(datasetIds) => {console.info(datasetIds)}}
+      onChangeOrder={onChangeOrder}
       maxHeight={300}
       maxWidth={500}
     >
       {layerGroups.map((layerGroup, i) => (
         <LegendListItem
           index={i}
-          key={layerGroup.legendKey}
+          key={layerGroup.dataset}
           layerGroup={layerGroup}
           toolbar={
             <LegendItemToolbar>
@@ -46,6 +46,7 @@ ResourceWatchLegend.propTypes = {
   style: PropTypes.object,
   layerGroups: PropTypes.array.isRequired,
   onRemoveLayer: PropTypes.func.isRequired,
+  onChangeOrder: PropTypes.func.isRequired,
 }
 
 export default ResourceWatchLegend
