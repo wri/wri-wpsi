@@ -1,5 +1,4 @@
 import React from 'react'
-import _ from 'lodash'
 import LayerGroupsMap from 'components/LayerGroupsMap'
 import ResourceWatchLegend from 'components/ResourceWatchLegend'
 
@@ -8,8 +7,19 @@ class ResourceWatchMap extends React.Component {
     layerGroups: {},
   }
 
-  handleLayerGroupUpdate = (updatedLayerGroups) => {
-    this.setState({layerGroups: updatedLayerGroups})
+  addLayerGroup = (layer) => {
+    const { layerGroups } = this.state
+
+    layerGroups[layer.id] = {
+      dataset: layer.dataset,
+      legendKey: layer.id,
+      visibility: true,
+      layers: [layer],
+    }
+
+    this.setState({
+      layerGroups: layerGroups,
+    })
   }
 
   handleRemoveLayer = (layer) => {
@@ -36,26 +46,8 @@ class ResourceWatchMap extends React.Component {
       .then(response => response.json())
       .then(response => {
         const layer = this.reformatLayer(response.data)
-        const datasetId = layer.dataset
-
-        if (this.state.layerGroups[datasetId]) {
-          // This dataset has already been added, just add the layer
-          let layerGroups = this.state.layerGroups
-          layerGroups[datasetId].layers.push(layer)
-          this.handleLayerGroupUpdate(layerGroups)
-        } else {
-          // Need to add a layer group for the dataset
-          layer.active = true
-
-          let newLayerGroup = {}
-          newLayerGroup[datasetId] = {
-            dataset: datasetId,
-            visibility: true,
-            layers: [layer],
-          }
-
-          this.handleLayerGroupUpdate({...this.state.layerGroups, ...newLayerGroup})
-        }
+        layer.active = true
+        this.addLayerGroup(layer)
       })
   }
 
@@ -74,33 +66,28 @@ class ResourceWatchMap extends React.Component {
 
         layers[0].active = true
 
-        let newLayerGroup = {}
-        newLayerGroup[datasetId] = {
-          dataset: datasetId,
-          visibility: true,
-          layers: layers,
-        }
-
-        this.handleLayerGroupUpdate({...this.state.layerGroups, ...newLayerGroup})
-    })
+        layers.forEach(layer => {
+          this.addLayerGroup(layer)
+        })
+      })
   }
 
   filterLayerGroups = () => {
     const { layerGroups } = this.state
     const { activeLayers } = this.props
-    const activeLayerIds = activeLayers.map(layer => layer.id)
 
+    // Return all layers if activeLayers is not defined
     if (!activeLayers) return Object.values(layerGroups)
 
-    let filteredLayerGroups = _.uniq(activeLayers.map(layer => layerGroups[layer.dataset]))
+    const activeLayerIds = activeLayers.map(layer => layer.id)
+
+    let filteredLayerGroups = activeLayerIds.map(layerId => layerGroups[layerId])
     filteredLayerGroups = filteredLayerGroups.filter(lg => !!lg) // Filter out nulls
 
     filteredLayerGroups.forEach(layerGroup => {
       layerGroup.layers.forEach(layer => layer.active = activeLayerIds.includes(layer.id))
       if (!layerGroup.layers.some(layer => layer.active)) layerGroup.layers[0].active = true
     })
-
-    console.log(filteredLayerGroups)
 
     return filteredLayerGroups
   }

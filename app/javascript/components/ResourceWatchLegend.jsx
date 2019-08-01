@@ -22,7 +22,7 @@ const ResourceWatchLegend = ({ style, layerGroups, onRemoveLayer}) => {
       {layerGroups.map((layerGroup, i) => (
         <LegendListItem
           index={i}
-          key={layerGroup.dataset}
+          key={layerGroup.legendKey}
           layerGroup={layerGroup}
           toolbar={
             <LegendItemToolbar>
