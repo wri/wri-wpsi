@@ -1,7 +1,7 @@
 const LAYERS = [
   {id: "107b72a6-6a52-4c8e-a261-d01706627322", name: "December 2018 - December 2019 Risk of Conflict",                                                 dataset: "0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3"},
   {id: "1198417e-8cfb-4a40-96f7-9ec016384c86", name: "2000 Pasture (% of grid cell)",                                                                  dataset: "0ce24533-7877-4926-b962-a6c726332d82"},
-  {id: "16a5729f-0f2e-4cd6-84bc-0f72c9132dda", name: "Internally Displaced People Due to Natural Disasters, Conflict, or Development (Past 180 Days)", dataset: "d2f6245d-5b9b-4508-874b-d42a2be7d058"},
+  {id: "16a5729f-0f2e-4cd6-84bc-0f72c9132dda", name: "Recent Internal Displacement from Conflict, Natural Disasters, and Development by Event",        dataset: "d2f6245d-5b9b-4508-874b-d42a2be7d058"},
   {id: "1ee0784f-654f-4caf-a059-f03dc46724b6", name: "Vegetables and Fruits: Food Price Spikes from Past 3 Months",                                    dataset: "acf42a1b-104b-4f81-acd0-549f805873fb"},
   {id: "212a1516-c7d5-44aa-a18a-ab8bc99929e7", name: "Dam Locations",                                                                                  dataset: "e63bb157-4b98-4ecb-81d6-c1b15e79895a"},
   {id: "253437ed-1e21-4544-8bb3-1ec2d2656522", name: "Pulses and Nuts: Food Price Spikes from Past 3 Months",                                          dataset: "acf42a1b-104b-4f81-acd0-549f805873fb"},
@@ -25,7 +25,7 @@ const LAYERS = [
   {id: "d787d894-f7af-47c4-af0f-0849b06686ee", name: "2015 Accessibility to Cities",                                                                   dataset: "ccbcaf7b-1619-4298-8275-b135d1e8e04e"},
   {id: "e5744d8e-e8af-4e72-a8f6-35adacf70976", name: "2000 Soybean Yield Gap (t/ha gap)",                                                              dataset: "bc2c749d-49a0-46c0-9582-eb33946a983e"},
   {id: "fdf06d8c-72e9-48a7-80f1-27bd5f19342c", name: "1960 to 2014 Baseline Water Stress",                                                             dataset: "c66d7f3a-d1a8-488f-af8b-302b0f2c3840"},
-  {id: "2eed7df-495d-4d87-bb31-373a7dc87861",  name: "2017 Agriculture, Value Added (% of GDP)",                                                       dataset: "95b013a3-389a-4367-83b7-c9d68c28c406"},
+  {id: "e2eed7df-495d-4d87-bb31-373a7dc87861", name: "2017 Agriculture, Value Added (% of GDP)",                                                       dataset: "95b013a3-389a-4367-83b7-c9d68c28c406"},
 ]
 
 const DATASETS = [
