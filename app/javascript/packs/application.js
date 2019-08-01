@@ -17,6 +17,12 @@
 
 import '../src/application.scss'
 
+// Vizzuality-components map dependencies
+import 'leaflet'
+import 'esri-leaflet'
+import 'leaflet-utfgrid/L.UTFGrid-min'
+import 'leaflet/dist/leaflet.css'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from '../components/App'
