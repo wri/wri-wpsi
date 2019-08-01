@@ -6,13 +6,23 @@ import {
   // LegendItemButtonLayers,
   // LegendItemButtonOpacity,
   // LegendItemButtonVisibility,
-  // LegendItemButtonInfo,
+  LegendItemButtonRemove,
+  LegendItemButtonInfo,
   LegendItemTypes,
   // LegendItemTimeStep,
   // LegendItemTimeline,
 } from 'vizzuality-components'
 
-const ResourceWatchLegend = ({ style, layerGroups, onRemoveLayer, onChangeOrder}) => {
+const ResourceWatchLegend = ({
+  style,
+  layerGroups,
+  onChangeOrder,
+  onChangeInfo,
+  // onChangeOpacity,
+  // onChangeVisibility,
+  // onChangeLayer,
+  onRemoveLayer,
+}) => {
   return <div style={style}>
     <Legend
       onChangeOrder={onChangeOrder}
@@ -26,12 +36,17 @@ const ResourceWatchLegend = ({ style, layerGroups, onRemoveLayer, onChangeOrder}
           layerGroup={layerGroup}
           toolbar={
             <LegendItemToolbar>
+              <LegendItemButtonInfo></LegendItemButtonInfo>
+              {/*<LegendItemButtonOpacity></LegendItemButtonOpacity>*/}
+              {/*<LegendItemButtonVisibility></LegendItemButtonVisibility>*/}
+              {/*<LegendItemButtonLayers></LegendItemButtonLayers>*/}
+              <LegendItemButtonRemove></LegendItemButtonRemove>
             </LegendItemToolbar>
           }
-          // onChangeInfo={this.handleChangeInfo}
-          // onChangeOpacity={this.handleChangeOpacity}
-          // onChangeVisibility={this.handleChangeVisibility}
-          // onChangeLayer={this.handleChangeLayer}
+          onChangeInfo={onChangeInfo}
+          // onChangeOpacity={onChangeOpacity}
+          // onChangeVisibility={onChangeVisibility}
+          // onChangeLayer={onChangeLayer}
           onRemoveLayer={onRemoveLayer}
         >
           <LegendItemTypes />
@@ -45,8 +60,12 @@ import PropTypes from 'prop-types'
 ResourceWatchLegend.propTypes = {
   style: PropTypes.object,
   layerGroups: PropTypes.array.isRequired,
-  onRemoveLayer: PropTypes.func.isRequired,
   onChangeOrder: PropTypes.func.isRequired,
+  onChangeInfo: PropTypes.func.isRequired,
+  // onChangeOpacity: PropTypes.func.isRequired,
+  // onChangeVisibility: PropTypes.func.isRequired,
+  // onChangeLayer: PropTypes.func.isRequired,
+  onRemoveLayer: PropTypes.func.isRequired,
 }
 
 export default ResourceWatchLegend
