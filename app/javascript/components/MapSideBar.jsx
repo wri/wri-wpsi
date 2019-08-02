@@ -1,33 +1,35 @@
 import React from 'react'
-import { LAYERS } from 'components/datasets'
 
-const MapSideBar = ({ isActive, onToggleLayerClick }) => {
+const MapSideBar = ({ setModalOpen, activeLayers }) => {
   return (
     <React.Fragment>
-      <h1>Layers</h1>
+      <h1>Investigation</h1>
 
-      <table>
-        <tbody>
-          {LAYERS.map((layer) => {
-            return <tr key={layer.name + layer.id}>
-              <td>{layer.name}</td>
-              <td style={{width: 80, textAlign: 'right'}}>
-                <button id={layer.id} onClick={onToggleLayerClick}>
-                  {isActive(layer) ? 'Showing' : 'Hidden'}
-                </button>
-              </td>
-            </tr>
-          })}
-        </tbody>
-      </table>
+      <button onClick={() => setModalOpen(true)}>
+        + Add datasets to investigation
+      </button>
+
+      <div style={{marginTop: 20}}>
+        <h3>Current Datasets:</h3>
+
+        <ul>
+          {
+            activeLayers.map(layer =>
+              <li key={layer.id} style={{marginTop: 10}}>
+                {layer.name}
+              </li>
+            )
+          }
+        </ul>
+      </div>
     </React.Fragment>
   )
 }
 
 import PropTypes from 'prop-types'
 MapSideBar.propTypes = {
-  isActive: PropTypes.func.isRequired,
-  onToggleLayerClick: PropTypes.func.isRequired,
+  setModalOpen: PropTypes.func.isRequired,
+  activeLayers: PropTypes.array.isRequired,
 }
 
 export default MapSideBar

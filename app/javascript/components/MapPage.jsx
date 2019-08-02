@@ -1,10 +1,12 @@
 import React from 'react'
 import ResourceWatchMap from 'components/ResourceWatchMap'
 import MapSideBar from 'components/MapSideBar'
+import DatasetsModal from 'components/DatasetsModal'
 import { LAYERS } from 'components/datasets'
 
 const MapPage = () => {
   const [activeLayers, setActiveLayers] = React.useState([LAYERS[0]])
+  const [modalOpen, setModalOpen] = React.useState(false)
 
   const activeLayerIds = () => {
     return activeLayers.map(l => l.id)
@@ -64,11 +66,21 @@ const MapPage = () => {
       onToggleLayer={handleToggleLayer}
       onChangeLayerOrder={handleChangeLayerOrder}
     />
+
     <div style={sideDrawerStyle}>
       <div style={{margin: 30}}>
-        <MapSideBar isActive={isActive} onToggleLayerClick={handleToggleLayerClick} />
+        <MapSideBar setModalOpen={setModalOpen} activeLayers={activeLayers} />
+
+        <DatasetsModal
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+          isActive={isActive}
+          onToggleLayerClick={handleToggleLayerClick}
+         />
       </div>
     </div>
+
+
   </React.Fragment>
 }
 
