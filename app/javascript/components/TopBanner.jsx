@@ -2,7 +2,7 @@ import React from 'react'
 import MenuBar from 'components/MenuBar'
 
 const TopBanner = () => {
-  return <div style={{
+  return <div id='top-banner' style={{
       position: 'sticky',
       top: 0,
       zIndex: 10000,

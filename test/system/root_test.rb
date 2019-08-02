@@ -6,8 +6,16 @@ class RootTest < ApplicationSystemTestCase
     assert_text 'OK'
   end
 
-  def test_landing_page
+  def test_root_redirect
     visit '/'
-    assert_selector 'h1', text: 'Water, Peace & Security'
+    assert current_path == '/map'
+  end
+
+  def test_landing_page
+    visit '/map'
+
+    within '#top-banner' do
+      assert_text 'Water, Peace & Security'
+    end
   end
 end
