@@ -28,6 +28,12 @@ class ResourceWatchMap extends React.Component {
     })
   }
 
+  handleChangeOpacity = (layer, opacity) => {
+    const { layerGroups } = this.state
+    layerGroups[layer.id].layers[0] = { ...layer, opacity }
+    this.setState({ layerGroups })
+  }
+
   handleChangeVisibility = (layer, visibility) => {
     const { onToggleLayer } = this.props
 
@@ -143,6 +149,7 @@ class ResourceWatchMap extends React.Component {
           layerGroups={filteredLayerGroups}
           onRemoveLayer={this.handleRemoveLayer}
           onChangeInfo={(layer) => alert(`Info about layer ${layer.id}`)}
+          onChangeOpacity={this.handleChangeOpacity}
           onChangeVisibility={this.handleChangeVisibility}
           onChangeOrder={onChangeLayerOrder}
         />

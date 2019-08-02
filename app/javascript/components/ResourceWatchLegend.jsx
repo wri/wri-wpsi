@@ -4,7 +4,7 @@ import {
   LegendListItem,
   LegendItemToolbar,
   // LegendItemButtonLayers,
-  // LegendItemButtonOpacity,
+  LegendItemButtonOpacity,
   // LegendItemButtonVisibility,
   LegendItemButtonRemove,
   LegendItemButtonInfo,
@@ -18,7 +18,7 @@ const ResourceWatchLegend = ({
   layerGroups,
   onChangeOrder,
   onChangeInfo,
-  // onChangeOpacity,
+  onChangeOpacity,
   // onChangeVisibility,
   // onChangeLayer,
   onRemoveLayer,
@@ -36,15 +36,15 @@ const ResourceWatchLegend = ({
           layerGroup={layerGroup}
           toolbar={
             <LegendItemToolbar>
-              <LegendItemButtonInfo></LegendItemButtonInfo>
-              {/*<LegendItemButtonOpacity></LegendItemButtonOpacity>*/}
-              {/*<LegendItemButtonVisibility></LegendItemButtonVisibility>*/}
-              {/*<LegendItemButtonLayers></LegendItemButtonLayers>*/}
-              <LegendItemButtonRemove></LegendItemButtonRemove>
+              <LegendItemButtonInfo />
+              <LegendItemButtonOpacity />
+              {/*<LegendItemButtonVisibility />*/}
+              {/*<LegendItemButtonLayers />*/}
+              <LegendItemButtonRemove />
             </LegendItemToolbar>
           }
           onChangeInfo={onChangeInfo}
-          // onChangeOpacity={onChangeOpacity}
+          onChangeOpacity={onChangeOpacity}
           // onChangeVisibility={onChangeVisibility}
           // onChangeLayer={onChangeLayer}
           onRemoveLayer={onRemoveLayer}
@@ -62,7 +62,7 @@ ResourceWatchLegend.propTypes = {
   layerGroups: PropTypes.array.isRequired,
   onChangeOrder: PropTypes.func.isRequired,
   onChangeInfo: PropTypes.func.isRequired,
-  // onChangeOpacity: PropTypes.func.isRequired,
+  onChangeOpacity: PropTypes.func.isRequired,
   // onChangeVisibility: PropTypes.func.isRequired,
   // onChangeLayer: PropTypes.func.isRequired,
   onRemoveLayer: PropTypes.func.isRequired,
