@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <h1>
+    Investigation
+  </h1>,
+  <button
+    onClick={[Function]}
+  >
+    + Add datasets to investigation
+  </button>,
+  <div
+    style={
+      Object {
+        "marginTop": 20,
+      }
+    }
+  >
+    <h3>
+      Current Datasets:
+    </h3>
+    <ul />
+  </div>,
+]
+`;

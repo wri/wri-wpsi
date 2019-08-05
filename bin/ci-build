@@ -4,6 +4,7 @@ export RAILS_ENV=test
 export COVERAGE=1
 #bundle outdated --strict || true
 yarn
+yarn test
 bundle exec brakeman -q --ensure-latest --no-pager --except PermitAttributes,Render
 bundle exec bundle-audit check --update
 bundle exec rails db:environment:set db:drop || true
