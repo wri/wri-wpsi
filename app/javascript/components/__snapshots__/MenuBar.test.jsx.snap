@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly when inside a router 1`] = `
+exports[`<MenuBar /> renders correctly when inside a router 1`] = `
 <div
   style={
     Object {

@@ -73,7 +73,7 @@ class ResourceWatchMap extends React.Component {
         const layers = response.data.map(this.reformatLayer)
 
         if (layers.length == 0) {
-          console.error(`Dataset ${datasetId} has no layers!`)
+          alert(`Dataset ${datasetId} has no layers!`)
           return
         }
 
