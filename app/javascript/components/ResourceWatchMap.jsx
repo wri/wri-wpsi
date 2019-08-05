@@ -120,7 +120,7 @@ class ResourceWatchMap extends React.Component {
   }
 
   render() {
-    const { style, onChangeLayerOrder } = this.props
+    const { style, onChangeLayerOrder, interactionState } = this.props
     const filteredLayerGroups = this.filterLayerGroups()
 
     const mapStyle = {
@@ -135,7 +135,6 @@ class ResourceWatchMap extends React.Component {
       position: 'absolute',
       bottom: 10,
       left: 10,
-      width: '100%',
     }
 
     return (
@@ -143,6 +142,10 @@ class ResourceWatchMap extends React.Component {
         <LayerGroupsMap
           style={mapStyle}
           layerGroups={filteredLayerGroups}
+          resetMapLayerGroupsInteraction={(args) =>
+            alert('resetMapLayerGroupsInteraction not yet defined!', args)
+          }
+          { ...interactionState }
         />
         <ResourceWatchLegend
           style={legendStyle}
@@ -162,6 +165,7 @@ import PropTypes from 'prop-types'
 ResourceWatchMap.propTypes = {
   style: PropTypes.object,
   params: PropTypes.object.isRequired,
+  interactionState: PropTypes.object.isRequired,
   activeLayers: PropTypes.array,
   onToggleLayer: PropTypes.func.isRequired,
   onChangeLayerOrder: PropTypes.func.isRequired,
