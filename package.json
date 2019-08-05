@@ -36,6 +36,7 @@
       "app/javascript"
     ],
     "testPathIgnorePatterns": [
+      "<rootDir>/vendor/bundle",
       "/node_modules/",
       "<rootDir>/config/webpack/test.js"
     ]
