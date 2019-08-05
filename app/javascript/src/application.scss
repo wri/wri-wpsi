@@ -1,2 +1,31 @@
 // Module styles
 @import 'vizzuality-components/dist/bundle.css';
+
+.wri_api__c-map-controls {
+  .wri_api__map-controls-list-item {
+    button {
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      outline: none;
+      border: none;
+      border-radius: 4px;
+      background-color: #fff;
+      transition: background-color linear .16s;
+      &:not(:first-child) {
+        border-top: 1px solid rgba(202,204,208,.85);
+      }
+      &:hover {
+        background-color: darken(#fff, 5%);
+      }
+      &.-disabled {
+        pointer-events: none;
+        opacity: 0.25;
+      }
+    }
+  }
+}
