@@ -9,3 +9,4 @@ bundle exec bundle-audit check --update
 bundle exec rails db:environment:set db:drop || true
 bundle exec rails db:setup db:migrate
 bundle exec rails test COVERAGE=1
+yarn test
