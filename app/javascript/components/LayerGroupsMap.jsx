@@ -9,7 +9,10 @@ import {
 import { LayerManager, Layer } from 'layer-manager/dist/components'
 import { PluginLeaflet } from 'layer-manager'
 import { BASEMAPS, LABELS } from 'components/constants'
+
+// Components copied from Resource Watch
 import LayerPopup from 'components/LayerPopup'
+import SearchControl from 'components/SearchControl'
 
 class LayerGroupsMap extends React.Component {
   render() {
@@ -56,6 +59,9 @@ class LayerGroupsMap extends React.Component {
             <React.Fragment>
               <MapControls>
                 <ZoomControl map={map} />
+                <SearchControl
+                  setMapLocation={(params) => console.log(params)}
+                />
               </MapControls>
 
               {/* Popup */}
