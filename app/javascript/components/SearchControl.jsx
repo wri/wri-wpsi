@@ -8,7 +8,10 @@ import Geosuggest from 'react-geosuggest';
 import { Icon } from 'vizzuality-components';
 
 class SearchControl extends React.Component {
-  static propTypes = { setMapLocation: PropTypes.func.isRequired };
+  static propTypes = {
+    setMapLocation: PropTypes.func.isRequired,
+    setSelectedRegion: PropTypes.func.isRequired,
+  };
 
   state = { showSearchInput: false };
 
@@ -22,6 +25,8 @@ class SearchControl extends React.Component {
   }
 
   onSuggestSelect = (e) => {
+    this.props.setSelectedRegion(e)
+
     if (e) {
       const { gmaps, location } = e;
       const viewport = gmaps.geometry && gmaps.geometry.viewport;
@@ -64,6 +69,7 @@ class SearchControl extends React.Component {
             ref={(r) => { this.geosuggest = r; }}
             onSuggestSelect={this.onSuggestSelect}
             onKeyDown={this.onKeyDown}
+            // Add bias towards the global south
             bounds={{south: -31.5, west: -41.6, north: 67.2, east: 49.1}}
             types={['(regions)']}
           />

@@ -5,7 +5,7 @@ import ResourceWatchLegend from 'components/ResourceWatchLegend'
 class ResourceWatchMap extends React.Component {
   state = {
     layerGroups: {},
-    mapLocation: {},
+    mapLocation: {}, // Example: {bbox: [38.65, 8.84, 38.90, 9.08]}
   }
 
   addLayerGroup = (layer) => {
@@ -121,7 +121,13 @@ class ResourceWatchMap extends React.Component {
   }
 
   render() {
-    const { style, onChangeLayerOrder, interactionState } = this.props
+    const {
+      style,
+      onChangeLayerOrder,
+      interactionState,
+      setSelectedRegion,
+    } = this.props
+
     const filteredLayerGroups = this.filterLayerGroups()
 
     const mapStyle = {
@@ -144,6 +150,7 @@ class ResourceWatchMap extends React.Component {
           style={mapStyle}
           mapLocation={this.state.mapLocation}
           setMapLocation={(location) => this.setState({mapLocation: location})}
+          setSelectedRegion={setSelectedRegion}
           layerGroups={filteredLayerGroups}
           resetMapLayerGroupsInteraction={(args) =>
             alert('resetMapLayerGroupsInteraction not yet defined!', args)
@@ -172,6 +179,7 @@ ResourceWatchMap.propTypes = {
   activeLayers: PropTypes.array,
   onToggleLayer: PropTypes.func.isRequired,
   onChangeLayerOrder: PropTypes.func.isRequired,
+  setSelectedRegion: PropTypes.func.isRequired,
 }
 
 export default ResourceWatchMap
