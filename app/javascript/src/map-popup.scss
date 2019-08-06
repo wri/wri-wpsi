@@ -1,4 +1,4 @@
-// Source:
+// Original source:
 // https://github.com/resource-watch/resource-watch/blob/develop/css/components/map/map-popup.scss
 
 .c-map-popup {
@@ -6,22 +6,18 @@
 
   .popup-header {
     border-bottom: 1px solid #CCC;
+    height: 46px;
+    display: flex;
+    align-items: center;
 
     .popup-header-select {
-      width: calc(100% - 46px);
-      margin: 0;
-      border: none;
-      border-radius: 0;
-      padding: 10px;
-      box-shadow: none;
-      outline: none;
-      height: 46px;
-      font-weight: $font-weight-bold;
+      width: calc(100% - 46px - 20px);
+      margin: 10px;
     }
   }
 
   .popup-content {
-    padding: 20px;
+    padding: 10px;
     max-height: 290px;
 
     overflow-y: auto;
@@ -60,7 +56,7 @@
 .leaflet-popup-content-wrapper {
   padding: 0px;
   text-align: left;
-  border-radius: 0;
+  border-radius: 4px;
 }
 
 .leaflet-popup-content {
