@@ -15,12 +15,6 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-// Vizzuality-components map dependencies
-import 'leaflet'
-import 'esri-leaflet'
-import 'leaflet-utfgrid/L.UTFGrid-min'
-import 'leaflet/dist/leaflet.css'
-
 // Application overrides and module styles
 import '../src/application.scss'
 
