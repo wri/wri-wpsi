@@ -76,6 +76,8 @@ class SearchControl extends React.Component {
             ref={(r) => { this.geosuggest = r; }}
             onSuggestSelect={this.onSuggestSelect}
             onKeyDown={this.onKeyDown}
+            bounds={{south: -31.5, west: -41.6, north: 67.2, east: 49.1}}
+            types={['(regions)']}
           />
         }
         <button
