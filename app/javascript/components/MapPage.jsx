@@ -6,26 +6,34 @@ import { LAYERS } from 'components/datasets'
 
 const MapPage = () => {
   const [activeLayers, setActiveLayers] = React.useState([LAYERS[0]])
+  const activeLayerIds = activeLayers.map(l => l.id)
+
   const [modalOpen, setModalOpen] = React.useState(false)
+
   const [layerGroupsInteraction, setMapLayerGroupsInteraction] = React.useState({})
   const [layerGroupsInteractionSelected, setMapLayerGroupsInteractionSelected] = React.useState(null)
   const [layerGroupsInteractionLatLng, setMapLayerGroupsInteractionLatLng] = React.useState(null)
 
+  const updateInteractions = (interaction) => {
+    const newLayerGroupsInteraction = {
+      ...layerGroupsInteraction,
+      [interaction.id]: interaction,
+    }
+    setMapLayerGroupsInteraction(newLayerGroupsInteraction)
+  }
+
   const interactionState = {
-    layerGroupsInteraction: {[layerGroupsInteraction.id]: layerGroupsInteraction},
-    setMapLayerGroupsInteraction,
+    layerGroupsInteraction,
+    setMapLayerGroupsInteraction: updateInteractions,
     layerGroupsInteractionSelected,
     setMapLayerGroupsInteractionSelected,
     layerGroupsInteractionLatLng,
     setMapLayerGroupsInteractionLatLng,
   }
 
-  const activeLayerIds = () => {
-    return activeLayers.map(l => l.id)
-  }
 
   const isActive = (layer) => {
-    return activeLayerIds().includes(layer.id)
+    return activeLayerIds.includes(layer.id)
   }
 
   const getLayer = (id) => {
