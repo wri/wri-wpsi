@@ -22,6 +22,8 @@ class LayerGroupsMap extends React.Component {
       layerGroupsInteraction,
       layerGroupsInteractionSelected,
       layerGroupsInteractionLatLng,
+      mapLocation,
+      setMapLocation,
     } = this.props
 
     const mapConfig = {
@@ -33,6 +35,7 @@ class LayerGroupsMap extends React.Component {
         url: BASEMAPS.dark.value,
         options: BASEMAPS.dark.options,
       },
+      bounds: mapLocation,
       label: {
         url: LABELS.light.value,
         options: LABELS.light.options,
@@ -60,9 +63,7 @@ class LayerGroupsMap extends React.Component {
               {/* Controls */}
               <MapControls customClass="c-map-controls">
                 <ZoomControl map={map} />
-                <SearchControl
-                  setMapLocation={(params) => console.log(params)}
-                />
+                <SearchControl setMapLocation={setMapLocation} />
               </MapControls>
 
               {/* Popup */}
@@ -139,6 +140,8 @@ LayerGroupsMap.propTypes = {
   setMapLayerGroupsInteractionLatLng: PropTypes.func.isRequired,
   setMapLayerGroupsInteractionSelected: PropTypes.func.isRequired,
   resetMapLayerGroupsInteraction: PropTypes.func.isRequired,
+  mapLocation: PropTypes.object,
+  setMapLocation: PropTypes.func.isRequired,
 }
 
 export default LayerGroupsMap

@@ -2,17 +2,10 @@
 // https://github.com/resource-watch/resource-watch/blob/develop/components/ui/map/controls/SearchControl.js
 
 import React from 'react';
-// import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import classNames from 'classnames';
-// import * as actions from 'layout/explore/explore-actions';
 
-// Components
 import Geosuggest from 'react-geosuggest';
 import { Icon } from 'vizzuality-components';
-
-// Utils
-// import { logEvent } from 'utils/analytics';
 
 class SearchControl extends React.Component {
   static propTypes = { setMapLocation: PropTypes.func.isRequired };
@@ -50,10 +43,6 @@ class SearchControl extends React.Component {
         });
       }
 
-      // if ('label' in e) {
-      //   logEvent('Explore map', ' Search for a place', e.label);
-      // }
-
       this.onToggleSearchInput(false);
     }
   }
@@ -64,7 +53,6 @@ class SearchControl extends React.Component {
     }
   }
 
-  // RENDER
   render() {
     const { showSearchInput } = this.state;
     const className = 'c-map-search-control';

@@ -5,6 +5,7 @@ import ResourceWatchLegend from 'components/ResourceWatchLegend'
 class ResourceWatchMap extends React.Component {
   state = {
     layerGroups: {},
+    mapLocation: {},
   }
 
   addLayerGroup = (layer) => {
@@ -141,6 +142,8 @@ class ResourceWatchMap extends React.Component {
       <div style={style}>
         <LayerGroupsMap
           style={mapStyle}
+          mapLocation={this.state.mapLocation}
+          setMapLocation={(location) => this.setState({mapLocation: location})}
           layerGroups={filteredLayerGroups}
           resetMapLayerGroupsInteraction={(args) =>
             alert('resetMapLayerGroupsInteraction not yet defined!', args)
