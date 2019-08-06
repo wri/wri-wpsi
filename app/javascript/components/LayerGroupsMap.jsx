@@ -57,7 +57,8 @@ class LayerGroupsMap extends React.Component {
         <Map {...mapConfig}>
           {(map) => (
             <React.Fragment>
-              <MapControls>
+              {/* Controls */}
+              <MapControls customClass="c-map-controls">
                 <ZoomControl map={map} />
                 <SearchControl
                   setMapLocation={(params) => console.log(params)}
