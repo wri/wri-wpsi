@@ -2,6 +2,7 @@
   "name": "wri-wpsi",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@rails/webpacker": "^4.0.7",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
