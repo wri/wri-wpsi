@@ -1,2 +1,20 @@
-// Module styles
+// ####### Module styles ####### //
+
 @import 'vizzuality-components/dist/bundle.css';
+
+
+// ####### Resource Watch styles ####### //
+
+// Zoom controls
+$map-controls-index: 10;
+$space-1: 16;
+$color-white: white;
+$animation-time: .16s;
+$border-color-2: rgba(202,204,208,.85);
+$color-text-1: black;
+@import './map-controls.scss';
+
+// Popup
+$font-weight-bold: 700;
+$color-primary: #c32d7b;
+@import './map-popup.scss';
