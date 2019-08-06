@@ -13,5 +13,8 @@ html
     / Webpacker pipeline
     = javascript_pack_tag 'application'
     = stylesheet_pack_tag 'application'
+
+    - key = ENV['WRI_WPSI_GOOGLE_MAPS_API_KEY']
+    script src="https://maps.googleapis.com/maps/api/js?key=#{key}&libraries=places"
   body
     = yield

@@ -8,13 +8,20 @@
 // Zoom controls
 $map-controls-index: 10;
 $space-1: 16;
-$color-white: white;
+$color-white: #fff;
 $animation-time: .16s;
 $border-color-2: rgba(202,204,208,.85);
-$color-text-1: black;
+$color-text-1: #393f44;
 @import './map-controls.scss';
 
 // Popup
 $font-weight-bold: 700;
 $color-primary: #c32d7b;
 @import './map-popup.scss';
+
+// Search control
+$charcoal-grey: #393f44;
+$ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+$font-size-default: 14px;
+$white: #ffffff;
+@import './map-search-control.scss';

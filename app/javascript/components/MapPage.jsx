@@ -10,6 +10,8 @@ const MapPage = () => {
 
   const [modalOpen, setModalOpen] = React.useState(false)
 
+  const [selectedRegion, setSelectedRegion] = React.useState(null)
+
   const [layerGroupsInteraction, setMapLayerGroupsInteraction] = React.useState({})
   const [layerGroupsInteractionSelected, setMapLayerGroupsInteractionSelected] = React.useState(null)
   const [layerGroupsInteractionLatLng, setMapLayerGroupsInteractionLatLng] = React.useState(null)
@@ -85,12 +87,17 @@ const MapPage = () => {
       activeLayers={activeLayers}
       onToggleLayer={handleToggleLayer}
       onChangeLayerOrder={handleChangeLayerOrder}
+      setSelectedRegion={setSelectedRegion}
       interactionState={interactionState}
     />
 
     <div style={sideDrawerStyle}>
       <div style={{margin: 30}}>
-        <MapSideBar setModalOpen={setModalOpen} activeLayers={activeLayers} />
+        <MapSideBar
+          setModalOpen={setModalOpen}
+          activeLayers={activeLayers}
+          selectedRegion={selectedRegion}
+        />
 
         <DatasetsModal
           open={modalOpen}

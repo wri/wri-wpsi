@@ -9,7 +9,10 @@ import {
 import { LayerManager, Layer } from 'layer-manager/dist/components'
 import { PluginLeaflet } from 'layer-manager'
 import { BASEMAPS, LABELS } from 'components/constants'
+
+// Components copied from Resource Watch
 import LayerPopup from 'components/LayerPopup'
+import SearchControl from 'components/SearchControl'
 
 class LayerGroupsMap extends React.Component {
   render() {
@@ -19,6 +22,9 @@ class LayerGroupsMap extends React.Component {
       layerGroupsInteraction,
       layerGroupsInteractionSelected,
       layerGroupsInteractionLatLng,
+      mapLocation,
+      setMapLocation,
+      setSelectedRegion,
     } = this.props
 
     const mapConfig = {
@@ -30,6 +36,7 @@ class LayerGroupsMap extends React.Component {
         url: BASEMAPS.dark.value,
         options: BASEMAPS.dark.options,
       },
+      bounds: mapLocation,
       label: {
         url: LABELS.light.value,
         options: LABELS.light.options,
@@ -54,8 +61,13 @@ class LayerGroupsMap extends React.Component {
         <Map {...mapConfig}>
           {(map) => (
             <React.Fragment>
-              <MapControls>
+              {/* Controls */}
+              <MapControls customClass="c-map-controls">
                 <ZoomControl map={map} />
+                <SearchControl
+                  setMapLocation={setMapLocation}
+                  setSelectedRegion={setSelectedRegion}
+                />
               </MapControls>
 
               {/* Popup */}
@@ -124,6 +136,7 @@ import PropTypes from 'prop-types'
 LayerGroupsMap.propTypes = {
   style: PropTypes.object,
   layerGroups: PropTypes.array.isRequired,
+
   // Interactions
   layerGroupsInteraction: PropTypes.object,
   layerGroupsInteractionSelected: PropTypes.string,
@@ -132,6 +145,9 @@ LayerGroupsMap.propTypes = {
   setMapLayerGroupsInteractionLatLng: PropTypes.func.isRequired,
   setMapLayerGroupsInteractionSelected: PropTypes.func.isRequired,
   resetMapLayerGroupsInteraction: PropTypes.func.isRequired,
+  mapLocation: PropTypes.object,
+  setMapLocation: PropTypes.func.isRequired,
+  setSelectedRegion: PropTypes.func.isRequired,
 }
 
 export default LayerGroupsMap

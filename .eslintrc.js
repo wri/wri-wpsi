@@ -37,6 +37,6 @@ module.exports = {
       "react"
     ],
     "rules": {
-      'no-console': 1,
+      "no-console": [1, { allow: ["warn", "error"] }],
     }
 };
