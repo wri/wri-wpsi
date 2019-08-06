@@ -1,85 +1,20 @@
-// Module styles
+// ####### Module styles ####### //
+
 @import 'vizzuality-components/dist/bundle.css';
 
-// Zoom controls
-.wri_api__c-map-controls {
-  .wri_api__map-controls-list-item {
-    button {
-      cursor: pointer;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 30px;
-      height: 30px;
-      outline: none;
-      border: none;
-      border-radius: 4px;
-      background-color: #fff;
-      transition: background-color linear .16s;
-      &:not(:first-child) {
-        border-top: 1px solid rgba(202,204,208,.85);
-      }
-      &:hover {
-        background-color: darken(#fff, 5%);
-      }
-      &.-disabled {
-        pointer-events: none;
-        opacity: 0.25;
-      }
-    }
-  }
-}
 
+// ####### Resource Watch styles ####### //
+
+// Zoom controls
+$map-controls-index: 10;
+$space-1: 16;
+$color-white: white;
+$animation-time: .16s;
+$border-color-2: rgba(202,204,208,.85);
+$color-text-1: black;
+@import './map-controls.scss';
 
 // Popup
 $font-weight-bold: 700;
-
-.c-map-popup {
-  width: 100%;
-
-  .popup-header {
-    border-bottom: 1px solid #CCC;
-
-    .popup-header-select {
-      width: calc(100% - 46px);
-      margin: 0;
-      border: none;
-      border-radius: 0;
-      padding: 10px;
-      box-shadow: none;
-      outline: none;
-      height: 46px;
-      font-weight: $font-weight-bold;
-    }
-  }
-
-  .popup-content {
-    padding: 20px;
-    max-height: 290px;
-
-    overflow-y: auto;
-  }
-
-  .popup-loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .popup-table {
-    width: inherit;
-
-    .dt {
-      padding: 2px;
-      font-weight: $font-weight-bold;
-      vertical-align: baseline;
-    }
-
-    .dd {
-      width: 60%; // Make sure data in tooltip always have 60% of the free space
-      padding: 0 0 0 10px;
-      vertical-align: baseline;
-    }
-  }
-}
+$color-primary: #c32d7b;
+@import './map-popup.scss';

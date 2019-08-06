@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 
 import isEmpty from 'lodash/isEmpty';
 
+import moment from 'moment';
+import numeral from 'numeral';
+
 import { replace } from 'layer-manager';
 
 import Spinner from 'vizzuality-components';
@@ -70,9 +73,9 @@ class LayerPopup extends React.Component {
           this.setState({ loading: false });
           if (err && err.json && typeof err.json === 'function') {
             err.json()
-              // .then((er) => {
-              //   console.error(er);
-              // });
+              .then((er) => {
+                console.error(er);
+              });
           }
         })
         .finally(() => {
@@ -83,11 +86,9 @@ class LayerPopup extends React.Component {
 
   formatValue(item, data) {
     if (item.type === 'date' && item.format && data) {
-      alert('Not yet handled!')
-      // data = moment(data).format(item.format);
+      data = moment(data).format(item.format);
     } else if (item.type === 'number' && item.format && data) {
-      alert('Not yet handled!')
-      // data = numeral(data).format(item.format);
+      data = numeral(data).format(item.format);
     }
 
     function removeHtmlTags(str) {
