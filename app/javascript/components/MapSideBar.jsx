@@ -1,8 +1,11 @@
 import React from 'react'
-import { Icon } from 'vizzuality-components'
+import { Icon, LegendItemButtonRemove } from 'vizzuality-components'
 import LayerCard from 'components/LayerCard'
+import Switch from 'react-switch'
 
 const MapSideBar = ({ setModalOpen, activeLayers, selectedRegion, onRemoveLayer }) => {
+  const [checked, setChecked] = React.useState(false)
+
   const headerStyle = {
     display: 'flex',
     justifyContent: 'space-between',
@@ -41,11 +44,35 @@ const MapSideBar = ({ setModalOpen, activeLayers, selectedRegion, onRemoveLayer 
         </button>
       </div>
 
-      <LayerCard variant='simple' layer={{name: 'Highlight areas of water stress'}} />
+      <LayerCard
+        variant='simple'
+        layer={{name: 'Highlight areas of water stress'}}
+        secondaryAction={
+          <Switch
+            onChange={(value) => setChecked(value)}
+            checked={checked}
+            onColor={'#003F6A'}
+            offColor={'#B6C6BC'}
+            checkedIcon={false}
+            uncheckedIcon={false}
+            className='square-switch'
+          />
+        }
+      />
 
       {
         activeLayers.map(layer =>
-          <LayerCard key={layer.id} layer={layer} onRemoveLayer={onRemoveLayer} />
+          <LayerCard
+            key={layer.id}
+            layer={layer}
+            onRemoveLayer={onRemoveLayer}
+            secondaryAction={
+              <LegendItemButtonRemove
+                onRemoveLayer={() => onRemoveLayer(layer)}
+                tooltipText='Hide'
+              />
+            }
+          />
         )
       }
 
