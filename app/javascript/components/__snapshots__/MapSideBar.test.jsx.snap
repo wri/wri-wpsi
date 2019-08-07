@@ -2,25 +2,168 @@
 
 exports[`renders correctly 1`] = `
 Array [
-  <h1>
-    Investigation
-  </h1>,
-  <button
-    onClick={[Function]}
-  >
-    + Add datasets to investigation
-  </button>,
   <div
     style={
       Object {
-        "marginTop": 20,
+        "alignItems": "center",
+        "borderBottom": "1px solid #B6C6BC",
+        "display": "flex",
+        "justifyContent": "space-between",
+        "padding": "12px",
       }
     }
   >
-    <h3>
-      Current Datasets:
-    </h3>
-    <ul />
+    <h1>
+      Investigation
+    </h1>
+    <button
+      onClick={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#003F6A",
+          "borderRadius": "4px",
+          "color": "#FFFFFF",
+          "display": "flex",
+          "height": "36px",
+          "padding": "8px",
+          "textTransform": "uppercase",
+        }
+      }
+    >
+      <svg
+        className="wri_api__c-icon"
+        style={
+          Object {
+            "backgroundColor": "#003F6A",
+            "fill": "#FFFFFF",
+            "height": "20px",
+            "marginRight": "8px",
+            "width": "20px",
+          }
+        }
+      >
+        <use
+          xlinkHref="#icon-plus"
+        />
+      </svg>
+      Add datasets to investigation
+    </button>
+  </div>,
+  <div
+    style={
+      Object {
+        "backgroundColor": "#EBEEEF",
+        "borderBottom": "1px solid #B6C6BC",
+        "padding": "4px 24px",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "space-between",
+        }
+      }
+    >
+      <h2>
+        Highlight areas of water stress
+      </h2>
+      <div
+        className="square-switch"
+        style={
+          Object {
+            "MozTransition": "opacity 0.25s",
+            "MozUserSelect": "none",
+            "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+            "WebkitTransition": "opacity 0.25s",
+            "WebkitUserSelect": "none",
+            "borderRadius": 14,
+            "direction": "ltr",
+            "display": "inline-block",
+            "msUserSelect": "none",
+            "opacity": 1,
+            "position": "relative",
+            "textAlign": "left",
+            "touchAction": "none",
+            "transition": "opacity 0.25s",
+            "userSelect": "none",
+          }
+        }
+      >
+        <div
+          className="react-switch-bg"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "MozTransition": "background 0.25s",
+              "WebkitTransition": "background 0.25s",
+              "background": "#B6C6BC",
+              "borderRadius": 14,
+              "cursor": "pointer",
+              "height": 28,
+              "margin": 0,
+              "position": "relative",
+              "transition": "background 0.25s",
+              "width": 56,
+            }
+          }
+        />
+        <div
+          className="react-switch-handle"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          onTouchCancel={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          style={
+            Object {
+              "MozTransition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+              "WebkitTransition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+              "background": "#ffffff",
+              "border": 0,
+              "borderRadius": "50%",
+              "boxShadow": null,
+              "cursor": "pointer",
+              "display": "inline-block",
+              "height": 26,
+              "outline": 0,
+              "position": "absolute",
+              "top": 1,
+              "transform": "translateX(1px)",
+              "transition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+              "width": 26,
+            }
+          }
+        />
+        <input
+          checked={false}
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          onKeyUp={[Function]}
+          role="switch"
+          style={
+            Object {
+              "border": 0,
+              "clip": "rect(0 0 0 0)",
+              "height": 1,
+              "margin": -1,
+              "overflow": "hidden",
+              "padding": 0,
+              "position": "absolute",
+              "width": 1,
+            }
+          }
+          type="checkbox"
+        />
+      </div>
+    </div>
   </div>,
 ]
 `;
