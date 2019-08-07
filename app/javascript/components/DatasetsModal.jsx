@@ -21,6 +21,11 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
       border: '1px solid #888',
       width: '80%',
     }
+    const modalHeaderStyle = {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'flex-start',
+    }
     const closeButtonStyle = {
       padding: '0',
       border: '0',
@@ -32,7 +37,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
     return (
       <div style={modalBackgroundStyle}>
         <div style={modalStyle}>
-          <div style={{display: 'flex', justifyContent: 'space-between'}}>
+          <div style={modalHeaderStyle}>
             <h1>Add Datasets to Investigation</h1>
 
               <button style={closeButtonStyle} onClick={onClose} aria-label="Close">

@@ -72,6 +72,7 @@ const MapPage = () => {
     position: 'absolute',
     width: 500,
     right: 0,
+    borderLeft: '1px solid #B6C6BC',
   }
 
   return <React.Fragment>
@@ -92,20 +93,19 @@ const MapPage = () => {
     />
 
     <div style={sideDrawerStyle}>
-      <div style={{margin: 30}}>
-        <MapSideBar
-          setModalOpen={setModalOpen}
-          activeLayers={activeLayers}
-          selectedRegion={selectedRegion}
-        />
+      <MapSideBar
+        setModalOpen={setModalOpen}
+        activeLayers={activeLayers}
+        selectedRegion={selectedRegion}
+        onRemoveLayer={removeLayer}
+      />
 
-        <DatasetsModal
-          open={modalOpen}
-          onClose={() => setModalOpen(false)}
-          isActive={isActive}
-          onToggleLayerClick={handleToggleLayerClick}
-         />
-      </div>
+      <DatasetsModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        isActive={isActive}
+        onToggleLayerClick={handleToggleLayerClick}
+      />
     </div>
 
 

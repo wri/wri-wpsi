@@ -2,6 +2,9 @@ import React from 'react'
 
 const AboutPage = () => {
   return <div style={{
+    maxWidth: '800px',
+    margin: 'auto',
+    padding: '20px',
     textAlign: 'center',
     borderBottom: '1px solid #B8C5D0',
   }}>

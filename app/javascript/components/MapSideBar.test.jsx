@@ -6,7 +6,8 @@ it('renders correctly', () => {
   const component = renderer.create(
     <MapSideBar
       activeLayers={[]}
-      setModalOpen={() => console.log('nothing')}
+      setModalOpen={() => null}
+      onRemoveLayer={() => null}
     />
   )
 
