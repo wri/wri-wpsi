@@ -1,13 +1,9 @@
 import React from 'react'
-import Switch from 'react-switch'
-import { LegendItemButtonRemove } from 'vizzuality-components'
 
-const LayerCard = ({ layer, variant, onRemoveLayer }) => {
-  const [checked, setChecked] = React.useState(false)
-
+const LayerCard = ({ layer, variant, secondaryAction }) => {
   const containerStyle = {
-    backgroundColor: '#EBEEEF',
-    padding: '4px 24px',
+    backgroundColor: variant === 'white' ? '#FFFFFF' : '#EBEEEF',
+    padding: variant === 'white' ? '4px 0px' : '4px 24px',
     borderBottom: '1px solid #B6C6BC',
   }
 
@@ -39,15 +35,7 @@ const LayerCard = ({ layer, variant, onRemoveLayer }) => {
       <div style={containerStyle}>
         <div style={titleAreaStyle}>
           <h2>{layer.name}</h2>
-          <Switch
-            onChange={(value) => setChecked(value)}
-            checked={checked}
-            onColor={'#003F6A'}
-            offColor={'#B6C6BC'}
-            checkedIcon={false}
-            uncheckedIcon={false}
-            className='square-switch'
-          />
+          {secondaryAction}
         </div>
       </div>
     )
@@ -56,13 +44,10 @@ const LayerCard = ({ layer, variant, onRemoveLayer }) => {
       <div style={containerStyle}>
         <div style={titleAreaStyle}>
           <h2>{layer.name}</h2>
-          <LegendItemButtonRemove
-            onRemoveLayer={() => onRemoveLayer(layer)}
-            tooltipText='Hide'
-          />
+          {secondaryAction}
         </div>
         <p>
-          Description goes here.
+          Description of the {layer.name} dataset goes here.
           <a href="#" style={moreLinkStyle}>Learn more &gt;</a>
         </p>
         <div style={{marginBottom: '15px'}}>
@@ -80,7 +65,7 @@ import PropTypes from 'prop-types'
 LayerCard.propTypes = {
   layer: PropTypes.object.isRequired,
   variant: PropTypes.string,
-  onRemoveLayer: PropTypes.func,
+  secondaryAction: PropTypes.object,
 }
 
 export default LayerCard
