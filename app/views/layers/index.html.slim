@@ -1,0 +1,34 @@
+div.admin-content-container
+  p#notice = notice
+
+  h1 Listing layers
+
+  table.layers-table
+    thead
+      tr
+        th Name
+        th Description
+        th Layer
+        th Dataset
+        th Published
+        th Category
+        th
+        th
+        th
+
+    tbody
+      - @layers.each do |layer|
+        tr
+          td = layer.name
+          td = layer.description
+          td = layer.layer_id
+          td = layer.dataset_id
+          td = layer.published
+          td = layer.category
+          td = link_to 'Show', layer
+          td = link_to 'Edit', edit_layer_path(layer)
+          td = link_to 'Destroy', layer, data: { confirm: 'Are you sure?' }, method: :delete
+
+  br
+
+  = link_to 'New Layer', new_layer_path

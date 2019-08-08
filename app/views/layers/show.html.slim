@@ -1,0 +1,25 @@
+div.admin-content-container
+  p#notice = notice
+
+  p
+    strong Name:
+    = @layer.name
+  p
+    strong Description:
+    = @layer.description
+  p
+    strong Layer:
+    = @layer.layer_id
+  p
+    strong Dataset:
+    = @layer.dataset_id
+  p
+    strong Published:
+    = @layer.published
+  p
+    strong Category:
+    = @layer.category
+
+  => link_to 'Edit', edit_layer_path(@layer)
+  '|
+  =< link_to 'Back', layers_path

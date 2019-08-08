@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :layers
   root 'root#index'
 
   # Single page app endpoint
