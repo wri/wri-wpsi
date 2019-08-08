@@ -5,7 +5,7 @@ import DatasetsModal from 'components/DatasetsModal'
 import { LAYERS } from 'components/datasets'
 
 const MapPage = () => {
-  const [activeLayers, setActiveLayers] = React.useState([LAYERS[0]])
+  const [activeLayers, setActiveLayers] = React.useState(LAYERS.filter(layer => layer.initially_on))
   const activeLayerIds = activeLayers.map(l => l.id)
 
   const [modalOpen, setModalOpen] = React.useState(false)

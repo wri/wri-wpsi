@@ -6,6 +6,7 @@ AllCops:
     - 'config/**/*'
     - 'db/**/*'
     - 'node_modules/**/*'
+    - 'untracked/**/*'
 
 Metrics/LineLength:
   Max: 100
