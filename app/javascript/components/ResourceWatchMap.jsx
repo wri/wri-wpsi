@@ -4,18 +4,26 @@ import ResourceWatchLegend from 'components/ResourceWatchLegend'
 
 class ResourceWatchMap extends React.Component {
   state = {
+    layers: [],
     layerGroups: {},
     mapLocation: {}, // Example: {bbox: [38.65, 8.84, 38.90, 9.08]}
   }
 
-  addLayerGroup = (layer) => {
-    const { layerGroups } = this.state
+  addLayer = (layer) => {
+    const { layers } = this.state
+    this.setState({layers: layers.concat([layer])})
+  }
 
-    layerGroups[layer.id] = {
-      dataset: layer.id,
-      visibility: true,
-      layers: [layer],
-    }
+  createLayerGroups = () => {
+    const { layerGroups, layers } = this.state
+
+    layers.forEach(layer => {
+      layerGroups[layer.id] = {
+        dataset: layer.id,
+        visibility: true,
+        layers: [layer],
+      }
+    })
 
     this.setState({ layerGroups })
   }
@@ -45,7 +53,7 @@ class ResourceWatchMap extends React.Component {
     })
   }
 
-  reformatLayer = (layer) => {
+  reshapeLayerDefinition = (layer) => {
     return {
       id: layer.id,
       type: layer.type,
@@ -53,35 +61,35 @@ class ResourceWatchMap extends React.Component {
     }
   }
 
-  fetchLayer = (layerId) => {
+  fetchLayerDefinition = (layerId) => {
     const layerUrl = `https://api.resourcewatch.org/v1/layer/${layerId}`
 
-    fetch(layerUrl)
+    return fetch(layerUrl)
       .then(response => response.json())
       .then(response => {
-        const layer = this.reformatLayer(response.data)
-        layer.active = true
-        this.addLayerGroup(layer)
+        const layerDefinition = this.reshapeLayerDefinition(response.data)
+        layerDefinition.active = true
+        this.addLayer(layerDefinition)
       })
   }
 
   fetchDataset = (datasetId) => {
     const datasetUrl = `https://api.resourcewatch.org/v1/dataset/${datasetId}/layer`
 
-    fetch(datasetUrl)
+    return fetch(datasetUrl)
       .then(response => response.json())
       .then(response => {
-        const layers = response.data.map(this.reformatLayer)
+        const layerDefinitions = response.data.map(this.reshapeLayerDefinition)
 
-        if (layers.length == 0) {
-          alert(`Dataset ${datasetId} has no layers!`)
+        if (layerDefinitions.length == 0) {
+          alert(`Dataset ${datasetId} has no layer definitions!`)
           return
         }
 
-        layers[0].active = true
+        layerDefinitions[0].active = true
 
-        layers.forEach(layer => {
-          this.addLayerGroup(layer)
+        layerDefinitions.forEach(layer => {
+          this.addLayer(layer)
         })
       })
   }
@@ -110,9 +118,10 @@ class ResourceWatchMap extends React.Component {
     const { layerId, layerIds, datasetId, datasetIds } = this.props.params
 
     if (layerId) {
-      this.fetchLayer(layerId)
+      this.fetchLayerDefinition(layerId)
     } else if (layerIds) {
-      layerIds.forEach(this.fetchLayer)
+      const promises = layerIds.map(this.fetchLayerDefinition)
+      Promise.all(promises).then(() => this.createLayerGroups())
     } else if (datasetId) {
       this.fetchDataset(datasetId)
     } else if (datasetIds) {
