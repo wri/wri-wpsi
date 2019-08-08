@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { LAYERS, DATASETS } from 'components/datasets'
+import { LAYERS } from 'components/datasets'
 
 const renderMapTable = (title, rows) => {
   return (
@@ -33,7 +33,6 @@ const LayersList = () => {
     padding: 19,
   }}>
     {renderMapTable('Layers', LAYERS)}
-    {renderMapTable('Datasets', DATASETS)}
   </div>
 }
 

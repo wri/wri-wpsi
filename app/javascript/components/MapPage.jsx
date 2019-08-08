@@ -84,7 +84,7 @@ const MapPage = () => {
         left: 0,
         right: 500,
       }}
-      params={{layerIds: LAYERS.map((layer) => layer.id)}}
+      layerIds={LAYERS.map((layer) => layer.id)}
       activeLayers={activeLayers}
       onToggleLayer={handleToggleLayer}
       onChangeLayerOrder={handleChangeLayerOrder}

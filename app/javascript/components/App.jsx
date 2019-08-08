@@ -5,7 +5,7 @@ import MapPage from 'components/MapPage'
 import AboutPage from 'components/AboutPage'
 import MethodologyPage from 'components/MethodologyPage'
 import LayersList from 'components/LayersList'
-import LayerMap from 'components/LayerMap'
+import LayerMapPage from 'components/LayerMapPage'
 import { Icons } from 'vizzuality-components'
 
 const App = () => {
@@ -23,8 +23,8 @@ const App = () => {
         <Route path="/about" component={AboutPage} />
         <Route path="/methodology" component={MethodologyPage} />
         <Route path="/layers" exact component={LayersList} />
-        <Route path="/layers/:layerId" component={LayerMap} />
-        <Route path="/datasets/:datasetId" component={LayerMap} />
+        <Route path="/layers/:layerId" component={LayerMapPage} />
+        <Route path="/datasets/:datasetId" component={LayerMapPage} />
       </div>
 
       {/* Include Vizzuality icons for use in other Vizzuality components */}

@@ -73,27 +73,6 @@ class ResourceWatchMap extends React.Component {
       })
   }
 
-  fetchDataset = (datasetId) => {
-    const datasetUrl = `https://api.resourcewatch.org/v1/dataset/${datasetId}/layer`
-
-    return fetch(datasetUrl)
-      .then(response => response.json())
-      .then(response => {
-        const layerDefinitions = response.data.map(this.reshapeLayerDefinition)
-
-        if (layerDefinitions.length == 0) {
-          alert(`Dataset ${datasetId} has no layer definitions!`)
-          return
-        }
-
-        layerDefinitions[0].active = true
-
-        layerDefinitions.forEach(layer => {
-          this.addLayer(layer)
-        })
-      })
-  }
-
   filterLayerGroups = () => {
     const { layerGroups } = this.state
     const { activeLayers } = this.props
@@ -115,18 +94,9 @@ class ResourceWatchMap extends React.Component {
   }
 
   componentDidMount() {
-    const { layerId, layerIds, datasetId, datasetIds } = this.props.params
-
-    if (layerId) {
-      this.fetchLayerDefinition(layerId)
-    } else if (layerIds) {
-      const promises = layerIds.map(this.fetchLayerDefinition)
-      Promise.all(promises).then(() => this.createLayerGroups())
-    } else if (datasetId) {
-      this.fetchDataset(datasetId)
-    } else if (datasetIds) {
-      datasetIds.forEach(this.fetchDataset)
-    }
+    const { layerIds } = this.props
+    const promises = layerIds.map(this.fetchLayerDefinition)
+    Promise.all(promises).then(() => this.createLayerGroups())
   }
 
   render() {
@@ -183,9 +153,9 @@ class ResourceWatchMap extends React.Component {
 import PropTypes from 'prop-types'
 ResourceWatchMap.propTypes = {
   style: PropTypes.object,
-  params: PropTypes.object.isRequired,
-  interactionState: PropTypes.object.isRequired,
+  layerIds: PropTypes.array.isRequired,
   activeLayers: PropTypes.array,
+  interactionState: PropTypes.object.isRequired,
   onToggleLayer: PropTypes.func.isRequired,
   onChangeLayerOrder: PropTypes.func.isRequired,
   setSelectedRegion: PropTypes.func.isRequired,
