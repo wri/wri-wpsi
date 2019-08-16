@@ -25,10 +25,10 @@ div.admin-content-container
           td = layer.dataset_id
           td = layer.published
           td = layer.category
-          td = link_to 'Show', layer
-          td = link_to 'Edit', edit_layer_path(layer)
-          td = link_to 'Destroy', layer, data: { confirm: 'Are you sure?' }, method: :delete
+          td = link_to 'Show', [:admin, layer]
+          td = link_to 'Edit', edit_admin_layer_path(layer)
+          td = link_to 'Destroy', [:admin, layer], data: { confirm: 'Are you sure?' }, method: :delete
 
   br
 
-  = link_to 'New Layer', new_layer_path
+  = link_to 'New Layer', new_admin_layer_path

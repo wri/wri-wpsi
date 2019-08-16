@@ -1,4 +1,4 @@
-class LayersController < ApplicationController
+class Admin::LayersController < ApplicationController
   before_action :set_layer, only: %i[show edit update destroy]
 
   def index
@@ -17,7 +17,7 @@ class LayersController < ApplicationController
     @layer = Layer.new(layer_params)
 
     if @layer.save
-      redirect_to @layer, notice: 'Layer was successfully created.'
+      redirect_to [:admin, @layer], notice: 'Layer was successfully created.'
     else
       render :new
     end
@@ -25,7 +25,7 @@ class LayersController < ApplicationController
 
   def update
     if @layer.update(layer_params)
-      redirect_to @layer, notice: 'Layer was successfully updated.'
+      redirect_to [:admin, @layer], notice: 'Layer was successfully updated.'
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class LayersController < ApplicationController
 
   def destroy
     @layer.destroy
-    redirect_to layers_url, notice: 'Layer was successfully destroyed.'
+    redirect_to admin_layers_url, notice: 'Layer was successfully destroyed.'
   end
 
   private
