@@ -1,4 +1,4 @@
-class Admin::LayersController < ApplicationController
+class Admin::LayersController < Admin::BaseController
   before_action :set_layer, only: %i[show edit update destroy]
 
   def index
