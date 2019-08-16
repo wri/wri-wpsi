@@ -45,7 +45,7 @@ class LayersTest < ApplicationSystemTestCase
   test 'destroying a Layer' do
     visit admin_layers_url
     page.accept_confirm do
-      click_on 'Destroy', match: :first
+      click_on 'Delete', match: :first
     end
 
     assert_text 'Layer was successfully destroyed'

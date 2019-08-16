@@ -1,24 +1,25 @@
 div.admin-content-container
   p#notice = notice
 
-  p
-    strong Name:
-    = @layer.name
-  p
-    strong Description:
-    = @layer.description
-  p
-    strong Layer:
-    = @layer.layer_id
-  p
-    strong Dataset:
-    = @layer.dataset_id
-  p
-    strong Published:
-    = @layer.published
-  p
-    strong Category:
-    = @layer.category
+  div.show-page-items
+    p
+      strong Name:
+      = @layer.name
+    p
+      strong Description:
+      = @layer.description
+    p
+      strong Layer:
+      = @layer.layer_id
+    p
+      strong Dataset:
+      = @layer.dataset_id
+    p
+      strong Published:
+      = @layer.published
+    p
+      strong Category:
+      = @layer.category
 
   => link_to 'Edit', edit_admin_layer_path(@layer)
   '|

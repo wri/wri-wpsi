@@ -27,7 +27,7 @@ div.admin-content-container
           td = layer.category
           td = link_to 'Show', [:admin, layer]
           td = link_to 'Edit', edit_admin_layer_path(layer)
-          td = link_to 'Destroy', [:admin, layer], data: { confirm: 'Are you sure?' }, method: :delete
+          td = link_to 'Delete', [:admin, layer], data: { confirm: 'Are you sure?' }, method: :delete
 
   br
 
