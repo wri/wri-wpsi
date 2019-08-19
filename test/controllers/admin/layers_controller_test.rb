@@ -25,6 +25,7 @@ class Admin::LayersControllerTest < ActionDispatch::IntegrationTest
           layer_id: 'some_unique_id',
           name: @layer.name,
           published: @layer.published,
+          primary: @layer.primary,
         },
       }
     end
@@ -50,6 +51,7 @@ class Admin::LayersControllerTest < ActionDispatch::IntegrationTest
         description: @layer.description,
         layer_id: @layer.layer_id,
         name: @layer.name,
+        primary: @layer.primary,
         published: @layer.published,
       },
     }

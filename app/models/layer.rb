@@ -1,6 +1,4 @@
 class Layer < ApplicationRecord
-  MAIN_LAYER_ID = '107b72a6-6a52-4c8e-a261-d01706627322'.freeze
-
   def self.published
     where(published: true)
   end
@@ -13,7 +11,7 @@ class Layer < ApplicationRecord
         category: layer.category,
         name: layer.name,
         description: layer.description,
-        initially_on: layer.layer_id == MAIN_LAYER_ID,
+        initially_on: layer.primary?,
       }
     end
   end

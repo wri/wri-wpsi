@@ -20,6 +20,7 @@ class LayersTest < ApplicationSystemTestCase
     fill_in 'Layer', with: 'some_unique_id'
     fill_in 'Name', with: @layer.name
     check 'Published' if @layer.published
+    check 'Primary' if @layer.primary
     click_on 'Create Layer'
 
     assert_text 'Layer was successfully created'
@@ -36,6 +37,7 @@ class LayersTest < ApplicationSystemTestCase
     fill_in 'Layer', with: @layer.layer_id
     fill_in 'Name', with: @layer.name
     check 'Published' if @layer.published
+    check 'Primary' if @layer.primary
     click_on 'Update Layer'
 
     assert_text 'Layer was successfully updated'

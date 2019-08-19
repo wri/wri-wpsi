@@ -4,6 +4,7 @@ conflict_one:
   layer_id: '107b72a6-6a52-4c8e-a261-d01706627322'
   dataset_id: '0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3'
   published: true
+  primary: true
 
 community_one:
   category: 'Community'

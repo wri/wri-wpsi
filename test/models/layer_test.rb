@@ -4,6 +4,7 @@ class LayerTest < ActiveSupport::TestCase
   setup do
     @layer_one = layers(:conflict_one)
     @layer_two = layers(:community_one)
+    @layers = Layer.where(id: [@layer_one.id, @layer_two.id])
   end
 
   test 'self.serialized_for_react_app' do
@@ -26,6 +27,6 @@ class LayerTest < ActiveSupport::TestCase
       },
     ]
 
-    assert_equal expected, Layer.serialized_for_react_app.first(2)
+    assert_equal expected, @layers.serialized_for_react_app
   end
 end
