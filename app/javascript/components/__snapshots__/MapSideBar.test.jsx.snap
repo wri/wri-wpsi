@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-Array [
+<div
+  id="sidebar"
+>
   <div
     style={
       Object {
@@ -49,7 +51,7 @@ Array [
       </svg>
       Add datasets to investigation
     </button>
-  </div>,
+  </div>
   <div
     style={
       Object {
@@ -164,6 +166,6 @@ Array [
         />
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
