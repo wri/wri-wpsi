@@ -11,10 +11,12 @@ class CategoryTest < ActiveSupport::TestCase
     expected = [
       {
         title: @category_one.title,
+        slug: @category_one.slug,
         description: @category_one.description,
       },
       {
         title: @category_two.title,
+        slug: @category_two.slug,
         description: @category_two.description,
       },
     ]

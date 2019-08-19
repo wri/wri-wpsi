@@ -15,7 +15,7 @@ class Layer < ApplicationRecord
       {
         id: layer.layer_id,
         dataset: layer.dataset_id,
-        category: layer.category.title,
+        category: layer.category.slug,
         name: layer.name,
         description: layer.description,
         initially_on: layer.primary?,

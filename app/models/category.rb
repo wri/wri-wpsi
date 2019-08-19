@@ -15,6 +15,7 @@ class Category < ApplicationRecord
     all.map do |category|
       {
         title: category.title,
+        slug: category.slug,
         description: category.description,
       }
     end

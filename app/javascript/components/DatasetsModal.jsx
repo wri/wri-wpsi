@@ -3,8 +3,12 @@ import { LAYERS } from 'components/datasets'
 import { Icon } from 'vizzuality-components'
 import LayerCard from 'components/LayerCard'
 
+const CATEGORIES = window.categories
+
 const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
-  const [selectedTab, setSelectedTab] = React.useState('Conflict')
+  const [selectedCategory, setSelectedCategory] = React.useState(
+    CATEGORIES.find(category => category.slug == 'water')
+  )
 
   if (open) {
     const modalBackgroundStyle = {
@@ -80,15 +84,22 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
       textTransform: 'uppercase',
     }
 
-    const renderTab = (tabName) => (
+    const renderTab = (category) => (
       <button
-        key={tabName}
-        style={tabName === selectedTab ? selectedTabStyle : tabStyle}
-        id={`${tabName}-tab`}
-        onClick={() => setSelectedTab(tabName)}
+        key={category.slug}
+        style={category.slug === selectedCategory.slug ? selectedTabStyle : tabStyle}
+        id={`${category.slug}-tab`}
+        onClick={() => setSelectedCategory(category)}
       >
-        {tabName}
+        {category.title}
       </button>
+    )
+
+    const renderDescription = (category) => (
+      <div style={tabDescriptionStyle}>
+        {category.description}
+        <a href="#" style={moreLinkStyle}>Learn more &gt;</a>
+      </div>
     )
 
     const renderAddButton = (layer) => (
@@ -101,12 +112,12 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
       </button>
     )
 
-    const filteredLayers = selectedTab === 'More >' ?
+    const filteredLayers = selectedCategory.slug === 'all' ?
       LAYERS :
-      LAYERS.filter((layer) => layer.category === selectedTab)
+      LAYERS.filter((layer) => layer.category === selectedCategory.slug)
     const firstColLength = Math.ceil(filteredLayers.length / 2)
 
-    const categories = [...new Set(LAYERS.map((layer) => layer.category))].sort()
+    const categories = CATEGORIES.sort(category => category.title)
 
     return (
       <div style={modalBackgroundStyle} id='modal-background'>
@@ -121,15 +132,10 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
 
           <div style={tabsListStyle}>
             {categories.map((category) => renderTab(category))}
-            {renderTab('More >')}
+            {renderTab({slug: 'all', title: 'All Data >'})}
           </div>
 
-          <div style={tabDescriptionStyle}>
-            {selectedTab} is one of the categories of datasets we are showing.
-            This is where we will eventually put a description of the {selectedTab} category.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere enim mi, vitae fringilla dui ullamcorper et. Proin egestas metus metus, vel congue enim eleifend sed.
-            <a href="#" style={moreLinkStyle}>Learn more &gt;</a>
-          </div>
+          {selectedCategory.slug !== 'all' && renderDescription(selectedCategory)}
 
           <div style={{display: 'flex'}}>
             <div style={layerListStyle}>

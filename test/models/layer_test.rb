@@ -12,7 +12,7 @@ class LayerTest < ActiveSupport::TestCase
       {
         id: @layer_one.layer_id,
         dataset: @layer_one.dataset_id,
-        category: @layer_one.category.title,
+        category: @layer_one.category.slug,
         name: @layer_one.name,
         description: @layer_one.description,
         initially_on: true,
@@ -20,7 +20,7 @@ class LayerTest < ActiveSupport::TestCase
       {
         id: @layer_two.layer_id,
         dataset: @layer_two.dataset_id,
-        category: @layer_two.category.title,
+        category: @layer_two.category.slug,
         name: @layer_two.name,
         description: @layer_two.description,
         initially_on: false,

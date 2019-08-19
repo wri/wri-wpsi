@@ -1,4 +1,5 @@
 javascript:
   window.layers = #{@layers.to_json.html_safe}
+  window.categories = #{@categories.to_json.html_safe}
 
 = javascript_pack_tag 'index'
