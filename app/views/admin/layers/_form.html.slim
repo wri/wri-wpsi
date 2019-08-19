@@ -25,6 +25,6 @@
     = f.label :primary
     = f.check_box :primary
   .field
-    = f.label :category
-    = f.text_field :category
+    = f.label :category_slug, 'Category'
+    = f.select :category_slug, @categories
   .actions = f.submit

@@ -1,14 +1,15 @@
 p#notice = notice
 
-p
-  strong Title:
-  = @category.title
-p
-  strong Description:
-  = @category.description
-p
-  strong Slug:
-  = @category.slug
+div.show-page-items
+  p
+    strong Title:
+    = @category.title
+  p
+    strong Description:
+    = @category.description
+  p
+    strong Slug:
+    = @category.slug
 
 => link_to 'Edit', edit_admin_category_path(@category)
 '|

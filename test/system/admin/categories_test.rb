@@ -39,9 +39,9 @@ class CategoriesTest < ApplicationSystemTestCase
   test 'destroying a Category' do
     visit admin_categories_url
     page.accept_confirm do
-      click_on 'Destroy', match: :first
+      click_on 'Delete', match: :first
     end
 
-    assert_text 'Category was successfully destroyed'
+    assert_text 'Category was successfully deleted'
   end
 end

@@ -1,4 +1,11 @@
 class Layer < ApplicationRecord
+  belongs_to :category,
+             primary_key: 'slug',
+             foreign_key: 'category_slug',
+             inverse_of: 'layers'
+
+  validates :layer_id, :dataset_id, :category, :name, presence: true
+
   def self.published
     where(published: true)
   end
@@ -8,7 +15,7 @@ class Layer < ApplicationRecord
       {
         id: layer.layer_id,
         dataset: layer.dataset_id,
-        category: layer.category,
+        category: layer.category.title,
         name: layer.name,
         description: layer.description,
         initially_on: layer.primary?,

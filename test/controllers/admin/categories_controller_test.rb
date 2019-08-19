@@ -51,6 +51,8 @@ class Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy category' do
+    @category.layers.destroy_all
+
     assert_difference('Category.count', -1) do
       delete admin_category_url(@category)
     end
