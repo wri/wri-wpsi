@@ -14,8 +14,3 @@
  *= require_tree ./front
  *= require_self
  */
-
-/* Hack to get map to fill its parent container at the start */
-.wri_api__c-map, .wri_api__map-container {
-  height: 100%;
-}
