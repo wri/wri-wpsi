@@ -94,7 +94,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
     const renderAddButton = (layer) => (
       <button
         style={addButtonStyle}
-        id={layer.id}
+        id={`layer-${layer.id}`}
         onClick={onToggleLayerClick}
       >
         {isActive(layer) ? 'Remove' : 'Add'}
@@ -109,8 +109,8 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
     const categories = [...new Set(LAYERS.map((layer) => layer.category))].sort()
 
     return (
-      <div style={modalBackgroundStyle}>
-        <div style={modalStyle}>
+      <div style={modalBackgroundStyle} id='modal-background'>
+        <div style={modalStyle} id='modal'>
           <div style={modalHeaderStyle}>
             <h1>Add Datasets to Investigation</h1>
 
