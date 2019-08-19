@@ -15,6 +15,7 @@ class MapTest < ApplicationSystemTestCase
 
     within '#modal' do
       assert_selector 'h2', text: layer.name
+      assert_text layer.description
       add_button = find("#layer-#{layer.layer_id}")
       add_button.click
       click_button 'Close'

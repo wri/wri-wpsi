@@ -47,7 +47,7 @@ const LayerCard = ({ layer, variant, secondaryAction }) => {
           {secondaryAction}
         </div>
         <p>
-          Description of the {layer.name} dataset goes here.
+          {layer.description}
           <a href="#" style={moreLinkStyle}>Learn more &gt;</a>
         </p>
         <div style={{marginBottom: '15px'}}>
