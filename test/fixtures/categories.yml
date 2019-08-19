@@ -1,0 +1,34 @@
+community:
+  title: Community
+  description: Community is one of the categories of datasets we are showing. This is where we will eventually put a description of the Community category.
+  slug: community
+
+conflict:
+  title: Conflict
+  description: Conflict is one of the categories of datasets we are showing. This is where we will eventually put a description of the Conflict category.
+  slug: conflict
+
+economy:
+  title: Economy
+  description: Economy is one of the categories of datasets we are showing. This is where we will eventually put a description of the Economy category.
+  slug: economy
+
+food:
+  title: Food
+  description: Food is one of the categories of datasets we are showing. This is where we will eventually put a description of the Food category.
+  slug: food
+
+infrastructure:
+  title: Infrastructure
+  description: Infrastructure is one of the categories of datasets we are showing. This is where we will eventually put a description of the Infrastructure category.
+  slug: infrastructure
+
+migration:
+  title: Migration
+  description: Migration is one of the categories of datasets we are showing. This is where we will eventually put a description of the Migration category.
+  slug: migration
+
+water:
+  title: Water
+  description: Water is one of the categories of datasets we are showing. This is where we will eventually put. a description of the Water category.
+  slug: water

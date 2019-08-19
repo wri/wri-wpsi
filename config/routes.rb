@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # Admin routes
   namespace :admin do
     resources :layers
+    resources :categories
   end
 
   # default AWS ELB health check path
