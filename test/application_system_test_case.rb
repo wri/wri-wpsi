@@ -18,7 +18,8 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     driven_by :debug_chrome
   else
     # Run headless by default
-    driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]
+    options = { args: %w[no-sandbox headless disable-gpu] }
+    driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400], options: options
   end
 
   def setup

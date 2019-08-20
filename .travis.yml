@@ -11,5 +11,8 @@ cache:
 services:
   - postgresql
 
+addons:
+  chrome: stable
+
 script:
   - bin/ci-build
