@@ -12,7 +12,13 @@ services:
   - postgresql
 
 addons:
-  chrome: stable
+  apt:
+    packages:
+      - google-chrome-stable
+      - chromium-chromedriver
+
+before_script:
+  - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
 
 script:
   - bin/ci-build
