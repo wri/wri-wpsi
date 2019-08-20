@@ -11,16 +11,13 @@ cache:
 services:
   - postgresql
 
-before_install:
-  - sudo apt-get install -y chromium-chromedriver=73.0.3683.103
-
 addons:
-  apt:
-    packages:
-      - google-chrome-stable
+  chrome: stable
 
 before_script:
-  - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
+  - LATEST_CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"`
+  - curl "https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
+  - unzip chromedriver_linux64.zip -d ~/bin
 
 script:
   - bin/ci-build
