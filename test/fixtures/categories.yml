@@ -30,5 +30,5 @@ migration:
 
 water:
   title: Water
-  description: Water is one of the categories of datasets we are showing. This is where we will eventually put. a description of the Water category.
+  description: Water is one of the categories of datasets we are showing. This is where we will eventually put a description of the Water category.
   slug: water
