@@ -13,10 +13,9 @@ services:
 
 addons:
   apt:
-    update: true
     packages:
       - google-chrome-stable
-      - chromium-chromedriver
+      - chromium-chromedriver-73
 
 before_script:
   - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
