@@ -34,7 +34,7 @@ const MapSideBar = ({ setModalOpen, activeLayers, selectedRegion, onRemoveLayer 
   }
 
   return (
-    <React.Fragment>
+    <div id='sidebar'>
       <div style={headerStyle}>
         <h1>Investigation</h1>
 
@@ -85,7 +85,7 @@ const MapSideBar = ({ setModalOpen, activeLayers, selectedRegion, onRemoveLayer 
           <li>Longitude: {selectedRegion.location.lng}</li>
         </ul>
       </div>}
-    </React.Fragment>
+    </div>
   )
 }
 

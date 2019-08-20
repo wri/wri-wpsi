@@ -20,4 +20,9 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     # Run headless by default
     driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]
   end
+
+  def setup
+    super
+    Capybara.enable_aria_label = true
+  end
 end

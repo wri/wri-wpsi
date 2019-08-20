@@ -1,6 +1,6 @@
-div.admin-content-container
-  p#notice = notice
+p#notice = notice
 
+div.show-page-items
   p
     strong Name:
     = @layer.name
@@ -20,6 +20,6 @@ div.admin-content-container
     strong Category:
     = @layer.category
 
-  => link_to 'Edit', edit_layer_path(@layer)
-  '|
-  =< link_to 'Back', layers_path
+=> link_to 'Edit', edit_admin_layer_path(@layer)
+'|
+=< link_to 'Back', admin_layers_path

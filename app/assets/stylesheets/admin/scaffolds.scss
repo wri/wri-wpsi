@@ -1,5 +1,5 @@
 // Default styles from rails
-div.admin-content-container {
+body {
   background-color: #fff;
   color: #333;
   margin: 33px;
@@ -43,6 +43,20 @@ div.admin-content-container {
   div {
     &.field, &.actions {
       margin-bottom: 10px;
+      max-width: 500px;
+    }
+  }
+
+  div.field {
+    input, textarea {
+      width: 100%;
+    }
+  }
+
+  div.show-page-items {
+    p {
+      display: flex;
+      flex-direction: column;
     }
   }
 

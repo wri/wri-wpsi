@@ -1,66 +1,68 @@
 require 'test_helper'
 
-class LayersControllerTest < ActionDispatch::IntegrationTest
+class Admin::LayersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @layer = layers(:conflict_one)
   end
 
   test 'should get index' do
-    get layers_url
+    get admin_layers_url
     assert_response :success
   end
 
   test 'should get new' do
-    get new_layer_url
+    get new_admin_layer_url
     assert_response :success
   end
 
   test 'should create layer' do
     assert_difference('Layer.count') do
-      post layers_url, params: {
+      post admin_layers_url, params: {
         layer: {
-          category: @layer.category,
+          category_slug: @layer.category_slug,
           dataset_id: @layer.dataset_id,
           description: @layer.description,
           layer_id: 'some_unique_id',
           name: @layer.name,
           published: @layer.published,
+          primary: @layer.primary,
         },
       }
     end
 
-    assert_redirected_to layer_url(Layer.last)
+    assert_redirected_to admin_layer_url(Layer.last)
   end
 
   test 'should show layer' do
-    get layer_url(@layer)
+    get admin_layer_url(@layer)
     assert_response :success
   end
 
   test 'should get edit' do
-    get edit_layer_url(@layer)
+    get edit_admin_layer_url(@layer)
     assert_response :success
   end
 
   test 'should update layer' do
-    patch layer_url(@layer), params: {
+    patch admin_layer_url(@layer), params: {
       layer: {
-        category: @layer.category,
+        category_slug: @layer.category_slug,
         dataset_id: @layer.dataset_id,
         description: @layer.description,
         layer_id: @layer.layer_id,
         name: @layer.name,
+        primary: @layer.primary,
         published: @layer.published,
       },
     }
-    assert_redirected_to layer_url(@layer)
+    assert_redirected_to admin_layer_url(@layer)
   end
 
   test 'should destroy layer' do
     assert_difference('Layer.count', -1) do
-      delete layer_url(@layer)
+      delete admin_layer_url(@layer)
     end
 
-    assert_redirected_to layers_url
+    assert_redirected_to admin_layers_url
   end
 end

@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
-  resources :layers
   root 'root#index'
 
   # Single page app endpoint
   get '/map', to: 'root#map'
   get '/map/*ignored', to: 'root#map'
+
+  # Admin routes
+  namespace :admin do
+    resources :layers
+    resources :categories
+  end
 
   # default AWS ELB health check path
   get 'health-check', to: 'root#health_check'

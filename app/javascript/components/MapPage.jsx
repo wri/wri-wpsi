@@ -55,7 +55,8 @@ const MapPage = () => {
   }
 
   const handleToggleLayerClick = (e) => {
-    toggleLayer(getLayer(e.target.id))
+    const layerId = e.target.id.replace('layer-', '')
+    toggleLayer(getLayer(layerId))
   }
 
   const handleToggleLayer = ({ layer }) => {

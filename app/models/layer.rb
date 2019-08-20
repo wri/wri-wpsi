@@ -1,5 +1,10 @@
 class Layer < ApplicationRecord
-  MAIN_LAYER_ID = '107b72a6-6a52-4c8e-a261-d01706627322'.freeze
+  belongs_to :category,
+             primary_key: 'slug',
+             foreign_key: 'category_slug',
+             inverse_of: 'layers'
+
+  validates :layer_id, :dataset_id, :category, :name, presence: true
 
   def self.published
     where(published: true)
@@ -10,10 +15,10 @@ class Layer < ApplicationRecord
       {
         id: layer.layer_id,
         dataset: layer.dataset_id,
-        category: layer.category,
+        category: layer.category.slug,
         name: layer.name,
         description: layer.description,
-        initially_on: layer.layer_id == MAIN_LAYER_ID,
+        initially_on: layer.primary?,
       }
     end
   end

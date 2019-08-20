@@ -14,8 +14,6 @@ class RootTest < ApplicationSystemTestCase
   def test_landing_page
     visit '/map'
 
-    within '#top-banner' do
-      assert_text 'Water, Peace & Security'
-    end
+    assert_selector '#top-banner', text: 'Water, Peace & Security'
   end
 end

@@ -6,6 +6,7 @@ class RootController < ApplicationController
   def map
     # Let react single page app take over
     @layers = Layer.serialized_for_react_app
+    @categories = Category.serialized_for_react_app
     render 'index'
   end
 

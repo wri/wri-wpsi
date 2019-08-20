@@ -1,5 +1,6 @@
-class LayersController < ApplicationController
+class Admin::LayersController < Admin::BaseController
   before_action :set_layer, only: %i[show edit update destroy]
+  before_action :set_category_options, only: %i[new create edit update]
 
   def index
     @layers = Layer.all
@@ -17,7 +18,7 @@ class LayersController < ApplicationController
     @layer = Layer.new(layer_params)
 
     if @layer.save
-      redirect_to @layer, notice: 'Layer was successfully created.'
+      redirect_to [:admin, @layer], notice: 'Layer was successfully created.'
     else
       render :new
     end
@@ -25,7 +26,7 @@ class LayersController < ApplicationController
 
   def update
     if @layer.update(layer_params)
-      redirect_to @layer, notice: 'Layer was successfully updated.'
+      redirect_to [:admin, @layer], notice: 'Layer was successfully updated.'
     else
       render :edit
     end
@@ -33,13 +34,17 @@ class LayersController < ApplicationController
 
   def destroy
     @layer.destroy
-    redirect_to layers_url, notice: 'Layer was successfully destroyed.'
+    redirect_to admin_layers_url, notice: 'Layer was successfully deleted.'
   end
 
   private
 
   def set_layer
     @layer = Layer.find(params[:id])
+  end
+
+  def set_category_options
+    @categories = Category.pluck(:title, :slug)
   end
 
   def layer_params
@@ -49,7 +54,7 @@ class LayersController < ApplicationController
       :layer_id,
       :dataset_id,
       :published,
-      :category,
+      :category_slug,
     )
   end
 end
