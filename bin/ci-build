@@ -2,7 +2,6 @@
 set -e
 export RAILS_ENV=test
 export COVERAGE=1
-#bundle outdated --strict || true
 
 # echo -e "\n== Jest tests =========================================================================="
 # yarn
