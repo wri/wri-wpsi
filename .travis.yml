@@ -13,6 +13,7 @@ services:
 
 addons:
   apt:
+    update: true
     packages:
       - google-chrome-stable
       - chromium-chromedriver
