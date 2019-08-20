@@ -3,20 +3,20 @@ set -e
 export RAILS_ENV=test
 export COVERAGE=1
 
-# echo -e "\n== Jest tests =========================================================================="
-# yarn
-# yarn test
+echo -e "\n== Jest tests =========================================================================="
+yarn
+yarn test
 
-# echo -e "\n== Dependencies check =================================================================="
-# bundle exec brakeman -q --ensure-latest --no-pager --except PermitAttributes,Render
-# bundle exec bundle-audit check --update
+echo -e "\n== Dependencies check =================================================================="
+bundle exec brakeman -q --ensure-latest --no-pager --except PermitAttributes,Render
+bundle exec bundle-audit check --update
 
 echo -e "\n== Rails test environment setup ========================================================"
-# bundle exec rails db:environment:set db:drop || true
+bundle exec rails db:environment:set db:drop || true
 bundle exec rails db:setup db:migrate
 
-# echo -e "\n== Rails tests ========================================================================="
-# bundle exec rails test
+echo -e "\n== Rails tests ========================================================================="
+bundle exec rails test
 
 echo -e "\n== Rails system tests =================================================================="
 bundle exec rails test:system
