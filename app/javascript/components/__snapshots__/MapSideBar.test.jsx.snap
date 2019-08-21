@@ -67,6 +67,7 @@ exports[`renders correctly 1`] = `
           "alignItems": "center",
           "display": "flex",
           "justifyContent": "space-between",
+          "lineHeight": "2em",
         }
       }
     >

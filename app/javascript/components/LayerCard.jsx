@@ -1,5 +1,7 @@
 import React from 'react'
 
+const CATEGORIES = window.categories
+
 const LayerCard = ({ layer, variant, secondaryAction }) => {
   const containerStyle = {
     backgroundColor: variant === 'white' ? '#FFFFFF' : '#EBEEEF',
@@ -11,6 +13,7 @@ const LayerCard = ({ layer, variant, secondaryAction }) => {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    lineHeight: '2em',
   }
 
   const moreLinkStyle = {
@@ -51,10 +54,7 @@ const LayerCard = ({ layer, variant, secondaryAction }) => {
           <a href="#" style={moreLinkStyle}>Learn more &gt;</a>
         </p>
         <div style={{marginBottom: '15px'}}>
-          <a style={tagStyle} href="#">{layer.category}</a>
-          <a style={tagStyle} href="#">Tag 2</a>
-          <a style={tagStyle} href="#">Tag 3</a>
-          <a href="#" style={moreLinkStyle}>More &gt;</a>
+          <a style={tagStyle} href="#">{CATEGORIES.find(category => category.slug == layer.category).title}</a>
         </div>
       </div>
     )
