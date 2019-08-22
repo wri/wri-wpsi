@@ -9,6 +9,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
   const [selectedCategory, setSelectedCategory] = React.useState(
     CATEGORIES.find(category => category.slug == 'water')
   )
+  const [descriptionExpanded, setDescriptionExpanded] = React.useState(false)
 
   if (open) {
     const modalBackgroundStyle = {
@@ -63,11 +64,11 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
       marginBottom: '36px',
     }
     const moreLinkStyle = {
-      paddingLeft: '5px',
       textDecoration: 'none',
       textTransform: 'uppercase',
       fontSize: 'smaller',
       float: 'right',
+      whiteSpace: 'nowrap',
     }
     const closeButtonStyle = {
       padding: '0',
@@ -89,17 +90,42 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
         key={category.slug}
         style={category.slug === selectedCategory.slug ? selectedTabStyle : tabStyle}
         id={`${category.slug}-tab`}
-        onClick={() => setSelectedCategory(category)}
+        onClick={
+          () => {
+            setSelectedCategory(category)
+            setDescriptionExpanded(false)
+          }
+        }
       >
         {category.title}
       </button>
     )
 
-    const renderDescription = (category) => (
-      <div style={tabDescriptionStyle}>
-        {category.description}
-        <a href="#" style={moreLinkStyle}>Learn more &gt;</a>
-      </div>
+    const renderDescription = (category) => {
+      const cutoff = 300
+      const long = category.description.length > cutoff
+      const shortenedTextClasses = 'clamp-after-two-lines fade-after-two-lines'
+
+      return (
+        <div style={tabDescriptionStyle}>
+          <div className={descriptionExpanded ? null : shortenedTextClasses}>
+            {descriptionExpanded ? category.description : category.description.substring(0, cutoff)}
+          </div>
+          <div>
+            {long && renderDescriptionExpansionLink()}
+          </div>
+        </div>
+      )
+    }
+
+    const renderDescriptionExpansionLink = () => (
+      <a
+        href="#"
+        style={moreLinkStyle}
+        onClick={() => setDescriptionExpanded(!descriptionExpanded)}
+      >
+        {descriptionExpanded ? 'Show less ^' : 'Show more >'}
+      </a>
     )
 
     const renderAddButton = (layer) => (
