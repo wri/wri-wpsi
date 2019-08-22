@@ -14,7 +14,7 @@ class LayersTest < ApplicationSystemTestCase
     visit admin_layers_url
     click_on 'New Layer'
 
-    select @layer.category.title, from: 'Category'
+    select @layer.categories.first.title, from: 'Categories'
     fill_in 'Dataset', with: @layer.dataset_id
     fill_in 'Description', with: @layer.description
     fill_in 'Layer', with: 'some_unique_id'
@@ -31,7 +31,7 @@ class LayersTest < ApplicationSystemTestCase
     visit admin_layers_url
     click_on 'Edit', match: :first
 
-    select @layer.category.title, from: 'Category'
+    select @layer.categories.first.title, from: 'Categories'
     fill_in 'Dataset', with: @layer.dataset_id
     fill_in 'Description', with: @layer.description
     fill_in 'Layer', with: @layer.layer_id

@@ -1,9 +1,6 @@
 class Category < ApplicationRecord
-  has_many :layers,
-           primary_key: 'slug',
-           foreign_key: 'category_slug',
-           dependent: :restrict_with_error,
-           inverse_of: 'category'
+  has_many :category_layers, dependent: :destroy
+  has_many :layers, through: :category_layers
 
   validates :title, :slug, presence: true
 

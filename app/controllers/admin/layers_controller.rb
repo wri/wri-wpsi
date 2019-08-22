@@ -1,6 +1,5 @@
 class Admin::LayersController < Admin::BaseController
   before_action :set_layer, only: %i[show edit update destroy]
-  before_action :set_category_options, only: %i[new create edit update]
 
   def index
     @layers = Layer.all
@@ -43,10 +42,6 @@ class Admin::LayersController < Admin::BaseController
     @layer = Layer.find(params[:id])
   end
 
-  def set_category_options
-    @categories = Category.pluck(:title, :slug)
-  end
-
   def layer_params
     params.require(:layer).permit(
       :name,
@@ -54,7 +49,7 @@ class Admin::LayersController < Admin::BaseController
       :layer_id,
       :dataset_id,
       :published,
-      :category_slug,
+      category_ids: [],
     )
   end
 end

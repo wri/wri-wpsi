@@ -33,9 +33,9 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
       justifyContent: 'space-between',
       alignItems: 'flex-start',
     }
-    const spaceBetweenColumns = 4
     const layerListStyle = {
-      flex: `${50 - (spaceBetweenColumns / 2)}%`,
+      display: 'flex',
+      flexWrap: 'wrap',
     }
     const tabsListStyle = {
       marginTop: '18px',
@@ -114,8 +114,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
 
     const filteredLayers = selectedCategory.slug === 'all' ?
       LAYERS :
-      LAYERS.filter((layer) => layer.category === selectedCategory.slug)
-    const firstColLength = Math.ceil(filteredLayers.length / 2)
+      LAYERS.filter((layer) => layer.category_slugs.includes(selectedCategory.slug))
 
     const categories = CATEGORIES.sort(category => category.title)
 
@@ -137,28 +136,17 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
 
           {selectedCategory.slug !== 'all' && renderDescription(selectedCategory)}
 
-          <div style={{display: 'flex'}}>
-            <div style={layerListStyle}>
-              {filteredLayers.slice(0, firstColLength).map((layer) => {
-                return <LayerCard
-                  key={layer.id}
+          <div style={layerListStyle}>
+            {filteredLayers.map((layer) => (
+              <div key={layer.id} style={{width: '48%', padding: '0 1%'}}>
+                <LayerCard
                   layer={layer}
                   variant='white'
+                  excludedTag={selectedCategory.slug}
                   secondaryAction={renderAddButton(layer)}
                 />
-              })}
-            </div>
-            <div style={{flex: `${spaceBetweenColumns}%`}} />
-            <div style={layerListStyle}>
-              {filteredLayers.slice(firstColLength, filteredLayers.length).map((layer) => {
-                return <LayerCard
-                  key={layer.id}
-                  layer={layer}
-                  variant='white'
-                  secondaryAction={renderAddButton(layer)}
-                />
-              })}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

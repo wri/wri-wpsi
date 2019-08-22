@@ -13,9 +13,9 @@ class MapTest < ApplicationSystemTestCase
     click_button 'Add dataset'
 
     within '#modal' do
-      click_button layer.category.title
+      click_button layer.categories.first.title
 
-      assert_text layer.category.description
+      assert_text layer.categories.first.description
       assert_selector 'h2', text: layer.name
       assert_text layer.description
 
