@@ -20,7 +20,7 @@ const MenuBar = () => {
 
   return <div style={containerStyle}>
     <NavLink
-      to='/'
+      to='/map'
       exact
       style={inactiveLinkStyle}
       activeStyle={activeLinkStyle}

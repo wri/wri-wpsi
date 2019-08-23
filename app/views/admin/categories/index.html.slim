@@ -20,9 +20,7 @@ table
         td = category.slug
         td = link_to 'Show', [:admin, category]
         td = link_to 'Edit', edit_admin_category_path(category)
-        td
-          - if category.layers.empty?
-            = link_to 'Delete', [:admin, category], data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Delete', [:admin, category], data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 

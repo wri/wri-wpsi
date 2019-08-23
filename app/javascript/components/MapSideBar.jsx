@@ -1,9 +1,10 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { Icon, LegendItemButtonRemove } from 'vizzuality-components'
 import LayerCard from 'components/LayerCard'
 import Switch from 'react-switch'
 
-const MapSideBar = ({ setModalOpen, activeLayers, selectedRegion, onRemoveLayer }) => {
+const MapSideBar = ({ history, activeLayers, selectedRegion, onRemoveLayer }) => {
   const [checked, setChecked] = React.useState(false)
 
   const headerStyle = {
@@ -38,7 +39,7 @@ const MapSideBar = ({ setModalOpen, activeLayers, selectedRegion, onRemoveLayer 
       <div style={headerStyle}>
         <h1>Investigation</h1>
 
-        <button style={buttonStyle} onClick={() => setModalOpen(true)}>
+        <button style={buttonStyle} onClick={() => history.push('/map/datasets/water')}>
           <Icon name="icon-plus" style={iconStyle} />
           Add datasets to investigation
         </button>
@@ -46,7 +47,7 @@ const MapSideBar = ({ setModalOpen, activeLayers, selectedRegion, onRemoveLayer 
 
       <LayerCard
         variant='simple'
-        layer={{name: 'Highlight areas of water stress'}}
+        layer={{name: 'Highlight areas of water stress', initially_on: true}}
         secondaryAction={
           <Switch
             onChange={(value) => setChecked(value)}
@@ -91,10 +92,11 @@ const MapSideBar = ({ setModalOpen, activeLayers, selectedRegion, onRemoveLayer 
 
 import PropTypes from 'prop-types'
 MapSideBar.propTypes = {
+  history: PropTypes.object.isRequired,
   setModalOpen: PropTypes.func.isRequired,
   onRemoveLayer: PropTypes.func.isRequired,
   activeLayers: PropTypes.array.isRequired,
   selectedRegion: PropTypes.object,
 }
 
-export default MapSideBar
+export default withRouter(MapSideBar)

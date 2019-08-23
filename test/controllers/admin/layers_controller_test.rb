@@ -19,7 +19,7 @@ class Admin::LayersControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Layer.count') do
       post admin_layers_url, params: {
         layer: {
-          category_slug: @layer.category_slug,
+          category_ids: @layer.categories.map(&:id),
           dataset_id: @layer.dataset_id,
           description: @layer.description,
           layer_id: 'some_unique_id',
@@ -46,7 +46,7 @@ class Admin::LayersControllerTest < ActionDispatch::IntegrationTest
   test 'should update layer' do
     patch admin_layer_url(@layer), params: {
       layer: {
-        category_slug: @layer.category_slug,
+        category_ids: @layer.categories.map(&:id),
         dataset_id: @layer.dataset_id,
         description: @layer.description,
         layer_id: @layer.layer_id,

@@ -1,5 +1,4 @@
 conflict_one:
-  category_slug: 'conflict'
   name: 'Risk of Conflict'
   description: 'Description of the Risk of Conflict dataset goes here.'
   layer_id: '107b72a6-6a52-4c8e-a261-d01706627322'
@@ -8,7 +7,6 @@ conflict_one:
   primary: true
 
 community_one:
-  category_slug: 'community'
   name: 'Local Population Density (Grid, 1 km)'
   description: 'Description of the Local Population Density (Grid, 1 km) dataset goes here.'
   layer_id: '969fe99d-b861-46a1-8c8e-7c44cbafd1d6'
@@ -16,7 +14,6 @@ community_one:
   published: true
 
 economy_one:
-  category_slug: 'economy'
   name: 'National Infant Mortality'
   description: 'Description of the National Infant Mortality dataset goes here.'
   layer_id: '3a5a0c20-54da-4ba3-bfae-0dbed4ab9b50'
@@ -24,7 +21,6 @@ economy_one:
   published: true
 
 food_one:
-  category_slug: 'food'
   name: 'Employment in Agriculture (% of Total Employment)'
   description: 'Description of the Employment in Agriculture (% of Total Employment) dataset goes here.'
   layer_id: '7a08dee3-6301-45d2-9ced-c2918f6f3c6b'
@@ -32,7 +28,6 @@ food_one:
   published: true
 
 food_two:
-  category_slug: 'food'
   name: 'Agriculture Value added to GDP (% of Total GDP)'
   description: 'Description of the Agriculture Value added to GDP (% of Total GDP) dataset goes here.'
   layer_id: 'e2eed7df-495d-4d87-bb31-373a7dc87861'
@@ -40,7 +35,6 @@ food_two:
   published: true
 
 food_three:
-  category_slug: 'food'
   name: 'Cereals and Tubers: Food Price Spikes from Past 3 Months'
   description: 'Description of the Cereals and Tubers: Food Price Spikes from Past 3 Months dataset goes here.'
   layer_id: '3a52f7ed-0c20-4691-981b-3a3521b069aa'
@@ -48,7 +42,6 @@ food_three:
   published: true
 
 food_four:
-  category_slug: 'food'
   name: 'Miscellaneous Food: Food Price Spikes from Past 3 Months'
   description: 'Description of the Miscellaneous Food: Food Price Spikes from Past 3 Months dataset goes here.'
   layer_id: '43804fe4-8c9a-42fc-8c85-2a494727cf3d'
@@ -56,7 +49,6 @@ food_four:
   published: true
 
 food_five:
-  category_slug: 'food'
   name: 'Oil and Fats: Food Price Spikes from Past 3 Months'
   description: 'Description of the Oil and Fats: Food Price Spikes from Past 3 Months dataset goes here.'
   layer_id: '2c7ddb1a-6a21-4f6c-a5a3-696e92bcf053'
@@ -64,7 +56,6 @@ food_five:
   published: true
 
 food_six:
-  category_slug: 'food'
   name: 'Pulses and Nuts: Food Price Spikes from Past 3 Months'
   description: 'Description of the Pulses and Nuts: Food Price Spikes from Past 3 Months dataset goes here.'
   layer_id: '253437ed-1e21-4544-8bb3-1ec2d2656522'
@@ -72,7 +63,6 @@ food_six:
   published: true
 
 food_seven:
-  category_slug: 'food'
   name: 'Vegetables and Fruits: Food Price Spikes from Past 3 Months'
   description: 'Description of the Vegetables and Fruits: Food Price Spikes from Past 3 Months dataset goes here.'
   layer_id: '1ee0784f-654f-4caf-a059-f03dc46724b6'
@@ -80,7 +70,6 @@ food_seven:
   published: true
 
 food_eight:
-  category_slug: 'food'
   name: '2000 Barley Yield Gap (t/ha gap)'
   description: 'Description of the 2000 Barley Yield Gap (t/ha gap) dataset goes here.'
   layer_id: 'd0147b4b-89d7-49e3-945a-a5fb1fe26345'
@@ -88,7 +77,6 @@ food_eight:
   published: true
 
 food_nine:
-  category_slug: 'food'
   name: '2000 Maize Yield Gap (t/ha gap)'
   description: 'Description of the 2000 Maize Yield Gap (t/ha gap) dataset goes here.'
   layer_id: '59ff5765-5c11-4b9a-9b34-1e6551a29236'
@@ -96,7 +84,6 @@ food_nine:
   published: true
 
 food_ten:
-  category_slug: 'food'
   name: '2000 Rice Yield Gap (t/ha gap)'
   description: 'Description of the 2000 Rice Yield Gap (t/ha gap) dataset goes here.'
   layer_id: 'd24a0b3b-b501-4189-aa1a-4912d0c94ec7'
@@ -104,7 +91,6 @@ food_ten:
   published: true
 
 food_eleven:
-  category_slug: 'food'
   name: '2000 Soybean Yield Gap (t/ha gap)'
   description: 'Description of the 2000 Soybean Yield Gap (t/ha gap) dataset goes here.'
   layer_id: 'e5744d8e-e8af-4e72-a8f6-35adacf70976'
@@ -112,7 +98,6 @@ food_eleven:
   published: true
 
 food_twelve:
-  category_slug: 'food'
   name: 'Cropland Area'
   description: 'Description of the Cropland Area dataset goes here.'
   layer_id: '47dc9961-05d6-48f1-93c5-aa633e4a1efa'
@@ -120,7 +105,6 @@ food_twelve:
   published: true
 
 food_thirteen:
-  category_slug: 'food'
   name: 'Pasture Area'
   description: 'Description of the Pasture Area dataset goes here.'
   layer_id: '1198417e-8cfb-4a40-96f7-9ec016384c86'
@@ -128,7 +112,6 @@ food_thirteen:
   published: true
 
 migration_one:
-  category_slug: 'migration'
   name: 'Asylum Requests by Destination'
   description: 'Description of the Asylum Requests by Destination dataset goes here.'
   layer_id: '4360b45c-dd79-44f3-8bcc-4531f0652773'
@@ -136,7 +119,6 @@ migration_one:
   published: true
 
 migration_two:
-  category_slug: 'migration'
   name: 'Asylum Requests by Origin'
   description: 'Description of the Asylum Requests by Origin dataset goes here.'
   layer_id: '505e6569-ca22-45c5-9fdc-b0678bb71b55'
@@ -144,7 +126,6 @@ migration_two:
   published: true
 
 migration_three:
-  category_slug: 'migration'
   name: 'Recent Internal Displacement from Conflict, Natural Disasters, and Development by Event'
   description: 'Description of the Recent Internal Displacement from Conflict, Natural Disasters, and Development by Event dataset goes here.'
   layer_id: '16a5729f-0f2e-4cd6-84bc-0f72c9132dda'
@@ -152,7 +133,6 @@ migration_three:
   published: true
 
 migration_four:
-  category_slug: 'migration'
   name: 'Baseline Water Stress'
   description: 'Description of the Baseline Water Stress dataset goes here.'
   layer_id: 'fdf06d8c-72e9-48a7-80f1-27bd5f19342c'
@@ -160,7 +140,6 @@ migration_four:
   published: true
 
 infrastructure_one:
-  category_slug: 'infrastructure'
   name: 'Airports'
   description: 'Description of the Airports dataset goes here.'
   layer_id: '5ca56eeb-628f-45c9-a45e-151e62e8876c'
@@ -168,7 +147,6 @@ infrastructure_one:
   published: true
 
 infrastructure_two:
-  category_slug: 'infrastructure'
   name: 'Access to Cities'
   description: 'Description of the Access to Cities dataset goes here.'
   layer_id: 'd787d894-f7af-47c4-af0f-0849b06686ee'
@@ -176,7 +154,6 @@ infrastructure_two:
   published: true
 
 infrastructure_three:
-  category_slug: 'infrastructure'
   name: 'Dams'
   description: 'Description of the Dams dataset goes here.'
   layer_id: '212a1516-c7d5-44aa-a18a-ab8bc99929e7'
@@ -184,7 +161,6 @@ infrastructure_three:
   published: true
 
 infrastructure_four:
-  category_slug: 'infrastructure'
   name: 'Ports'
   description: 'Description of the Ports dataset goes here.'
   layer_id: '4c933a71-06aa-473d-9b93-9a5b5fbd554b'
@@ -192,7 +168,6 @@ infrastructure_four:
   published: true
 
 infrastructure_five:
-  category_slug: 'infrastructure'
   name: 'Power Generation by Fuel Type'
   description: 'Description of the Power Generation by Fuel Type dataset goes here.'
   layer_id: '2a694289-fec9-4bfe-a6d2-56c3864ec349'
@@ -200,7 +175,6 @@ infrastructure_five:
   published: true
 
 infrastructure_six:
-  category_slug: 'infrastructure'
   name: 'Reservoirs'
   description: 'Description of the Reservoirs dataset goes here.'
   layer_id: '6528a5e5-c4cc-49b1-a603-b9ee90b644f7'
@@ -208,7 +182,6 @@ infrastructure_six:
   published: true
 
 infrastructure_seven:
-  category_slug: 'infrastructure'
   name: 'Roads'
   description: 'Description of the Roads dataset goes here.'
   layer_id: '72bd4541-89d4-467d-905d-dc745511e2cc'

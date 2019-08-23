@@ -19,8 +19,8 @@
     = f.label :dataset_id, 'Dataset ID'
     = f.text_field :dataset_id
   .field
-    = f.label :category_slug, 'Category'
-    = f.select :category_slug, @categories
+    = f.label :category_ids, 'Categories'
+    = f.collection_select(:category_ids, Category.all, :id, :title, {}, { multiple: true } )
 
   h3 Options
 

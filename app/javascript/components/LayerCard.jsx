@@ -1,8 +1,7 @@
 import React from 'react'
+import LayerTags from 'components/LayerTags'
 
-const CATEGORIES = window.categories
-
-const LayerCard = ({ layer, variant, secondaryAction }) => {
+const LayerCard = ({ layer, variant, excludedTag, secondaryAction }) => {
   const containerStyle = {
     backgroundColor: variant === 'white' ? '#FFFFFF' : '#EBEEEF',
     padding: variant === 'white' ? '4px 0px' : '4px 24px',
@@ -20,16 +19,6 @@ const LayerCard = ({ layer, variant, secondaryAction }) => {
     paddingLeft: '5px',
     textDecoration: 'none',
     textTransform: 'uppercase',
-    fontSize: 'smaller',
-  }
-
-  const tagStyle = {
-    // border: '2px solid #B6C6BC',
-    // borderRadius: '16px',
-    // backgroundColor: 'white',
-    // padding: '5px 15px',
-    marginRight: '15px',
-    textDecoration: 'none',
     fontSize: 'smaller',
   }
 
@@ -54,7 +43,7 @@ const LayerCard = ({ layer, variant, secondaryAction }) => {
           <a href="#" style={moreLinkStyle}>Learn more &gt;</a>
         </p>
         <div style={{marginBottom: '15px'}}>
-          <a style={tagStyle} href="#">{CATEGORIES.find(category => category.slug == layer.category).title}</a>
+          <LayerTags layer={layer} excludedTag={excludedTag} />
         </div>
       </div>
     )
@@ -65,6 +54,7 @@ import PropTypes from 'prop-types'
 LayerCard.propTypes = {
   layer: PropTypes.object.isRequired,
   variant: PropTypes.string,
+  excludedTag: PropTypes.string,
   secondaryAction: PropTypes.object,
 }
 

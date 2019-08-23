@@ -10,7 +10,7 @@ table.layers-table
       th Layer
       th Dataset
       th Published
-      th Category
+      th Categories
       th
       th
       th
@@ -23,7 +23,7 @@ table.layers-table
         td = layer.layer_id
         td = layer.dataset_id
         td = layer.published
-        td = layer.category
+        td = layer.categories_string
         td = link_to 'Show', [:admin, layer]
         td = link_to 'Edit', edit_admin_layer_path(layer)
         td = link_to 'Delete', [:admin, layer], data: { confirm: 'Are you sure?' }, method: :delete

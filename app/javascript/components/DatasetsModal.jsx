@@ -1,14 +1,14 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { LAYERS } from 'components/datasets'
 import { Icon } from 'vizzuality-components'
 import LayerCard from 'components/LayerCard'
 
 const CATEGORIES = window.categories
 
-const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
-  const [selectedCategory, setSelectedCategory] = React.useState(
-    CATEGORIES.find(category => category.slug == 'water')
-  )
+const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, history }) => {
+  const allDatasetsCategory = {slug: 'all', title: 'All Data >'}
+  const selectedCategory = CATEGORIES.find(c => c.slug === tab) || allDatasetsCategory
   const [descriptionExpanded, setDescriptionExpanded] = React.useState(false)
 
   if (open) {
@@ -34,9 +34,9 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
       justifyContent: 'space-between',
       alignItems: 'flex-start',
     }
-    const spaceBetweenColumns = 4
     const layerListStyle = {
-      flex: `${50 - (spaceBetweenColumns / 2)}%`,
+      display: 'flex',
+      flexWrap: 'wrap',
     }
     const tabsListStyle = {
       marginTop: '18px',
@@ -92,7 +92,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
         id={`${category.slug}-tab`}
         onClick={
           () => {
-            setSelectedCategory(category)
+            history.push(`/map/datasets/${category.slug}`)
             setDescriptionExpanded(false)
           }
         }
@@ -140,8 +140,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
 
     const filteredLayers = selectedCategory.slug === 'all' ?
       LAYERS :
-      LAYERS.filter((layer) => layer.category === selectedCategory.slug)
-    const firstColLength = Math.ceil(filteredLayers.length / 2)
+      LAYERS.filter((layer) => layer.category_slugs.includes(selectedCategory.slug))
 
     const categories = CATEGORIES.sort(category => category.title)
 
@@ -158,33 +157,22 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
 
           <div style={tabsListStyle}>
             {categories.map((category) => renderTab(category))}
-            {renderTab({slug: 'all', title: 'All Data >'})}
+            {renderTab(allDatasetsCategory)}
           </div>
 
           {selectedCategory.slug !== 'all' && renderDescription(selectedCategory)}
 
-          <div style={{display: 'flex'}}>
-            <div style={layerListStyle}>
-              {filteredLayers.slice(0, firstColLength).map((layer) => {
-                return <LayerCard
-                  key={layer.id}
+          <div style={layerListStyle}>
+            {filteredLayers.map((layer) => (
+              <div key={layer.id} style={{width: '48%', padding: '0 1%'}}>
+                <LayerCard
                   layer={layer}
                   variant='white'
+                  excludedTag={selectedCategory.slug}
                   secondaryAction={renderAddButton(layer)}
                 />
-              })}
-            </div>
-            <div style={{flex: `${spaceBetweenColumns}%`}} />
-            <div style={layerListStyle}>
-              {filteredLayers.slice(firstColLength, filteredLayers.length).map((layer) => {
-                return <LayerCard
-                  key={layer.id}
-                  layer={layer}
-                  variant='white'
-                  secondaryAction={renderAddButton(layer)}
-                />
-              })}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -200,6 +188,8 @@ DatasetsModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   isActive: PropTypes.func.isRequired,
   onToggleLayerClick: PropTypes.func.isRequired,
+  tab: PropTypes.string.isRequired,
+  history: PropTypes.object.isRequired,
 }
 
-export default DatasetsModal
+export default withRouter(DatasetsModal)
