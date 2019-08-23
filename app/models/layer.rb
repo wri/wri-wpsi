@@ -16,10 +16,10 @@ class Layer < ApplicationRecord
     published.map do |layer|
       {
         id: layer.layer_id,
-        dataset: layer.dataset_id,
         category_slugs: layer.categories.map(&:slug),
         name: layer.name,
-        description: layer.description,
+        short_description: layer.short_description,
+        long_description: layer.long_description,
         initially_on: layer.primary?,
       }
     end

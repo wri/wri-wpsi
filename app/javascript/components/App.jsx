@@ -6,6 +6,7 @@ import AboutPage from 'components/AboutPage'
 import MethodologyPage from 'components/MethodologyPage'
 import LayersList from 'components/LayersList'
 import LayerMapPage from 'components/LayerMapPage'
+import LayerInfoPage from 'components/LayerInfoPage'
 import { Icons } from 'vizzuality-components'
 
 const App = () => {
@@ -19,9 +20,15 @@ const App = () => {
       <div style={globalStyles}>
         <TopBanner />
 
+        {/* Landing page with map */}
         <Route path="/map" component={MapPage} />
+        <Route path="/map/learn_more/:layerId" component={LayerInfoPage} />
+
+        {/* Static pages */}
         <Route path="/about" component={AboutPage} />
         <Route path="/methodology" component={MethodologyPage} />
+
+        {/* Debugging pages, remove before going live! */}
         <Route path="/layers" exact component={LayersList} />
         <Route path="/layers/:layerId" component={LayerMapPage} />
         <Route path="/datasets/:datasetId" component={LayerMapPage} />

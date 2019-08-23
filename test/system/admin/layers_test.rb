@@ -16,7 +16,8 @@ class LayersTest < ApplicationSystemTestCase
 
     select @layer.categories.first.title, from: 'Categories'
     fill_in 'Dataset', with: @layer.dataset_id
-    fill_in 'Description', with: @layer.description
+    fill_in 'Short description', with: @layer.short_description
+    fill_in 'Long description', with: @layer.long_description
     fill_in 'Layer', with: 'some_unique_id'
     fill_in 'Name', with: @layer.name
     check 'Published' if @layer.published
@@ -33,7 +34,8 @@ class LayersTest < ApplicationSystemTestCase
 
     select @layer.categories.first.title, from: 'Categories'
     fill_in 'Dataset', with: @layer.dataset_id
-    fill_in 'Description', with: @layer.description
+    fill_in 'Short description', with: @layer.short_description
+    fill_in 'Long description', with: @layer.long_description
     fill_in 'Layer', with: @layer.layer_id
     fill_in 'Name', with: @layer.name
     check 'Published' if @layer.published

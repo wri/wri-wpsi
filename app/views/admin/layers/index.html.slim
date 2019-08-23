@@ -6,7 +6,6 @@ table.layers-table
   thead
     tr
       th Name
-      th Description
       th Layer
       th Dataset
       th Published
@@ -19,7 +18,6 @@ table.layers-table
     - @layers.each do |layer|
       tr
         td = layer.name
-        td = layer.description
         td = layer.layer_id
         td = layer.dataset_id
         td = layer.published

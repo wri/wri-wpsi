@@ -10,8 +10,11 @@
     = f.label :name
     = f.text_field :name
   .field
-    = f.label :description
-    = f.text_area :description, rows: 10
+    = f.label :short_description
+    = f.text_area :short_description, rows: 8
+  .field
+    = f.label :long_description
+    = f.text_area :long_description, rows: 16
   .field
     = f.label :layer_id, 'Layer ID'
     = f.text_field :layer_id

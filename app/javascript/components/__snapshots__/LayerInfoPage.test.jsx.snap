@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  id="modal-background"
+  style={
+    Object {
+      "backgroundColor": "rgba(0,0,0,0.4)",
+      "height": "100%",
+      "left": "0",
+      "overflow": "auto",
+      "position": "fixed",
+      "top": "0",
+      "width": "100%",
+      "zIndex": "10001",
+    }
+  }
+>
+  <div
+    id="modal"
+    style={
+      Object {
+        "backgroundColor": "#fefefe",
+        "border": "1px solid #888",
+        "margin": "15% auto",
+        "padding": "20px",
+        "width": "80%",
+      }
+    }
+  >
+    <h1>
+      Test name
+    </h1>
+    <p>
+      Test description
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders correctly without a description too 1`] = `
+<div
+  id="modal-background"
+  style={
+    Object {
+      "backgroundColor": "rgba(0,0,0,0.4)",
+      "height": "100%",
+      "left": "0",
+      "overflow": "auto",
+      "position": "fixed",
+      "top": "0",
+      "width": "100%",
+      "zIndex": "10001",
+    }
+  }
+>
+  <div
+    id="modal"
+    style={
+      Object {
+        "backgroundColor": "#fefefe",
+        "border": "1px solid #888",
+        "margin": "15% auto",
+        "padding": "20px",
+        "width": "80%",
+      }
+    }
+  >
+    <h1>
+      Test name
+    </h1>
+    <p>
+      A long description of this dataset is not yet available.
+    </p>
+    <button
+      onClick={[Function]}
+    >
+      Close
+    </button>
+  </div>
+</div>
+`;

@@ -3,7 +3,8 @@ import { Route, withRouter } from 'react-router-dom'
 import ResourceWatchMap from 'components/ResourceWatchMap'
 import MapSideBar from 'components/MapSideBar'
 import DatasetsModal from 'components/DatasetsModal'
-import { LAYERS } from 'components/datasets'
+
+const LAYERS = window.layers
 
 const MapPage = ({ match, history }) => {
   const [activeLayers, setActiveLayers] = React.useState(LAYERS.filter(layer => layer.initially_on))
