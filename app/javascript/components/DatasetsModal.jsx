@@ -1,6 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { Icon } from 'vizzuality-components'
+import Modal from 'components/Modal'
 import LayerCard from 'components/LayerCard'
 
 const LAYERS = window.layers
@@ -12,23 +13,6 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
   const [descriptionExpanded, setDescriptionExpanded] = React.useState(false)
 
   if (open) {
-    const modalBackgroundStyle = {
-      position: 'fixed',
-      zIndex: '10001',
-      left: '0',
-      top: '0',
-      width: '100%',
-      height: '100%',
-      overflow: 'auto',
-      backgroundColor: 'rgba(0,0,0,0.4)',
-    }
-    const modalStyle = {
-      backgroundColor: '#fefefe',
-      margin: '15% auto',
-      padding: '20px',
-      border: '1px solid #888',
-      width: '80%',
-    }
     const modalHeaderStyle = {
       display: 'flex',
       justifyContent: 'space-between',
@@ -145,37 +129,35 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
     const categories = CATEGORIES.sort(category => category.title)
 
     return (
-      <div style={modalBackgroundStyle} id='modal-background'>
-        <div style={modalStyle} id='modal'>
-          <div style={modalHeaderStyle}>
-            <h1>Add Datasets to Investigation</h1>
+      <Modal>
+        <div style={modalHeaderStyle}>
+          <h1>Add Datasets to Investigation</h1>
 
-              <button style={closeButtonStyle} onClick={onClose} aria-label="Close">
-                <Icon name="icon-cross" className="-small" />
-              </button>
-          </div>
-
-          <div style={tabsListStyle}>
-            {categories.map((category) => renderTab(category))}
-            {renderTab(allDatasetsCategory)}
-          </div>
-
-          {selectedCategory.slug !== 'all' && renderDescription(selectedCategory)}
-
-          <div style={layerListStyle}>
-            {filteredLayers.map((layer) => (
-              <div key={layer.id} style={{width: '48%', padding: '0 1%'}}>
-                <LayerCard
-                  layer={layer}
-                  variant='white'
-                  excludedTag={selectedCategory.slug}
-                  secondaryAction={renderAddButton(layer)}
-                />
-              </div>
-            ))}
-          </div>
+            <button style={closeButtonStyle} onClick={onClose} aria-label="Close">
+              <Icon name="icon-cross" className="-small" />
+            </button>
         </div>
-      </div>
+
+        <div style={tabsListStyle}>
+          {categories.map((category) => renderTab(category))}
+          {renderTab(allDatasetsCategory)}
+        </div>
+
+        {selectedCategory.slug !== 'all' && renderDescription(selectedCategory)}
+
+        <div style={layerListStyle}>
+          {filteredLayers.map((layer) => (
+            <div key={layer.id} style={{width: '48%', padding: '0 1%'}}>
+              <LayerCard
+                layer={layer}
+                variant='white'
+                excludedTag={selectedCategory.slug}
+                secondaryAction={renderAddButton(layer)}
+              />
+            </div>
+          ))}
+        </div>
+      </Modal>
     )
   } else {
     return null
