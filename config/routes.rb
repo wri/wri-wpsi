@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'root#index'
 
+  devise_for :users
+
   # Single page app endpoint
   get '/map', to: 'root#map'
   get '/map/*ignored', to: 'root#map'
