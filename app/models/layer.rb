@@ -3,6 +3,7 @@ class Layer < ApplicationRecord
   has_many :categories, through: :category_layers
 
   validates :layer_id, :dataset_id, :name, presence: true
+  validates :source_url, url: { allow_blank: true }
 
   def categories_string
     categories.join ', '
