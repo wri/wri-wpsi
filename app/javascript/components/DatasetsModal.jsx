@@ -1,14 +1,14 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { LAYERS } from 'components/datasets'
 import { Icon } from 'vizzuality-components'
 import LayerCard from 'components/LayerCard'
 
 const CATEGORIES = window.categories
 
-const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
-  const [selectedCategory, setSelectedCategory] = React.useState(
-    CATEGORIES.find(category => category.slug == 'water')
-  )
+const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, history }) => {
+  const allDatasetsCategory = {slug: 'all', title: 'All Data >'}
+  const selectedCategory = CATEGORIES.find(c => c.slug === tab) || allDatasetsCategory
   const [descriptionExpanded, setDescriptionExpanded] = React.useState(false)
 
   if (open) {
@@ -92,7 +92,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
         id={`${category.slug}-tab`}
         onClick={
           () => {
-            setSelectedCategory(category)
+            history.push(`/map/datasets/${category.slug}`)
             setDescriptionExpanded(false)
           }
         }
@@ -157,7 +157,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick }) => {
 
           <div style={tabsListStyle}>
             {categories.map((category) => renderTab(category))}
-            {renderTab({slug: 'all', title: 'All Data >'})}
+            {renderTab(allDatasetsCategory)}
           </div>
 
           {selectedCategory.slug !== 'all' && renderDescription(selectedCategory)}
@@ -188,6 +188,8 @@ DatasetsModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   isActive: PropTypes.func.isRequired,
   onToggleLayerClick: PropTypes.func.isRequired,
+  tab: PropTypes.string.isRequired,
+  history: PropTypes.object.isRequired,
 }
 
-export default DatasetsModal
+export default withRouter(DatasetsModal)

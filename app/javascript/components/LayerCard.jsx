@@ -1,6 +1,5 @@
 import React from 'react'
-
-const CATEGORIES = window.categories
+import LayerTags from 'components/LayerTags'
 
 const LayerCard = ({ layer, variant, excludedTag, secondaryAction }) => {
   const containerStyle = {
@@ -49,22 +48,6 @@ const LayerCard = ({ layer, variant, excludedTag, secondaryAction }) => {
       </div>
     )
   }
-}
-
-const LayerTags = ({ layer, excludedTag }) => {
-  const tagStyle = {
-    marginRight: '15px',
-    textDecoration: 'none',
-    fontSize: 'smaller',
-  }
-
-  return layer.category_slugs.map(category_slug => (
-    category_slug === excludedTag ?
-      null :
-      <a style={tagStyle} href="#" key={category_slug}>
-        {CATEGORIES.find(category => category.slug == category_slug).title}
-      </a>
-  ))
 }
 
 import PropTypes from 'prop-types'

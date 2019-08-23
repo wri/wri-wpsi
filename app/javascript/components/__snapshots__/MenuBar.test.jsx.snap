@@ -10,13 +10,12 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
   }
 >
   <a
-    aria-current="page"
-    className="active"
-    href="/"
+    aria-current={null}
+    href="/map"
     onClick={[Function]}
     style={
       Object {
-        "color": "black",
+        "color": "#999",
         "display": "inline-block",
         "margin": 25,
         "textDecoration": "none",

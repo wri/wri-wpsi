@@ -15,11 +15,11 @@ const App = () => {
   }
 
   return (
-    <BrowserRouter basename={'map'}>
+    <BrowserRouter>
       <div style={globalStyles}>
         <TopBanner />
 
-        <Route path="/" exact component={MapPage} />
+        <Route path="/map" component={MapPage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/methodology" component={MethodologyPage} />
         <Route path="/layers" exact component={LayersList} />

@@ -1,14 +1,15 @@
 import React from 'react'
+import { Route, withRouter } from 'react-router-dom'
 import ResourceWatchMap from 'components/ResourceWatchMap'
 import MapSideBar from 'components/MapSideBar'
 import DatasetsModal from 'components/DatasetsModal'
 import { LAYERS } from 'components/datasets'
 
-const MapPage = () => {
+const MapPage = ({ match, history }) => {
   const [activeLayers, setActiveLayers] = React.useState(LAYERS.filter(layer => layer.initially_on))
   const activeLayerIds = activeLayers.map(l => l.id)
 
-  const [modalOpen, setModalOpen] = React.useState(false)
+  const [modalOpen, setModalOpen] = React.useState(true)
 
   const [selectedRegion, setSelectedRegion] = React.useState(null)
 
@@ -76,6 +77,8 @@ const MapPage = () => {
     borderLeft: '1px solid #B6C6BC',
   }
 
+  const currentPath = match.path
+
   return <React.Fragment>
     <ResourceWatchMap
       style={{
@@ -101,11 +104,19 @@ const MapPage = () => {
         onRemoveLayer={removeLayer}
       />
 
-      <DatasetsModal
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-        isActive={isActive}
-        onToggleLayerClick={handleToggleLayerClick}
+      <Route
+        path={`${currentPath}/datasets/:category`}
+        render={
+          ({ match }) => (
+            <DatasetsModal
+              open={modalOpen}
+              onClose={() => history.push(currentPath)}
+              isActive={isActive}
+              onToggleLayerClick={handleToggleLayerClick}
+              tab={match.params.category}
+            />
+          )
+        }
       />
     </div>
 
@@ -113,4 +124,10 @@ const MapPage = () => {
   </React.Fragment>
 }
 
-export default MapPage
+import PropTypes from 'prop-types'
+MapPage.propTypes = {
+  match: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
+}
+
+export default withRouter(MapPage)

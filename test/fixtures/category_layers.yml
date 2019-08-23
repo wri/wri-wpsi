@@ -1,1 +1,107 @@
-# Category-layer join records are set up in the layer fixtures
+conflict_one:
+  category: 'conflict'
+  layer: 'conflict_one'
+
+community_one:
+  category: 'community'
+  layer: 'community_one'
+
+economy_one:
+  category: 'economy'
+  layer: 'economy_one'
+
+food_one:
+  category: 'food'
+  layer: 'food_one'
+
+food_two:
+  category: 'food'
+  layer: 'food_two'
+
+food_three:
+  category: 'food'
+  layer: 'food_three'
+
+food_four:
+  category: 'food'
+  layer: 'food_four'
+
+food_five:
+  category: 'food'
+  layer: 'food_five'
+
+food_six:
+  category: 'food'
+  layer: 'food_six'
+
+food_seven:
+  category: 'food'
+  layer: 'food_seven'
+
+food_eight:
+  category: 'food'
+  layer: 'food_eight'
+
+food_nine:
+  category: 'food'
+  layer: 'food_nine'
+
+food_ten:
+  category: 'food'
+  layer: 'food_ten'
+
+food_eleven:
+  category: 'food'
+  layer: 'food_eleven'
+
+food_twelve:
+  category: 'food'
+  layer: 'food_twelve'
+
+food_thirteen:
+  category: 'food'
+  layer: 'food_thirteen'
+
+migration_one:
+  category: 'migration'
+  layer: 'migration_one'
+
+migration_two:
+  category: 'migration'
+  layer: 'migration_two'
+
+migration_three:
+  category: 'migration'
+  layer: 'migration_three'
+
+migration_four:
+  category: 'migration'
+  layer: 'migration_four'
+
+infrastructure_one:
+  category: 'infrastructure'
+  layer: 'infrastructure_one'
+
+infrastructure_two:
+  category: 'infrastructure'
+  layer: 'infrastructure_two'
+
+infrastructure_three:
+  category: 'infrastructure'
+  layer: 'infrastructure_three'
+
+infrastructure_four:
+  category: 'infrastructure'
+  layer: 'infrastructure_four'
+
+infrastructure_five:
+  category: 'infrastructure'
+  layer: 'infrastructure_five'
+
+infrastructure_six:
+  category: 'infrastructure'
+  layer: 'infrastructure_six'
+
+infrastructure_seven:
+  category: 'infrastructure'
+  layer: 'infrastructure_seven'
