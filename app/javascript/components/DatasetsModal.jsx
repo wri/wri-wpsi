@@ -1,9 +1,9 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { LAYERS } from 'components/datasets'
 import { Icon } from 'vizzuality-components'
 import LayerCard from 'components/LayerCard'
 
+const LAYERS = window.layers
 const CATEGORIES = window.categories
 
 const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, history }) => {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { LAYERS } from 'components/datasets'
+
+const LAYERS = window.layers
 
 const renderMapTable = (title, rows) => {
   return (

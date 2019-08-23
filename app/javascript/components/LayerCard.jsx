@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import LayerTags from 'components/LayerTags'
 
 const LayerCard = ({ layer, variant, excludedTag, secondaryAction }) => {
@@ -40,7 +41,9 @@ const LayerCard = ({ layer, variant, excludedTag, secondaryAction }) => {
         </div>
         <p>
           {layer.short_description}
-          <a href="#" style={moreLinkStyle}>Learn more &gt;</a>
+          <Link to={`/map/learn_more/${layer.id}`} style={moreLinkStyle}>
+            Learn more &gt;
+          </Link>
         </p>
         <div style={{marginBottom: '15px'}}>
           <LayerTags layer={layer} excludedTag={excludedTag} />

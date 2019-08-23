@@ -23,9 +23,22 @@ class MapTest < ApplicationSystemTestCase
       add_button.click
       click_button 'Close'
     end
+  end
+
+  test 'viewing a dataset\'s long description' do
+    layer = layers(:conflict_one)
+
+    visit map_url
 
     within '#sidebar' do
       assert_selector 'h2', text: layer.name
+      click_link 'Learn more'
     end
+
+    assert_selector 'h1', text: layer.name
+    assert_text layer.long_description
+    click_button 'Close'
+
+    assert_selector '#top-banner', text: 'Water, Peace & Security'
   end
 end
