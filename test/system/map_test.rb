@@ -17,7 +17,7 @@ class MapTest < ApplicationSystemTestCase
 
       assert_text layer.categories.first.description
       assert_selector 'h2', text: layer.name
-      assert_text layer.description
+      assert_text layer.short_description
 
       add_button = find("#layer-#{layer.layer_id}")
       add_button.click

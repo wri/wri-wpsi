@@ -39,7 +39,7 @@ const LayerCard = ({ layer, variant, excludedTag, secondaryAction }) => {
           {secondaryAction}
         </div>
         <p>
-          {layer.description}
+          {layer.short_description}
           <a href="#" style={moreLinkStyle}>Learn more &gt;</a>
         </p>
         <div style={{marginBottom: '15px'}}>

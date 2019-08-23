@@ -21,7 +21,8 @@ class Admin::LayersControllerTest < ActionDispatch::IntegrationTest
         layer: {
           category_ids: @layer.categories.map(&:id),
           dataset_id: @layer.dataset_id,
-          description: @layer.description,
+          short_description: @layer.short_description,
+          long_description: @layer.long_description,
           layer_id: 'some_unique_id',
           name: @layer.name,
           published: @layer.published,
@@ -48,7 +49,8 @@ class Admin::LayersControllerTest < ActionDispatch::IntegrationTest
       layer: {
         category_ids: @layer.categories.map(&:id),
         dataset_id: @layer.dataset_id,
-        description: @layer.description,
+        short_description: @layer.short_description,
+        long_description: @layer.long_description,
         layer_id: @layer.layer_id,
         name: @layer.name,
         primary: @layer.primary,

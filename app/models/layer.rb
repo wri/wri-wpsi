@@ -19,7 +19,7 @@ class Layer < ApplicationRecord
         dataset: layer.dataset_id,
         category_slugs: layer.categories.map(&:slug),
         name: layer.name,
-        description: layer.description,
+        short_description: layer.short_description,
         initially_on: layer.primary?,
       }
     end

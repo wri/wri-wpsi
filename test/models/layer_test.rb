@@ -14,7 +14,7 @@ class LayerTest < ActiveSupport::TestCase
         dataset: @layer_one.dataset_id,
         category_slugs: @layer_one.categories.map(&:slug),
         name: @layer_one.name,
-        description: @layer_one.description,
+        short_description: @layer_one.short_description,
         initially_on: true,
       },
       {
@@ -22,7 +22,7 @@ class LayerTest < ActiveSupport::TestCase
         dataset: @layer_two.dataset_id,
         category_slugs: @layer_two.categories.map(&:slug),
         name: @layer_two.name,
-        description: @layer_two.description,
+        short_description: @layer_two.short_description,
         initially_on: false,
       },
     ]
