@@ -1,5 +1,5 @@
 class Layer < ApplicationRecord
-  has_many :category_layers, dependent: :destroy
+  has_many :category_layers, dependent: :delete_all
   has_many :categories, through: :category_layers
 
   validates :layer_id, :dataset_id, :name, presence: true
