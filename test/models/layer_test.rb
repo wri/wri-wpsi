@@ -16,6 +16,9 @@ class LayerTest < ActiveSupport::TestCase
         short_description: @layer_one.short_description,
         long_description: @layer_one.long_description,
         initially_on: true,
+        source_name: @layer_one.source_name,
+        source_url: @layer_one.source_url,
+        source_description: @layer_one.source_description,
       },
       {
         id: @layer_two.layer_id,
@@ -24,6 +27,9 @@ class LayerTest < ActiveSupport::TestCase
         short_description: @layer_two.short_description,
         long_description: @layer_two.long_description,
         initially_on: false,
+        source_name: @layer_two.source_name,
+        source_url: @layer_two.source_url,
+        source_description: @layer_two.source_description,
       },
     ]
 

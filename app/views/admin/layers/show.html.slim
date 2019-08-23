@@ -11,17 +11,28 @@ div.show-page-items
     strong Long description:
     = @layer.long_description
   p
-    strong Layer:
+    strong Layer ID:
     = @layer.layer_id
   p
-    strong Dataset:
+    strong Dataset ID:
     = @layer.dataset_id
+  p
+    strong Categories:
+    = @layer.categories_string
+  p
+    strong Source:
+    - if @layer.source_name.present? && @layer.source_url.present?
+      span
+        = link_to @layer.source_name, @layer.source_url
+        - if @layer.source_description.present?
+          |,
+          =< @layer.source_description
   p
     strong Published:
     = @layer.published
   p
-    strong Categories:
-    = @layer.categories_string
+    strong Primary layer:
+    = @layer.primary
 
 => link_to 'Edit', edit_admin_layer_path(@layer)
 '|

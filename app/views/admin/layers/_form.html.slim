@@ -24,6 +24,15 @@
   .field
     = f.label :category_ids, 'Categories'
     = f.collection_select(:category_ids, Category.all, :id, :title, {}, { multiple: true } )
+  .field
+    = f.label :source_name
+    = f.text_field :source_name
+  .field
+    = f.label :source_url
+    = f.text_field :source_url
+  .field
+    = f.label :source_description
+    = f.text_field :source_description
 
   h3 Options
 
@@ -32,7 +41,7 @@
     = f.check_box :published
     i Layers will not be visible to end-users until they are published.
   .field
-    = f.label :primary, 'Primary Layer'
+    = f.label :primary, 'Primary layer'
     = f.check_box :primary
     i Primary layers are displayed when the map is first loaded.
   .actions = f.submit

@@ -12,6 +12,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'sentry-raven'
 gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
+gem 'validate_url'
 gem 'webpacker'
 
 group :development, :test do

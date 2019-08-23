@@ -2,7 +2,7 @@ require 'application_system_test_case'
 
 class LayersTest < ApplicationSystemTestCase
   setup do
-    @layer = layers(:conflict_one)
+    @layer = layers(:food_one)
   end
 
   test 'visiting the index' do
@@ -14,12 +14,15 @@ class LayersTest < ApplicationSystemTestCase
     visit admin_layers_url
     click_on 'New Layer'
 
-    select @layer.categories.first.title, from: 'Categories'
-    fill_in 'Dataset', with: @layer.dataset_id
+    fill_in 'Name', with: @layer.name
     fill_in 'Short description', with: @layer.short_description
     fill_in 'Long description', with: @layer.long_description
     fill_in 'Layer', with: 'some_unique_id'
-    fill_in 'Name', with: @layer.name
+    fill_in 'Dataset', with: @layer.dataset_id
+    select @layer.categories.first.title, from: 'Categories'
+    fill_in 'Source name', with: @layer.source_name
+    fill_in 'Source url', with: @layer.source_url
+    fill_in 'Source description', with: @layer.source_description
     check 'Published' if @layer.published
     check 'Primary' if @layer.primary
     click_on 'Create Layer'
@@ -32,12 +35,15 @@ class LayersTest < ApplicationSystemTestCase
     visit admin_layers_url
     click_on 'Edit', match: :first
 
-    select @layer.categories.first.title, from: 'Categories'
-    fill_in 'Dataset', with: @layer.dataset_id
+    fill_in 'Name', with: @layer.name
     fill_in 'Short description', with: @layer.short_description
     fill_in 'Long description', with: @layer.long_description
-    fill_in 'Layer', with: @layer.layer_id
-    fill_in 'Name', with: @layer.name
+    fill_in 'Layer', with: 'some_unique_id'
+    fill_in 'Dataset', with: @layer.dataset_id
+    select @layer.categories.first.title, from: 'Categories'
+    fill_in 'Source name', with: @layer.source_name
+    fill_in 'Source url', with: @layer.source_url
+    fill_in 'Source description', with: @layer.source_description
     check 'Published' if @layer.published
     check 'Primary' if @layer.primary
     click_on 'Update Layer'

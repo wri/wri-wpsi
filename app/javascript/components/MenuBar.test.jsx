@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, NavLink } from 'react-router-dom'
-import { shallow } from 'enzyme';
+import { shallow } from 'enzyme'
 import MenuBar from 'components/MenuBar'
 import renderer from 'react-test-renderer'
 

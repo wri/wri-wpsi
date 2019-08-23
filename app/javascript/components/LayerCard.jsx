@@ -39,6 +39,10 @@ const LayerCard = ({ layer, variant, excludedTag, secondaryAction }) => {
           <h2>{layer.name}</h2>
           {secondaryAction}
         </div>
+        <p style={{marginTop: 0}}>
+          <a href={layer.source_url}>{layer.source_name}</a>
+          {layer.source_description && `, ${layer.source_description}`}
+        </p>
         <p>
           {layer.short_description}
           <Link to={`/map/learn_more/${layer.id}`} style={moreLinkStyle}>
