@@ -42,13 +42,18 @@ class Admin::LayersController < Admin::BaseController
     @layer = Layer.find(params[:id])
   end
 
-  def layer_params
+  def layer_params # rubocop:disable Metrics/MethodLength
     params.require(:layer).permit(
       :name,
-      :description,
+      :short_description,
+      :long_description,
       :layer_id,
       :dataset_id,
+      :source_name,
+      :source_url,
+      :source_description,
       :published,
+      :primary,
       category_ids: [],
     )
   end

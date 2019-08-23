@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_133502) do
+ActiveRecord::Schema.define(version: 2019_08_23_163133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 2019_08_23_133502) do
     t.datetime "updated_at", null: false
     t.boolean "primary"
     t.text "long_description"
+    t.string "source_name"
+    t.string "source_url"
+    t.string "source_description"
     t.index ["layer_id"], name: "index_layers_on_layer_id", unique: true
   end
 

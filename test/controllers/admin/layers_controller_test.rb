@@ -19,12 +19,15 @@ class Admin::LayersControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Layer.count') do
       post admin_layers_url, params: {
         layer: {
-          category_ids: @layer.categories.map(&:id),
-          dataset_id: @layer.dataset_id,
+          name: @layer.name,
           short_description: @layer.short_description,
           long_description: @layer.long_description,
           layer_id: 'some_unique_id',
-          name: @layer.name,
+          dataset_id: @layer.dataset_id,
+          category_ids: @layer.categories.map(&:id),
+          source_name: @layer.source_name,
+          source_url: @layer.source_url,
+          source_description: @layer.source_description,
           published: @layer.published,
           primary: @layer.primary,
         },
@@ -47,14 +50,17 @@ class Admin::LayersControllerTest < ActionDispatch::IntegrationTest
   test 'should update layer' do
     patch admin_layer_url(@layer), params: {
       layer: {
-        category_ids: @layer.categories.map(&:id),
-        dataset_id: @layer.dataset_id,
+        name: @layer.name,
         short_description: @layer.short_description,
         long_description: @layer.long_description,
-        layer_id: @layer.layer_id,
-        name: @layer.name,
-        primary: @layer.primary,
+        layer_id: 'some_unique_id',
+        dataset_id: @layer.dataset_id,
+        category_ids: @layer.categories.map(&:id),
+        source_name: @layer.source_name,
+        source_url: @layer.source_url,
+        source_description: @layer.source_description,
         published: @layer.published,
+        primary: @layer.primary,
       },
     }
     assert_redirected_to admin_layer_url(@layer)

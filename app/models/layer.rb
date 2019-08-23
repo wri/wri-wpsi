@@ -12,7 +12,7 @@ class Layer < ApplicationRecord
     where(published: true)
   end
 
-  def self.serialized_for_react_app
+  def self.serialized_for_react_app # rubocop:disable Metrics/MethodLength
     published.map do |layer|
       {
         id: layer.layer_id,
@@ -21,6 +21,9 @@ class Layer < ApplicationRecord
         short_description: layer.short_description,
         long_description: layer.long_description,
         initially_on: layer.primary?,
+        source_name: layer.source_name,
+        source_url: layer.source_url,
+        source_description: layer.source_description,
       }
     end
   end

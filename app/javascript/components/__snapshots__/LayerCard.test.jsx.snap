@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "backgroundColor": "#EBEEEF",
+      "borderBottom": "1px solid #B6C6BC",
+      "padding": "4px 24px",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "justifyContent": "space-between",
+        "lineHeight": "2em",
+      }
+    }
+  >
+    <h2>
+      My test layer
+    </h2>
+  </div>
+  <p
+    style={
+      Object {
+        "marginTop": 0,
+      }
+    }
+  >
+    <a
+      href="www.wikipedia.org"
+    >
+      Wikipedia
+    </a>
+  </p>
+  <p>
+    <Link
+      style={
+        Object {
+          "fontSize": "smaller",
+          "paddingLeft": "5px",
+          "textDecoration": "none",
+          "textTransform": "uppercase",
+        }
+      }
+      to="/map/learn_more/123"
+    >
+      Learn more &gt;
+    </Link>
+  </p>
+  <div
+    style={
+      Object {
+        "marginBottom": "15px",
+      }
+    }
+  >
+    <withRouter(LayerTags)
+      layer={
+        Object {
+          "category_slugs": Array [
+            "water",
+            "peace",
+            "security",
+          ],
+          "id": "123",
+          "name": "My test layer",
+          "source_name": "Wikipedia",
+          "source_url": "www.wikipedia.org",
+        }
+      }
+    />
+  </div>
+</div>
+`;
