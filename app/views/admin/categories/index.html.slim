@@ -1,11 +1,11 @@
-h1 Listing categories
+h2 Listing categories
 
 table
   thead
     tr
       th Title
       th Description
-      th Slug
+      th Layers
       th
       th
       th
@@ -15,7 +15,7 @@ table
       tr
         td = category.title
         td = category.description
-        td = category.slug
+        td = category.layers.count
         td = link_to 'Show', [:admin, category]
         td = link_to 'Edit', edit_admin_category_path(category)
         td = link_to 'Delete', [:admin, category], data: { confirm: 'Are you sure?' }, method: :delete

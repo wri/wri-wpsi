@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/map/*ignored', to: 'root#map'
 
   # Admin routes
+  get '/admin', to: redirect('/admin/layers')
   namespace :admin do
     resources :layers
     resources :categories
