@@ -1,11 +1,9 @@
-h2 Listing layers
+h2.mb-4 Listing layers
 
-table.layers-table
+table.table
   thead
     tr
       th Name
-      th Layer ID
-      th Dataset ID
       th Published
       th Categories
       th
@@ -16,8 +14,6 @@ table.layers-table
     - @layers.each do |layer|
       tr
         td = layer.name
-        td = layer.layer_id
-        td = layer.dataset_id
         td = layer.published
         td = layer.categories_string
         td = link_to 'Show', [:admin, layer]
@@ -26,4 +22,4 @@ table.layers-table
 
 br
 
-= link_to 'New Layer', new_admin_layer_path
+= link_to 'New Layer', new_admin_layer_path, class: 'btn btn-primary mb-4'

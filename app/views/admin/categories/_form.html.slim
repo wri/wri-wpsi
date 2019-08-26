@@ -1,18 +1,23 @@
-= form_for [:admin, @category] do |f|
+.mb-4 = form_for [:admin, @category] do |f|
   - if @category.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@category.errors.count, 'error')} prohibited this category from being saved:"
-      ul
-        - @category.errors.full_messages.each do |message|
-          li = message
+    div.card.border-danger.mb-4
+      div.card-header.bg-danger.text-white
+        = "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
+      div.card-body
+        ul.mb-0
+          - @category.errors.full_messages.each do |message|
+            li = message
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_area :description, rows: 10
-  .field
-    = f.label :slug
-    = f.text_field :slug
-  .actions = f.submit
+  div.form-group
+    .field
+      = f.label :title
+      = f.text_field :title, class: 'form-control'
+  div.form-group
+    .field
+      = f.label :description
+      = f.text_area :description, rows: 4, class: 'form-control'
+  div.form-group
+    .field
+      = f.label :slug
+      = f.text_field :slug, class: 'form-control'
+  .actions = f.submit class: 'btn btn-primary'

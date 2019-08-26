@@ -1,12 +1,12 @@
-div.show-page-items
+div
   p
-    strong Title:
+    strong> Title:
     = @category.title
   p
-    strong Description:
+    strong> Description:
     = @category.description
   p
-    strong Slug:
+    strong> Slug:
     = @category.slug
 
 => link_to 'Edit', edit_admin_category_path(@category)
