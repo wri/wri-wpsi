@@ -6,6 +6,7 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
     Object {
       "fontSize": 21,
       "margin": 9,
+      "width": "100%",
     }
   }
 >
@@ -53,6 +54,20 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
     }
   >
     About Us
+  </a>
+  <a
+    href="/admin"
+    style={
+      Object {
+        "color": "#999",
+        "display": "inline-block",
+        "float": "right",
+        "margin": 25,
+        "textDecoration": "none",
+      }
+    }
+  >
+    Admin Portal
   </a>
 </div>
 `;

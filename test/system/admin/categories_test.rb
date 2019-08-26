@@ -1,22 +1,25 @@
 require 'application_system_test_case'
 
 class CategoriesTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in create(:user)
     @category = categories(:community)
   end
 
   test 'visiting the index' do
     visit admin_categories_url
-    assert_selector 'h1', text: 'Listing categories'
+    assert_selector 'h2', text: 'Listing categories'
   end
 
   test 'creating a Category' do
     visit admin_categories_url
     click_on 'New Category'
 
+    fill_in 'Title', with: @category.title
     fill_in 'Description', with: @category.description
     fill_in 'Slug', with: 'some_unique_slug'
-    fill_in 'Title', with: @category.title
     click_on 'Create Category'
 
     assert_text 'Category was successfully created'
@@ -25,11 +28,14 @@ class CategoriesTest < ApplicationSystemTestCase
 
   test 'updating a Category' do
     visit admin_categories_url
-    click_on 'Edit', match: :first
 
+    within 'table' do
+      click_on 'Edit', match: :first
+    end
+
+    fill_in 'Title', with: @category.title
     fill_in 'Description', with: @category.description
     fill_in 'Slug', with: 'some_unique_slug'
-    fill_in 'Title', with: @category.title
     click_on 'Update Category'
 
     assert_text 'Category was successfully updated'

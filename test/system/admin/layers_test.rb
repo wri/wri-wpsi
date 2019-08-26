@@ -1,13 +1,16 @@
 require 'application_system_test_case'
 
 class LayersTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in create(:user)
     @layer = layers(:food_one)
   end
 
   test 'visiting the index' do
     visit admin_layers_url
-    assert_selector 'h1', text: 'Listing layers'
+    assert_selector 'h2', text: 'Listing layers'
   end
 
   test 'creating a Layer' do
@@ -33,7 +36,10 @@ class LayersTest < ApplicationSystemTestCase
 
   test 'updating a Layer' do
     visit admin_layers_url
-    click_on 'Edit', match: :first
+
+    within 'table' do
+      click_on 'Edit', match: :first
+    end
 
     fill_in 'Name', with: @layer.name
     fill_in 'Short description', with: @layer.short_description
