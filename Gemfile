@@ -20,6 +20,8 @@ group :development, :test do
   gem 'brakeman', '>= 4.6.1', require: false
   gem 'bundle-audit', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'simplecov'
   gem 'simplecov-console'
 end
