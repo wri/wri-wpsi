@@ -10,7 +10,7 @@ html
     = javascript_include_tag 'application'
   body
     div.container
-      = render 'admin_navbar'
+      = render 'admin/shared/navbar'
       .px-4
-        = render 'admin_alerts'
+        = render 'admin/shared/alerts'
         = yield

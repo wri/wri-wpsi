@@ -1,5 +1,5 @@
 .mb-4 = form_for [:admin, @user] do |f|
-  = render "devise/shared/error_messages", resource: @user
+  = render 'admin/shared/error_messages', resource: @user
 
   div.form-group
     .field

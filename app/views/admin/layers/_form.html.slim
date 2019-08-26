@@ -1,12 +1,5 @@
 .mb-4 = form_for [:admin, @layer] do |f|
-  - if @layer.errors.any?
-    div.card.border-danger.mb-4
-      div.card-header.bg-danger.text-white
-        = "#{pluralize(@layer.errors.count, "error")} prohibited this layer from being saved:"
-      div.card-body
-        ul.mb-0
-          - @layer.errors.full_messages.each do |message|
-            li = message
+  = render 'admin/shared/error_messages', resource: @layer
 
   div.form-group
     .field

@@ -1,12 +1,5 @@
 .mb-4 = form_for [:admin, @category] do |f|
-  - if @category.errors.any?
-    div.card.border-danger.mb-4
-      div.card-header.bg-danger.text-white
-        = "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
-      div.card-body
-        ul.mb-0
-          - @category.errors.full_messages.each do |message|
-            li = message
+  = render 'admin/shared/error_messages', resource: @category
 
   div.form-group
     .field
