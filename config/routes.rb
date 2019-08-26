@@ -6,15 +6,27 @@ Rails.application.routes.draw do
   get '/map/*ignored', to: 'root#map'
 
   # Admin routes
+  get '/admin', to: redirect('/admin/layers')
+
+  devise_for(
+    :users,
+    controllers: {
+      sessions: 'admin/sessions',
+      registrations: 'admin/registrations',
+    },
+    path: '/admin',
+  )
+
   namespace :admin do
+    resources :users, only: [:index, :new, :create, :destroy]
     resources :layers
     resources :categories
   end
 
-  # default AWS ELB health check path
+  # Default AWS ELB health check path
   get 'health-check', to: 'root#health_check'
-  # a check to force an exception notification
+  # A check to force an exception notification
   get 'notifier-check', to: 'root#notifier_check'
-  # a check to force a timeout WARNING: burns CPU!
+  # A check to force a timeout. WARNING: burns CPU!
   get 'timeout-check', to: 'root#timeout_check'
 end

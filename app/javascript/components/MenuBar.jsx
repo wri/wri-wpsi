@@ -5,6 +5,11 @@ const MenuBar = () => {
   const containerStyle = {
     margin: 9,
     fontSize: 21,
+    width: '100%',
+  }
+
+  const adminPortalLinkStyle = {
+    float: 'right',
   }
 
   const inactiveLinkStyle = {
@@ -43,6 +48,13 @@ const MenuBar = () => {
     >
       About Us
     </NavLink>
+
+    <a
+      href='/admin'
+      style={{...inactiveLinkStyle, ...adminPortalLinkStyle}}
+    >
+      Admin Portal
+    </a>
   </div>
 }
 

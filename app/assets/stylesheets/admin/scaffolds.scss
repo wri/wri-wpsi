@@ -64,6 +64,19 @@ body {
     color: green;
   }
 
+  #alert {
+    color: orange;
+  }
+
+  span.title {
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  #account-management {
+    float: right;
+  }
+
   .field_with_errors {
     padding: 2px;
     background-color: red;

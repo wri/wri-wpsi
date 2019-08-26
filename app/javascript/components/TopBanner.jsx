@@ -16,6 +16,7 @@ const TopBanner = () => {
         margin: '19px',
         fontSize: '33px',
         lineHeight: '40px',
+        whiteSpace: 'nowrap',
       }}>
         Water, Peace & Security
       </div>

@@ -9,4 +9,31 @@ html
     = stylesheet_link_tag 'admin', media: 'all'
     = javascript_include_tag 'application'
   body
+    - if notice
+      p#notice = notice
+    - if alert
+      p#alert = alert
+
+    div#nav-bar
+      span.title Admin Portal
+
+      div#account-management
+        - if user_signed_in?
+          | Logged in as
+          strong<
+            = current_user.email
+          | .
+          =<> link_to 'Edit profile', edit_user_registration_path, class: 'navbar-link'
+          | |
+          =<> link_to "Log out", destroy_user_session_path, method: :delete, class: 'navbar-link'
+        - else
+          =<> link_to "Sign up", new_user_registration_path, class: 'navbar-link'
+          | |
+          =<> link_to "Log in", new_user_session_path, class: 'navbar-link'
+
+    ul
+      li= link_to 'Layers', admin_layers_path
+      li= link_to 'Categories', admin_categories_path
+      li= link_to 'Admin users', admin_users_path
+
     = yield

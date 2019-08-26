@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class Admin::LayersControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   setup do
+    sign_in create(:user)
     @layer = layers(:conflict_one)
   end
 
