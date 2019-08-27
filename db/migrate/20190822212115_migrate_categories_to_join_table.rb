@@ -2,7 +2,7 @@ class MigrateCategoriesToJoinTable < ActiveRecord::Migration[5.2]
   def up
     Layer.all.each do |layer|
       layer.categories = [Category.find_by_slug(layer.category_slug)]
-      layer.save!
+      layer.save(validate: false)
     end
 
     remove_column :layers, :category_slug, :string
@@ -13,7 +13,7 @@ class MigrateCategoriesToJoinTable < ActiveRecord::Migration[5.2]
 
     Layer.all.each do |layer|
       layer.category_slug = layer.categories.first.slug
-      layer.save!
+      layer.save(validate: false)
     end
   end
 end
