@@ -1,47 +1,55 @@
-= form_for [:admin, @layer] do |f|
-  - if @layer.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@layer.errors.count, "error")} prohibited this layer from being saved:"
-      ul
-        - @layer.errors.full_messages.each do |message|
-          li = message
+.mb-4 = form_for [:admin, @layer] do |f|
+  = render 'admin/shared/error_messages', resource: @layer
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :short_description
-    = f.text_area :short_description, rows: 8
-  .field
-    = f.label :long_description
-    = f.text_area :long_description, rows: 16
-  .field
-    = f.label :layer_id, 'Layer ID'
-    = f.text_field :layer_id
-  .field
-    = f.label :dataset_id, 'Dataset ID'
-    = f.text_field :dataset_id
-  .field
-    = f.label :category_ids, 'Categories'
-    = f.collection_select(:category_ids, Category.all, :id, :title, {}, { multiple: true } )
-  .field
-    = f.label :source_name
-    = f.text_field :source_name
-  .field
-    = f.label :source_url
-    = f.text_field :source_url
-  .field
-    = f.label :source_description
-    = f.text_field :source_description
+  div.form-group
+    .field
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+  div.form-group
+    .field
+      = f.label :short_description
+      = f.text_area :short_description, rows: 4, class: 'form-control'
+  div.form-group
+    .field
+      = f.label :long_description
+      = f.text_area :long_description, rows: 8, class: 'form-control'
+  div.form-group
+    .field
+      = f.label :layer_id, 'Layer ID'
+      = f.text_field :layer_id, class: 'form-control'
+  div.form-group
+    .field
+      = f.label :dataset_id, 'Dataset ID'
+      = f.text_field :dataset_id, class: 'form-control'
+  div.form-group
+    .field
+      = f.label :category_ids, 'Categories'
+      = f.collection_select(:category_ids, Category.all, :id, :title, {}, { multiple: true, class: 'form-control' } )
+  div.form-group
+    .field
+      = f.label :source_name
+      = f.text_field :source_name, class: 'form-control'
+  div.form-group
+    .field
+      = f.label :source_url
+      = f.text_field :source_url, class: 'form-control'
+  div.form-group
+    .field
+      = f.label :source_description
+      = f.text_field :source_description, class: 'form-control'
 
   h3 Options
 
-  .field
-    = f.label :published
-    = f.check_box :published
-    i Layers will not be visible to end-users until they are published.
-  .field
-    = f.label :primary, 'Primary layer'
-    = f.check_box :primary
-    i Primary layers are displayed when the map is first loaded.
-  .actions = f.submit
+  div.form-group.form-check
+    .field
+      = f.check_box :published, class: 'form-check-input'
+      = f.label :published, class: 'form-check-label'
+      small.form-text.text-muted
+        | Layers will not be visible to end-users until they are published.
+  div.form-group.form-check
+    .field
+      = f.check_box :primary, class: 'form-check-input'
+      = f.label :primary, 'Primary layer', class: 'form-check-label'
+      small.form-text.text-muted
+        | Primary layers are displayed when the map is first loaded.
+  .actions = f.submit class: 'btn btn-primary'

@@ -1,24 +1,24 @@
-div.show-page-items
+div
   p
-    strong Name:
+    strong> Name:
     = @layer.name
   p
-    strong Short description:
+    strong> Short description:
     = @layer.short_description
   p
-    strong Long description:
+    strong> Long description:
     = @layer.long_description
   p
-    strong Layer ID:
+    strong> Layer ID:
     = @layer.layer_id
   p
-    strong Dataset ID:
+    strong> Dataset ID:
     = @layer.dataset_id
   p
-    strong Categories:
+    strong> Categories:
     = @layer.categories_string
   p
-    strong Source:
+    strong> Source:
     - if @layer.source_name.present? && @layer.source_url.present?
       span
         = link_to @layer.source_name, @layer.source_url
@@ -26,10 +26,10 @@ div.show-page-items
           |,
           =< @layer.source_description
   p
-    strong Published:
+    strong> Published:
     = @layer.published
   p
-    strong Primary layer:
+    strong> Primary layer:
     = @layer.primary
 
 => link_to 'Edit', edit_admin_layer_path(@layer)

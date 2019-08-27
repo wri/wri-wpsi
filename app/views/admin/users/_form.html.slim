@@ -1,15 +1,18 @@
-= form_for [:admin, @user] do |f|
-  = render "devise/shared/error_messages", resource: @user
+.mb-4 = form_for [:admin, @user] do |f|
+  = render 'admin/shared/error_messages', resource: @user
 
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :password
-    = f.password_field :password
-    i
+  div.form-group
+    .field
+      = f.label :email
+      = f.text_field :email, class: 'form-control'
+  div.form-group
+    .field
+      = f.label :password
+      = f.password_field :password, class: 'form-control'
+    small.form-text.text-muted
       | 6 characters minimum
-  .field
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
-  .actions = f.submit
+  div.form-group
+    .field
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, class: 'form-control'
+  .actions = f.submit class: 'btn btn-primary'
