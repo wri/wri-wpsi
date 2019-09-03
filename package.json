@@ -31,6 +31,7 @@
     "eslint-loader": "^2.1.2",
     "eslint-plugin-react": "^7.13.0",
     "jest": "^24.8.0",
+    "jest-canvas-mock": "^2.1.1",
     "react-test-renderer": "^16.8.6",
     "webpack-dev-server": "^3.7.1"
   },
@@ -38,6 +39,9 @@
     "moduleDirectories": [
       "node_modules",
       "app/javascript"
+    ],
+    "setupFiles": [
+      "jest-canvas-mock"
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/app/javascript/setupTests.js"
