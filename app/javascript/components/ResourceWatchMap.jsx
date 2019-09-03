@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import LayerGroupsMap from 'components/LayerGroupsMap'
 import ResourceWatchLegend from 'components/ResourceWatchLegend'
 
@@ -35,6 +36,10 @@ class ResourceWatchMap extends React.Component {
       layer: layer,
       toggle: false,
     })
+  }
+
+  handleChangeInfo = (layer) => {
+    this.props.history.push(`/map/learn_more/${layer.id}`)
   }
 
   handleChangeOpacity = (layer, opacity) => {
@@ -137,7 +142,7 @@ class ResourceWatchMap extends React.Component {
           style={legendStyle}
           layerGroups={filteredLayerGroups}
           onRemoveLayer={this.handleRemoveLayer}
-          onChangeInfo={(layer) => alert(`Info about layer ${layer.id}`)}
+          onChangeInfo={this.handleChangeInfo}
           onChangeOpacity={this.handleChangeOpacity}
           onChangeVisibility={this.handleChangeVisibility}
           onChangeOrder={onChangeLayerOrder}
@@ -150,6 +155,7 @@ class ResourceWatchMap extends React.Component {
 import PropTypes from 'prop-types'
 ResourceWatchMap.propTypes = {
   style: PropTypes.object,
+  history: PropTypes.object.isRequired,
   layerIds: PropTypes.array.isRequired,
   activeLayers: PropTypes.array,
   interactionState: PropTypes.object.isRequired,
@@ -158,4 +164,4 @@ ResourceWatchMap.propTypes = {
   setSelectedRegion: PropTypes.func.isRequired,
 }
 
-export default ResourceWatchMap
+export default withRouter(ResourceWatchMap)
