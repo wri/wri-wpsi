@@ -5,7 +5,7 @@ import {
   LegendItemToolbar,
   // LegendItemButtonLayers,
   LegendItemButtonOpacity,
-  // LegendItemButtonVisibility,
+  LegendItemButtonVisibility,
   LegendItemButtonRemove,
   LegendItemButtonInfo,
   LegendItemTypes,
@@ -19,7 +19,7 @@ const ResourceWatchLegend = ({
   onChangeOrder,
   onChangeInfo,
   onChangeOpacity,
-  // onChangeVisibility,
+  onChangeVisibility,
   // onChangeLayer,
   onRemoveLayer,
 }) => {
@@ -38,14 +38,14 @@ const ResourceWatchLegend = ({
             <LegendItemToolbar>
               <LegendItemButtonInfo />
               <LegendItemButtonOpacity />
-              {/*<LegendItemButtonVisibility />*/}
+              <LegendItemButtonVisibility />
               {/*<LegendItemButtonLayers />*/}
               <LegendItemButtonRemove />
             </LegendItemToolbar>
           }
           onChangeInfo={onChangeInfo}
           onChangeOpacity={onChangeOpacity}
-          // onChangeVisibility={onChangeVisibility}
+          onChangeVisibility={onChangeVisibility}
           // onChangeLayer={onChangeLayer}
           onRemoveLayer={onRemoveLayer}
         >
@@ -63,7 +63,7 @@ ResourceWatchLegend.propTypes = {
   onChangeOrder: PropTypes.func.isRequired,
   onChangeInfo: PropTypes.func.isRequired,
   onChangeOpacity: PropTypes.func.isRequired,
-  // onChangeVisibility: PropTypes.func.isRequired,
+  onChangeVisibility: PropTypes.func.isRequired,
   // onChangeLayer: PropTypes.func.isRequired,
   onRemoveLayer: PropTypes.func.isRequired,
 }
