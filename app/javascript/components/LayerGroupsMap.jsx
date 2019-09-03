@@ -56,6 +56,27 @@ class LayerGroupsMap extends React.Component {
       lg => lg.layers.filter(l => l.active === true && hasInteraction(l))
     ))
 
+    const interactionProps = (l) => {
+      return {
+        interactivity: l.provider === 'carto' || l.provider === 'cartodb'
+          ? l.interactionConfig.output.map(o => o.column)
+          : true,
+        events: {
+          click: (e) => {
+            if (this.props.setMapLayerGroupsInteraction) {
+              this.props.setMapLayerGroupsInteraction({
+                ...e,
+                ...l
+              });
+            }
+            if (this.props.setMapLayerGroupsInteractionLatLng) {
+              this.props.setMapLayerGroupsInteractionLatLng(e.latlng);
+            }
+          }
+        }
+      }
+    }
+
     return (
       <div style={style}>
         <Map {...mapConfig}>
@@ -100,27 +121,7 @@ class LayerGroupsMap extends React.Component {
                       key={l.id}
                       opacity={l.opacity || 1}
                       zIndex={1000 - i}
-                      // Interaction
-                      {...hasInteraction(l) && {
-                          interactivity:
-                            l.provider === 'carto' || l.provider === 'cartodb'
-                              ? l.interactionConfig.output.map(o => o.column)
-                              : true,
-                          events: {
-                            click: (e) => {
-                              if (this.props.setMapLayerGroupsInteraction) {
-                                this.props.setMapLayerGroupsInteraction({
-                                  ...e,
-                                  ...l
-                                });
-                              }
-                              if (this.props.setMapLayerGroupsInteractionLatLng) {
-                                this.props.setMapLayerGroupsInteractionLatLng(e.latlng);
-                              }
-                            }
-                          }
-                        }
-                      }
+                      {...hasInteraction(l) && interactionProps(l)}
                     />
                   ))}
               </LayerManager>
