@@ -44,13 +44,10 @@ class ResourceWatchMap extends React.Component {
   }
 
   handleChangeVisibility = (layer, visibility) => {
-    const { onToggleLayer } = this.props
-
-    // Just toggle the layer completely for now
-    onToggleLayer({
-      layer: layer,
-      toggle: visibility,
-    })
+    const { layerGroups } = this.state
+    layerGroups[layer.id].visibility = visibility
+    layerGroups[layer.id].layers[0] = { ...layer, visibility }
+    this.setState({ layerGroups })
   }
 
   reshapeLayerDefinition = (layer) => {
