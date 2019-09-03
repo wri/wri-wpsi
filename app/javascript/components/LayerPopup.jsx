@@ -11,7 +11,7 @@ import numeral from 'numeral';
 
 import { replace } from 'layer-manager';
 
-import Spinner from 'vizzuality-components';
+import { Spinner } from 'vizzuality-components';
 
 class LayerPopup extends React.Component {
   static propTypes = {
