@@ -1,3 +1,5 @@
+= tinymce_assets
+
 .mb-4 = form_for [:admin, @layer] do |f|
   = render 'admin/shared/error_messages', resource: @layer
 
@@ -12,7 +14,8 @@
   div.form-group
     .field
       = f.label :long_description
-      = f.text_area :long_description, rows: 8, class: 'form-control'
+      = f.text_area :long_description, class: "tinymce", rows: 16
+      = tinymce
   div.form-group
     .field
       = f.label :layer_id, 'Layer ID'
@@ -24,7 +27,8 @@
   div.form-group
     .field
       = f.label :category_ids, 'Categories'
-      = f.collection_select(:category_ids, Category.all, :id, :title, {}, { multiple: true, class: 'form-control' } )
+      - collection_select_options = { multiple: true, class: 'form-control', size: Category.count }
+      = f.collection_select(:category_ids, Category.all, :id, :title, {}, collection_select_options)
   div.form-group
     .field
       = f.label :source_name

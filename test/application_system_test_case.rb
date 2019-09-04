@@ -25,4 +25,12 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     super
     Capybara.enable_aria_label = true
   end
+
+  # `id` must be the id attribute of the editor instance e.g.
+  # <textarea id="foo" ...></textarea>
+  def tinymce_fill_in(id, with:)
+    assert_css("##{id}_ifr")
+    js = "tinyMCE.get('#{id}').setContent('#{with}')"
+    page.execute_script(js)
+  end
 end

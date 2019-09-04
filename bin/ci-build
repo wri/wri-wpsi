@@ -8,7 +8,7 @@ yarn
 yarn test
 
 echo -e "\n== Security checks ====================================================================="
-bundle exec brakeman -q --ensure-latest --no-pager --except PermitAttributes,Render --url-safe-methods source_url
+bundle exec brakeman -q --ensure-latest --no-pager --except PermitAttributes,Render --url-safe-methods source_url --safe-methods long_description
 bundle exec bundle-audit check --update
 
 echo -e "\n== Rails test environment setup ========================================================"

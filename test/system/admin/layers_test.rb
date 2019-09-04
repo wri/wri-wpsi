@@ -19,7 +19,7 @@ class LayersTest < ApplicationSystemTestCase
 
     fill_in 'Name', with: @layer.name
     fill_in 'Short description', with: @layer.short_description
-    fill_in 'Long description', with: @layer.long_description
+    tinymce_fill_in 'layer_long_description', with: @layer.long_description
     fill_in 'Layer', with: 'some_unique_id'
     fill_in 'Dataset', with: @layer.dataset_id
     select @layer.categories.first.title, from: 'Categories'
@@ -43,7 +43,7 @@ class LayersTest < ApplicationSystemTestCase
 
     fill_in 'Name', with: @layer.name
     fill_in 'Short description', with: @layer.short_description
-    fill_in 'Long description', with: @layer.long_description
+    tinymce_fill_in 'layer_long_description', with: 'some_test_long_description'
     fill_in 'Layer', with: 'some_unique_id'
     fill_in 'Dataset', with: @layer.dataset_id
     select @layer.categories.first.title, from: 'Categories'
