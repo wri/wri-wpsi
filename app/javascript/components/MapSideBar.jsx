@@ -34,6 +34,18 @@ const MapSideBar = ({ history, activeLayers, selectedRegion, onRemoveLayer }) =>
     marginRight: '8px',
   }
 
+  const renderRegionInfo = (region) => {
+    return (
+      <div style={headerStyle}>
+        <i>
+          {region.name_2 && `${region.name_2} ${region.engtype_2}, `}
+          {region.name_1 && `${region.name_1}, `}
+          {region.name_0}
+        </i>
+      </div>
+    )
+  }
+
   return (
     <div id='sidebar'>
       <div style={headerStyle}>
@@ -44,6 +56,8 @@ const MapSideBar = ({ history, activeLayers, selectedRegion, onRemoveLayer }) =>
           Add datasets to investigation
         </button>
       </div>
+
+      {selectedRegion && renderRegionInfo(selectedRegion)}
 
       <LayerCard
         variant='simple'
@@ -76,16 +90,6 @@ const MapSideBar = ({ history, activeLayers, selectedRegion, onRemoveLayer }) =>
           />
         )
       }
-
-      {selectedRegion && <div style={{marginTop: 20}}>
-        <h3>Selected Region:</h3>
-        <p>{selectedRegion.description}</p>
-
-        <ul>
-          <li>Latitude: {selectedRegion.location.lat}</li>
-          <li>Longitude: {selectedRegion.location.lng}</li>
-        </ul>
-      </div>}
     </div>
   )
 }
