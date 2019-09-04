@@ -34,6 +34,18 @@ const MapSideBar = ({ history, activeLayers, selectedRegion, onRemoveLayer }) =>
     marginRight: '8px',
   }
 
+  const renderRegionInfo = (region) => {
+    return (
+      <div style={headerStyle}>
+        <i>
+          {region.name_2 && `${region.name_2} ${region.engtype_2}, `}
+          {region.name_1 && `${region.name_1}, `}
+          {region.name_0}
+        </i>
+      </div>
+    )
+  }
+
   return (
     <div id='sidebar'>
       <div style={headerStyle}>
@@ -45,9 +57,7 @@ const MapSideBar = ({ history, activeLayers, selectedRegion, onRemoveLayer }) =>
         </button>
       </div>
 
-      {selectedRegion && <div style={headerStyle}>
-        <i>{selectedRegion.name_2} {selectedRegion.engtype_2}, {selectedRegion.name_1}, {selectedRegion.name_0}</i>
-      </div>}
+      {selectedRegion && renderRegionInfo(selectedRegion)}
 
       <LayerCard
         variant='simple'
