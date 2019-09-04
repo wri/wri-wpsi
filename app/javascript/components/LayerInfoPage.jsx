@@ -1,5 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
+import { sanitize } from 'dompurify'
 import Modal from 'components/Modal'
 
 const LayerInfoPage = ({ match, history }) => {
@@ -13,7 +14,7 @@ const LayerInfoPage = ({ match, history }) => {
     <Modal>
       <h1>{layer.name}</h1>
 
-      <p dangerouslySetInnerHTML={{__html: info}} />
+      <p dangerouslySetInnerHTML={{__html: sanitize(info)}} />
 
       <button onClick={() => history.goBack()}>Close</button>
     </Modal>
