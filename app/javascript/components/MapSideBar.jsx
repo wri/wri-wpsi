@@ -45,6 +45,10 @@ const MapSideBar = ({ history, activeLayers, selectedRegion, onRemoveLayer }) =>
         </button>
       </div>
 
+      {selectedRegion && <div style={headerStyle}>
+        <i>{selectedRegion.name_2} {selectedRegion.engtype_2}, {selectedRegion.name_1}, {selectedRegion.name_0}</i>
+      </div>}
+
       <LayerCard
         variant='simple'
         layer={{name: 'Highlight areas of water stress', initially_on: true}}
@@ -76,16 +80,6 @@ const MapSideBar = ({ history, activeLayers, selectedRegion, onRemoveLayer }) =>
           />
         )
       }
-
-      {selectedRegion && <div style={{marginTop: 20}}>
-        <h3>Selected Region:</h3>
-        <p>{selectedRegion.description}</p>
-
-        <ul>
-          <li>Latitude: {selectedRegion.location.lat}</li>
-          <li>Longitude: {selectedRegion.location.lng}</li>
-        </ul>
-      </div>}
     </div>
   )
 }

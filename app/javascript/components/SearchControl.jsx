@@ -10,7 +10,7 @@ import { Icon } from 'vizzuality-components';
 class SearchControl extends React.Component {
   static propTypes = {
     setMapLocation: PropTypes.func.isRequired,
-    setSelectedRegion: PropTypes.func.isRequired,
+    setSelectedRegionFromCoordinates: PropTypes.func.isRequired,
   };
 
   state = { showSearchInput: false };
@@ -25,11 +25,13 @@ class SearchControl extends React.Component {
   }
 
   onSuggestSelect = (e) => {
-    this.props.setSelectedRegion(e)
-
     if (e) {
       const { gmaps, location } = e;
       const viewport = gmaps.geometry && gmaps.geometry.viewport;
+
+      if (location) {
+        this.props.setSelectedRegionFromCoordinates(location)
+      }
 
       if (viewport) {
         const { south, west, north, east } = viewport.toJSON();

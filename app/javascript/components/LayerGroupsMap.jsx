@@ -14,6 +14,9 @@ import { BASEMAPS, LABELS } from 'components/constants'
 import LayerPopup from 'components/LayerPopup'
 import SearchControl from 'components/SearchControl'
 
+// Hacky way of accessing leaflet, also copied from Resource Watch
+const { L } = (typeof window !== 'undefined') ? window : {};
+
 class LayerGroupsMap extends React.Component {
   render() {
     const {
@@ -24,7 +27,6 @@ class LayerGroupsMap extends React.Component {
       layerGroupsInteractionLatLng,
       mapLocation,
       setMapLocation,
-      setSelectedRegion,
     } = this.props
 
     const mapConfig = {
@@ -43,6 +45,7 @@ class LayerGroupsMap extends React.Component {
       },
       onReady: (map) => {
         this.map = map
+        map.on('click', e => setSelectedRegionFromCoordinates(e.latlng))
       },
     }
 
@@ -77,6 +80,36 @@ class LayerGroupsMap extends React.Component {
       }
     }
 
+    const setSelectedRegionFromCoordinates = (coordiates) => {
+      const lat = coordiates.lat
+      const lng = coordiates.lng
+      const whereSql = `where ST_Contains(the_geom, ST_GeometryFromText('POINT(${lng} ${lat})', 4326));`
+      const url = `https://wri-rw.carto.com/api/v2/sql?format=geojson&q=select * from "wri-rw".wpsi_gadm36_2_display ${whereSql}`
+
+      fetch(url)
+        .then(response => response.json())
+        .then((data) => {
+          this.selectedRegionLayer && this.map.removeLayer(this.selectedRegionLayer)
+          const layer = addRegionBoundariesToMap(this.map, data)
+          this.selectedRegionLayer = layer
+
+          if (data.features.length > 0) {
+            this.props.setSelectedRegion(data.features[0].properties)
+          }
+        })
+    }
+
+    const addRegionBoundariesToMap = (map, boundaries) => {
+      const selectedRegionLayerStyle = {
+        fillColor: '#FFF',
+        color: '#000',
+      }
+
+      return L.geoJSON(boundaries, {
+        style: selectedRegionLayerStyle
+      }).addTo(map);
+    }
+
     return (
       <div style={style}>
         <Map {...mapConfig}>
@@ -87,7 +120,7 @@ class LayerGroupsMap extends React.Component {
                 <ZoomControl map={map} />
                 <SearchControl
                   setMapLocation={setMapLocation}
-                  setSelectedRegion={setSelectedRegion}
+                  setSelectedRegionFromCoordinates={setSelectedRegionFromCoordinates}
                 />
               </MapControls>
 
