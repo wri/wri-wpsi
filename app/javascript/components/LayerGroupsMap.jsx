@@ -90,7 +90,7 @@ class LayerGroupsMap extends React.Component {
         .then(response => response.json())
         .then((data) => {
           this.selectedRegionLayer && this.map.removeLayer(this.selectedRegionLayer)
-          const layer = addRegionBoundariesToMap(this.map, data)
+          const layer = addRegionLayerToMap(this.map, data)
           this.selectedRegionLayer = layer
 
           if (data.features.length > 0) {
@@ -99,13 +99,13 @@ class LayerGroupsMap extends React.Component {
         })
     }
 
-    const addRegionBoundariesToMap = (map, boundaries) => {
+    const addRegionLayerToMap = (map, layerData) => {
       const selectedRegionLayerStyle = {
         fillColor: '#FFF',
         color: '#000',
       }
 
-      return L.geoJSON(boundaries, {
+      return L.geoJSON(layerData, {
         style: selectedRegionLayerStyle
       }).addTo(map);
     }
