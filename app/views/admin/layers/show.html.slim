@@ -8,7 +8,7 @@ div
   p
     strong> Long description:
     div.pl-4
-      = @layer.long_description.html_safe
+      = @layer.long_description&.html_safe
   p
     strong> Layer ID:
     = @layer.layer_id
