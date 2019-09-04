@@ -23,6 +23,7 @@ exports[`renders correctly 1`] = `
         "backgroundColor": "#fefefe",
         "border": "1px solid #888",
         "margin": "15% auto",
+        "maxWidth": "1000px",
         "padding": "20px",
         "width": "80%",
       }
@@ -31,9 +32,13 @@ exports[`renders correctly 1`] = `
     <h1>
       Test name
     </h1>
-    <p>
-      Test description
-    </p>
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Test description",
+        }
+      }
+    />
     <button
       onClick={[Function]}
     >
@@ -66,6 +71,7 @@ exports[`renders correctly without a description too 1`] = `
         "backgroundColor": "#fefefe",
         "border": "1px solid #888",
         "margin": "15% auto",
+        "maxWidth": "1000px",
         "padding": "20px",
         "width": "80%",
       }
@@ -74,9 +80,13 @@ exports[`renders correctly without a description too 1`] = `
     <h1>
       Test name
     </h1>
-    <p>
-      A long description of this dataset is not yet available.
-    </p>
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "A long description of this dataset is not yet available.",
+        }
+      }
+    />
     <button
       onClick={[Function]}
     >
