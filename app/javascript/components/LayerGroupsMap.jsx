@@ -46,6 +46,7 @@ class LayerGroupsMap extends React.Component {
       onReady: (map) => {
         this.map = map
         map.on('click', e => setSelectedRegionFromCoordinates(e.latlng))
+        L.control.scale({position: 'bottomright'}).addTo(map)
       },
     }
 
