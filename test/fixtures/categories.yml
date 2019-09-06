@@ -18,6 +18,11 @@ food:
   description: Food is one of the categories of datasets we are showing. This is where we will eventually put a description of the Food category.
   slug: food
 
+governance:
+  title: Governance
+  description: Governance is one of the categories of datasets we are showing. This is where we will eventually put a description of the Governance category.
+  slug: governance
+
 infrastructure:
   title: Infrastructure
   description: Infrastructure is one of the categories of datasets we are showing. This is where we will eventually put a description of the Infrastructure category.

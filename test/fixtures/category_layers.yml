@@ -1,107 +1,239 @@
-conflict_one:
-  category: 'conflict'
-  layer: 'conflict_one'
+child_malnutrition:
+  category: community
+  layer: child_malnutrition
 
-community_one:
-  category: 'community'
-  layer: 'community_one'
+urbanization_rate:
+  category: community
+  layer: urbanization_rate
 
-economy_one:
-  category: 'economy'
-  layer: 'economy_one'
+percentage_of_population_that_is_male_by_age_group:
+  category: community
+  layer: percentage_of_population_that_is_male_by_age_group
 
-food_one:
-  category: 'food'
-  layer: 'food_one'
+local_population_density:
+  category: community
+  layer: local_population_density
 
-food_two:
-  category: 'food'
-  layer: 'food_two'
+ethnic_fractionalization:
+  category: community
+  layer: ethnic_fractionalization
 
-food_three:
-  category: 'food'
-  layer: 'food_three'
+religious_fractionalization:
+  category: community
+  layer: religious_fractionalization
 
-food_four:
-  category: 'food'
-  layer: 'food_four'
+gross_domestic_product_per_capita:
+  category: economy
+  layer: gross_domestic_product_per_capita
 
-food_five:
-  category: 'food'
-  layer: 'food_five'
+infant_mortality:
+  category: economy
+  layer: infant_mortality
 
-food_six:
-  category: 'food'
-  layer: 'food_six'
+inflation_of_consumer_prices:
+  category: economy
+  layer: inflation_of_consumer_prices
 
-food_seven:
-  category: 'food'
-  layer: 'food_seven'
+total_unemployment:
+  category: economy
+  layer: total_unemployment
 
-food_eight:
-  category: 'food'
-  layer: 'food_eight'
+percentage_of_g_d_p_from_extractives:
+  category: economy
+  layer: percentage_of_g_d_p_from_extractives
 
-food_nine:
-  category: 'food'
-  layer: 'food_nine'
+percentage_of_population_in_poverty:
+  category: economy
+  layer: percentage_of_population_in_poverty
 
-food_ten:
-  category: 'food'
-  layer: 'food_ten'
+income_inequality:
+  category: economy
+  layer: income_inequality
 
-food_eleven:
-  category: 'food'
-  layer: 'food_eleven'
+gender_inequality:
+  category: economy
+  layer: gender_inequality
 
-food_twelve:
-  category: 'food'
-  layer: 'food_twelve'
+employment_in_agriculture:
+  category: food
+  layer: employment_in_agriculture
 
-food_thirteen:
-  category: 'food'
-  layer: 'food_thirteen'
+agriculture_value_added_to_g_d_p:
+  category: food
+  layer: agriculture_value_added_to_g_d_p
 
-migration_one:
-  category: 'migration'
-  layer: 'migration_one'
+value_of_crop_production:
+  category: food
+  layer: value_of_crop_production
 
-migration_two:
-  category: 'migration'
-  layer: 'migration_two'
+food_price_spikes_cereals_and_tubers:
+  category: food
+  layer: food_price_spikes_cereals_and_tubers
 
-migration_three:
-  category: 'migration'
-  layer: 'migration_three'
+food_price_spikes_oils_and_fats:
+  category: food
+  layer: food_price_spikes_oils_and_fats
 
-migration_four:
-  category: 'migration'
-  layer: 'migration_four'
+food_price_spikes_vegetables_and_fruits:
+  category: food
+  layer: food_price_spikes_vegetables_and_fruits
 
-infrastructure_one:
-  category: 'infrastructure'
-  layer: 'infrastructure_one'
+food_price_spikes_pulses_and_nuts:
+  category: food
+  layer: food_price_spikes_pulses_and_nuts
 
-infrastructure_two:
-  category: 'infrastructure'
-  layer: 'infrastructure_two'
+food_price_spikes_miscellaneous_food:
+  category: food
+  layer: food_price_spikes_miscellaneous_food
 
-infrastructure_three:
-  category: 'infrastructure'
-  layer: 'infrastructure_three'
+import_dependency_ratio:
+  category: food
+  layer: import_dependency_ratio
 
-infrastructure_four:
-  category: 'infrastructure'
-  layer: 'infrastructure_four'
+percentage_of_total_income_spent_on_food:
+  category: food
+  layer: percentage_of_total_income_spent_on_food
 
-infrastructure_five:
-  category: 'infrastructure'
-  layer: 'infrastructure_five'
+percentage_of_rainfed_crops:
+  category: food
+  layer: percentage_of_rainfed_crops
 
-infrastructure_six:
-  category: 'infrastructure'
-  layer: 'infrastructure_six'
+irrigated_and_rainfed_crops:
+  category: food
+  layer: irrigated_and_rainfed_crops
 
-infrastructure_seven:
-  category: 'infrastructure'
-  layer: 'infrastructure_seven'
+barley_yield_gap:
+  category: food
+  layer: barley_yield_gap
+
+maize_yield_gap:
+  category: food
+  layer: maize_yield_gap
+
+rice_yield_gap:
+  category: food
+  layer: rice_yield_gap
+
+soybean_yield_gap:
+  category: food
+  layer: soybean_yield_gap
+
+cropland_area:
+  category: food
+  layer: cropland_area
+
+pasture_area:
+  category: food
+  layer: pasture_area
+
+access_to_drinking_water:
+  category: governance
+  layer: access_to_drinking_water
+
+access_to_sanitation:
+  category: governance
+  layer: access_to_sanitation
+
+access_to_electricity:
+  category: governance
+  layer: access_to_electricity
+
+corruption_index:
+  category: governance
+  layer: corruption_index
+
+type_of_government:
+  category: governance
+  layer: type_of_government
+
+conflict_events:
+  category: conflict
+  layer: conflict_events
+
+risk_of_conflict:
+  category: conflict
+  layer: risk_of_conflict
+
+asylum_requests_by_destination:
+  category: migration
+  layer: asylum_requests_by_destination
+
+asylum_requests_by_origin:
+  category: migration
+  layer: asylum_requests_by_origin
+
+internally_displaced_persons:
+  category: migration
+  layer: internally_displaced_persons
+
+6_month_s_p_i_anomaly_seasonal:
+  category: water
+  layer: 6_month_s_p_i_anomaly_seasonal
+
+12_month_s_p_i_anomaly_annual:
+  category: water
+  layer: 12_month_s_p_i_anomaly_annual
+
+24_month_s_p_i_anomaly_long_term:
+  category: water
+  layer: 24_month_s_p_i_anomaly_long_term
+
+minimum_e_t_anomaly_annual:
+  category: water
+  layer: minimum_e_t_anomaly_annual
+
+evapotranspiration_e_t:
+  category: water
+  layer: evapotranspiration_e_t
+
+baseline_water_stress:
+  category: water
+  layer: baseline_water_stress
+
+riverine_flood_risk:
+  category: water
+  layer: riverine_flood_risk
+
+seasonal_variability:
+  category: water
+  layer: seasonal_variability
+
+interannual_variability:
+  category: water
+  layer: interannual_variability
+
+future_water_stress:
+  category: water
+  layer: future_water_stress
+
+airports:
+  category: infrastructure
+  layer: airports
+
+access_to_cities:
+  category: infrastructure
+  layer: access_to_cities
+
+cities:
+  category: infrastructure
+  layer: cities
+
+dams:
+  category: infrastructure
+  layer: dams
+
+ports:
+  category: infrastructure
+  layer: ports
+
+power_generation_by_fuel_type:
+  category: infrastructure
+  layer: power_generation_by_fuel_type
+
+reservoirs:
+  category: infrastructure
+  layer: reservoirs
+
+roads:
+  category: infrastructure
+  layer: roads

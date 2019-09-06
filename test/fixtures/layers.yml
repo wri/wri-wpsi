@@ -1,190 +1,660 @@
-conflict_one:
-  name: 'Risk of Conflict'
-  short_description: 'Description of the Risk of Conflict dataset goes here.'
-  long_description: 'This is an extra long and interesting description of the Risk of Conflict dataset. It can include lots of things like links to external pages, formatted text, etc.'
-  layer_id: '107b72a6-6a52-4c8e-a261-d01706627322'
-  dataset_id: '0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3'
+child_malnutrition:
+  name: Child Malnutrition
+  short_description: Percentage of children under the age of five that are stunted, overweight, or wasting.
+  long_description: Child malnutrition is the prevalence/number of children under the age of five that are considered stunted, overweight, or wasting. The prevalence of stunting is based on height for age, while overweight and wasting is based on weight for age. This dataset is compiled by UNICEF, the UN WHO, and the World Bank. Data is updated annually. The tool is currently using data from 2016.
+  source_url: https://data.unicef.org/topic/nutrition/malnutrition/
+  source_name: UNICEF/WHO/WBG
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+urbanization_rate:
+  name: Urbanization Rate
+  short_description: Average annual rate of change of the urban population.
+  long_description: The average exponential growth rate of the urban population over one year, expressed as a percentage. The definition of "urban" follows the designated definition used in each country.  Data is available every five years for the years 1950 to 2100.
+  source_url: https://population.un.org/wup/Download/
+  source_name: UNITED NATIONS DESA / POPULATION DIVISION
+  source_description: National, 5 year
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+percentage_of_population_that_is_male_by_age_group:
+  name: Percentage of Population that is Male by Age Group
+  short_description: Percentage of total population that is male for a specific broad age group.
+  long_description: The male population in a broad age group divided by the total population for that same age group. The population value is for July 1st of the year indicated, and figures are presented in thousands. Data is available in increments of five years for the years 1950 to 2100. Data is not updated temporally. The tool is currently displaying data for the year 2020.
+  source_url: https://population.un.org/wpp/Download/Standard/Population/
+  source_name: UNITED NATIONS DESA / POPULATION DIVISION
+  source_description: National, 5 year
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+local_population_density:
+  name: Local Population Density
+  short_description: Total population count within a 1 kilometer cell divided by the land area in that cell.
+  long_description: The population density is based on counts from national censuses and population registers with respective to relative spatial distribution. These estimates have been adjusted to match UN country totals. Data is available every five years for the years 2000 to 2020. The tool is currently displaying data for 2020.
+  source_url: https://beta.sedac.ciesin.columbia.edu/data/set/gpw-v4-population-density-adjusted-to-2015-unwpp-country-totals/data-download
+  source_name: CIESIN
+  source_description: 1 km, 5 year
+  dataset_id: 141ef6ab-eed9-4081-8066-7be364a48af0
+  layer_id: 969fe99d-b861-46a1-8c8e-7c44cbafd1d6
+  published: true
+  primary:
+ethnic_fractionalization:
+  name: Ethnic Fractionalization
+  short_description:
+  long_description: The dataset covers the years 1945 to 2013. The tool is currently displaying data from 2011.
+  source_url:
+  source_name: HCSS
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+religious_fractionalization:
+  name: Religious Fractionalization
+  short_description:
+  long_description: The dataset covers the years 1945 to 2013. The tool is currently displaying data from 2011.
+  source_url:
+  source_name: HCSS
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+gross_domestic_product_per_capita:
+  name: Gross Domestic Product per Capita
+  short_description: Total value of goods produced and services provided in a country during one year divided by total population, based on purchasing power parity in international dollars.
+  long_description: The total value of goods produced and services provided in a country during one year divided by the total population is the GDP per capita. This value is converted to international dollars using purchasing power parity rates. An international dollar has the same purchasing power over GDP as the U.S. dollar has in the United States. GDP at purchasing power prices is the sum of the gross value added by all resident producers in the economy, plus any product taxes and minus any subsidies not included in the value of the products. It is calculated without making deductions for depreciation of fabricated assets or for depletion and degradation of natural resources. Data are in current international dollars based on the 2011 International Comparison Program (ICP) round. Data is updated annually. The tool is currently displaying data from 2016.
+  source_url: https://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD
+  source_name: World Bank
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+infant_mortality:
+  name: Infant Mortality
+  short_description: Number of infants dying before reaching one year of age, per 1,000 live births.
+  long_description: 'The number of infants dying before reaching one year of age, per 1,000 live births in a given year. The mortality data sources are vital registration systems or direct or indirect estimates based on sample surveys or consensuses. This dataset uses a statistical method to reconcile differences between all available information. The dataset and the statistical method were developed by the UN Children''s Fund (UNICEF), the World Health Organization (WHO), the World Bank Group, The UN Population Division (UNDP), and other universities and research institutes. The tool is currently using data from 2017.'
+  source_url: https://data.worldbank.org/indicator/SP.DYN.IMRT.IN
+  source_name: WGB/UNICEFF/ WHO/UN DESA (via World Bank)
+  source_description: National, Annual
+  dataset_id: 6cfd6255-609e-4922-8709-5aaad0db9fae
+  layer_id: 3a5a0c20-54da-4ba3-bfae-0dbed4ab9b50
+  published: true
+  primary:
+inflation_of_consumer_prices:
+  name: Inflation of Consumer Prices
+  short_description: Annual percentage change in the cost to the average consumer of a set basket of goods and services.
+  long_description: Inflation is measured by the consumer price index and reflects the annual percentage change in the cost to the average consumer of acquiring a basket of goods and services. This basket of goods and services may be fixed or changed at specified intervals. Data is available annually. The tool is currently using data from 2018.
+  source_url: https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG
+  source_name: International Monetary Fund, International Financial Statistics and data files (via World Bank)
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+total_unemployment:
+  name: Total Unemployment
+  short_description: Number of people who are unemployed, expressed as a percentage of the labor force.
+  long_description: The number of persons who are unemployed, expressed as a percentage of the labor force. The labor force is defined as the employed plus the unemployed. The unemployed include all persons of working age who were without work, currently available for work, and seeking work during the specific time period.  Data is available annually. The tool is currently displaying data from 2016.
+  source_url: https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS
+  source_name: International Labour Organization, ILOSTAT database (via World Bank)
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+percentage_of_g_d_p_from_extractives:
+  name: Percentage of GDP from Extractives
+  short_description: Sum of oil, natural gas, coal, mineral, and forest rents as percent of GDP. Data is available annually. The tool is currently using data from 2018.
+  long_description: 'The contribution of natural resources (extractives) to economic output as a percentage of GDP. This value is a measure of a country''s consumption of their natural resources. Economic rents are defined as revenues above the cost of extracting the resource. Data is available annually. The tool is currently using data from 2017.'
+  source_url: https://data.worldbank.org/indicator/NY.GDP.TOTL.RT.ZS?view=chart
+  source_name: World Bank
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+percentage_of_population_in_poverty:
+  name: Percentage of Population in Poverty
+  short_description: Percentage of the population living on less than $3.20 a day.
+  long_description: The percentage of the population living in poverty, defined as those living on less than $3.20 a day in 2011 international prices. This dataset draws on income or detailed consumption data from household surveys across 164 countries in six regions and 25 other high income countries. This dataset is published for low- and middle-income countries, countries eligible to receive World Bank loans, and recently graduated countries only. Data is available annually. The tool is currently displaying data from 2016.
+  source_url: https://data.worldbank.org/indicator/SI.POV.LMIC
+  source_name: World Bank
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+income_inequality:
+  name: Income Inequality
+  short_description: Measure of income inequality as the extent to which income distribution deviates from a perfectly equal distribution.
+  long_description: The Gini index measures income inequality in a country, defined as the extent to which the distribution of income within an economy deviates from a perfectly equal distribution. A Gini Index of 0 represents perfect equality, while an index of 100 implies perfect inequality. Data is available annually. The tool is currently displaying data from 2016.
+  source_url: https://data.worldbank.org/indicator/SI.POV.GINI
+  source_name: World Bank
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+gender_inequality:
+  name: Gender Inequality
+  short_description: Measure of gender inequality based on reproductive health, empowerment, and economic status.
+  long_description: The Gender Inequality Index measures gender inequalities in three important aspects of human development - reproductive health, empowerment, and economic status. The GII is built to expose differences in the distribution of achievements between women and men; it measures the human development costs of gender inequality. The higher the GII value, the more disparities between females and males. Data is available annually. The tool is currently using data from 2017.
+  source_url: http://hdr.undp.org/en/content/gender-inequality-index-gii
+  source_name: UNDP
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+employment_in_agriculture:
+  name: Employment in Agriculture
+  short_description: National employment in agriculture, hunting, forestry and fishing as a percentage of total employment.
+  long_description: The percentage of people employed in agriculture is calculated as persons of working age who were engaged in agriculture, hunting, forestry and fishing to produce goods or provide services for pay or profit, or temporarily unemployed from these professions.  This dataset is compiled by the World Bank, from the International Labour Organization, ILOSTAT database. Data is available annually. The tool is currently using data from 2018.
+  source_url: https://data.worldbank.org/indicator/SL.AGR.EMPL.ZS
+  source_name: World Bank (ILO)
+  source_description: National, Annual
+  dataset_id: cc354f7f-2622-44cb-91c1-73559373de72
+  layer_id: 7a08dee3-6301-45d2-9ced-c2918f6f3c6b
+  published: true
+  primary:
+agriculture_value_added_to_g_d_p:
+  name: Agriculture Value added to gDP
+  short_description: Percentage of national GDP that came from the agricultural sector, which includes forestry, hunting, fishing, crop cultivation, and livestock production, in a given year.
+  long_description: The percentage of GDP contributed by agricultural activities, which includes forestry, hunting, fishing, crop cultivation, and livestock production. It is a measure of the net output of agriculture sectors in most countries and other various regional entities after adding up all outputs and subtracting the value of intermediate goods and services consumed in production. The value added is calculated without making deductions for depreciation of fabricated assets or depletion and degradation of natural resources. Data is available annually. The tool is currently using data from 2018.
+  source_url: https://data.worldbank.org/indicator/NV.AGR.TOTL.ZS
+  source_name: World Bank (ILO)
+  source_description: National, Annual
+  dataset_id: 95b013a3-389a-4367-83b7-c9d68c28c406
+  layer_id:
+  published:
+  primary:
+value_of_crop_production:
+  name: Value of Crop Production
+  short_description: Monetary value of total crop production based on the yield of 42 crops.
+  long_description: The aggregate value of crop production for 42 crops in 2010. The total amount of crop production is calculated by multiplying area harvested with yield. The value is then calculated by using the 2004-2006 average international price from the FAO. This data is not updated temporally.
+  source_url: http://mapspam.info/data/
+  source_name: IFPRI
+  source_description: 10 km, 2010
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+food_price_spikes_cereals_and_tubers:
+  name: 'Food Price Spikes: Cereals and Tubers'
+  short_description: Food price level above seasonal price trends for cereal and tuber commodities.
+  long_description: 'The index measures how much food prices have risen above seasonal price trends for cereal and tuber commodities over the past 3 months. The value is based on the number of standard deviations the current price is above the expected price for that month. Seasonal price trends are determined through reference to monthly commodity prices in the World Food Programme''s Food and Commodity Price database. Based on the index, markets are assigned to 1 of 4 situations: Normal (<0.25), Stress (0.25 to 1), Alert (1 to 2), and Crisis (>= 2).'
+  source_url: https://foodprices.vam.wfp.org/alps.aspx
+  source_name: WFP
+  source_description: Point, Monthly
+  dataset_id: acf42a1b-104b-4f81-acd0-549f805873fb
+  layer_id: 3a52f7ed-0c20-4691-981b-3a3521b069aa
+  published: true
+  primary:
+food_price_spikes_oils_and_fats:
+  name: 'Food Price Spikes: Oils and Fats'
+  short_description: Food price level above seasonal price trends for oil and fat commodities.
+  long_description: 'The index measures how much food prices have risen above seasonal price trends for fat and oil commodities over the past 3 months. The value is based on the number of standard deviations the current price is above the expected price for that month. Seasonal price trends are determined through reference to monthly commodity prices in the World Food Programme''s Food and Commodity Price database. Based on the index, markets are assigned to 1 of 4 situations: Normal (<0.25), Stress (0.25 to 1), Alert (1 to 2), and Crisis (>= 2).'
+  source_url: https://foodprices.vam.wfp.org/alps.aspx
+  source_name: WFP
+  source_description: Point, Monthly
+  dataset_id: acf42a1b-104b-4f81-acd0-549f805873fb
+  layer_id: 2c7ddb1a-6a21-4f6c-a5a3-696e92bcf053
+  published: true
+  primary:
+food_price_spikes_vegetables_and_fruits:
+  name: 'Food Price Spikes: Vegetables and Fruits'
+  short_description: Food price level above seasonal price trends for vegetable and fruit commodities.
+  long_description: 'The index measures how much food prices have risen above seasonal price trends for vegetable and fruit commodities over the past 3 months. The value is based on the number of standard deviations the current price is above the expected price for that month. Seasonal price trends are determined through reference to monthly commodity prices in the World Food Programme''s Food and Commodity Price database. Based on the index, markets are assigned to 1 of 4 situations: Normal (<0.25), Stress (0.25 to 1), Alert (1 to 2), and Crisis (>= 2).'
+  source_url: https://foodprices.vam.wfp.org/alps.aspx
+  source_name: WFP
+  source_description: Point, Monthly
+  dataset_id: acf42a1b-104b-4f81-acd0-549f805873fb
+  layer_id: 1ee0784f-654f-4caf-a059-f03dc46724b6
+  published: true
+  primary:
+food_price_spikes_pulses_and_nuts:
+  name: 'Food Price Spikes: Pulses and Nuts'
+  short_description: Food price level above seasonal price trends for pulse and nut commodities.
+  long_description: 'The index measures how much food prices have risen above seasonal price trends for pulse and nutcommodities over the past 3 months. The value is based on the number of standard deviations the current price is above the expected price for that month. Seasonal price trends are determined through reference to monthly commodity prices in the World Food Programme''s Food and Commodity Price database. Based on the index, markets are assigned to 1 of 4 situations: Normal (<0.25), Stress (0.25 to 1), Alert (1 to 2), and Crisis (>= 2).'
+  source_url: https://foodprices.vam.wfp.org/alps.aspx
+  source_name: WFP
+  source_description: Point, Monthly
+  dataset_id: acf42a1b-104b-4f81-acd0-549f805873fb
+  layer_id: 253437ed-1e21-4544-8bb3-1ec2d2656522
+  published: true
+  primary:
+food_price_spikes_miscellaneous_food:
+  name: 'Food Price Spikes: Miscellaneous Food'
+  short_description: Food price level above seasonal price trends for miscellaneous food commodities.
+  long_description: 'The index measures how much food prices have risen above seasonal price trends for miscellaneous food commodities over the past 3 months. The value is based on the number of standard deviations the current price is above the expected price for that month. Seasonal price trends are determined through reference to monthly commodity prices in the World Food Programme''s Food and Commodity Price database. Based on the index, markets are assigned to 1 of 4 situations: Normal (<0.25), Stress (0.25 to 1), Alert (1 to 2), and Crisis (>= 2).'
+  source_url: https://foodprices.vam.wfp.org/alps.aspx
+  source_name: WFP
+  source_description: Point, Monthly
+  dataset_id: acf42a1b-104b-4f81-acd0-549f805873fb
+  layer_id: 43804fe4-8c9a-42fc-8c85-2a494727cf3d
+  published: true
+  primary:
+import_dependency_ratio:
+  name: Import Dependency Ratio
+  short_description: Ratio of imports of cereal for domestic food supply to total country production of cereal as a percentage.
+  long_description: 'The ratio of how much of the available domestic food supply (of cereals) has been imported versus how much comes from the country''s own production. It is computed as (cereal imports - cereal exports)/(cereal production + cereal imports - cereal exports) * 100 and is expressed as a percentage. The value shown is a 3-year average. Negative values indicate that the country is a net exporter of cereals. Data is available annually. The tool is currently using data from 2018.'
+  source_url: http://www.fao.org/faostat/en/#data/FS
+  source_name: FAOSTAT
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+percentage_of_total_income_spent_on_food:
+  name: Percentage of Total Income Spent on Food
+  short_description: Percentage of household income spent on food and beverage consumption.
+  long_description: The amount of food and beverage consumption as a percentage of household total consumption on a country level for the year 2010. Data are based on national household surveys selected to be representative of the entire country. Data are standardized between countries. Data is not updated temporally.
+  source_url: http://datatopics.worldbank.org/consumption/home%20on%204/7/2015
+  source_name: World Bank
+  source_description: National, Annual
+  dataset_id: 29a3cc91-9bf7-480f-b324-58570d9cd68f
+  layer_id: d11f2dc5-7d71-4e95-ad50-0f86d3466943
+  published: true
+  primary:
+percentage_of_rainfed_crops:
+  name: Percentage of Rainfed Crops
+  short_description: Percentage of crops in an area that are dependent on rainfall.
+  long_description: The percentage of crops that are rainfed is calculated by dividing the area of rainfed crops by the area of all crops. The data is updated every five years. The tool is currently displaying data from 2010.
+  source_url:
+  source_name: IFPRI
+  source_description: 10 km, 5 years
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+irrigated_and_rainfed_crops:
+  name: Irrigated and Rainfed Crops
+  short_description: Spatial distribution of irrigated versus rainfed croplands.
+  long_description: 'This dataset classifies land into five categories: (0) Noncroplands; (1) Croplands, Irrigation major; (2) Croplands, Irrigation minor; (3) Croplands, Rainfed; (4) Croplands, Rainfed minor fragments; (5) Croplands, Rainfed very minor fragments. Data is based on analysis of multi-sensor remote sensing data through the Global Food Security-support Analysis Data at 30m Project. This dataset is not updated every five years. The tool is currently displaying data from 2010.'
+  source_url: https://developers.google.com/earth-engine/datasets/catalog/USGS_GFSAD1000_V1
+  source_name:
+  source_description:
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+barley_yield_gap:
+  name: Barley Yield Gap
+  short_description: Difference between observed and potential barley yields at a particular location in tons per hectare.
+  long_description: The yield gap is the difference between observed crop yields and the potential yield of a crop in tons per hectare at the same location. The data draw on average of census data between 1997 and 2003 and are shown as the year 2000.
+  source_url: http://www.earthstat.org/data-download/
+  source_name: EarthStat/Univ. of Minnesota
+  source_description: 5 min x 5 min, 2000
+  dataset_id: bc2c749d-49a0-46c0-9582-eb33946a983e
+  layer_id: d0147b4b-89d7-49e3-945a-a5fb1fe26345
+  published: true
+  primary:
+maize_yield_gap:
+  name: Maize Yield Gap
+  short_description: Difference between observed and potential maize yields at a particular location in tons per hectare.
+  long_description: The yield gap is the difference between observed crop yields and the potential yield of a crop in tons per hectare at the same location. The data draw on average of census data between 1997 and 2003 and are shown as the year 2000.
+  source_url: http://www.earthstat.org/data-download/
+  source_name: EarthStat/Univ. of Minnesota
+  source_description: 5 min x 5 min, 2000
+  dataset_id: bc2c749d-49a0-46c0-9582-eb33946a983e
+  layer_id: 59ff5765-5c11-4b9a-9b34-1e6551a29236
+  published: true
+  primary:
+rice_yield_gap:
+  name: Rice Yield Gap
+  short_description: Difference between observed and potential rice yields at a particular location in tons per hectare.
+  long_description: The yield gap is the difference between observed crop yields and the potential yield of a crop in tons per hectare at the same location. The data draw on average of census data between 1997 and 2003 and are shown as the year 2000.
+  source_url: http://www.earthstat.org/data-download/
+  source_name: EarthStat/Univ. of Minnesota
+  source_description: 5 min x 5 min, 2000
+  dataset_id: bc2c749d-49a0-46c0-9582-eb33946a983e
+  layer_id: d24a0b3b-b501-4189-aa1a-4912d0c94ec7
+  published: true
+  primary:
+soybean_yield_gap:
+  name: Soybean Yield Gap
+  short_description: Difference between observed and potential soybean yields at a particular location in tons per hectare.
+  long_description: The yield gap is the difference between observed crop yields and the potential yield of a crop in tons per hectare at the same location. The data draw on average of census data between 1997 and 2003 and are shown as the year 2000.
+  source_url: http://www.earthstat.org/data-download/
+  source_name: EarthStat/Univ. of Minnesota
+  source_description: 5 min x 5 min, 2000
+  dataset_id: bc2c749d-49a0-46c0-9582-eb33946a983e
+  layer_id: e5744d8e-e8af-4e72-a8f6-35adacf70976
+  published: true
+  primary:
+cropland_area:
+  name: Cropland Area
+  short_description: Percentage of land in an area that is devoted to cropland.
+  long_description: The percentage of land in every 5-arc minute grid cell that is devoted to cropland for the year 2000.
+  source_url: http://www.earthstat.org/cropland-pasture-area-2000/
+  source_name: USGS/EarthStat
+  source_description: 5 arc min, 2000
+  dataset_id: 0ce24533-7877-4926-b962-a6c726332d82
+  layer_id: 47dc9961-05d6-48f1-93c5-aa633e4a1efa
+  published: true
+  primary:
+pasture_area:
+  name: Pasture Area
+  short_description: Percentage of land in an area that is devoted to pasture.
+  long_description: The percentage of land in every 5-arc minute grid cell that is devoted to pasture for the year 2000.
+  source_url: http://www.earthstat.org/cropland-pasture-area-2000/
+  source_name: USGS/EarthStat
+  source_description: 5 arc min, 2000
+  dataset_id: 0ce24533-7877-4926-b962-a6c726332d82
+  layer_id: 1198417e-8cfb-4a40-96f7-9ec016384c86
+  published: true
+  primary:
+access_to_drinking_water:
+  name: Access to Drinking Water
+  short_description: Percentage of population with access to an improved drinking water source, defined as a water source protected from outside contamination.
+  long_description: Global annual data on access to improved water sources based on national censuses and nationally representative household surveys. An improved drinking water source is defined as one that is protected from outside contamination, especially from contamination with fecal matter. Improved drinking water sources include piped household water connections and other drinking water sources, like public taps, rainwater collection, or protected dug wells. The data is compiled by the WHO/UNICEF Joint Monitoring Programme. Data is available every two to three years. The tool is currently displaying data from 2011.
+  source_url: https://data.worldbank.org/indicator/SH.H2O.SMDW.ZS
+  source_name: JMP (WHO/UNICEFF)
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+access_to_sanitation:
+  name: Access to Sanitation
+  short_description: Percentage of population with access to improved sanitation facilities, which separate human excrete from human contact.
+  long_description: The percentage of the national population using improved sanitation facilities based on national censuses and nationally representative household surveys. Improved sanitation facilities ensure hygienic separation of human excreta from human contact. These facilities range from protected pit latrines to flush toilets. The data is compiled by the WHO/UNICEF Joint Monitoring Programme. . Data is available every two to three years. The tool is currently displaying data from 2011.
+  source_url: https://data.worldbank.org/indicator/SH.STA.SMSS.ZS
+  source_name: JMP (WHO/UNICEFF)
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+access_to_electricity:
+  name: Access to Electricity
+  short_description: Percentage of population with access to electricity.
+  long_description: Estimated percentage of the national, urban, and rural population with access to electricity. The data is collected from government agencies and a variety of surveys. The dataset assumes universal access in countries classified as "developed" by the United Nations. This dataset was compiled through the SE4ALL Global Tracking Framework, which is a joint effort by the World Bank, the International Energy Agency, and the Energy Sector Management Assistance Program. Data is available annually.
+  source_url: https://data.worldbank.org/indicator/EG.ELC.ACCS.ZS
+  source_name: SE4ALL/WBG
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+corruption_index:
+  name: Corruption Index
+  short_description: Index value of the perceived overall level of corruption. Values range from 0 to 100, with 100 being the most corrupt.
+  long_description: The Bayesian Corruption Index is a composite index of the perceived overall level of corruption. The index values range between 0 and 100, with an increase in value corresponding to a rising level of corruption. Corruption is defined as the "abuse of public power for private gain", while perceived corruption is the amalgamated opinion on the level of corruption from inhabitants of the country, companies operating there, NGOs, and officials working in governmental and supra-governmental organization. The index combines information from 17 different surveys and 110 different survey questions. The tool is currently displaying data from 2015.
+  source_url: https://users.ugent.be/~sastanda/BCI/BCI.html
+  source_name: Bayesian Corruption Index
+  source_description: Country, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+type_of_government:
+  name: Type of Government
+  short_description: Current regime type of the country.
+  long_description: The REIGN regime dataset gives the regime classifications for a country based on the classifications of Geddes, Wright, and Frantz. The classifications include democracies (presidential and parliamentary), non-democracies (personalist systems, monarchies, single-party systems, oligarchies, military juntas, and a variety of hybrid systems), and interim periods (warlordism, foreign-occupied, civilian provisional, and military provisional). The dataset is updated monthly.
+  source_url: https://xmarquez.github.io/democracyData/reference/download_reign.html
+  source_name: REIGN
+  source_description: National, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+conflict_events:
+  name: Conflict Events
+  short_description: Records of violence and protests in the past 12 months in Africa and 10 countries in South and Southeast Asia.
+  long_description: Dates, actors, types of violence, locations, and fatalities of all reported political violence and protest events in the past 12 months across Africa, South and Southeast Asia, and the Middle East. Political violence and protest includes events that occur within civil wars and periods of instability, public protest, and regime breakdown. Data is updated weekly. The tool is currently displaying data from 2019.
+  source_url: https://www.acleddata.com/data/
+  source_name: ACLED
+  source_description: Point, Daily
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+risk_of_conflict:
+  name: Risk of Conflict
+  short_description:
+  long_description:
+  source_url:
+  source_name: WRI
+  source_description: Admin 2, Monthly
+  dataset_id: 0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3
+  layer_id: 107b72a6-6a52-4c8e-a261-d01706627322
   published: true
   primary: true
-
-community_one:
-  name: 'Local Population Density (Grid, 1 km)'
-  short_description: 'Description of the Local Population Density (Grid, 1 km) dataset goes here.'
-  layer_id: '969fe99d-b861-46a1-8c8e-7c44cbafd1d6'
-  dataset_id: '141ef6ab-eed9-4081-8066-7be364a48af0'
+asylum_requests_by_destination:
+  name: Asylum Requests by Destination
+  short_description: Number of asylum requests by country of requested asylum.
+  long_description: Total number of asylum requests destined for each of the 45 countries of asylum. Data is updated monthly.
+  source_url: http://popstats.unhcr.org/en/asylum_seekers_monthly
+  source_name: UNHCR
+  source_description: National
+  dataset_id: c856396d-d0f2-4aae-9671-4903b2ebed4d
+  layer_id: 4360b45c-dd79-44f3-8bcc-4531f0652773
   published: true
-
-economy_one:
-  name: 'National Infant Mortality'
-  short_description: 'Description of the National Infant Mortality dataset goes here.'
-  layer_id: '3a5a0c20-54da-4ba3-bfae-0dbed4ab9b50'
-  dataset_id: '6cfd6255-609e-4922-8709-5aaad0db9fae'
+  primary:
+asylum_requests_by_origin:
+  name: Asylum Requests by Origin
+  short_description: Number of asylum requests by country of origin.
+  long_description: Total number of asylum requests originating from each of the 205 countries of origin. Data is updated monthly.
+  source_url: http://popstats.unhcr.org/en/asylum_seekers_monthly
+  source_name: UNHCR
+  source_description: National
+  dataset_id: 7a8b5296-d283-4832-9be1-edd760bbb58f
+  layer_id: 505e6569-ca22-45c5-9fdc-b0678bb71b55
   published: true
-
-food_one:
-  name: 'Employment in Agriculture (% of Total Employment)'
-  short_description: 'Description of the Employment in Agriculture (% of Total Employment) dataset goes here.'
-  layer_id: '7a08dee3-6301-45d2-9ced-c2918f6f3c6b'
-  dataset_id: 'cc354f7f-2622-44cb-91c1-73559373de72'
+  primary:
+internally_displaced_persons:
+  name: Internally Displaced Persons
+  short_description: The number of people considered as internally displaced due to conflict and natural disasters.
+  long_description:
+  source_url: http://www.internal-displacement.org/global-report/grid2017/pdfs/2017-GRID-global-figures.pdf
+  source_name: IDMC/IOM/OCHA
+  source_description: National
+  dataset_id: d2f6245d-5b9b-4508-874b-d42a2be7d058
+  layer_id: 16a5729f-0f2e-4cd6-84bc-0f72c9132dda
   published: true
-
-food_two:
-  name: 'Agriculture Value added to GDP (% of Total GDP)'
-  short_description: 'Description of the Agriculture Value added to GDP (% of Total GDP) dataset goes here.'
-  layer_id: 'e2eed7df-495d-4d87-bb31-373a7dc87861'
-  dataset_id: '95b013a3-389a-4367-83b7-c9d68c28c406'
+  primary:
+6_month_s_p_i_anomaly_seasonal:
+  name: 6-month SPI Anomaly (Seasonal)
+  short_description:
+  long_description: The tool is currently displaying data from 2018.
+  source_url:
+  source_name: Deltares
+  source_description: Grid, Monthly
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+12_month_s_p_i_anomaly_annual:
+  name: 12-month SPI Anomaly (Annual)
+  short_description:
+  long_description: The tool is currently displaying data from 2018.
+  source_url:
+  source_name: Deltares
+  source_description: Grid, Monthly
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+24_month_s_p_i_anomaly_long_term:
+  name: 24-month SPI Anomaly (Long-term)
+  short_description:
+  long_description: The tool is currently displaying data from 2018.
+  source_url:
+  source_name: Deltares
+  source_description: Grid, Monthly
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+minimum_e_t_anomaly_annual:
+  name: Minimum ET Anomaly (Annual)
+  short_description: The ratio of the minimum actual annual ET to the median actual ET.
+  long_description: The minimum annual ET anomaly is the ratio of the annual actual ET to the corresponding median actual ET, expressed as a percentage. Evapotranspiration (ET) is a combination of transpiration from vegetation and evaporation from soil, in millimeters. Actual ET is produced using a Simplified Surface Energy Balance model for 2003 to present. Data is available annually. The tool is currently displaying data from 2017.
+  source_url: https://earlywarning.usgs.gov/fews/product/459
+  source_name: USGS/ FEWSNET
+  source_description: 1 km, Annual
+  dataset_id:
+  layer_id:
+  published:
+  primary:
+evapotranspiration_e_t:
+  name: Evapotranspiration (ET)
+  short_description: Actual monthly evapotranspiration in millimeters (mm).
+  long_description: Evapotranspiration (ET) is a combination of transpiration from vegetation and evaporation from soil. Actual ET is produced using a Simplified Surface Energy Balance model for 2003 to present. The actual ET is available on a monthly basis in millimeters (mm). The tool is currently displaying data from 2019.
+  source_url: https://earlywarning.usgs.gov/fews/product/460
+  source_name: FEWSNET
+  source_description: 1 km, Monthly
+  dataset_id: Not delivered yet
+  layer_id: TBD
+  published:
+  primary:
+baseline_water_stress:
+  name: Baseline Water Stress
+  short_description: Ratio of total water withdrawals to available renewable water supplies.
+  long_description: Baseline water stress measures the ratio of total water withdrawals to available renewable water supplies. Higher values indicate more competition among users. Water withdrawals include domestic, industrial, irrigation, and livestock consumptive and non-consumptive uses. Available renewable water supplies include surface and groundwater supplies and considers the impact of upstream users and large dams on downstream water availability. Data is not updated temporally.
+  source_url: https://www.wri.org/resources/data-sets/aqueduct-global-maps-30-data
+  source_name: WRI Aqueduct
+  source_description: Admin 1, Baseline
+  dataset_id: c66d7f3a-d1a8-488f-af8b-302b0f2c3840
+  layer_id: fdf06d8c-72e9-48a7-80f1-27bd5f19342c
   published: true
-
-food_three:
-  name: 'Cereals and Tubers: Food Price Spikes from Past 3 Months'
-  short_description: 'Description of the Cereals and Tubers: Food Price Spikes from Past 3 Months dataset goes here.'
-  layer_id: '3a52f7ed-0c20-4691-981b-3a3521b069aa'
-  dataset_id: 'acf42a1b-104b-4f81-acd0-549f805873fb'
+  primary:
+riverine_flood_risk:
+  name: Riverine Flood Risk [LAYER DOES NOT EXIST]
+  short_description: Percentage of population expected to be affected by riverine flooding in an average year.
+  long_description: Riverine flood risk measures the percentage of population expected to be affected by riverine flooding in an average year, accounting for existing flood protection standards. Higher values indicate greater proportion of the population is expected to be impacted by riverine floods. Values are calculated based on data from the year 2010. Data is not updated temporally.
+  source_url: https://www.wri.org/resources/data-sets/aqueduct-global-maps-30-data
+  source_name: WRI Aqueduct
+  source_description: Admin 1, Baseline
+  dataset_id: 2a652430-f94c-4185-b1ad-fae38502dfd2
+  layer_id: df9ef304-672f-4c17-97f4-f9f8fa2849ff
+  published: false
+  primary:
+seasonal_variability:
+  name: Seasonal Variability [LAYER DOES NOT EXIST]
+  short_description: Average within-year variability of available water supply.
+  long_description: Seasonal variability measures the average within-year variability of available water supply, including both renewable surface and groundwater supplies. Higher values indicate wider variations of available supply within a year. Values are calculated based on data from years 1960 to 2014. Data is not updated temporally.
+  source_url: https://www.wri.org/resources/data-sets/aqueduct-global-maps-30-data
+  source_name: WRI Aqueduct
+  source_description: Admin 1, Baseline
+  dataset_id: d2f0d40c-65cd-4046-a509-041b0ec692bd
+  layer_id: f4a83ced-4aea-4cf5-aa71-00927fe707e1
+  published: false
+  primary:
+interannual_variability:
+  name: Interannual Variability [LAYER DOES NOT EXIST]
+  short_description: Average between-year variability of available water supply.
+  long_description: Interannual variability measures the average between-year variability of available water supply, including both renewable surface and groundwater supplies. Higher values indicate wider variations in available supply from year to year. Values are calculated based on data from years 1960 to 2014. Data is not updated temporally.
+  source_url: https://www.wri.org/resources/data-sets/aqueduct-global-maps-30-data
+  source_name: WRI Aqueduct
+  source_description: Admin 1, Baseline
+  dataset_id: 84f6f132-c85a-480d-9c91-ae24cfa2aa2e
+  layer_id: 98b8e4f5-d961-463a-8732-7116de16808c
+  published: false
+  primary:
+future_water_stress:
+  name: Future Water Stress
+  short_description:
+  long_description:
+  source_url:
+  source_name: Deltares
+  source_description: Grid
+  dataset_id: TBD
+  layer_id:
+  published:
+  primary:
+airports:
+  name: Airports
+  short_description: Location of global airports.
+  long_description: Location data for commercial air travel airports across the world. The tool is currently displaying data from 2017.
+  source_url: https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat
+  source_name: OpenFlights
+  source_description: Point
+  dataset_id: 51159bdb-4904-4101-a88e-ca7bd4f67cb0
+  layer_id: 5ca56eeb-628f-45c9-a45e-151e62e8876c
   published: true
-
-food_four:
-  name: 'Miscellaneous Food: Food Price Spikes from Past 3 Months'
-  short_description: 'Description of the Miscellaneous Food: Food Price Spikes from Past 3 Months dataset goes here.'
-  layer_id: '43804fe4-8c9a-42fc-8c85-2a494727cf3d'
-  dataset_id: 'acf42a1b-104b-4f81-acd0-549f805873fb'
+  primary:
+access_to_cities:
+  name: Access to Cities
+  short_description: Travel time to high-density urban centers via surface transport.
+  long_description: Global accessibility to high-density urban centers via surface transport. The nearest urban center is defined as an area with 1,500 or more inhabitants per km2 or a majority of built-up land cover coincident with a population center of at least 50,000 inhabitants.
+  source_url: https://map.ox.ac.uk/research-project/accessibility_to_cities/
+  source_name: MAP/Google/EC JRC/UT/OSM
+  source_description: 1 km, 2015
+  dataset_id: ccbcaf7b-1619-4298-8275-b135d1e8e04e
+  layer_id: d787d894-f7af-47c4-af0f-0849b06686ee
   published: true
-
-food_five:
-  name: 'Oil and Fats: Food Price Spikes from Past 3 Months'
-  short_description: 'Description of the Oil and Fats: Food Price Spikes from Past 3 Months dataset goes here.'
-  layer_id: '2c7ddb1a-6a21-4f6c-a5a3-696e92bcf053'
-  dataset_id: 'acf42a1b-104b-4f81-acd0-549f805873fb'
+  primary:
+cities:
+  name: Cities [LAYER DOES NOT EXIST]
+  short_description: Location and population of cities and towns of regional significance.
+  long_description: Geographical locations for national-level capitals, sub-national capitals, major cities and towns, and some smaller towns in sparsely inhabited regions. The tool is currently using data from 2016.
+  source_url: http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-populated-places/
+  source_name: Natural Earth or Global Settlements
+  source_description: Point
+  dataset_id: a1f3ee1f-a898-4cb8-8162-f2dfb2f3b99c
+  layer_id: 5e156d22-7f84-4cd2-9724-c1a519a83e0a
+  published: false
+  primary:
+dams:
+  name: Dams
+  short_description: Location of dams.
+  long_description: Dam point location for reservoir storage capacity greater than 0.1 km3. Smaller dams and reservoirs were added if data were available, or if the dam is of particular socio economic importance. When multiple dams are associated with one reservoir, the dam with the highest expected rate of outflow is chosen as the main dam. Data is available for 2011.
+  source_url: https://sedac.ciesin.columbia.edu/data/set/grand-v1-reservoirs-rev01/data-download
+  source_name: Lehner et al
+  source_description: Point, 2011
+  dataset_id: e63bb157-4b98-4ecb-81d6-c1b15e79895a
+  layer_id: 212a1516-c7d5-44aa-a18a-ab8bc99929e7
   published: true
-
-food_six:
-  name: 'Pulses and Nuts: Food Price Spikes from Past 3 Months'
-  short_description: 'Description of the Pulses and Nuts: Food Price Spikes from Past 3 Months dataset goes here.'
-  layer_id: '253437ed-1e21-4544-8bb3-1ec2d2656522'
-  dataset_id: 'acf42a1b-104b-4f81-acd0-549f805873fb'
+  primary:
+ports:
+  name: Ports
+  short_description: Location of major ports.
+  long_description: Location, physical characteristics, facilities, and services offered by major ports around the world.
+  source_url: https://msi.nga.mil/NGAPortal/MSI.portal?_nfpb=true&_pageLabel=msi_portal_page_62&pubCode=0015
+  source_name: National Geospatial-Intelligence Agency (NGA)
+  source_description: Point
+  dataset_id: e0b94aef-4a3c-4fe3-8a58-7b713a4234a2
+  layer_id: 4c933a71-06aa-473d-9b93-9a5b5fbd554b
   published: true
-
-food_seven:
-  name: 'Vegetables and Fruits: Food Price Spikes from Past 3 Months'
-  short_description: 'Description of the Vegetables and Fruits: Food Price Spikes from Past 3 Months dataset goes here.'
-  layer_id: '1ee0784f-654f-4caf-a059-f03dc46724b6'
-  dataset_id: 'acf42a1b-104b-4f81-acd0-549f805873fb'
+  primary:
+power_generation_by_fuel_type:
+  name: Power Generation by Fuel Type
+  short_description: The percentage of the total energy capacity generated by each fuel type.
+  long_description: Location of approximately 30,000 power plants from 164 countries and their corresponding capacity and fuel source. Fuel types include coal, gas, oil, nuclear, biomass, waste, geothermal, hydro, wind, and solar. The full dataset includes information on generation and ownership and is continuously updated as data becomes available.
+  source_url: http://datasets.wri.org/dataset/globalpowerplantdatabase
+  source_name: Global Power Plant Database
+  source_description: Admin 2, Annually
+  dataset_id: a86d906d-9862-4783-9e30-cdb68cd808b8
+  layer_id: 2a694289-fec9-4bfe-a6d2-56c3864ec349
   published: true
-
-food_eight:
-  name: '2000 Barley Yield Gap (t/ha gap)'
-  short_description: 'Description of the 2000 Barley Yield Gap (t/ha gap) dataset goes here.'
-  layer_id: 'd0147b4b-89d7-49e3-945a-a5fb1fe26345'
-  dataset_id: 'bc2c749d-49a0-46c0-9582-eb33946a983e'
+  primary:
+reservoirs:
+  name: Reservoirs
+  short_description: Location of reservoirs.
+  long_description: Area of reservoir extent for storage capacity of more than 0.1 km3. Smaller reservoirs were added if data were available. The main source of the reservoir polygons is the STRM Water Body Database (SWBD). Data is currently available for 2011.
+  source_url: https://sedac.ciesin.columbia.edu/data/set/grand-v1-reservoirs-rev01/data-download
+  source_name: Lehner et al
+  source_description: Polygon, 2011
+  dataset_id: e63bb157-4b98-4ecb-81d6-c1b15e79895a
+  layer_id: 6528a5e5-c4cc-49b1-a603-b9ee90b644f7
   published: true
-
-food_nine:
-  name: '2000 Maize Yield Gap (t/ha gap)'
-  short_description: 'Description of the 2000 Maize Yield Gap (t/ha gap) dataset goes here.'
-  layer_id: '59ff5765-5c11-4b9a-9b34-1e6551a29236'
-  dataset_id: 'bc2c749d-49a0-46c0-9582-eb33946a983e'
+  primary:
+roads:
+  name: Roads
+  short_description: Location of roads.
+  long_description: The best available roads data by country, compiled from multiple sources. The date range spans from 1980s to 2010 depending on the country. Spatial accuracy also varies depending on the country.
+  source_url: https://sedac.ciesin.columbia.edu/data/set/groads-global-roads-open-access-v1/data-download
+  source_name: CIESIN
+  source_description: Vector, 2010
+  dataset_id: 943f3702-421f-47a4-9b99-e2d5a9f544a7
+  layer_id: 72bd4541-89d4-467d-905d-dc745511e2cc
   published: true
-
-food_ten:
-  name: '2000 Rice Yield Gap (t/ha gap)'
-  short_description: 'Description of the 2000 Rice Yield Gap (t/ha gap) dataset goes here.'
-  layer_id: 'd24a0b3b-b501-4189-aa1a-4912d0c94ec7'
-  dataset_id: 'bc2c749d-49a0-46c0-9582-eb33946a983e'
-  published: true
-
-food_eleven:
-  name: '2000 Soybean Yield Gap (t/ha gap)'
-  short_description: 'Description of the 2000 Soybean Yield Gap (t/ha gap) dataset goes here.'
-  layer_id: 'e5744d8e-e8af-4e72-a8f6-35adacf70976'
-  dataset_id: 'bc2c749d-49a0-46c0-9582-eb33946a983e'
-  published: true
-
-food_twelve:
-  name: 'Cropland Area'
-  short_description: 'Description of the Cropland Area dataset goes here.'
-  layer_id: '47dc9961-05d6-48f1-93c5-aa633e4a1efa'
-  dataset_id: '0ce24533-7877-4926-b962-a6c726332d82'
-  published: true
-
-food_thirteen:
-  name: 'Pasture Area'
-  short_description: 'Description of the Pasture Area dataset goes here.'
-  layer_id: '1198417e-8cfb-4a40-96f7-9ec016384c86'
-  dataset_id: '0ce24533-7877-4926-b962-a6c726332d82'
-  published: true
-
-migration_one:
-  name: 'Asylum Requests by Destination'
-  short_description: 'Description of the Asylum Requests by Destination dataset goes here.'
-  layer_id: '4360b45c-dd79-44f3-8bcc-4531f0652773'
-  dataset_id: 'c856396d-d0f2-4aae-9671-4903b2ebed4d'
-  published: true
-
-migration_two:
-  name: 'Asylum Requests by Origin'
-  short_description: 'Description of the Asylum Requests by Origin dataset goes here.'
-  layer_id: '505e6569-ca22-45c5-9fdc-b0678bb71b55'
-  dataset_id: '7a8b5296-d283-4832-9be1-edd760bbb58f'
-  published: true
-
-migration_three:
-  name: 'Recent Internal Displacement from Conflict, Natural Disasters, and Development by Event'
-  short_description: 'Description of the Recent Internal Displacement from Conflict, Natural Disasters, and Development by Event dataset goes here.'
-  layer_id: '16a5729f-0f2e-4cd6-84bc-0f72c9132dda'
-  dataset_id: 'd2f6245d-5b9b-4508-874b-d42a2be7d058'
-  published: true
-
-migration_four:
-  name: 'Baseline Water Stress'
-  short_description: 'Description of the Baseline Water Stress dataset goes here.'
-  layer_id: 'fdf06d8c-72e9-48a7-80f1-27bd5f19342c'
-  dataset_id: 'c66d7f3a-d1a8-488f-af8b-302b0f2c3840'
-  published: true
-
-infrastructure_one:
-  name: 'Airports'
-  short_description: 'Description of the Airports dataset goes here.'
-  layer_id: '5ca56eeb-628f-45c9-a45e-151e62e8876c'
-  dataset_id: '51159bdb-4904-4101-a88e-ca7bd4f67cb0'
-  published: true
-
-infrastructure_two:
-  name: 'Access to Cities'
-  short_description: 'Description of the Access to Cities dataset goes here.'
-  layer_id: 'd787d894-f7af-47c4-af0f-0849b06686ee'
-  dataset_id: 'ccbcaf7b-1619-4298-8275-b135d1e8e04e'
-  published: true
-
-infrastructure_three:
-  name: 'Dams'
-  short_description: 'Description of the Dams dataset goes here.'
-  layer_id: '212a1516-c7d5-44aa-a18a-ab8bc99929e7'
-  dataset_id: 'e63bb157-4b98-4ecb-81d6-c1b15e79895a'
-  published: true
-
-infrastructure_four:
-  name: 'Ports'
-  short_description: 'Description of the Ports dataset goes here.'
-  layer_id: '4c933a71-06aa-473d-9b93-9a5b5fbd554b'
-  dataset_id: 'e0b94aef-4a3c-4fe3-8a58-7b713a4234a2'
-  published: true
-
-infrastructure_five:
-  name: 'Power Generation by Fuel Type'
-  short_description: 'Description of the Power Generation by Fuel Type dataset goes here.'
-  layer_id: '2a694289-fec9-4bfe-a6d2-56c3864ec349'
-  dataset_id: 'a86d906d-9862-4783-9e30-cdb68cd808b8'
-  published: true
-
-infrastructure_six:
-  name: 'Reservoirs'
-  short_description: 'Description of the Reservoirs dataset goes here.'
-  layer_id: '6528a5e5-c4cc-49b1-a603-b9ee90b644f7'
-  dataset_id: 'e63bb157-4b98-4ecb-81d6-c1b15e79895a'
-  published: true
-
-infrastructure_seven:
-  name: 'Roads'
-  short_description: 'Description of the Roads dataset goes here.'
-  layer_id: '72bd4541-89d4-467d-905d-dc745511e2cc'
-  dataset_id: '943f3702-421f-47a4-9b99-e2d5a9f544a7'
-  published: true
+  primary:
