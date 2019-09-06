@@ -5,7 +5,7 @@ class LayersTest < ApplicationSystemTestCase
 
   setup do
     sign_in create(:user)
-    @layer = layers(:food_one)
+    @layer = layers(:employment_in_agriculture)
   end
 
   test 'visiting the index' do

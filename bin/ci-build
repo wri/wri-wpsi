@@ -16,7 +16,4 @@ bundle exec rails db:environment:set db:drop || true
 bundle exec rails db:setup db:migrate
 
 echo -e "\n== Rails tests ========================================================================="
-bundle exec rails test
-
-echo -e "\n== Rails system tests =================================================================="
-bundle exec rails test:system
+bundle exec rails test:system test

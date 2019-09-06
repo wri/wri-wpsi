@@ -5,7 +5,7 @@ class CategoryLayerTest < ActiveSupport::TestCase
     assert_not CategoryLayer.new.valid?
 
     record = CategoryLayer.new(
-      layer: layers(:conflict_one),
+      layer: layers(:risk_of_conflict),
       category: categories(:conflict),
     )
 

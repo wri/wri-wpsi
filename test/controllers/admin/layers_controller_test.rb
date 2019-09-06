@@ -5,7 +5,7 @@ class Admin::LayersControllerTest < ActionDispatch::IntegrationTest
 
   setup do
     sign_in create(:user)
-    @layer = layers(:conflict_one)
+    @layer = layers(:risk_of_conflict)
   end
 
   test 'should get index' do
