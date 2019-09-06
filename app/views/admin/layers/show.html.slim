@@ -11,10 +11,10 @@ div
       = raw @layer.long_description
   p
     strong> Layer ID:
-    = @layer.layer_id
+    = link_to @layer.layer_id, "http://api.resourcewatch.org/v1/layer/#{@layer.layer_id}"
   p
     strong> Dataset ID:
-    = @layer.dataset_id
+    = link_to @layer.dataset_id, "http://api.resourcewatch.org/v1/dataset/#{@layer.dataset_id}"
   p
     strong> Categories:
     = @layer.categories_string
