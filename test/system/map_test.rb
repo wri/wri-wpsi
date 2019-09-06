@@ -7,7 +7,7 @@ class MapTest < ApplicationSystemTestCase
   end
 
   test 'adding a dataset' do
-    layer = layers(:food_one)
+    layer = layers(:employment_in_agriculture)
 
     visit map_url
     click_button 'Add dataset'
@@ -26,7 +26,7 @@ class MapTest < ApplicationSystemTestCase
   end
 
   test 'viewing a dataset\'s long description' do
-    layer = layers(:conflict_one)
+    layer = layers(:risk_of_conflict)
 
     visit map_url
 
