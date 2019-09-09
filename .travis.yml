@@ -21,3 +21,7 @@ before_script:
 
 script:
   - bin/ci-build
+
+branches:
+  only:
+    - master
