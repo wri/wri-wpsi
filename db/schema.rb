@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_06_155731) do
+ActiveRecord::Schema.define(version: 2019_09_09_212959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_155731) do
     t.decimal "iav"
     t.decimal "rfr"
     t.decimal "sev"
+    t.index ["gid_2", "month_indep"], name: "index_widget_datapoints_on_gid_2_and_month_indep", unique: true
   end
 
 end

@@ -77,9 +77,5 @@ class CreateWidgetDatapoints < ActiveRecord::Migration[5.2]
       t.decimal :"rfr"
       t.decimal :"sev"
     end
-
-    # Ensure max one datapoint per month per gid_2 region
-    # TODO: Add this back in once data is cleaned up
-    # add_index :widget_datapoints, [:gid_2, :month_indep], unique: true
   end
 end
