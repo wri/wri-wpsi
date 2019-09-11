@@ -8,15 +8,13 @@ table.table
       th Layers in category
       th
       th
-      th
 
   tbody
     - @categories.each do |category|
       tr
-        td = category.title
+        td = link_to category.title, [:admin, category]
         td = category.description
         td = category.layers.count
-        td = link_to 'Show', [:admin, category]
         td = link_to 'Edit', edit_admin_category_path(category)
         td = link_to 'Delete', [:admin, category], data: { confirm: 'Are you sure?' }, method: :delete
 

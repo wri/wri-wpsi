@@ -1,0 +1,17 @@
+table.table
+  thead
+    tr
+      th Name
+      th Published
+      th Categories
+      th
+      th
+
+  tbody
+    - layers.each do |layer|
+      tr
+        td = link_to layer.name, [:admin, layer]
+        td = layer.published
+        td = layer.categories_string
+        td = link_to 'Edit', edit_admin_layer_path(layer)
+        td = link_to 'Delete', [:admin, layer], data: { confirm: 'Are you sure?' }, method: :delete

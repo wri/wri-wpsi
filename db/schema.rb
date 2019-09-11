@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_212959) do
+ActiveRecord::Schema.define(version: 2019_09_11_190952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 2019_09_09_212959) do
     t.text "short_description"
     t.string "layer_id"
     t.string "dataset_id"
-    t.boolean "published"
+    t.boolean "published", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "primary"
+    t.boolean "primary", default: false, null: false
     t.text "long_description"
     t.string "source_name"
     t.string "source_url"

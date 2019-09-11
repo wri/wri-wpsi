@@ -1,24 +1,6 @@
 h2.mb-4 Listing layers
 
-table.table
-  thead
-    tr
-      th Name
-      th Published
-      th Categories
-      th
-      th
-      th
-
-  tbody
-    - @layers.each do |layer|
-      tr
-        td = layer.name
-        td = layer.published
-        td = layer.categories_string
-        td = link_to 'Show', [:admin, layer]
-        td = link_to 'Edit', edit_admin_layer_path(layer)
-        td = link_to 'Delete', [:admin, layer], data: { confirm: 'Are you sure?' }, method: :delete
+= render 'table', layers: @layers
 
 br
 

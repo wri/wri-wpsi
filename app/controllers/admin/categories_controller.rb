@@ -5,7 +5,9 @@ class Admin::CategoriesController < Admin::BaseController
     @categories = Category.all
   end
 
-  def show; end
+  def show
+    @layers = @category.layers.order(:name, :id)
+  end
 
   def new
     @category = Category.new

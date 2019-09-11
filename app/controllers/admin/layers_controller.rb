@@ -2,7 +2,7 @@ class Admin::LayersController < Admin::BaseController
   before_action :set_layer, only: %i[show edit update destroy]
 
   def index
-    @layers = Layer.all
+    @layers = Layer.order(:name, :id)
   end
 
   def show; end
