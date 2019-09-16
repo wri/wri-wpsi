@@ -7,11 +7,11 @@ const LayerInfoPage = ({ match, history }) => {
 
   const layerId = params.layerId
   const layer = window.layers.find(layer => layer.id === layerId)
-  const info = layer.long_description || 'A long description of this dataset is not yet available.'
+  const info = layer && layer.long_description || 'A long description of this dataset is not yet available.'
 
   return (
     <Modal>
-      <h1>{layer.name}</h1>
+      <h1>{layer ? layer.name : 'Dataset information not available'}</h1>
 
       <p dangerouslySetInnerHTML={{__html: info}} />
 
