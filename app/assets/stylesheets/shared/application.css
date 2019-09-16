@@ -22,3 +22,23 @@ body, html {
 body > div {
   height: 100%;
 }
+
+a,
+button {
+  color: #0099CC
+}
+
+a:hover,
+a:focus {
+  color: #003F6A;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+h2 {
+  font-size: 16px;
+  line-height: 18px;
+}

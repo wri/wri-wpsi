@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { Icon, LegendItemButtonRemove } from 'vizzuality-components'
 import LayerCard from 'components/LayerCard'
 import Switch from 'react-switch'
+import defaultButtonStyle from './styles/default_button'
 
 const MapSideBar = ({
   history,
@@ -28,14 +29,7 @@ const MapSideBar = ({
   }
 
   const buttonStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    color: '#FFFFFF',
-    backgroundColor: '#003F6A',
-    borderRadius: '4px',
-    textTransform: 'uppercase',
-    padding: '8px',
-    height: '36px',
+    ...defaultButtonStyle(),
   }
 
   const iconStyle = {
@@ -99,7 +93,7 @@ const MapSideBar = ({
   return (
     <div id='sidebar' style={sideBarStyles}>
       <div style={headerStyle}>
-        <h1>Investigation</h1>
+        <h1 style={{marginBottom: 0}}>Investigation</h1>
 
         <button style={buttonStyle} onClick={() => history.push('/map/datasets/water')}>
           <Icon name="icon-plus" style={iconStyle} />

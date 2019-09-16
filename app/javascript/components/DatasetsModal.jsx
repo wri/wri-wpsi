@@ -12,6 +12,8 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
   const allDatasetsCategory = {slug: 'all', title: 'All Data >'}
   const selectedCategory = CATEGORIES.find(c => c.slug === tab) || allDatasetsCategory
   const [descriptionExpanded, setDescriptionExpanded] = React.useState(false)
+  const styleVars = styleVariables()
+  const { colors } = styleVars
 
   if (open) {
     const modalHeaderStyle = {
@@ -22,16 +24,16 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
     const layerListStyle = {
       display: 'flex',
       flexWrap: 'wrap',
-      margin: '20px -20px -20px',
+      margin: '0 -20px -20px',
       background: '#F5F5F5',
       padding: 10,
       maxHeight: '40vh',
       overflow: 'auto',
-      borderTop: `2px solid ${styleVariables().colors.gray1}`
+      borderTop: `2px solid ${colors.gray1}`,
     }
     const tabsListStyle = {
-      marginTop: '18px',
-      marginBottom: '10px',
+      marginTop: '15px',
+      marginBottom: '15px',
       display: 'flex',
       justifyContent: 'space-between',
     }
@@ -50,9 +52,9 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
       boxShadow: 'inset 0 -2px 0 0 #526173',
     }
     const tabDescriptionStyle = {
-      padding: '',
-      maxWidth: 800,
-      marginBottom: '36px',
+      padding: '20px',
+      margin: '0 -20px',
+      background: colors.gray1
     }
     const moreLinkStyle = {
       textDecoration: 'none',
