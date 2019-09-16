@@ -1,4 +1,5 @@
 import React from 'react'
+import styleVariables from 'components/styles/variables'
 
 const Modal = ({ children }) => {
   const modalBackgroundStyle = {
@@ -18,6 +19,9 @@ const Modal = ({ children }) => {
     border: '1px solid #888',
     width: '80%',
     maxWidth: '1000px',
+    boxShadow: styleVariables().boxShadow,
+    borderRadius: 4,
+    overflow: 'hidden',
   }
 
   return (

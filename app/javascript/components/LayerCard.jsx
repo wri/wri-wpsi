@@ -1,12 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import LayerTags from 'components/LayerTags'
+import styleVariables from 'components/styles/variables'
 
 const LayerCard = ({ layer, variant, excludedTag, secondaryAction }) => {
+  const styleVars = styleVariables()
   const containerStyle = {
-    backgroundColor: variant === 'white' ? '#FFFFFF' : '#EBEEEF',
-    padding: variant === 'white' ? '4px 0px' : '4px 24px',
-    borderBottom: '1px solid #B6C6BC',
+    padding: '15px',
+    borderTop: `2px solid ${styleVars.colors.gray1}`,
+    borderRadius: variant === 'white' ? 4 : 0,
+    borderBottomRightRadius: '4px',
+    boxShadow: styleVars.boxShadow,
+    background: 'white',
+    flex: variant === 'simple' ? '0 1 auto' : '1 1 auto',
   }
 
   const titleAreaStyle = {

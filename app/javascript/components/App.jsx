@@ -13,6 +13,9 @@ const App = () => {
   const globalStyles = {
     font: '14px/16px Myriad Pro, PT Sans, Arial, Helvetica, sans-serif',
     color: '#4D4D4D',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
   }
 
   return (

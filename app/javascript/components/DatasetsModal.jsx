@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { Icon } from 'vizzuality-components'
 import Modal from 'components/Modal'
 import LayerCard from 'components/LayerCard'
+import styleVariables from 'components/styles/variables'
 
 const LAYERS = window.layers
 const CATEGORIES = window.categories
@@ -21,6 +22,12 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
     const layerListStyle = {
       display: 'flex',
       flexWrap: 'wrap',
+      margin: '20px -20px -20px',
+      background: '#F5F5F5',
+      padding: 10,
+      maxHeight: '40vh',
+      overflow: 'auto',
+      borderTop: `2px solid ${styleVariables().colors.gray1}`
     }
     const tabsListStyle = {
       marginTop: '18px',
@@ -44,7 +51,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
     }
     const tabDescriptionStyle = {
       padding: '',
-      marginRight: '300px',
+      maxWidth: 800,
       marginBottom: '36px',
     }
     const moreLinkStyle = {
@@ -147,7 +154,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
 
         <div style={layerListStyle}>
           {filteredLayers.map((layer) => (
-            <div key={layer.id} style={{width: '48%', padding: '0 1%'}}>
+            <div key={layer.id} style={{width: '48%', padding: '10px', display: 'flex'}}>
               <LayerCard
                 layer={layer}
                 variant='white'

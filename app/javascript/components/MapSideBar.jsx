@@ -12,11 +12,18 @@ const MapSideBar = ({
   onRemoveLayer,
   onToggleLayer,
 }) => {
+
+  const sideBarStyles = {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: '1 1 auto',
+  }
+
   const headerStyle = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '12px',
+    padding: '15px',
     borderBottom: '1px solid #B6C6BC',
   }
 
@@ -37,6 +44,12 @@ const MapSideBar = ({
     height: '20px',
     width: '20px',
     marginRight: '8px',
+  }
+
+  const sideBarContent = {
+    padding: '15px 15px 15px 0px',
+    flex: '1 1 auto',
+    overflow: 'auto',
   }
 
   const renderRegionInfo = (region) => {
@@ -84,7 +97,7 @@ const MapSideBar = ({
   )
 
   return (
-    <div id='sidebar'>
+    <div id='sidebar' style={sideBarStyles}>
       <div style={headerStyle}>
         <h1>Investigation</h1>
 
@@ -98,11 +111,13 @@ const MapSideBar = ({
 
       {maskLayer && renderMaskLayerCard(maskLayer)}
 
-      {
-        activeLayers
-          .filter(layer => layer.id != maskLayer.id)
-          .map(layer => renderLayerCard(layer))
-      }
+      <div style={sideBarContent}>
+        {
+          activeLayers
+            .filter(layer => layer.id != maskLayer.id)
+            .map(layer => renderLayerCard(layer))
+        }
+      </div>
     </div>
   )
 }
