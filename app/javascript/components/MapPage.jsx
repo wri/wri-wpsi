@@ -4,7 +4,11 @@ import ResourceWatchMap from 'components/ResourceWatchMap'
 import MapSideBar from 'components/MapSideBar'
 import DatasetsModal from 'components/DatasetsModal'
 
-const LAYERS = window.layers
+const MASK_LAYER = {
+  id: 'c7e76588-6da5-4645-8842-2d2ac0001110',
+  name: 'Highlight areas of water stress',
+}
+const LAYERS = [...window.layers, MASK_LAYER]
 
 const MapPage = ({ match, history }) => {
   const [activeLayers, setActiveLayers] = React.useState(LAYERS.filter(layer => layer.initially_on))
@@ -100,9 +104,11 @@ const MapPage = ({ match, history }) => {
     <div style={sideDrawerStyle}>
       <MapSideBar
         setModalOpen={setModalOpen}
+        maskLayer={MASK_LAYER}
         activeLayers={activeLayers}
         selectedRegion={selectedRegion}
         onRemoveLayer={removeLayer}
+        onToggleLayer={handleToggleLayer}
       />
 
       <Route
