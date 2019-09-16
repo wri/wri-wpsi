@@ -8,8 +8,10 @@ it('renders correctly', () => {
     <BrowserRouter>
       <MapSideBar
         activeLayers={[]}
+        maskLayer={{name: 'Highlight areas of water stress'}}
         setModalOpen={() => null}
         onRemoveLayer={() => null}
+        onToggleLayer={() => null}
       />
     </BrowserRouter>
   )
