@@ -4,84 +4,89 @@ import { Icon } from 'vizzuality-components'
 import Modal from 'components/Modal'
 import LayerCard from 'components/LayerCard'
 import styleVariables from 'components/styles/variables'
+import injectSheet, { jss } from 'react-jss'
 
 const LAYERS = window.layers
 const CATEGORIES = window.categories
 
-const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, history }) => {
+const styleVars = styleVariables()
+const { colors } = styleVars
+const tabStyle = {
+  padding: '6px 18px',
+  paddingLeft: 0,
+  border: '0',
+  backgroundColor: 'transparent',
+  cursor: 'pointer',
+  outline: 'none',
+  fontSize: '16px',
+  color: '#244F5E',
+}
+
+const styles = {
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+  },
+  list: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    margin: '0 -20px -20px',
+    background: '#F5F5F5',
+    padding: 10,
+    maxHeight: '40vh',
+    overflow: 'auto',
+    borderTop: `2px solid ${colors.gray1}`,
+  },
+  tabList: {
+    marginTop: '15px',
+    marginBottom: '15px',
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  tab: tabStyle,
+  selectedTab: {
+    ...tabStyle,
+    boxShadow: 'inset 0 -2px 0 0 #526173',
+  },
+  tabDescription: {
+    padding: '20px',
+    margin: '0 -20px',
+    background: colors.gray1
+  },
+  moreLink: {
+    textDecoration: 'none',
+    textTransform: 'uppercase',
+    fontSize: 'smaller',
+    float: 'right',
+    whiteSpace: 'nowrap',
+  },
+  closeButton: {
+    padding: '0',
+    border: '0',
+    backgroundColor: 'transparent',
+    cursor: 'pointer',
+    outline: 'none',
+  },
+  addButton: {
+    height: '36px',
+    width: '69px',
+    border: '1px solid #285969',
+    borderRadius: '3px',
+    textTransform: 'uppercase',
+  },
+}
+
+const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, history, classes }) => {
   const allDatasetsCategory = {slug: 'all', title: 'All Data >'}
   const selectedCategory = CATEGORIES.find(c => c.slug === tab) || allDatasetsCategory
   const [descriptionExpanded, setDescriptionExpanded] = React.useState(false)
-  const styleVars = styleVariables()
-  const { colors } = styleVars
 
   if (open) {
-    const modalHeaderStyle = {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'flex-start',
-    }
-    const layerListStyle = {
-      display: 'flex',
-      flexWrap: 'wrap',
-      margin: '0 -20px -20px',
-      background: '#F5F5F5',
-      padding: 10,
-      maxHeight: '40vh',
-      overflow: 'auto',
-      borderTop: `2px solid ${colors.gray1}`,
-    }
-    const tabsListStyle = {
-      marginTop: '15px',
-      marginBottom: '15px',
-      display: 'flex',
-      justifyContent: 'space-between',
-    }
-    const tabStyle = {
-      padding: '6px 18px',
-      paddingLeft: 0,
-      border: '0',
-      backgroundColor: 'transparent',
-      cursor: 'pointer',
-      outline: 'none',
-      fontSize: '16px',
-      color: '#244F5E',
-    }
-    const selectedTabStyle = {
-      ...tabStyle,
-      boxShadow: 'inset 0 -2px 0 0 #526173',
-    }
-    const tabDescriptionStyle = {
-      padding: '20px',
-      margin: '0 -20px',
-      background: colors.gray1
-    }
-    const moreLinkStyle = {
-      textDecoration: 'none',
-      textTransform: 'uppercase',
-      fontSize: 'smaller',
-      float: 'right',
-      whiteSpace: 'nowrap',
-    }
-    const closeButtonStyle = {
-      padding: '0',
-      border: '0',
-      backgroundColor: 'transparent',
-      cursor: 'pointer',
-      outline: 'none',
-    }
-    const addButtonStyle = {
-      height: '36px',
-      width: '69px',
-      border: '1px solid #285969',
-      borderRadius: '3px',
-      textTransform: 'uppercase',
-    }
-
     const renderTab = (category) => (
       <button
         key={category.slug}
-        style={category.slug === selectedCategory.slug ? selectedTabStyle : tabStyle}
+        className={category.slug === selectedCategory.slug ? classes.selectedTab : classes.tab}
         id={`${category.slug}-tab`}
         onClick={
           () => {
@@ -100,7 +105,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
       const shortenedTextClasses = 'clamp-after-two-lines fade-after-two-lines'
 
       return (
-        <div style={tabDescriptionStyle}>
+        <div className={classes.tabDescription}>
           <div className={descriptionExpanded ? null : shortenedTextClasses}>
             {descriptionExpanded ? category.description : category.description.substring(0, cutoff)}
           </div>
@@ -114,7 +119,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
     const renderDescriptionExpansionLink = () => (
       <a
         href="#"
-        style={moreLinkStyle}
+        className={classes.moreLink}
         onClick={() => setDescriptionExpanded(!descriptionExpanded)}
       >
         {descriptionExpanded ? 'Show less ^' : 'Show more >'}
@@ -123,7 +128,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
 
     const renderAddButton = (layer) => (
       <button
-        style={addButtonStyle}
+        className={classes.addButton}
         id={`layer-${layer.id}`}
         onClick={onToggleLayerClick}
       >
@@ -139,22 +144,22 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
 
     return (
       <Modal>
-        <div style={modalHeaderStyle}>
+        <div className={classes.header}>
           <h1>Add Datasets to Investigation</h1>
 
-            <button style={closeButtonStyle} onClick={onClose} aria-label="Close">
+            <button className={classes.closeButton} onClick={onClose} aria-label="Close">
               <Icon name="icon-cross" className="-small" />
             </button>
         </div>
 
-        <div style={tabsListStyle}>
+        <div className={classes.tabList}>
           {categories.map((category) => renderTab(category))}
           {renderTab(allDatasetsCategory)}
         </div>
 
         {selectedCategory.slug !== 'all' && renderDescription(selectedCategory)}
 
-        <div style={layerListStyle}>
+        <div className={classes.list}>
           {filteredLayers.map((layer) => (
             <div key={layer.id} style={{width: '48%', padding: '10px', display: 'flex'}}>
               <LayerCard
@@ -183,4 +188,4 @@ DatasetsModal.propTypes = {
   history: PropTypes.object.isRequired,
 }
 
-export default withRouter(DatasetsModal)
+export default withRouter(injectSheet(styles)(DatasetsModal))

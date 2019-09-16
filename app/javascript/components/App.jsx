@@ -8,6 +8,7 @@ import LayersList from 'components/LayersList'
 import LayerMapPage from 'components/LayerMapPage'
 import LayerInfoPage from 'components/LayerInfoPage'
 import { Icons } from 'vizzuality-components'
+import { jss, ThemeProvider } from 'react-jss'
 
 const App = () => {
   const globalStyles = {
@@ -19,27 +20,29 @@ const App = () => {
   }
 
   return (
-    <BrowserRouter>
-      <div style={globalStyles}>
-        <TopBanner />
+    <ThemeProvider theme={globalStyles}>
+      <BrowserRouter>
+        <div style={globalStyles}>
+          <TopBanner />
 
-        {/* Landing page with map */}
-        <Route path="/map" component={MapPage} />
-        <Route path="/map/learn_more/:layerId" component={LayerInfoPage} />
+          {/* Landing page with map */}
+          <Route path="/map" component={MapPage} />
+          <Route path="/map/learn_more/:layerId" component={LayerInfoPage} />
 
-        {/* Static pages */}
-        <Route path="/about" component={AboutPage} />
-        <Route path="/methodology" component={MethodologyPage} />
+          {/* Static pages */}
+          <Route path="/about" component={AboutPage} />
+          <Route path="/methodology" component={MethodologyPage} />
 
-        {/* Debugging pages, remove before going live! */}
-        <Route path="/layers" exact component={LayersList} />
-        <Route path="/layers/:layerId" component={LayerMapPage} />
-        <Route path="/datasets/:datasetId" component={LayerMapPage} />
-      </div>
+          {/* Debugging pages, remove before going live! */}
+          <Route path="/layers" exact component={LayersList} />
+          <Route path="/layers/:layerId" component={LayerMapPage} />
+          <Route path="/datasets/:datasetId" component={LayerMapPage} />
+        </div>
 
-      {/* Include Vizzuality icons for use in other Vizzuality components */}
-      <Icons />
-    </BrowserRouter>
+        {/* Include Vizzuality icons for use in other Vizzuality components */}
+        <Icons />
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 
