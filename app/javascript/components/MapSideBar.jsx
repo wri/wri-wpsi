@@ -4,9 +4,14 @@ import { Icon, LegendItemButtonRemove } from 'vizzuality-components'
 import LayerCard from 'components/LayerCard'
 import Switch from 'react-switch'
 
-const MapSideBar = ({ history, activeLayers, selectedRegion, onRemoveLayer }) => {
-  const [checked, setChecked] = React.useState(false)
-
+const MapSideBar = ({
+  history,
+  maskLayer,
+  activeLayers,
+  selectedRegion,
+  onRemoveLayer,
+  onToggleLayer,
+}) => {
   const headerStyle = {
     display: 'flex',
     justifyContent: 'space-between',
@@ -46,6 +51,38 @@ const MapSideBar = ({ history, activeLayers, selectedRegion, onRemoveLayer }) =>
     )
   }
 
+  const renderMaskLayerCard = (layer) => (
+    <LayerCard
+      variant='simple'
+      layer={layer}
+      secondaryAction={
+        <Switch
+          onChange={() => onToggleLayer({ layer })}
+          checked={activeLayers.includes(layer)}
+          onColor={'#003F6A'}
+          offColor={'#B6C6BC'}
+          checkedIcon={false}
+          uncheckedIcon={false}
+          className='square-switch'
+        />
+      }
+    />
+  )
+
+  const renderLayerCard = (layer) => (
+    <LayerCard
+      key={layer.id}
+      layer={layer}
+      onRemoveLayer={onRemoveLayer}
+      secondaryAction={
+        <LegendItemButtonRemove
+          onRemoveLayer={() => onRemoveLayer(layer)}
+          tooltipText='Hide'
+        />
+      }
+    />
+  )
+
   return (
     <div id='sidebar'>
       <div style={headerStyle}>
@@ -59,36 +96,12 @@ const MapSideBar = ({ history, activeLayers, selectedRegion, onRemoveLayer }) =>
 
       {selectedRegion && renderRegionInfo(selectedRegion)}
 
-      <LayerCard
-        variant='simple'
-        layer={{name: 'Highlight areas of water stress', initially_on: true}}
-        secondaryAction={
-          <Switch
-            onChange={(value) => setChecked(value)}
-            checked={checked}
-            onColor={'#003F6A'}
-            offColor={'#B6C6BC'}
-            checkedIcon={false}
-            uncheckedIcon={false}
-            className='square-switch'
-          />
-        }
-      />
+      {maskLayer && renderMaskLayerCard(maskLayer)}
 
       {
-        activeLayers.map(layer =>
-          <LayerCard
-            key={layer.id}
-            layer={layer}
-            onRemoveLayer={onRemoveLayer}
-            secondaryAction={
-              <LegendItemButtonRemove
-                onRemoveLayer={() => onRemoveLayer(layer)}
-                tooltipText='Hide'
-              />
-            }
-          />
-        )
+        activeLayers
+          .filter(layer => layer.id != maskLayer.id)
+          .map(layer => renderLayerCard(layer))
       }
     </div>
   )
@@ -99,6 +112,8 @@ MapSideBar.propTypes = {
   history: PropTypes.object.isRequired,
   setModalOpen: PropTypes.func.isRequired,
   onRemoveLayer: PropTypes.func.isRequired,
+  onToggleLayer: PropTypes.func.isRequired,
+  maskLayer: PropTypes.object,
   activeLayers: PropTypes.array.isRequired,
   selectedRegion: PropTypes.object,
 }
