@@ -2,6 +2,8 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { Icon, LegendItemButtonRemove } from 'vizzuality-components'
 import LayerCard from 'components/LayerCard'
+import WidgetContainer from 'components/WidgetContainer'
+
 import Switch from 'react-switch'
 
 const MapSideBar = ({
@@ -80,7 +82,9 @@ const MapSideBar = ({
           tooltipText='Hide'
         />
       }
-    />
+    >
+      {selectedRegion && layer.widget_fields && <WidgetContainer layer={layer} region={selectedRegion} />}
+    </LayerCard>
   )
 
   return (
