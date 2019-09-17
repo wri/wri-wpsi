@@ -15,17 +15,25 @@ const styles = {
     flexDirection: 'column',
     flex: '1 1 auto',
   },
-  header:  {
+  header: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '15px',
   },
+  locationHeader:  {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '15px',
+    backgroundColor: colors.primary,
+    fontWeight: '600',
+    fontSize: 16,
+    lineHeight: 18/16,
+    marginBottom: 10,
+  },
   addLayerButton:  {
     ...defaultButtonStyle(),
-    '&:hover path': {
-      fill: [[colors.links.default], '!important'],
-    }
   },
   addLayerButtonIcon:  {
     marginRight: '8px',
@@ -49,8 +57,9 @@ const MapSideBar = ({
 }) => {
 
   const renderRegionInfo = (region) => {
+    const className = `${classes.locationHeader} ${classes.header}`
     return (
-      <div className={classes.header}>
+      <div className={className}>
         <i>
           {region.name_2 && `${region.name_2} ${region.engtype_2}, `}
           {region.name_1 && `${region.name_1}, `}
