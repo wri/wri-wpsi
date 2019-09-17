@@ -8,7 +8,7 @@ import LayersList from 'components/LayersList'
 import LayerMapPage from 'components/LayerMapPage'
 import LayerInfoPage from 'components/LayerInfoPage'
 import { Icons } from 'vizzuality-components'
-import { jss, ThemeProvider } from 'react-jss'
+import { ThemeProvider } from 'react-jss'
 
 const App = () => {
   const globalStyles = {

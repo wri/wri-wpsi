@@ -1,5 +1,6 @@
 import React from 'react'
 import MenuBar from 'components/MenuBar'
+import styleVariables from './styles/variables'
 
 const TopBanner = () => {
   return <header id='top-banner' style={{
@@ -12,7 +13,7 @@ const TopBanner = () => {
     }}>
     <div style={{
       display: 'flex',
-      borderBottom: '1px solid #B8C5D0',
+      borderBottom: `1px solid ${styleVariables().colors.border}`,
       alignItems: 'center',
     }}>
       <div style={{

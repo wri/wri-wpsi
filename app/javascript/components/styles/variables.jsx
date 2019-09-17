@@ -1,8 +1,8 @@
 const styleVariables = () => {
   return {
     colors: {
-      primary: '',
-      secondary: '',
+      primary: '#F0AB00',
+      secondary: '#003F6A',
       accent: '',
       positive: '#97BD3D',
       warning: '#E98300',

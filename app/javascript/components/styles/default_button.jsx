@@ -8,7 +8,7 @@ const defaultButtonStyle = (solid=true) => {
     alignItems: 'center',
     color: solid ? '#FFFFFF' : colors.links.default,
     backgroundColor: solid ? colors.links.default :  '#FFFFFF',
-    border: '1px solid ${colors.links.default}',
+    border: `1px solid ${colors.links.default}`,
     borderRadius: '4px',
     padding: '10px 15px',
     fontSize: 14,
@@ -16,6 +16,10 @@ const defaultButtonStyle = (solid=true) => {
     fontFamily: 'PT Sans, Helvetica, Arial, sans-serif',
     letterSpacing: '.05em',
     cursor: 'pointer',
+    '&:hover': {
+      color: solid ? colors.links.default : '#FFFFFF',
+      backgroundColor: solid ? '#FFFFFF' : colors.links.default,
+    },
   }
 }
 

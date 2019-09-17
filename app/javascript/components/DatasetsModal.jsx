@@ -3,10 +3,12 @@ import { withRouter } from 'react-router-dom'
 import { Icon } from 'vizzuality-components'
 import Modal from 'components/Modal'
 import LayerCard from 'components/LayerCard'
-import styleVariables from 'components/styles/variables'
-import injectSheet, { jss } from 'react-jss'
-import linkStyle from './styles/link'
+import injectSheet from 'react-jss'
 import LayerToggle from 'components/LayerToggle'
+import styleVariables from 'components/styles/variables'
+import linkStyle from './styles/link'
+import scrollBarStyles from './styles/scrollbar'
+import modalCloseButtonStyle from './styles/modal_close_button'
 
 const LAYERS = window.layers
 const CATEGORIES = window.categories
@@ -41,9 +43,10 @@ const styles = {
     margin: '0 -20px -20px',
     background: '#F5F5F5',
     padding: 10,
-    maxHeight: '40vh',
+    maxHeight: '50vh',
     overflow: 'auto',
     borderTop: `2px solid ${colors.gray1}`,
+    ...scrollBarStyles()
   },
   tabList: {
     marginTop: 15,
@@ -76,11 +79,7 @@ const styles = {
     marginBottom: 10,
   },
   closeButton: {
-    padding: '0',
-    border: '0',
-    backgroundColor: 'transparent',
-    cursor: 'pointer',
-    outline: 'none',
+    ...modalCloseButtonStyle()
   },
   addButton: {
     height: '36px',
@@ -200,7 +199,6 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
 }
 
 import PropTypes from 'prop-types'
-import { None } from 'vega'
 DatasetsModal.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,

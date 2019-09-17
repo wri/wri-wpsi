@@ -25,7 +25,7 @@ const styles = {
     marginBottom: 0,
     flex: '0 1 auto',
     boxShadow: 'none',
-    borderBottom: `2px solid ${styleVars.colors.gray3}`,
+    borderBottom: `1px solid ${styleVars.colors.gray2}`,
     borderTop: 0,
     borderRadius: 'none',
   },
@@ -57,7 +57,7 @@ const styles = {
     marginLeft: 'auto',
   },
   footer: {
-    borderTop: `1px solid ${styleVars.colors.gray3}`,
+    borderTop: `1px solid ${styleVars.colors.gray2}`,
     padding: '10px 15px',
     display: 'flex',
     marginTop: 'auto',

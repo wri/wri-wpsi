@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import injectSheet from 'react-jss'
 import styleVariables from 'components/styles/variables'
-import { renderModule } from 'vega'
 import PropTypes from 'prop-types'
 
 const { colors } = styleVariables()
@@ -74,6 +73,7 @@ class LayerToggle extends Component {
     icon: PropTypes.object,
     id: PropTypes.string,
     classes: PropTypes.object,
+    classNames: PropTypes.string,
   }
 
   handleUpdateText(action) {
@@ -91,7 +91,7 @@ class LayerToggle extends Component {
   }
 
   render() {
-    const { action, classes, id, classNames } = this.props
+    const { classes, id, classNames } = this.props
     const { showText, showIcon } = this.state
     const wrapperClassNames = `${classes.wrapper} ${classNames}`
     return (
