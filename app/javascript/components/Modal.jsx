@@ -15,7 +15,7 @@ const Modal = ({ children }) => {
   const modalStyle = {
     backgroundColor: '#fefefe',
     margin: '15% auto',
-    padding: '20px',
+    padding: '30px 20px 20px 20px',
     border: '1px solid #888',
     width: '80%',
     maxWidth: '1000px',

@@ -8,6 +8,7 @@ const TopBanner = () => {
       zIndex: 10000,
       backgroundColor: 'white',
       flex: '0 1 auto',
+      fontFamily: 'PT Sans, sans-serif',
     }}>
     <div style={{
       display: 'flex',
@@ -18,10 +19,13 @@ const TopBanner = () => {
         margin: '19px',
         fontSize: '33px',
         whiteSpace: 'nowrap',
+        fontWeight: '600',
       }}>
         Water, Peace & Security
       </div>
-      <MenuBar selectedItem='map' onClick={() => null} />
+      <div style={{marginLeft: 'auto'}}>
+        <MenuBar selectedItem='map' onClick={() => null} />
+      </div>
     </div>
   </header>
 }

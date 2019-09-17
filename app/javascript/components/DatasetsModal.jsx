@@ -5,6 +5,8 @@ import Modal from 'components/Modal'
 import LayerCard from 'components/LayerCard'
 import styleVariables from 'components/styles/variables'
 import injectSheet, { jss } from 'react-jss'
+import linkStyle from './styles/link'
+import LayerToggle from 'components/LayerToggle'
 
 const LAYERS = window.layers
 const CATEGORIES = window.categories
@@ -12,14 +14,16 @@ const CATEGORIES = window.categories
 const styleVars = styleVariables()
 const { colors } = styleVars
 const tabStyle = {
-  padding: '6px 18px',
-  paddingLeft: 0,
+  padding: '5px 15px',
   border: '0',
   backgroundColor: 'transparent',
   cursor: 'pointer',
   outline: 'none',
   fontSize: '16px',
   color: '#244F5E',
+  fontFamily: 'PT Sans, Helvetica, Arial, sans-serif',
+  borderRadius: '15px',
+  ...linkStyle('tab')
 }
 
 const styles = {
@@ -27,6 +31,9 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
+  },
+  title: {
+    marginBottom: 15,
   },
   list: {
     display: 'flex',
@@ -39,27 +46,34 @@ const styles = {
     borderTop: `2px solid ${colors.gray1}`,
   },
   tabList: {
-    marginTop: '15px',
-    marginBottom: '15px',
+    marginTop: 15,
+    marginBottom: 15,
+    marginLeft: -15,
     display: 'flex',
     justifyContent: 'space-between',
   },
   tab: tabStyle,
   selectedTab: {
     ...tabStyle,
-    boxShadow: 'inset 0 -2px 0 0 #526173',
+    backgroundColor: colors.links.default,
+    color: 'white',
+    fontWeight: '600',
+    '&:hover': {
+      pointerEvents: 'none',
+    }
   },
   tabDescription: {
     padding: '20px',
     margin: '0 -20px',
-    background: colors.gray1
+    background: colors.gray1,
+    borderBottom: `1px solid ${colors.gray2}`,
   },
   moreLink: {
     textDecoration: 'none',
-    textTransform: 'uppercase',
     fontSize: 'smaller',
-    float: 'right',
     whiteSpace: 'nowrap',
+    marginLeft: 'auto',
+    marginBottom: 10,
   },
   closeButton: {
     padding: '0',
@@ -73,7 +87,6 @@ const styles = {
     width: '69px',
     border: '1px solid #285969',
     borderRadius: '3px',
-    textTransform: 'uppercase',
   },
 }
 
@@ -102,14 +115,16 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
     const renderDescription = (category) => {
       const cutoff = 300
       const long = category.description.length > cutoff
-      const shortenedTextClasses = 'clamp-after-two-lines fade-after-two-lines'
+      let shortenedTextClasses = ''
 
+      if (long) shortenedTextClasses = 'clamp-after-two-lines fade-after-two-lines'
+      if (descriptionExpanded) shortenedTextClasses = ''
       return (
         <div className={classes.tabDescription}>
-          <div className={descriptionExpanded ? null : shortenedTextClasses}>
+          <div className={shortenedTextClasses}>
             {descriptionExpanded ? category.description : category.description.substring(0, cutoff)}
           </div>
-          <div>
+          <div style={{display: 'flex'}}>
             {long && renderDescriptionExpansionLink()}
           </div>
         </div>
@@ -127,13 +142,19 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
     )
 
     const renderAddButton = (layer) => (
-      <button
-        className={classes.addButton}
+      <LayerToggle
+        text={{
+          current: isActive(layer) ? 'Viewing' : 'Add',
+          action: isActive(layer) ? 'Remove' : 'Add'
+        }}
+        icon={{
+          current: isActive(layer) ? 'eye' : 'plus-circle',
+          action: isActive(layer) ? 'times-solid' : 'plus-circle'
+        }}
+        classNames={isActive(layer) ? 'viewing' : 'add'}
+        action={onToggleLayerClick}
         id={`layer-${layer.id}`}
-        onClick={onToggleLayerClick}
-      >
-        {isActive(layer) ? 'Remove' : 'Add'}
-      </button>
+      />
     )
 
     const filteredLayers = selectedCategory.slug === 'all' ?
@@ -145,7 +166,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
     return (
       <Modal>
         <div className={classes.header}>
-          <h1>Add Datasets to Investigation</h1>
+          <h1 className={classes.title}>Add Datasets to Investigation</h1>
 
             <button className={classes.closeButton} onClick={onClose} aria-label="Close">
               <Icon name="icon-cross" className="-small" />
@@ -179,6 +200,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
 }
 
 import PropTypes from 'prop-types'
+import { None } from 'vega'
 DatasetsModal.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,

@@ -34,8 +34,11 @@ a:focus {
 }
 
 h1,
-h2 {
+h2,
+h3,
+h4 {
   margin: 0;
+  font-family: 'PT Sans', sans-serif;
 }
 
 h2 {

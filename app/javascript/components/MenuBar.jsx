@@ -17,6 +17,7 @@ const MenuBar = () => {
     textDecoration: 'none',
     margin: 25,
     display: 'inline-block',
+    fontWeight: 'normal',
   }
 
   const activeLinkStyle = {

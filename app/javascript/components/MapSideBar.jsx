@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import { Icon, LegendItemButtonRemove } from 'vizzuality-components'
 import LayerCard from 'components/LayerCard'
 import Switch from 'react-switch'
+import LayerToggle from 'components/LayerToggle'
 import defaultButtonStyle from './styles/default_button'
 
 const MapSideBar = ({
@@ -34,7 +35,6 @@ const MapSideBar = ({
 
   const iconStyle = {
     fill: '#FFFFFF',
-    backgroundColor: '#003F6A',
     height: '20px',
     width: '20px',
     marginRight: '8px',
@@ -82,9 +82,18 @@ const MapSideBar = ({
       layer={layer}
       onRemoveLayer={onRemoveLayer}
       secondaryAction={
-        <LegendItemButtonRemove
-          onRemoveLayer={() => onRemoveLayer(layer)}
-          tooltipText='Hide'
+        <LayerToggle
+          text={{
+            current: 'Viewing',
+            action: 'Remove',
+          }}
+          icon={{
+            current: 'eye',
+            action: 'times-solid'
+          }}
+          classNames='viewing'
+          action={() => onRemoveLayer(layer)}
+          id={`layer-${layer.id}`}
         />
       }
     />

@@ -62,7 +62,7 @@ const MapPage = ({ match, history }) => {
   }
 
   const handleToggleLayerClick = (e) => {
-    const layerId = e.target.id.replace('layer-', '')
+    const layerId = e.currentTarget.id.replace('layer-', '')
     toggleLayer(getLayer(layerId))
   }
 
@@ -76,13 +76,14 @@ const MapPage = ({ match, history }) => {
     setActiveLayers(layers.sort((a, b) => (layerIds.indexOf(a.id) - layerIds.indexOf(b.id))))
   }
 
+  const { colors } = styleVariables()
   const sideDrawerStyle = {
     position: 'absolute',
     width: 500,
     right: 0,
-    borderLeft: '1px solid #B6C6BC',
+    borderLeft: `1px solid ${colors.border}`,
     height: '100%',
-    background: styleVariables().colors.bg,
+    background: colors.bg,
     display: 'flex',
   }
 
@@ -101,7 +102,7 @@ const MapPage = ({ match, history }) => {
           top: 0,
           bottom: 0,
           left: 0,
-          right: 500,
+          right: 0,
         }}
         layerIds={LAYERS.map((layer) => layer.id)}
         activeLayers={activeLayers}

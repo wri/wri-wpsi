@@ -5,25 +5,33 @@ import styleVariables from 'components/styles/variables'
 import injectSheet from 'react-jss'
 
 const styleVars = styleVariables()
+const sourceStyle = {
+  fontStyle: 'italic',
+  fontSize: '13px',
+  lineHeight: '1.2'
+}
 const styles = {
   container: {
     marginBottom: '10px',
     borderTop: `2px solid ${styleVars.colors.gray1}`,
     borderBottom: 0,
     borderBottomRightRadius: '4px',
-    boxShadow: styleVars.boxShadow,
-    background: 'white',
+    background: 'rgba(255,255,255,1)',
     flex: '1 1 auto',
+    display: 'flex',
+    flexDirection: 'column',
   },
   simple: {
     marginBottom: 0,
     flex: '0 1 auto',
     boxShadow: 'none',
-    borderBottom: `2px solid ${styleVars.colors.primary}`,
-    borderTop: 0
+    borderBottom: `2px solid ${styleVars.colors.gray3}`,
+    borderTop: 0,
+    borderRadius: 'none',
   },
   white: {
     borderRadius: 4,
+    backgroundColor: 'white',
   },
   header: {
     display: 'flex',
@@ -32,21 +40,35 @@ const styles = {
     lineHeight: '2em',
     padding: '10px 15px 0 15px',
   },
+  title: {
+    marginBottom: 5,
+  },
+  content: {
+    padding: '0 15px',
+    flex: '1 0 auto',
+  },
+  contentDescription: {
+    paddingRight: '10%',
+    margin: '0 0 5px 0',
+  },
   moreLink: {
-    paddingLeft: '5px',
+    paddingLeft: 5,
     textDecoration: 'none',
-    textTransform: 'uppercase',
-    fontSize: 'smaller',
     marginLeft: 'auto',
   },
   footer: {
-    borderTop: `1px solid ${styleVars.colors.bg}`,
+    borderTop: `1px solid ${styleVars.colors.gray3}`,
     padding: '10px 15px',
     display: 'flex',
+    marginTop: 'auto',
+    flex: '0 1 auto',
   },
-  content: {
-    padding: '5px 15px',
+  source: {
+    margin: '0 0 15px 0',
   },
+  sourceLink: sourceStyle,
+  sourceDescription: sourceStyle,
+
 }
 
 const LayerCard = ({ layer, variant, excludedTag, secondaryAction, classes }) => {
@@ -64,16 +86,16 @@ const LayerCard = ({ layer, variant, excludedTag, secondaryAction, classes }) =>
     return (
       <div className={containerClass}>
         <header className={classes.header}>
-          <h2>{layer.name}</h2>
+          <h2 className={classes.title}>{layer.name}</h2>
           {secondaryAction}
         </header>
         <div className={classes.content}>
-          <p style={{marginTop: 0}}>
+          <p className={classes.contentDescription}>
             {layer.short_description}
           </p>
-          <p style={{marginTop: 0}}>
-            <a href={layer.source_url}>{layer.source_name}</a>
-            {layer.source_description && `, ${layer.source_description}`}
+          <p className={classes.source}>
+            <a className={classes.sourceLink} href={layer.source_url}>{layer.source_name}</a>
+            <span className={classes.sourceDescription}>{layer.source_description && `, ${layer.source_description}`}</span>
           </p>
           <div style={{marginBottom: '15px'}}>
             <LayerTags layer={layer} excludedTag={excludedTag} />

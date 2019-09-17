@@ -10,8 +10,12 @@ const defaultButtonStyle = (solid=true) => {
     backgroundColor: solid ? colors.links.default :  '#FFFFFF',
     border: '1px solid ${colors.links.default}',
     borderRadius: '4px',
-    textTransform: 'uppercase',
     padding: '10px 15px',
+    fontSize: 14,
+    lineHeight: 16/14,
+    fontFamily: 'PT Sans, Helvetica, Arial, sans-serif',
+    letterSpacing: '.05em',
+    cursor: 'pointer',
   }
 }
 
