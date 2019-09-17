@@ -1,8 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 
-const CATEGORIES = window.categories
-
 const LayerTags = ({ history, layer, excludedTag }) => {
   const tagStyle = {
     marginRight: '15px',
@@ -13,15 +11,15 @@ const LayerTags = ({ history, layer, excludedTag }) => {
     cursor: 'pointer',
   }
 
-  return layer.category_slugs.map(category_slug => (
-    category_slug === excludedTag ?
+  return layer.categories.map(category => (
+    category.slug === excludedTag ?
       null :
       <span
         style={tagStyle}
-        key={category_slug}
-        onClick={() => history.push(`/map/datasets/${category_slug}`)}
+        key={category.slug}
+        onClick={() => history.push(`/map/datasets/${category.slug}`)}
       >
-        {CATEGORIES.find(category => category.slug == category_slug).title}
+        {category.title}
       </span>
   ))
 }

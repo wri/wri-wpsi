@@ -3,25 +3,25 @@ import { MemoryRouter, Route } from 'react-router-dom'
 import LayerInfoPage from 'components/LayerInfoPage'
 import renderer from 'react-test-renderer'
 
-Object.defineProperty(window, 'layers', {
-  writable: true,
-  value: [
-    {
-      id: '1',
-      name: 'Test name',
-      long_description: 'Test description',
-    },
-    {
-      id: '2',
-      name: 'Test name',
-    }
-  ],
-})
+const layers = [
+  {
+    id: '1',
+    name: 'Test name',
+    long_description: 'Test description',
+  },
+  {
+    id: '2',
+    name: 'Test name',
+  }
+]
 
 const checkRenderWithLayer = (layerId) => {
   const component = renderer.create(
     <MemoryRouter initialEntries={[`/map/learn_more/${layerId}`]}>
-      <Route path='/map/learn_more/:layerId' component={LayerInfoPage} />
+      <Route
+        path='/map/learn_more/:layerId'
+        render={() => <LayerInfoPage layers={layers} />}
+      />
     </MemoryRouter>
   )
 

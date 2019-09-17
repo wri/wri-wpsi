@@ -18,6 +18,7 @@ class Layer < ApplicationRecord
       {
         id: layer.layer_id,
         category_slugs: layer.categories.map(&:slug),
+        categories: layer.categories.serialized_for_react_app,
         name: layer.name,
         short_description: layer.short_description,
         long_description: layer.long_description,

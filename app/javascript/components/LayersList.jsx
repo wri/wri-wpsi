@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const LAYERS = window.layers
+const LAYERS = window.layers || []
 
 const renderMapTable = (title, rows) => {
   return (

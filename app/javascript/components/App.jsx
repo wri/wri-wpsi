@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
+import withLayers from 'components/withLayers'
 import TopBanner from 'components/TopBanner'
 import MapPage from 'components/MapPage'
 import AboutPage from 'components/AboutPage'
@@ -9,7 +10,7 @@ import LayerMapPage from 'components/LayerMapPage'
 import LayerInfoPage from 'components/LayerInfoPage'
 import { Icons } from 'vizzuality-components'
 
-const App = () => {
+const App = ({ layers }) => {
   const globalStyles = {
     font: '14px/16px Myriad Pro, PT Sans, Arial, Helvetica, sans-serif',
     color: '#4D4D4D',
@@ -21,8 +22,14 @@ const App = () => {
         <TopBanner />
 
         {/* Landing page with map */}
-        <Route path="/map" component={MapPage} />
-        <Route path="/map/learn_more/:layerId" component={LayerInfoPage} />
+        <Route
+          path="/map"
+          render={() => <MapPage layers={layers} />}
+        />
+        <Route
+          path="/map/learn_more/:layerId"
+          render={() => <LayerInfoPage layers={layers} />}
+        />
 
         {/* Static pages */}
         <Route path="/about" component={AboutPage} />
@@ -40,4 +47,9 @@ const App = () => {
   )
 }
 
-export default App
+import PropTypes from 'prop-types'
+App.propTypes = {
+  layers: PropTypes.array.isRequired,
+}
+
+export default withLayers(App)

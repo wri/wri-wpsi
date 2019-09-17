@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   root 'root#index'
 
+  # API endpoint
+  namespace :api do
+    namespace :v1 do
+     resources :categories, only: [:index]
+     resources :layers, only: [:index]
+    end
+  end
+
   # Single page app endpoint
   get '/map', to: 'root#map'
   get '/map/*ignored', to: 'root#map'

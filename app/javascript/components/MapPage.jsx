@@ -3,15 +3,15 @@ import { Route, withRouter } from 'react-router-dom'
 import ResourceWatchMap from 'components/ResourceWatchMap'
 import MapSideBar from 'components/MapSideBar'
 import DatasetsModal from 'components/DatasetsModal'
+import withCategories from 'components/withCategories'
 
-const MASK_LAYER = {
-  id: 'c7e76588-6da5-4645-8842-2d2ac0001110',
-  name: 'Highlight areas of water stress',
-}
-const LAYERS = [...window.layers, MASK_LAYER]
+const MapPage = ({ match, history, layers, categories }) => {
+  if (layers.length == 0) {
+    return <div>Loading...</div>
+  }
 
-const MapPage = ({ match, history }) => {
-  const [activeLayers, setActiveLayers] = React.useState(LAYERS.filter(layer => layer.initially_on))
+  const maskLayer = layers.find(layer => layer.maskLayer)
+  const [activeLayers, setActiveLayers] = React.useState(layers.filter(layer => layer.initially_on))
   const activeLayerIds = activeLayers.map(l => l.id)
 
   const [modalOpen, setModalOpen] = React.useState(true)
@@ -45,7 +45,7 @@ const MapPage = ({ match, history }) => {
   }
 
   const getLayer = (id) => {
-    return LAYERS.find((layer) => layer.id === id)
+    return layers.find((layer) => layer.id === id)
   }
 
   const addLayer = (layer) => {
@@ -93,7 +93,7 @@ const MapPage = ({ match, history }) => {
         left: 0,
         right: 500,
       }}
-      layerIds={LAYERS.map((layer) => layer.id)}
+      layerIds={layers.map((layer) => layer.id)}
       activeLayers={activeLayers}
       onToggleLayer={handleToggleLayer}
       onChangeLayerOrder={handleChangeLayerOrder}
@@ -104,7 +104,7 @@ const MapPage = ({ match, history }) => {
     <div style={sideDrawerStyle}>
       <MapSideBar
         setModalOpen={setModalOpen}
-        maskLayer={MASK_LAYER}
+        maskLayer={maskLayer}
         activeLayers={activeLayers}
         selectedRegion={selectedRegion}
         onRemoveLayer={removeLayer}
@@ -121,6 +121,8 @@ const MapPage = ({ match, history }) => {
               isActive={isActive}
               onToggleLayerClick={handleToggleLayerClick}
               tab={match.params.category}
+              layers={layers.filter(layer => !layer.maskLayer)}
+              categories={categories}
             />
           )
         }
@@ -135,6 +137,8 @@ import PropTypes from 'prop-types'
 MapPage.propTypes = {
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
+  layers: PropTypes.array.isRequired,
+  categories: PropTypes.array.isRequired,
 }
 
-export default withRouter(MapPage)
+export default withRouter(withCategories(MapPage))
