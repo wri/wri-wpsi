@@ -77,8 +77,8 @@ const MapSideBar = ({
         <Switch
           onChange={() => onToggleLayer({ layer })}
           checked={activeLayers.includes(layer)}
-          onColor={'#003F6A'}
-          offColor={'#B6C6BC'}
+          onColor={colors.positive}
+          offColor={colors.links.default}
           checkedIcon={false}
           uncheckedIcon={false}
           className='square-switch'
