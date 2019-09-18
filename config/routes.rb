@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   root 'root#index'
 
+  # Single page app endpoint
+  get '/map', to: 'root#map'
+  get '/about', to: 'root#map'
+  get '/methodology', to: 'root#map'
+  get '/map/*ignored', to: 'root#map'
+
   # Admin routes
   get '/admin', to: redirect('/admin/layers')
 
@@ -17,16 +23,6 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :new, :create, :destroy]
     resources :layers
     resources :categories
-  end
-
-  # Single page app endpoint
-  get '/map', to: 'root#map'
-
-  # Forward all requests to root#map but requests
-  # must be non-Ajax (!req.xhr?) and HTML Mime type (req.format.html?).
-  # This does not include the root ("/") path.
-  get '*page', to: 'root#map', constraints: ->(req) do
-    !req.xhr? && req.format.html?
   end
 
   # Default AWS ELB health check path
