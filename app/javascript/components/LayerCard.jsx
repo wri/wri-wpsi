@@ -1,57 +1,119 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import LayerTags from 'components/LayerTags'
+import styleVariables from 'components/styles/variables'
+import injectSheet from 'react-jss'
 
-const LayerCard = ({ layer, variant, excludedTag, secondaryAction, children }) => {
-  const containerStyle = {
-    backgroundColor: variant === 'white' ? '#FFFFFF' : '#EBEEEF',
-    padding: variant === 'white' ? '4px 0px' : '4px 24px',
-    borderBottom: '1px solid #B6C6BC',
-  }
-
-  const titleAreaStyle = {
+const styleVars = styleVariables()
+const sourceStyle = {
+  fontStyle: 'italic',
+  fontSize: '13px',
+  lineHeight: '1.2'
+}
+const styles = {
+  container: {
+    marginBottom: '10px',
+    borderTop: `2px solid ${styleVars.colors.gray1}`,
+    borderBottom: 0,
+    borderBottomRightRadius: '4px',
+    background: 'rgba(255,255,255,1)',
+    flex: '1 1 auto',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  simple: {
+    marginBottom: 0,
+    flex: '0 1 auto',
+    boxShadow: 'none',
+    borderBottom: `1px solid ${styleVars.colors.gray2}`,
+    borderTop: 0,
+    borderRadius: 'none',
+  },
+  white: {
+    borderRadius: 4,
+    backgroundColor: 'white',
+  },
+  header: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     lineHeight: '2em',
-  }
-
-  const moreLinkStyle = {
-    paddingLeft: '5px',
+    padding: '10px 15px 0 15px',
+  },
+  title: {
+    marginBottom: 5,
+  },
+  content: {
+    padding: '0 15px',
+    flex: '1 0 auto',
+  },
+  contentDescription: {
+    paddingRight: '10%',
+    margin: '0 0 5px 0',
+  },
+  moreLink: {
+    paddingLeft: 5,
     textDecoration: 'none',
-    textTransform: 'uppercase',
-    fontSize: 'smaller',
-  }
+    marginLeft: 'auto',
+  },
+  footer: {
+    borderTop: `1px solid ${styleVars.colors.gray2}`,
+    padding: '10px 15px',
+    display: 'flex',
+    marginTop: 'auto',
+    flex: '0 1 auto',
+  },
+  source: {
+    margin: '0 0 15px 0',
+  },
+  sourceLink: sourceStyle,
+  sourceDescription: sourceStyle,
 
+}
+
+const LayerCard = ({
+  layer,
+  variant,
+  classes,
+  excludedTag,
+  secondaryAction,
+  children,
+}) => {
+  const containerClass = `${classes.container} ${classes[variant]}`
   if (variant === 'simple') {
     return (
-      <div style={containerStyle}>
-        <div style={titleAreaStyle}>
+      <div className={containerClass}>
+        <header className={classes.header} style={{paddingBottom: '10px'}}>
           <h2>{layer.name}</h2>
           {secondaryAction}
-        </div>
+        </header>
       </div>
     )
   } else {
     return (
-      <div style={containerStyle}>
-        <div style={titleAreaStyle}>
-          <h2>{layer.name}</h2>
+      <div className={containerClass}>
+        <header className={classes.header}>
+          <h2 className={classes.title}>{layer.name}</h2>
           {secondaryAction}
+        </header>
+        <div className={classes.content}>
+          <p className={classes.contentDescription}>
+            {layer.short_description}
+          </p>
+          <p className={classes.source}>
+            <a className={classes.sourceLink} href={layer.source_url}>{layer.source_name}</a>
+            <span className={classes.sourceDescription}>{layer.source_description && `, ${layer.source_description}`}</span>
+          </p>
+          <div style={{marginBottom: '15px'}}>
+            <LayerTags layer={layer} excludedTag={excludedTag} />
+          </div>
         </div>
-        <p style={{marginTop: 0}}>
-          <a href={layer.source_url}>{layer.source_name}</a>
-          {layer.source_description && `, ${layer.source_description}`}
-        </p>
-        <p>
-          {layer.short_description}
-          <Link to={`/map/learn_more/${layer.id}`} style={moreLinkStyle}>
-            Learn more &gt;
+        <footer className={classes.footer}>
+          <Link to={`/map/learn_more/${layer.id}`} className={classes.moreLink}>
+            <i className='icon__book-reader' style={{marginRight: 5}} />
+            <span>Learn more</span>
           </Link>
-        </p>
-        <div style={{marginBottom: '15px'}}>
-          <LayerTags layer={layer} excludedTag={excludedTag} />
-        </div>
+        </footer>
         {children}
       </div>
     )
@@ -64,6 +126,7 @@ LayerCard.propTypes = {
   variant: PropTypes.string,
   excludedTag: PropTypes.string,
   secondaryAction: PropTypes.object,
+  classes: PropTypes.object,
 }
 
-export default LayerCard
+export default injectSheet(styles)(LayerCard)

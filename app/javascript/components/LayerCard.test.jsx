@@ -13,8 +13,7 @@ const layer = {
   source_name: 'Wikipedia',
   source_url: 'www.wikipedia.org',
 }
-
-const component = shallow(<LayerCard layer={layer} />)
+const component = shallow(<LayerCard layer={layer} />).dive()
 
 it('renders correctly', () => {
   let tree = toJson(component)

@@ -2,72 +2,40 @@
 
 exports[`renders correctly 1`] = `
 <div
+  className="MapSideBar-sideBar-0-1-1"
   id="sidebar"
 >
-  <div
-    style={
-      Object {
-        "alignItems": "center",
-        "borderBottom": "1px solid #B6C6BC",
-        "display": "flex",
-        "justifyContent": "space-between",
-        "padding": "12px",
-      }
-    }
+  <header
+    className="MapSideBar-header-0-1-2"
   >
-    <h1>
-      Investigation
-    </h1>
-    <button
-      onClick={[Function]}
+    <h1
       style={
         Object {
-          "alignItems": "center",
-          "backgroundColor": "#003F6A",
-          "borderRadius": "4px",
-          "color": "#FFFFFF",
-          "display": "flex",
-          "height": "36px",
-          "padding": "8px",
-          "textTransform": "uppercase",
+          "marginBottom": 0,
         }
       }
     >
-      <svg
-        className="wri_api__c-icon"
-        style={
-          Object {
-            "backgroundColor": "#003F6A",
-            "fill": "#FFFFFF",
-            "height": "20px",
-            "marginRight": "8px",
-            "width": "20px",
-          }
-        }
-      >
-        <use
-          xlinkHref="#icon-plus"
-        />
-      </svg>
-      Add datasets to investigation
+      Investigation
+    </h1>
+    <button
+      className="MapSideBar-addLayerButton-0-1-4"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      <i
+        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-5"
+      />
+      Add datasets
     </button>
-  </div>
+  </header>
   <div
-    style={
-      Object {
-        "backgroundColor": "#EBEEEF",
-        "borderBottom": "1px solid #B6C6BC",
-        "padding": "4px 24px",
-      }
-    }
+    className="LayerCard-container-0-1-7 LayerCard-simple-0-1-8"
   >
-    <div
+    <header
+      className="LayerCard-header-0-1-10"
       style={
         Object {
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "space-between",
-          "lineHeight": "2em",
+          "paddingBottom": "10px",
         }
       }
     >
@@ -104,7 +72,7 @@ exports[`renders correctly 1`] = `
             Object {
               "MozTransition": "background 0.25s",
               "WebkitTransition": "background 0.25s",
-              "background": "#B6C6BC",
+              "background": "#0099CC",
               "borderRadius": 14,
               "cursor": "pointer",
               "height": 28,
@@ -166,7 +134,30 @@ exports[`renders correctly 1`] = `
           type="checkbox"
         />
       </div>
-    </div>
+    </header>
+  </div>
+  <div
+    className="MapSideBar-sideBarContent-0-1-6"
+  >
+    <button
+      className="MapSideBar-addLayerButton-0-1-4"
+      onClick={[Function]}
+      style={
+        Object {
+          "borderBottomLeftRadius": 0,
+          "borderTopLeftRadius": 0,
+          "marginLeft": -1,
+          "marginTop": 20,
+          "minWidth": "45%",
+          "paddingLeft": 15,
+        }
+      }
+    >
+      <i
+        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-5"
+      />
+      Add datasets
+    </button>
   </div>
 </div>
 `;

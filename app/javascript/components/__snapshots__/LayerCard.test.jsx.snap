@@ -2,78 +2,79 @@
 
 exports[`renders correctly 1`] = `
 <div
-  style={
-    Object {
-      "backgroundColor": "#EBEEEF",
-      "borderBottom": "1px solid #B6C6BC",
-      "padding": "4px 24px",
-    }
-  }
+  className="LayerCard-container-0-1-1 undefined"
 >
-  <div
-    style={
-      Object {
-        "alignItems": "center",
-        "display": "flex",
-        "justifyContent": "space-between",
-        "lineHeight": "2em",
-      }
-    }
+  <header
+    className="LayerCard-header-0-1-4"
   >
-    <h2>
+    <h2
+      className="LayerCard-title-0-1-5"
+    >
       My test layer
     </h2>
-  </div>
-  <p
-    style={
-      Object {
-        "marginTop": 0,
-      }
-    }
+  </header>
+  <div
+    className="LayerCard-content-0-1-6"
   >
-    <a
-      href="www.wikipedia.org"
+    <p
+      className="LayerCard-contentDescription-0-1-7"
+    />
+    <p
+      className="LayerCard-source-0-1-10"
     >
-      Wikipedia
-    </a>
-  </p>
-  <p>
-    <Link
+      <a
+        className="LayerCard-sourceLink-0-1-11"
+        href="www.wikipedia.org"
+      >
+        Wikipedia
+      </a>
+      <span
+        className="LayerCard-sourceDescription-0-1-12"
+      />
+    </p>
+    <div
       style={
         Object {
-          "fontSize": "smaller",
-          "paddingLeft": "5px",
-          "textDecoration": "none",
-          "textTransform": "uppercase",
+          "marginBottom": "15px",
         }
       }
+    >
+      <withRouter(LayerTags)
+        layer={
+          Object {
+            "category_slugs": Array [
+              "water",
+              "peace",
+              "security",
+            ],
+            "id": "123",
+            "name": "My test layer",
+            "source_name": "Wikipedia",
+            "source_url": "www.wikipedia.org",
+          }
+        }
+      />
+    </div>
+  </div>
+  <footer
+    className="LayerCard-footer-0-1-9"
+  >
+    <Link
+      className="LayerCard-moreLink-0-1-8"
       to="/map/learn_more/123"
     >
-      Learn more &gt;
-    </Link>
-  </p>
-  <div
-    style={
-      Object {
-        "marginBottom": "15px",
-      }
-    }
-  >
-    <withRouter(LayerTags)
-      layer={
-        Object {
-          "category_slugs": Array [
-            "water",
-            "peace",
-            "security",
-          ],
-          "id": "123",
-          "name": "My test layer",
-          "source_name": "Wikipedia",
-          "source_url": "www.wikipedia.org",
+      <i
+        className="icon__book-reader"
+        style={
+          Object {
+            "marginRight": 5,
+          }
         }
-      }
-    />
-  </div>
+      />
+      <span>
+        Learn more
+      </span>
+    </Link>
+  </footer>
 </div>
 `;

@@ -1,10 +1,52 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { Icon, LegendItemButtonRemove } from 'vizzuality-components'
 import LayerCard from 'components/LayerCard'
 import WidgetContainer from 'components/WidgetContainer'
 
 import Switch from 'react-switch'
+import LayerToggle from 'components/LayerToggle'
+import injectSheet from 'react-jss'
+import styleVariables from 'components/styles/variables'
+import scrollBarStyles  from 'components/styles/scrollbar'
+import defaultButtonStyle from 'components/styles/default_button'
+
+const { colors } = styleVariables()
+const styles = {
+  sideBar:  {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: '1 1 auto',
+  },
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '15px',
+  },
+  locationHeader:  {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '15px',
+    backgroundColor: colors.primary,
+    fontWeight: '600',
+    fontSize: 16,
+    lineHeight: 18/16,
+    marginBottom: 10,
+  },
+  addLayerButton:  {
+    ...defaultButtonStyle(),
+  },
+  addLayerButtonIcon:  {
+    marginRight: '8px',
+  },
+  sideBarContent:  {
+    padding: '15px 15px 15px 0px',
+    flex: '1 1 auto',
+    overflow: 'auto',
+    ...scrollBarStyles()
+  },
+}
 
 const MapSideBar = ({
   history,
@@ -13,37 +55,13 @@ const MapSideBar = ({
   selectedRegion,
   onRemoveLayer,
   onToggleLayer,
+  classes
 }) => {
-  const headerStyle = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '12px',
-    borderBottom: '1px solid #B6C6BC',
-  }
-
-  const buttonStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    color: '#FFFFFF',
-    backgroundColor: '#003F6A',
-    borderRadius: '4px',
-    textTransform: 'uppercase',
-    padding: '8px',
-    height: '36px',
-  }
-
-  const iconStyle = {
-    fill: '#FFFFFF',
-    backgroundColor: '#003F6A',
-    height: '20px',
-    width: '20px',
-    marginRight: '8px',
-  }
 
   const renderRegionInfo = (region) => {
+    const className = `${classes.locationHeader} ${classes.header}`
     return (
-      <div style={headerStyle}>
+      <div className={className}>
         <i>
           {region.name_2 && `${region.name_2} ${region.engtype_2}, `}
           {region.name_1 && `${region.name_1}, `}
@@ -61,8 +79,8 @@ const MapSideBar = ({
         <Switch
           onChange={() => onToggleLayer({ layer })}
           checked={activeLayers.includes(layer)}
-          onColor={'#003F6A'}
-          offColor={'#B6C6BC'}
+          onColor={colors.positive}
+          offColor={colors.links.default}
           checkedIcon={false}
           uncheckedIcon={false}
           className='square-switch'
@@ -77,9 +95,18 @@ const MapSideBar = ({
       layer={layer}
       onRemoveLayer={onRemoveLayer}
       secondaryAction={
-        <LegendItemButtonRemove
-          onRemoveLayer={() => onRemoveLayer(layer)}
-          tooltipText='Hide'
+        <LayerToggle
+          text={{
+            current: 'Viewing',
+            action: 'Remove',
+          }}
+          icon={{
+            current: 'eye',
+            action: 'times-solid'
+          }}
+          classNames='viewing'
+          action={() => onRemoveLayer(layer)}
+          id={`layer-${layer.id}`}
         />
       }
     >
@@ -87,26 +114,45 @@ const MapSideBar = ({
     </LayerCard>
   )
 
-  return (
-    <div id='sidebar'>
-      <div style={headerStyle}>
-        <h1>Investigation</h1>
+  const renderAddLayerButton = (inContent=false) => {
+    let additionalBtnStyle = {}
+    if (inContent) {
+      additionalBtnStyle = {
+        borderTopLeftRadius: 0,
+        borderBottomLeftRadius: 0,
+        paddingLeft: 15,
+        marginTop: 20,
+        marginLeft: -1,
+        minWidth: '45%',
+      }
+    }
+    return (
+      <button className={classes.addLayerButton} onClick={() => history.push('/map/datasets/water')} style={additionalBtnStyle}>
+      <i className={`icon__plus-circle ${classes.addLayerButtonIcon}`} />
+        Add datasets
+      </button>
+    )
+  }
 
-        <button style={buttonStyle} onClick={() => history.push('/map/datasets/water')}>
-          <Icon name="icon-plus" style={iconStyle} />
-          Add datasets to investigation
-        </button>
-      </div>
+  return (
+    <div id='sidebar' className={classes.sideBar}>
+      <header className={classes.header}>
+        <h1 style={{marginBottom: 0}}>Investigation</h1>
+        { renderAddLayerButton() }
+      </header>
 
       {selectedRegion && renderRegionInfo(selectedRegion)}
 
       {maskLayer && renderMaskLayerCard(maskLayer)}
 
-      {
-        activeLayers
-          .filter(layer => layer.id != maskLayer.id)
-          .map(layer => renderLayerCard(layer))
-      }
+      <div className={classes.sideBarContent}>
+        {
+          activeLayers
+            .filter(layer => layer.id != maskLayer.id)
+            .map(layer => renderLayerCard(layer))
+        }
+        { renderAddLayerButton(true) }
+      </div>
     </div>
   )
 }
@@ -120,6 +166,7 @@ MapSideBar.propTypes = {
   maskLayer: PropTypes.object,
   activeLayers: PropTypes.array.isRequired,
   selectedRegion: PropTypes.object,
+  classes: PropTypes.object,
 }
 
-export default withRouter(MapSideBar)
+export default withRouter(injectSheet(styles)(MapSideBar))

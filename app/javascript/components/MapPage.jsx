@@ -1,9 +1,10 @@
 import React from 'react'
 import { Route, withRouter } from 'react-router-dom'
+import withCategories from 'components/withCategories'
 import ResourceWatchMap from 'components/ResourceWatchMap'
 import MapSideBar from 'components/MapSideBar'
 import DatasetsModal from 'components/DatasetsModal'
-import withCategories from 'components/withCategories'
+import styleVariables from 'components/styles/variables'
 
 const MapPage = ({ match, history, layers, categories }) => {
   if (layers.length == 0) {
@@ -61,7 +62,7 @@ const MapPage = ({ match, history, layers, categories }) => {
   }
 
   const handleToggleLayerClick = (e) => {
-    const layerId = e.target.id.replace('layer-', '')
+    const layerId = e.currentTarget.id.replace('layer-', '')
     toggleLayer(getLayer(layerId))
   }
 
@@ -75,62 +76,71 @@ const MapPage = ({ match, history, layers, categories }) => {
     setActiveLayers(layers.sort((a, b) => (layerIds.indexOf(a.id) - layerIds.indexOf(b.id))))
   }
 
+  const { colors } = styleVariables()
   const sideDrawerStyle = {
     position: 'absolute',
     width: 500,
     right: 0,
-    borderLeft: '1px solid #B6C6BC',
+    borderLeft: `1px solid ${colors.border}`,
+    height: '100%',
+    background: colors.bg,
+    display: 'flex',
+  }
+
+  const mainStyle = {
+    flex: '1 1 auto',
+    position: 'relative',
   }
 
   const currentPath = match.path
 
-  return <React.Fragment>
-    <ResourceWatchMap
-      style={{
-        position: 'absolute',
-        top: 85,
-        bottom: 0,
-        left: 0,
-        right: 500,
-      }}
-      layerIds={layers.map((layer) => layer.id)}
-      activeLayers={activeLayers}
-      onToggleLayer={handleToggleLayer}
-      onChangeLayerOrder={handleChangeLayerOrder}
-      setSelectedRegion={setSelectedRegion}
-      interactionState={interactionState}
-    />
-
-    <div style={sideDrawerStyle}>
-      <MapSideBar
-        setModalOpen={setModalOpen}
-        maskLayer={maskLayer}
+  return (
+    <main style={mainStyle}>
+      <ResourceWatchMap
+        style={{
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+        }}
+        layerIds={layers.map((layer) => layer.id)}
         activeLayers={activeLayers}
-        selectedRegion={selectedRegion}
-        onRemoveLayer={removeLayer}
         onToggleLayer={handleToggleLayer}
+        onChangeLayerOrder={handleChangeLayerOrder}
+        setSelectedRegion={setSelectedRegion}
+        interactionState={interactionState}
       />
 
-      <Route
-        path={`${currentPath}/datasets/:category`}
-        render={
-          ({ match }) => (
-            <DatasetsModal
-              open={modalOpen}
-              onClose={() => history.push(currentPath)}
-              isActive={isActive}
-              onToggleLayerClick={handleToggleLayerClick}
-              tab={match.params.category}
-              layers={layers.filter(layer => !layer.maskLayer)}
-              categories={categories}
-            />
-          )
-        }
-      />
-    </div>
+      <div style={sideDrawerStyle}>
+        <MapSideBar
+          setModalOpen={setModalOpen}
+          maskLayer={maskLayer}
+          activeLayers={activeLayers}
+          selectedRegion={selectedRegion}
+          onRemoveLayer={removeLayer}
+          onToggleLayer={handleToggleLayer}
+        />
 
-
-  </React.Fragment>
+        <Route
+          path={`${currentPath}/datasets/:category`}
+          render={
+            ({ match }) => (
+              <DatasetsModal
+                open={modalOpen}
+                onClose={() => history.push(currentPath)}
+                isActive={isActive}
+                onToggleLayerClick={handleToggleLayerClick}
+                tab={match.params.category}
+                layers={layers.filter(layer => !layer.maskLayer)}
+                categories={categories}
+              />
+            )
+          }
+        />
+      </div>
+    </main>
+  )
 }
 
 import PropTypes from 'prop-types'

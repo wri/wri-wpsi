@@ -1,13 +1,8 @@
 import React from 'react'
+import mainStyles from 'components/styles/main_styles'
 
 const MethodologyPage = () => {
-  return <div style={{
-    maxWidth: '800px',
-    margin: 'auto',
-    padding: '20px',
-    textAlign: 'center',
-    borderBottom: '1px solid #B8C5D0',
-  }}>
+  return <div style={mainStyles()}>
     <h1>The Model</h1>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris posuere enim mi, vitae fringilla dui ullamcorper et. Proin egestas metus metus, vel congue enim eleifend sed. Donec quis porttitor mauris. In cursus urna quis erat mollis, a laoreet magna gravida. Vivamus eros purus, suscipit id ullamcorper at, luctus auctor tellus. Suspendisse nec fringilla turpis. Ut in eros mauris.
