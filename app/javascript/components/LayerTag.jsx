@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom'
 import injectSheet from 'react-jss'
 import styleVariables from 'components/styles/variables'
 
-const CATEGORIES = window.categories
 const { colors } = styleVariables()
 const styles = {
   wrapper:  {
@@ -21,13 +20,13 @@ const styles = {
   }
 }
 
-const LayerTag = ({ history, category_slug, classes }) => {
+const LayerTag = ({ history, category, classes }) => {
   return (
     <span
       className={classes.wrapper}
-      onClick={() => history.push(`/map/datasets/${category_slug}`)}
+      onClick={() => history.push(`/map/datasets/${category.slug}`)}
     >
-      {CATEGORIES.find(category => category.slug == category_slug).title}
+      {category.title}
     </span>
   )
 }
@@ -36,7 +35,7 @@ const LayerTag = ({ history, category_slug, classes }) => {
 import PropTypes from 'prop-types'
 LayerTag.propTypes = {
   history: PropTypes.object.isRequired,
-  category_slug: PropTypes.string.isRequired,
+  category: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
 }
 

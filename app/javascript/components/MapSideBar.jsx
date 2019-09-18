@@ -1,6 +1,8 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import LayerCard from 'components/LayerCard'
+import WidgetContainer from 'components/WidgetContainer'
+
 import Switch from 'react-switch'
 import LayerToggle from 'components/LayerToggle'
 import injectSheet from 'react-jss'
@@ -107,7 +109,9 @@ const MapSideBar = ({
           id={`layer-${layer.id}`}
         />
       }
-    />
+    >
+      {selectedRegion && layer.widget_fields && <WidgetContainer layer={layer} region={selectedRegion} />}
+    </LayerCard>
   )
 
   const renderAddLayerButton = (inContent=false) => {

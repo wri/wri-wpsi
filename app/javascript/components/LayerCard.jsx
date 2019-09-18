@@ -71,7 +71,14 @@ const styles = {
 
 }
 
-const LayerCard = ({ layer, variant, excludedTag, secondaryAction, classes }) => {
+const LayerCard = ({
+  layer,
+  variant,
+  classes,
+  excludedTag,
+  secondaryAction,
+  children,
+}) => {
   const containerClass = `${classes.container} ${classes[variant]}`
   if (variant === 'simple') {
     return (
@@ -107,6 +114,7 @@ const LayerCard = ({ layer, variant, excludedTag, secondaryAction, classes }) =>
             <span>Learn more</span>
           </Link>
         </footer>
+        {children}
       </div>
     )
   }

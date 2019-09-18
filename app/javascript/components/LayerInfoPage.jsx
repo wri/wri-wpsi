@@ -19,11 +19,11 @@ const styles = {
   },
 }
 
-const LayerInfoPage = ({ match, history, classes }) => {
+const LayerInfoPage = ({ match, history, classes, layers }) => {
   const { params } = match
 
   const layerId = params.layerId
-  const layer = window.layers.find(layer => layer.id === layerId)
+  const layer = layers.find(layer => layer.id === layerId)
   const info = layer && layer.long_description || 'A long description of this dataset is not yet available.'
 
   const onClose = () => history.goBack()
@@ -49,5 +49,6 @@ LayerInfoPage.propTypes = {
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
+  layers: PropTypes.array.isRequired,
 }
 export default withRouter(injectSheet(styles)(LayerInfoPage))

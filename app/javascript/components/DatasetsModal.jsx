@@ -10,9 +10,6 @@ import linkStyle from './styles/link'
 import scrollBarStyles from './styles/scrollbar'
 import modalCloseButtonStyle from './styles/modal_close_button'
 
-const LAYERS = window.layers
-const CATEGORIES = window.categories
-
 const styleVars = styleVariables()
 const { colors } = styleVars
 const tabStyle = {
@@ -89,9 +86,11 @@ const styles = {
   },
 }
 
-const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, history, classes }) => {
+const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, history, classes, layers, categories }) => {
+  if (categories.length == 0) { return null }
+
   const allDatasetsCategory = {slug: 'all', title: 'All Data >'}
-  const selectedCategory = CATEGORIES.find(c => c.slug === tab) || allDatasetsCategory
+  const selectedCategory = categories.find(c => c.slug === tab) || allDatasetsCategory
   const [descriptionExpanded, setDescriptionExpanded] = React.useState(false)
 
   if (open) {
@@ -157,10 +156,8 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
     )
 
     const filteredLayers = selectedCategory.slug === 'all' ?
-      LAYERS :
-      LAYERS.filter((layer) => layer.category_slugs.includes(selectedCategory.slug))
-
-    const categories = CATEGORIES.sort(category => category.title)
+      layers :
+      layers.filter(layer => layer.category_slugs.includes(selectedCategory.slug))
 
     return (
       <Modal>
@@ -206,6 +203,8 @@ DatasetsModal.propTypes = {
   onToggleLayerClick: PropTypes.func.isRequired,
   tab: PropTypes.string.isRequired,
   history: PropTypes.object.isRequired,
+  layers: PropTypes.array.isRequired,
+  categories: PropTypes.array.isRequired,
 }
 
 export default withRouter(injectSheet(styles)(DatasetsModal))

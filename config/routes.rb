@@ -1,6 +1,21 @@
 Rails.application.routes.draw do
   root 'root#index'
 
+  # API endpoint
+  namespace :api do
+    namespace :v1 do
+      resources :categories, only: [:index]
+      resources :layers, only: [:index]
+
+      get 'widget_datapoints/:gid_2/:field_name',
+        to: 'widget_datapoints#index',
+        as: 'widget_datapoints',
+        format: false,
+        defaults: { format: 'json' },
+        constraints: { gid_2: %r{[^\/]+}, field_name: %r{[^\/]+} }
+    end
+  end
+
   # Single page app endpoint
   get '/map', to: 'root#map'
   get '/about', to: 'root#map'

@@ -3,13 +3,13 @@ import { withRouter } from 'react-router-dom'
 import LayerTag from 'components/LayerTag'
 
 const LayerTags = ({ history, layer, excludedTag }) => {
-  return layer.category_slugs.map(category_slug => (
-    category_slug === excludedTag ?
+  return layer.categories.map(category => (
+    category.slug === excludedTag ?
       null :
       <LayerTag
-        key={category_slug}
+        key={category.slug}
         history={history}
-        category_slug={category_slug} />
+        category={category} />
   ))
 }
 
