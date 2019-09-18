@@ -5,7 +5,7 @@ exports[`renders correctly 1`] = `
   className="MapSideBar-sideBar-0-1-1"
   id="sidebar"
 >
-  <div
+  <header
     className="MapSideBar-header-0-1-2"
   >
     <h1
@@ -27,7 +27,7 @@ exports[`renders correctly 1`] = `
       />
       Add datasets
     </button>
-  </div>
+  </header>
   <div
     className="LayerCard-container-0-1-7 LayerCard-simple-0-1-8"
   >
