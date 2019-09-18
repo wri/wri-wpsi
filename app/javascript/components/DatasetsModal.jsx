@@ -4,12 +4,11 @@ import { Icon } from 'vizzuality-components'
 import Modal from 'components/Modal'
 import LayerCard from 'components/LayerCard'
 
-const LAYERS = window.layers
-const CATEGORIES = window.categories
+const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, history, layers, categories }) => {
+  if (categories.length == 0) { return null }
 
-const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, history }) => {
   const allDatasetsCategory = {slug: 'all', title: 'All Data >'}
-  const selectedCategory = CATEGORIES.find(c => c.slug === tab) || allDatasetsCategory
+  const selectedCategory = categories.find(c => c.slug === tab) || allDatasetsCategory
   const [descriptionExpanded, setDescriptionExpanded] = React.useState(false)
 
   if (open) {
@@ -123,10 +122,8 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
     )
 
     const filteredLayers = selectedCategory.slug === 'all' ?
-      LAYERS :
-      LAYERS.filter((layer) => layer.category_slugs.includes(selectedCategory.slug))
-
-    const categories = CATEGORIES.sort(category => category.title)
+      layers :
+      layers.filter(layer => layer.category_slugs.includes(selectedCategory.slug))
 
     return (
       <Modal>
@@ -172,6 +169,8 @@ DatasetsModal.propTypes = {
   onToggleLayerClick: PropTypes.func.isRequired,
   tab: PropTypes.string.isRequired,
   history: PropTypes.object.isRequired,
+  layers: PropTypes.array.isRequired,
+  categories: PropTypes.array.isRequired,
 }
 
 export default withRouter(DatasetsModal)

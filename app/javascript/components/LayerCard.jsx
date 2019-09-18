@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import LayerTags from 'components/LayerTags'
 
-const LayerCard = ({ layer, variant, excludedTag, secondaryAction }) => {
+const LayerCard = ({ layer, variant, excludedTag, secondaryAction, children }) => {
   const containerStyle = {
     backgroundColor: variant === 'white' ? '#FFFFFF' : '#EBEEEF',
     padding: variant === 'white' ? '4px 0px' : '4px 24px',
@@ -52,6 +52,7 @@ const LayerCard = ({ layer, variant, excludedTag, secondaryAction }) => {
         <div style={{marginBottom: '15px'}}>
           <LayerTags layer={layer} excludedTag={excludedTag} />
         </div>
+        {children}
       </div>
     )
   }
