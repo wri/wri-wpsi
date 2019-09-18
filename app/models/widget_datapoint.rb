@@ -3,8 +3,8 @@ class WidgetDatapoint < ApplicationRecord
     all.map do |widget_datapoint|
       {
         gid_2: widget_datapoint.gid_2,
-        month_indep: widget_datapoint.month_indep,
-        field_name => widget_datapoint.send(field_name),
+        x: widget_datapoint.month_indep.year,
+        y: widget_datapoint.send(field_name),
       }
     end
   end

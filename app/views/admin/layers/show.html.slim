@@ -27,6 +27,13 @@ div.mt-3
           |,
           =< @layer.source_description
   p
+    strong> Widget spec:
+    details
+      summary
+        | Click to show/hide
+      pre
+        = @layer.widget_spec
+  p
     strong> Published:
     = @layer.published
   p
