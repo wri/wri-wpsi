@@ -96,6 +96,8 @@ class LayerGroupsMap extends React.Component {
 
           if (data.features.length > 0) {
             this.props.setSelectedRegion(data.features[0].properties)
+          } else {
+            this.props.setSelectedRegion(null)
           }
         })
     }
