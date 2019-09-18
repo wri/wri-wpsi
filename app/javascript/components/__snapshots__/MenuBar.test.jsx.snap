@@ -18,6 +18,7 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
       Object {
         "color": "#999",
         "display": "inline-block",
+        "fontWeight": "normal",
         "margin": 25,
         "textDecoration": "none",
       }
@@ -33,6 +34,7 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
       Object {
         "color": "#999",
         "display": "inline-block",
+        "fontWeight": "normal",
         "margin": 25,
         "textDecoration": "none",
       }
@@ -48,6 +50,7 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
       Object {
         "color": "#999",
         "display": "inline-block",
+        "fontWeight": "normal",
         "margin": 25,
         "textDecoration": "none",
       }
@@ -62,6 +65,7 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
         "color": "#999",
         "display": "inline-block",
         "float": "right",
+        "fontWeight": "normal",
         "margin": 25,
         "textDecoration": "none",
       }
