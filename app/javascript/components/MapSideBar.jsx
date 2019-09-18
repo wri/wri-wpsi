@@ -132,10 +132,10 @@ const MapSideBar = ({
 
   return (
     <div id='sidebar' className={classes.sideBar}>
-      <div className={classes.header}>
+      <header className={classes.header}>
         <h1 style={{marginBottom: 0}}>Investigation</h1>
         { renderAddLayerButton() }
-      </div>
+      </header>
 
       {selectedRegion && renderRegionInfo(selectedRegion)}
 

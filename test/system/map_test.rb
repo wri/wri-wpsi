@@ -10,7 +10,10 @@ class MapTest < ApplicationSystemTestCase
     layer = layers(:employment_in_agriculture)
 
     visit map_url
-    click_button 'Add dataset'
+
+    within '#sidebar > header' do
+      click_button 'Add dataset'
+    end
 
     within '#modal' do
       click_button layer.categories.first.title
@@ -35,9 +38,11 @@ class MapTest < ApplicationSystemTestCase
       click_link 'Learn more'
     end
 
-    assert_selector 'h1', text: layer.name
-    assert_text layer.long_description
-    click_button 'Close'
+    within '#modal > header' do
+      assert_selector 'h1', text: layer.name
+      assert_text layer.long_description
+      click_button 'Close'
+    end
 
     assert_selector '#top-banner', text: 'Water, Peace & Security'
   end
