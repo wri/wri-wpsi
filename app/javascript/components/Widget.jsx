@@ -3,7 +3,6 @@ import React from 'react'
 const Widget = ({ data, region, fieldName }) => {
   const widgetTitleStyle = {
     fontWeight: 'bold',
-    textAlign: 'center',
     marginBottom: '12px',
   }
   const renderChart = (data) => {

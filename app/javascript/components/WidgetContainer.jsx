@@ -1,17 +1,16 @@
 import React from 'react'
 import Widget from 'components/Widget'
+import styleVariables from 'components/styles/variables'
 
-const WidgetContainer = ({
-  layer,
-  region,
-}) => {
-  const widgetContainerStyle = {
-    marginTop: '12px',
-    marginBottom: '12px',
-    padding: '12px',
-    backgroundColor: 'white',
-  }
+const { colors } = styleVariables()
+const widgetContainerStyle = {
+  marginBottom: '12px',
+  padding: '12px',
+  backgroundColor: 'white',
+  borderTop: `1px solid ${colors.gray2}`,
+}
 
+const WidgetContainer = ({ layer, region }) => {
   const [data, setData] = React.useState({gid_2: null})
 
   if (data.gid_2 != region.gid_2) {
