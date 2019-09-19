@@ -20,7 +20,7 @@ const tabStyle = {
   outline: 'none',
   fontSize: '16px',
   color: '#244F5E',
-  fontFamily: 'PT Sans, Helvetica, Arial, sans-serif',
+  fontFamily: styleVars.fonts.heading,
   borderRadius: '15px',
   ...linkStyle('tab')
 }

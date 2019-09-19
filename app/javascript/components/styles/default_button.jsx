@@ -13,7 +13,7 @@ const defaultButtonStyle = (solid=true) => {
     padding: '10px 15px',
     fontSize: 14,
     lineHeight: 16/14,
-    fontFamily: 'PT Sans, Helvetica, Arial, sans-serif',
+    fontFamily: vars.fonts.heading,
     letterSpacing: '.05em',
     cursor: 'pointer',
     '&:hover': {

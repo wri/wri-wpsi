@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import withLayers from 'components/withLayers'
 import TopBanner from 'components/TopBanner'
+import Footer from 'components/Footer'
 import MapPage from 'components/MapPage'
 import AboutPage from 'components/AboutPage'
 import MethodologyPage from 'components/MethodologyPage'
@@ -10,10 +11,11 @@ import LayerMapPage from 'components/LayerMapPage'
 import LayerInfoPage from 'components/LayerInfoPage'
 import { Icons } from 'vizzuality-components'
 import { ThemeProvider } from 'react-jss'
+import styleVariables from './styles/variables'
 
 const App = ({ layers }) => {
   const globalStyles = {
-    font: '14px/16px Georgia, serif',
+    font: `14px/16px ${styleVariables().fonts.body}`,
     color: '#4D4D4D',
     height: '100%',
     display: 'flex',
@@ -44,6 +46,7 @@ const App = ({ layers }) => {
           <Route path="/layers" exact component={LayersList} />
           <Route path="/layers/:layerId" component={LayerMapPage} />
           <Route path="/datasets/:datasetId" component={LayerMapPage} />
+          <Footer />
         </div>
 
         {/* Include Vizzuality icons for use in other Vizzuality components */}

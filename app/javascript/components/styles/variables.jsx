@@ -16,9 +16,15 @@ const styleVariables = () => {
         default: '#0099CC',
         hover: '#003F6A',
       },
-      border: '#003F6A'
+      border: '#003F6A',
+      header: '#003F6A',
+      footer: '#003F6A',
     },
     boxShadow: '0 2px 10px 1px rgba(0,0,0, .1)',
+    fonts: {
+      heading: 'PT Sans, Helvetica, Arial, sans-serif',
+      body: 'Georgia, serif',
+    }
   }
 }
 
