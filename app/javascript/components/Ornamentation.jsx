@@ -15,8 +15,10 @@ const styles = {
     display: 'block',
     width: 5,
     marginRight: 2,
-    transform: 'rotate(16deg)',
     height: '110%',
+  },
+  rotate: {
+    transform: 'rotate(16deg)',
   },
   line1: {
     backgroundColor: styleVars.colors.links.default,
@@ -32,17 +34,21 @@ const styles = {
   }
 }
 
-const Ornamentation = ({classes}) => {
+const Ornamentation = ({classes, rotate=true}) => {
   return <div className={classes.ornamentation} >
-    <div className={classes.line + ' ' + classes.line1}/>
-    <div className={classes.line + ' ' + classes.line2}/>
-    <div className={classes.line + ' ' + classes.line3}/>
+    {
+      [1,2,3].map((l) => {
+        const lineClass = classes[`line${l}`]
+        return <div key={l} className={`${rotate ? classes.rotate : ''} ${classes.line} ${lineClass}`} />
+      })
+    }
   </div>
 }
 
 import PropTypes from 'prop-types'
 Ornamentation.propTypes = {
   classes: PropTypes.object.isRequired,
+  rotate: PropTypes.bool,
 }
 
 export default injectSheet(styles)(Ornamentation)
