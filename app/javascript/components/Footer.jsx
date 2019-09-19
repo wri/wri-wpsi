@@ -8,7 +8,6 @@ const styles = {
   wrapper: {
     display: 'flex',
     alignItems: 'center',
-    borderTop: `1px solid ${colors.border}`,
     backgroundColor: colors.header,
     padding: [15, 15],
     flex: '0 1 auto',
@@ -32,7 +31,7 @@ const styles = {
 const Footer = ({classes}) => {
   return <footer id='footer' className={classes.wrapper}>
       <p className={classes.credit}>
-        This site is maintained by <a href='https://www.wri.org/' className={classes.link}>World Resource Institute</a>
+        This site is maintained by <a href='https://www.wri.org/' className={classes.link}>World Resource Institute</a>.
       </p>
     </footer>
 }

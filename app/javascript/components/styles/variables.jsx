@@ -16,7 +16,7 @@ const styleVariables = () => {
         default: '#0099CC',
         hover: '#003F6A',
       },
-      border: '#003F6A',
+      border: '#0099CC',
       header: '#003F6A',
       footer: '#003F6A',
     },
