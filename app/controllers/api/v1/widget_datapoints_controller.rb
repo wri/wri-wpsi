@@ -2,10 +2,10 @@ class Api::V1::WidgetDatapointsController < ApplicationController
   def index
     gid_2 = params.require(:gid_2)
     field_name = params.require(:field_name)
+    quote_column_name = WidgetDatapoint.connection.quote_column_name(field_name)
     widget_datapoints = WidgetDatapoint.where(gid_2: gid_2).
-      where(%(? IS NOT NULL), field_name).
-      serialized_for_react_app(field_name).
-      first(10) # Limit for now since we are showing them in a table not a widget
+      where("#{quote_column_name} IS NOT NULL").
+      serialized_for_react_app(field_name)
 
     render json: {
       widget_datapoints: widget_datapoints,

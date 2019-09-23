@@ -1,43 +1,25 @@
 import React from 'react'
+import VegaRenderer from 'components/VegaRenderer';
 
-const Widget = ({ data, region, fieldName }) => {
-  const widgetTitleStyle = {
-    fontWeight: 'bold',
-    marginBottom: '12px',
+const interpolateRegion = (spec, region) => {
+  try {
+    spec.data.forEach(dataSpec => {
+      if (dataSpec.urlTemplate) {
+        dataSpec.url = dataSpec.urlTemplate.replace("${region.gid_2}", region.gid_2)
+      }
+    })
+    return spec
+  } catch (error) {
+    console.error('Invalid widget spec:', spec, error)
+    return null
   }
-  const renderChart = (data) => {
-    if (data.length > 0) {
-      return (
-        <table>
-          <thead>
-            <tr>
-              <th>Month</th>
-              <th>{fieldName}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map(datapoint =>
-                <tr key={`${datapoint.gid_2}-${datapoint.month_indep}`}>
-                  <td>{datapoint.month_indep}</td>
-                  <td>{datapoint[fieldName]}</td>
-                </tr>
-              )}
-           </tbody>
-        </table>
-      )
-    } else {
-      return <div>No data...</div>
-    }
-  }
+}
 
-  if (data && region) {
+const Widget = ({ region, widgetSpec }) => {
+  const vegaSpec = interpolateRegion(widgetSpec, region)
+  if (region && vegaSpec) {
     return (
-      <React.Fragment>
-        <div style={widgetTitleStyle}>
-          Sample of widget data for region {region.gid_2}
-        </div>
-        {renderChart(data)}
-      </React.Fragment>
+      <VegaRenderer vegaSpec={vegaSpec} renderer={'svg'} />
     )
   } else {
     return null
@@ -46,9 +28,8 @@ const Widget = ({ data, region, fieldName }) => {
 
 import PropTypes from 'prop-types'
 Widget.propTypes = {
-  data: PropTypes.array.isRequired,
   region: PropTypes.object.isRequired,
-  fieldName: PropTypes.string.isRequired,
+  widgetSpec: PropTypes.object.isRequired,
 }
 
 export default Widget

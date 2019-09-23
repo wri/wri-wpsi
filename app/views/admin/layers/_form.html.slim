@@ -41,6 +41,12 @@
     .field
       = f.label :source_description
       = f.text_field :source_description, class: 'form-control'
+  div.form-group
+    .field
+      = f.label :widget_spec
+      = f.text_area :widget_spec, rows: 16, class: 'form-control', style: "font-family: monospace;"
+      small.form-text.text-muted Instead of a data "url", please provide a "urlTemplate" in the following format:
+      pre.form-text.text-muted "urlTemplate": "api/v1/widget_datapoints/${region.gid_2}/NAME_OF_VARIABLE/"
 
   h3 Options
 

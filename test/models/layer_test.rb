@@ -20,7 +20,7 @@ class LayerTest < ActiveSupport::TestCase
         source_name: @layer_two.source_name,
         source_url: @layer_two.source_url,
         source_description: @layer_two.source_description,
-        widget_fields: @layer_two.widget_fields,
+        widget_spec: @layer_two.widget_spec,
       },
       {
         id: @layer_one.layer_id,
@@ -33,7 +33,7 @@ class LayerTest < ActiveSupport::TestCase
         source_name: @layer_one.source_name,
         source_url: @layer_one.source_url,
         source_description: @layer_one.source_description,
-        widget_fields: @layer_one.widget_fields,
+        widget_spec: @layer_one.widget_spec,
       },
     ]
 

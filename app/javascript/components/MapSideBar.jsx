@@ -114,7 +114,7 @@ const MapSideBar = ({
         />
       }
     >
-      {selectedRegion && layer.widget_fields && <WidgetContainer layer={layer} region={selectedRegion} />}
+      {selectedRegion && layer.widget_spec && <WidgetContainer layer={layer} region={selectedRegion} />}
     </LayerCard>
   )
 
