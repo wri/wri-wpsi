@@ -2,11 +2,7 @@ require 'test_helper'
 
 class WidgetDatapointTest < ActiveSupport::TestCase
   setup do
-    WidgetDatapoint.create(
-      gid_2: 'USA.1.1',
-      month_indep: '2000-01-01',
-      rainfed: '0.12345',
-    )
+    create(:widget_datapoint)
   end
 
   test 'self.serialized_for_react_app' do
