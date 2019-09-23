@@ -1,9 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import styleVariables from './styles/variables'
 
 const MenuBar = () => {
   const containerStyle = {
-    margin: 9,
     fontSize: 21,
     width: '100%',
   }
@@ -13,15 +13,19 @@ const MenuBar = () => {
   }
 
   const inactiveLinkStyle = {
-    color: '#999',
+    color: 'white',
     textDecoration: 'none',
-    margin: 25,
+    padding: 25,
     display: 'inline-block',
     fontWeight: 'normal',
+    ':hover': {
+      color: styleVariables().colors.primary,
+    },
   }
 
   const activeLinkStyle = {
-    color: 'black',
+    color: styleVariables().colors.primary,
+    fontWeight: '600',
   }
 
   return <div style={containerStyle}>

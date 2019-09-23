@@ -13,9 +13,9 @@ const sourceStyle = {
 const styles = {
   container: {
     marginBottom: '10px',
-    borderTop: `2px solid ${styleVars.colors.gray1}`,
-    borderBottom: 0,
-    borderBottomRightRadius: '4px',
+    border: `1px solid ${styleVars.colors.gray2}`,
+    borderTopRightRadius: 4,
+    borderBottomRightRadius: 4,
     background: 'rgba(255,255,255,1)',
     flex: '1 1 auto',
     display: 'flex',
@@ -25,8 +25,6 @@ const styles = {
     marginBottom: 0,
     flex: '0 1 auto',
     boxShadow: 'none',
-    borderBottom: `1px solid ${styleVars.colors.gray2}`,
-    borderTop: 0,
     borderRadius: 'none',
   },
   white: {
@@ -57,7 +55,7 @@ const styles = {
     marginLeft: 'auto',
   },
   footer: {
-    borderTop: `1px solid ${styleVars.colors.gray2}`,
+    borderTop: `1px solid ${styleVars.colors.gray3}`,
     padding: '10px 15px',
     display: 'flex',
     marginTop: 'auto',
@@ -79,7 +77,7 @@ const LayerCard = ({
   secondaryAction,
   children,
 }) => {
-  const containerClass = `${classes.container} ${classes[variant]}`
+  const containerClass = `${classes.container} ${variant ? classes[variant] : ''}`
   if (variant === 'simple') {
     return (
       <div className={containerClass}>
