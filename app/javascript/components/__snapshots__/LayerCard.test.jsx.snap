@@ -2,7 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="LayerCard-container-0-1-1 undefined"
+  className="LayerCard-container-0-1-1 "
 >
   <header
     className="LayerCard-header-0-1-4"

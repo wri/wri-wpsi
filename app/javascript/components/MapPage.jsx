@@ -5,10 +5,24 @@ import ResourceWatchMap from 'components/ResourceWatchMap'
 import MapSideBar from 'components/MapSideBar'
 import DatasetsModal from 'components/DatasetsModal'
 import styleVariables from 'components/styles/variables'
+import Ornamentation from './Ornamentation'
 
 const MapPage = ({ match, history, layers, categories }) => {
-  if (layers.length == 0) {
-    return <div>Loading...</div>
+  const loadingStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: '1 1 auto',
+    overflow: 'hidden',
+    fontFamily: styleVariables().fonts.heading,
+    fontSize: 50,
+  }
+
+  if (layers.length === 0) {
+    return <div style={loadingStyle}>
+      <Ornamentation rotate={false} />
+      <span style={{marginLeft: 20}}>Loading...</span>
+    </div>
   }
 
   const maskLayer = layers.find(layer => layer.maskLayer)

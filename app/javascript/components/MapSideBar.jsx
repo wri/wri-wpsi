@@ -36,6 +36,10 @@ const styles = {
   },
   addLayerButton:  {
     ...defaultButtonStyle(),
+    marginRight: -15,
+    paddingRight: 15,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
   },
   addLayerButtonIcon:  {
     marginRight: '8px',
