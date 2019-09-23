@@ -5,7 +5,6 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
   style={
     Object {
       "fontSize": 21,
-      "margin": 9,
       "width": "100%",
     }
   }
@@ -16,10 +15,13 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
     onClick={[Function]}
     style={
       Object {
-        "color": "#999",
+        ":hover": Object {
+          "color": "#F0AB00",
+        },
+        "color": "white",
         "display": "inline-block",
         "fontWeight": "normal",
-        "margin": 25,
+        "padding": 25,
         "textDecoration": "none",
       }
     }
@@ -32,10 +34,13 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
     onClick={[Function]}
     style={
       Object {
-        "color": "#999",
+        ":hover": Object {
+          "color": "#F0AB00",
+        },
+        "color": "white",
         "display": "inline-block",
         "fontWeight": "normal",
-        "margin": 25,
+        "padding": 25,
         "textDecoration": "none",
       }
     }
@@ -48,10 +53,13 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
     onClick={[Function]}
     style={
       Object {
-        "color": "#999",
+        ":hover": Object {
+          "color": "#F0AB00",
+        },
+        "color": "white",
         "display": "inline-block",
         "fontWeight": "normal",
-        "margin": 25,
+        "padding": 25,
         "textDecoration": "none",
       }
     }
@@ -62,11 +70,14 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
     href="/admin"
     style={
       Object {
-        "color": "#999",
+        ":hover": Object {
+          "color": "#F0AB00",
+        },
+        "color": "white",
         "display": "inline-block",
         "float": "right",
         "fontWeight": "normal",
-        "margin": 25,
+        "padding": 25,
         "textDecoration": "none",
       }
     }
