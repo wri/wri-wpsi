@@ -4,13 +4,14 @@ class Layer < ApplicationRecord
 
   validates :layer_id, :dataset_id, :name, presence: true, if: :published?
   validates :source_url, url: { allow_blank: true }
+  validate :parsability_of_widget_spec
 
   def categories_string
     categories.join ', '
   end
 
-  def widget_spec_json
-    widget_spec && JSON.parse(widget_spec)
+  def widget_spec_as_json
+    widget_spec.present? ? JSON.parse(widget_spec) : nil
   end
 
   def self.published
@@ -30,8 +31,21 @@ class Layer < ApplicationRecord
         source_name: layer.source_name,
         source_url: layer.source_url,
         source_description: layer.source_description,
-        widget_spec: layer.widget_spec_json,
+        widget_spec: layer.widget_spec_as_json,
       }
+    end
+  end
+
+  private
+
+  def parsability_of_widget_spec
+    return if widget_spec.blank?
+
+    begin
+      widget_spec_as_json
+    rescue JSON::ParserError => e
+      errors[:widget_spec] << 'is not valid JSON'
+      Rails.logger.error "JSON::ParserError: (#{e.message})"
     end
   end
 end

@@ -39,4 +39,26 @@ class LayerTest < ActiveSupport::TestCase
 
     assert_equal expected, @layers.serialized_for_react_app
   end
+
+  test 'valid layer' do
+    layer = Layer.new
+    assert layer.valid?, layer.errors.full_messages
+  end
+
+  test 'valid published layer' do
+    layer = Layer.new(
+      name: '12345',
+      layer_id: '12345',
+      dataset_id: '12345',
+      widget_spec: '{}',
+      published: true,
+    )
+    assert layer.valid?, layer.errors.full_messages
+  end
+
+  test 'invalid when widget_spec is unparsable' do
+    layer = Layer.new(widget_spec: 'this is not valid JSON')
+    assert_not layer.valid?, 'layer is valid with unparsable widget spec'
+    assert_not_nil layer.errors[:widget_spec], 'no validation error on widget_spec'
+  end
 end
