@@ -5,7 +5,7 @@ class WidgetDatapoint < ApplicationRecord
         gid_2: widget_datapoint.gid_2,
         month_indep: widget_datapoint.month_indep,
         year: widget_datapoint.month_indep.year,
-        field_name => widget_datapoint.send(field_name),
+        field_name.to_sym => widget_datapoint.send(field_name),
       }
     end
   end
