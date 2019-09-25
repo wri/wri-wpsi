@@ -11,7 +11,7 @@ class MapTest < ApplicationSystemTestCase
 
     visit map_url
 
-    within '#sidebar > header' do
+    within '#sideBar > header' do
       click_button 'Add dataset'
     end
 
