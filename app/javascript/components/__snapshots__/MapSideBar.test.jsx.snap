@@ -3,7 +3,7 @@
 exports[`renders correctly 1`] = `
 <div
   className="MapSideBar-sideBar-0-1-1"
-  id="sidebar"
+  id="sideBar"
 >
   <header
     className="MapSideBar-header-0-1-2"
@@ -29,17 +29,14 @@ exports[`renders correctly 1`] = `
     </button>
   </header>
   <div
-    className="LayerCard-container-0-1-7 LayerCard-simple-0-1-8"
+    className="LayerCard-container-0-1-7 LayerCard-toggle-0-1-8"
   >
     <header
       className="LayerCard-header-0-1-10"
-      style={
-        Object {
-          "paddingBottom": "10px",
-        }
-      }
     >
-      <h2>
+      <h2
+        className="LayerCard-title-0-1-11"
+      >
         Highlight areas of water stress
       </h2>
       <div
@@ -135,9 +132,55 @@ exports[`renders correctly 1`] = `
         />
       </div>
     </header>
+    <div
+      className="LayerCard-content-0-1-12"
+    >
+      <p
+        className="LayerCard-contentDescription-0-1-13"
+      />
+      <p
+        className="LayerCard-source-0-1-16"
+      >
+        <a
+          className="LayerCard-sourceLink-0-1-17"
+        />
+        <span
+          className="LayerCard-sourceDescription-0-1-18"
+        />
+      </p>
+      <div
+        style={
+          Object {
+            "marginBottom": "15px",
+          }
+        }
+      />
+    </div>
+    <footer
+      className="LayerCard-footer-0-1-15"
+    >
+      <a
+        className="LayerCard-moreLink-0-1-14"
+        href="/map/learn_more/123"
+        onClick={[Function]}
+      >
+        <i
+          className="icon__book-reader"
+          style={
+            Object {
+              "marginRight": 5,
+            }
+          }
+        />
+        <span>
+          Learn more
+        </span>
+      </a>
+    </footer>
   </div>
   <div
     className="MapSideBar-sideBarContent-0-1-6"
+    id="sideBarContent"
   >
     <button
       className="MapSideBar-addLayerButton-0-1-4"
