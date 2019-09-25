@@ -77,7 +77,7 @@ const MapSideBar = ({
 
   const renderMaskLayerCard = (layer) => (
     <LayerCard
-      variant='simple'
+      variant='toggle'
       layer={layer}
       secondaryAction={
         <Switch

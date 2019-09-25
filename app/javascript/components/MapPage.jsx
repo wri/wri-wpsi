@@ -25,7 +25,7 @@ const MapPage = ({ match, history, layers, categories }) => {
     </div>
   }
 
-  const maskLayer = layers.find(layer => layer.maskLayer)
+  const maskLayer = layers.find(layer => layer.mask_layer)
   const [activeLayers, setActiveLayers] = React.useState(layers.filter(layer => layer.initially_on))
   const activeLayerIds = activeLayers.map(l => l.id)
 
@@ -146,7 +146,7 @@ const MapPage = ({ match, history, layers, categories }) => {
                 isActive={isActive}
                 onToggleLayerClick={handleToggleLayerClick}
                 tab={match.params.category}
-                layers={layers.filter(layer => !layer.maskLayer)}
+                layers={layers.filter(layer => !layer.mask_layer)}
                 categories={categories}
               />
             )

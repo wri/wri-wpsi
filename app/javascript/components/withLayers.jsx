@@ -3,7 +3,16 @@ import React from 'react'
 const MASK_LAYER = {
   id: 'c7e76588-6da5-4645-8842-2d2ac0001110',
   name: 'Highlight areas of water stress',
-  maskLayer: true,
+  category_slugs: [],
+  categories: [],
+  short_description: '',
+  long_description: '',
+  initially_on: '',
+  source_name: '',
+  source_url: '',
+  source_description: '',
+  widget_spec: '',
+  mask_layer: true,
 }
 
 const withLayers = (WrappedComponent) => {

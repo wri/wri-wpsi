@@ -21,7 +21,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
   },
-  simple: {
+  toggle: {
     marginBottom: 0,
     flex: '0 1 auto',
     boxShadow: 'none',
@@ -78,44 +78,33 @@ const LayerCard = ({
   children,
 }) => {
   const containerClass = `${classes.container} ${variant ? classes[variant] : ''}`
-  if (variant === 'simple') {
-    return (
-      <div className={containerClass}>
-        <header className={classes.header} style={{paddingBottom: '10px'}}>
-          <h2>{layer.name}</h2>
-          {secondaryAction}
-        </header>
-      </div>
-    )
-  } else {
-    return (
-      <div className={containerClass}>
-        <header className={classes.header}>
-          <h2 className={classes.title}>{layer.name}</h2>
-          {secondaryAction}
-        </header>
-        <div className={classes.content}>
-          <p className={classes.contentDescription}>
-            {layer.short_description}
-          </p>
-          <p className={classes.source}>
-            <a className={classes.sourceLink} href={layer.source_url}>{layer.source_name}</a>
-            <span className={classes.sourceDescription}>{layer.source_description && `, ${layer.source_description}`}</span>
-          </p>
-          <div style={{marginBottom: '15px'}}>
-            <LayerTags layer={layer} excludedTag={excludedTag} />
-          </div>
+  return (
+    <div className={containerClass}>
+      <header className={classes.header}>
+        <h2 className={classes.title}>{layer.name}</h2>
+        {secondaryAction}
+      </header>
+      <div className={classes.content}>
+        <p className={classes.contentDescription}>
+          {layer.short_description}
+        </p>
+        <p className={classes.source}>
+          <a className={classes.sourceLink} href={layer.source_url}>{layer.source_name}</a>
+          <span className={classes.sourceDescription}>{layer.source_description && `, ${layer.source_description}`}</span>
+        </p>
+        <div style={{marginBottom: '15px'}}>
+          <LayerTags layer={layer} excludedTag={excludedTag} />
         </div>
-        <footer className={classes.footer}>
-          <Link to={`/map/learn_more/${layer.id}`} className={classes.moreLink}>
-            <i className='icon__book-reader' style={{marginRight: 5}} />
-            <span>Learn more</span>
-          </Link>
-        </footer>
-        {children}
       </div>
-    )
-  }
+      <footer className={classes.footer}>
+        <Link to={`/map/learn_more/${layer.id}`} className={classes.moreLink}>
+          <i className='icon__book-reader' style={{marginRight: 5}} />
+          <span>Learn more</span>
+        </Link>
+      </footer>
+      {children}
+    </div>
+  )
 }
 
 import PropTypes from 'prop-types'
@@ -124,6 +113,7 @@ LayerCard.propTypes = {
   variant: PropTypes.string,
   excludedTag: PropTypes.string,
   secondaryAction: PropTypes.object,
+  children: PropTypes.object,
   classes: PropTypes.object,
 }
 
