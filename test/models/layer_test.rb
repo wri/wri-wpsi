@@ -21,6 +21,7 @@ class LayerTest < ActiveSupport::TestCase
         source_url: @layer_two.source_url,
         source_description: @layer_two.source_description,
         widget_spec: @layer_two.widget_spec,
+        mask: @layer_two.mask,
       },
       {
         id: @layer_one.layer_id,
@@ -34,6 +35,7 @@ class LayerTest < ActiveSupport::TestCase
         source_url: @layer_one.source_url,
         source_description: @layer_one.source_description,
         widget_spec: @layer_one.widget_spec,
+        mask: @layer_one.mask,
       },
     ]
 

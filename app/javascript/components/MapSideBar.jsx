@@ -54,7 +54,7 @@ const styles = {
 
 const MapSideBar = ({
   history,
-  maskLayer,
+  maskLayers,
   activeLayers,
   selectedRegion,
   onRemoveLayer,
@@ -77,7 +77,8 @@ const MapSideBar = ({
 
   const renderMaskLayerCard = (layer) => (
     <LayerCard
-      variant='simple'
+      key={layer.id}
+      variant='toggle'
       layer={layer}
       secondaryAction={
         <Switch
@@ -131,7 +132,11 @@ const MapSideBar = ({
       }
     }
     return (
-      <button className={classes.addLayerButton} onClick={() => history.push('/map/datasets/water')} style={additionalBtnStyle}>
+      <button
+        className={classes.addLayerButton}
+        onClick={() => history.push('/map/datasets/water')}
+        style={additionalBtnStyle}
+      >
       <i className={`icon__plus-circle ${classes.addLayerButtonIcon}`} />
         Add datasets
       </button>
@@ -139,23 +144,19 @@ const MapSideBar = ({
   }
 
   return (
-    <div id='sidebar' className={classes.sideBar}>
+    <div id='sideBar' className={classes.sideBar}>
       <header className={classes.header}>
         <h1 style={{marginBottom: 0}}>Investigation</h1>
-        { renderAddLayerButton() }
+        {renderAddLayerButton()}
       </header>
 
       {selectedRegion && renderRegionInfo(selectedRegion)}
 
-      {maskLayer && renderMaskLayerCard(maskLayer)}
+      {maskLayers && maskLayers.map(renderMaskLayerCard)}
 
-      <div className={classes.sideBarContent}>
-        {
-          activeLayers
-            .filter(layer => layer.id != maskLayer.id)
-            .map(layer => renderLayerCard(layer))
-        }
-        { renderAddLayerButton(true) }
+      <div id='sideBarContent' className={classes.sideBarContent}>
+        {activeLayers.filter(layer => !layer.mask).map(renderLayerCard)}
+        {renderAddLayerButton(true)}
       </div>
     </div>
   )
@@ -167,7 +168,7 @@ MapSideBar.propTypes = {
   setModalOpen: PropTypes.func.isRequired,
   onRemoveLayer: PropTypes.func.isRequired,
   onToggleLayer: PropTypes.func.isRequired,
-  maskLayer: PropTypes.object,
+  maskLayers: PropTypes.array,
   activeLayers: PropTypes.array.isRequired,
   selectedRegion: PropTypes.object,
   classes: PropTypes.object,

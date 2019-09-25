@@ -51,9 +51,11 @@ class LayerGroupsMap extends React.Component {
     }
 
     const hasInteraction = (layer) => {
-      return !!layer.interactionConfig
-          && !!layer.interactionConfig.output
-          && !!layer.interactionConfig.output.length
+      // return !!layer.interactionConfig
+      //     && !!layer.interactionConfig.output
+      //     && !!layer.interactionConfig.output.length
+      // WRI doesn't want interactions to show for now
+      return false && layer
     }
 
     const activeLayersWithInteraction = flatten(layerGroups.map(
@@ -103,14 +105,23 @@ class LayerGroupsMap extends React.Component {
     }
 
     const addRegionLayerToMap = (map, layerData) => {
-      const selectedRegionLayerStyle = {
-        fillColor: '#FFF',
+      const borderWeight = 3
+
+      const mainStyle = {
+        fillOpacity: 0,
         color: '#000',
+        weight: borderWeight,
+      }
+      const shadowStyle = {
+        fillOpacity: 0,
+        color: '#DDD',
+        weight: borderWeight + 2,
       }
 
-      return L.geoJSON(layerData, {
-        style: selectedRegionLayerStyle
-      }).addTo(map);
+      const regionLayer = new L.FeatureGroup()
+      regionLayer.addLayer(L.geoJSON(layerData, {style: shadowStyle}))
+      regionLayer.addLayer(L.geoJSON(layerData, {style: mainStyle}))
+      return regionLayer.addTo(map)
     }
 
     return (

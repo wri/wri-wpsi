@@ -27,6 +27,7 @@ class LayersTest < ApplicationSystemTestCase
     fill_in 'Source url', with: @layer.source_url
     fill_in 'Source description', with: @layer.source_description
     fill_in 'Widget spec', with: @layer.widget_spec
+    check 'Mask' if @layer.mask
     check 'Published' if @layer.published
     check 'Primary' if @layer.primary
     click_on 'Create Layer'
@@ -52,6 +53,7 @@ class LayersTest < ApplicationSystemTestCase
     fill_in 'Source url', with: @layer.source_url
     fill_in 'Source description', with: @layer.source_description
     fill_in 'Widget spec', with: @layer.widget_spec
+    check 'Mask' if @layer.mask
     check 'Published' if @layer.published
     check 'Primary' if @layer.primary
     click_on 'Update Layer'

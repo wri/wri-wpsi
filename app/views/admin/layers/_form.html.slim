@@ -52,6 +52,12 @@
 
   div.form-group.form-check
     .field
+      = f.check_box :mask, class: 'form-check-input'
+      = f.label :mask, class: 'form-check-label'
+      small.form-text.text-muted
+        | The mask layer has a toggle to turn it on and off and always shows at the top of the side bar.
+  div.form-group.form-check
+    .field
       = f.check_box :published, class: 'form-check-input'
       = f.label :published, class: 'form-check-label'
       small.form-text.text-muted

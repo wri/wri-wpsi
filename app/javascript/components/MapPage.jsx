@@ -25,7 +25,7 @@ const MapPage = ({ match, history, layers, categories }) => {
     </div>
   }
 
-  const maskLayer = layers.find(layer => layer.maskLayer)
+  const maskLayers = layers.filter(layer => layer.mask)
   const [activeLayers, setActiveLayers] = React.useState(layers.filter(layer => layer.initially_on))
   const activeLayerIds = activeLayers.map(l => l.id)
 
@@ -129,7 +129,7 @@ const MapPage = ({ match, history, layers, categories }) => {
       <div style={sideDrawerStyle}>
         <MapSideBar
           setModalOpen={setModalOpen}
-          maskLayer={maskLayer}
+          maskLayers={maskLayers}
           activeLayers={activeLayers}
           selectedRegion={selectedRegion}
           onRemoveLayer={removeLayer}
@@ -146,7 +146,7 @@ const MapPage = ({ match, history, layers, categories }) => {
                 isActive={isActive}
                 onToggleLayerClick={handleToggleLayerClick}
                 tab={match.params.category}
-                layers={layers.filter(layer => !layer.maskLayer)}
+                layers={layers.filter(layer => !layer.mask)}
                 categories={categories}
               />
             )

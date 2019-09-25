@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_220719) do
+ActiveRecord::Schema.define(version: 2019_09_25_205227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_09_18_220719) do
     t.string "source_url"
     t.string "source_description"
     t.text "widget_spec"
+    t.boolean "mask", default: false, null: false
     t.index ["layer_id"], name: "index_layers_on_layer_id", unique: true
   end
 

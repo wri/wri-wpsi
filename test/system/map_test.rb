@@ -11,7 +11,7 @@ class MapTest < ApplicationSystemTestCase
 
     visit map_url
 
-    within '#sidebar > header' do
+    within '#sideBar > header' do
       click_button 'Add dataset'
     end
 
@@ -33,7 +33,7 @@ class MapTest < ApplicationSystemTestCase
 
     visit map_url
 
-    within '#sidebar' do
+    within '#sideBarContent' do
       assert_selector 'h2', text: layer.name
       click_link 'Learn more'
     end

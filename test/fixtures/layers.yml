@@ -1,9 +1,16 @@
+mask:
+  layer_id: 'c7e76588-6da5-4645-8842-2d2ac0001110'
+  dataset_id: '0ce24533-7877-4926-b962-a6c726332d82'
+  name: 'Highlight areas of water stress'
+  published: true
+  mask: true
 riverine_flood_risk:
   name: Riverine Flood Risk
   short_description: Percentage of population expected to be affected by riverine
     flooding in an average year.
   layer_id: 2a652430-f94c-4185-b1ad-fae38502dfd2
   dataset_id: df9ef304-672f-4c17-97f4-f9f8fa2849ff
+  mask: false
   published: true
   primary: false
   long_description: "<p>Riverine flood risk measures the percentage of population
@@ -20,6 +27,7 @@ inflation_of_consumer_prices:
     of a set basket of goods and services.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: Inflation is measured by the consumer price index and reflects
     the annual percentage change in the cost to the average consumer of acquiring
@@ -35,6 +43,7 @@ risk_of_conflict:
   short_description:
   layer_id: 107b72a6-6a52-4c8e-a261-d01706627322
   dataset_id: 0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3
+  mask: false
   published: true
   primary: true
   long_description:
@@ -46,6 +55,7 @@ cities:
   short_description: Location and population of cities and towns of regional significance.
   layer_id: a1f3ee1f-a898-4cb8-8162-f2dfb2f3b99c
   dataset_id: 5e156d22-7f84-4cd2-9724-c1a519a83e0a
+  mask: false
   published: true
   long_description: "<p>Geographical locations for national-level capitals, sub-national
     capitals, major cities and towns, and some smaller towns in sparsely inhabited
@@ -58,6 +68,7 @@ seasonal_variability:
   short_description: Average within-year variability of available water supply.
   layer_id: d2f0d40c-65cd-4046-a509-041b0ec692bd
   dataset_id: f4a83ced-4aea-4cf5-aa71-00927fe707e1
+  mask: false
   published: true
   long_description: "<p>Seasonal variability measures the average within-year variability
     of available water supply, including both renewable surface and groundwater supplies.
@@ -71,6 +82,7 @@ interannual_variability:
   short_description: Average between-year variability of available water supply.
   layer_id: 84f6f132-c85a-480d-9c91-ae24cfa2aa2e
   dataset_id: 98b8e4f5-d961-463a-8732-7116de16808c
+  mask: false
   published: true
   long_description: "<p>Interannual variability measures the average between-year
     variability of available water supply, including both renewable surface and groundwater
@@ -85,6 +97,7 @@ future_water_stress:
   short_description:
   layer_id:
   dataset_id: TBD
+  mask: false
   published: false
   long_description:
   source_name: Deltares
@@ -96,6 +109,7 @@ total_unemployment:
     of the labor force.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The number of persons who are unemployed, expressed as a percentage
     of the labor force. The labor force is defined as the employed plus the unemployed.
@@ -111,6 +125,7 @@ percentage_of_g_d_p_from_extractives:
     of GDP. Data is available annually. The tool is currently using data from 2018.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The contribution of natural resources (extractives) to economic
     output as a percentage of GDP. This value is a measure of a country's consumption
@@ -125,6 +140,7 @@ percentage_of_population_in_poverty:
   short_description: Percentage of the population living on less than $3.20 a day.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The percentage of the population living in poverty, defined as
     those living on less than $3.20 a day in 2011 international prices. This dataset
@@ -142,6 +158,7 @@ income_inequality:
     deviates from a perfectly equal distribution.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The Gini index measures income inequality in a country, defined
     as the extent to which the distribution of income within an economy deviates from
@@ -157,6 +174,7 @@ gender_inequality:
     and economic status.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The Gender Inequality Index measures gender inequalities in three
     important aspects of human development - reproductive health, empowerment, and
@@ -174,6 +192,7 @@ agriculture_value_added_to_g_d_p:
     in a given year.
   layer_id:
   dataset_id: 95b013a3-389a-4367-83b7-c9d68c28c406
+  mask: false
   published: false
   long_description: The percentage of GDP contributed by agricultural activities,
     which includes forestry, hunting, fishing, crop cultivation, and livestock production.
@@ -192,6 +211,7 @@ value_of_crop_production:
     42 crops.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The aggregate value of crop production for 42 crops in 2010. The
     total amount of crop production is calculated by multiplying area harvested with
@@ -206,6 +226,7 @@ import_dependency_ratio:
     country production of cereal as a percentage.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The ratio of how much of the available domestic food supply (of
     cereals) has been imported versus how much comes from the country's own production.
@@ -223,6 +244,7 @@ child_malnutrition:
     overweight, or wasting.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: Child malnutrition is the prevalence/number of children under
     the age of five that are considered stunted, overweight, or wasting. The prevalence
@@ -237,6 +259,7 @@ urbanization_rate:
   short_description: Average annual rate of change of the urban population.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The average exponential growth rate of the urban population over
     one year, expressed as a percentage. The definition of "urban" follows the designated
@@ -251,6 +274,7 @@ percentage_of_population_that_is_male_by_age_group:
     age group.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The male population in a broad age group divided by the total
     population for that same age group. The population value is for July 1st of the
@@ -265,6 +289,7 @@ ethnic_fractionalization:
   short_description:
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The dataset covers the years 1945 to 2013. The tool is currently
     displaying data from 2011.
@@ -276,6 +301,7 @@ religious_fractionalization:
   short_description:
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The dataset covers the years 1945 to 2013. The tool is currently
     displaying data from 2011.
@@ -289,6 +315,7 @@ gross_domestic_product_per_capita:
     in international dollars.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The total value of goods produced and services provided in a country
     during one year divided by the total population is the GDP per capita. This value
@@ -310,6 +337,7 @@ local_population_density:
     land area in that cell.
   layer_id: 969fe99d-b861-46a1-8c8e-7c44cbafd1d6
   dataset_id: 141ef6ab-eed9-4081-8066-7be364a48af0
+  mask: false
   published: true
   long_description: The population density is based on counts from national censuses
     and population registers with respective to relative spatial distribution. These
@@ -324,6 +352,7 @@ roads:
   short_description: Location of roads.
   layer_id: 72bd4541-89d4-467d-905d-dc745511e2cc
   dataset_id: 943f3702-421f-47a4-9b99-e2d5a9f544a7
+  mask: false
   published: true
   long_description: The best available roads data by country, compiled from multiple
     sources. The date range spans from 1980s to 2010 depending on the country. Spatial
@@ -337,6 +366,7 @@ infant_mortality:
     1,000 live births.
   layer_id: 3a5a0c20-54da-4ba3-bfae-0dbed4ab9b50
   dataset_id: 6cfd6255-609e-4922-8709-5aaad0db9fae
+  mask: false
   published: true
   long_description: The number of infants dying before reaching one year of age, per
     1,000 live births in a given year. The mortality data sources are vital registration
@@ -355,6 +385,7 @@ employment_in_agriculture:
     as a percentage of total employment.
   layer_id: 7a08dee3-6301-45d2-9ced-c2918f6f3c6b
   dataset_id: cc354f7f-2622-44cb-91c1-73559373de72
+  mask: false
   published: true
   long_description: The percentage of people employed in agriculture is calculated
     as persons of working age who were engaged in agriculture, hunting, forestry and
@@ -371,6 +402,7 @@ rice_yield_gap:
     location in tons per hectare.
   layer_id: d24a0b3b-b501-4189-aa1a-4912d0c94ec7
   dataset_id: bc2c749d-49a0-46c0-9582-eb33946a983e
+  mask: false
   published: true
   long_description: The yield gap is the difference between observed crop yields and
     the potential yield of a crop in tons per hectare at the same location. The data
@@ -385,6 +417,7 @@ food_price_spikes_cereals_and_tubers:
     commodities.
   layer_id: 3a52f7ed-0c20-4691-981b-3a3521b069aa
   dataset_id: acf42a1b-104b-4f81-acd0-549f805873fb
+  mask: false
   published: true
   long_description: 'The index measures how much food prices have risen above seasonal
     price trends for cereal and tuber commodities over the past 3 months. The value
@@ -402,6 +435,7 @@ food_price_spikes_oils_and_fats:
     commodities.
   layer_id: 2c7ddb1a-6a21-4f6c-a5a3-696e92bcf053
   dataset_id: acf42a1b-104b-4f81-acd0-549f805873fb
+  mask: false
   published: true
   long_description: 'The index measures how much food prices have risen above seasonal
     price trends for fat and oil commodities over the past 3 months. The value is
@@ -419,6 +453,7 @@ food_price_spikes_vegetables_and_fruits:
     fruit commodities.
   layer_id: 1ee0784f-654f-4caf-a059-f03dc46724b6
   dataset_id: acf42a1b-104b-4f81-acd0-549f805873fb
+  mask: false
   published: true
   long_description: 'The index measures how much food prices have risen above seasonal
     price trends for vegetable and fruit commodities over the past 3 months. The value
@@ -436,6 +471,7 @@ food_price_spikes_pulses_and_nuts:
     commodities.
   layer_id: 253437ed-1e21-4544-8bb3-1ec2d2656522
   dataset_id: acf42a1b-104b-4f81-acd0-549f805873fb
+  mask: false
   published: true
   long_description: 'The index measures how much food prices have risen above seasonal
     price trends for pulse and nutcommodities over the past 3 months. The value is
@@ -453,6 +489,7 @@ food_price_spikes_miscellaneous_food:
     food commodities.
   layer_id: 43804fe4-8c9a-42fc-8c85-2a494727cf3d
   dataset_id: acf42a1b-104b-4f81-acd0-549f805873fb
+  mask: false
   published: true
   long_description: 'The index measures how much food prices have risen above seasonal
     price trends for miscellaneous food commodities over the past 3 months. The value
@@ -469,6 +506,7 @@ percentage_of_total_income_spent_on_food:
   short_description: Percentage of household income spent on food and beverage consumption.
   layer_id: d11f2dc5-7d71-4e95-ad50-0f86d3466943
   dataset_id: 29a3cc91-9bf7-480f-b324-58570d9cd68f
+  mask: false
   published: true
   long_description: The amount of food and beverage consumption as a percentage of
     household total consumption on a country level for the year 2010. Data are based
@@ -483,6 +521,7 @@ barley_yield_gap:
     particular location in tons per hectare.
   layer_id: d0147b4b-89d7-49e3-945a-a5fb1fe26345
   dataset_id: bc2c749d-49a0-46c0-9582-eb33946a983e
+  mask: false
   published: true
   long_description: The yield gap is the difference between observed crop yields and
     the potential yield of a crop in tons per hectare at the same location. The data
@@ -497,6 +536,7 @@ maize_yield_gap:
     location in tons per hectare.
   layer_id: 59ff5765-5c11-4b9a-9b34-1e6551a29236
   dataset_id: bc2c749d-49a0-46c0-9582-eb33946a983e
+  mask: false
   published: true
   long_description: The yield gap is the difference between observed crop yields and
     the potential yield of a crop in tons per hectare at the same location. The data
@@ -511,6 +551,7 @@ soybean_yield_gap:
     particular location in tons per hectare.
   layer_id: e5744d8e-e8af-4e72-a8f6-35adacf70976
   dataset_id: bc2c749d-49a0-46c0-9582-eb33946a983e
+  mask: false
   published: true
   long_description: The yield gap is the difference between observed crop yields and
     the potential yield of a crop in tons per hectare at the same location. The data
@@ -524,6 +565,7 @@ cropland_area:
   short_description: Percentage of land in an area that is devoted to cropland.
   layer_id: 47dc9961-05d6-48f1-93c5-aa633e4a1efa
   dataset_id: 0ce24533-7877-4926-b962-a6c726332d82
+  mask: false
   published: true
   long_description: The percentage of land in every 5-arc minute grid cell that is
     devoted to cropland for the year 2000.
@@ -535,6 +577,7 @@ pasture_area:
   short_description: Percentage of land in an area that is devoted to pasture.
   layer_id: 1198417e-8cfb-4a40-96f7-9ec016384c86
   dataset_id: 0ce24533-7877-4926-b962-a6c726332d82
+  mask: false
   published: true
   long_description: The percentage of land in every 5-arc minute grid cell that is
     devoted to pasture for the year 2000.
@@ -546,6 +589,7 @@ asylum_requests_by_destination:
   short_description: Number of asylum requests by country of requested asylum.
   layer_id: 4360b45c-dd79-44f3-8bcc-4531f0652773
   dataset_id: c856396d-d0f2-4aae-9671-4903b2ebed4d
+  mask: false
   published: true
   long_description: Total number of asylum requests destined for each of the 45 countries
     of asylum. Data is updated monthly.
@@ -557,6 +601,7 @@ asylum_requests_by_origin:
   short_description: Number of asylum requests by country of origin.
   layer_id: 505e6569-ca22-45c5-9fdc-b0678bb71b55
   dataset_id: 7a8b5296-d283-4832-9be1-edd760bbb58f
+  mask: false
   published: true
   long_description: Total number of asylum requests originating from each of the 205
     countries of origin. Data is updated monthly.
@@ -569,6 +614,7 @@ internally_displaced_persons:
     conflict and natural disasters.
   layer_id: 16a5729f-0f2e-4cd6-84bc-0f72c9132dda
   dataset_id: d2f6245d-5b9b-4508-874b-d42a2be7d058
+  mask: false
   published: true
   long_description:
   source_name: IDMC/IOM/OCHA
@@ -579,6 +625,7 @@ internally_displaced_persons:
   short_description:
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The tool is currently displaying data from 2018.
   source_name: Deltares
@@ -590,6 +637,7 @@ baseline_water_stress:
     supplies.
   layer_id: fdf06d8c-72e9-48a7-80f1-27bd5f19342c
   dataset_id: c66d7f3a-d1a8-488f-af8b-302b0f2c3840
+  mask: false
   published: true
   long_description: Baseline water stress measures the ratio of total water withdrawals
     to available renewable water supplies. Higher values indicate more competition
@@ -605,6 +653,7 @@ airports:
   short_description: Location of global airports.
   layer_id: 5ca56eeb-628f-45c9-a45e-151e62e8876c
   dataset_id: 51159bdb-4904-4101-a88e-ca7bd4f67cb0
+  mask: false
   published: true
   long_description: Location data for commercial air travel airports across the world.
     The tool is currently displaying data from 2017.
@@ -616,6 +665,7 @@ access_to_cities:
   short_description: Travel time to high-density urban centers via surface transport.
   layer_id: d787d894-f7af-47c4-af0f-0849b06686ee
   dataset_id: ccbcaf7b-1619-4298-8275-b135d1e8e04e
+  mask: false
   published: true
   long_description: Global accessibility to high-density urban centers via surface
     transport. The nearest urban center is defined as an area with 1,500 or more inhabitants
@@ -629,6 +679,7 @@ dams:
   short_description: Location of dams.
   layer_id: 212a1516-c7d5-44aa-a18a-ab8bc99929e7
   dataset_id: e63bb157-4b98-4ecb-81d6-c1b15e79895a
+  mask: false
   published: true
   long_description: Dam point location for reservoir storage capacity greater than
     0.1 km3. Smaller dams and reservoirs were added if data were available, or if
@@ -643,6 +694,7 @@ ports:
   short_description: Location of major ports.
   layer_id: 4c933a71-06aa-473d-9b93-9a5b5fbd554b
   dataset_id: e0b94aef-4a3c-4fe3-8a58-7b713a4234a2
+  mask: false
   published: true
   long_description: Location, physical characteristics, facilities, and services offered
     by major ports around the world.
@@ -655,6 +707,7 @@ power_generation_by_fuel_type:
     fuel type.
   layer_id: 2a694289-fec9-4bfe-a6d2-56c3864ec349
   dataset_id: a86d906d-9862-4783-9e30-cdb68cd808b8
+  mask: false
   published: true
   long_description: Location of approximately 30,000 power plants from 164 countries
     and their corresponding capacity and fuel source. Fuel types include coal, gas,
@@ -669,6 +722,7 @@ reservoirs:
   short_description: Location of reservoirs.
   layer_id: 6528a5e5-c4cc-49b1-a603-b9ee90b644f7
   dataset_id: e63bb157-4b98-4ecb-81d6-c1b15e79895a
+  mask: false
   published: true
   long_description: Area of reservoir extent for storage capacity of more than 0.1
     km3. Smaller reservoirs were added if data were available. The main source of
@@ -683,6 +737,7 @@ minimum_e_t_anomaly_annual:
     ET.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The minimum annual ET anomaly is the ratio of the annual actual
     ET to the corresponding median actual ET, expressed as a percentage. Evapotranspiration
@@ -698,6 +753,7 @@ percentage_of_rainfed_crops:
   short_description: Percentage of crops in an area that are dependent on rainfall.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The percentage of crops that are rainfed is calculated by dividing
     the area of rainfed crops by the area of all crops. The data is updated every
@@ -710,6 +766,7 @@ irrigated_and_rainfed_crops:
   short_description: Spatial distribution of irrigated versus rainfed croplands.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: 'This dataset classifies land into five categories: (0) Noncroplands;
     (1) Croplands, Irrigation major; (2) Croplands, Irrigation minor; (3) Croplands,
@@ -726,6 +783,7 @@ access_to_drinking_water:
     water source, defined as a water source protected from outside contamination.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: Global annual data on access to improved water sources based on
     national censuses and nationally representative household surveys. An improved
@@ -744,6 +802,7 @@ access_to_sanitation:
     which separate human excrete from human contact.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The percentage of the national population using improved sanitation
     facilities based on national censuses and nationally representative household
@@ -760,6 +819,7 @@ access_to_electricity:
   short_description: Percentage of population with access to electricity.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: Estimated percentage of the national, urban, and rural population
     with access to electricity. The data is collected from government agencies and
@@ -777,6 +837,7 @@ corruption_index:
     range from 0 to 100, with 100 being the most corrupt.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The Bayesian Corruption Index is a composite index of the perceived
     overall level of corruption. The index values range between 0 and 100, with an
@@ -795,6 +856,7 @@ type_of_government:
   short_description: Current regime type of the country.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The REIGN regime dataset gives the regime classifications for
     a country based on the classifications of Geddes, Wright, and Frantz. The classifications
@@ -811,6 +873,7 @@ conflict_events:
     and 10 countries in South and Southeast Asia.
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: Dates, actors, types of violence, locations, and fatalities of
     all reported political violence and protest events in the past 12 months across
@@ -826,6 +889,7 @@ conflict_events:
   short_description:
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The tool is currently displaying data from 2018.
   source_name: Deltares
@@ -836,6 +900,7 @@ conflict_events:
   short_description:
   layer_id:
   dataset_id:
+    mask: false
   published: false
   long_description: The tool is currently displaying data from 2018.
   source_name: Deltares
@@ -846,6 +911,7 @@ evapotranspiration_e_t:
   short_description: Actual monthly evapotranspiration in millimeters (mm).
   layer_id: TBD
   dataset_id: Not delivered yet
+  mask: false
   published: false
   long_description: Evapotranspiration (ET) is a combination of transpiration from
     vegetation and evaporation from soil. Actual ET is produced using a Simplified
