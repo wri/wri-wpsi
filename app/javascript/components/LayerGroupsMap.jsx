@@ -51,9 +51,11 @@ class LayerGroupsMap extends React.Component {
     }
 
     const hasInteraction = (layer) => {
-      return !!layer.interactionConfig
-          && !!layer.interactionConfig.output
-          && !!layer.interactionConfig.output.length
+      // return !!layer.interactionConfig
+      //     && !!layer.interactionConfig.output
+      //     && !!layer.interactionConfig.output.length
+      // WRI doesn't want interactions to show for now
+      return false && layer
     }
 
     const activeLayersWithInteraction = flatten(layerGroups.map(
