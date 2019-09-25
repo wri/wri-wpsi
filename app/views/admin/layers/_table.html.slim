@@ -2,6 +2,7 @@ table.table
   thead
     tr
       th Name
+      th Mask
       th Published
       th Categories
       th
@@ -11,6 +12,8 @@ table.table
     - layers.each do |layer|
       tr
         td = link_to layer.name, [:admin, layer]
+        td class=(layer.mask? ? 'text-info font-weight-bold' : 'text-muted')
+          = layer.mask
         td class=(layer.published? ? 'text-success font-weight-bold' : 'text-muted')
           = layer.published
         td = layer.categories_string

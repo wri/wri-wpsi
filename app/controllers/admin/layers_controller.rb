@@ -53,6 +53,7 @@ class Admin::LayersController < Admin::BaseController
       :source_url,
       :source_description,
       :widget_spec,
+      :mask,
       :published,
       :primary,
       category_ids: [],

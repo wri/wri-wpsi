@@ -33,7 +33,7 @@ class MapTest < ApplicationSystemTestCase
 
     visit map_url
 
-    within '#sidebar' do
+    within '#sideBarContent' do
       assert_selector 'h2', text: layer.name
       click_link 'Learn more'
     end
