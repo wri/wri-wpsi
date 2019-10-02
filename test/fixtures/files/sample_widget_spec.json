@@ -8,6 +8,8 @@
   },
   "signals": [
     {
+      "name": "hover",
+      "value": null,
       "on": [
         {
           "update": "datum",
@@ -17,77 +19,75 @@
           "update": "null",
           "events": "@cell:mouseout"
         }
-      ],
-      "value": null,
-      "name": "hover"
+      ]
     }
   ],
   "data": [
     {
+      "name": "table",
+      "urlTemplate": "api/v1/widget_datapoints/${region.gid_2}/locdensity/",
       "format": {
         "property": "widget_datapoints",
         "type": "json"
-      },
-      "urlTemplate": "api/v1/widget_datapoints/${region.gid_2}/locdensity/",
-      "name": "table"
+      }
     },
     {
+      "name": "dots",
+      "source": "table",
       "transform": [
         {
           "expr": "hover && hover.datum.year === datum.year",
           "type": "filter"
         }
-      ],
-      "source": "table",
-      "name": "dots"
+      ]
     }
   ],
   "scales": [
     {
-      "domain": {
-        "field": "year",
-        "data": "table"
-      },
+      "name": "year",
+      "type": "linear",
       "range": "width",
       "zero": false,
       "nice": false,
-      "type": "linear",
-      "name": "year"
-    },
-    {
-      "domain": {
-        "field": "locdensity",
-        "data": "table"
-      },
-      "range": "height",
-      "zero": true,
-      "nice": true,
-      "type": "linear",
-      "name": "locdensity"
-    },
-    {
       "domain": {
         "field": "year",
         "data": "table"
-      },
+      }
+    },
+    {
+      "name": "locdensity",
+      "type": "linear",
+      "range": "height",
+      "zero": true,
+      "nice": true,
+      "domain": {
+        "field": "locdensity",
+        "data": "table"
+      }
+    },
+    {
+      "name": "color",
       "type": "ordinal",
-      "reverse": true,
       "range": "ramp",
-      "name": "color"
+      "reverse": true,
+      "domain": {
+        "field": "year",
+        "data": "table"
+      }
     }
   ],
   "axes": [
     {
       "labelOverlap": "parity",
-      "format": "4f",
       "scale": "year",
+      "format": "4f",
       "zindex": 1,
       "orient": "bottom"
     },
     {
-      "labelOverlap": "parity",
       "title": "Population Density (people/km²)",
       "scale": "locdensity",
+      "labelOverlap": "parity",
       "format": "2s",
       "grid": true,
       "zindex": 0,
@@ -96,6 +96,9 @@
   ],
   "marks": [
     {
+      "name": "lines",
+      "interactive": false,
+      "type": "line",
       "encode": {
         "enter": {
           "y": {
@@ -110,12 +113,12 @@
       },
       "from": {
         "data": "table"
-      },
-      "interactive": false,
-      "type": "line",
-      "name": "lines"
+      }
     },
     {
+      "name": "points",
+      "type": "symbol",
+      "interactive": false,
       "encode": {
         "update": {
           "opacity": {
@@ -135,12 +138,11 @@
       },
       "from": {
         "data": "dots"
-      },
-      "type": "symbol",
-      "interactive": false,
-      "name": "points"
+      }
     },
     {
+      "name": "cell",
+      "type": "path",
       "encode": {
         "update": {
           "opacity": {
@@ -176,9 +178,7 @@
       ],
       "from": {
         "data": "lines"
-      },
-      "type": "path",
-      "name": "cell"
+      }
     }
   ]
 }
