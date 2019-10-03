@@ -11,17 +11,28 @@ namespace :import do
       exit
     end
 
-    if path.starts_with?(url_prefix)
-      puts 'Importing from URL using curl...'
-      curl = curl_for_url(path)
-      puts curl
-      copy_csv_to_table("PROGRAM '#{curl}'", 'widget_datapoints')
-    else
-      puts 'Importing from file...'
-      copy_csv_to_table("'#{path}'", 'widget_datapoints')
-    end
+    import_widget_datapoints(path)
 
     puts "Done in #{Time.current - start_time} seconds."
+  end
+
+  desc 'Import widget specs from a csv file'
+  task widget_specs: :environment do
+    start_time = Time.current
+    load_widget_specs
+    puts "Done in #{Time.current - start_time} seconds."
+  end
+end
+
+def import_widget_datapoints(path)
+  if path.starts_with?(url_prefix)
+    puts 'Importing from URL using curl...'
+    curl = curl_for_url(path)
+    puts curl
+    copy_csv_to_table("PROGRAM '#{curl}'", 'widget_datapoints')
+  else
+    puts 'Importing from file...'
+    copy_csv_to_table("'#{path}'", 'widget_datapoints')
   end
 end
 
@@ -43,4 +54,61 @@ end
 def copy_csv_to_table(csv, table)
   sql = "COPY #{table} FROM #{csv} DELIMITERS ',' CSV HEADER;"
   ActiveRecord::Base.connection.execute(sql)
+end
+
+def template
+  {
+    spec: File.read('./test/fixtures/files/sample_widget_spec.json'),
+    table_id: 'urbrate',
+    x_axis_label: 'Year',
+    y_axis_label: 'Population Density (people/km²)',
+  }
+end
+
+def load_widget_specs
+  require 'csv'
+
+  table = CSV.parse(File.read('./test/fixtures/files/widget_specs.csv'), headers: true)
+  table = table.reject { |row| row['layer_id'].blank? || row['widget_type'] != 'Time series' }
+
+  layers = []
+
+  table.each do |row|
+    puts row.inspect
+    layers << load_widget_spec(row)
+  end
+
+  layers.compact.each(&:save!)
+end
+
+def load_widget_spec(row)
+  layer = Layer.find_by(layer_id: row['layer_id'])
+
+  if layer.nil?
+    puts "ERROR: Layer #{row['layer_id']} not found!"
+  else
+    merge_row_defaults!(row)
+    update_spec_with_row_values!(template[:spec], row)
+    layer.widget_spec = template[:spec]
+  end
+
+  layer
+end
+
+def merge_row_defaults!(row)
+  row['escaped_table_id'] = row['table_id'].gsub('.', '\\\\\\\\\\\\.')
+  row['x_axis_label'] ||= template[:x_axis_label]
+  row['y_axis_label'] ||= row['name']
+end
+
+def update_spec_with_row_values!(spec, row)
+  escape_field_names!(spec, row)
+  spec.gsub!(template[:table_id], row['table_id'])
+  spec.gsub!(template[:x_axis_label], row['x_axis_label'])
+  spec.gsub!(template[:y_axis_label], row['y_axis_label'])
+end
+
+def escape_field_names!(spec, row)
+  spec.gsub!(%("field": "#{template[:table_id]}"), %("field": "#{row['escaped_table_id']}"))
+  spec.gsub!(%(hover.datum['#{template[:table_id]}']), %(hover.datum['#{row['escaped_table_id']}']))
 end

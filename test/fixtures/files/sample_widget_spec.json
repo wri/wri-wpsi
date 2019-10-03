@@ -24,16 +24,19 @@
   ],
   "data": [
     {
-      "name": "table",
+      "name": "widget_datapoints",
       "urlTemplate": "api/v1/widget_datapoints/${region.gid_2}/locdensity/",
       "format": {
         "property": "widget_datapoints",
-        "type": "json"
+        "type": "json",
+        "parse": {
+          "month_indep": "date:'%Y-%m-%d'"
+        }
       }
     },
     {
       "name": "dots",
-      "source": "table",
+      "source": "widget_datapoints",
       "transform": [
         {
           "expr": "hover && hover.datum.year === datum.year",
@@ -50,8 +53,17 @@
       "zero": false,
       "nice": false,
       "domain": {
-        "field": "year",
-        "data": "table"
+        "data": "widget_datapoints",
+        "field": "year"
+      }
+    },
+    {
+      "name": "month_indep",
+      "type": "time",
+      "range": "width",
+      "domain": {
+        "data": "widget_datapoints",
+        "field": "month_indep"
       }
     },
     {
@@ -61,18 +73,8 @@
       "zero": true,
       "nice": true,
       "domain": {
-        "field": "locdensity",
-        "data": "table"
-      }
-    },
-    {
-      "name": "color",
-      "type": "ordinal",
-      "range": "ramp",
-      "reverse": true,
-      "domain": {
-        "field": "year",
-        "data": "table"
+        "data": "widget_datapoints",
+        "field": "locdensity"
       }
     }
   ],
@@ -112,7 +114,7 @@
         }
       },
       "from": {
-        "data": "table"
+        "data": "widget_datapoints"
       }
     },
     {
@@ -157,7 +159,7 @@
         },
         "hover": {
           "tooltip": {
-            "signal": "{'Density':format(hover.datum.locdensity,'.3s') + 'people per square mile', 'Year':hover.datum.year}"
+            "signal": "{'Population Density (people/km²)': format(hover.datum['locdensity'], '.3s'), 'Year': hover.datum.year}"
           }
         }
       },

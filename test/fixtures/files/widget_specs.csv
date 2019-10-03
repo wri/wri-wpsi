@@ -1,0 +1,119 @@
+name,layer_id,table_id,widget_type,x_axis_label,y_axis_label
+"Child Malnutrition (Prevalence of Stunting based on height for age, % of children under 5)",,SH.STA.STNT.ZS,Time series,Year,Prevalence of Stunting (%)
+Urbanization Rate,,urbrate,Time series,Year,Urban Population Change per year (%)
+Urbanization Rate,,age_0-14,Text:Number,,Percent of Population that is Male (%)
+,,,,,
+,,,,,
+,,,,,
+Sex Ratio by Age Group (Male),,,,,
+,,,,,
+,,,,,
+,,,,,
+National Population,,,,,
+Local Population,,,,,
+"Local Population Density (Grid, 1 km)",969fe99d-b861-46a1-8c8e-7c44cbafd1d6,locdensity,Time series,Year,
+Urban/Rural Population,,,,,
+Rural Population Ratio,,,,,
+Rural Population,,,,,
+Ethnic fractionalization,,al_ethnic,Time series,Year,Fractionalization
+Religious fractionalization,,al_religion,Time series,Year,Fractionalization
+Gross Domestic Product per Capita,,NY.GDP.PCAP.PP.KD,Time series,Year,GDP per Capita (Current international USD $)
+National Infant Mortality,3a5a0c20-54da-4ba3-bfae-0dbed4ab9b50,SP.DYN.IMRT.IN,Time series,Year,
+"Inflation, Consumer Prices (Annual %)",,FP.CPI.TOTL.ZG,Time series,Year,
+"Unemployment, total (% of total labor force)",,SL.UEM.TOTL.ZS,Time series,Year,
+% of GDP from Extractives,,-,Time series,Year,
+Poverty Headcount,,,,,
+Poverty Headcount Ratio at $3.20 a day,,SI.POV.LMIC,Time series,Year,
+,,,,,
+Gini Index (Income Inequality),,-,Time series,Year,
+Gender Inequality Index,,-,Time series,Year,
+Employment in Agriculture (% of Total Employment),7a08dee3-6301-45d2-9ced-c2918f6f3c6b,SL.AGR.EMPL.ZS,Time series,Year,
+Agriculture Value added to GDP (% of Total GDP),,NV.AGR.TOTL.ZS,Time series,Year,
+Value of Crop Production,,value_a_2010,Number,,
+Value of Irrigated Crop Production,,,,,
+Value of Rainfed Crop Production,,,,,
+Food Price Spikes,3a52f7ed-0c20-4691-981b-3a3521b069aa,-,No widget,No widget,No widget
+Food Price Spikes,2c7ddb1a-6a21-4f6c-a5a3-696e92bcf053,-,No widget,No widget,No widget
+Food Price Spikes,1ee0784f-654f-4caf-a059-f03dc46724b6,-,No widget,No widget,No widget
+Food Price Spikes,253437ed-1e21-4544-8bb3-1ec2d2656522,-,No widget,No widget,No widget
+Food Price Spikes,43804fe4-8c9a-42fc-8c85-2a494727cf3d,-,No widget,No widget,No widget
+Import Dependency Ratio,,-,No widget,No widget,No widget
+Income Spent on Food (as % of Total Income),d11f2dc5-7d71-4e95-ad50-0f86d3466943,,,,
+% of Crops that are Rainfed,,rainfed,Time series,,
+Irrigated vs. Rainfed Crops,,-,Circle chart,,
+Barley Yield Gap (t/ha gap),d0147b4b-89d7-49e3-945a-a5fb1fe26345,-,No widget,No widget,No widget
+Maize Yield Gap (t/ha gap),59ff5765-5c11-4b9a-9b34-1e6551a29236,-,No widget,No widget,No widget
+Rice Yield Gap (t/ha gap),d24a0b3b-b501-4189-aa1a-4912d0c94ec7,-,No widget,No widget,No widget
+Soybean Yield Gap (t/ha gap),e5744d8e-e8af-4e72-a8f6-35adacf70976,-,No widget,No widget,No widget
+Cropland Area,47dc9961-05d6-48f1-93c5-aa633e4a1efa,-,No widget,No widget,No widget
+Pasture Area,1198417e-8cfb-4a40-96f7-9ec016384c86,-,No widget,No widget,No widget
+Access to Drinking Water,,wateraccess,Time series,,Population with access to clean drinking water (%)
+Access to Sanitation,,sanitationaccess,Time series,,Population with access to sanitation (%)
+Access to Electricity,,-,Time series,,Population with access to electricty (%)
+Amount of Foreign Aid Received,,,,,
+Money Spent on Disaster Preparedness,,,,,
+Corruption Index,,bci_bci,Time series,,
+Political corruption index,,,,,
+Executive corruption index,,,,,
+Type of Government,,reign,Text,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+ACLED (past 12 months),851e2470-c592-4945-a5dd-d0eaf55b2158,battles_fatalities_12m,Time series,,
+Agreements,,,,,
+Battles,,,,,
+Peaceful protests,,,,,
+Violent protests and riots,,,,,
+Remote violence,,,,,
+Violence against civilians,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+WPSI Risk of Conflict Model Output,107b72a6-6a52-4c8e-a261-d01706627322,(in different table),Number,,
+Asylum Requests by Destination,4360b45c-dd79-44f3-8bcc-4531f0652773,-,No widget,No widget,No widget
+Asylum Requests by Origin,505e6569-ca22-45c5-9fdc-b0678bb71b55,-,No widget,No widget,No widget
+"Recent Internal Displacement from Conflict, Natural Disasters, and Development by Event",16a5729f-0f2e-4cd6-84bc-0f72c9132dda,-,Text/Number (3),,
+Standard Precipitation Index (SPI) Anomalies,,,,,
+Seasonal SPI Anomaly (3),,,,,
+Seasonal SPI Anomaly (6),,spi_6,Time series,,Standardized Precipitation Index
+Annual SPI Anomaly (12),,spi_12,Time series,,Standardized Precipitation Index
+Long-term SPI Anomaly (24),,spi_24,Time series,,Standardized Precipitation Index
+Actual Evapotranspiration,,,,,
+Evapotranspiration Anomalies,,,,,
+Minimum ET Anomaly (Annual),,et_anom_year,Time series,,Evapotransipiration Anomaly
+Evapotranspiration,TBD,et_act_monthly,Time series,,
+Baseline Water Stress,fdf06d8c-72e9-48a7-80f1-27bd5f19342c,bws,Text,-,-
+Riverine Flood Risk,2a652430-f94c-4185-b1ad-fae38502dfd2,rfr,Text,-,-
+Seasonal Variability,d2f0d40c-65cd-4046-a509-041b0ec692bd,sev,Text,-,-
+InterAnnual Variability,98b8e4f5-d961-463a-8732-7116de16808c,iav,Text,-,-
+SPI Forecast (Future Water Stress),,-,?,,
+Airports,5ca56eeb-628f-45c9-a45e-151e62e8876c,-,No widget,No widget,No widget
+Access to Cities,d787d894-f7af-47c4-af0f-0849b06686ee,-,No widget,No widget,No widget
+Cities,a1f3ee1f-a898-4cb8-8162-f2dfb2f3b99c,-,No widget,No widget,No widget
+Dams,212a1516-c7d5-44aa-a18a-ab8bc99929e7,-,No widget,No widget,No widget
+Ports,4c933a71-06aa-473d-9b93-9a5b5fbd554b,-,No widget,No widget,No widget
+Power Generation by Fuel Type,2a694289-fec9-4bfe-a6d2-56c3864ec349,-,No widget,No widget,No widget
+Reservoirs,6528a5e5-c4cc-49b1-a603-b9ee90b644f7,-,No widget,No widget,No widget
+Roads,72bd4541-89d4-467d-905d-dc745511e2cc,-,No widget,No widget,No widget
