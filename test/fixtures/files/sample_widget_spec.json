@@ -1,0 +1,186 @@
+{
+  "width": 300,
+  "height": 300,
+  "autosize": {
+    "contains": "padding",
+    "resize": true,
+    "type": "pad"
+  },
+  "signals": [
+    {
+      "name": "hover",
+      "value": null,
+      "on": [
+        {
+          "update": "datum",
+          "events": "@cell:mouseover"
+        },
+        {
+          "update": "null",
+          "events": "@cell:mouseout"
+        }
+      ]
+    }
+  ],
+  "data": [
+    {
+      "name": "widget_datapoints",
+      "urlTemplate": "api/v1/widget_datapoints/${region.gid_2}/locdensity/",
+      "format": {
+        "property": "widget_datapoints",
+        "type": "json",
+        "parse": {
+          "month_indep": "date:'%Y-%m-%d'"
+        }
+      }
+    },
+    {
+      "name": "dots",
+      "source": "widget_datapoints",
+      "transform": [
+        {
+          "expr": "hover && hover.datum.year === datum.year",
+          "type": "filter"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "year",
+      "type": "linear",
+      "range": "width",
+      "zero": false,
+      "nice": false,
+      "domain": {
+        "data": "widget_datapoints",
+        "field": "year"
+      }
+    },
+    {
+      "name": "month_indep",
+      "type": "time",
+      "range": "width",
+      "domain": {
+        "data": "widget_datapoints",
+        "field": "month_indep"
+      }
+    },
+    {
+      "name": "locdensity",
+      "type": "linear",
+      "range": "height",
+      "zero": true,
+      "nice": true,
+      "domain": {
+        "data": "widget_datapoints",
+        "field": "locdensity"
+      }
+    }
+  ],
+  "axes": [
+    {
+      "labelOverlap": "parity",
+      "scale": "year",
+      "format": "4f",
+      "zindex": 1,
+      "orient": "bottom"
+    },
+    {
+      "title": "Population Density (people/km²)",
+      "scale": "locdensity",
+      "labelOverlap": "parity",
+      "format": "2s",
+      "grid": true,
+      "zindex": 0,
+      "orient": "left"
+    }
+  ],
+  "marks": [
+    {
+      "name": "lines",
+      "interactive": false,
+      "type": "line",
+      "encode": {
+        "enter": {
+          "y": {
+            "field": "locdensity",
+            "scale": "locdensity"
+          },
+          "x": {
+            "field": "year",
+            "scale": "year"
+          }
+        }
+      },
+      "from": {
+        "data": "widget_datapoints"
+      }
+    },
+    {
+      "name": "points",
+      "type": "symbol",
+      "interactive": false,
+      "encode": {
+        "update": {
+          "opacity": {
+            "value": 1
+          }
+        },
+        "enter": {
+          "y": {
+            "field": "locdensity",
+            "scale": "locdensity"
+          },
+          "x": {
+            "field": "year",
+            "scale": "year"
+          }
+        }
+      },
+      "from": {
+        "data": "dots"
+      }
+    },
+    {
+      "name": "cell",
+      "type": "path",
+      "encode": {
+        "update": {
+          "opacity": {
+            "value": 0
+          },
+          "path": {
+            "field": "path"
+          },
+          "fill": {
+            "value": "red"
+          }
+        },
+        "hover": {
+          "tooltip": {
+            "signal": "{'Population Density (people/km²)': format(hover.datum['locdensity'], '.3s'), 'Year': hover.datum.year}"
+          }
+        }
+      },
+      "transform": [
+        {
+          "size": [
+            {
+              "signal": "width"
+            },
+            {
+              "signal": "height"
+            }
+          ],
+          "y": "datum.y",
+          "x": "datum.x",
+          "type": "voronoi"
+        }
+      ],
+      "from": {
+        "data": "lines"
+      }
+    }
+  ]
+}

@@ -7,8 +7,18 @@ class RootTest < ApplicationSystemTestCase
   end
 
   def test_root_redirect
-    visit '/'
-    assert current_path == '/map'
+    attempts = 0
+
+    begin
+      visit '/'
+      assert current_path == '/map'
+    rescue Net::ReadTimeout => e
+      raise e if (attempts += 1) > 3
+
+      puts "Timeout (#{e}), retrying in 1 second..."
+      sleep(1)
+      retry
+    end
   end
 
   def test_landing_page
