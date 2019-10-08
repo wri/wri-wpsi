@@ -40,7 +40,10 @@ const Footer = ({classes}) => {
       <div className={classes.rightContent}>
         <Ornamentation />
         <p className={classes.credit}>
-          This site is maintained by <a href='https://www.wri.org/' className={classes.link}>World Resources Institute</a>.
+          This site is maintained by <a href='https://www.un-ihe.org/water-peace-and-security-partnership' className={classes.link}>
+            the Water, Peace and Security partnership
+          </a>
+          .
         </p>
       </div>
     </footer>
