@@ -56,14 +56,12 @@ def copy_csv_to_table(csv, table)
   ActiveRecord::Base.connection.execute(sql)
 end
 
-def template
-  {
-    spec: File.read('./test/fixtures/files/sample_widget_spec.json'),
-    table_id: 'urbrate',
-    x_axis_label: 'Year',
-    y_axis_label: 'Population Density (people/km²)',
-  }
-end
+TEMPLATE = {
+  spec: File.read('./test/fixtures/files/sample_widget_spec.json').freeze,
+  table_id: 'locdensity'.freeze,
+  x_axis_label: 'Year'.freeze,
+  y_axis_label: 'Population Density (people/km²)'.freeze,
+}.freeze
 
 def load_widget_specs
   require 'csv'
@@ -82,14 +80,15 @@ def load_widget_specs
 end
 
 def load_widget_spec(row)
+  spec = TEMPLATE[:spec].dup
   layer = Layer.find_by(layer_id: row['layer_id'])
 
   if layer.nil?
     puts "ERROR: Layer #{row['layer_id']} not found!"
   else
     merge_row_defaults!(row)
-    update_spec_with_row_values!(template[:spec], row)
-    layer.widget_spec = template[:spec]
+    update_spec_with_row_values!(spec, row)
+    layer.widget_spec = spec
   end
 
   layer
@@ -97,18 +96,18 @@ end
 
 def merge_row_defaults!(row)
   row['escaped_table_id'] = row['table_id'].gsub('.', '\\\\\\\\\\\\.')
-  row['x_axis_label'] ||= template[:x_axis_label]
+  row['x_axis_label'] ||= TEMPLATE[:x_axis_label]
   row['y_axis_label'] ||= row['name']
 end
 
 def update_spec_with_row_values!(spec, row)
   escape_field_names!(spec, row)
-  spec.gsub!(template[:table_id], row['table_id'])
-  spec.gsub!(template[:x_axis_label], row['x_axis_label'])
-  spec.gsub!(template[:y_axis_label], row['y_axis_label'])
+  spec.gsub!(TEMPLATE[:table_id], row['table_id'])
+  spec.gsub!(TEMPLATE[:x_axis_label], row['x_axis_label'])
+  spec.gsub!(TEMPLATE[:y_axis_label], row['y_axis_label'])
 end
 
 def escape_field_names!(spec, row)
-  spec.gsub!(%("field": "#{template[:table_id]}"), %("field": "#{row['escaped_table_id']}"))
-  spec.gsub!(%(hover.datum['#{template[:table_id]}']), %(hover.datum['#{row['escaped_table_id']}']))
+  spec.gsub!(%("field": "#{TEMPLATE[:table_id]}"), %("field": "#{row['escaped_table_id']}"))
+  spec.gsub!(%(hover.datum['#{TEMPLATE[:table_id]}']), %(hover.datum['#{row['escaped_table_id']}']))
 end
