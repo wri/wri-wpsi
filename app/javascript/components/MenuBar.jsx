@@ -1,8 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import withPages from 'components/withPages'
 import styleVariables from './styles/variables'
 
-const MenuBar = () => {
+const MenuBar = ({ pages }) => {
   const containerStyle = {
     fontSize: 21,
     width: '100%',
@@ -28,6 +29,19 @@ const MenuBar = () => {
     fontWeight: '600',
   }
 
+  const staticContentPageLinks = pages.map(
+    page => (
+      <NavLink
+        to={`/${page.slug}`}
+        key={page.slug}
+        style={inactiveLinkStyle}
+        activeStyle={activeLinkStyle}
+      >
+        {page.name}
+      </NavLink>
+    )
+  )
+
   return <div style={containerStyle}>
     <NavLink
       to='/map'
@@ -38,21 +52,7 @@ const MenuBar = () => {
       Map
     </NavLink>
 
-    <NavLink
-      to='/methodology'
-      style={inactiveLinkStyle}
-      activeStyle={activeLinkStyle}
-    >
-      Methodology
-    </NavLink>
-
-    <NavLink
-      to='/about'
-      style={inactiveLinkStyle}
-      activeStyle={activeLinkStyle}
-    >
-      About Us
-    </NavLink>
+    {staticContentPageLinks}
 
     <a
       href='/admin'
@@ -63,4 +63,9 @@ const MenuBar = () => {
   </div>
 }
 
-export default MenuBar
+import PropTypes from 'prop-types'
+MenuBar.propTypes = {
+  pages: PropTypes.array.isRequired,
+}
+
+export default withPages(MenuBar)
