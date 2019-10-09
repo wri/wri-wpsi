@@ -1,7 +1,7 @@
 name,layer_id,table_id,widget_type,x_axis_label,y_axis_label
-"Child Malnutrition (Prevalence of Stunting based on height for age, % of children under 5)",,SH.STA.STNT.ZS,Time series,Year,Prevalence of Stunting (%)
-Urbanization Rate,,urbrate,Time series,Year,Urban Population Change per year (%)
-Urbanization Rate,,age_0-14,Text:Number,,Percent of Population that is Male (%)
+"Child Malnutrition (Prevalence of Stunting based on height for age, % of children under 5)",,SH.STA.STNT.ZS,Time series,,Prevalence of Stunting (%)
+Urbanization Rate,,urbrate,Time series,,Urban Population Change per Year (%)
+Demographic Distribution,,age_0-14,Text:Number,,Percent of Population that is Male (%)
 ,,,,,
 ,,,,,
 ,,,,,
@@ -11,24 +11,24 @@ Sex Ratio by Age Group (Male),,,,,
 ,,,,,
 National Population,,,,,
 Local Population,,,,,
-"Local Population Density (Grid, 1 km)",969fe99d-b861-46a1-8c8e-7c44cbafd1d6,locdensity,Time series,Year,
+"Local Population Density (Grid, 1 km)",969fe99d-b861-46a1-8c8e-7c44cbafd1d6,locdensity,Time series,,Population Density (people/km^2)
 Urban/Rural Population,,,,,
 Rural Population Ratio,,,,,
 Rural Population,,,,,
-Ethnic fractionalization,,al_ethnic,Time series,Year,Fractionalization
-Religious fractionalization,,al_religion,Time series,Year,Fractionalization
-Gross Domestic Product per Capita,,NY.GDP.PCAP.PP.KD,Time series,Year,GDP per Capita (Current international USD $)
-National Infant Mortality,3a5a0c20-54da-4ba3-bfae-0dbed4ab9b50,SP.DYN.IMRT.IN,Time series,Year,
-"Inflation, Consumer Prices (Annual %)",,FP.CPI.TOTL.ZG,Time series,Year,
-"Unemployment, total (% of total labor force)",,SL.UEM.TOTL.ZS,Time series,Year,
-% of GDP from Extractives,,-,Time series,Year,
+Ethnic fractionalization,,al_ethnic,Time series,,Fractionalization
+Religious fractionalization,,al_religion,Time series,,Fractionalization
+Gross Domestic Product per Capita,fd4090dc-1e8a-4fa9-a9d9-2631f078b847,NY.GDP.PCAP.PP.KD,Time series,,GDP per Capita (Current international USD $)
+National Infant Mortality,3a5a0c20-54da-4ba3-bfae-0dbed4ab9b50,SP.DYN.IMRT.IN,Time series,,"Infant Mortality Rate (per 1,000 deaths)"
+"Inflation, Consumer Prices (Annual %)",e13960af-62dc-4de3-8dd0-8670a32a9ad7,FP.CPI.TOTL.ZG,Time series,,Inflation (% annual change)
+"Unemployment, total (% of total labor force)",18e0ffbd-c16b-420d-a4cf-264c1a806932,SL.UEM.TOTL.ZS,Time series,,Unemployment (% of total labor force)
+% of GDP from Extractives,,-,Time series,,
 Poverty Headcount,,,,,
-Poverty Headcount Ratio at $3.20 a day,,SI.POV.LMIC,Time series,Year,
+Poverty Headcount Ratio at $3.20 a day,419b45c5-4c2b-4398-948a-2ee4038f6e98,SI.POV.LMIC,Time series,,"Population living in Poverty, under $3.20/day (%)"
 ,,,,,
-Gini Index (Income Inequality),,-,Time series,Year,
-Gender Inequality Index,,-,Time series,Year,
-Employment in Agriculture (% of Total Employment),7a08dee3-6301-45d2-9ced-c2918f6f3c6b,SL.AGR.EMPL.ZS,Time series,Year,
-Agriculture Value added to GDP (% of Total GDP),,NV.AGR.TOTL.ZS,Time series,Year,
+Gini Index (Income Inequality),,-,Time series,,
+Gender Inequality Index,9d3ef845-93a1-47a0-b26a-c124b8a6ff2b,-,Time series,,Gender Inequality Index
+Employment in Agriculture (% of Total Employment),7a08dee3-6301-45d2-9ced-c2918f6f3c6b,SL.AGR.EMPL.ZS,Time series,,Employment in Agriculture (% of Total Employment)
+Agriculture Value added to GDP (% of Total GDP),e2eed7df-495d-4d87-bb31-373a7dc87861/,NV.AGR.TOTL.ZS,Time series,,
 Value of Crop Production,,value_a_2010,Number,,
 Value of Irrigated Crop Production,,,,,
 Value of Rainfed Crop Production,,,,,
@@ -38,21 +38,21 @@ Food Price Spikes,1ee0784f-654f-4caf-a059-f03dc46724b6,-,No widget,No widget,No 
 Food Price Spikes,253437ed-1e21-4544-8bb3-1ec2d2656522,-,No widget,No widget,No widget
 Food Price Spikes,43804fe4-8c9a-42fc-8c85-2a494727cf3d,-,No widget,No widget,No widget
 Import Dependency Ratio,,-,No widget,No widget,No widget
-Income Spent on Food (as % of Total Income),d11f2dc5-7d71-4e95-ad50-0f86d3466943,,,,
+Income Spent on Food (as % of Total Income),d11f2dc5-7d71-4e95-ad50-0f86d3466943,-,No widget,No widget,
 % of Crops that are Rainfed,,rainfed,Time series,,
-Irrigated vs. Rainfed Crops,,-,Circle chart,,
+Irrigated vs. Rainfed Crops,,-,No widget,No widget,
 Barley Yield Gap (t/ha gap),d0147b4b-89d7-49e3-945a-a5fb1fe26345,-,No widget,No widget,No widget
 Maize Yield Gap (t/ha gap),59ff5765-5c11-4b9a-9b34-1e6551a29236,-,No widget,No widget,No widget
 Rice Yield Gap (t/ha gap),d24a0b3b-b501-4189-aa1a-4912d0c94ec7,-,No widget,No widget,No widget
 Soybean Yield Gap (t/ha gap),e5744d8e-e8af-4e72-a8f6-35adacf70976,-,No widget,No widget,No widget
 Cropland Area,47dc9961-05d6-48f1-93c5-aa633e4a1efa,-,No widget,No widget,No widget
 Pasture Area,1198417e-8cfb-4a40-96f7-9ec016384c86,-,No widget,No widget,No widget
-Access to Drinking Water,,wateraccess,Time series,,Population with access to clean drinking water (%)
-Access to Sanitation,,sanitationaccess,Time series,,Population with access to sanitation (%)
-Access to Electricity,,-,Time series,,Population with access to electricty (%)
+Access to Drinking Water,3b38bbec-925d-49a0-8a13-95af8a9d7973,wateraccess,Time series,-,Population with access to clean drinking water (%)
+Access to Sanitation,e01c4ff1-94a8-466c-a494-85dfc6a54b36,sanitationaccess,Time series,-,Population with access to sanitation (%)
+Access to Electricity,8a744a7a-4830-4fd9-82eb-d8b194d91cb7,-,Time series,-,Population with access to electricty (%)
 Amount of Foreign Aid Received,,,,,
 Money Spent on Disaster Preparedness,,,,,
-Corruption Index,,bci_bci,Time series,,
+Corruption Index,45efa8af-7de1-4c7b-a597-33fd17d0ef93,bci_bci,Time series,,
 Political corruption index,,,,,
 Executive corruption index,,,,,
 Type of Government,,reign,Text,,
