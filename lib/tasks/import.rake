@@ -11,7 +11,7 @@ namespace :import do
       exit
     end
 
-    import_widget_datapoints(path)
+    import_widget_datapoints(path, url_prefix)
 
     puts "Done in #{Time.current - start_time} seconds."
   end
@@ -24,7 +24,7 @@ namespace :import do
   end
 end
 
-def import_widget_datapoints(path)
+def import_widget_datapoints(path, url_prefix)
   if path.starts_with?(url_prefix)
     puts 'Importing from URL using curl...'
     curl = curl_for_url(path)
@@ -52,6 +52,7 @@ def curl_for_url(url)
 end
 
 def copy_csv_to_table(csv, table)
+  ActiveRecord::Base.connection.execute('DELETE FROM widget_datapoints')
   sql = "COPY #{table} FROM #{csv} DELIMITERS ',' CSV HEADER;"
   ActiveRecord::Base.connection.execute(sql)
 end
