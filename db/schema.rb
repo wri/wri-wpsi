@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_25_205227) do
+ActiveRecord::Schema.define(version: 2019_10_09_205633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 2019_09_25_205227) do
     t.text "widget_spec"
     t.boolean "mask", default: false, null: false
     t.index ["layer_id"], name: "index_layers_on_layer_id", unique: true
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_pages_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|

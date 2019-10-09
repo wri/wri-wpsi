@@ -1,0 +1,16 @@
+.mb-4 = form_for [:admin, @page] do |f|
+  = render 'admin/shared/error_messages', resource: @page
+
+  div.form-group
+    .field
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+  div.form-group
+    .field
+      = f.label :content
+      = f.text_area :content, class: 'form-control'
+  div.form-group
+    .field
+      = f.label :slug
+      = f.text_field :slug, class: 'form-control'
+  .actions = f.submit class: 'btn btn-primary'

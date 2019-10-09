@@ -10,6 +10,8 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.mb-4
         = link_to 'Layers', admin_layers_path, class: 'nav-link'
       li.nav-item class=('active' if controller.controller_name == 'categories')
         = link_to 'Categories', admin_categories_path, class: 'nav-link'
+      li.nav-item class=('active' if controller.controller_name == 'pages')
+        = link_to 'Pages', admin_pages_path, class: 'nav-link'
       li.nav-item class=('active' if controller.controller_name == 'users')
         = link_to 'Admins', admin_users_path, class: 'nav-link'
     ul.navbar-nav
