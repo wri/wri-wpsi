@@ -23,7 +23,7 @@ default:
     - nonbreaking
     # - noneditable
     # - pagebreak
-    - paste
+    # - paste
     - preview
     # - print
     - quickbars
