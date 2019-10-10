@@ -5,4 +5,4 @@ default:
     - lists
   toolbar:
     - undo redo | styleselect | bold italic | numlist bullist | link | image
-
+  relative_urls: false
