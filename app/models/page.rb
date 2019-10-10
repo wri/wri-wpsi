@@ -5,8 +5,12 @@ class Page < ApplicationRecord
     name
   end
 
+  def self.ordered
+    order(:sort_priority, :id)
+  end
+
   def self.serialized_for_react_app
-    all.map do |page|
+    ordered.map do |page|
       {
         name: page.name,
         slug: page.slug,

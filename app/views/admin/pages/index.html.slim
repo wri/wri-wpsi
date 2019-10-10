@@ -5,6 +5,7 @@ table.table
     tr
       th Name
       th Slug
+      th Sort priority
       th Last updated
       th
       th
@@ -14,6 +15,7 @@ table.table
       tr
         td = link_to page.name, [:admin, page]
         td = page.slug
+        td = page.sort_priority
         td = l(page.updated_at, format: :long)
         td = link_to 'Edit', edit_admin_page_path(page)
         td = link_to 'Delete', [:admin, page], data: { confirm: 'Are you sure?' }, method: :delete

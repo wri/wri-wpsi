@@ -6,8 +6,11 @@ div.mt-3
     strong> Slug:
     = @page.slug
   p
+    strong> Sort priority:
+    = @page.sort_priority
+  p
     strong> Content:
-    div.pl-4
+    div.p-4.border
       = raw @page.content
 
 => link_to 'Edit', edit_admin_page_path(@page)
