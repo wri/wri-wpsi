@@ -31,7 +31,7 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
   </a>
   <a
     aria-current={null}
-    href="/methodology"
+    href="/info/methodology"
     onClick={[Function]}
     style={
       Object {
@@ -50,7 +50,7 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
   </a>
   <a
     aria-current={null}
-    href="/about"
+    href="/info/about"
     onClick={[Function]}
     style={
       Object {

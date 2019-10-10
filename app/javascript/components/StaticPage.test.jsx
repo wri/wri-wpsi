@@ -4,7 +4,9 @@ import toJson from 'enzyme-to-json'
 import StaticPage from 'components/StaticPage'
 
 const page = {
-  content: 'Test content'
+  name: 'Test name',
+  slug: 'Test slug',
+  content: 'Test content',
 }
 const component = shallow(<StaticPage page={page} />)
 

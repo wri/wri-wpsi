@@ -26,7 +26,7 @@ const App = ({ layers, pages }) => {
     page => (
       <Route
         key={page.slug}
-        path={`/${page.slug}`}
+        path={`/info/${page.slug}`}
         render={() => <StaticPage page={page} />}
       />
     )

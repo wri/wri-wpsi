@@ -7,7 +7,8 @@ div.mt-3
     = @page.slug
   p
     strong> Content:
-    = @page.content
+    div.pl-4
+      = raw @page.content
 
 => link_to 'Edit', edit_admin_page_path(@page)
 '|

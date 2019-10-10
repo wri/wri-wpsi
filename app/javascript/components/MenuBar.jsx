@@ -32,7 +32,7 @@ const MenuBar = ({ pages }) => {
   const staticContentPageLinks = pages.map(
     page => (
       <NavLink
-        to={`/${page.slug}`}
+        to={`/info/${page.slug}`}
         key={page.slug}
         style={inactiveLinkStyle}
         activeStyle={activeLinkStyle}

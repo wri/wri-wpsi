@@ -10,7 +10,9 @@ const StaticPage = ({ page }) => {
 import PropTypes from 'prop-types'
 StaticPage.propTypes = {
   page: PropTypes.exact({
-    content: PropTypes.object.isRequired,
+    name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
   }).isRequired,
 }
 
