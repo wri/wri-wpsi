@@ -10,7 +10,8 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
   }
 >
   <a
-    aria-current={null}
+    aria-current="page"
+    className="active"
     href="/map"
     onClick={[Function]}
     style={
@@ -18,9 +19,9 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
         ":hover": Object {
           "color": "#F0AB00",
         },
-        "color": "white",
+        "color": "#F0AB00",
         "display": "inline-block",
-        "fontWeight": "normal",
+        "fontWeight": "600",
         "padding": 25,
         "textDecoration": "none",
       }
@@ -30,7 +31,7 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
   </a>
   <a
     aria-current={null}
-    href="/methodology"
+    href="/info/methodology"
     onClick={[Function]}
     style={
       Object {
@@ -49,7 +50,7 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
   </a>
   <a
     aria-current={null}
-    href="/about"
+    href="/info/about"
     onClick={[Function]}
     style={
       Object {

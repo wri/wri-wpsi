@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :categories, only: [:index]
       resources :layers, only: [:index]
+      resources :pages, only: [:index]
 
       get 'widget_datapoints/:gid_2/:field_name',
         to: 'widget_datapoints#index',
@@ -18,9 +19,8 @@ Rails.application.routes.draw do
 
   # Single page app endpoint
   get '/map', to: 'root#map'
-  get '/about', to: 'root#map'
-  get '/methodology', to: 'root#map'
   get '/map/*ignored', to: 'root#map'
+  get '/info/*ignored', to: 'root#map'
 
   # Admin routes
   get '/admin', to: redirect('/admin/layers')
@@ -35,9 +35,10 @@ Rails.application.routes.draw do
   )
 
   namespace :admin do
-    resources :users, only: [:index, :new, :create, :destroy]
-    resources :layers
     resources :categories
+    resources :layers
+    resources :pages
+    resources :users, only: [:index, :new, :create, :destroy]
   end
 
   # Default AWS ELB health check path

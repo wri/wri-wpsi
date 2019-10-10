@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<main
+  style={
+    Object {
+      "flex": "1 1 auto",
+      "margin": "20px auto",
+      "maxWidth": "800px",
+      "padding": "20px",
+    }
+  }
+>
+  <content
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Test content",
+      }
+    }
+  />
+</main>
+`;

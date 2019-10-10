@@ -1,11 +1,11 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import withLayers from 'components/withLayers'
+import withPages from 'components/withPages'
 import TopBanner from 'components/TopBanner'
 import Footer from 'components/Footer'
 import MapPage from 'components/MapPage'
-import AboutPage from 'components/AboutPage'
-import MethodologyPage from 'components/MethodologyPage'
+import StaticPage from 'components/StaticPage'
 import LayersList from 'components/LayersList'
 import LayerMapPage from 'components/LayerMapPage'
 import LayerInfoPage from 'components/LayerInfoPage'
@@ -13,7 +13,7 @@ import { Icons } from 'vizzuality-components'
 import { ThemeProvider } from 'react-jss'
 import styleVariables from './styles/variables'
 
-const App = ({ layers }) => {
+const App = ({ layers, pages }) => {
   const globalStyles = {
     font: `14px/16px ${styleVariables().fonts.body}`,
     color: '#4D4D4D',
@@ -21,6 +21,16 @@ const App = ({ layers }) => {
     display: 'flex',
     flexDirection: 'column',
   }
+
+  const staticPages = pages.map(
+    page => (
+      <Route
+        key={page.slug}
+        path={`/info/${page.slug}`}
+        render={() => <StaticPage page={page} />}
+      />
+    )
+  )
 
   return (
     <ThemeProvider theme={globalStyles}>
@@ -39,8 +49,7 @@ const App = ({ layers }) => {
           />
 
           {/* Static pages */}
-          <Route path="/about" component={AboutPage} />
-          <Route path="/methodology" component={MethodologyPage} />
+          {staticPages}
 
           {/* Debugging pages, remove before going live! */}
           <Route path="/layers" exact component={LayersList} />
@@ -59,6 +68,7 @@ const App = ({ layers }) => {
 import PropTypes from 'prop-types'
 App.propTypes = {
   layers: PropTypes.array.isRequired,
+  pages: PropTypes.array.isRequired,
 }
 
-export default withLayers(App)
+export default withLayers(withPages(App))

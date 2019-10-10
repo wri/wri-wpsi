@@ -1,0 +1,23 @@
+h2.mb-4 Listing pages
+
+table.table
+  thead
+    tr
+      th Name
+      th Slug
+      th Last updated
+      th
+      th
+
+  tbody
+    - @pages.each do |page|
+      tr
+        td = link_to page.name, [:admin, page]
+        td = page.slug
+        td = l(page.updated_at, format: :long)
+        td = link_to 'Edit', edit_admin_page_path(page)
+        td = link_to 'Delete', [:admin, page], data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Page', new_admin_page_path, class: 'btn btn-primary mb-4'
