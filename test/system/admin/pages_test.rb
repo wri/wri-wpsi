@@ -16,7 +16,7 @@ class PagesTest < ApplicationSystemTestCase
 
   test 'creating a Page' do
     visit admin_pages_url
-    click_on 'New Page'
+    click_on 'new page'
 
     tinymce_fill_in 'page_content', with: @new_page.content
     fill_in 'Name', with: @new_page.name
