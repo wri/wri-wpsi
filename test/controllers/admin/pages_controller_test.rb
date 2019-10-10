@@ -19,7 +19,7 @@ class Admin::PagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create page' do
-    assert_difference('Page.count') do
+    assert_difference('Page.count', 1) do
       post admin_pages_url, params: {
         page: {
           content: @page.content,
@@ -30,6 +30,20 @@ class Admin::PagesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to admin_page_url(Page.last)
+  end
+
+  test 'should not create invalid page' do
+    assert_no_difference('Page.count') do
+      post admin_pages_url, params: {
+        page: {
+          content: @page.content,
+          name: @page.name,
+          slug: @page.slug,
+        },
+      }
+    end
+
+    assert_response :success
   end
 
   test 'should show page' do
@@ -51,6 +65,15 @@ class Admin::PagesControllerTest < ActionDispatch::IntegrationTest
       },
     }
     assert_redirected_to admin_page_url(@page)
+  end
+
+  test 'should not update page to be invalid' do
+    patch admin_page_url(@page), params: {
+      page: {
+        name: nil,
+      },
+    }
+    assert_response :success
   end
 
   test 'should destroy page' do

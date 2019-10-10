@@ -19,7 +19,7 @@ class Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create category' do
-    assert_difference('Category.count') do
+    assert_difference('Category.count', 1) do
       post admin_categories_url, params: {
         category: {
           description: @category.description,
@@ -30,6 +30,20 @@ class Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to admin_category_url(Category.last)
+  end
+
+  test 'should not create invalid category' do
+    assert_no_difference('Category.count') do
+      post admin_categories_url, params: {
+        category: {
+          description: @category.description,
+          slug: @category.slug,
+          title: @category.title,
+        },
+      }
+    end
+
+    assert_response :success
   end
 
   test 'should show category' do
@@ -51,6 +65,17 @@ class Admin::CategoriesControllerTest < ActionDispatch::IntegrationTest
       },
     }
     assert_redirected_to admin_category_url(@category)
+  end
+
+  test 'should not update category to be invalid' do
+    patch admin_category_url(@category), params: {
+      category: {
+        description: @category.description,
+        slug: categories(:water).slug,
+        title: @category.title,
+      },
+    }
+    assert_response :success
   end
 
   test 'should destroy category' do

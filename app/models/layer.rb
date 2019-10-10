@@ -3,6 +3,7 @@ class Layer < ApplicationRecord
   has_many :categories, through: :category_layers
 
   validates :layer_id, :dataset_id, :name, presence: true, if: :published?
+  validates :layer_id, uniqueness: true, if: :published?
   validates :source_url, url: { allow_blank: true }
   validate :parsability_of_widget_spec
 

@@ -1,9 +1,6 @@
 class Page < ApplicationRecord
-  validates :name, :slug, presence: true
-
-  def to_s
-    name
-  end
+  validates :name, presence: true
+  validates :slug, presence: true, uniqueness: true
 
   def self.ordered
     order(:sort_priority, :id)
