@@ -1,12 +1,13 @@
 class Page < ApplicationRecord
-  validates :name, :slug, presence: true
+  validates :name, presence: true
+  validates :slug, presence: true, uniqueness: true
 
-  def to_s
-    name
+  def self.ordered
+    order(:sort_priority, :id)
   end
 
   def self.serialized_for_react_app
-    all.map do |page|
+    ordered.map do |page|
       {
         name: page.name,
         slug: page.slug,

@@ -15,7 +15,7 @@ class LayersTest < ApplicationSystemTestCase
 
   test 'creating a Layer' do
     visit admin_layers_url
-    click_on 'New Layer'
+    click_on 'new layer', match: :first
 
     fill_in 'Name', with: @layer.name
     fill_in 'Short description', with: @layer.short_description

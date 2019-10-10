@@ -2,7 +2,7 @@ class Admin::PagesController < Admin::BaseController
   before_action :set_page, only: %i[show edit update destroy]
 
   def index
-    @pages = Page.all
+    @pages = Page.ordered
   end
 
   def show; end
@@ -43,6 +43,6 @@ class Admin::PagesController < Admin::BaseController
   end
 
   def page_params
-    params.require(:page).permit(:name, :content, :slug)
+    params.require(:page).permit(:name, :slug, :content, :sort_priority)
   end
 end

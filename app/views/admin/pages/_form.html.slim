@@ -13,6 +13,10 @@
       = f.text_field :slug, class: 'form-control'
   div.form-group
     .field
+      = f.label :sort_priority
+      = f.text_field :sort_priority, class: 'form-control'
+  div.form-group
+    .field
       = f.label :content
       = f.text_area :content, class: 'tinymce', rows: 25
       = tinymce

@@ -42,6 +42,30 @@ class Admin::LayersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_layer_url(Layer.last)
   end
 
+  test 'should not create invalid layer' do
+    assert_no_difference('Layer.count') do
+      post admin_layers_url, params: {
+        layer: {
+          name: @layer.name,
+          short_description: @layer.short_description,
+          long_description: @layer.long_description,
+          layer_id: @layer.layer_id,
+          dataset_id: @layer.dataset_id,
+          category_ids: @layer.categories.map(&:id),
+          source_name: @layer.source_name,
+          source_url: @layer.source_url,
+          source_description: @layer.source_description,
+          widget_spec: @layer.widget_spec,
+          mask: @layer.mask,
+          published: @layer.published,
+          primary: @layer.primary,
+        },
+      }
+    end
+
+    assert_response :success
+  end
+
   test 'should show layer' do
     get admin_layer_url(@layer)
     assert_response :success
@@ -71,6 +95,15 @@ class Admin::LayersControllerTest < ActionDispatch::IntegrationTest
       },
     }
     assert_redirected_to admin_layer_url(@layer)
+  end
+
+  test 'should not update layer to be invalid' do
+    patch admin_layer_url(@layer), params: {
+      layer: {
+        name: nil,
+      },
+    }
+    assert_response :success
   end
 
   test 'should destroy layer' do

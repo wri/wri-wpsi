@@ -15,7 +15,7 @@ class CategoriesTest < ApplicationSystemTestCase
 
   test 'creating a Category' do
     visit admin_categories_url
-    click_on 'New Category'
+    click_on 'new category'
 
     fill_in 'Title', with: @category.title
     fill_in 'Description', with: @category.description

@@ -2,7 +2,8 @@ class Category < ApplicationRecord
   has_many :category_layers, dependent: :delete_all
   has_many :layers, through: :category_layers
 
-  validates :title, :slug, presence: true
+  validates :title, presence: true
+  validates :slug, presence: true, uniqueness: true
 
   def to_s
     title

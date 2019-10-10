@@ -1,7 +1,12 @@
+- new_layer_button = link_to 'Add a new layer', new_admin_layer_path, class: 'btn btn-primary mb-4'
+
+.float-right
+  = new_layer_button
+
 h2.mb-4 Listing layers
 
 = render 'table', layers: @layers
 
 br
 
-= link_to 'New Layer', new_admin_layer_path, class: 'btn btn-primary mb-4'
+= new_layer_button
