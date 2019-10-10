@@ -18,7 +18,7 @@ class PagesTest < ApplicationSystemTestCase
     visit admin_pages_url
     click_on 'New Page'
 
-    fill_in 'Content', with: @new_page.content
+    tinymce_fill_in 'page_content', with: @new_page.content
     fill_in 'Name', with: @new_page.name
     fill_in 'Slug', with: @new_page.slug
     click_on 'Create Page'
@@ -31,7 +31,7 @@ class PagesTest < ApplicationSystemTestCase
     visit admin_pages_url
     click_on 'Edit', match: :first
 
-    fill_in 'Content', with: @new_page.content
+    tinymce_fill_in 'page_content', with: @new_page.content
     fill_in 'Name', with: @new_page.name
     fill_in 'Slug', with: @new_page.slug
     click_on 'Update Page'
