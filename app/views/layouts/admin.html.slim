@@ -12,6 +12,10 @@ html
   body
     div.container
       = render 'admin/shared/navbar'
-      .px-4
+      .px-sm-4
         = render 'admin/shared/alerts'
-        = yield
+        - if user_signed_in?
+          = yield
+        - else
+          .div style="max-width: 275px; margin: auto;"
+            = yield
