@@ -23,13 +23,14 @@ Rails.application.routes.draw do
   get '/info/*ignored', to: 'root#map'
 
   # Admin routes
-  get '/admin', to: redirect('/admin/layers')
+  get '/admin', to: redirect('/admin/layers'), as: 'admin'
 
   devise_for(
     :users,
     controllers: {
       sessions: 'admin/sessions',
       registrations: 'admin/registrations',
+      passwords: 'admin/passwords',
     },
     path: '/admin',
   )

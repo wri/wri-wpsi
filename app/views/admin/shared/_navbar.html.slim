@@ -4,25 +4,22 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.mb-4
   button.navbar-toggler type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
     span.navbar-toggler-icon
 
-  div.collapse.navbar-collapse id="navbarSupportedContent"
-    ul.navbar-nav.mr-auto
-      li.nav-item class=('active' if controller.controller_name == 'layers')
-        = link_to 'Layers', admin_layers_path, class: 'nav-link'
-      li.nav-item class=('active' if controller.controller_name == 'categories')
-        = link_to 'Categories', admin_categories_path, class: 'nav-link'
-      li.nav-item class=('active' if controller.controller_name == 'pages')
-        = link_to 'Pages', admin_pages_path, class: 'nav-link'
-      li.nav-item class=('active' if controller.controller_name == 'users')
-        = link_to 'Admins', admin_users_path, class: 'nav-link'
+  - if user_signed_in?
+    div.collapse.navbar-collapse id="navbarSupportedContent"
+      ul.navbar-nav.mr-auto
+        li.nav-item class=('active' if controller.controller_name == 'layers')
+          = link_to 'Layers', admin_layers_path, class: 'nav-link'
+        li.nav-item class=('active' if controller.controller_name == 'categories')
+          = link_to 'Categories', admin_categories_path, class: 'nav-link'
+        li.nav-item class=('active' if controller.controller_name == 'pages')
+          = link_to 'Pages', admin_pages_path, class: 'nav-link'
+        li.nav-item class=('active' if controller.controller_name == 'users')
+          = link_to 'Admins', admin_users_path, class: 'nav-link'
     ul.navbar-nav
-      - if user_signed_in?
-        span.navbar-text.ml-4 Logged in as
-        li.nav-item.dropdown
-          a.nav-link.dropdown-toggle href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-            strong = current_user.email
-          div.dropdown-menu aria-labelledby="navbarDropdown"
-            = link_to 'Edit profile', edit_user_registration_path, class: 'dropdown-item'
-            = link_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item'
-      - else
-        li.nav-item
-          = link_to "Log in", new_user_session_path, class: 'nav-link'
+      span.navbar-text.ml-4 Logged in as
+      li.nav-item.dropdown
+        a.nav-link.dropdown-toggle href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+          strong = current_user.email
+        div.dropdown-menu aria-labelledby="navbarDropdown"
+          = link_to 'Edit profile', edit_user_registration_path, class: 'dropdown-item'
+          = link_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item'

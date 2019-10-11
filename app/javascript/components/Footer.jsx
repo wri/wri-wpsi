@@ -13,6 +13,10 @@ const styles = {
     flex: '0 1 auto',
     overflow: 'hidden',
   },
+  leftContent: {
+    marginRight: 'auto',
+    display: 'flex',
+  },
   rightContent: {
     marginLeft: 'auto',
     display: 'flex',
@@ -36,7 +40,13 @@ const styles = {
 }
 
 const Footer = ({classes}) => {
-  return <footer id='footer' className={classes.wrapper}>
+  return (
+    <footer id='footer' className={classes.wrapper}>
+      <div className={classes.leftContent}>
+        <p className={classes.credit}>
+          <a href='/admin/sign_in' className={classes.link}>Admin sign in</a>
+        </p>
+      </div>
       <div className={classes.rightContent}>
         <Ornamentation />
         <p className={classes.credit}>
@@ -47,6 +57,7 @@ const Footer = ({classes}) => {
         </p>
       </div>
     </footer>
+  )
 }
 
 import PropTypes from 'prop-types'

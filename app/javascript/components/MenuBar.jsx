@@ -9,10 +9,6 @@ const MenuBar = ({ pages }) => {
     width: '100%',
   }
 
-  const adminPortalLinkStyle = {
-    float: 'right',
-  }
-
   const inactiveLinkStyle = {
     color: 'white',
     textDecoration: 'none',
@@ -53,13 +49,6 @@ const MenuBar = ({ pages }) => {
     </NavLink>
 
     {staticContentPageLinks}
-
-    <a
-      href='/admin'
-      style={{...inactiveLinkStyle, ...adminPortalLinkStyle}}
-    >
-      Admin Portal
-    </a>
   </div>
 }
 
