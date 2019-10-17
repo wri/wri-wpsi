@@ -55,10 +55,13 @@ class ResourceWatchMap extends React.Component {
     this.setState({ layerGroups })
   }
 
-  reshapeLayerDefinition = (layer) => {
+  // The layer definitions we receive from the API are not shaped correctly for
+  // ingestion by Vizzuality's LayerManager component. This fixes them.
+  prepareLayerForLayerManager = (layer) => {
     return {
       id: layer.id,
       type: layer.type,
+      active: true,
       ...layer.attributes,
     }
   }
@@ -67,12 +70,15 @@ class ResourceWatchMap extends React.Component {
     const layerUrl = `https://api.resourcewatch.org/v1/layer/${layerId}`
 
     return fetch(layerUrl)
-      .then(response => response.json())
+      .then(response => response.ok ? response.json() : null)
       .then(response => {
-        const layerDefinition = this.reshapeLayerDefinition(response.data)
-        layerDefinition.active = true
-        this.addLayer(layerDefinition)
+        if (response) {
+          this.addLayer(this.prepareLayerForLayerManager(response.data))
+        } else {
+          throw Error(`Layer ${layerId} could not be fetched`)
+        }
       })
+      .catch(console.log)
   }
 
   filterLayerGroups = () => {
