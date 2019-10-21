@@ -1,15 +1,15 @@
 .mb-4 = form_for [:admin, @category] do |f|
   = render 'admin/shared/error_messages', resource: @category
 
-  div.form-group
+  .form-group
     .field
       = f.label :title
       = f.text_field :title, class: 'form-control'
-  div.form-group
+  .form-group
     .field
       = f.label :description
       = f.text_area :description, rows: 4, class: 'form-control'
-  div.form-group
+  .form-group
     .field
       = f.label :slug
       = f.text_field :slug, class: 'form-control'
