@@ -13,6 +13,10 @@ import { Icons } from 'vizzuality-components'
 import { ThemeProvider } from 'react-jss'
 import styleVariables from './styles/variables'
 
+// Fix LayerManager-Firefox compatability issue
+import promiseFinally from 'promise.prototype.finally'
+promiseFinally.shim()
+
 const App = ({ layers, pages }) => {
   const globalStyles = {
     font: `14px/16px ${styleVariables().fonts.body}`,
@@ -31,6 +35,7 @@ const App = ({ layers, pages }) => {
       />
     )
   )
+
 
   return (
     <ThemeProvider theme={globalStyles}>
