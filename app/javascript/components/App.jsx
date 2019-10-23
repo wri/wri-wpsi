@@ -17,6 +17,9 @@ import styleVariables from './styles/variables'
 import promiseFinally from 'promise.prototype.finally'
 promiseFinally.shim()
 
+// Fix fetch-IE compatability issue
+import 'whatwg-fetch'
+
 const App = ({ layers, pages }) => {
   const globalStyles = {
     font: `14px/16px ${styleVariables().fonts.body}`,
