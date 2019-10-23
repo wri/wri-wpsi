@@ -14,8 +14,10 @@ table.table
         td = user.email
         td = user.created_at.to_s(:long)
         td = user.updated_at.to_s(:long)
-        td = link_to 'Delete', [:admin, user], data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Delete', [:admin, user],
+            data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'Add a new admin user', new_admin_user_path, class: 'btn btn-primary mb-4'
+= link_to 'Add a new admin user', new_admin_user_path,
+    class: 'btn btn-primary mb-4'

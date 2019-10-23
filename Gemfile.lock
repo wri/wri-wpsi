@@ -234,6 +234,10 @@ GEM
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (>= 3.0, < 5.0)
+    slim_lint (0.18.0)
+      rubocop (>= 0.50.0)
+      slim (>= 3.0, < 5.0)
+      sysexits (~> 1.1)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -245,6 +249,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sysexits (1.2.0)
     temple (0.8.1)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
@@ -305,6 +310,7 @@ DEPENDENCIES
   simplecov
   simplecov-console
   slim-rails
+  slim_lint
   spring
   spring-watcher-listen (~> 2.0.0)
   tinymce-rails
@@ -314,7 +320,7 @@ DEPENDENCIES
   webpacker
 
 RUBY VERSION
-   ruby 2.6.0p0
+   ruby 2.6.5p114
 
 BUNDLED WITH
    1.17.2

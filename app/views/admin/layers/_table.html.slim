@@ -14,8 +14,10 @@ table.table
         td = link_to layer.name, [:admin, layer]
         td class=(layer.mask? ? 'text-info font-weight-bold' : 'text-muted')
           = layer.mask
-        td class=(layer.published? ? 'text-success font-weight-bold' : 'text-muted')
-          = layer.published
+        - published = layer.published?
+        td class=(published ? 'text-success font-weight-bold' : 'text-muted')
+          = published
         td = layer.categories_string
         td = link_to 'Edit', edit_admin_layer_path(layer)
-        td = link_to 'Delete', [:admin, layer], data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Delete', [:admin, layer],
+            data: { confirm: 'Are you sure?' }, method: :delete

@@ -1,10 +1,11 @@
 .float-right
-  = link_to 'Edit this layer', edit_admin_layer_path(@layer), class: 'btn btn-primary'
+  = link_to 'Edit this layer', edit_admin_layer_path(@layer),
+      class: 'btn btn-primary'
 
 div
   h2 = @layer.name
 
-div.mt-3
+.mt-3
   p
     strong> Short description:
     = @layer.short_description
@@ -14,16 +15,18 @@ div.mt-3
       details
         summary
           | Click to toggle visibility
-        div.p-4.mt-2.border
+        .p-4.mt-2.border
           = raw @layer.long_description
   p
     strong> Layer ID:
     - if @layer.layer_id.present?
-      = link_to @layer.layer_id, "http://api.resourcewatch.org/v1/layer/#{@layer.layer_id}"
+      = link_to @layer.layer_id,
+          "http://api.resourcewatch.org/v1/layer/#{@layer.layer_id}"
   p
     strong> Dataset ID:
     - if @layer.dataset_id.present?
-      = link_to @layer.dataset_id, "http://api.resourcewatch.org/v1/dataset/#{@layer.dataset_id}"
+      = link_to @layer.dataset_id,
+          "http://api.resourcewatch.org/v1/dataset/#{@layer.dataset_id}"
   p
     strong> Categories:
     = @layer.categories_string

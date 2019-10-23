@@ -1,7 +1,7 @@
 div
   h2 = @category.title
 
-div.mt-3
+.mt-3
   p
     strong> Description:
     = @category.description
@@ -13,6 +13,6 @@ div.mt-3
 '|
 =< link_to 'Back', admin_categories_path
 
-div.mt-5
+.mt-5
   h3 Listing layers in this category
   = render 'admin/layers/table', layers: @layers
