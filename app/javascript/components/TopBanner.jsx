@@ -31,7 +31,7 @@ const styles = {
   },
   betaTag: {
     marginLeft: '20px',
-    fontSize: '16px',
+    fontSize: 'small',
     color: styleVars.colors.primary,
   },
 }
@@ -41,7 +41,7 @@ const TopBanner = ({classes}) => {
     <div className={classes.content}>
       <div className={classes.heading}>
         Water, Peace & Security
-        <span className={classes.betaTag}>[Beta]</span>
+        <span className={classes.betaTag}>Beta</span>
       </div>
       <Ornamentation />
       <div className={classes.nav}>
