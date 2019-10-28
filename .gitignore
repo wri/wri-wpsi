@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+.irb-history
 
 # Ignore uploaded files in development
 /storage/*
