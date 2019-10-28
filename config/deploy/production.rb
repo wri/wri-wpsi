@@ -5,6 +5,7 @@
 #   ForwardAgent yes
 server "wri-prod", roles: %w{app db web}
 
+set :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
