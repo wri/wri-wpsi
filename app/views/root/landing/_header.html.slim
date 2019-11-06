@@ -1,0 +1,52 @@
+.container
+  header
+    nav.c-nav.navbar.navbar-expand-lg
+      a.navbar-brand.c-nav__brand href="/"
+        = image_tag "logo.svg", class: 'c-nav__brand-image'
+      button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse.c-nav__wrapper
+        ul.navbar-nav.c-nav__items
+          li.nav-item.c-nav__item.active
+            a.nav-link.c-nav__link href="#" Global Tool
+          li.nav-item.c-nav__item
+            a.nav-link.c-nav__link href="#" Local Tool
+          li.nav-item.c-nav__item
+            a.nav-link.c-nav__link href="#" Learn
+          li.nav-item.c-nav__item
+            a.nav-link.c-nav__link href="#" Dialogue
+          li.nav-item.c-nav__item
+            a.nav-link.c-nav__link href="#" About Us
+          li.nav-item.c-nav__item
+            a.nav-link.c-nav__link href="#" Contact
+        nav.c-nav-utility
+          ul.c-nav-utility__items
+            li.c-nav-utility__item
+              a.c-nav-utility__link href="#linkedin"
+                i.icon-linkedin
+                .sr-only LinkedIn
+            li.c-nav-utility__item
+              a.c-nav-utility__link href="#facebook"
+                i.icon-facebook
+                .sr-only Facebook
+            li.c-nav-utility__item
+              a.c-nav-utility__link href="#twitter"
+                i.icon-twitter
+                .sr-only Twitter
+            li.c-nav-utility__item
+              a.c-nav-utility__link href="#twitter"
+                i.icon-youtube-play
+                .sr-only Youtube
+            li.c-nav-utility__item.ml-4
+              a.c-nav-utility__link href="#user"
+                i.icon-head
+                .sr-only Account
+
+          / li.nav-item.c-nav__item.dropdown
+            a#navbarDropdown.nav-link.c-nav__link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button"
+              | Dropdown
+            .dropdown-menu aria-labelledby="navbarDropdown"
+              a.dropdown-item href="#"  Action
+              a.dropdown-item href="#"  Another action
+              .dropdown-divider
+              a.dropdown-item href="#"  Something else here

@@ -1,0 +1,11 @@
+section
+  .container
+    h3 News and Publications
+    .row.o-card-row
+      - @quotes.each do |item|
+        a.card.c-card class="col-sm-#{12/@quotes.length}" href=item.href
+          / img.card-img-top alt="..." src="..." /
+          .card-body
+            h5.card-title=item.title
+            p.card-text=item.desc
+

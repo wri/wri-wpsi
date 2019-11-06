@@ -1,0 +1,15 @@
+.container
+  hr.c-rule.c-rule--pretty
+section.o-container.o-container--primary
+  .container
+    h2.mb-6.text-center
+      span Act:
+      span=" Tool Dock"
+    .row.o-card-row
+      - @tools.each do |item|
+        a.card.c-card class="col-sm-#{12/@tools.length}" href=item.href
+          / img.card-img-top alt="..." src="..." /
+          .card-body
+            h5.card-title=item.title
+            p.card-text=item.desc
+

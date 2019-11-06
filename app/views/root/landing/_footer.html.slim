@@ -1,0 +1,18 @@
+footer
+  .c-footer
+    .container.d-flex
+      .c-footer__brand
+        = image_tag  "logo_white.svg", width: 200, class: 'mr-4'
+        = mail_to 'info@waterpeacesecurity.org', 'info@waterpeacesecurity.org'
+        = link_to '', '@WaterPeaceSec'
+      .c-footer__brand.ml-auto
+        | In collaboration
+        br
+        | with the
+
+  .c-footer.c-footer--partners
+    .container
+      ul.list-unstyled.row
+        - @partners.each do |partner|
+          li class="col-sm-#{12/@partners.length}"
+            = partner

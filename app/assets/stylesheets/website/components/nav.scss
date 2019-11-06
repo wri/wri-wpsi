@@ -1,0 +1,21 @@
+.c-nav { }
+
+.c-nav__brand {
+
+}
+
+.c-nav__brand-image {
+  min-width: 200px;
+}
+
+.c-nav__wrapper {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+.c-nav__link {
+  padding-left: space(4);
+  padding-right: space(4);
+}

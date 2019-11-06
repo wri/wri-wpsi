@@ -1,0 +1,10 @@
+section
+  .container
+    .row.o-card-row.o-card-row--overlapping
+      - @action_items.each do |item|
+        a.card.c-card class="col-sm-#{12/@action_items.length}" href=item.href
+          / img.card-img-top alt="..." src="..." /
+          .card-body
+            h5.card-title=item.title
+            p.card-text=item.desc
+

@@ -1,0 +1,16 @@
+@import '../helpers';
+
+.c-nav-utility { }
+
+.c-nav-utility__items {
+  display: flex;
+  align-items: center;
+  @include list-unstyled;
+}
+
+.c-nav-utility__item { }
+
+.c-nav-utility__link {
+  padding: space(2);
+}
+

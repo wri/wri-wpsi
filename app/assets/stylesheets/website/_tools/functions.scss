@@ -1,0 +1,9 @@
+// @param {Number} $value - Index of spacing unit
+// @return {Number} - Spacing unit from bootstrap map
+@function space($value, $negative: false) {
+  $_value: map-get($spacers, $value);
+  @if ($negative) {
+    $_value: -($_value)
+  }
+  @return $_value;
+}

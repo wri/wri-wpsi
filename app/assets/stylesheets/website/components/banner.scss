@@ -1,0 +1,25 @@
+@import '../helpers';
+
+.c-banner {
+  height: 600px;
+  max-height: 50vh;
+  background: lightgray;
+  position: relative;
+}
+
+.c-banner__lead {
+  position: relative;
+  padding-top: 100px;
+}
+
+.c-banner__title {
+  text-transform: uppercase;
+  padding: space(2) space(8) space(2) space(2);
+  background: white;
+  color: gray;
+}
+
+.c-banner__title--sub {
+  background: brown;
+  color: white;
+}
