@@ -7,9 +7,10 @@ section.o-container.o-container--primary
       span=" Tool Dock"
     .row.o-card-row
       - @tools.each do |item|
-        a.card.c-card class="col-sm-#{12/@tools.length}" href=item.href
-          / img.card-img-top alt="..." src="..." /
-          .card-body
-            h5.card-title=item.title
-            p.card-text=item.desc
+        div class="col-sm-#{12/@tools.length}"
+          a.card.c-card href=item.href
+            / img.card-img-top alt="..." src="..." /
+            .card-body
+              h5.card-title=item.title
+              p.card-text=item.desc
 

@@ -2,8 +2,9 @@ section
   .container
     .row
       - @social_actions.each do |sn|
-        a.card.c-card class="col-sm-#{12/@social_actions.length}" href='#'
-          / img.card-img-top alt="..." src="..." /
-          .card-body
-            h5.card-title=sn
+        div class="col-sm-#{12/@social_actions.length}"
+          a.card.c-card href='#'
+            / img.card-img-top alt="..." src="..." /
+            .card-body
+              h5.card-title=sn
 
