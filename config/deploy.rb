@@ -10,10 +10,7 @@ set :rvm_ruby_version, '2.6.5'
 
 set :puma_init_active_record, true
 
-# FIXME: remove to switch back to capistrano-puma`s default unix socket setp
-set :puma_bind, %w(tcp://0.0.0.0:3000)
-
-# Default value for :linked_files is []
+  # Default value for :linked_files is []
 append :linked_files, ".env.production"
 
 # Default value for linked_dirs is []
