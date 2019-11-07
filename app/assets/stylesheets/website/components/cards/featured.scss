@@ -1,0 +1,39 @@
+@import '../../helpers';
+
+.c-card--featured {
+  @include card-action($content: '+');
+  min-height: rem(325px);
+  &:hover {
+    transform: scale(1.1) translateY(-5px);
+    .c-card__title,
+    .c-card__text {
+      color: white;
+    }
+  }
+}
+
+.c-card--featured .c-card__content {
+  justify-content: center;
+  margin-bottom: space(2);
+}
+
+.c-card--featured .c-card__title,
+.c-card--featured .c-card__text {
+  text-align: center;
+}
+
+.c-card--featured .c-card__title {
+  @include font-heading($color: white, $weight: 600, $size: 30px);
+  white-space: nowrap;
+  text-transform: uppercase;
+  @include media-breakpoint-between(lg, xl) {
+    font-size: 25px;
+  }
+  @include media-breakpoint-up(xl) {
+    font-size: 30px;
+  }
+}
+
+.c-card--featured .c-card__text {
+  @include font-heading($color: white, $size: 20px, $lh: 1.2);
+}

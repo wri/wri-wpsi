@@ -1,0 +1,51 @@
+@import '../../helpers';
+
+.c-card {
+  position: relative;
+  min-height: 300px;
+  border-radius: 0;
+  border: 0;
+  @for $i from 1 through length($theme) {
+    $color: nth($theme, $i);
+    &--color-#{$i}.c-card--featured {
+      background: $color;
+    }
+    h1 {
+      border-bottom: 2px solid
+    }
+  }
+  .c-card__title,
+  .c-card__text {
+    color: black;
+  }
+  &:hover {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 50px 5px rgba(0,0,0,.2);
+    transition: .1s;
+    .c-card__watermark {
+      opacity: 1;
+    }
+    &,
+    .c-card__content,
+    .c-card__title,
+    .c-card__text {
+      text-decoration: none !important;
+      color: black;
+    }
+  }
+}
+
+.c-card__watermark {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  opacity: .4;
+  margin-bottom: space(4);
+  transition: .1s opacity ease-in-out;
+}
+
+.c-card__content {
+  display: flex;
+  flex-direction: column;
+}

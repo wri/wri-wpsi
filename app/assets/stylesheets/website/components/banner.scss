@@ -1,7 +1,7 @@
 @import '../helpers';
 
 .c-banner {
-  height: 600px;
+  height: rem(650px);
   max-height: 50vh;
   background: lightgray;
   position: relative;
@@ -10,16 +10,22 @@
 .c-banner__lead {
   position: relative;
   padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .c-banner__title {
   text-transform: uppercase;
-  padding: space(2) space(8) space(2) space(2);
+  padding: space(5) space(10) space(5) space(5);
   background: white;
-  color: gray;
+  color: #586671;
+  flex: 0 0 auto;
+  font-size: 2rem;
+  line-height: 1;
 }
 
 .c-banner__title--sub {
-  background: brown;
+  background: #592d20;
   color: white;
 }

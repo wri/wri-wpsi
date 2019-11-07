@@ -1,1 +1,14 @@
-$brand-primary: brown;
+$theme: (
+  #2e3348,
+  #437387,
+  #5f9f7c,
+  #84b65b,
+  #673320,
+) !default;
+
+$theme-grays: (
+  100: #9898a4,
+  200: #586671,
+) !default;
+
+$text-color: #000000;

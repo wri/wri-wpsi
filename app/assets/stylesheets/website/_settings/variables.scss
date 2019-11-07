@@ -1,1 +1,9 @@
 $font-size-default: 16px;
+
+$font-header: 'Lato', sans-serif;
+$font-body: 'Merriweather', serif;
+
+
+// Bootstrap overrides
+$font-family-base: $font-body;
+$headings-font-family: $font-header;
