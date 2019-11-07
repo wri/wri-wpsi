@@ -2,7 +2,6 @@
 lock "~> 3.11.2"
 
 set :application, "wri-wpsi"
-#set :repo_url, "https://a%2Bwri-wpsi%40greenriver.org:s2GC3fbF1BNoeGXf@github.com/greenriver/wri-wpsi.git"
 set :repo_url, "git@github.com:greenriver/wri-wpsi.git"
 
 set :rvm_custom_path, '/usr/share/rvm'
