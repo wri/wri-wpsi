@@ -6,7 +6,7 @@ class PagesTest < ApplicationSystemTestCase
   setup do
     sign_in create(:user)
     @page = create(:page)
-    @new_page = build(:page)
+    @new_page = build(:page, menu: 'About Us', sort_priority: 1)
   end
 
   test 'visiting the index' do
@@ -18,9 +18,11 @@ class PagesTest < ApplicationSystemTestCase
     visit admin_pages_url
     click_on 'new page'
 
-    tinymce_fill_in 'page_content', with: @new_page.content
     fill_in 'Name', with: @new_page.name
     fill_in 'Slug', with: @new_page.slug
+    fill_in 'Menu', with: @new_page.menu
+    fill_in 'Sort priority', with: @new_page.sort_priority
+    tinymce_fill_in 'page_content', with: @new_page.content
     click_on 'Create Page'
 
     assert_text 'Page was successfully created'
@@ -31,9 +33,11 @@ class PagesTest < ApplicationSystemTestCase
     visit admin_pages_url
     click_on 'Edit', match: :first
 
-    tinymce_fill_in 'page_content', with: @new_page.content
     fill_in 'Name', with: @new_page.name
     fill_in 'Slug', with: @new_page.slug
+    fill_in 'Menu', with: @new_page.menu
+    fill_in 'Sort priority', with: @new_page.sort_priority
+    tinymce_fill_in 'page_content', with: @new_page.content
     click_on 'Update Page'
 
     assert_text 'Page was successfully updated'
