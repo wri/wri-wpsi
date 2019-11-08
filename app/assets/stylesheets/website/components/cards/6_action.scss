@@ -1,0 +1,33 @@
+@import '../../helpers';
+
+.c-card--action {
+  @include card-action($content: '');
+  box-shadow: 0 0 10px 5px rgba(0,0,0,.1);
+  min-height: auto;
+  @for $i from 1 through length($theme) {
+    $color: nth($theme, $i);
+    &-#{$i} {
+      .c-card__title {
+        background-color: $color;
+      }
+    }
+  }
+}
+
+.c-card--action .c-card__content {
+  padding: space(6) space(2);
+  align-items: center;
+  justify-content: center;
+}
+
+.c-card--action .c-card__title,
+.c-card--action .c-card__text {
+}
+
+.c-card--action .c-card__title {
+  padding: space(6);
+  margin-bottom: space(3);
+  text-align: center;
+}
+
+.c-card--action .c-card__text { }

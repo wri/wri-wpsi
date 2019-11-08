@@ -1,10 +1,12 @@
 section
   .container
     .row
-      - @social_actions.each do |sn|
+      - @social_actions.each_with_index do |sn, i|
         div class="col-sm-#{12/@social_actions.length}"
-          a.card.c-card.c-card--link href='#'
+          .card.c-card.c-card--action class="c-card--action-#{i+1}"
             / img.card-img-top alt="..." src="..." /
+            h5.card-title.c-card__title=sn
             .card-body.c-card__content
-              h5.card-title.c-card__title=sn
+              a(href="#" class="c-button c-button--#{i+1}")
+                span= sn
 
