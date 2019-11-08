@@ -1,3 +1,5 @@
+- font = 'https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700|PT+Sans:700&display=swap'
+
 doctype html
 html
   head
@@ -8,10 +10,14 @@ html
 
     = stylesheet_link_tag 'admin', media: 'all'
     = javascript_include_tag 'application'
-    link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700|PT+Sans:700&display=swap" rel="stylesheet"
+
+    / Webpacker pipeline
+    = javascript_pack_tag 'admin'
+    link href=font rel="stylesheet"
   body
-    div.container
+    .container
       = render 'admin/shared/navbar'
-      .px-4
+      .px-sm-4
         = render 'admin/shared/alerts'
-        = yield
+        div style=('max-width: 275px; margin: auto;' unless user_signed_in?)
+          = yield

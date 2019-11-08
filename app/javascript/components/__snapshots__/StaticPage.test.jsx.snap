@@ -1,22 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<main
-  style={
+<StaticPage
+  classes={
     Object {
-      "flex": "1 1 auto",
-      "margin": "20px auto",
-      "maxWidth": "800px",
-      "padding": "20px",
+      "contentContainer": "StaticPage-contentContainer-0-1-2",
+      "main": "StaticPage-main-0-1-1",
     }
   }
->
-  <content
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Test content",
-      }
+  page={
+    Object {
+      "content": "Test content",
+      "name": "Test name",
+      "slug": "Test slug",
     }
-  />
-</main>
+  }
+/>
 `;

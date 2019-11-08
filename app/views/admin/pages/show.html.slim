@@ -1,10 +1,11 @@
 .float-right
-  = link_to 'Edit this page', edit_admin_page_path(@page), class: 'btn btn-primary'
+  = link_to 'Edit this page', edit_admin_page_path(@page),
+      class: 'btn btn-primary'
 
 div
   h2 = @page.name
 
-div.mt-3
+.mt-3
   p
     strong> Slug:
     = @page.slug
@@ -13,7 +14,7 @@ div.mt-3
     = @page.sort_priority
   p
     strong> Content:
-    div.p-4.border
+    .p-4.border
       = raw @page.content
 
 => link_to 'Edit', edit_admin_page_path(@page)

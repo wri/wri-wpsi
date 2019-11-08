@@ -3,6 +3,7 @@
 This is the main repo for the WRI - Water, Peace and Security Initiative webmap project.
 
 [![Build Status](https://travis-ci.com/greenriver/wri-wpsi.svg?token=EQywZqAdUXLYyppSoTji&branch=master)](https://travis-ci.com/greenriver/wri-wpsi)
+[![Heroku](http://heroku-badge.herokuapp.com/?app=wri-wpsi&style=flat&svg=1)](https://dashboard.heroku.com/apps/wri-wpsi)
 
 ## Ruby version
 

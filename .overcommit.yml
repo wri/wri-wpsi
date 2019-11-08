@@ -21,6 +21,9 @@ PreCommit:
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
+  SlimLint:
+    enabled: true
+    on_warn: fail # Treat all warnings as failures
   TrailingWhitespace:
     enabled: true
     exclude:

@@ -67,23 +67,5 @@ exports[`<MenuBar /> renders correctly when inside a router 1`] = `
   >
     About Us
   </a>
-  <a
-    href="/admin"
-    style={
-      Object {
-        ":hover": Object {
-          "color": "#F0AB00",
-        },
-        "color": "white",
-        "display": "inline-block",
-        "float": "right",
-        "fontWeight": "normal",
-        "padding": 25,
-        "textDecoration": "none",
-      }
-    }
-  >
-    Admin Portal
-  </a>
 </div>
 `;
