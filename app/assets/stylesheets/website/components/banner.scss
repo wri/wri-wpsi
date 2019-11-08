@@ -8,11 +8,15 @@
 }
 
 .c-banner__lead {
+  // Need to reposition this text on smaller screens?
+  // position: absolute;
+  // bottom: 0;
   position: relative;
   padding-top: 100px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  z-index: 10;
 }
 
 .c-banner__title {
@@ -21,11 +25,26 @@
   background: white;
   color: #586671;
   flex: 0 0 auto;
-  font-size: 2rem;
   line-height: 1;
+  @include font-heading($size: 2rem, $weight: 900);
 }
 
 .c-banner__title--sub {
   background: #592d20;
   color: white;
+  @include font-heading($size: 2rem, $weight: 900);
+}
+
+.c-banner__hero {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.c-banner__hero img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
