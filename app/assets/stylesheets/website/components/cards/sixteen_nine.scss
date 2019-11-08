@@ -1,0 +1,32 @@
+@import '../../helpers';
+
+.c-card--16x9 {
+  @include card-action($content: '0', $color: black);
+  position: relative;
+  background-image: url(asset-path('map_points.svg'));
+  background-size: 95%;
+  background-position: 5% -5%;
+  background-repeat: no-repeat;
+  @for $i from 1 through length($theme) {
+    $color: nth($theme, $i);
+    &-#{$i} {
+      .c-card__title {
+        background: $color;
+      }
+    }
+  }
+}
+
+.c-card--16x9 .c-card__title {
+  position: absolute;
+  padding: space(2) space(4);
+  color: white;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+}
+
+.c-card--16x9 .c-card__title,
+.c-card--16x9 .c-card__text {
+  color: white;
+}

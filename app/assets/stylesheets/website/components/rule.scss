@@ -1,0 +1,19 @@
+@import '../helpers';
+
+$rule-height: rem(15px);
+
+.c-rule {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.c-rule__element {
+  height: $rule-height;
+  flex: 1 1 auto;
+  @for $i from 1 through length($theme) {
+    $color: nth($theme, $i);
+    &--#{$i} {
+      background-color: $color;
+    }
+  }
+}

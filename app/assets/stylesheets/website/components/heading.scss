@@ -1,0 +1,19 @@
+@import '../helpers';
+
+.c-heading {
+  @include font-heading($size: 50px, $color: $white);
+  text-transform: uppercase;
+  margin-bottom: space(6);
+}
+
+.c-heading--center {
+  text-align: center;
+}
+
+.c-heading__primary-text {
+  font-weight: 900;
+}
+
+.c-heading__secondary-text {
+  font-weight: 200;
+}

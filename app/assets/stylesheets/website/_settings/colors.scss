@@ -1,9 +1,23 @@
+$blue-d: #2e3348 !default;
+$blue-l: #437387 !default;
+$green-d: #5f9f7c !default;
+$green-l: #84b65b !default;
+$brown: #673320 !default;
+
+$color-indeces: (
+  blue-d: 1,
+  blue-l: 2,
+  green-d: 3,
+  green-l: 4,
+  brown: 5,
+);
+
 $theme: (
-  #2e3348,
-  #437387,
-  #5f9f7c,
-  #84b65b,
-  #673320,
+  $blue-d,
+  $blue-l,
+  $green-d,
+  $green-l,
+  $brown,
 ) !default;
 
 $theme-grays: (

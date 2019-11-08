@@ -1,11 +1,11 @@
-@mixin card-action($content: '') {
+@mixin card-action($content: '', $color: white) {
   &:after {
     content: $content;
     display: block;
     position: absolute;
     top: space(1);
     right: space(3);
-    color: white;
+    color: $color;
     font-size: 20px;
   }
 }

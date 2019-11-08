@@ -10,6 +10,15 @@
       color: white;
     }
   }
+  @for $i from 1 through length($theme) {
+    $color: nth($theme, $i);
+    &-#{$i} {
+      background: $color;
+    }
+    h1 {
+      border-bottom: 2px solid
+    }
+  }
 }
 
 .c-card--featured .c-card__content {
@@ -23,9 +32,6 @@
 }
 
 .c-card--featured .c-card__title {
-  @include font-heading($color: white, $weight: 600, $size: 30px);
-  white-space: nowrap;
-  text-transform: uppercase;
   @include media-breakpoint-between(lg, xl) {
     font-size: 25px;
   }

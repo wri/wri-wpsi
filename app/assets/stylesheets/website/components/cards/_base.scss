@@ -5,16 +5,6 @@
   min-height: 300px;
   border-radius: 0;
   border: 0;
-  @for $i from 1 through length($theme) {
-    $color: nth($theme, $i);
-    &--color-#{$i}.c-card--featured {
-      background: $color;
-    }
-    h1 {
-      border-bottom: 2px solid
-    }
-  }
-  .c-card__title,
   .c-card__text {
     color: black;
   }
@@ -31,9 +21,14 @@
     .c-card__title,
     .c-card__text {
       text-decoration: none !important;
-      color: black;
     }
   }
+}
+
+.c-card__title {
+  @include font-heading($color: white, $weight: 600, $size: 30px);
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .c-card__watermark {

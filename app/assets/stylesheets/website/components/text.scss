@@ -1,0 +1,10 @@
+@import '../helpers';
+
+.c-text {
+  @include font-body($size: 14px, $color: black, $lh: (16/14));
+}
+
+.c-text--lead {
+  font-size: 26px;
+  line-height: (36/26);
+}
