@@ -11,6 +11,7 @@ class Page < ApplicationRecord
       {
         name: page.name,
         slug: page.slug,
+        menu: page.menu,
         content: page.content,
       }
     end

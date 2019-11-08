@@ -7,13 +7,16 @@ div
 
 .mt-3
   p
-    strong> Slug:
+    strong> #{Page.human_attribute_name(:slug)}:
     = @page.slug
   p
-    strong> Sort priority:
+    strong> #{Page.human_attribute_name(:menu)}:
+    = @page.menu
+  p
+    strong> #{Page.human_attribute_name(:sort_priority)}:
     = @page.sort_priority
   p
-    strong> Content:
+    strong> #{Page.human_attribute_name(:content)}:
     .p-4.border
       = raw @page.content
 

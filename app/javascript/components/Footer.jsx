@@ -44,6 +44,10 @@ const Footer = ({classes}) => {
     <footer id='footer' className={classes.wrapper}>
       <div className={classes.leftContent}>
         <p className={classes.credit}>
+          <a href='/info/terms_of_service' className={classes.link}>Terms of service</a>
+        </p>
+        |
+        <p className={classes.credit}>
           <a href='/admin/sign_in' className={classes.link}>Admin sign in</a>
         </p>
       </div>
