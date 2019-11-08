@@ -44,6 +44,8 @@ If the changes all look good, update the failing snapshots by running `yarn test
 
 Staging is deployed to heroku at `https://git.heroku.com/wri-wpsi.git`. Run `git push heroku master` to deploy master there.
 
+Production is deployed to a server at IHE Delft. Run `cap production deploy` to deploy there.
+
 Exceptions are monitored via [sentry.io](https://sentry.io/organizations/green-river/issues/?project=1484102).
 
 ## Widgets
