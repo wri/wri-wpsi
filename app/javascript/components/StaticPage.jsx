@@ -29,6 +29,7 @@ StaticPage.propTypes = {
   page: PropTypes.exact({
     name: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
+    menu: PropTypes.string,
     content: PropTypes.string.isRequired,
   }).isRequired,
   classes: PropTypes.object.isRequired,

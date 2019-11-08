@@ -10,11 +10,13 @@ const pages = [
   {
     name: 'Methodology',
     slug: 'methodology',
+    menu: 'Methodology',
     content: 'Test content',
   },
   {
     name: 'About Us',
     slug: 'about',
+    menu: 'About Us',
     content: 'Test content',
   },
 ]
