@@ -11,6 +11,9 @@
     span {
       color: white;
     }
+    &::after {
+      transform: scale(1.1) translateX(2px);
+    }
   }
   span {
     @include font-heading($size: 18px, $color: black, $weight: 600, $lh: 18/18);

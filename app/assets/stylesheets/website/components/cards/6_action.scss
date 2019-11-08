@@ -28,6 +28,12 @@
   padding: space(6);
   margin-bottom: space(3);
   text-align: center;
+  @include media-breakpoint-between(lg, xl) {
+    font-size: 25px;
+  }
+  @include media-breakpoint-up(xl) {
+    font-size: 30px;
+  }
 }
 
 .c-card--action .c-card__text { }
