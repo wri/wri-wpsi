@@ -43,6 +43,6 @@ class Admin::PagesController < Admin::BaseController
   end
 
   def page_params
-    params.require(:page).permit(:name, :slug, :content, :sort_priority)
+    params.require(:page).permit(:name, :slug, :menu, :content, :sort_priority)
   end
 end
