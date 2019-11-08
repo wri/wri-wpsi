@@ -44,11 +44,13 @@ If the changes all look good, update the failing snapshots by running `yarn test
 
 Staging is deployed to heroku at `https://git.heroku.com/wri-wpsi.git`. Run `git push heroku master` to deploy master there.
 
-Production is deployed to a server at IHE Delft. Run `cap production deploy` to deploy there. Consult
-`config/deploy/production.rb` for where that is. You will need to get credentails setup by a current deployer.
+Production is deployed to a `Ubuntu 18.04.3 LTS` server at IHE Delft. Run `cap production deploy` to deploy there. Consult
+`config/deploy/production.rb` for where that is. You will need to get credentials setup by a current deployer.
 
 `capistrano` tasks for starting and stoping the services are setup per https://github.com/seuros/capistrano-puma.  All necessary services are manageable via systemd and enabled on boot.
 
+
+#### Services
 ```
 ● puma.service - puma for production
    Loaded: loaded (/etc/systemd/system/puma.service; enabled; vendor preset: enabled)
@@ -56,6 +58,15 @@ Production is deployed to a server at IHE Delft. Run `cap production deploy` to 
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
 ● postgresql.service - PostgreSQL RDBMS
    Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled)
+```
+#### Host Info
+```
+$ cat /proc/cpuinfo | grep CPU
+model name  : Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz
+model name  : Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz
+$ free -h
+              total
+Mem:           3.9G ....
 ```
 
 Exceptions are monitored via [sentry.io](https://sentry.io/organizations/green-river/issues/?project=1484102).
