@@ -1,17 +1,17 @@
 .mb-4 = form_for [:admin, @user] do |f|
   = render 'admin/shared/error_messages', resource: @user
 
-  div.form-group
+  .form-group
     .field
       = f.label :email
       = f.text_field :email, class: 'form-control'
-  div.form-group
+  .form-group
     .field
       = f.label :password
       = f.password_field :password, class: 'form-control'
     small.form-text.text-muted
       | 6 characters minimum
-  div.form-group
+  .form-group
     .field
       = f.label :password_confirmation
       = f.password_field :password_confirmation, class: 'form-control'

@@ -16,8 +16,10 @@ table.table
         td = category.description
         td = category.layers.count
         td = link_to 'Edit', edit_admin_category_path(category)
-        td = link_to 'Delete', [:admin, category], data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Delete', [:admin, category],
+            data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'Add a new category', new_admin_category_path, class: 'btn btn-primary mb-4'
+= link_to 'Add a new category', new_admin_category_path,
+    class: 'btn btn-primary mb-4'

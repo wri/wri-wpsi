@@ -93,4 +93,9 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: 'wri-wpsi.herokuapp.com' }
+
+  config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => 'https://vega.github.io',
+    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+  }
 end

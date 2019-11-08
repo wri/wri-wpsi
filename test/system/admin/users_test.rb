@@ -31,6 +31,6 @@ class UsersTest < ApplicationSystemTestCase
       click_on 'Delete', match: :first
     end
 
-    assert_text 'You need to sign in or sign up before continuing.'
+    assert_text I18n.t('devise.failure.unauthenticated')
   end
 end

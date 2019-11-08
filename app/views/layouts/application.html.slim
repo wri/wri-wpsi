@@ -23,6 +23,7 @@ html
     / Google places API
     - key = ENV['WRI_WPSI_GOOGLE_MAPS_API_KEY']
     script src="https://maps.googleapis.com/maps/api/js?v=weekly&key=#{key}&libraries=places"
-    link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet"
+    link{ href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap'
+        rel='stylesheet' }
   body
     = yield

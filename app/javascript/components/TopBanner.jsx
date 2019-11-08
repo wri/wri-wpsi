@@ -28,7 +28,12 @@ const styles = {
   },
   nav: {
     marginLeft: 'auto',
-  }
+  },
+  betaTag: {
+    marginLeft: '20px',
+    fontSize: 'small',
+    color: styleVars.colors.primary,
+  },
 }
 
 const TopBanner = ({classes}) => {
@@ -36,6 +41,7 @@ const TopBanner = ({classes}) => {
     <div className={classes.content}>
       <div className={classes.heading}>
         Water, Peace & Security
+        <span className={classes.betaTag}>Beta</span>
       </div>
       <Ornamentation />
       <div className={classes.nav}>

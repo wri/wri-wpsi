@@ -10,6 +10,7 @@
     "layer-manager": "^1.15.2",
     "moment": "^2.24.0",
     "numeral": "^2.0.6",
+    "promise.prototype.finally": "^3.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -54,6 +55,7 @@
     ]
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "foreman start -f Procfile.dev"
   }
 }

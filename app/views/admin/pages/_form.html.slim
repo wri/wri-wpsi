@@ -3,19 +3,19 @@
 .mb-4 = form_for [:admin, @page] do |f|
   = render 'admin/shared/error_messages', resource: @page
 
-  div.form-group
+  .form-group
     .field
       = f.label :name
       = f.text_field :name, class: 'form-control'
-  div.form-group
+  .form-group
     .field
       = f.label :slug
       = f.text_field :slug, class: 'form-control'
-  div.form-group
+  .form-group
     .field
       = f.label :sort_priority
       = f.text_field :sort_priority, class: 'form-control'
-  div.form-group
+  .form-group
     .field
       = f.label :content
       = f.text_area :content, class: 'tinymce', rows: 25
