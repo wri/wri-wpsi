@@ -17,3 +17,8 @@
 .c-heading__secondary-text {
   font-weight: 200;
 }
+
+.c-heading--secondary {
+  @include font-heading($size: 35px, $color: map-get($theme-grays, 200), $weight: 700, $lh: (40/35));
+  margin-bottom: space(6);
+}

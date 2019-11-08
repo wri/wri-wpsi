@@ -2,10 +2,10 @@ section
   .container
     .row.o-card-row.o-card-row--overlapping
       - @action_items.each_with_index do |item, i|
-        a.card.c-card.c-card--featured.col-md-6 class=["col-lg-#{12/@action_items.length}", "c-card--featured-#{i+1}"] href=item.href
+        a.card.c-card.c-card--link.c-card--featured.col-md-6 class=["col-lg-#{12/@action_items.length}", "c-card--featured-#{i+1}"] href=item.href
           / img.card-img-top alt="..." src="..." /
           .card-body.c-card__content
             = image_tag  "logo_badge.svg", class: 'c-card__watermark'
             h5.card-title.c-card__title=item.title
-            p.card-text.c-card__text=item.desc
+            .card-text.c-card__text=item.desc
 

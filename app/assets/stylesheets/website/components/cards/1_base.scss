@@ -8,21 +8,6 @@
   .c-card__text {
     color: black;
   }
-  &:hover {
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 0 50px 5px rgba(0,0,0,.2);
-    transition: .1s;
-    .c-card__watermark {
-      opacity: 1;
-    }
-    &,
-    .c-card__content,
-    .c-card__title,
-    .c-card__text {
-      text-decoration: none !important;
-    }
-  }
 }
 
 .c-card__title {
@@ -43,4 +28,22 @@
 .c-card__content {
   display: flex;
   flex-direction: column;
+}
+
+.c-card__image-top {
+  img {
+    max-height: rem(150px);
+    width: 100%;
+    object-fit: cover;
+  }
+  &::before {
+    content: '';
+    background: transparent;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
 }

@@ -11,8 +11,8 @@ section.o-container.o-container--primary
       - @tools.each_with_index do |item, i|
         - color_index = i < 1 ? i+1 : 3
         div class="col-sm-#{12/@tools.length}"
-          a.card.c-card.c-card--16x9 href=item.href class="c-card--16x9-#{color_index}"
-            .card-body.c-card__content.c-card__content
+          a.card.c-card.c-card--link.c-card--16x9 href=item.href class="c-card--16x9-#{color_index}"
+            .card-body.c-card__content
               h5.card-title.c-card__title=item.title
-              p.card-text.c-card__text=item.desc
+              .card-text.c-card__text=item.desc
 
