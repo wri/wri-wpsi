@@ -41,8 +41,6 @@ const App = ({ layers, pages }) => {
     <ThemeProvider theme={globalStyles}>
       <BrowserRouter>
         <div style={globalStyles}>
-          <TopBanner />
-
           {/* Landing page with map */}
           <Route
             path="/map"

@@ -19,7 +19,12 @@ body, html {
   height: 100%;
 }
 
-body > div.container {
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.o-container--map {
   height: 100%;
 }
 

@@ -19,6 +19,10 @@
       border-bottom: 2px solid
     }
   }
+  &::after {
+    font-size: 30px;
+    line-height: 1;
+  }
 }
 
 .c-card--featured .c-card__content {

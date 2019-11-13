@@ -2,7 +2,7 @@
   .container
     .row
       .col-10.mx-auto
-        ol.row.mb-0.pb-0
+        ol.row.c-numbered-list
           - @action_items.each do |item|
-            li.py-4 class="col-sm-#{12/@action_items.length}"
+            li class="col-sm-#{12/@action_items.length}"
               =item.title

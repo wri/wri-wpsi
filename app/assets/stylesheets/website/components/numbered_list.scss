@@ -1,0 +1,39 @@
+@import '../helpers';
+
+.c-numbered-list {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.c-numbered-list li {
+  display: block;
+  position: relative;
+  counter-increment: inst;
+  display: flex;
+  align-items: center;
+  color: $white;
+
+  &::before {
+    min-height: 50px;
+    min-width: 50px;
+    margin-right: space(4);
+    flex: 0 0 auto;
+    @include font-heading;
+    content: counter(inst);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(255, 150, 0, 0.35);
+    color: #fff;
+    padding: space(4);
+  }
+  @for $i from 1 through length($theme) {
+    $color: nth($theme, $i);
+    &:nth-child(#{$i}) {
+      &::before {
+        background: $color;
+      }
+    }
+  }
+}
