@@ -1,11 +1,31 @@
 @mixin card-action($content: '', $color: white) {
   &:after {
+    @include font-icon($white);
     content: $content;
     display: block;
     position: absolute;
-    top: space(1);
+    top: space(3);
     right: space(3);
     color: $color;
     font-size: 20px;
+  }
+}
+
+
+@mixin font-icon($color: '') {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @if ($color != '') {
+    color: $color;
   }
 }

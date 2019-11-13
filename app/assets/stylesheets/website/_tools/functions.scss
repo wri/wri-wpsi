@@ -40,3 +40,7 @@
     @return nth($theme-grays, $i);
   }
 }
+
+@function get-icon-char($name) {
+  @return map-get($icons, $name);
+}

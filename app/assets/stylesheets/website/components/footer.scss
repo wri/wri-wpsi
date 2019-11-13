@@ -4,6 +4,7 @@
   background: #2b373b;
   padding-top: space(8);
   padding-bottom: space(8);
+  @include font-heading($weight: 600);
 }
 
 .c-footer__brand {
@@ -17,4 +18,11 @@
 .c-footer--partners li {
   min-height: 50px;
   text-align: center;
+}
+
+.c-footer__link {
+  color: white;
+  &:hover {
+    color: $green-l;
+  }
 }

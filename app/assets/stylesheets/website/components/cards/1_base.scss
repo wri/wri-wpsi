@@ -18,12 +18,16 @@
 }
 
 .c-card__watermark {
-  display: block;
-  width: 50%;
-  margin: 0 auto;
-  opacity: .4;
-  margin-bottom: space(4);
-  transition: .1s opacity ease-in-out;
+  &::before {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    opacity: .4;
+    margin-bottom: space(4);
+    transition: .1s opacity ease-in-out;
+    font-size: 100px;
+    @include font-icon;
+  }
 }
 
 .c-card__content {

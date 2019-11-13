@@ -2,7 +2,9 @@
 
 .c-numbered-list {
   margin-bottom: 0;
-  padding-bottom: 0;
+  padding-bottom: space(3);
+  padding-top: space(3);
+  justify-content: space-evenly;
 }
 
 .c-numbered-list li {
@@ -12,28 +14,21 @@
   display: flex;
   align-items: center;
   color: $white;
+  @include font-heading($weight: 600, $size: 20px);
+  text-transform: uppercase;
 
   &::before {
-    min-height: 50px;
-    min-width: 50px;
-    margin-right: space(4);
+    min-height: 30px;
+    min-width: 30px;
+    margin-right: space(2);
     flex: 0 0 auto;
-    @include font-heading;
+    @include font-heading($weight: 600, $size: 20px);
     content: counter(inst);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: rgba(255, 150, 0, 0.35);
+    background: $green-l;
     color: #fff;
-    padding: space(4);
-  }
-  @for $i from 1 through length($theme) {
-    $color: nth($theme, $i);
-    &:nth-child(#{$i}) {
-      &::before {
-        background: $color;
-      }
-    }
   }
 }

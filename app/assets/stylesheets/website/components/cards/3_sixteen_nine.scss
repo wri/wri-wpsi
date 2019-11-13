@@ -1,7 +1,15 @@
 @import '../../helpers';
 
+$watermarks: (
+  'badge-globe',
+  'badge-location',
+  'badge-wri',
+  'badge-location',
+  'badge-location',
+);
+
 .c-card--16x9 {
-  @include card-action($content: '0', $color: black);
+  @include card-action($content: get-icon-char('magnify'), $color: black);
   position: relative;
   background-image: url(asset-path('map_points.svg'));
   background-size: 95%;
@@ -13,6 +21,21 @@
       .c-card__title {
         background: $color;
       }
+      .c-card__watermark::before {
+        color: $color;
+        content: get-icon-char(nth($watermarks, $i));
+      }
+    }
+  }
+  .c-card__watermark::before {
+    will-change: transform;
+    transition: .05s transform ease-in-out;
+  }
+  &:hover,
+  &:focus {
+    .c-card__watermark::before {
+      transform: scale(1.4);
+      transform-origin: center;
     }
   }
 }
@@ -24,6 +47,20 @@
   bottom: 0;
   left: 0;
   margin: 0;
+}
+
+.c-card--16x9 .c-card__watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  &::before {
+    opacity: 1;
+    width: auto;
+    font-size: 100px;
+  }
 }
 
 .c-card--16x9 .c-card__title,

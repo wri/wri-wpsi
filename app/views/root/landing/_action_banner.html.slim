@@ -4,5 +4,6 @@
       .col-10.mx-auto
         ol.row.c-numbered-list
           - @action_items.each do |item|
-            li class="col-sm-#{12/@action_items.length}"
+            li
               =item.title
+          li Act!
