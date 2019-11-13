@@ -1,6 +1,4 @@
-= render 'root/header'
-
-main
+- content_for :main_content do
   = render 'root/landing/banner'
   = render 'root/landing/action_nav'
   = render 'root/landing/intro_text_block'
@@ -10,5 +8,4 @@ main
   = render 'root/landing/news'
   = render 'root/landing/social'
 
-= render 'root/landing/action_banner'
-= render 'root/landing/footer'
+= render 'root/landing/page'

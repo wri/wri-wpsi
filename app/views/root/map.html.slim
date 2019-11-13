@@ -1,4 +1,7 @@
-
-div
-  = render 'root/header'
 = javascript_pack_tag 'index'
+
+- content_for :main_content do
+  main#map-container.o-container--map
+
+= render 'root/landing/page'
+

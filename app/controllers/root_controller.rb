@@ -1,4 +1,7 @@
 class RootController < ApplicationController
+  layout :resolve_layout
+  before_action :get_partners!
+
   def index
     @action_items = [
       Card.new('Understand', 'Data and publications'),
@@ -17,15 +20,25 @@ class RootController < ApplicationController
       Card.new('Solving conflict', 'It’s important to know why conflict is happening, what the role of water is, and what factors you can influence either as a policy maker in the respective region, or as an external partner, to solve the conflict', credit: 'Susanne Schmeier, IHE Delft'),
     ]
     @headlines = (0..2).map{Card.new("News Headline")}
-    @partners = ['IHE', 'Deltares', 'Alert', 'The Hague Centre', 'Wetlands', 'WRI']
-    render 'index', layout: 'landing'
+    get_partners!
   end
 
   def map
     # Let react single page app take over
     @layers = Layer.serialized_for_react_app
     @categories = Category.serialized_for_react_app
-    render 'map', layout: 'application'
+  end
+
+  def learn
+  end
+
+  def dialogue
+  end
+
+  def about_us
+  end
+
+  def contact
   end
 
   def health_check
@@ -43,5 +56,18 @@ class RootController < ApplicationController
     end
     raise 'should never get here'
   end
+
+  private def get_partners!
+    @partners = ['IHE', 'Deltares', 'Alert', 'The Hague Centre', 'Wetlands', 'WRI']
+  end
+
+  private def resolve_layout
+    if action_name == 'map'
+      'application'
+    else
+      'landing'
+    end
+  end
+
 end
 

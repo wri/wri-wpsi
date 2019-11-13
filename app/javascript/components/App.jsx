@@ -58,7 +58,6 @@ const App = ({ layers, pages }) => {
           <Route path="/layers" exact component={LayersList} />
           <Route path="/layers/:layerId" component={LayerMapPage} />
           <Route path="/datasets/:datasetId" component={LayerMapPage} />
-          <Footer />
         </div>
 
         {/* Include Vizzuality icons for use in other Vizzuality components */}
