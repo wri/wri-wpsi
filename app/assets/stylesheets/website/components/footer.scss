@@ -26,3 +26,10 @@
     color: $green-l;
   }
 }
+
+.c-footer__item img {
+  height: 100%;
+  width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+}

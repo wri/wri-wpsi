@@ -58,7 +58,14 @@ class RootController < ApplicationController
   end
 
   private def get_partners!
-    @partners = ['IHE', 'Deltares', 'Alert', 'The Hague Centre', 'Wetlands', 'WRI']
+    @partners = [
+      ['IHE', '',],
+      ['Deltares', '',],
+      ['Alert', '',],
+      ['The Hague Centre', '',],
+      ['Wetlands', '',],
+      ['WRI' '',],
+    ]
   end
 
   private def resolve_layout
