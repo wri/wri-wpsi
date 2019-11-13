@@ -29,6 +29,9 @@ $watermarks: (
       &:hover {
         border: 2px solid $color;
       }
+      &::after {
+        color: $color;
+      }
     }
   }
   .c-card__watermark::before {
