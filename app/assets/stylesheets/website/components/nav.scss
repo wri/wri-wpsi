@@ -56,7 +56,7 @@
   display: flex;
   align-items: stretch;
   flex: 1 1 100%;
-  @include font-heading($weight: 600, $size: 16px, $lh: (18/16));
+  @include font-heading($weight: 900, $size: 16px, $lh: (18/16));
   text-transform: uppercase;
   color: get-gray('last');
   padding-bottom: space(4);

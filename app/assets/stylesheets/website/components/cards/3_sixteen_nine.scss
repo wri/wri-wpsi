@@ -3,8 +3,8 @@
 $watermarks: (
   'badge-globe',
   'badge-location',
-  'badge-wri',
   'badge-location',
+  'badge-wri',
   'badge-location',
 );
 
@@ -15,6 +15,7 @@ $watermarks: (
   background-size: 95%;
   background-position: 5% -5%;
   background-repeat: no-repeat;
+  border: 2px solid $blue-l;
   @for $i from 1 through length($theme) {
     $color: nth($theme, $i);
     &-#{$i} {
@@ -24,6 +25,9 @@ $watermarks: (
       .c-card__watermark::before {
         color: $color;
         content: get-icon-char(nth($watermarks, $i));
+      }
+      &:hover {
+        border: 2px solid $color;
       }
     }
   }
