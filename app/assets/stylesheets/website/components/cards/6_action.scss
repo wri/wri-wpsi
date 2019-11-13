@@ -10,12 +10,20 @@
       .c-card__title {
         background-color: $color;
       }
+      .c-card__link {
+        color: $color;
+      }
+      .c-card__link:hover {
+        color: $brown;
+      }
     }
   }
 }
 
 .c-card--action .c-card__content {
-  padding: space(6) space(2);
+  min-height: 100px;
+  padding: 0;
+  padding-bottom: space(4);
   align-items: center;
   justify-content: center;
 }
@@ -37,3 +45,12 @@
 }
 
 .c-card--action .c-card__text { }
+
+.c-card--action .c-card__link {
+  transition: .05s transform ease-in-out;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    transform: scale(1.2);
+  }
+}

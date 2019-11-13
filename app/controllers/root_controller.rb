@@ -9,7 +9,7 @@ class RootController < ApplicationController
       Card.new('Learn', 'Training and capacity development', href: '/learn'),
       Card.new('Dialogue', 'Fostering peace and collaboration', href: '/dialoge'),
     ]
-    @social_actions = ['Contact us', 'Follow Us', 'Talk to Us', 'Know Us']
+    @social_actions = ['Contact Us', 'Follow Us', 'Talk to Us', 'Know Us']
     @tools = [
       Card.new('Global Tool', '', href: '/map'),
       Card.new('Local Tool', '', href: '/map'),

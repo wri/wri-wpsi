@@ -4,9 +4,12 @@ section
       - @social_actions.each_with_index do |sn, i|
         .col-sm-12.col-md-6 class="col-lg-#{12/@social_actions.length}"
           .card.c-card.c-card--action class="c-card--action-#{i+1}"
-            / img.card-img-top alt="..." src="..." /
             h5.card-title.c-card__title=sn
+            - button_text = sn == 'Contact Us' ? 'Email us' : 'Click here'
             .card-body.c-card__content
-              a(href="#" class="c-button c-button--#{i+1}")
-                span= sn
-
+                - if sn == 'Follow Us'
+                  a(href="#" class="c-card__link")
+                    span.icon-twitter.icon--lg
+                - else
+                  a(href="#" class="c-button c-button--#{i+1}")
+                    span= button_text
