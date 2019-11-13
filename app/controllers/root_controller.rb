@@ -4,15 +4,15 @@ class RootController < ApplicationController
 
   def index
     @action_items = [
-      Card.new('Understand', 'Data and publications'),
-      Card.new('Mobilise', 'Engaging stakeholders'),
-      Card.new('Learn', 'Training and capacity development'),
-      Card.new('Dialogue', 'Fostering peace and collaboration'),
+      Card.new('Understand', 'Data and publications', href: '#'),
+      Card.new('Mobilise', 'Engaging stakeholders', href: '#'),
+      Card.new('Learn', 'Training and capacity development', href: '/learn'),
+      Card.new('Dialogue', 'Fostering peace and collaboration', href: '/dialoge'),
     ]
     @social_actions = ['Contact us', 'Follow Us', 'Talk to Us', 'Know Us']
     @tools = [
-      Card.new('Global Tool', ''),
-      Card.new('Local Tool', ''),
+      Card.new('Global Tool', '', href: '/map'),
+      Card.new('Local Tool', '', href: '/map'),
     ]
     @quotes = [
       Card.new('WPS Goals', 'Through the WPS partnership we hope to prevent conflicts over water by enabling communities to take action at an early stage.', credit: 'Carola van Rijnso, Dutch Ministry for Foreign Affairs.'),
