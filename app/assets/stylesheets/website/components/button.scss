@@ -2,7 +2,7 @@
 
 .c-button {
   display: inline-flex;
-  background: map-get($theme-grays, 1);
+  background: get-gray(1);
   text-transform: uppercase;
   text-decoration: none;
   &:focus,
@@ -23,7 +23,7 @@
     text-align: center;
     padding-left: space(4);
     padding-right: space(4);
-    border-right: 2px solid map-get($theme-grays, 1);
+    border-right: 2px solid get-gray(1);
   }
   &::after {
     content: '>';

@@ -24,10 +24,6 @@ body {
   flex-direction: column;
 }
 
-.o-container--map {
-  height: 100%;
-}
-
 a,
 button {
   color: #0099CC

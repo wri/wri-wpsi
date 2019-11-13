@@ -1,3 +1,5 @@
+@import '../helpers';
+
 @font-face {
   font-family: 'icons';
   src:  font-url('icons.eot?vawbeb');
@@ -26,45 +28,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-user:before {
-  content: "\e905";
-}
-.icon-profile:before {
-  content: "\e905";
-}
-.icon-avatar:before {
-  content: "\e905";
-}
-.icon-head:before {
-  content: "\e905";
-}
-.icon-youtube-play:before {
-  content: "\e906";
-}
-.icon-twitter:before {
-  content: "\e907";
-}
-.icon-linkedin:before {
-  content: "\e908";
-}
-.icon-facebook:before {
-  content: "\e909";
-}
-.icon-facebook-f:before {
-  content: "\e909";
-}
-.icon-plus-circle-solid:before {
-  content: "\e903";
-}
-.icon-times-solid:before {
-  content: "\e904";
-}
-.icon-angle-double-right-solid:before {
-  content: "\e902";
-}
-.icon-eye-regular:before {
-  content: "\e900";
-}
-.icon-book-reader-solid:before {
-  content: "\e901";
+@each $name, $char in $icons {
+  .icon-#{$name}:before {
+    content: $char;
+  }
 }

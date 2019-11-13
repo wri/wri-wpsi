@@ -8,3 +8,8 @@
 .o-container--primary {
   background: $blue-l;
 }
+
+.o-container--map {
+  height: 100%;
+  border-top: 3px solid $blue-d;
+}

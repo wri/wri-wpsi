@@ -1,3 +1,5 @@
+@import '../_settings/colors.scss';
+
 // @param {Number} $value - Index of spacing unit
 // @return {Number} - Spacing unit from bootstrap map
 @function space($value, $negative: false) {
@@ -24,4 +26,17 @@
 @function rem($pixel-size) {
   $rems: strip-unit($pixel-size) / strip-unit($font-size-default);
   @return #{$rems}rem;
+}
+
+
+@function get-gray($i) {
+  @if ($i == 'first') {
+    @return nth($theme-grays, 1);
+  }
+  @else if ($i == 'last') {
+    @return nth($theme-grays, length($theme-grays));
+  }
+  @else {
+    @return nth($theme-grays, $i);
+  }
 }

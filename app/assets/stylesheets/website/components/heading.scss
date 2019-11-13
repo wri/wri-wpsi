@@ -19,6 +19,6 @@
 }
 
 .c-heading--secondary {
-  @include font-heading($size: 35px, $color: map-get($theme-grays, 200), $weight: 700, $lh: (40/35));
+  @include font-heading($size: 35px, $color: get-gray('last'), $weight: 700, $lh: (40/35));
   margin-bottom: space(6);
 }

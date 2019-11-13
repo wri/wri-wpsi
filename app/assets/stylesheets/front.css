@@ -14,6 +14,7 @@
  *= require_tree ./front
  *= require_tree ./vendor
  *= require ./website/utilities/icons
+ *= require ./website/objects/container
  *= require ./website/components/nav_utility
  *= require ./website/components/nav
  *= require_self
