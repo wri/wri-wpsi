@@ -10,6 +10,9 @@ html
 
     = stylesheet_link_tag 'admin', media: 'all'
     = javascript_include_tag 'application'
+
+    / Webpacker pipeline
+    = javascript_pack_tag 'admin'
     link href=font rel="stylesheet"
   body
     .container

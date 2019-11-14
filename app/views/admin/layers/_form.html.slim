@@ -48,10 +48,17 @@
           style: 'font-family: monospace;'
       small.form-text.text-muted
         | Instead of a data "url",
-        | please provide a "urlTemplate" in the following format:
+          please provide a "urlTemplate" in the following format:
       pre.form-text.text-muted
         | "urlTemplate":
-        |  "api/v1/widget_datapoints/${region.gid_2}/NAME_OF_VARIABLE/"
+        |  "/api/v1/widget_datapoints/${region.gid_2}/NAME_OF_VARIABLE/"
+
+  h3 Widget Preview
+  .vega-preview.m-4 id='vega-preview'
+  .form-group
+    .field
+      = label_tag :preview_region
+      = text_field_tag :preview_region, 'EGY.14.3_1', class: 'form-control'
 
   h3 Options
 
@@ -61,7 +68,7 @@
       = f.label :mask, class: 'form-check-label'
       small.form-text.text-muted
         | The mask layer has a toggle to turn it on and off and always shows at
-        | the top of the side bar.
+          the top of the side bar.
   .form-group.form-check
     .field
       = f.check_box :published, class: 'form-check-input'

@@ -25,7 +25,9 @@ const MenuBar = ({ pages }) => {
     fontWeight: '600',
   }
 
-  const staticContentPageLinks = pages.map(
+  const staticContentPageLinks = pages.filter(
+    page => page.menu && page.menu.length > 0
+  ).map(
     page => (
       <NavLink
         to={`/info/${page.slug}`}
