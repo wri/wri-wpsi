@@ -51,11 +51,14 @@ class LayerGroupsMap extends React.Component {
     }
 
     const hasInteraction = (layer) => {
-      // return !!layer.interactionConfig
-      //     && !!layer.interactionConfig.output
-      //     && !!layer.interactionConfig.output.length
-      // WRI doesn't want interactions to show for now
-      return false && layer
+      // WRI only wants interactions to show for one layer
+      if (layer.id == '851e2470-c592-4945-a5dd-d0eaf55b2158') {
+        return !!layer.interactionConfig
+            && !!layer.interactionConfig.output
+            && !!layer.interactionConfig.output.length
+      } else {
+        return false
+      }
     }
 
     const activeLayersWithInteraction = flatten(layerGroups.map(
