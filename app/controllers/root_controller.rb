@@ -26,13 +26,20 @@ class RootController < ApplicationController
       Card.new('Solving conflict', 'It’s important to know why conflict is happening, what the role of water is, and what factors you can influence either as a policy maker in the respective region, or as an external partner, to solve the conflict', credit: 'Susanne Schmeier, IHE Delft'),
     ]
     @headlines = (0..2).map{Card.new("News Headline")}
+    get_pages!
     get_partners!
   end
 
   def map
+    get_pages!
     # Let react single page app take over
     @layers = Layer.serialized_for_react_app
     @categories = Category.serialized_for_react_app
+  end
+
+  def show
+    get_pages!
+    @page = Page.where(slug: params[:page]).first
   end
 
   def learn
@@ -61,6 +68,10 @@ class RootController < ApplicationController
       # Spin endlessly
     end
     raise 'should never get here'
+  end
+
+  private def get_pages!
+    @pages = Page.top_level
   end
 
   private def get_partners!

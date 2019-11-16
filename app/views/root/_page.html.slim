@@ -1,0 +1,14 @@
+- show_action_banner ||= show_action_banner.nil?
+
+= render 'root/header'
+
+main.o-container.o-container--page
+  .container
+    = render 'breadcrumbs', page: page
+    h1= page.name
+    div= raw page.content
+
+
+- if show_action_banner && @action_items.present?
+  = render 'root/landing/action_banner'
+= render 'root/landing/footer'

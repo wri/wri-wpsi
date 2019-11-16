@@ -1,0 +1,19 @@
+@import '../helpers';
+
+.c-breadcrumbs {
+  display: flex;
+}
+
+.c-breadcrumbs__link {
+  color: get-gray(2);
+  &:hover,
+  &:focus {
+    color: $green-d;
+  }
+}
+
+.c-breadcrumbs__divider {
+  color: get-gray(2);
+  margin-right: space(2);
+  margin-left: space(2);
+}

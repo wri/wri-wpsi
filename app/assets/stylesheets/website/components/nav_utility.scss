@@ -20,10 +20,12 @@
 .c-nav-utility__link {
   padding: space(2);
   color: get-gray(3);
+  transition: .15s transform ease-in-out;
   &:hover,
   &:focus {
-    color: $brown;
+    color: $nav-link-hover-color;
     text-decoration: none;
+    transform: scale(1.3);
   }
 }
 
@@ -39,7 +41,8 @@
   margin-left: space(4);
   &:hover,
   &:focus {
-    background: $brown;
+    background: $nav-link-hover-color;
     color: white;
+    transform: none;
   }
 }

@@ -13,6 +13,7 @@
  *= require_tree ./shared
  *= require_tree ./front
  *= require_tree ./vendor
+ *= require ./website/overrides/bootstrap
  *= require ./website/utilities/icons
  *= require ./website/objects/container
  *= require ./website/components/nav_utility

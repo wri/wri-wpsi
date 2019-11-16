@@ -14,5 +14,6 @@
  *= require_tree ./website/objects
  *= require_tree ./website/components
  *= require_tree ./website/utilities
+ *= require_tree ./website/overrides
  *= require_self
  */

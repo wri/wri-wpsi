@@ -69,7 +69,7 @@
   }
   &:hover,
   &:focus {
-    color: $brown;
+    color: $nav-link-hover-color;
   }
   @include media-breakpoint-up(lg) {
     font-size: 18px;

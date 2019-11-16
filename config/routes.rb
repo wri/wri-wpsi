@@ -20,12 +20,9 @@ Rails.application.routes.draw do
   # Single page app endpoint
   get '/map', to: 'root#map'
   get '/map/*ignored', to: 'root#map'
-  get '/info/*ignored', to: 'root#map'
+  # get '/info/*ignored', to: 'root#map'
 
-  get '/learn', to: 'root#learn'
-  get '/dialogue', to: 'root#dialogue'
-  get '/about-us', to: 'root#about_us'
-  get '/contact', to: 'root#contact'
+  get "/info/:page" => "root#show"
 
   # Admin routes
   get '/admin', to: redirect('/admin/layers'), as: 'admin'
