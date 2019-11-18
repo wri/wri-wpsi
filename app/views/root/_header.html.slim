@@ -7,17 +7,19 @@
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse.c-nav__wrapper
         ul.navbar-nav.c-nav__items
-          li.nav-item.c-nav__item
-            a.c-nav__link href="/map" Global Tool
-          li.nav-item.c-nav__item
-            a.c-nav__link href="/map" Local Tool
           - @pages.each do |page|
             - children = page.children
             - path = page_path(page)
             li.nav-item.c-nav__item class=('dropdown' if children.any?)
               - if children.any?
-                a.c-nav__link.nav-link.dropdown-toggle(href=path id="#{page.slug}_dropdown" aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" role="button")
-                  span=page.name
+                span.c-nav__link.nav-link.dropdown-toggle {
+                  id="#{page.slug}_dropdown"
+                  aria-expanded='false'
+                  aria-haspopup='true'
+                  data-toggle='dropdown'
+                  role='button'
+                }
+                  span = page.name
                 .dropdown-menu aria-labelledby="#{page.slug}_dropdown"
                   - children.each do |child_page|
                     a.dropdown-item href=page_path(child_page) #{child_page.name}

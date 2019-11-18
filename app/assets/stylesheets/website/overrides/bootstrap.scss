@@ -23,6 +23,10 @@
 }
 
 
+.dropdown-toggle {
+  cursor: pointer;
+}
+
 .dropdown-toggle::after {
   @include font-icon;
   content: get-icon-char(angle-down);
