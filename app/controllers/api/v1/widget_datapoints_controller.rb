@@ -36,6 +36,6 @@ class Api::V1::WidgetDatapointsController < ApplicationController
     return unless @field_name
 
     column_name = WidgetDatapoint.connection.quote_column_name(@field_name)
-    @widget_datapoints = WidgetDatapoint.where("#{column_name} IS NOT NULL")
+    @widget_datapoints = @widget_datapoints.where("#{column_name} IS NOT NULL")
   end
 end
