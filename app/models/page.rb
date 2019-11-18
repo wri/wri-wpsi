@@ -2,14 +2,14 @@ class Page < ApplicationRecord
   validates :name, presence: true
   validates :slug, presence: true, uniqueness: true
 
-  scope :top_level, -> { where(menu: '') }
+  scope :top_level, -> { where(menu: '').ordered }
 
   def self.ordered
     order(:sort_priority, :id)
   end
 
   def children
-    Page.where(menu: slug).order(:sort_priority)
+    Page.where(menu: slug).ordered
   end
 
   def parent
