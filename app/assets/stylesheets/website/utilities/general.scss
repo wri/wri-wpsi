@@ -1,13 +1,11 @@
 @import '../helpers';
 
-// * { outline: 1px solid blue; }
-
 h3 {
   text-align: center;
   text-transform: uppercase;
 }
 
 section {
-  padding-bottom: space(8);
+  margin-bottom: space(8);
   min-height: 200px;
 }

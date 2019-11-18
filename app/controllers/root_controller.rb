@@ -11,12 +11,17 @@ class RootController < ApplicationController
 
   def index
     @action_items = [
-      Card.new('Understand', 'Data and publications', href: '#'),
-      Card.new('Mobilise', 'Engaging stakeholders', href: '#'),
-      Card.new('Learn', 'Training and capacity development', href: '/learn'),
-      Card.new('Dialogue', 'Fostering peace and collaboration', href: '/dialoge'),
+      Card.new('Understand', 'Data and publications', href: '/info/about#Understand'),
+      Card.new('Mobilise', 'Engaging stakeholders', href: '/info/about#Mobilise'),
+      Card.new('Learn', 'Training and capacity development', href: '/info/learn'),
+      Card.new('Dialogue', 'Fostering peace and collaboration', href: 'info/dialogue'),
     ]
-    @social_actions = ['Contact Us', 'Follow Us', 'Talk to Us', 'Know Us']
+    @social_actions = [
+      Card.new('Contact Us', href: 'info@waterpeacesecurity.org', options: {type: 'mail'}),
+      Card.new('Follow Us', href: 'http://twitter.com/WaterPeaceSec', options: {type: 'icon'}),
+      Card.new('Talk to Us', href: '', options: {type: 'button'}),
+      Card.new('Know Us', href: '', options: {type: 'button'}),
+    ]
     @tools = [
       Card.new('Global Tool', '', href: '/map'),
       Card.new('Local Tool', '', href: '/map'),
