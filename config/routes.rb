@@ -41,6 +41,13 @@ Rails.application.routes.draw do
         format: false,
         defaults: { format: 'json' },
         constraints: { gid_2: %r{[^\/]+}, field_name: %r{[^\/]+} }
+
+      get 'widget_datapoints/:gid_2/:field_name/csv',
+        to: 'widget_datapoints#index',
+        as: 'widget_datapoints_csv',
+        format: false,
+        defaults: { format: 'csv' },
+        constraints: { gid_2: %r{[^\/]+}, field_name: %r{[^\/]+} }
     end
   end
 
