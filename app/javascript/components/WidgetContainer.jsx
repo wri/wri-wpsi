@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styleVariables from 'components/styles/variables'
 import injectSheet from 'react-jss'
 import Widget from 'components/Widget'
@@ -33,13 +32,13 @@ const WidgetContainer = ({ layer, region, classes }) => {
         />
       </div>
       <div className={classes.linkContainer}>
-        <Link
-          to={`/api/v1/widget_datapoints/${region.gid_2}/all/csv`}
+        <a
+          href={`/api/v1/widget_datapoints/${region.gid_2}/all/csv`}
           className={classes.downloadLink}
         >
           <i className='icon__eye' style={{marginRight: 5}} />
           <span>Download all data for this region</span>
-        </Link>
+        </a>
       </div>
     </div>
   )
