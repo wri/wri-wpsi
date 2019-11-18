@@ -1,6 +1,7 @@
 class RootController < ApplicationController
   layout :resolve_layout
-  before_action :get_partners!
+  before_action :set_partners
+
   unless Rails.env.test?
     http_basic_authenticate_with(
       name: ENV['HTTP_AUTH_NAME'] || 'test',
@@ -26,20 +27,20 @@ class RootController < ApplicationController
       Card.new('Solving conflict', 'It’s important to know why conflict is happening, what the role of water is, and what factors you can influence either as a policy maker in the respective region, or as an external partner, to solve the conflict', credit: 'Susanne Schmeier, IHE Delft'),
     ]
     @headlines = (0..2).map{Card.new("News Headline")}
-    get_pages!
-    get_partners!
+    set_pages
+    set_partners
   end
 
   def map
-    get_pages!
+    set_pages
     # Let react single page app take over
     @layers = Layer.serialized_for_react_app
     @categories = Category.serialized_for_react_app
   end
 
   def show
-    get_pages!
-    @page = Page.where(slug: params[:page]).first
+    set_pages
+    @page = Page.find_by(slug: params[:page_slug])
   end
 
   def learn
@@ -70,11 +71,13 @@ class RootController < ApplicationController
     raise 'should never get here'
   end
 
-  private def get_pages!
+  private
+
+  def set_pages
     @pages = Page.top_level
   end
 
-  private def get_partners!
+  def set_partners
     @partners = [
       ['IHE', '',],
       ['Deltares', '',],
@@ -85,13 +88,12 @@ class RootController < ApplicationController
     ]
   end
 
-  private def resolve_layout
+  def resolve_layout
     if action_name == 'map'
       'application'
     else
       'landing'
     end
   end
-
 end
 
