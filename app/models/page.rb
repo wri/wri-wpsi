@@ -16,6 +16,11 @@ class Page < ApplicationRecord
     Page.find_by(slug: menu)
   end
 
+  def contentless?
+    # Pages with children are contentless menu items
+    slug == 'map' || children.any?
+  end
+
   def self.serialized_for_react_app
     ordered.map do |page|
       {

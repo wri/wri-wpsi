@@ -22,6 +22,10 @@
   .form-group
     .field
       = f.label :content
-      = f.text_area :content, class: 'tinymce', rows: 25
-      = tinymce
+      - if @page.contentless?
+        = f.text_field :content, class: 'form-control',
+            value: 'This page cannot display any content.', disabled: true
+      - else
+        = f.text_area :content, class: 'tinymce', rows: 25
+        = tinymce
   .actions = f.submit class: 'btn btn-primary'
