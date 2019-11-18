@@ -2,7 +2,7 @@ require 'test_helper'
 
 class WidgetDatapointTest < ActiveSupport::TestCase
   setup do
-    create(:widget_datapoint)
+    @datapoint = create(:widget_datapoint)
   end
 
   test 'self.serialized_for_react_app' do
@@ -16,5 +16,19 @@ class WidgetDatapointTest < ActiveSupport::TestCase
     ]
 
     assert_equal expected, WidgetDatapoint.serialized_for_react_app('rainfed')
+  end
+
+  test 'self.to_csv' do
+    expected = "gid_2,month_indep,rainfed\nUSA.1.1,2000-01-01,0.12345\n"
+    assert_equal expected, WidgetDatapoint.to_csv('rainfed')
+  end
+
+  test 'self.to_csv with no field name' do
+    attributes = WidgetDatapoint.attribute_names
+    header_row = attributes.join(',')
+    values_row = attributes.map { |attr| @datapoint.send(attr.to_sym) }.join(',')
+
+    expected = "#{header_row}\n#{values_row}\n"
+    assert_equal expected, WidgetDatapoint.to_csv(nil)
   end
 end
