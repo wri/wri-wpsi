@@ -9,11 +9,11 @@ class Page < ApplicationRecord
   end
 
   def children
-    Page.where(menu: name).order(:sort_priority)
+    Page.where(menu: slug).order(:sort_priority)
   end
 
   def parent
-    Page.where(name: menu).first
+    Page.find_by(slug: menu)
   end
 
   def self.serialized_for_react_app
