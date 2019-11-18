@@ -1,9 +1,16 @@
 .container
   header
     nav.c-nav.navbar.navbar-expand-lg
-      a.navbar-brand.c-nav__brand href="/"
-        = image_tag "logo.svg", class: 'c-nav__brand-image'
-      button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+      a.navbar-brand.c-nav__brand href='/'
+        = image_tag 'logo.svg', class: 'c-nav__brand-image'
+      button.navbar-toggler {
+        aria-controls='navbarSupportedContent'
+        aria-expanded='false'
+        aria-label='Toggle navigation'
+        data-target='#navbarSupportedContent'
+        data-toggle='collapse'
+        type='button'
+      }
         span.navbar-toggler-icon
       #navbarSupportedContent.collapse.navbar-collapse.c-nav__wrapper
         ul.navbar-nav.c-nav__items
@@ -22,7 +29,8 @@
                   span = page.name
                 .dropdown-menu aria-labelledby="#{page.slug}_dropdown"
                   - children.each do |child_page|
-                    a.dropdown-item href=page_path(child_page) #{child_page.name}
+                    a.dropdown-item href=page_path(child_page)
+                      = child_page.name
               - else
                 a.c-nav__link href=path #{page.name}
         = render 'root/utility_nav'
