@@ -69,7 +69,7 @@ class ResourceWatchMap extends React.Component {
   fetchLayerDefinition = (layerId) => {
     const layerUrl = `https://api.resourcewatch.org/v1/layer/${layerId}`
 
-    return fetch(layerUrl)
+    return fetch(layerUrl, {headers: {'Upgrade-Insecure-Requests': 1}})
       .then(response => response.ok ? response.json() : null)
       .then(response => {
         if (response) {
