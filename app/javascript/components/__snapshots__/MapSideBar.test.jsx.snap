@@ -9,33 +9,29 @@ exports[`renders correctly 1`] = `
     className="MapSideBar-header-0-1-2"
   >
     <h1
-      style={
-        Object {
-          "marginBottom": 0,
-        }
-      }
+      className="MapSideBar-headerTitle-0-1-3"
     >
       Investigation
     </h1>
     <button
-      className="MapSideBar-addLayerButton-0-1-4"
+      className="MapSideBar-addLayerButton-0-1-5"
       onClick={[Function]}
       style={Object {}}
     >
       <i
-        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-5"
+        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-6"
       />
       Add datasets
     </button>
   </header>
   <div
-    className="LayerCard-container-0-1-7 LayerCard-toggle-0-1-8"
+    className="LayerCard-container-0-1-8 LayerCard-toggle-0-1-9"
   >
     <header
-      className="LayerCard-header-0-1-10"
+      className="LayerCard-header-0-1-11"
     >
       <h2
-        className="LayerCard-title-0-1-11"
+        className="LayerCard-title-0-1-12"
       >
         Highlight areas of water stress
       </h2>
@@ -69,7 +65,7 @@ exports[`renders correctly 1`] = `
             Object {
               "MozTransition": "background 0.25s",
               "WebkitTransition": "background 0.25s",
-              "background": "#0099CC",
+              "background": "#5f9f7c",
               "borderRadius": 14,
               "cursor": "pointer",
               "height": 28,
@@ -133,19 +129,19 @@ exports[`renders correctly 1`] = `
       </div>
     </header>
     <div
-      className="LayerCard-content-0-1-12"
+      className="LayerCard-content-0-1-13"
     >
       <p
-        className="LayerCard-contentDescription-0-1-13"
+        className="LayerCard-contentDescription-0-1-14"
       />
       <p
-        className="LayerCard-source-0-1-16"
+        className="LayerCard-source-0-1-17"
       >
         <a
-          className="LayerCard-sourceLink-0-1-17"
+          className="LayerCard-sourceLink-0-1-18"
         />
         <span
-          className="LayerCard-sourceDescription-0-1-18"
+          className="LayerCard-sourceDescription-0-1-19"
         />
       </p>
       <div
@@ -157,10 +153,10 @@ exports[`renders correctly 1`] = `
       />
     </div>
     <footer
-      className="LayerCard-footer-0-1-15"
+      className="LayerCard-footer-0-1-16"
     >
       <a
-        className="LayerCard-moreLink-0-1-14"
+        className="LayerCard-moreLink-0-1-15"
         href="/map/learn_more/123"
         onClick={[Function]}
       >
@@ -179,11 +175,11 @@ exports[`renders correctly 1`] = `
     </footer>
   </div>
   <div
-    className="MapSideBar-sideBarContent-0-1-6"
+    className="MapSideBar-sideBarContent-0-1-7"
     id="sideBarContent"
   >
     <button
-      className="MapSideBar-addLayerButton-0-1-4"
+      className="MapSideBar-addLayerButton-0-1-5"
       onClick={[Function]}
       style={
         Object {
@@ -197,7 +193,7 @@ exports[`renders correctly 1`] = `
       }
     >
       <i
-        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-5"
+        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-6"
       />
       Add datasets
     </button>
