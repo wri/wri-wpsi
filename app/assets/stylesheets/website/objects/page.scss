@@ -1,0 +1,22 @@
+@import '../helpers';
+
+.o-page h1,
+#tinymce h1 {
+}
+
+.o-page h2,
+#tinymce h2 {
+}
+
+.o-page h3,
+#tinymce h3 {
+}
+
+.o-page div > p,
+.o-page div > ul {
+  @include font-body;
+  @include media-breakpoint-up(lg) {
+    max-width: 75%;
+  }
+}
+

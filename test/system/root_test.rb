@@ -6,17 +6,20 @@ class RootTest < ApplicationSystemTestCase
     assert_text 'OK'
   end
 
-  def test_root_redirect
+  def test_landing_page
     retry_on_timeout do
       visit '/'
-      assert current_path == '/map'
+      assert_selector 'a > img[alt="WPS home"]'
+      assert_selector '#hero'
     end
   end
 
-  def test_landing_page
+  def test_map_page
     retry_on_timeout do
       visit '/map'
-      assert_selector '#top-banner', text: 'Water, Peace & Security'
+      assert_selector 'a > img[alt="WPS home"]'
+      assert_selector '.leaflet-container'
+      assert_text 'INVESTIGATION'
     end
   end
 

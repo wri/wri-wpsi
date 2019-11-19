@@ -1,0 +1,21 @@
+@import '../helpers';
+
+.c-heading {
+  @include primary-heading;
+}
+
+.c-heading--center {
+  text-align: center;
+}
+
+.c-heading__primary-text {
+  font-weight: 900;
+}
+
+.c-heading__secondary-text {
+  font-weight: 200;
+}
+
+.c-heading--secondary {
+  @include secondary-heading;
+}

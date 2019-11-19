@@ -1,0 +1,28 @@
+@import '../helpers';
+
+@font-face {
+  font-family: 'icons';
+  src:  font-url('icons.eot?vawbeb');
+  src:  font-url('icons.eot?vawbeb#iefix') format('embedded-opentype'),
+    font-url('icons.woff2?vawbeb') format('woff2'),
+    font-url('icons.ttf?vawbeb') format('truetype'),
+    font-url('icons.woff?vawbeb') format('woff'),
+    font-url('icons.svg?vawbeb#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  @include font-icon;
+}
+
+@each $name, $char in $icons {
+  .icon-#{$name}:before {
+    content: $char;
+  }
+}
+
+.icon--lg {
+  font-size: rem(50px);
+}

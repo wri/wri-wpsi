@@ -19,18 +19,9 @@ body, html {
   height: 100%;
 }
 
-body > div.container {
-  height: 100%;
-}
-
-a,
-button {
-  color: #0099CC
-}
-
-a:hover,
-a:focus {
-  color: #003F6A;
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -38,7 +29,6 @@ h2,
 h3,
 h4 {
   margin: 0;
-  font-family: 'PT Sans', sans-serif;
 }
 
 h2 {

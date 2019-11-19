@@ -1,6 +1,33 @@
 Rails.application.routes.draw do
   root 'root#index'
 
+  # User defined pages
+  get "/info/:page_slug", to: "root#show"
+
+  # Single page app endpoint
+  get '/map', to: 'root#map'
+  get '/map/*ignored', to: 'root#map'
+
+  # Admin routes
+  get '/admin', to: redirect('/admin/layers'), as: 'admin'
+
+  devise_for(
+    :users,
+    controllers: {
+      sessions: 'admin/sessions',
+      registrations: 'admin/registrations',
+      passwords: 'admin/passwords',
+    },
+    path: '/admin',
+  )
+
+  namespace :admin do
+    resources :categories
+    resources :layers
+    resources :pages
+    resources :users, only: [:index, :new, :create, :destroy]
+  end
+
   # API endpoint
   namespace :api do
     namespace :v1 do
@@ -22,31 +49,6 @@ Rails.application.routes.draw do
         defaults: { format: 'csv' },
         constraints: { gid_2: %r{[^\/]+}, field_name: %r{[^\/]+} }
     end
-  end
-
-  # Single page app endpoint
-  get '/map', to: 'root#map'
-  get '/map/*ignored', to: 'root#map'
-  get '/info/*ignored', to: 'root#map'
-
-  # Admin routes
-  get '/admin', to: redirect('/admin/layers'), as: 'admin'
-
-  devise_for(
-    :users,
-    controllers: {
-      sessions: 'admin/sessions',
-      registrations: 'admin/registrations',
-      passwords: 'admin/passwords',
-    },
-    path: '/admin',
-  )
-
-  namespace :admin do
-    resources :categories
-    resources :layers
-    resources :pages
-    resources :users, only: [:index, :new, :create, :destroy]
   end
 
   # Default AWS ELB health check path

@@ -1,0 +1,8 @@
+@import '../helpers';
+
+button {
+  color: $link-color;
+  &:hover {
+    color: $link-hover-color;
+  }
+}

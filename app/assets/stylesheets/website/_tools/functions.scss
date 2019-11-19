@@ -1,0 +1,46 @@
+@import '../_settings/colors.scss';
+
+// @param {Number} $value - Index of spacing unit
+// @return {Number} - Spacing unit from bootstrap map
+@function space($value, $negative: false) {
+  $_value: map-get($spacers, $value);
+  @if ($negative) {
+    $_value: -($_value)
+  }
+  @return $_value;
+}
+
+// Remove the unit of a length
+// Source: https://css-tricks.com/snippets/sass/strip-unit-function/
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+// @param {Number} $pixel-size - Pixel Value to convert
+// @return {Number} - Rem value
+@function rem($pixel-size) {
+  $rems: strip-unit($pixel-size) / strip-unit($font-size-default);
+  @return #{$rems}rem;
+}
+
+
+@function get-gray($i) {
+  @if ($i == 'first') {
+    @return nth($theme-grays, 1);
+  }
+  @else if ($i == 'last') {
+    @return nth($theme-grays, length($theme-grays));
+  }
+  @else {
+    @return nth($theme-grays, $i);
+  }
+}
+
+@function get-icon-char($name) {
+  @return map-get($icons, $name);
+}

@@ -1,0 +1,16 @@
+@import '../helpers';
+
+.o-container {
+  padding-top: space(8);
+  padding-bottom: space(8);
+}
+
+.o-container--primary {
+  background: $blue-l;
+}
+
+.o-container--map,
+.o-container--page {
+  height: 100%;
+  border-top: 3px solid $blue-d;
+}

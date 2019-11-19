@@ -23,12 +23,17 @@ const styles = {
     alignItems: 'center',
     padding: '15px',
   },
+  headerTitle: {
+    fontSize: 28,
+    marginBottom: 0,
+  },
   locationHeader:  {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '15px',
-    backgroundColor: colors.primary,
+    backgroundColor: colors.accent,
+    color: 'white',
     fontWeight: '600',
     fontSize: 16,
     lineHeight: 18/16,
@@ -146,7 +151,7 @@ const MapSideBar = ({
   return (
     <div id='sideBar' className={classes.sideBar}>
       <header className={classes.header}>
-        <h1 style={{marginBottom: 0}}>Investigation</h1>
+        <h1 className={classes.headerTitle}>Investigation</h1>
         {renderAddLayerButton()}
       </header>
 

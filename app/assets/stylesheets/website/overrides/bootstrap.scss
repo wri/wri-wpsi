@@ -1,0 +1,41 @@
+// Show dropdowns on hover instead of click
+@import '../helpers';
+
+.dropdown:hover > .dropdown-menu {
+  @include media-breakpoint-up(lg) {
+    display: block;
+  }
+}
+
+.dropdown-menu {
+  margin: 0;
+  left: -1px;
+  border: 0;
+  border-top: 1px solid get-gray(2);
+  top: calc(100% - #{space(4)});
+}
+
+// Force dropdown menu of last nav item to appear
+// to left
+.nav-item:last-child {
+  .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+}
+
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-toggle::after {
+  @include font-icon;
+  content: get-icon-char(angle-down);
+  border: 0;
+  font-size: 22px;
+}
+
+.dropdown-item {
+  @include font-heading;
+}

@@ -1,0 +1,70 @@
+// copied from https://engageinteractive.co.uk/blog/top-10-scss-mixins
+@mixin font-heading($size: false, $color: false, $weight: false,  $lh: false, $tracking: false) {
+  font-family: $font-header;
+  @if $size { font-size: $size; }
+  @if $color { color: $color; }
+  @if $weight { font-weight: $weight; }
+  @if $lh { line-height: $lh; }
+  @if $tracking { letter-spacing: tracking($tracking); }
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+}
+
+@mixin font-body($size: false, $color: false, $weight: false, $lh: false, $tracking: false) {
+  font-family: $font-body;
+  @if $size { font-size: $size; }
+  @if $color { color: $color; }
+  @if $weight { font-weight: $weight; }
+  @if $lh { line-height: $lh; }
+  @if $tracking { letter-spacing: tracking($tracking); }
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+}
+
+@mixin font-default($size: false, $color: false, $lh: false, $tracking: false) {
+  @include font-body($size: $size, $weight: font-weight(normal), $color: $color, $lh: $lh, $tracking: $tracking);
+  @content;
+}
+
+@mixin font-base() {
+  @include font-default() {
+    color: $text-color;
+  }
+}
+
+@mixin h1($color: $gray-700) {
+  @include font-heading(30px, $color, $lh: line-height(41, 30), $weight: 900);
+}
+
+@mixin h2($color: $gray-700) {
+  @include font-heading(24px, $color, $lh: line-height(27, 24));
+}
+
+@mixin h3($color: $gray-600) {
+  @include font-heading(20px, $color, $lh: line-height(22, 20));
+}
+
+@mixin h4($color: $gray-500) {
+  @include font-heading(16px, $color, $lh: line-height(16, 14));
+}
+
+@mixin h5($color: $gray-500) {
+  @include font-heading(14px, $color, $weight: bold, $lh: line-height(18, 16));
+}
+
+@mixin h6($color: $gray-500) {
+  @include font-body(12px, $color, $weight: bold, $lh: line-height(16, 14));
+}
+
+@mixin primary-heading {
+  @include font-heading($size: 50px, $color: $white);
+  text-transform: uppercase;
+  margin-bottom: space(6);
+  @content;
+}
+
+@mixin secondary-heading {
+  @include font-heading($size: 35px, $color: get-gray('last'), $weight: 700, $lh: (40/35));
+  margin-bottom: space(6);
+  @content;
+}

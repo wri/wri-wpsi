@@ -1,1 +1,23 @@
-= javascript_pack_tag 'index'
+- content_for :main_content do
+  = render 'root/landing/banner'
+  = render 'root/landing/action_nav'
+  - content_for 'intro_text' do
+    | Water insecurity is increasing worldwide. In response to these threats the Water,
+    |  Peace and Security partnership develops innovative tools and services that help
+    |  identify water-related security risks, and allow stakeholders to TAKE ACTION
+    |  at an early stage.
+  = render 'root/landing/text_block', id: 'intro'
+  = render 'root/landing/tool_dock'
+  - content_for 'process_text' do
+    | Our process depends on global data collection and validation, and on understanding
+    |  how water shortage can translate into social consequences locally. Our participatory
+    |  approach understands that dialogue between different parties is crucial to solving
+    |  conflict, increases joint understanding of the water system, and broadens the scope
+    |  of actions that can be taken.
+  = render 'root/landing/text_block', id: 'process'
+  = render 'root/landing/quotes'
+  = render 'root/landing/video'
+  = render 'root/landing/news'
+  = render 'root/landing/social'
+
+= render 'root/landing/page'

@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title
+      | WRI - Water, Peace and Security Initiative
+    = csrf_meta_tags
+    = csp_meta_tag
+    = render 'layouts/shared/fonts'
+
+    / Leaflet CDN
+    = stylesheet_link_tag 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css', media: 'all'
+    = javascript_include_tag 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js'
+    = javascript_include_tag 'https://unpkg.com/esri-leaflet/dist/esri-leaflet.js'
+    = javascript_include_tag 'https://unpkg.com/leaflet-utfgrid/L.UTFGrid-min.js'
+
+    / Regular asset pipeline
+    = stylesheet_link_tag 'front', media: 'all'
+    = javascript_include_tag 'application'
+
+    / Webpacker pipeline
+    = javascript_pack_tag 'application'
+    = stylesheet_pack_tag 'application'
+
+    / Google places API
+    - key = ENV['WRI_WPSI_GOOGLE_MAPS_API_KEY']
+    script src="https://maps.googleapis.com/maps/api/js?v=weekly&key=#{key}&libraries=places"
+  body
+    = yield
