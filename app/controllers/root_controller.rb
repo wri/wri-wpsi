@@ -103,7 +103,7 @@ class RootController < ApplicationController
     if action_name == 'map'
       'map'
     else
-      'application'
+      'website'
     end
   end
 end
