@@ -17,6 +17,8 @@ class Page < ApplicationRecord
   end
 
   def contentless?
+    return unless persisted?
+
     # Pages with children are contentless menu items
     slug == 'map' || children.any?
   end

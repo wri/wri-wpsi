@@ -34,11 +34,11 @@ class MapTest < ApplicationSystemTestCase
     end
 
     within '#modal > header' do
-      assert_selector 'h1', text: layer.name
+      assert_selector 'h1', text: layer.name.upcase
       assert_text layer.long_description
       click_button 'Close'
     end
 
-    assert_selector '#top-banner', text: 'Water, Peace & Security'
+    assert_selector 'a > img[alt="WPS home"]'
   end
 end
