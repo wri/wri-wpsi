@@ -1,9 +1,7 @@
 @import '../helpers';
 
 .c-heading {
-  @include font-heading($size: 50px, $color: $white);
-  text-transform: uppercase;
-  margin-bottom: space(6);
+  @include primary-heading;
 }
 
 .c-heading--center {
@@ -19,6 +17,5 @@
 }
 
 .c-heading--secondary {
-  @include font-heading($size: 35px, $color: get-gray('last'), $weight: 700, $lh: (40/35));
-  margin-bottom: space(6);
+  @include secondary-heading;
 }

@@ -33,6 +33,7 @@ const styles = {
   },
   title: {
     marginBottom: 15,
+    fontSize: 28,
   },
   list: {
     display: 'flex',

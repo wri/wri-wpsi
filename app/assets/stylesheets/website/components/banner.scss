@@ -20,13 +20,7 @@
 }
 
 .c-banner__title {
-  text-transform: uppercase;
-  padding: space(5) space(10) space(5) space(5);
-  background: white;
-  color: #586671;
-  flex: 0 0 auto;
-  line-height: 1;
-  @include font-heading($size: 2rem, $weight: 900);
+  @include banner-title;
 }
 
 .c-banner__title--sub {

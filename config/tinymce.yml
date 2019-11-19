@@ -58,3 +58,4 @@ default:
   relative_urls: false
   toolbar_drawer: 'sliding'
   toolbar_sticky: true
+  content_css: '/assets/website.css'

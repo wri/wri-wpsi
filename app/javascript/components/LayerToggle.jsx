@@ -35,7 +35,7 @@ const styles = {
     }
   },
   text: {
-    padding: '0 20px 0 15px',
+    padding: '0 25px 0 10px',
     borderRadius: 3,
     zIndex: 0,
     border: `1px solid ${colors.links.default}`,

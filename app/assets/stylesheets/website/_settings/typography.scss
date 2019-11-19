@@ -55,3 +55,16 @@
 @mixin h6($color: $gray-500) {
   @include font-body(12px, $color, $weight: bold, $lh: line-height(16, 14));
 }
+
+@mixin primary-heading {
+  @include font-heading($size: 50px, $color: $white);
+  text-transform: uppercase;
+  margin-bottom: space(6);
+  @content;
+}
+
+@mixin secondary-heading {
+  @include font-heading($size: 35px, $color: get-gray('last'), $weight: 700, $lh: (40/35));
+  margin-bottom: space(6);
+  @content;
+}

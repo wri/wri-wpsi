@@ -2,12 +2,7 @@
 
 = render 'root/header'
 
-main.o-container.o-container--page
-  .container
-    = render 'breadcrumbs', page: page
-    h1= page.name
-    div= raw page.content
-
+= render 'page_content', page: page
 
 - if show_action_banner && @action_items.present?
   = render 'root/landing/action_banner'

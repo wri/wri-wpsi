@@ -2,17 +2,28 @@
 
 h1,
 .h1 {
-  @include h1;
+  @include primary-heading {
+    color: $blue-d;
+    font-weight: 900;
+  }
 }
 
 h2,
 .h2 {
-  @include h2;
+  @include secondary-heading {
+    color: $brown;
+    font-weight: 900;
+    text-transform: none;
+  }
 }
 
 h3,
 .h3 {
-  @include h3;
+  @include secondary-heading {
+    color: get-gray(3);
+    font-size: 24px;
+    text-align: left;
+  }
 }
 
 h4,

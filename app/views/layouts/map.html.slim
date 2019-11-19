@@ -5,6 +5,7 @@ html
       | WRI - Water, Peace and Security Initiative
     = csrf_meta_tags
     = csp_meta_tag
+    = render 'layouts/shared/fonts'
 
     / Leaflet CDN
     = stylesheet_link_tag 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css', media: 'all'
@@ -23,9 +24,5 @@ html
     / Google places API
     - key = ENV['WRI_WPSI_GOOGLE_MAPS_API_KEY']
     script src="https://maps.googleapis.com/maps/api/js?v=weekly&key=#{key}&libraries=places"
-    link(
-      href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900\
-            900|Merriweather:400,400i,700,700i&display=swap"
-      rel="stylesheet")
   body
     = yield

@@ -3,7 +3,9 @@
 .c-card--featured {
   min-height: rem(325px);
   &:hover {
-    transform: scale(1.1) translateY(-5px);
+    @include media-breakpoint-up(lg) {
+      transform: scale(1.1) translateY(-5px);
+    }
     .c-card__title,
     .c-card__text {
       color: white;
