@@ -90,12 +90,12 @@ class RootController < ApplicationController
 
   def set_partners
     @partners = [
-      ['IHE', ''],
-      ['Deltares', ''],
-      ['Alert', ''],
-      ['The Hague Centre', ''],
-      ['Wetlands', ''],
-      ['WRI', ''],
+      Card.new('IHE', '', href: '//www.un-ihe.org/'),
+      Card.new('Deltares', '', href: '//www.deltares.nl'),
+      Card.new('Alert', '', href: '//www.international-alert.org/'),
+      Card.new('The Hague Centre', '', href: '//hcss.nl/'),
+      Card.new('Wetlands', '', href: '//www.wetlands.org/'),
+      Card.new('WRI', '', href: '//www.wri.org/'),
     ]
   end
 

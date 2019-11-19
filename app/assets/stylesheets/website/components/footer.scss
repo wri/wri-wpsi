@@ -2,13 +2,41 @@
 
 .c-footer {
   background: $blue-d;
-  padding-top: space(8);
-  padding-bottom: space(8);
+  padding-top: space(6);
+  padding-bottom: space(6);
   @include font-heading($weight: 600);
+}
+
+.c-footer__row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  @include media-breakpoint-up(lg) {
+    justify-content: flex-start;
+  }
 }
 
 .c-footer__brand {
   color: white;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-top: space(4);
+  margin-bottom: space(4);
+  @include media-breakpoint-up(lg) {
+    justify-content: flex-start;
+    &:last-child {
+      justify-content: flex-end;
+    }
+  }
+}
+
+.c-footer__brand-contact {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: space(2);
 }
 
 .c-footer--partners {
