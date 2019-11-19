@@ -36,10 +36,13 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     lineHeight: '2em',
-    padding: '10px 15px 0 15px',
+    padding: '10px 15px 10px 15px',
   },
   title: {
-    marginBottom: 5,
+    marginBottom: 0,
+    fontWeight: 900,
+    fontSize: 16,
+    lineHeight: 1.1,
   },
   content: {
     padding: '0 15px',
@@ -47,7 +50,8 @@ const styles = {
   },
   contentDescription: {
     paddingRight: '10%',
-    margin: '0 0 5px 0',
+    margin: '0 0 10px 0',
+    lineHeight: 1.5,
   },
   moreLink: {
     paddingLeft: 5,

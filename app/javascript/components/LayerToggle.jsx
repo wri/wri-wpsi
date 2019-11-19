@@ -3,7 +3,7 @@ import injectSheet from 'react-jss'
 import styleVariables from 'components/styles/variables'
 import PropTypes from 'prop-types'
 
-const { colors } = styleVariables()
+const { colors, fonts } = styleVariables()
 const styles = {
   wrapper: {
     display: 'flex',
@@ -35,14 +35,15 @@ const styles = {
     }
   },
   text: {
-    padding: '4px 15px 4px 10px',
+    padding: '0 20px 0 15px',
     borderRadius: 3,
     zIndex: 0,
     border: `1px solid ${colors.links.default}`,
+    fontFamily: fonts.heading,
   },
   iconWrapper: {
     position: 'relative',
-    marginLeft: -10,
+    marginLeft: -15,
     height: 30,
     width: 30,
     borderRadius: '50%',

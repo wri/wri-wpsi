@@ -19,7 +19,7 @@ const tabStyle = {
   cursor: 'pointer',
   outline: 'none',
   fontSize: '16px',
-  color: '#244F5E',
+  color: colors.links.default,
   fontFamily: styleVars.fonts.heading,
   borderRadius: '15px',
   ...linkStyle('tab')
@@ -46,7 +46,7 @@ const styles = {
     ...scrollBarStyles()
   },
   tabList: {
-    marginTop: 15,
+    marginTop: 15 ,
     marginBottom: 15,
     marginLeft: -15,
     display: 'flex',

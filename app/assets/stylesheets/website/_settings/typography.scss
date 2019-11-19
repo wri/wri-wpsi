@@ -33,7 +33,7 @@
 }
 
 @mixin h1($color: $gray-700) {
-  @include font-heading(30px, $color, $lh: line-height(41, 30), $weight: 800);
+  @include font-heading(30px, $color, $lh: line-height(41, 30), $weight: 900);
 }
 
 @mixin h2($color: $gray-700) {
