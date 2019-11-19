@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class RootControllerTest < ActionDispatch::IntegrationTest
-  test 'should redirect to single page app' do
+  test 'should get landing page' do
     get root_path
-    assert_response :redirect
+    assert_response :success
   end
 
   test 'should get single page app' do

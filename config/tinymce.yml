@@ -43,7 +43,7 @@ default:
     quicklink h2 h3 blockquote quickimage quicktable
   toolbar: undo redo |/
     bold italic underline strikethrough |/
-    fontselect fontsizeselect formatselect |/
+    fontsizeselect formatselect |/
     alignleft aligncenter alignright alignjustify |/
     outdent indent |/
     numlist bullist |/
@@ -58,3 +58,4 @@ default:
   relative_urls: false
   toolbar_drawer: 'sliding'
   toolbar_sticky: true
+  content_css: '/assets/website.css'

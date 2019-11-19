@@ -1,26 +1,12 @@
 Rails.application.routes.draw do
   root 'root#index'
 
-  # API endpoint
-  namespace :api do
-    namespace :v1 do
-      resources :categories, only: [:index]
-      resources :layers, only: [:index]
-      resources :pages, only: [:index]
-
-      get 'widget_datapoints/:gid_2/:field_name',
-        to: 'widget_datapoints#index',
-        as: 'widget_datapoints',
-        format: false,
-        defaults: { format: 'json' },
-        constraints: { gid_2: %r{[^\/]+}, field_name: %r{[^\/]+} }
-    end
-  end
+  # User defined pages
+  get "/info/:page_slug", to: "root#show"
 
   # Single page app endpoint
   get '/map', to: 'root#map'
   get '/map/*ignored', to: 'root#map'
-  get '/info/*ignored', to: 'root#map'
 
   # Admin routes
   get '/admin', to: redirect('/admin/layers'), as: 'admin'
@@ -40,6 +26,29 @@ Rails.application.routes.draw do
     resources :layers
     resources :pages
     resources :users, only: [:index, :new, :create, :destroy]
+  end
+
+  # API endpoint
+  namespace :api do
+    namespace :v1 do
+      resources :categories, only: [:index]
+      resources :layers, only: [:index]
+      resources :pages, only: [:index]
+
+      get 'widget_datapoints/:gid_2/:field_name',
+        to: 'widget_datapoints#index',
+        as: 'widget_datapoints',
+        format: false,
+        defaults: { format: 'json' },
+        constraints: { gid_2: %r{[^\/]+}, field_name: %r{[^\/]+} }
+
+      get 'widget_datapoints/:gid_2/:field_name/csv',
+        to: 'widget_datapoints#index',
+        as: 'widget_datapoints_csv',
+        format: false,
+        defaults: { format: 'csv' },
+        constraints: { gid_2: %r{[^\/]+}, field_name: %r{[^\/]+} }
+    end
   end
 
   # Default AWS ELB health check path

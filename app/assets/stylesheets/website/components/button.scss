@@ -1,0 +1,56 @@
+@import '../helpers';
+
+.c-button {
+  display: inline-flex;
+  background: get-gray(1);
+  text-transform: uppercase;
+  text-decoration: none;
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    span {
+      color: white;
+    }
+    &::after {
+      transform: scale(1.1) translateX(2px);
+    }
+  }
+  span {
+    @include font-heading($size: 18px, $color: black, $weight: 600, $lh: 18/18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: space(4);
+    padding-right: space(4);
+    border-right: 2px solid get-gray(1);
+  }
+  &::after {
+    @include font-icon(white);
+    content: get-icon-char(arrow-right);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 35px;
+    min-width: 35px;
+    background: $blue-d;
+    flex: 1 1 auto;
+    font-size: 18px;
+    line-height: 1;
+    margin-left: auto;
+    padding-left: 2px;
+  }
+  @for $i from 1 through length($theme) {
+    $color: nth($theme, $i);
+    &--#{$i} {
+      &:hover,
+      &:focus {
+        background: $color;
+      }
+      &::after {
+        background: $color;
+      }
+    }
+  }
+}

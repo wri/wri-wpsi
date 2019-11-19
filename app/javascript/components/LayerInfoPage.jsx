@@ -11,6 +11,9 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
   },
+  title: {
+    fontSize: 28,
+  },
   button: {
     ...defaultButtonStyle()
   },
@@ -31,7 +34,7 @@ const LayerInfoPage = ({ match, history, classes, layers }) => {
   return (
     <Modal>
       <header className={classes.header}>
-        <h1>{layer ? layer.name : 'Dataset information not available'}</h1>
+        <h1 className={classes.title}>{layer ? layer.name : 'Dataset information not available'}</h1>
         <button className={classes.closeButton} onClick={onClose} aria-label="Close">
           <Icon name="icon-cross" className="-small" />
         </button>

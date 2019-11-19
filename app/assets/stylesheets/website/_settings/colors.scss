@@ -1,0 +1,34 @@
+$blue-d: #2e3348 !default;
+$blue-l: #437387 !default;
+$green-d: #5f9f7c !default;
+$green-l: #84b65b !default;
+$brown: #673320 !default;
+
+$color-indeces: (
+  blue-d: 1,
+  blue-l: 2,
+  green-d: 3,
+  green-l: 4,
+  brown: 5,
+);
+
+$theme: (
+  $blue-d,
+  $blue-l,
+  $green-d,
+  $green-l,
+  $brown,
+) !default;
+
+$theme-grays: (
+  #efedef,
+  #9898a4,
+  #586671,
+) !default;
+
+$text-color: #000000;
+
+$nav-link-hover-color: $green-d;
+
+$link-color: $green-d;
+$link-hover-color: $brown;

@@ -1,0 +1,54 @@
+@import '../../helpers';
+
+.c-card--featured {
+  min-height: rem(325px);
+  &:hover {
+    @include media-breakpoint-up(lg) {
+      transform: scale(1.1) translateY(-5px);
+    }
+    .c-card__title,
+    .c-card__text {
+      color: white;
+    }
+  }
+  @for $i from 1 through length($theme) {
+    $color: nth($theme, $i);
+    &-#{$i} {
+      background: $color;
+    }
+    h1 {
+      border-bottom: 2px solid $color;
+    }
+  }
+  @include card-action($content: get-icon-char('plus'));
+}
+
+.c-card--featured .c-card__content {
+  justify-content: center;
+  margin-bottom: space(2);
+}
+
+.c-card--featured .c-card__title,
+.c-card--featured .c-card__text {
+  text-align: center;
+}
+
+.c-card--featured .c-card__title {
+  @include media-breakpoint-between(lg, xl) {
+    font-size: 25px;
+  }
+  @include media-breakpoint-up(xl) {
+    font-size: 30px;
+  }
+}
+
+.c-card--featured .c-card__watermark {
+  &::before {
+    color: black;
+    content: get-icon-char('badge-wri');
+  }
+}
+
+.c-card--featured .c-card__text {
+  @include font-heading($color: white, $size: 20px, $lh: 1.2);
+}

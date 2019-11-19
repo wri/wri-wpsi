@@ -1,0 +1,43 @@
+@import '../../helpers';
+
+.c-card--quote {
+  @include card-action($content: '+');
+  min-height: auto;
+  @for $i from 1 through length($theme) {
+    $color: nth($theme, $i);
+    &-#{$i} {
+      .c-card__title {
+        border-bottom: 3px solid $color;
+      }
+    }
+  }
+}
+
+.c-card--quote .c-card__content {
+  justify-content: center;
+  margin-bottom: space(2);
+  padding: 0;
+}
+
+.c-card--quote .c-card__title,
+.c-card--quote .c-card__text {
+}
+
+.c-card--quote .c-card__title {
+  @include font-body($weight: 700, $color: black, $size: rem(20px));
+  text-transform: none;
+  padding-bottom: space(1);
+  margin-bottom: space(3);
+}
+
+.c-card--quote .c-card__text {
+  font-weight: 500;
+}
+
+.c-card--quote .c-card__text p {
+  margin-bottom: space(4);
+}
+
+.c-card__credit {
+  font-weight: 800;
+}

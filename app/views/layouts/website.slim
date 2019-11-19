@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title
+      | WRI - Water, Peace and Security Initiative
+    = csrf_meta_tags
+    = csp_meta_tag
+    = render 'layouts/shared/fonts'
+
+    / Regular asset pipeline
+    = stylesheet_link_tag 'website', media: 'all'
+    = javascript_include_tag 'application'
+
+  body
+    = yield

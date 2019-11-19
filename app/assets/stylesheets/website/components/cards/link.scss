@@ -1,0 +1,17 @@
+.c-card--link {
+  &:hover {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 50px 5px rgba(0,0,0,.2);
+    transition: .1s;
+    .c-card__watermark {
+      opacity: 1;
+    }
+    &,
+    .c-card__content,
+    .c-card__title,
+    .c-card__text {
+      text-decoration: none !important;
+    }
+  }
+}

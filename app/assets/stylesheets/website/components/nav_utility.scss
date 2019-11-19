@@ -1,0 +1,48 @@
+@import '../helpers';
+
+.c-nav-utility {
+  margin-top: space(4);
+  margin-left: (-#{space(2)});
+  @include media-breakpoint-up(lg) {
+    margin-top: 0;
+    margin-left: auto;
+  }
+}
+
+.c-nav-utility__items {
+  display: flex;
+  align-items: center;
+  @include list-unstyled;
+}
+
+.c-nav-utility__item { }
+
+.c-nav-utility__link {
+  padding: space(2);
+  color: get-gray(3);
+  transition: .15s transform ease-in-out;
+  &:hover,
+  &:focus {
+    color: $nav-link-hover-color;
+    text-decoration: none;
+    transform: scale(1.3);
+  }
+}
+
+.c-nav-utility__link--block {
+  background: get-gray('last');
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  min-width: 30px;
+  padding: 0;
+  margin-left: space(4);
+  &:hover,
+  &:focus {
+    background: $nav-link-hover-color;
+    color: white;
+    transform: none;
+  }
+}

@@ -1,11 +1,6 @@
 require 'application_system_test_case'
 
 class MapTest < ApplicationSystemTestCase
-  test 'visiting the map' do
-    visit map_url
-    assert_selector '#top-banner', text: 'Water, Peace & Security'
-  end
-
   test 'adding a dataset' do
     layer = layers(:employment_in_agriculture)
 
@@ -39,11 +34,11 @@ class MapTest < ApplicationSystemTestCase
     end
 
     within '#modal > header' do
-      assert_selector 'h1', text: layer.name
+      assert_selector 'h1', text: layer.name.upcase
       assert_text layer.long_description
       click_button 'Close'
     end
 
-    assert_selector '#top-banner', text: 'Water, Peace & Security'
+    assert_selector 'a > img[alt="WPS home"]'
   end
 end

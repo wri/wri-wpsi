@@ -11,11 +11,11 @@ const scrollBarStyle = () => {
       background: colors.gray3
     },
     '&::-webkit-scrollbar-thumb': {
-      background: colors.primary,
+      background: colors.accent,
       cursor: 'pointer',
     },
     '&::-webkit-scrollbar-thumb:hover': {
-      background: colors.primary,
+      background: colors.accent,
     },
   }
 }
