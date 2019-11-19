@@ -15,6 +15,7 @@
  *= require_tree ./vendor
  *= require ./website/overrides/bootstrap
  *= require ./website/utilities/icons
+ *= require_tree ./website/elements
  *= require ./website/objects/container
  *= require ./website/components/nav_utility
  *= require ./website/components/nav

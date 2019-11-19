@@ -2,7 +2,9 @@
 @import '../helpers';
 
 .dropdown:hover > .dropdown-menu {
-  display: block;
+  @include media-breakpoint-up(lg) {
+    display: block;
+  }
 }
 
 .dropdown-menu {

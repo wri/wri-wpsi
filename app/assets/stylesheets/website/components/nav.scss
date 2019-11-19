@@ -2,13 +2,19 @@
 
 .c-nav {
   padding-top: space(6);
-  padding-bottom: 0;
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 0;
+  }
 }
 
-.c-nav__brand { }
+// .c-nav__brand { }
 
 .c-nav__brand-image {
   min-width: 200px;
+}
+
+.c-nav__toggle {
+  font-size: 30px;
 }
 
 .c-nav__wrapper {
@@ -33,11 +39,11 @@
 }
 
 .c-nav__item {
-  display: flex;
-  align-items: stretch;
-  flex: 1 1 auto;
   border-bottom: 1px solid get-gray(2);
   @include media-breakpoint-up(lg) {
+    display: flex;
+    align-items: stretch;
+    flex: 1 1 auto;
     border-right: 1px solid get-gray(3);
     border-bottom: 0;
   }

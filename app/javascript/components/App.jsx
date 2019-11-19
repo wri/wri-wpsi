@@ -10,6 +10,7 @@ import LayerInfoPage from 'components/LayerInfoPage'
 import { Icons } from 'vizzuality-components'
 import { ThemeProvider } from 'react-jss'
 import styleVariables from './styles/variables'
+import MenuBar from './MenuBar'
 
 // Fix LayerManager-Firefox compatability issue
 import promiseFinally from 'promise.prototype.finally'
@@ -17,6 +18,8 @@ promiseFinally.shim()
 
 // Fix fetch-IE compatability issue
 import 'whatwg-fetch'
+
+console.log('$')
 
 const App = ({ layers, pages }) => {
   const globalStyles = {

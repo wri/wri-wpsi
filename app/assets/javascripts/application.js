@@ -19,11 +19,11 @@
 //= require popper
 //= require bootstrap-sprockets
 
-$(()=> {
-  $('.c-nav__item.dropdown .dropdown-toggle').on('click', function(event) {
-    event.preventDefault()
-    if (this.href) {
-      document.location = this.href
-    }
-  })
-})
+// $(()=> {
+//   $('.c-nav__item.dropdown .dropdown-toggle').on('click', function(event) {
+//     event.preventDefault()
+//     if (this.href) {
+//       document.location = this.href
+//     }
+//   })
+// })

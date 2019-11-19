@@ -17,21 +17,38 @@ class RootController < ApplicationController
       Card.new('Dialogue', 'Fostering peace and collaboration', href: 'info/dialogue'),
     ]
     @social_actions = [
-      Card.new('Contact Us', href: 'info@waterpeacesecurity.org', options: {type: 'mail'}),
-      Card.new('Follow Us', href: 'http://twitter.com/WaterPeaceSec', options: {type: 'icon'}),
-      Card.new('Talk to Us', href: '', options: {type: 'button'}),
-      Card.new('Know Us', href: '', options: {type: 'button'}),
+      Card.new('Contact Us', href: 'info@waterpeacesecurity.org', options: { type: 'mail' }),
+      Card.new('Follow Us', href: 'http://twitter.com/WaterPeaceSec', options: { type: 'icon' }),
+      Card.new('Talk to Us', href: '', options: { type: 'button' }),
+      Card.new('Know Us', href: '', options: { type: 'button' }),
     ]
     @tools = [
       Card.new('Global Tool', '', href: '/map'),
       Card.new('Local Tool', '', href: '/map'),
     ]
     @quotes = [
-      Card.new('WPS Goals', 'Through the WPS partnership we hope to prevent conflicts over water by enabling communities to take action at an early stage.', credit: 'Carola van Rijnso, Dutch Ministry for Foreign Affairs.'),
-      Card.new('Crucial data', 'Data is fundamental to understanding where the risks are highest, what’s driving these risks, and they suggest what possible solutions might be, in order to mitigate these risks.', credit: 'Charles Iceland, World Resources Institute'),
-      Card.new('Solving conflict', 'It’s important to know why conflict is happening, what the role of water is, and what factors you can influence either as a policy maker in the respective region, or as an external partner, to solve the conflict', credit: 'Susanne Schmeier, IHE Delft'),
+      Card.new(
+        'WPS Goals',
+        'Through the WPS partnership we hope to prevent conflicts over'\
+        'water by enabling communities to take action at an early stage.',
+        credit: 'Carola van Rijnso, Dutch Ministry for Foreign Affairs.',
+      ),
+      Card.new(
+        'Crucial data',
+        'Data is fundamental to understanding where the risks are highest,'\
+        'what’s driving these risks, and they suggest what possible solutions'\
+        'might be, in order to mitigate these risks.',
+        credit: 'Charles Iceland, World Resources Institute',
+      ),
+      Card.new(
+        'Solving conflict',
+        'It’s important to know why conflict is happening, what the role of'\
+        'water is, and what factors you can influence either as a policy maker'\
+        'in the respective region, or as an external partner, to solve the conflict',
+        credit: 'Susanne Schmeier, IHE Delft',
+      ),
     ]
-    @headlines = (0..2).map{Card.new("News Headline")}
+    @headlines = (0..2).map { Card.new('News Headline') }
     set_pages
     set_partners
   end
@@ -47,18 +64,6 @@ class RootController < ApplicationController
     set_pages
     @page = Page.find_by(slug: params[:page_slug])
     redirect_to :map if @page.contentless?
-  end
-
-  def learn
-  end
-
-  def dialogue
-  end
-
-  def about_us
-  end
-
-  def contact
   end
 
   def health_check
@@ -85,21 +90,20 @@ class RootController < ApplicationController
 
   def set_partners
     @partners = [
-      ['IHE', '',],
-      ['Deltares', '',],
-      ['Alert', '',],
-      ['The Hague Centre', '',],
-      ['Wetlands', '',],
-      ['WRI' '',],
+      ['IHE', ''],
+      ['Deltares', ''],
+      ['Alert', ''],
+      ['The Hague Centre', ''],
+      ['Wetlands', ''],
+      ['WRI', ''],
     ]
   end
 
   def resolve_layout
     if action_name == 'map'
-      'application'
+      'map'
     else
-      'landing'
+      'application'
     end
   end
 end
-

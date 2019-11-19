@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree ./vendor
+ *= require_tree ./website/elements
  *= require_tree ./website/objects
  *= require_tree ./website/components
  *= require_tree ./website/utilities
