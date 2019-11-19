@@ -43,7 +43,7 @@ default:
     quicklink h2 h3 blockquote quickimage quicktable
   toolbar: undo redo |/
     bold italic underline strikethrough |/
-    fontselect fontsizeselect formatselect |/
+    fontsizeselect formatselect |/
     alignleft aligncenter alignright alignjustify |/
     outdent indent |/
     numlist bullist |/
