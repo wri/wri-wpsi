@@ -47,7 +47,7 @@ const styles = {
     ...scrollBarStyles()
   },
   tabList: {
-    marginTop: 15 ,
+    marginTop: 15,
     marginBottom: 15,
     marginLeft: -15,
     display: 'flex',
