@@ -19,12 +19,12 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
       ),
       Card.new(
         title: 'Mobilise',
-        desc: 'Engaging stakeholders',
+        desc: 'Diplomats, Defence, Development & Disaster Response',
         href: '/info/about#Mobilise',
       ),
       Card.new(
         title: 'Learn',
-        desc: 'Training and capacity development',
+        desc: 'Linking water-related challenges',
         href: '/info/learn',
       ),
       Card.new(
@@ -46,12 +46,13 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
       ),
       Card.new(
         title: 'Talk to Us',
-        href: '',
+        href: '//docs.google.com/forms/d/e/1FAIpQLSdXTKxcEFt0A4Zz'\
+        '0zlm9KfSp1Nu7W43Ztin1j9Zdsw7d92RNw/viewform',
         options: { type: 'button' },
       ),
       Card.new(
         title: 'Know Us',
-        href: '',
+        href: '/info/about#Who',
         options: { type: 'button' },
       ),
     ]
@@ -63,25 +64,63 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
       Card.new(
         title: 'WPS Goals',
         desc: 'Through the WPS partnership we hope to prevent conflicts over'\
-        'water by enabling communities to take action at an early stage.',
+        ' water by enabling communities to take action at an early stage.',
         credit: 'Carola van Rijnso, Dutch Ministry for Foreign Affairs.',
+        href: '/info/about',
       ),
       Card.new(
         title: 'Crucial data',
         desc: 'Data is fundamental to understanding where the risks are highest,'\
-        'what’s driving these risks, and they suggest what possible solutions'\
-        'might be, in order to mitigate these risks.',
+        ' what’s driving these risks, and they suggest what possible solutions'\
+        ' might be, in order to mitigate these risks.',
         credit: 'Charles Iceland, World Resources Institute',
+        href: '/info/about#Understand',
       ),
       Card.new(
         title: 'Solving conflict',
         desc: 'It’s important to know why conflict is happening, what the role of'\
-        'water is, and what factors you can influence either as a policy maker'\
-        'in the respective region, or as an external partner, to solve the conflict',
+        ' water is, and what factors you can influence either as a policy maker'\
+        ' in the respective region, or as an external partner, to solve the conflict',
         credit: 'Susanne Schmeier, IHE Delft',
+        href: '/info/local-analyses ',
       ),
     ]
-    @headlines = (0..2).map { Card.new(title: 'News Headline') }
+    @headlines = [
+      Card.new(
+        title: 'WPS in the news',
+        desc: 'WPS features in ECDPM’s Great Insights magazine, focused on'\
+        ' Climate change and conflict, discussing the complex links'\
+        ' between water scarcity and conflict. <strong>ECDPM is a leading independent'\
+        ' think tank that wants to make policies in Europe and Africa work'\
+        ' for inclusive and sustainable development.</strong>',
+        credit: 'October 2019',
+        href: '//ecdpm.org/wp-content/uploads/Great_insights_'\
+        'Climate_Change_and_Conflict_Vol8_issue4.pdf',
+        image: ['cards/news-1.jpg', 'Great Insights magazine cover'],
+      ),
+      Card.new(
+        title: 'WPS at the Paris Peace Forum',
+        desc: 'IHE Delft’s Susanne Schmeier and Wetlands International’s Joyce'\
+        ' Kortlandt introduce the Water Peace and Security Initiative at the'\
+        ' Paris Peace Forum.',
+        credit: 'November 2019',
+        href: 'https://parispeaceforum.org/porteurs_projet/water-peace-and-security-wps/',
+        image: ['cards/news-2.jpg', 'Presenter with powerpoint in background'],
+      ),
+      Card.new(
+        title: 'WPS toolkit launched in Geneva',
+        desc: 'During an event on December 5 in Geneva, the WPS approach was'\
+        ' showcased and Sigrid Kaag, Dutch Minister for Foreign Trade and'\
+        ' Development Cooperation, launched the global early warning system'\
+        ' for water and security. While the global tool flags areas with the'\
+        ' potential for conflict, the local solutions – based on pilots in Mali'\
+        ' and Iraq – help to build partnerships and guide negotiations towards local,'\
+        ' inclusive action.',
+        credit: 'December 2019',
+        href: '/map',
+        image: ['cards/news-3.jpg', 'Fountain in Geneva, Switzerland, Europe'],
+      ),
+    ]
     set_pages
     set_partners
   end

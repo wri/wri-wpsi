@@ -5,6 +5,11 @@
 }
 
 .c-text--lead {
-  font-size: 26px;
-  line-height: (36/26);
+  font-size: 22px;
+  line-height: (30/22);
+  margin-bottom: 0;
+  @include media-breakpoint-up(md) {
+    font-size: 26px;
+    line-height: (36/26);
+  }
 }
