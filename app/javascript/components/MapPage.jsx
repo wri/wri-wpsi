@@ -5,7 +5,8 @@ import ResourceWatchMap from 'components/ResourceWatchMap'
 import MapSideBar from 'components/MapSideBar'
 import DatasetsModal from 'components/DatasetsModal'
 import styleVariables from 'components/styles/variables'
-import Ornamentation from './Ornamentation'
+// import Ornamentation from './Ornamentation'
+import LoadingAnimation from './LoadingAnimation'
 
 const MapPage = ({ match, history, layers, categories }) => {
   const loadingStyle = {
@@ -20,8 +21,7 @@ const MapPage = ({ match, history, layers, categories }) => {
 
   if (layers.length === 0) {
     return <div style={loadingStyle}>
-      <Ornamentation rotate={false} />
-      <span style={{marginLeft: 20}}>Loading...</span>
+      <LoadingAnimation rotate={false} />
     </div>
   }
 
