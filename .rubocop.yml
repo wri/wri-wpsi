@@ -3,9 +3,13 @@ require: rubocop-rails
 AllCops:
   Exclude:
     - 'bin/{rails,rake,webpack,webpack-dev-server,yarn}'
-    - 'config/**/*'
+    - 'config/environments/**/*'
+    - 'config/initializers/**/*'
+    - 'config/puma.rb'
     - 'db/**/*'
     - 'node_modules/**/*'
+    - 'public/**/*'
+    - 'tmp/**/*'
     - 'untracked/**/*'
 
 Metrics/LineLength:

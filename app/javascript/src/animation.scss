@@ -1,0 +1,45 @@
+.c-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 150px;
+  width: 150px;
+}
+
+.c-animation ~ h2 {
+  text-transform: uppercase;
+  margin-top: 75px;
+}
+
+.c-animation path {
+  fill: #2e3348;
+}
+
+.c-animation__inner-ring,
+.c-animation__outer-ring {
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+  animation-timing-function: ease-in-out;
+}
+
+.c-animation__inner-ring {
+  animation-name: rotate-clockwise;
+}
+
+.c-animation__outer-ring {
+  animation-name: rotate-counter-clockwise;
+}
+
+@keyframes rotate-clockwise {
+  0% {transform: rotate(0deg)}
+  50% {transform: rotate(360deg)}
+  100% {transform: rotate(0deg)}
+}
+
+@keyframes rotate-counter-clockwise {
+  0% {transform: rotate(0deg)}
+  50% {transform: rotate(-360deg)}
+  100% {transform: rotate(0deg)}
+}

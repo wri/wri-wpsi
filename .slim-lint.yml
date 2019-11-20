@@ -39,3 +39,4 @@ linters:
       - Style/WhileUntilModifier
       # Also ignoring this cop since it is redundantly checked by brakeman
       - Rails/OutputSafety
+      - Rails/LinkToBlank

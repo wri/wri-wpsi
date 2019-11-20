@@ -1,0 +1,12 @@
+@import '../helpers';
+
+section {
+  margin-bottom: rem(50px);
+  @include media-breakpoint-up(md) {
+    margin-bottom: rem(100px);
+  }
+}
+
+.below-padded {
+  margin-top: -20px;
+}

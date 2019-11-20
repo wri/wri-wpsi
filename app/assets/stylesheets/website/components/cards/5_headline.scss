@@ -4,6 +4,8 @@
   @include card-action($content: '');
   box-shadow: 0 0 10px 5px rgba(0,0,0,.1);
   min-height: auto;
+  margin-left: 0;
+  margin-right: 0;
   @for $i from 1 through length($theme) {
     $color: nth($theme, $i);
     &-#{$i} {
@@ -36,6 +38,13 @@
   text-transform: none;
   padding-bottom: space(1);
   margin-bottom: space(3);
+  white-space: normal;
+}
+
+.c-card--headline .c-card__credit {
+  margin-bottom: space(1);
+  font-style: italic;
+  font-size: rem(14px);
 }
 
 .c-card--headline .c-card__text {

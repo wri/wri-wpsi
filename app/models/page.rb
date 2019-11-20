@@ -4,6 +4,10 @@ class Page < ApplicationRecord
 
   scope :top_level, -> { where(menu: '').ordered }
 
+  def to_param
+    slug
+  end
+
   def self.ordered
     order(:sort_priority, :id)
   end
