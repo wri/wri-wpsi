@@ -1,4 +1,4 @@
-class RootController < ApplicationController
+class RootController < ApplicationController # rubocop:disable Metrics/ClassLength
   layout :resolve_layout
   before_action :set_partners
 
@@ -9,7 +9,8 @@ class RootController < ApplicationController
     )
   end
 
-  def index
+  # TODO: Move into views?
+  def index # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     @action_items = [
       Card.new('Understand', 'Data and publications', href: '/info/about#Understand'),
       Card.new('Mobilise', 'Engaging stakeholders', href: '/info/about#Mobilise'),
