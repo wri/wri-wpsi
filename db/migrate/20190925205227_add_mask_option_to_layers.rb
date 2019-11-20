@@ -6,14 +6,26 @@ class AddMaskOptionToLayers < ActiveRecord::Migration[5.2]
       change.up do
         if Layer.where(layer_id: 'c7e76588-6da5-4645-8842-2d2ac0001110').empty?
           puts '-- create mask layer'
-          layer = Layer.create(
-            layer_id: 'c7e76588-6da5-4645-8842-2d2ac0001110',
-            dataset_id: '0ce24533-7877-4926-b962-a6c726332d82',
-            name: 'Highlight areas of water stress',
-            published: true,
-            mask: true,
-          )
-          puts layer.inspect
+          Layer.connection.execute(<<-SQL)
+            INSERT INTO layers (
+              layer_id,
+              dataset_id,
+              name,
+              published,
+              mask,
+              updated_at,
+              created_at
+            ) VALUES (
+              'c7e76588-6da5-4645-8842-2d2ac0001110',
+              '0ce24533-7877-4926-b962-a6c726332d82',
+              'Highlight areas of water stress',
+              true,
+              true,
+              NOW(),
+              NOW()
+            )
+          SQL
+          puts Layer.last.inspect
         end
       end
     end
