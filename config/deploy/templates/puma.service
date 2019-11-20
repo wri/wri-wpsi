@@ -1,0 +1,36 @@
+[Unit]
+After=network.target
+Description=puma for production
+
+[Service]
+SyslogIdentifier=puma-inrev-production
+# Background process configuration (use with --daemon in ExecStart)
+Type=forking
+
+User=amichal
+Group=amichal
+UMask=0002
+WorkingDirectory=/var/www/wri-wpsi/current
+# EnvironmentFile=/var/www/wri-wpsi/shared/.env.production
+ExecStart=/usr/share/rvm/bin/rvm 2.6.5 do bundle exec puma -C /var/www/wri-wpsi/shared/puma.rb --daemon
+ExecStop=/usr/share/rvm/bin/rvm 2.6.5 do bundle exec pumactl -S /var/www/wri-wpsi/shared/tmp/pids/puma.state -F /var/www/wri-wpsi/shared/puma.rb stop
+#PIDFile=/var/www/wri-wpsi/shared/tmp/pids/puma.pid
+StandardOutput=syslog
+StandardError=syslog
+
+# Should systemd restart puma?
+# Use "no" (the default) to ensure no interference when using
+# stop/start/restart via `pumactl`.  The "on-failure" setting might
+# work better for this purpose, but you must test it.
+# Use "always" if only `systemctl` is used for start/stop/restart, and
+# reconsider if you actually need the forking config.
+Restart=no
+
+# `puma_ctl restart` wouldn't work without this. It's because `pumactl`
+# changes PID on restart and systemd stops the service afterwards
+# because of the PID change. This option prevents stopping after PID
+# change.
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

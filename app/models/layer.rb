@@ -20,7 +20,7 @@ class Layer < ApplicationRecord
   end
 
   def self.serialized_for_react_app # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
-    published.map do |layer|
+    published.preload(:categories).map do |layer|
       {
         id: layer.layer_id,
         category_slugs: layer.categories.map(&:slug),
