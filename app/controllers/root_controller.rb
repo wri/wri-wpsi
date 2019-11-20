@@ -12,44 +12,76 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
   # TODO: Move into views?
   def index # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     @action_items = [
-      Card.new('Understand', 'Data and publications', href: '/info/about#Understand'),
-      Card.new('Mobilise', 'Engaging stakeholders', href: '/info/about#Mobilise'),
-      Card.new('Learn', 'Training and capacity development', href: '/info/learn'),
-      Card.new('Dialogue', 'Fostering peace and collaboration', href: 'info/dialogue'),
+      Card.new(
+        title: 'Understand',
+        desc: 'Data and publications',
+        href: '/info/about#Understand',
+      ),
+      Card.new(
+        title: 'Mobilise',
+        desc: 'Engaging stakeholders',
+        href: '/info/about#Mobilise',
+      ),
+      Card.new(
+        title: 'Learn',
+        desc: 'Training and capacity development',
+        href: '/info/learn',
+      ),
+      Card.new(
+        title: 'Dialogue',
+        desc: 'Fostering peace and collaboration',
+        href: 'info/dialogue',
+      ),
     ]
     @social_actions = [
-      Card.new('Contact Us', href: 'info@waterpeacesecurity.org', options: { type: 'mail' }),
-      Card.new('Follow Us', href: 'http://twitter.com/WaterPeaceSec', options: { type: 'icon' }),
-      Card.new('Talk to Us', href: '', options: { type: 'button' }),
-      Card.new('Know Us', href: '', options: { type: 'button' }),
+      Card.new(
+        title: 'Contact Us',
+        href: 'info@waterpeacesecurity.org',
+        options: { type: 'mail' },
+      ),
+      Card.new(
+        title: 'Follow Us',
+        href: 'http://twitter.com/WaterPeaceSec',
+        options: { type: 'icon' },
+      ),
+      Card.new(
+        title: 'Talk to Us',
+        href: '',
+        options: { type: 'button' },
+      ),
+      Card.new(
+        title: 'Know Us',
+        href: '',
+        options: { type: 'button' },
+      ),
     ]
     @tools = [
-      Card.new('Global Tool', '', href: '/map'),
-      Card.new('Local Tool', '', href: '/map'),
+      Card.new(title: 'Global Tool', desc: '', href: '/map'),
+      Card.new(title: 'Local Tool', desc: '', href: '/map'),
     ]
     @quotes = [
       Card.new(
-        'WPS Goals',
-        'Through the WPS partnership we hope to prevent conflicts over'\
+        title: 'WPS Goals',
+        desc: 'Through the WPS partnership we hope to prevent conflicts over'\
         'water by enabling communities to take action at an early stage.',
         credit: 'Carola van Rijnso, Dutch Ministry for Foreign Affairs.',
       ),
       Card.new(
-        'Crucial data',
-        'Data is fundamental to understanding where the risks are highest,'\
+        title: 'Crucial data',
+        desc: 'Data is fundamental to understanding where the risks are highest,'\
         'what’s driving these risks, and they suggest what possible solutions'\
         'might be, in order to mitigate these risks.',
         credit: 'Charles Iceland, World Resources Institute',
       ),
       Card.new(
-        'Solving conflict',
-        'It’s important to know why conflict is happening, what the role of'\
+        title: 'Solving conflict',
+        desc: 'It’s important to know why conflict is happening, what the role of'\
         'water is, and what factors you can influence either as a policy maker'\
         'in the respective region, or as an external partner, to solve the conflict',
         credit: 'Susanne Schmeier, IHE Delft',
       ),
     ]
-    @headlines = (0..2).map { Card.new('News Headline') }
+    @headlines = (0..2).map { Card.new(title: 'News Headline') }
     set_pages
     set_partners
   end
@@ -91,12 +123,12 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
 
   def set_partners
     @partners = [
-      Card.new('IHE', '', href: '//www.un-ihe.org/'),
-      Card.new('Deltares', '', href: '//www.deltares.nl'),
-      Card.new('Alert', '', href: '//www.international-alert.org/'),
-      Card.new('The Hague Centre', '', href: '//hcss.nl/'),
-      Card.new('Wetlands', '', href: '//www.wetlands.org/'),
-      Card.new('WRI', '', href: '//www.wri.org/'),
+      Card.new(title: 'IHE', desc: '', href: '//www.un-ihe.org/'),
+      Card.new(title: 'Deltares', desc: '', href: '//www.deltares.nl'),
+      Card.new(title: 'Alert', desc: '', href: '//www.international-alert.org/'),
+      Card.new(title: 'The Hague Centre', desc: '', href: '//hcss.nl/'),
+      Card.new(title: 'Wetlands', desc: '', href: '//www.wetlands.org/'),
+      Card.new(title: 'WRI', desc: '', href: '//www.wri.org/'),
     ]
   end
 
