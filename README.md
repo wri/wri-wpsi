@@ -91,7 +91,7 @@ export WRI_WPSI_GOOGLE_CLOUD_STORAGE_TOKEN=thetokenthatyoujustcreated
 rake 'import:widget_datapoints[https://www.googleapis.com/storage/v1/b/wps_pillar1a/o/data_final%2finputs%2fv3%2fv3_tool-table.csv?alt=media]'
 ```
 
-In order to copy the CSV to the production database, first download it locally and then run:
+In order to copy the CSV to the staging database, first download it locally and then run:
 
 ```bash
 cat ~/Downloads/data_final_inputs_v3_v3_tool-table.csv | \
@@ -120,7 +120,7 @@ The api returns JSON containing an array of "data points". Each datapoint has th
 Here is an example query and its result:
 
 ```JSON
-// http://wri-wpsi.herokuapp.com/api/v1/widget_datapoints/NGA.21.9_1/gid_0/
+// https://waterpeacesecurity.org/api/v1/widget_datapoints/NGA.21.9_1/gid_0/
 
 {
   "widget_datapoints": [
