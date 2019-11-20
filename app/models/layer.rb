@@ -19,9 +19,7 @@ class Layer < ApplicationRecord
     where(published: true)
   end
 
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
-  def self.serialized_for_react_app
+  def self.serialized_for_react_app # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     published.map do |layer|
       {
         id: layer.layer_id,
@@ -39,8 +37,6 @@ class Layer < ApplicationRecord
       }
     end
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 
   private
 
