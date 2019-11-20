@@ -96,7 +96,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
   def show
     set_pages
     @page = Page.find_by(slug: params[:page_slug])
-    redirect_to :map if @page.contentless?
+    redirect_to :map if @page.nil? || @page.contentless?
   end
 
   def health_check
