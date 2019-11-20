@@ -36,7 +36,7 @@ const WidgetContainer = ({ layer, region, classes }) => {
           href={`/api/v1/widget_datapoints/${region.gid_2}/all/csv`}
           className={classes.downloadLink}
         >
-          <i className='icon__eye' style={{marginRight: 5}} />
+          <i className='icon__download' style={{marginRight: 5}} />
           <span>Download all data for this region</span>
         </a>
       </div>
