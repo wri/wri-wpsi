@@ -31,8 +31,9 @@ const styles = {
   },
   locationHeader:  {
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     padding: '15px',
     backgroundColor: colors.accent,
     color: 'white',
@@ -40,6 +41,19 @@ const styles = {
     fontSize: 16,
     lineHeight: 18/16,
     marginBottom: 10,
+  },
+  downloadLink:  {
+    width: '100%',
+    textAlign: 'right',
+    paddingTop: '15px',
+    fontSize: 'smaller',
+    color: 'white',
+    '&:hover': {
+      color: colors.links.default,
+    },
+  },
+  downloadIcon:  {
+    marginRight: 5,
   },
   addLayerButton:  {
     ...defaultButtonStyle(),
@@ -78,6 +92,7 @@ const MapSideBar = ({
           {region.name_1 && `${region.name_1}, `}
           {region.name_0}
         </i>
+        {renderDownloadDataLink(region)}
       </div>
     )
   }
@@ -147,6 +162,18 @@ const MapSideBar = ({
       <i className={`icon__plus-circle ${classes.addLayerButtonIcon}`} />
         Add datasets
       </button>
+    )
+  }
+
+  const renderDownloadDataLink = (region) => {
+    return (
+      <a
+        href={`/api/v1/widget_datapoints/${region.gid_2}/all/csv`}
+        className={classes.downloadLink}
+      >
+        <i className={`icon__download ${classes.downloadIcon}`} />
+        <span>Download all data for this region</span>
+      </a>
     )
   }
 
