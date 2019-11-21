@@ -1,12 +1,14 @@
 // Source:
 // https://github.com/resource-watch/resource-watch/blob/develop/css/components/map/map-controls.scss
 
+@import '../../assets/stylesheets/website/_settings/variables.scss';
+
 $button-size: 30px;
 
 .wri_api__c-map-controls {
   position: absolute;
   top: 20px;
-  right: 515px;
+  right: $map-sidebar-width;
   z-index: $map-controls-index;
 
   &.-embed {

@@ -1,28 +1,17 @@
 require 'test_helper'
 
 class PageTest < ActiveSupport::TestCase
-  setup do
-    @page_one = create(:page, menu: 'About Us')
-    @page_two = create(:page, menu: 'About Us')
-    @pages = Page.where(id: [@page_one.id, @page_two.id])
-  end
+  test 'self.options_for_menu_select' do
+    top_level_page = create(:page, menu: '')
+    create(:page, menu: top_level_page.slug)
+    create(:page, menu: nil)
 
-  test 'self.serialized_for_react_app' do
     expected = [
-      {
-        name: @page_one.name,
-        slug: @page_one.slug,
-        menu: @page_one.menu,
-        content: @page_one.content,
-      },
-      {
-        name: @page_two.name,
-        slug: @page_two.slug,
-        menu: @page_two.menu,
-        content: @page_two.content,
-      },
+      ['- Do not include in any menu -', 'none'],
+      ['- Include as a top-level menu item -', ''],
+      [top_level_page.name, top_level_page.slug],
     ]
 
-    assert_equal expected, @pages.serialized_for_react_app
+    assert_equal expected, Page.options_for_menu_select
   end
 end
