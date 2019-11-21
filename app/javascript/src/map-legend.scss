@@ -1,6 +1,6 @@
+@import 'variables';
 
 .leaflet-bottom.leaflet-right {
-  // based on sidebar width
-  right: 515px;
-  bottom: 10px;
+  right: $map-sidebar-width;
+  bottom: $map-container-padding;
 }
