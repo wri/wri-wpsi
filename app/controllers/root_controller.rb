@@ -58,7 +58,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     ]
     @tools = [
       Card.new(title: 'Global Tool', desc: '', href: '/map'),
-      Card.new(title: 'Local Tool', desc: '', href: '/info/iraq'),
+      Card.new(title: 'Local Tool', desc: '', href: '/info/local-analyses'),
     ]
     @quotes = [
       Card.new(
