@@ -5,8 +5,8 @@ class PagesTest < ApplicationSystemTestCase
 
   setup do
     sign_in create(:user)
-    @page = create(:page)
-    @new_page = build(:page, menu: 'About Us', sort_priority: 1)
+    @top_level_page = create(:page, menu: '', sort_priority: 0)
+    @new_page = build(:page, menu: @top_level_page.name, sort_priority: 0.1)
   end
 
   test 'visiting the index' do
@@ -20,7 +20,7 @@ class PagesTest < ApplicationSystemTestCase
 
     fill_in 'Name', with: @new_page.name
     fill_in 'Slug', with: @new_page.slug
-    fill_in 'Menu', with: @new_page.menu
+    select @new_page.menu, from: 'Menu'
     fill_in 'Sort priority', with: @new_page.sort_priority
     tinymce_fill_in 'page_content', with: @new_page.content
     click_on 'Create Page'
@@ -35,7 +35,7 @@ class PagesTest < ApplicationSystemTestCase
 
     fill_in 'Name', with: @new_page.name
     fill_in 'Slug', with: @new_page.slug
-    fill_in 'Menu', with: @new_page.menu
+    select @new_page.menu, from: 'Menu'
     fill_in 'Sort priority', with: @new_page.sort_priority
     tinymce_fill_in 'page_content', with: @new_page.content
     click_on 'Update Page'
