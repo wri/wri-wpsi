@@ -10,6 +10,8 @@ import styleVariables from 'components/styles/variables'
 import scrollBarStyles  from 'components/styles/scrollbar'
 import defaultButtonStyle from 'components/styles/default_button'
 
+import resourceWatchLogo from '../images/resource_watch_logo.svg'
+
 const { colors } = styleVariables()
 const styles = {
   sideBar:  {
@@ -163,6 +165,12 @@ const MapSideBar = ({
         {activeLayers.filter(layer => !layer.mask).map(renderLayerCard)}
         {renderAddLayerButton(true)}
       </div>
+      <a href='//resourcewatch.org/'
+         className='map-credit'
+         target='_blank'
+         rel="noopener noreferrer">
+        <img src={resourceWatchLogo} />
+      </a>
     </div>
   )
 }
