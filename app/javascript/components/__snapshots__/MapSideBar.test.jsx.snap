@@ -14,24 +14,24 @@ exports[`renders correctly 1`] = `
       Investigation
     </h1>
     <button
-      className="MapSideBar-addLayerButton-0-1-5"
+      className="MapSideBar-addLayerButton-0-1-7"
       onClick={[Function]}
       style={Object {}}
     >
       <i
-        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-6"
+        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-8"
       />
       Add datasets
     </button>
   </header>
   <div
-    className="LayerCard-container-0-1-8 LayerCard-toggle-0-1-9"
+    className="LayerCard-container-0-1-10 LayerCard-toggle-0-1-11"
   >
     <header
-      className="LayerCard-header-0-1-11"
+      className="LayerCard-header-0-1-13"
     >
       <h2
-        className="LayerCard-title-0-1-12"
+        className="LayerCard-title-0-1-14"
       >
         Highlight areas of water stress
       </h2>
@@ -129,19 +129,19 @@ exports[`renders correctly 1`] = `
       </div>
     </header>
     <div
-      className="LayerCard-content-0-1-13"
+      className="LayerCard-content-0-1-15"
     >
       <p
-        className="LayerCard-contentDescription-0-1-14"
+        className="LayerCard-contentDescription-0-1-16"
       />
       <p
-        className="LayerCard-source-0-1-17"
+        className="LayerCard-source-0-1-19"
       >
         <a
-          className="LayerCard-sourceLink-0-1-18"
+          className="LayerCard-sourceLink-0-1-20"
         />
         <span
-          className="LayerCard-sourceDescription-0-1-19"
+          className="LayerCard-sourceDescription-0-1-21"
         />
       </p>
       <div
@@ -153,10 +153,10 @@ exports[`renders correctly 1`] = `
       />
     </div>
     <footer
-      className="LayerCard-footer-0-1-16"
+      className="LayerCard-footer-0-1-18"
     >
       <a
-        className="LayerCard-moreLink-0-1-15"
+        className="LayerCard-moreLink-0-1-17"
         href="/map/learn_more/123"
         onClick={[Function]}
       >
@@ -175,11 +175,11 @@ exports[`renders correctly 1`] = `
     </footer>
   </div>
   <div
-    className="MapSideBar-sideBarContent-0-1-7"
+    className="MapSideBar-sideBarContent-0-1-9"
     id="sideBarContent"
   >
     <button
-      className="MapSideBar-addLayerButton-0-1-5"
+      className="MapSideBar-addLayerButton-0-1-7"
       onClick={[Function]}
       style={
         Object {
@@ -193,7 +193,7 @@ exports[`renders correctly 1`] = `
       }
     >
       <i
-        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-6"
+        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-8"
       />
       Add datasets
     </button>
