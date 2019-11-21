@@ -14,7 +14,7 @@
   .form-group
     .field
       = f.label :menu
-      = f.text_field :menu, class: 'form-control'
+      = f.select :menu, Page.options_for_menu_select, {}, class: 'form-control'
   .form-group
     .field
       = f.label :sort_priority
