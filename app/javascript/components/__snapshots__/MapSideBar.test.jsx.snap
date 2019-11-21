@@ -198,5 +198,15 @@ exports[`renders correctly 1`] = `
       Add datasets
     </button>
   </div>
+  <a
+    className="map-credit"
+    href="//resourcewatch.org/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <img
+      src="test-file-stub"
+    />
+  </a>
 </div>
 `;
