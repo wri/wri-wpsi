@@ -179,7 +179,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
 
         <div className={classes.list}>
           {filteredLayers.map((layer) => (
-            <div key={layer.id} style={{width: '48%', padding: '10px', display: 'flex'}}>
+            <div key={layer.id} className='c-card' style={{padding: '10px', display: 'flex'}}>
               <LayerCard
                 layer={layer}
                 variant='white'

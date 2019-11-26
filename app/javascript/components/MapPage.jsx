@@ -90,16 +90,19 @@ const MapPage = ({ match, history, layers, categories }) => {
     setActiveLayers(layers.sort((a, b) => (layerIds.indexOf(a.id) - layerIds.indexOf(b.id))))
   }
 
-  const { colors } = styleVariables()
-  const sideDrawerStyle = {
-    position: 'absolute',
-    width: 500,
-    right: 0,
-    borderLeft: `1px solid ${colors.border}`,
-    height: '100%',
-    background: colors.bg,
-    display: 'flex',
+  const handleListToggle = (e) => {
+    const sideBar = document.querySelector('.c-drawer')
+    let actionMethod = 'add'
+    const button = e.target
+    const isActive = button.classList.contains('active')
+    if (isActive) {
+      actionMethod = 'remove'
+    }
+    sideBar.classList[actionMethod]('active')
+    button.classList[actionMethod]('active')
   }
+
+  const sideDrawerStyle = { }
 
   const mainStyle = {
     flex: '1 1 auto',
@@ -126,7 +129,10 @@ const MapPage = ({ match, history, layers, categories }) => {
         interactionState={interactionState}
       />
 
-      <div style={sideDrawerStyle}>
+      <button data-active={false} onClick={handleListToggle} className='mobile-layer-toggle' id='mobile-layer-toggle'>
+        Show/Hide layer list
+      </button>
+      <div className='c-drawer' style={sideDrawerStyle}>
         <MapSideBar
           setModalOpen={setModalOpen}
           maskLayers={maskLayers}
