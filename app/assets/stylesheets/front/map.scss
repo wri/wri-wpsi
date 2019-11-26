@@ -10,13 +10,13 @@ $side-bar-width: 500px;
   position: absolute;
   bottom: 15px;
   right: 15px;
-  width: calc(50% - 30px);
   background: $green-d;
   color: white;
   padding: 15px;
   border-radius: 50px;
   border: 1px solid $green-d;
   z-index: 900;
+  white-space: nowrap;
   &:focus,
   &:hover {
     color: $brown;

@@ -52,6 +52,8 @@ const styles = {
     marginLeft: -15,
     display: 'flex',
     justifyContent: 'space-between',
+    overflow: 'auto',
+    ...scrollBarStyles(3),
   },
   tab: tabStyle,
   selectedTab: {

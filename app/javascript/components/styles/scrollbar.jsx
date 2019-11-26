@@ -1,11 +1,11 @@
 import styleVariables from 'components/styles/variables'
 
-const scrollBarStyle = () => {
+const scrollBarStyle = (size=12) => {
   const { colors } = styleVariables()
 
   return {
     '&::-webkit-scrollbar': {
-      width: 12,
+      width: size,
     },
     '&::-webkit-scrollbar-track': {
       background: colors.gray3
