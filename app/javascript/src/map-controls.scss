@@ -57,6 +57,7 @@ $button-size: 30px;
   position: absolute;
   bottom: 15px;
   left: 15px;
+  max-width: calc(100vw - 30px);
 }
 
 .wri_api__open-legend.wri_api__-active {
@@ -73,6 +74,7 @@ $button-size: 30px;
   border-radius: 50px;
   border: 2px solid $green-d;
   color: white;
+  background: white;
   left: 15px;
   right: 15px;
   font-family: 'Merriweather, sans-serif';
