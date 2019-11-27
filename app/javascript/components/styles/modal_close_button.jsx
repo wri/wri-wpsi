@@ -9,7 +9,7 @@ const modalCloseButtonStyles = () => {
     backgroundColor: 'transparent',
     cursor: 'pointer',
     outline: 'none',
-    marginLeft: 'auto',
+    marginLeft: '20px',
     '&:hover': {
       transform: 'scale(1.3)',
       transformOrigin: 'center center',
