@@ -53,6 +53,9 @@ $side-bar-width: 500px;
       display: flex;
       z-index: 10;
     }
+    &.map-credit {
+      justify-content: flex-end;
+    }
   }
 }
 
