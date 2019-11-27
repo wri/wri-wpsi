@@ -105,7 +105,9 @@ const MapPage = ({ match, history, layers, categories }) => {
     setLayerListOpen(!isActive)
   }
 
-  const sideDrawerStyle = { }
+  const sideDrawerStyle = {
+    overflow: 'auto',
+  }
 
   const mainStyle = {
     flex: '1 1 auto',
