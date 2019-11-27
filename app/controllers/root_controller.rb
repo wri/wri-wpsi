@@ -15,12 +15,12 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
       Card.new(
         title: 'Understand',
         desc: 'Data and publications',
-        href: '/info/about#Understand',
+        href: '/info/map',
       ),
       Card.new(
         title: 'Mobilise',
         desc: 'Diplomats, Defence, Development & Disaster Response',
-        href: '/info/about#Mobilise',
+        href: '/info/mobilise',
       ),
       Card.new(
         title: 'Learn',
@@ -65,7 +65,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         title: 'WPS Goals',
         desc: 'Through the WPS partnership we hope to prevent conflicts over'\
         ' water by enabling communities to take action at an early stage.',
-        credit: 'Carola van Rijnso, Dutch Ministry for Foreign Affairs.',
+        credit: 'Carola van Rijnsoever, Dutch Ministry for Foreign Affairs.',
         href: '/info/about',
       ),
       Card.new(
@@ -99,7 +99,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
       Card.new(
         title: 'WPS at the Paris Peace Forum',
         desc: 'IHE Delft’s Susanne Schmeier and Wetlands International’s Joyce'\
-        ' Kortlandt introduce the Water Peace and Security Initiative at the'\
+        ' Kortlandt introduce the Water Peace and Security partnership at the'\
         ' Paris Peace Forum.',
         credit: 'November 2019',
         href: 'https://parispeaceforum.org/porteurs_projet/water-peace-and-security-wps/',
@@ -112,7 +112,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         ' Development Cooperation, launched the global early warning system'\
         ' for water and security.',
         credit: 'December 2019',
-        href: '/map',
+        href: '/info/news',
         image: ['cards/news-3.jpg', 'Fountain in Geneva, Switzerland, Europe'],
       ),
     ]
