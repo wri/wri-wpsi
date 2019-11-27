@@ -125,11 +125,7 @@ class ResourceWatchMap extends React.Component {
       right: 0,
     }
 
-    const legendStyle = {
-      position: 'absolute',
-      bottom: 10,
-      left: 10,
-    }
+    const legendStyle = { }
 
     return (
       <div style={style}>
@@ -144,15 +140,17 @@ class ResourceWatchMap extends React.Component {
           }
           { ...interactionState }
         />
-        <ResourceWatchLegend
-          style={legendStyle}
-          layerGroups={filteredLayerGroups}
-          onRemoveLayer={this.handleRemoveLayer}
-          onChangeInfo={this.handleChangeInfo}
-          onChangeOpacity={this.handleChangeOpacity}
-          onChangeVisibility={this.handleChangeVisibility}
-          onChangeOrder={onChangeLayerOrder}
-        />
+        <div className='wri_api__c-legend-map-wrapper'>
+          <ResourceWatchLegend
+            style={legendStyle}
+            layerGroups={filteredLayerGroups}
+            onRemoveLayer={this.handleRemoveLayer}
+            onChangeInfo={this.handleChangeInfo}
+            onChangeOpacity={this.handleChangeOpacity}
+            onChangeVisibility={this.handleChangeVisibility}
+            onChangeOrder={onChangeLayerOrder}
+          />
+        </div>
       </div>
     )
   }

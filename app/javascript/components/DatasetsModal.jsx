@@ -22,6 +22,8 @@ const tabStyle = {
   color: colors.links.default,
   fontFamily: styleVars.fonts.heading,
   borderRadius: '15px',
+  whiteSpace: 'nowrap',
+  marginBottom: '10px',
   ...linkStyle('tab')
 }
 
@@ -52,6 +54,8 @@ const styles = {
     marginLeft: -15,
     display: 'flex',
     justifyContent: 'space-between',
+    overflow: 'auto',
+    ...scrollBarStyles(3),
   },
   tab: tabStyle,
   selectedTab: {
@@ -179,7 +183,7 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
 
         <div className={classes.list}>
           {filteredLayers.map((layer) => (
-            <div key={layer.id} style={{width: '48%', padding: '10px', display: 'flex'}}>
+            <div key={layer.id} className='c-card' style={{padding: '10px', display: 'flex'}}>
               <LayerCard
                 layer={layer}
                 variant='white'

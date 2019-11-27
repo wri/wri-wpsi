@@ -9,7 +9,8 @@ import defaultButtonStyle from './styles/default_button'
 const styles = {
   header: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 28,

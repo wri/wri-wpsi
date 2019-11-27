@@ -37,6 +37,8 @@ const MapPage = ({ match, history, layers, categories }) => {
   const [layerGroupsInteractionSelected, setMapLayerGroupsInteractionSelected] = React.useState(null)
   const [layerGroupsInteractionLatLng, setMapLayerGroupsInteractionLatLng] = React.useState(null)
 
+  const [layerListOpen, setLayerListOpen] = React.useState(false)
+
   const updateInteractions = (interaction) => {
     const newLayerGroupsInteraction = {
       ...layerGroupsInteraction,
@@ -90,15 +92,21 @@ const MapPage = ({ match, history, layers, categories }) => {
     setActiveLayers(layers.sort((a, b) => (layerIds.indexOf(a.id) - layerIds.indexOf(b.id))))
   }
 
-  const { colors } = styleVariables()
+  const handleListToggle = (e) => {
+    const sideBar = document.querySelector('.c-drawer')
+    let actionMethod = 'add'
+    const button = e.target
+    const isActive = button.classList.contains('active')
+    if (isActive) {
+      actionMethod = 'remove'
+    }
+    sideBar.classList[actionMethod]('active')
+    button.classList[actionMethod]('active')
+    setLayerListOpen(!isActive)
+  }
+
   const sideDrawerStyle = {
-    position: 'absolute',
-    width: 500,
-    right: 0,
-    borderLeft: `1px solid ${colors.border}`,
-    height: '100%',
-    background: colors.bg,
-    display: 'flex',
+    overflow: 'auto',
   }
 
   const mainStyle = {
@@ -126,7 +134,15 @@ const MapPage = ({ match, history, layers, categories }) => {
         interactionState={interactionState}
       />
 
-      <div style={sideDrawerStyle}>
+      <button
+        data-active={false}
+        onClick={handleListToggle}
+        className='mobile-layer-toggle'
+        id='mobile-layer-toggle'
+      >
+        {layerListOpen ? 'Hide' : 'Show'} datasets list
+      </button>
+      <div className='c-drawer' style={sideDrawerStyle}>
         <MapSideBar
           setModalOpen={setModalOpen}
           maskLayers={maskLayers}

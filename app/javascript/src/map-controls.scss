@@ -52,3 +52,42 @@ $button-size: 30px;
     }
   }
 }
+
+.wri_api__c-legend-map-wrapper {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  max-width: calc(100vw - 30px);
+}
+
+.wri_api__open-legend.wri_api__-active {
+  transform: translateY(-60px);
+  overflow: visible !important;
+}
+
+.wri_api__c-legend-map {
+  background: none;
+  border: 0;
+}
+
+.wri_api__c-legend-map .wri_api__close-legend {
+  border-radius: 50px;
+  border: 2px solid $green-d;
+  color: white;
+  background: white;
+  left: 15px;
+  right: 15px;
+  font-family: 'Merriweather, sans-serif';
+  &:focus,
+  &:hover {
+    color: $green-l;
+  }
+}
+
+.wri_api__c-legend-map .wri_api__toggle-legend {
+  background: $green-d;
+}
+
+.wri_api__close-legend .wri_api__legend-title {
+  padding: 15px 20px;
+}
