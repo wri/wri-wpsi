@@ -22,6 +22,8 @@ const tabStyle = {
   color: colors.links.default,
   fontFamily: styleVars.fonts.heading,
   borderRadius: '15px',
+  whiteSpace: 'nowrap',
+  marginBottom: '10px',
   ...linkStyle('tab')
 }
 
