@@ -90,9 +90,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         title: 'WPS in the news',
         desc: 'WPS features in ECDPM’s Great Insights magazine, focused on'\
         ' Climate change and conflict, discussing the complex links'\
-        ' between water scarcity and conflict. <strong>ECDPM is a leading independent'\
-        ' think tank that wants to make policies in Europe and Africa work'\
-        ' for inclusive and sustainable development.</strong>',
+        ' between water scarcity and conflict.',
         credit: 'October 2019',
         href: '//ecdpm.org/wp-content/uploads/Great_insights_'\
         'Climate_Change_and_Conflict_Vol8_issue4.pdf',
@@ -112,10 +110,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         desc: 'During an event on December 5 in Geneva, the WPS approach was'\
         ' showcased and Sigrid Kaag, Dutch Minister for Foreign Trade and'\
         ' Development Cooperation, launched the global early warning system'\
-        ' for water and security. While the global tool flags areas with the'\
-        ' potential for conflict, the local solutions – based on pilots in Mali'\
-        ' and Iraq – help to build partnerships and guide negotiations towards local,'\
-        ' inclusive action.',
+        ' for water and security.',
         credit: 'December 2019',
         href: '/map',
         image: ['cards/news-3.jpg', 'Fountain in Geneva, Switzerland, Europe'],
