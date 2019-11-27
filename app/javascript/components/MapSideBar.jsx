@@ -59,6 +59,7 @@ const styles = {
     ...defaultButtonStyle(),
     marginRight: -15,
     paddingRight: 15,
+    marginLeft: 15,
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
   },
