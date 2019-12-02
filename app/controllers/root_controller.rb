@@ -15,12 +15,12 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
       Card.new(
         title: 'Understand',
         desc: 'Data and publications',
-        href: '/info/about#Understand',
+        href: '/info/map',
       ),
       Card.new(
         title: 'Mobilise',
         desc: 'Diplomats, Defence, Development & Disaster Response',
-        href: '/info/about#Mobilise',
+        href: '/info/mobilise',
       ),
       Card.new(
         title: 'Learn',
@@ -65,7 +65,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         title: 'WPS Goals',
         desc: 'Through the WPS partnership we hope to prevent conflicts over'\
         ' water by enabling communities to take action at an early stage.',
-        credit: 'Carola van Rijnso, Dutch Ministry for Foreign Affairs.',
+        credit: 'Carola van Rijnsoever, Dutch Ministry for Foreign Affairs.',
         href: '/info/about',
       ),
       Card.new(
@@ -90,9 +90,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         title: 'WPS in the news',
         desc: 'WPS features in ECDPM’s Great Insights magazine, focused on'\
         ' Climate change and conflict, discussing the complex links'\
-        ' between water scarcity and conflict. <strong>ECDPM is a leading independent'\
-        ' think tank that wants to make policies in Europe and Africa work'\
-        ' for inclusive and sustainable development.</strong>',
+        ' between water scarcity and conflict.',
         credit: 'October 2019',
         href: '//ecdpm.org/wp-content/uploads/Great_insights_'\
         'Climate_Change_and_Conflict_Vol8_issue4.pdf',
@@ -101,7 +99,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
       Card.new(
         title: 'WPS at the Paris Peace Forum',
         desc: 'IHE Delft’s Susanne Schmeier and Wetlands International’s Joyce'\
-        ' Kortlandt introduce the Water Peace and Security Initiative at the'\
+        ' Kortlandt introduce the Water Peace and Security partnership at the'\
         ' Paris Peace Forum.',
         credit: 'November 2019',
         href: 'https://parispeaceforum.org/porteurs_projet/water-peace-and-security-wps/',
@@ -112,12 +110,9 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         desc: 'During an event on December 5 in Geneva, the WPS approach was'\
         ' showcased and Sigrid Kaag, Dutch Minister for Foreign Trade and'\
         ' Development Cooperation, launched the global early warning system'\
-        ' for water and security. While the global tool flags areas with the'\
-        ' potential for conflict, the local solutions – based on pilots in Mali'\
-        ' and Iraq – help to build partnerships and guide negotiations towards local,'\
-        ' inclusive action.',
+        ' for water and security.',
         credit: 'December 2019',
-        href: '/map',
+        href: '/info/news',
         image: ['cards/news-3.jpg', 'Fountain in Geneva, Switzerland, Europe'],
       ),
     ]
