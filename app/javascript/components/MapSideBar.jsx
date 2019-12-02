@@ -86,6 +86,15 @@ const MapSideBar = ({
 
   const renderRegionInfo = (region) => {
     const className = `${classes.locationHeader} ${classes.header}`
+
+    if (!region) {
+      return (
+        <div className={className}>
+          <i>Click on the map to select a region</i>
+        </div>
+      )
+    }
+
     return (
       <div className={className}>
         <i>
@@ -185,7 +194,7 @@ const MapSideBar = ({
         {renderAddLayerButton()}
       </header>
 
-      {selectedRegion && renderRegionInfo(selectedRegion)}
+      {renderRegionInfo(selectedRegion)}
 
       {maskLayers && maskLayers.map(renderMaskLayerCard)}
 
