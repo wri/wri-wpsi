@@ -83,6 +83,7 @@ const MapSideBar = ({
   onToggleLayer,
   classes
 }) => {
+  const [readmeLinkVisible, setReadmeLinkVisible] = React.useState(false)
 
   const renderRegionInfo = (region) => {
     const className = `${classes.locationHeader} ${classes.header}`
@@ -103,6 +104,7 @@ const MapSideBar = ({
           {region.name_0}
         </i>
         {renderDownloadDataLink(region)}
+        {readmeLinkVisible && renderDataReadmeLink()}
       </div>
     )
   }
@@ -180,9 +182,23 @@ const MapSideBar = ({
       <a
         href={`/api/v1/widget_datapoints/${region.gid_2}/all/csv`}
         className={classes.downloadLink}
+        onClick={() => setReadmeLinkVisible(true)}
       >
         <i className={`icon__download ${classes.downloadIcon}`} />
         <span>Download all data for this region</span>
+      </a>
+    )
+  }
+
+  const renderDataReadmeLink = () => {
+    return (
+      <a
+        href={`/info/data-readme`}
+        target='blank'
+        className={classes.downloadLink}
+      >
+        <i className={`icon__info ${classes.downloadIcon}`} />
+        <span>Read me</span>
       </a>
     )
   }
