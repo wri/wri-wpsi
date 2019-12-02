@@ -25,6 +25,13 @@ exports[`renders correctly 1`] = `
     </button>
   </header>
   <div
+    className="MapSideBar-locationHeader-0-1-4 MapSideBar-header-0-1-2"
+  >
+    <i>
+      Click on the map to select a region
+    </i>
+  </div>
+  <div
     className="LayerCard-container-0-1-10 LayerCard-toggle-0-1-11"
   >
     <header
