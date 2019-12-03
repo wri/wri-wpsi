@@ -35,13 +35,13 @@ class LayerGroupsMap extends React.Component {
         center: { lat: 0, lng: 40 },
       },
       basemap: {
-        url: BASEMAPS.light.value,
-        options: BASEMAPS.light.options,
+        url: BASEMAPS.dark.value,
+        options: BASEMAPS.dark.options,
       },
       bounds: mapLocation,
       label: {
-        url: LABELS.dark.value,
-        options: LABELS.dark.options,
+        url: LABELS.light.value,
+        options: LABELS.light.options,
       },
       onReady: (map) => {
         this.map = map
