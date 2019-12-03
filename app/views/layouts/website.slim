@@ -1,6 +1,7 @@
 doctype html
 html
   head
+    = render 'layouts/shared/google_tag_manager_script'
     title
       | WRI - Water, Peace and Security Initiative
     meta name="viewport" content="width=device-width, initial-scale=1.0"
@@ -13,4 +14,5 @@ html
     = javascript_include_tag 'application'
 
   body
+    = render 'layouts/shared/google_tag_manager_noscript'
     = yield
