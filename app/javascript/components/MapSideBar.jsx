@@ -231,7 +231,6 @@ const MapSideBar = ({
 import PropTypes from 'prop-types'
 MapSideBar.propTypes = {
   history: PropTypes.object.isRequired,
-  setModalOpen: PropTypes.func.isRequired,
   onRemoveLayer: PropTypes.func.isRequired,
   onToggleLayer: PropTypes.func.isRequired,
   maskLayers: PropTypes.array,
