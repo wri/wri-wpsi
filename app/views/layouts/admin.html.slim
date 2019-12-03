@@ -3,6 +3,7 @@
 doctype html
 html
   head
+    = render 'layouts/shared/google_tag_manager_script'
     title
       | WPSI Admin Portal
     = csrf_meta_tags
@@ -16,6 +17,7 @@ html
     = javascript_pack_tag 'admin'
     link href=font rel="stylesheet"
   body
+    = render 'layouts/shared/google_tag_manager_noscript'
     .container
       = render 'admin/shared/navbar'
       .px-sm-4
