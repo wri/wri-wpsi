@@ -170,11 +170,11 @@ const MapSideBar = ({
     }
     return (
       <button
-        className={classes.addLayerButton}
+        className={`gtm-add-dataset-launch-modal ${classes.addLayerButton}`}
         onClick={() => history.push('/map/datasets/water')}
         style={additionalBtnStyle}
       >
-      <i className={`icon__plus-circle ${classes.addLayerButtonIcon}`} />
+        <i className={`icon__plus-circle ${classes.addLayerButtonIcon}`} />
         Add datasets
       </button>
     )
