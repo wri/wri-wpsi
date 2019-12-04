@@ -17,8 +17,6 @@
   @include font-body;
 }
 
-// Add this in if they don't want to adjust all the images
-// .o-page img {
-//   width: 100% !important;
-//   height: auto !important;
-// }
+.o-page li {
+  padding-top: 10px;
+}
