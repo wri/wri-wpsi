@@ -15,8 +15,10 @@
 .o-page div > p,
 .o-page div > ul {
   @include font-body;
-  @include media-breakpoint-up(lg) {
-    max-width: 75%;
-  }
 }
 
+// Add this in if they don't want to adjust all the images
+// .o-page img {
+//   width: 100% !important;
+//   height: auto !important;
+// }
