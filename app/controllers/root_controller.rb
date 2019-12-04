@@ -66,7 +66,6 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         desc: 'Through the WPS partnership we hope to prevent conflicts over'\
         ' water by enabling communities to take action at an early stage.',
         credit: 'Carola van Rijnsoever, Dutch Ministry for Foreign Affairs.',
-        href: '/info/about',
       ),
       Card.new(
         title: 'Crucial data',
@@ -74,7 +73,6 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         ' what’s driving these risks, and they suggest what possible solutions'\
         ' might be, in order to mitigate these risks.',
         credit: 'Charles Iceland, World Resources Institute',
-        href: '/info/about#Understand',
       ),
       Card.new(
         title: 'Solving conflict',
@@ -82,7 +80,6 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         ' water is, and what factors you can influence either as a policy maker'\
         ' in the respective region, or as an external partner, to solve the conflict',
         credit: 'Susanne Schmeier, IHE Delft',
-        href: '/info/regional-tool',
       ),
     ]
     @headlines = [
