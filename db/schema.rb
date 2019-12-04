@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 201911081191813) do
     t.decimal "al_ethnic"
     t.decimal "al_religion"
     t.binary "election_recent"
-    t.decimal "reign"
+    t.string "reign"
     t.decimal "et_anom_month"
     t.decimal "et_act_month"
     t.decimal "et_anom_year"
@@ -149,6 +149,9 @@ ActiveRecord::Schema.define(version: 201911081191813) do
     t.decimal "iav"
     t.decimal "rfr"
     t.decimal "sev"
+    t.decimal "acled_fatalities"
+    t.decimal "prediction"
+    t.decimal "prediction_prob"
     t.index ["gid_2", "month_indep"], name: "index_widget_datapoints_on_gid_2_and_month_indep", unique: true
   end
 
