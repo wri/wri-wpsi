@@ -11,6 +11,9 @@
 
 .c-nav__brand-image {
   min-width: 200px;
+  // IE11
+  width: 200px;
+  height: 62px;
 }
 
 .c-nav__toggle {
