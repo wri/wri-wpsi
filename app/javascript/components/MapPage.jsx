@@ -29,8 +29,6 @@ const MapPage = ({ match, history, layers, categories }) => {
   const [activeLayers, setActiveLayers] = React.useState(layers.filter(layer => layer.initially_on))
   const activeLayerIds = activeLayers.map(l => l.id)
 
-  const [modalOpen, setModalOpen] = React.useState(true)
-
   const [selectedRegion, setSelectedRegion] = React.useState(null)
 
   const [layerGroupsInteraction, setMapLayerGroupsInteraction] = React.useState({})
@@ -134,17 +132,25 @@ const MapPage = ({ match, history, layers, categories }) => {
         interactionState={interactionState}
       />
 
-      <button
-        data-active={false}
-        onClick={handleListToggle}
-        className='mobile-layer-toggle'
-        id='mobile-layer-toggle'
-      >
-        {layerListOpen ? 'Hide' : 'Show'} datasets list
-      </button>
+      <Route
+        path={currentPath}
+        exact
+        render={
+          () => (
+            <button
+              data-active={false}
+              onClick={handleListToggle}
+              className='mobile-layer-toggle'
+              id='mobile-layer-toggle'
+            >
+              {layerListOpen ? 'Hide' : 'Show'} datasets list
+            </button>
+          )
+        }
+      />
+
       <div className='c-drawer' style={sideDrawerStyle}>
         <MapSideBar
-          setModalOpen={setModalOpen}
           maskLayers={maskLayers}
           activeLayers={activeLayers}
           selectedRegion={selectedRegion}
@@ -157,7 +163,7 @@ const MapPage = ({ match, history, layers, categories }) => {
           render={
             ({ match }) => (
               <DatasetsModal
-                open={modalOpen}
+                open={true}
                 onClose={() => history.push(currentPath)}
                 isActive={isActive}
                 onToggleLayerClick={handleToggleLayerClick}

@@ -42,12 +42,15 @@ const styles = {
     lineHeight: 18/16,
     marginBottom: 10,
   },
-  downloadLink:  {
+  downloadLinkContainer:  {
     width: '100%',
-    textAlign: 'right',
+    display: 'flex',
+    justifyContent: 'space-between',
     paddingTop: '15px',
     fontSize: 'smaller',
     color: 'white',
+  },
+  downloadLink:  {
     '&:hover': {
       color: colors.links.default,
     },
@@ -83,9 +86,17 @@ const MapSideBar = ({
   onToggleLayer,
   classes
 }) => {
-
   const renderRegionInfo = (region) => {
     const className = `${classes.locationHeader} ${classes.header}`
+
+    if (!region) {
+      return (
+        <div className={className}>
+          <i>Click on the map to select a region</i>
+        </div>
+      )
+    }
+
     return (
       <div className={className}>
         <i>
@@ -93,7 +104,10 @@ const MapSideBar = ({
           {region.name_1 && `${region.name_1}, `}
           {region.name_0}
         </i>
-        {renderDownloadDataLink(region)}
+        <div className={classes.downloadLinkContainer}>
+          {renderDownloadDataLink(region)}
+          {renderDataReadmeLink()}
+        </div>
       </div>
     )
   }
@@ -178,6 +192,19 @@ const MapSideBar = ({
     )
   }
 
+  const renderDataReadmeLink = () => {
+    return (
+      <a
+        href={`/info/data-readme`}
+        target='blank'
+        className={classes.downloadLink}
+      >
+        <i className={`icon__info ${classes.downloadIcon}`} />
+        <span>Read me</span>
+      </a>
+    )
+  }
+
   return (
     <div id='sideBar' className={classes.sideBar}>
       <header className={classes.header}>
@@ -185,7 +212,7 @@ const MapSideBar = ({
         {renderAddLayerButton()}
       </header>
 
-      {selectedRegion && renderRegionInfo(selectedRegion)}
+      {renderRegionInfo(selectedRegion)}
 
       {maskLayers && maskLayers.map(renderMaskLayerCard)}
 
@@ -206,7 +233,6 @@ const MapSideBar = ({
 import PropTypes from 'prop-types'
 MapSideBar.propTypes = {
   history: PropTypes.object.isRequired,
-  setModalOpen: PropTypes.func.isRequired,
   onRemoveLayer: PropTypes.func.isRequired,
   onToggleLayer: PropTypes.func.isRequired,
   maskLayers: PropTypes.array,
