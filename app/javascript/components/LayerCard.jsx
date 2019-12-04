@@ -27,10 +27,6 @@ const styles = {
     boxShadow: 'none',
     borderRadius: 'none',
   },
-  white: {
-    borderRadius: 4,
-    backgroundColor: 'white',
-  },
   header: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -54,16 +50,8 @@ const styles = {
     lineHeight: 1.5,
   },
   moreLink: {
-    paddingLeft: 5,
+    marginLeft: 10,
     textDecoration: 'none',
-    marginLeft: 'auto',
-  },
-  footer: {
-    borderTop: `1px solid ${styleVars.colors.gray3}`,
-    padding: '10px 15px',
-    display: 'flex',
-    marginTop: 'auto',
-    flex: '0 1 auto',
   },
   source: {
     margin: '0 0 15px 0',
@@ -91,21 +79,28 @@ const LayerCard = ({
       <div className={classes.content}>
         <p className={classes.contentDescription}>
           {layer.short_description}
+          <Link to={`/map/learn_more/${layer.id}`} className={classes.moreLink}>
+            <i className='icon__book-reader' style={{marginRight: 5}} />
+            <span>Learn more</span>
+          </Link>
         </p>
         <p className={classes.source}>
-          <a className={classes.sourceLink} href={layer.source_url}>{layer.source_name}</a>
-          <span className={classes.sourceDescription}>{layer.source_description && `, ${layer.source_description}`}</span>
+          <a
+            className={classes.sourceLink}
+            href={layer.source_url}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            {layer.source_name}
+          </a>
+          <span className={classes.sourceDescription}>
+            {layer.source_description && `, ${layer.source_description}`}
+          </span>
         </p>
         <div style={{marginBottom: '15px'}}>
           <LayerTags layer={layer} excludedTag={excludedTag} />
         </div>
       </div>
-      <footer className={classes.footer}>
-        <Link to={`/map/learn_more/${layer.id}`} className={classes.moreLink}>
-          <i className='icon__book-reader' style={{marginRight: 5}} />
-          <span>Learn more</span>
-        </Link>
-      </footer>
       {children}
     </div>
   )

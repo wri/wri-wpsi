@@ -39,6 +39,6 @@ class MapTest < ApplicationSystemTestCase
       click_button 'Close'
     end
 
-    assert_selector 'a > img[alt="WPS home"]'
+    assert_selector 'a > img[alt="WPS logo"]'
   end
 end

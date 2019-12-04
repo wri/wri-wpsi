@@ -14,12 +14,12 @@ exports[`renders correctly 1`] = `
       Investigation
     </h1>
     <button
-      className="MapSideBar-addLayerButton-0-1-7"
+      className="MapSideBar-addLayerButton-0-1-8"
       onClick={[Function]}
       style={Object {}}
     >
       <i
-        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-8"
+        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-9"
       />
       Add datasets
     </button>
@@ -32,7 +32,7 @@ exports[`renders correctly 1`] = `
     </i>
   </div>
   <div
-    className="LayerCard-container-0-1-10 LayerCard-toggle-0-1-11"
+    className="LayerCard-container-0-1-11 LayerCard-toggle-0-1-12"
   >
     <header
       className="LayerCard-header-0-1-13"
@@ -140,15 +140,35 @@ exports[`renders correctly 1`] = `
     >
       <p
         className="LayerCard-contentDescription-0-1-16"
-      />
-      <p
-        className="LayerCard-source-0-1-19"
       >
         <a
-          className="LayerCard-sourceLink-0-1-20"
+          className="LayerCard-moreLink-0-1-17"
+          href="/map/learn_more/123"
+          onClick={[Function]}
+        >
+          <i
+            className="icon__book-reader"
+            style={
+              Object {
+                "marginRight": 5,
+              }
+            }
+          />
+          <span>
+            Learn more
+          </span>
+        </a>
+      </p>
+      <p
+        className="LayerCard-source-0-1-18"
+      >
+        <a
+          className="LayerCard-sourceLink-0-1-19"
+          rel="noopener noreferrer"
+          target="_blank"
         />
         <span
-          className="LayerCard-sourceDescription-0-1-21"
+          className="LayerCard-sourceDescription-0-1-20"
         />
       </p>
       <div
@@ -159,34 +179,13 @@ exports[`renders correctly 1`] = `
         }
       />
     </div>
-    <footer
-      className="LayerCard-footer-0-1-18"
-    >
-      <a
-        className="LayerCard-moreLink-0-1-17"
-        href="/map/learn_more/123"
-        onClick={[Function]}
-      >
-        <i
-          className="icon__book-reader"
-          style={
-            Object {
-              "marginRight": 5,
-            }
-          }
-        />
-        <span>
-          Learn more
-        </span>
-      </a>
-    </footer>
   </div>
   <div
-    className="MapSideBar-sideBarContent-0-1-9"
+    className="MapSideBar-sideBarContent-0-1-10"
     id="sideBarContent"
   >
     <button
-      className="MapSideBar-addLayerButton-0-1-7"
+      className="MapSideBar-addLayerButton-0-1-8"
       onClick={[Function]}
       style={
         Object {
@@ -200,7 +199,7 @@ exports[`renders correctly 1`] = `
       }
     >
       <i
-        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-8"
+        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-9"
       />
       Add datasets
     </button>

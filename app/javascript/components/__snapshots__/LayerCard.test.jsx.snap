@@ -5,31 +5,50 @@ exports[`renders correctly 1`] = `
   className="LayerCard-container-0-1-1 "
 >
   <header
-    className="LayerCard-header-0-1-4"
+    className="LayerCard-header-0-1-3"
   >
     <h2
-      className="LayerCard-title-0-1-5"
+      className="LayerCard-title-0-1-4"
     >
       My test layer
     </h2>
   </header>
   <div
-    className="LayerCard-content-0-1-6"
+    className="LayerCard-content-0-1-5"
   >
     <p
-      className="LayerCard-contentDescription-0-1-7"
-    />
+      className="LayerCard-contentDescription-0-1-6"
+    >
+      <Link
+        className="LayerCard-moreLink-0-1-7"
+        to="/map/learn_more/123"
+      >
+        <i
+          className="icon__book-reader"
+          style={
+            Object {
+              "marginRight": 5,
+            }
+          }
+        />
+        <span>
+          Learn more
+        </span>
+      </Link>
+    </p>
     <p
-      className="LayerCard-source-0-1-10"
+      className="LayerCard-source-0-1-8"
     >
       <a
-        className="LayerCard-sourceLink-0-1-11"
+        className="LayerCard-sourceLink-0-1-9"
         href="www.wikipedia.org"
+        rel="noopener noreferrer"
+        target="_blank"
       >
         Wikipedia
       </a>
       <span
-        className="LayerCard-sourceDescription-0-1-12"
+        className="LayerCard-sourceDescription-0-1-10"
       />
     </p>
     <div
@@ -56,25 +75,5 @@ exports[`renders correctly 1`] = `
       />
     </div>
   </div>
-  <footer
-    className="LayerCard-footer-0-1-9"
-  >
-    <Link
-      className="LayerCard-moreLink-0-1-8"
-      to="/map/learn_more/123"
-    >
-      <i
-        className="icon__book-reader"
-        style={
-          Object {
-            "marginRight": 5,
-          }
-        }
-      />
-      <span>
-        Learn more
-      </span>
-    </Link>
-  </footer>
 </div>
 `;

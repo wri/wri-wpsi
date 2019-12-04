@@ -9,7 +9,7 @@ class RootTest < ApplicationSystemTestCase
   def test_landing_page
     retry_on_timeout do
       visit '/'
-      assert_selector 'a > img[alt="WPS home"]'
+      assert_selector 'a > img[alt="WPS logo"]'
       assert_selector '#hero'
     end
   end
@@ -17,7 +17,7 @@ class RootTest < ApplicationSystemTestCase
   def test_map_page
     retry_on_timeout do
       visit '/map'
-      assert_selector 'a > img[alt="WPS home"]'
+      assert_selector 'a > img[alt="WPS logo"]'
       assert_selector '.leaflet-container'
       assert_text 'INVESTIGATION'
     end
