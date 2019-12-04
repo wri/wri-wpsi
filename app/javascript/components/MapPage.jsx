@@ -138,9 +138,9 @@ const MapPage = ({ match, history, layers, categories }) => {
         render={
           () => (
             <button
-              data-active={false}
+              data-active={layerListOpen}
               onClick={handleListToggle}
-              className='mobile-layer-toggle'
+              className={`mobile-layer-toggle${layerListOpen ? ' active' : ''}`}
               id='mobile-layer-toggle'
             >
               {layerListOpen ? 'Hide' : 'Show'} datasets list
