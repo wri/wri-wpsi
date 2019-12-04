@@ -52,7 +52,8 @@ class LayerGroupsMap extends React.Component {
 
     const hasInteraction = (layer) => {
       // WRI only wants interactions to show for one layer
-      if (layer.id == '851e2470-c592-4945-a5dd-d0eaf55b2158') {
+      if (layer.id == '851e2470-c592-4945-a5dd-d0eaf55b2158' ||
+          layer.id == '16a5729f-0f2e-4cd6-84bc-0f72c9132dda') {
         return !!layer.interactionConfig
             && !!layer.interactionConfig.output
             && !!layer.interactionConfig.output.length
