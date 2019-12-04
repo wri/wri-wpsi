@@ -52,7 +52,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
       ),
       Card.new(
         title: 'Know Us',
-        href: '/info/about#Who',
+        href: '/info/about-wps',
         options: { type: 'button' },
       ),
     ]
