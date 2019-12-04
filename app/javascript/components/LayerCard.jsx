@@ -22,7 +22,6 @@ const styles = {
     flexDirection: 'column',
   },
   toggle: {
-    marginBottom: 0,
     flex: '0 1 auto',
     boxShadow: 'none',
     borderRadius: 'none',

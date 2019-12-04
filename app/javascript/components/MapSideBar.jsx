@@ -40,7 +40,6 @@ const styles = {
     fontWeight: '600',
     fontSize: 16,
     lineHeight: 18/16,
-    marginBottom: 10,
   },
   downloadLinkContainer:  {
     width: '100%',
@@ -215,9 +214,8 @@ const MapSideBar = ({
 
       {renderRegionInfo(selectedRegion)}
 
-      {maskLayers && maskLayers.map(renderMaskLayerCard)}
-
       <div id='sideBarContent' className={classes.sideBarContent}>
+        {maskLayers && maskLayers.map(renderMaskLayerCard)}
         {activeLayers.filter(layer => !layer.mask).map(renderLayerCard)}
         {renderAddLayerButton(true)}
       </div>
