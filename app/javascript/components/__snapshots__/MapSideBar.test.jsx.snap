@@ -35,10 +35,10 @@ exports[`renders correctly 1`] = `
     className="LayerCard-container-0-1-11 LayerCard-toggle-0-1-12"
   >
     <header
-      className="LayerCard-header-0-1-14"
+      className="LayerCard-header-0-1-13"
     >
       <h2
-        className="LayerCard-title-0-1-15"
+        className="LayerCard-title-0-1-14"
       >
         Highlight areas of water stress
       </h2>
@@ -136,13 +136,13 @@ exports[`renders correctly 1`] = `
       </div>
     </header>
     <div
-      className="LayerCard-content-0-1-16"
+      className="LayerCard-content-0-1-15"
     >
       <p
-        className="LayerCard-contentDescription-0-1-17"
+        className="LayerCard-contentDescription-0-1-16"
       >
         <a
-          className="LayerCard-moreLink-0-1-18"
+          className="LayerCard-moreLink-0-1-17"
           href="/map/learn_more/123"
           onClick={[Function]}
         >
@@ -160,15 +160,15 @@ exports[`renders correctly 1`] = `
         </a>
       </p>
       <p
-        className="LayerCard-source-0-1-20"
+        className="LayerCard-source-0-1-18"
       >
         <a
-          className="LayerCard-sourceLink-0-1-21"
+          className="LayerCard-sourceLink-0-1-19"
           rel="noopener noreferrer"
           target="_blank"
         />
         <span
-          className="LayerCard-sourceDescription-0-1-22"
+          className="LayerCard-sourceDescription-0-1-20"
         />
       </p>
       <div
