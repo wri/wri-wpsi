@@ -18,13 +18,32 @@ exports[`renders correctly 1`] = `
   >
     <p
       className="LayerCard-contentDescription-0-1-7"
-    />
+    >
+      <Link
+        className="LayerCard-moreLink-0-1-8"
+        to="/map/learn_more/123"
+      >
+        <i
+          className="icon__book-reader"
+          style={
+            Object {
+              "marginRight": 5,
+            }
+          }
+        />
+        <span>
+          Learn more
+        </span>
+      </Link>
+    </p>
     <p
       className="LayerCard-source-0-1-10"
     >
       <a
         className="LayerCard-sourceLink-0-1-11"
         href="www.wikipedia.org"
+        rel="noopener noreferrer"
+        target="_blank"
       >
         Wikipedia
       </a>
@@ -56,25 +75,5 @@ exports[`renders correctly 1`] = `
       />
     </div>
   </div>
-  <footer
-    className="LayerCard-footer-0-1-9"
-  >
-    <Link
-      className="LayerCard-moreLink-0-1-8"
-      to="/map/learn_more/123"
-    >
-      <i
-        className="icon__book-reader"
-        style={
-          Object {
-            "marginRight": 5,
-          }
-        }
-      />
-      <span>
-        Learn more
-      </span>
-    </Link>
-  </footer>
 </div>
 `;

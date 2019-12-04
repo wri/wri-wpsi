@@ -196,7 +196,8 @@ const MapSideBar = ({
     return (
       <a
         href={`/info/data-readme`}
-        target='blank'
+        target='_blank'
+        rel='noopener noreferrer'
         className={classes.downloadLink}
       >
         <i className={`icon__info ${classes.downloadIcon}`} />
@@ -223,7 +224,7 @@ const MapSideBar = ({
       <a href='//resourcewatch.org/'
          className='map-credit'
          target='_blank'
-         rel="noopener noreferrer">
+         rel='noopener noreferrer'>
         <img src={resourceWatchLogo} />
       </a>
     </div>
