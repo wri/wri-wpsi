@@ -1,9 +1,9 @@
 global_tool:
   name: 'Global Tool'
   slug: 'global-tool'
-local_tool:
-  name: 'Local Tool'
-  slug: 'local-tool'
+regional_tool:
+  name: 'Regional Tool'
+  slug: 'regional-tool'
 map:
   name: 'Map'
   slug: 'map'
