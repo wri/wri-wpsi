@@ -58,7 +58,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     ]
     @tools = [
       Card.new(title: 'Global Tool', desc: '', href: '/map'),
-      Card.new(title: 'Local Tool', desc: '', href: '/info/local-analyses'),
+      Card.new(title: 'Regional Tool', desc: '', href: '/info/regional-tool'),
     ]
     @quotes = [
       Card.new(
@@ -82,7 +82,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         ' water is, and what factors you can influence either as a policy maker'\
         ' in the respective region, or as an external partner, to solve the conflict',
         credit: 'Susanne Schmeier, IHE Delft',
-        href: '/info/local-analyses ',
+        href: '/info/regional-tool',
       ),
     ]
     @headlines = [
