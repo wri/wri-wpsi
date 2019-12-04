@@ -21,6 +21,10 @@ const styles = {
   closeButton: {
     ...modalCloseButtonStyle()
   },
+  contentDescription: {
+    paddingRight: '10%',
+    lineHeight: 1.5,
+  },
 }
 
 const LayerInfoPage = ({ match, history, classes, layers }) => {
@@ -41,7 +45,7 @@ const LayerInfoPage = ({ match, history, classes, layers }) => {
         </button>
       </header>
 
-      <p dangerouslySetInnerHTML={{__html: info}} />
+      <p className={classes.contentDescription} dangerouslySetInnerHTML={{__html: info}} />
 
       <button onClick={onClose} className={classes.button}>Close</button>
     </Modal>

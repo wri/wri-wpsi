@@ -85,8 +85,17 @@ const LayerCard = ({
           </Link>
         </p>
         <p className={classes.source}>
-          <a className={classes.sourceLink} href={layer.source_url}>{layer.source_name}</a>
-          <span className={classes.sourceDescription}>{layer.source_description && `, ${layer.source_description}`}</span>
+          <a
+            className={classes.sourceLink}
+            href={layer.source_url}
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            {layer.source_name}
+          </a>
+          <span className={classes.sourceDescription}>
+            {layer.source_description && `, ${layer.source_description}`}
+          </span>
         </p>
         <div style={{marginBottom: '15px'}}>
           <LayerTags layer={layer} excludedTag={excludedTag} />
