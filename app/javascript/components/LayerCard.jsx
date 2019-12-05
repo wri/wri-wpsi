@@ -21,6 +21,10 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
   },
+  modal: {
+    borderRadius: 4,
+    height: '100%',
+  },
   toggle: {
     flex: '0 1 auto',
     boxShadow: 'none',

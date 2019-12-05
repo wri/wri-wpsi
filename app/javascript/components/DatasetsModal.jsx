@@ -181,12 +181,12 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
 
         {selectedCategory.slug !== 'all' && renderDescription(selectedCategory)}
 
-        <div className={classes.list}>
+        <div className={`row ${classes.list}`}>
           {filteredLayers.map((layer) => (
-            <div key={layer.id} className='c-card' style={{padding: '10px', display: 'flex'}}>
+            <div key={layer.id} className='c-card col-md-6'>
               <LayerCard
                 layer={layer}
-                variant='white'
+                variant='modal'
                 excludedTag={selectedCategory.slug}
                 secondaryAction={renderAddButton(layer)}
               />
