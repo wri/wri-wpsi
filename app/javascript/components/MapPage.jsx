@@ -157,24 +157,24 @@ const MapPage = ({ match, history, layers, categories }) => {
           onRemoveLayer={removeLayer}
           onToggleLayer={handleToggleLayer}
         />
-
-        <Route
-          path={`${currentPath}/datasets/:category`}
-          render={
-            ({ match }) => (
-              <DatasetsModal
-                open={true}
-                onClose={() => history.push(currentPath)}
-                isActive={isActive}
-                onToggleLayerClick={handleToggleLayerClick}
-                tab={match.params.category}
-                layers={layers.filter(layer => !layer.mask)}
-                categories={categories}
-              />
-            )
-          }
-        />
       </div>
+
+      <Route
+        path={`${currentPath}/datasets/:category`}
+        render={
+          ({ match }) => (
+            <DatasetsModal
+              open={true}
+              onClose={() => history.push(currentPath)}
+              isActive={isActive}
+              onToggleLayerClick={handleToggleLayerClick}
+              tab={match.params.category}
+              layers={layers.filter(layer => !layer.mask)}
+              categories={categories}
+            />
+          )
+        }
+      />
     </main>
   )
 }
