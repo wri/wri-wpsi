@@ -86,10 +86,7 @@ $side-bar-width: 500px;
 }
 
 .c-card {
-  width: 100%;
-  @include media-breakpoint-up(md) {
-    width: 48%;
-  }
+  padding: 15px 0px;
 }
 
 #modal {

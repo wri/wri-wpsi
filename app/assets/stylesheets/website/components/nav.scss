@@ -10,7 +10,9 @@
 // .c-nav__brand { }
 
 .c-nav__brand-image {
-  min-width: 200px;
+  // IE11
+  width: 200px;
+  height: 62px;
 }
 
 .c-nav__toggle {
@@ -31,7 +33,6 @@
 }
 
 .c-nav__items {
-  flex: 1 1 100%;
   width: 100%;
   @include media-breakpoint-up(lg) {
     justify-content: space-between;
@@ -41,15 +42,11 @@
 .c-nav__item {
   border-bottom: 1px solid get-gray(2);
   @include media-breakpoint-up(lg) {
-    display: flex;
-    align-items: stretch;
-    flex: 1 1 auto;
     border-right: 1px solid get-gray(3);
     border-bottom: 0;
   }
   &:last-child {
     border: 0;
-    flex: 0 0 auto;
     .c-nav__link {
       padding-right: 0;
     }
@@ -67,8 +64,8 @@
   padding-top: space(4);
   @include media-breakpoint-up(lg) {
     padding-top: space(2);
-    padding-left: space(4);
-    padding-right: space(4);
+    padding-left: space(2);
+    padding-right: space(2);
     padding-bottom: space(6);
   }
   &:hover,
