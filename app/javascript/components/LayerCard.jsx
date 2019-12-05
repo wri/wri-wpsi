@@ -17,7 +17,7 @@ const styles = {
     borderTopRightRadius: 4,
     borderBottomRightRadius: 4,
     background: 'rgba(255,255,255,1)',
-    flex: '1 1 auto',
+    flex: '1 1 0px',
     display: 'flex',
     flexDirection: 'column',
   },
