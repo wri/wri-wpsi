@@ -124,7 +124,7 @@ const MapSideBar = ({
           offColor={colors.links.default}
           checkedIcon={false}
           uncheckedIcon={false}
-          className='square-switch'
+          className='square-switch gtm-water-stress-toggle'
         />
       }
     />
@@ -169,11 +169,11 @@ const MapSideBar = ({
     }
     return (
       <button
-        className={classes.addLayerButton}
+        className={`gtm-add-dataset-launch-modal ${classes.addLayerButton}`}
         onClick={() => history.push('/map/datasets/water')}
         style={additionalBtnStyle}
       >
-      <i className={`icon__plus-circle ${classes.addLayerButtonIcon}`} />
+        <i className={`icon__plus-circle ${classes.addLayerButtonIcon}`} />
         Add datasets
       </button>
     )
@@ -206,7 +206,7 @@ const MapSideBar = ({
   }
 
   return (
-    <div id='sideBar' className={classes.sideBar}>
+    <div id='sideBar' className={`gtm-sideBar ${classes.sideBar}`}>
       <header className={classes.header}>
         <h1 className={classes.headerTitle}>Investigation</h1>
         {renderAddLayerButton()}
@@ -214,7 +214,7 @@ const MapSideBar = ({
 
       {renderRegionInfo(selectedRegion)}
 
-      <div id='sideBarContent' className={classes.sideBarContent}>
+      <div id='sideBarContent' className={`gtm-sideBarContent ${classes.sideBarContent}`}>
         {maskLayers && maskLayers.map(renderMaskLayerCard)}
         {activeLayers.filter(layer => !layer.mask).map(renderLayerCard)}
         {renderAddLayerButton(true)}

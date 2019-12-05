@@ -2,7 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="MapSideBar-sideBar-0-1-1"
+  className="gtm-sideBar MapSideBar-sideBar-0-1-1"
   id="sideBar"
 >
   <header
@@ -14,7 +14,7 @@ exports[`renders correctly 1`] = `
       Investigation
     </h1>
     <button
-      className="MapSideBar-addLayerButton-0-1-8"
+      className="gtm-add-dataset-launch-modal MapSideBar-addLayerButton-0-1-8"
       onClick={[Function]}
       style={Object {}}
     >
@@ -32,7 +32,7 @@ exports[`renders correctly 1`] = `
     </i>
   </div>
   <div
-    className="MapSideBar-sideBarContent-0-1-10"
+    className="gtm-sideBarContent MapSideBar-sideBarContent-0-1-10"
     id="sideBarContent"
   >
     <div
@@ -47,7 +47,7 @@ exports[`renders correctly 1`] = `
           Highlight areas of water stress
         </h2>
         <div
-          className="square-switch"
+          className="square-switch gtm-water-stress-toggle"
           style={
             Object {
               "MozTransition": "opacity 0.25s",
@@ -146,7 +146,7 @@ exports[`renders correctly 1`] = `
           className="LayerCard-contentDescription-0-1-17"
         >
           <a
-            className="LayerCard-moreLink-0-1-18"
+            className="LayerCard-moreLink-0-1-18 gtm-learn-more"
             href="/map/learn_more/123"
             onClick={[Function]}
           >
@@ -185,7 +185,7 @@ exports[`renders correctly 1`] = `
       </div>
     </div>
     <button
-      className="MapSideBar-addLayerButton-0-1-8"
+      className="gtm-add-dataset-launch-modal MapSideBar-addLayerButton-0-1-8"
       onClick={[Function]}
       style={
         Object {

@@ -20,6 +20,7 @@ exports[`renders correctly 1`] = `
   }
 >
   <div
+    className="gtm-modal"
     id="modal"
     style={
       Object {
@@ -96,6 +97,7 @@ exports[`renders correctly without a description too 1`] = `
   }
 >
   <div
+    className="gtm-modal"
     id="modal"
     style={
       Object {

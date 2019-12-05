@@ -73,6 +73,8 @@ const LayerCard = ({
   children,
 }) => {
   const containerClass = `${classes.container} ${variant ? classes[variant] : ''}`
+  const moreLinkClass = `${classes.moreLink} gtm-learn-more`
+
   return (
     <div className={containerClass}>
       <header className={classes.header}>
@@ -82,7 +84,7 @@ const LayerCard = ({
       <div className={classes.content}>
         <p className={classes.contentDescription}>
           {layer.short_description}
-          <Link to={`/map/learn_more/${layer.id}`} className={classes.moreLink}>
+          <Link to={`/map/learn_more/${layer.id}`} className={moreLinkClass}>
             <i className='icon__book-reader' style={{marginRight: 5}} />
             <span>Learn more</span>
           </Link>
