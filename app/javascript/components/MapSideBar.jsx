@@ -17,7 +17,7 @@ const styles = {
   sideBar:  {
     display: 'flex',
     flexDirection: 'column',
-    flex: '1 1 auto',
+    flex: '1 1 0px',
   },
   header: {
     display: 'flex',
