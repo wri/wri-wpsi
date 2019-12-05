@@ -1,4 +1,12 @@
-- if Rails.env.production?
+- if Rails.env.production? # || Rails.env.development?
+  /! Start GTM dataLayer initialization
+  javascript:
+    dataLayer = [{
+      'visitorType': '#{current_user.present? ? 'admin' : 'guest'}',
+      'selectedRegion': null,
+    }];
+  /! End GTM dataLayer initialization
+
   /! Start Google Tag Manager
   javascript:
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
