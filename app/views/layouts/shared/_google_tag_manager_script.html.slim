@@ -7,3 +7,30 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WBG67HV');
   /! End Google Tag Manager
+
+  /! Start cookie consent notice
+  link rel="stylesheet" type="text/css" href="//wpcc.io/lib/1.0.2/cookieconsent.min.css"
+  script src="//wpcc.io/lib/1.0.2/cookieconsent.min.js"
+  javascript:
+    window.addEventListener("load", function() {
+      window.wpcc.init({
+        "colors": {
+          "popup": {
+            "background": "#2e3348","text": "#ffffff","border": "#5f9f7c"
+          },
+          "button":{
+            "background": "#5f9f7c","text": "#ffffff"
+          }
+        },
+        "position": "bottom",
+        "content":{
+          "href": "https://waterpeacesecurity.org/info/privacy-policy",
+          "message": "This website uses cookies to provide you with an improved" +
+            " user experience. By continuing to browse this site, you consent" +
+            " to the use of cookies and similar technologies.",
+          "button": "I agree"
+        },
+        "transparency": "10"
+      })
+    });
+  /! End cookie consent notice
