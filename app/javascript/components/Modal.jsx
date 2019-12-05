@@ -29,7 +29,7 @@ const Modal = ({ children }) => {
 
   return (
     <div style={modalBackgroundStyle} id='modal-background'>
-      <div style={modalStyle} id='modal'>
+      <div style={modalStyle} id='modal' className={`gtm-modal`}>
         {children}
       </div>
     </div>
