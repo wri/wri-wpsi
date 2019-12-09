@@ -1,8 +1,9 @@
 @import '../helpers';
 
 .c-nav {
-  padding-top: space(6);
+  padding-top: space(3);
   @include media-breakpoint-up(lg) {
+    padding-top: space(6);
     padding-bottom: 0;
   }
 }
@@ -11,8 +12,12 @@
 
 .c-nav__brand-image {
   // IE11
-  width: 200px;
-  height: 62px;
+  width: 100px;
+  height: 31px;
+  @include media-breakpoint-up(lg) {
+    width: 200px;
+    height: 62px;
+  }
 }
 
 .c-nav__toggle {
