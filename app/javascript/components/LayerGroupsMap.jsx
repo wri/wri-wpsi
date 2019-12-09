@@ -101,7 +101,7 @@ class LayerGroupsMap extends React.Component {
           this.selectedRegionLayer = layer
 
           const selectedRegion = data.features.length > 0 ? data.features[0].properties : null
-          window.dataLayer.push({'selectedRegion': selectedRegion})
+          window.dataLayer.push({'event': 'Region Selected', 'selectedRegion': selectedRegion})
           this.props.setSelectedRegion(selectedRegion)
         })
     }
