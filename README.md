@@ -1,6 +1,6 @@
 # README
 
-This is the main repo for the Water, Peace and Security webapp.
+This is the main repo for the Water, Peace and Security web app.
 
 [![Build Status](https://travis-ci.com/greenriver/wri-wpsi.svg?token=EQywZqAdUXLYyppSoTji&branch=master)](https://travis-ci.com/greenriver/wri-wpsi)
 [![Heroku](http://heroku-badge.herokuapp.com/?app=wri-wpsi&style=flat&svg=1)](https://dashboard.heroku.com/apps/wri-wpsi)
@@ -24,7 +24,7 @@ See [Gemfile](/Gemfile) and [package.json](/package.json).
 
 ## Linting
 
-Ruby code is linted by `rubocop` and JS code is linted by `eslint`. Both are run and enforced automatically when you try to commit new changes via `overcommit`.
+Ruby code is linted by `rubocop` and JS code is linted by `eslint`. Both are run and enforced automatically when you try to commit new changes via `overcommit`. You may need to run `overcommit --install` the first time to get this to work.
 
 ## Testing
 
@@ -32,7 +32,7 @@ Ruby code is linted by `rubocop` and JS code is linted by `eslint`. Both are run
   * Use `rails test` to run ruby unit tests.
   * Use `rails test:system` to run ruby system tests.
   * Run system tests with `DEBUG_CHROME=1` to watch them execute in real time.
-  * Use `yarn test` to run js tests with Jest.
+  * Use `yarn test` to run JS tests with Jest.
 
 ### Jest tests
 
@@ -45,21 +45,23 @@ If the changes all look good, update the failing snapshots by running `yarn test
 Staging is deployed to heroku at `https://git.heroku.com/wri-wpsi.git`. Run `git push heroku master` to deploy master there.
 
 Production is deployed to a `Ubuntu 18.04.3 LTS` server at IHE Delft. Run `cap production deploy` to deploy there. Consult
-`config/deploy/production.rb` for where that is. You will need to get credentials setup by a current deployer.
+`config/deploy/production.rb` for where that is. You will need to get your credentials set up by a current deployer.
 
-`capistrano` tasks for starting and stoping the services are setup per https://github.com/seuros/capistrano-puma.  All necessary services are manageable via systemd and enabled on boot.
-
+`capistrano` tasks for starting and stopping the services are set up per https://github.com/seuros/capistrano-puma.  All necessary services are manageable via systemd and enabled on boot.
 
 #### Services
+
 ```
-● puma.service - puma for production
+* puma.service - puma for production
    Loaded: loaded (/etc/systemd/system/puma.service; enabled; vendor preset: enabled)
-● nginx.service - A high performance web server and a reverse proxy server
+* nginx.service - A high performance web server and a reverse proxy server
    Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
-● postgresql.service - PostgreSQL RDBMS
+* postgresql.service - PostgreSQL RDBMS
    Loaded: loaded (/lib/systemd/system/postgresql.service; enabled; vendor preset: enabled)
 ```
+
 #### Host Info
+
 ```
 $ cat /proc/cpuinfo | grep CPU
 model name  : Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz
@@ -69,38 +71,33 @@ $ free -h
 Mem:           3.9G ....
 ```
 
+## Exception monitoring
+
 Exceptions are monitored via [sentry.io](https://sentry.io/organizations/green-river/issues/?project=1484102).
 
 ## Widgets
 
-### Importing widget data
+### Importing widget data from the CSV data table
 
-All widget data is loaded into the app's database for easier access and exposed via a simple API (see below). To load the data, use the [`import:widget_datapoints` rake task](/lib/tasks/import.rake):
+All widget data is loaded into the app's database for easier access and exposed via a simple API ([see below](#using-the-widget-api)). To load the data, use the [`import:widget_datapoints` rake task](/lib/tasks/import.rake):
 
-* Create a fresh google API token (see https://developers.google.com/oauthplayground/)
+1. Download the CSV file to the computer where you are running the rake task
 
-* Set the `WRI_WPSI_GOOGLE_CLOUD_STORAGE_TOKEN` environment variable:
-
-```
-export WRI_WPSI_GOOGLE_CLOUD_STORAGE_TOKEN=thetokenthatyoujustcreated
-```
-
-* Run the task with an appropriate URL, something like:
+2. Run the task with the path to the file as a parameter, something like:
 
 ```
-rake 'import:widget_datapoints[https://www.googleapis.com/storage/v1/b/wps_pillar1a/o/data_final%2finputs%2fv3%2fv3_tool-table.csv?alt=media]'
+rake 'import:widget_datapoints[/Users/lucas/Downloads/data_final_inputs_v5_v5_tool-table.csv]'
 ```
 
-In order to copy the CSV to the production database, first download it locally and then run:
+In order to copy the CSV into the production database, you will need to specify the environment like this:
 
 ```bash
-cat ~/Downloads/data_final_inputs_v3_v3_tool-table.csv | \
-psql `heroku config:get DATABASE_URL` -c "COPY widget_datapoints FROM STDIN DELIMITERS ',' CSV HEADER;"
+RAILS_ENV=production bundle exec rake 'import:widget_datapoints[/home/amichal/csvs/data_final_inputs_v5_v5_tool-table.csv]'
 ```
 
 ### Writing widget specifications
 
-The app accepts [standard vega chart specifications](https://vega.github.io/vega/docs/specification/) with just one additional feature. If the spec includes a value for `data.urlTemplate` it will set `data.url` based on that template, substituting in the currently selected region id for any occurences of the string `${region.gid_2}`.
+The app accepts [standard vega chart specifications](https://vega.github.io/vega/docs/specification/) with just one additional feature. If the spec includes a value for `data.urlTemplate` it will set `data.url` based on that template, substituting in the currently selected region id for any occurrences of the string `${region.gid_2}`.
 
 This is intended for use with the single-endpoint widget data API (see below).
 
