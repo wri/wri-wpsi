@@ -1,0 +1,82 @@
+// 2019-12-19 13:34:35
+// http://api.resourcewatch.org/v1/layer/be43823c-3259-4112-814a-b7ee22d78b9b
+
+{
+  "data": {
+    "id": "be43823c-3259-4112-814a-b7ee22d78b9b",
+    "type": "layer",
+    "attributes": {
+      "name": "Conflict Forecast October 2019 - September 2020",
+      "slug": "Conflict-Forecast-October-2019-September-2020",
+      "dataset": "0c3dfe3b-2cd5-4125-ac84-9ce0a73f34b3",
+      "description": "",
+      "application": [
+        "rw"
+      ],
+      "iso": [
+
+      ],
+      "provider": "cartodb",
+      "userId": "58f63c81bd32c60206ed6b12",
+      "default": false,
+      "protected": false,
+      "published": true,
+      "env": "production",
+      "layerConfig": {
+        "account": "wri-rw",
+        "body": {
+          "maxzoom": 22,
+          "minzoom": 3,
+          "layers": [
+            {
+              "type": "mapnik",
+              "options": {
+                "sql": "SELECT * from wps_forecast_201910_v5",
+                "cartocss": "#layer {polygon-opacity: 1; line-width: 0.5; line-color: #FFF; line-opacity: 1;}[category = 'Ongoing Conflict']{polygon-fill:#FFFA00;} [category = 'Emerging Conflict']{polygon-fill:#FF9901;} [category = 'Peace']{polygon-fill:#AAC7D9;}",
+                "cartocss_version": "2.3.0"
+              }
+            }
+          ]
+        }
+      },
+      "legendConfig": {
+        "items": [
+          {
+            "id": 0,
+            "color": "#bdbdbd",
+            "name": "Low Quality Data"
+          },
+          {
+            "id": 1,
+            "color": "#FFFA00",
+            "name": "Ongoing Conflict"
+          },
+          {
+            "id": 2,
+            "color": "#FF9901",
+            "name": "Emerging Conflict"
+          },
+          {
+            "id": 7,
+            "color": "#AAC7D9",
+            "name": "Peace"
+          }
+        ],
+        "type": "basic"
+      },
+      "interactionConfig": {
+        "output": [
+
+        ]
+      },
+      "applicationConfig": {
+
+      },
+      "staticImageConfig": {
+
+      },
+      "createdAt": "2019-11-26T22:30:13.913Z",
+      "updatedAt": "2019-12-02T15:15:35.509Z"
+    }
+  }
+}
