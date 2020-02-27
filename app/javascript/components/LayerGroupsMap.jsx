@@ -51,9 +51,14 @@ class LayerGroupsMap extends React.Component {
     }
 
     const hasInteraction = (layer) => {
-      // WRI only wants interactions to show for one layer
-      if (layer.id == '851e2470-c592-4945-a5dd-d0eaf55b2158' ||
-          layer.id == '16a5729f-0f2e-4cd6-84bc-0f72c9132dda') {
+      // WRI only wants interactions to show for some layers
+      const interactionLayers = [
+        '851e2470-c592-4945-a5dd-d0eaf55b2158',
+        '16a5729f-0f2e-4cd6-84bc-0f72c9132dda',
+        'ad4602ff-1bb7-4ded-a231-d9130f5097ff', // Water Conflicts
+        'f4ef8702-4af7-4c6c-a595-aab71874eea4', // Conflict Events (Past 90 Days)
+      ]
+      if (interactionLayers.indexOf(layer.id) !== -1) {
         return !!layer.interactionConfig
             && !!layer.interactionConfig.output
             && !!layer.interactionConfig.output.length
