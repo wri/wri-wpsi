@@ -91,7 +91,17 @@ const styles = {
   },
 }
 
-const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, history, classes, layers, categories }) => {
+const DatasetsModal = ({
+  open,
+  onClose,
+  isActive,
+  onToggleLayerClick,
+  tab,
+  history,
+  classes,
+  layers,
+  categories
+}) => {
   if (categories.length == 0) { return null }
 
   const allDatasetsCategory = {slug: 'all', title: 'All Data >'}
@@ -99,21 +109,27 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
   const [descriptionExpanded, setDescriptionExpanded] = React.useState(false)
 
   if (open) {
-    const renderTab = (category) => (
-      <button
-        key={category.slug}
-        className={category.slug === selectedCategory.slug ? classes.selectedTab : classes.tab}
-        id={`${category.slug}-tab`}
-        onClick={
-          () => {
-            history.push(`/map/datasets/${category.slug}`)
-            setDescriptionExpanded(false)
+    const renderTab = (category) => {
+      const isSelected = category.slug === selectedCategory.slug
+      let tabClassName = isSelected ? classes.selectedTab : classes.tab
+      tabClassName = `${tabClassName} gtm-modal-tab-link`
+
+      return (
+        <button
+          key={category.slug}
+          className={tabClassName}
+          id={`${category.slug}-tab`}
+          onClick={
+            () => {
+              history.push(`/map/datasets/${category.slug}`)
+              setDescriptionExpanded(false)
+            }
           }
-        }
-      >
-        {category.title}
-      </button>
-    )
+        >
+          {category.title}
+        </button>
+      )
+    }
 
     const renderDescription = (category) => {
       const cutoff = 300
@@ -181,12 +197,12 @@ const DatasetsModal = ({ open, onClose, isActive, onToggleLayerClick, tab, histo
 
         {selectedCategory.slug !== 'all' && renderDescription(selectedCategory)}
 
-        <div className={classes.list}>
+        <div className={`row ${classes.list}`}>
           {filteredLayers.map((layer) => (
-            <div key={layer.id} className='c-card' style={{padding: '10px', display: 'flex'}}>
+            <div key={layer.id} className='c-card col-md-6'>
               <LayerCard
                 layer={layer}
-                variant='white'
+                variant='modal'
                 excludedTag={selectedCategory.slug}
                 secondaryAction={renderAddButton(layer)}
               />

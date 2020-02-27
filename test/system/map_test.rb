@@ -24,21 +24,22 @@ class MapTest < ApplicationSystemTestCase
   end
 
   test 'viewing a dataset\'s long description' do
-    layer = layers(:risk_of_conflict)
+    mask_layer = layers(:mask)
+    conflict_layer = layers(:risk_of_conflict)
 
     visit map_url
 
     within '#sideBarContent' do
-      assert_selector 'h2', text: layer.name
-      click_link 'Learn more'
+      assert_selector 'h2', text: conflict_layer.name
+      first('div').click_link 'Learn more'
     end
 
     within '#modal > header' do
-      assert_selector 'h1', text: layer.name.upcase
-      assert_text layer.long_description
+      assert_selector 'h1', text: mask_layer.name.upcase
+      assert_text mask_layer.long_description
       click_button 'Close'
     end
 
-    assert_selector 'a > img[alt="WPS home"]'
+    assert_selector 'a > img[alt="WPS logo"]'
   end
 end

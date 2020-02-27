@@ -52,7 +52,8 @@ class LayerGroupsMap extends React.Component {
 
     const hasInteraction = (layer) => {
       // WRI only wants interactions to show for one layer
-      if (layer.id == '851e2470-c592-4945-a5dd-d0eaf55b2158') {
+      if (layer.id == '851e2470-c592-4945-a5dd-d0eaf55b2158' ||
+          layer.id == '16a5729f-0f2e-4cd6-84bc-0f72c9132dda') {
         return !!layer.interactionConfig
             && !!layer.interactionConfig.output
             && !!layer.interactionConfig.output.length
@@ -98,12 +99,12 @@ class LayerGroupsMap extends React.Component {
           this.selectedRegionLayer && this.map.removeLayer(this.selectedRegionLayer)
           const layer = addRegionLayerToMap(this.map, data)
           this.selectedRegionLayer = layer
+          const selectedRegion = data.features.length > 0 ? data.features[0].properties : null
 
-          if (data.features.length > 0) {
-            this.props.setSelectedRegion(data.features[0].properties)
-          } else {
-            this.props.setSelectedRegion(null)
-          }
+          // Trigger a Google Analytics event
+          window.dataLayer.push({'event': 'Region Selected', 'selectedRegion': selectedRegion})
+
+          this.props.setSelectedRegion(selectedRegion)
         })
     }
 

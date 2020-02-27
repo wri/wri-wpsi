@@ -17,7 +17,7 @@ const styles = {
   sideBar:  {
     display: 'flex',
     flexDirection: 'column',
-    flex: '1 1 auto',
+    flex: '1 1 0px',
   },
   header: {
     display: 'flex',
@@ -40,7 +40,6 @@ const styles = {
     fontWeight: '600',
     fontSize: 16,
     lineHeight: 18/16,
-    marginBottom: 10,
   },
   downloadLinkContainer:  {
     width: '100%',
@@ -125,7 +124,7 @@ const MapSideBar = ({
           offColor={colors.links.default}
           checkedIcon={false}
           uncheckedIcon={false}
-          className='square-switch'
+          className='square-switch gtm-water-stress-toggle'
         />
       }
     />
@@ -196,7 +195,8 @@ const MapSideBar = ({
     return (
       <a
         href={`/info/data-readme`}
-        target='blank'
+        target='_blank'
+        rel='noopener noreferrer'
         className={classes.downloadLink}
       >
         <i className={`icon__info ${classes.downloadIcon}`} />
@@ -206,7 +206,7 @@ const MapSideBar = ({
   }
 
   return (
-    <div id='sideBar' className={classes.sideBar}>
+    <div id='sideBar' className={`gtm-sideBar ${classes.sideBar}`}>
       <header className={classes.header}>
         <h1 className={classes.headerTitle}>Investigation</h1>
         {renderAddLayerButton()}
@@ -214,16 +214,15 @@ const MapSideBar = ({
 
       {renderRegionInfo(selectedRegion)}
 
-      {maskLayers && maskLayers.map(renderMaskLayerCard)}
-
-      <div id='sideBarContent' className={classes.sideBarContent}>
+      <div id='sideBarContent' className={`gtm-sideBarContent ${classes.sideBarContent}`}>
+        {maskLayers && maskLayers.map(renderMaskLayerCard)}
         {activeLayers.filter(layer => !layer.mask).map(renderLayerCard)}
         {renderAddLayerButton(true)}
       </div>
       <a href='//resourcewatch.org/'
          className='map-credit'
          target='_blank'
-         rel="noopener noreferrer">
+         rel='noopener noreferrer'>
         <img src={resourceWatchLogo} />
       </a>
     </div>

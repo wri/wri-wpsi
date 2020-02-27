@@ -2,12 +2,12 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
   layout :resolve_layout
   before_action :set_partners
 
-  unless Rails.env.test?
-    http_basic_authenticate_with(
-      name: ENV['HTTP_AUTH_NAME'] || 'test',
-      password: ENV['HTTP_AUTH_PASSWORD'] || 'test',
-    )
-  end
+  # unless Rails.env.test?
+  #   http_basic_authenticate_with(
+  #     name: ENV['HTTP_AUTH_NAME'] || 'test',
+  #     password: ENV['HTTP_AUTH_PASSWORD'] || 'test',
+  #   )
+  # end
 
   # TODO: Move into views?
   def index # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
@@ -52,13 +52,13 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
       ),
       Card.new(
         title: 'Know Us',
-        href: '/info/about#Who',
+        href: '/info/about-wps',
         options: { type: 'button' },
       ),
     ]
     @tools = [
       Card.new(title: 'Global Tool', desc: '', href: '/map'),
-      Card.new(title: 'Local Tool', desc: '', href: '/info/local-analyses'),
+      Card.new(title: 'Regional Tool', desc: '', href: '/info/regional-tool'),
     ]
     @quotes = [
       Card.new(
@@ -66,7 +66,6 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         desc: 'Through the WPS partnership we hope to prevent conflicts over'\
         ' water by enabling communities to take action at an early stage.',
         credit: 'Carola van Rijnsoever, Dutch Ministry for Foreign Affairs.',
-        href: '/info/about',
       ),
       Card.new(
         title: 'Crucial data',
@@ -74,7 +73,6 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         ' what’s driving these risks, and they suggest what possible solutions'\
         ' might be, in order to mitigate these risks.',
         credit: 'Charles Iceland, World Resources Institute',
-        href: '/info/about#Understand',
       ),
       Card.new(
         title: 'Solving conflict',
@@ -82,7 +80,6 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         ' water is, and what factors you can influence either as a policy maker'\
         ' in the respective region, or as an external partner, to solve the conflict',
         credit: 'Susanne Schmeier, IHE Delft',
-        href: '/info/local-analyses ',
       ),
     ]
     @headlines = [
@@ -112,7 +109,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         ' Development Cooperation, launched the global early warning system'\
         ' for water and security.',
         credit: 'December 2019',
-        href: '/info/news',
+        href: '/info/news-and-publications',
         image: ['cards/news-3.jpg', 'Fountain in Geneva, Switzerland, Europe'],
       ),
     ]

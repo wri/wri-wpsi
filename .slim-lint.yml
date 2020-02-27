@@ -25,6 +25,7 @@ linters:
       - Layout/MultilineMethodDefinitionBraceLayout
       - Layout/MultilineOperationIndentation
       - Layout/TrailingBlankLines
+      - Layout/TrailingEmptyLines
       - Layout/TrailingWhitespace
       - Lint/BlockAlignment
       - Lint/EndAlignment

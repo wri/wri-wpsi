@@ -2,7 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="MapSideBar-sideBar-0-1-1"
+  className="gtm-sideBar MapSideBar-sideBar-0-1-1"
   id="sideBar"
 >
   <header
@@ -14,12 +14,12 @@ exports[`renders correctly 1`] = `
       Investigation
     </h1>
     <button
-      className="MapSideBar-addLayerButton-0-1-7"
+      className="gtm-add-dataset-launch-modal MapSideBar-addLayerButton-0-1-8"
       onClick={[Function]}
       style={Object {}}
     >
       <i
-        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-8"
+        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-9"
       />
       Add datasets
     </button>
@@ -32,161 +32,160 @@ exports[`renders correctly 1`] = `
     </i>
   </div>
   <div
-    className="LayerCard-container-0-1-10 LayerCard-toggle-0-1-11"
-  >
-    <header
-      className="LayerCard-header-0-1-13"
-    >
-      <h2
-        className="LayerCard-title-0-1-14"
-      >
-        Highlight areas of water stress
-      </h2>
-      <div
-        className="square-switch"
-        style={
-          Object {
-            "MozTransition": "opacity 0.25s",
-            "MozUserSelect": "none",
-            "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-            "WebkitTransition": "opacity 0.25s",
-            "WebkitUserSelect": "none",
-            "borderRadius": 14,
-            "direction": "ltr",
-            "display": "inline-block",
-            "msUserSelect": "none",
-            "opacity": 1,
-            "position": "relative",
-            "textAlign": "left",
-            "touchAction": "none",
-            "transition": "opacity 0.25s",
-            "userSelect": "none",
-          }
-        }
-      >
-        <div
-          className="react-switch-bg"
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          style={
-            Object {
-              "MozTransition": "background 0.25s",
-              "WebkitTransition": "background 0.25s",
-              "background": "#5f9f7c",
-              "borderRadius": 14,
-              "cursor": "pointer",
-              "height": 28,
-              "margin": 0,
-              "position": "relative",
-              "transition": "background 0.25s",
-              "width": 56,
-            }
-          }
-        />
-        <div
-          className="react-switch-handle"
-          onClick={[Function]}
-          onMouseDown={[Function]}
-          onTouchCancel={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          style={
-            Object {
-              "MozTransition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
-              "WebkitTransition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
-              "background": "#ffffff",
-              "border": 0,
-              "borderRadius": "50%",
-              "boxShadow": null,
-              "cursor": "pointer",
-              "display": "inline-block",
-              "height": 26,
-              "outline": 0,
-              "position": "absolute",
-              "top": 1,
-              "transform": "translateX(1px)",
-              "transition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
-              "width": 26,
-            }
-          }
-        />
-        <input
-          checked={false}
-          disabled={false}
-          onBlur={[Function]}
-          onChange={[Function]}
-          onFocus={[Function]}
-          onKeyUp={[Function]}
-          role="switch"
-          style={
-            Object {
-              "border": 0,
-              "clip": "rect(0 0 0 0)",
-              "height": 1,
-              "margin": -1,
-              "overflow": "hidden",
-              "padding": 0,
-              "position": "absolute",
-              "width": 1,
-            }
-          }
-          type="checkbox"
-        />
-      </div>
-    </header>
-    <div
-      className="LayerCard-content-0-1-15"
-    >
-      <p
-        className="LayerCard-contentDescription-0-1-16"
-      />
-      <p
-        className="LayerCard-source-0-1-19"
-      >
-        <a
-          className="LayerCard-sourceLink-0-1-20"
-        />
-        <span
-          className="LayerCard-sourceDescription-0-1-21"
-        />
-      </p>
-      <div
-        style={
-          Object {
-            "marginBottom": "15px",
-          }
-        }
-      />
-    </div>
-    <footer
-      className="LayerCard-footer-0-1-18"
-    >
-      <a
-        className="LayerCard-moreLink-0-1-17"
-        href="/map/learn_more/123"
-        onClick={[Function]}
-      >
-        <i
-          className="icon__book-reader"
-          style={
-            Object {
-              "marginRight": 5,
-            }
-          }
-        />
-        <span>
-          Learn more
-        </span>
-      </a>
-    </footer>
-  </div>
-  <div
-    className="MapSideBar-sideBarContent-0-1-9"
+    className="gtm-sideBarContent MapSideBar-sideBarContent-0-1-10"
     id="sideBarContent"
   >
+    <div
+      className="LayerCard-container-0-1-11 LayerCard-toggle-0-1-13"
+    >
+      <header
+        className="LayerCard-header-0-1-14"
+      >
+        <h2
+          className="LayerCard-title-0-1-15"
+        >
+          Highlight areas of water stress
+        </h2>
+        <div
+          className="square-switch gtm-water-stress-toggle"
+          style={
+            Object {
+              "MozTransition": "opacity 0.25s",
+              "MozUserSelect": "none",
+              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+              "WebkitTransition": "opacity 0.25s",
+              "WebkitUserSelect": "none",
+              "borderRadius": 14,
+              "direction": "ltr",
+              "display": "inline-block",
+              "msUserSelect": "none",
+              "opacity": 1,
+              "position": "relative",
+              "textAlign": "left",
+              "touchAction": "none",
+              "transition": "opacity 0.25s",
+              "userSelect": "none",
+            }
+          }
+        >
+          <div
+            className="react-switch-bg"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            style={
+              Object {
+                "MozTransition": "background 0.25s",
+                "WebkitTransition": "background 0.25s",
+                "background": "#5f9f7c",
+                "borderRadius": 14,
+                "cursor": "pointer",
+                "height": 28,
+                "margin": 0,
+                "position": "relative",
+                "transition": "background 0.25s",
+                "width": 56,
+              }
+            }
+          />
+          <div
+            className="react-switch-handle"
+            onClick={[Function]}
+            onMouseDown={[Function]}
+            onTouchCancel={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            style={
+              Object {
+                "MozTransition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+                "WebkitTransition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+                "background": "#ffffff",
+                "border": 0,
+                "borderRadius": "50%",
+                "boxShadow": null,
+                "cursor": "pointer",
+                "display": "inline-block",
+                "height": 26,
+                "outline": 0,
+                "position": "absolute",
+                "top": 1,
+                "transform": "translateX(1px)",
+                "transition": "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+                "width": 26,
+              }
+            }
+          />
+          <input
+            checked={false}
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyUp={[Function]}
+            role="switch"
+            style={
+              Object {
+                "border": 0,
+                "clip": "rect(0 0 0 0)",
+                "height": 1,
+                "margin": -1,
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "absolute",
+                "width": 1,
+              }
+            }
+            type="checkbox"
+          />
+        </div>
+      </header>
+      <div
+        className="LayerCard-content-0-1-16"
+      >
+        <p
+          className="LayerCard-contentDescription-0-1-17"
+        >
+          <a
+            className="LayerCard-moreLink-0-1-18 gtm-learn-more"
+            href="/map/learn_more/123"
+            onClick={[Function]}
+          >
+            <i
+              className="icon__book-reader"
+              style={
+                Object {
+                  "marginRight": 5,
+                }
+              }
+            />
+            <span>
+              Learn more
+            </span>
+          </a>
+        </p>
+        <p
+          className="LayerCard-source-0-1-19"
+        >
+          <a
+            className="LayerCard-sourceLink-0-1-20"
+            rel="noopener noreferrer"
+            target="_blank"
+          />
+          <span
+            className="LayerCard-sourceDescription-0-1-21"
+          />
+        </p>
+        <div
+          style={
+            Object {
+              "marginBottom": "15px",
+            }
+          }
+        />
+      </div>
+    </div>
     <button
-      className="MapSideBar-addLayerButton-0-1-7"
+      className="gtm-add-dataset-launch-modal MapSideBar-addLayerButton-0-1-8"
       onClick={[Function]}
       style={
         Object {
@@ -200,7 +199,7 @@ exports[`renders correctly 1`] = `
       }
     >
       <i
-        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-8"
+        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-9"
       />
       Add datasets
     </button>

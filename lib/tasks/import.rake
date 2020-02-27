@@ -52,9 +52,22 @@ def curl_for_url(url)
 end
 
 def copy_csv_to_table(csv, table)
+  headers = extract_headers_from_csv(csv).join(', ')
   ActiveRecord::Base.connection.execute('DELETE FROM widget_datapoints')
-  sql = "COPY #{table} FROM #{csv} DELIMITERS ',' CSV HEADER;"
-  ActiveRecord::Base.connection.execute(sql)
+  ActiveRecord::Base.connection.execute(<<~SQL)
+    COPY #{table}
+    (#{headers})
+    FROM #{csv}
+    DELIMITERS ','
+    CSV HEADER;
+  SQL
+end
+
+def extract_headers_from_csv(csv)
+  headers = `head -n 1 #{csv}`.strip.split(',')
+  headers.map do |header|
+    WidgetDatapoint.connection.quote_column_name(header)
+  end
 end
 
 TEMPLATE = {

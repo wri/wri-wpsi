@@ -94,7 +94,7 @@ class LayerToggle extends Component {
   render() {
     const { classes, id, classNames } = this.props
     const { showText, showIcon } = this.state
-    const wrapperClassNames = `${classes.wrapper} ${classNames}`
+    const wrapperClassNames = `${classes.wrapper} ${classNames} gtm-${classNames}`
     return (
       <button
         className={wrapperClassNames}
@@ -102,7 +102,7 @@ class LayerToggle extends Component {
         onMouseOver={this.handleUpdateText.bind(this, 'in')}
         onMouseOut={this.handleUpdateText.bind(this, 'out')}
         id={id}
-        >
+      >
         <span className={classes.text}> { showText } </span>
         <span className={classes.iconWrapper}>
           <i className={`icon__${showIcon} ${classes.icon}`} />
