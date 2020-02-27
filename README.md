@@ -42,7 +42,7 @@ If the changes all look good, update the failing snapshots by running `yarn test
 
 ## Deploying
 
-Staging is deployed to heroku at `https://git.heroku.com/wri-wpsi.git`. Run `git push heroku master` to deploy master there.
+Staging is deployed to heroku at `https://git.heroku.com/wri-wpsi.git`. Run `git push heroku staging:master` to deploy the staging branch there.
 
 Production is deployed to a `Ubuntu 18.04.3 LTS` server at IHE Delft. Run `cap production deploy` to deploy there. Consult
 `config/deploy/production.rb` for where that is. You will need to get your credentials set up by a current deployer.
