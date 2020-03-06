@@ -2,12 +2,12 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
   layout :resolve_layout
   before_action :set_partners
 
-  # unless Rails.env.test?
-  #   http_basic_authenticate_with(
-  #     name: ENV['HTTP_AUTH_NAME'] || 'test',
-  #     password: ENV['HTTP_AUTH_PASSWORD'] || 'test',
-  #   )
-  # end
+  if ENV['HTTP_AUTH_NAME'].present? && ENV['HTTP_AUTH_PASSWORD'].present?
+    http_basic_authenticate_with(
+      name: ENV['HTTP_AUTH_NAME'],
+      password: ENV['HTTP_AUTH_PASSWORD'],
+    )
+  end
 
   # TODO: Move into views?
   def index # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
