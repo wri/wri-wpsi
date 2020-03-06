@@ -37,3 +37,6 @@ yarn-debug.log*
 
 # Ignore generated content
 coverage
+
+# Ignore local environment settings
+.env.local
