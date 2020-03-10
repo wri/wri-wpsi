@@ -36,6 +36,7 @@ group :development do
   gem 'capistrano3-puma',   require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'overcommit', require: false
+  gem 'rails-erd'
   gem 'rubocop-rails', require: false
   gem 'slim_lint'
   gem 'spring'
