@@ -84,13 +84,11 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     ]
     @headlines = [
       Card.new(
-        title: 'WPS in the news',
-        desc: 'WPS features in ECDPM’s Great Insights magazine, focused on'\
-        ' Climate change and conflict, discussing the complex links'\
-        ' between water scarcity and conflict.',
-        credit: 'October 2019',
-        href: '//ecdpm.org/wp-content/uploads/Great_insights_'\
-        'Climate_Change_and_Conflict_Vol8_issue4.pdf',
+        title: 'WPS awarded Luxembourg Peace Prize',
+        desc: 'The Water, Peace and Security Partnership has been awarded the 2020'\
+        ' Luxembourg Peace Prize for Outstanding Environmental Peace.',
+        credit: 'May 2020',
+        href: '/info/press-release-05-27-2020-WPS-recognized-luxembourg-peace-prize',
         image: ['cards/news-1.jpg', 'Great Insights magazine cover'],
       ),
       Card.new(
