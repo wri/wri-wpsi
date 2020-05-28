@@ -3,7 +3,7 @@
 This is the main repo for the Water, Peace and Security web app.
 
 [![Build Status](https://travis-ci.com/greenriver/wri-wpsi.svg?token=EQywZqAdUXLYyppSoTji&branch=master)](https://travis-ci.com/greenriver/wri-wpsi)
-[![Heroku](http://heroku-badge.herokuapp.com/?app=wri-wpsi&style=flat&svg=1)](https://dashboard.heroku.com/apps/wri-wpsi)
+[![Heroku](https://img.shields.io/badge/heroku-wri--wpsi-8967B1)](https://dashboard.heroku.com/apps/wri-wpsi)
 
 ## Ruby version
 
