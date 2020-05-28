@@ -13,6 +13,9 @@ See [.ruby-version](/.ruby-version) definition.
 
 See [Gemfile](/Gemfile) and [package.json](/package.json).
 
+You also need chromedriver in order to run tests. Try `brew cask install chromedriver`.
+You will need to update chromedriver when you update chrome (`brew cask upgrade chromedriver`)
+
 ## Setup
 
 * `bundle` to install ruby gems.
@@ -46,6 +49,7 @@ Staging is deployed to heroku at `https://git.heroku.com/wri-wpsi.git`. Run `git
 
 Production is deployed to a `Ubuntu 18.04.3 LTS` server at IHE Delft. Run `cap production deploy` to deploy there. Consult
 `config/deploy/production.rb` for where that is. You will need to get your credentials set up by a current deployer.
+You will also need to be on the office network in order to connect.
 
 `capistrano` tasks for starting and stopping the services are set up per https://github.com/seuros/capistrano-puma.  All necessary services are manageable via systemd and enabled on boot.
 
