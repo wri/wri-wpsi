@@ -82,6 +82,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         credit: 'Susanne Schmeier, IHE Delft',
       ),
     ]
+    # Keep these ordered chronologically, with the newest headline first
     @headlines = [
       Card.new(
         title: 'WPS awarded Luxembourg Peace Prize',
@@ -92,15 +93,6 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         image: ['cards/news-1.jpg', 'Great Insights magazine cover'],
       ),
       Card.new(
-        title: 'WPS at the Paris Peace Forum',
-        desc: 'IHE Delft’s Susanne Schmeier and Wetlands International’s Joyce'\
-        ' Kortlandt introduce the Water Peace and Security partnership at the'\
-        ' Paris Peace Forum.',
-        credit: 'November 2019',
-        href: 'https://parispeaceforum.org/porteurs_projet/water-peace-and-security-wps/',
-        image: ['cards/news-2.jpg', 'Presenter with powerpoint in background'],
-      ),
-      Card.new(
         title: 'WPS toolkit launched in Geneva',
         desc: 'During an event on December 5 in Geneva, the WPS approach was'\
         ' showcased and Sigrid Kaag, Dutch Minister for Foreign Trade and'\
@@ -109,6 +101,15 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         credit: 'December 2019',
         href: '/info/news-and-publications',
         image: ['cards/news-3.jpg', 'Fountain in Geneva, Switzerland, Europe'],
+      ),
+      Card.new(
+        title: 'WPS at the Paris Peace Forum',
+        desc: 'IHE Delft’s Susanne Schmeier and Wetlands International’s Joyce'\
+        ' Kortlandt introduce the Water Peace and Security partnership at the'\
+        ' Paris Peace Forum.',
+        credit: 'November 2019',
+        href: 'https://parispeaceforum.org/porteurs_projet/water-peace-and-security-wps/',
+        image: ['cards/news-2.jpg', 'Presenter with powerpoint in background'],
       ),
     ]
     set_pages
