@@ -99,7 +99,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         ' Development Cooperation, launched the global early warning system'\
         ' for water and security.',
         credit: 'December 2019',
-        href: '/info/news-and-publications',
+        href: '/info/press-release-12-05-2019-WPS-launch',
         image: ['cards/news-3.jpg', 'Fountain in Geneva, Switzerland, Europe'],
       ),
       Card.new(
