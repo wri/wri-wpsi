@@ -2,7 +2,7 @@
 
 This is the main repo for the Water, Peace and Security web app.
 
-[![Build Status](https://travis-ci.com/greenriver/wri-wpsi.svg?token=EQywZqAdUXLYyppSoTji&branch=master)](https://travis-ci.com/greenriver/wri-wpsi)
+[![Build Status](https://travis-ci.com/greenriver/wri-wpsi.svg?token=EQywZqAdUXLYyppSoTji&branch=production)](https://travis-ci.com/greenriver/wri-wpsi)
 [![Heroku](https://img.shields.io/badge/heroku-wri--wpsi-8967B1)](https://dashboard.heroku.com/apps/wri-wpsi)
 
 ## Ruby version
@@ -45,7 +45,7 @@ If the changes all look good, update the failing snapshots by running `yarn test
 
 ## Deploying
 
-Staging is deployed to heroku at `https://git.heroku.com/wri-wpsi.git`. Run `git push heroku master` to deploy master there.
+Staging is deployed to heroku at `https://git.heroku.com/wri-wpsi.git`. Run `git push heroku production` to deploy production there.
 
 Production is deployed to a `Ubuntu 18.04.3 LTS` server at IHE Delft. Run `cap production deploy` to deploy there. Consult
 `config/deploy/production.rb` for where that is. You will need to get your credentials set up by a current deployer.
