@@ -13,6 +13,7 @@ gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
 gem 'sass-rails', '~> 5.0'
 gem 'sentry-raven'
+gem 'slackistrano', require: false
 gem 'slim-rails'
 gem 'tinymce-rails'
 gem 'uglifier', '>= 1.3.0'

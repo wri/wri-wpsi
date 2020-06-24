@@ -21,6 +21,14 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
+require_relative '../lib/capistrano/slack'
+set :slackistrano,
+    klass: Slackistrano::CustomMessaging,
+    channel: '#gr-wri-notices',
+    username: 'Capistrano',
+    icon_emoji: ':ship:',
+    webhook: 'https://hooks.slack.com/services/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'
+
 def time_in_vermont
   tz = TZInfo::Timezone.get('US/Eastern')
   Time.now.getlocal(tz.current_period.offset.utc_total_offset)
