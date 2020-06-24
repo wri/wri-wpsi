@@ -148,15 +148,9 @@ ActiveRecord::Schema.define(version: 201911081191813) do
     t.decimal "acled_fatalities"
     t.decimal "prediction"
     t.decimal "prediction_prob"
-    t.string "spi_3"
-    t.string "spi_6"
     t.string "spi_12"
     t.string "spi_24"
-    t.string "country"
     t.string "government"
-    t.string "IncomeGroup"
-    t.string "Region"
-    t.string "TableName"
     t.index ["gid_2", "month_indep"], name: "index_widget_datapoints_on_gid_2_and_month_indep", unique: true
   end
 
