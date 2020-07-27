@@ -1,5 +1,5 @@
 namespace :gr do
-  task last_revision: :environment do
+  task :last_revision do
     revisions = Set.new
     on roles(:all) do |_host|
       log_line = capture(:tail, '-n 1', "#{deploy_path}/revisions.log").to_s
