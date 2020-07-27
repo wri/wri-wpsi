@@ -49,4 +49,5 @@ task :push_deploy_tag do
   end
 end
 
-after 'deploy:finished', :push_deploy_tag
+before 'deploy', 'gr:last_revision'
+after 'deploy:log_revision', :push_deploy_tag
