@@ -85,31 +85,38 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     # Keep these ordered chronologically, with the newest headline first
     @headlines = [
       Card.new(
+        title: 'New Tool and Report on Water Related Displacement Risk in Iraq',
+        desc: "
+          IOM and WPS partner Deltares launched their new report and web tool to
+          improve understanding of variations in water quantity and water quality
+          in Iraq and provide insight to the risks facing water quantity and water
+          quality.
+        ",
+        credit: 'July 2020',
+        href: 'https://www.deltares.nl/app/uploads/2020/07/Water-quantity-and-water-quality-in-central-and-south-Iraq-Final.pdf',
+        image: ['cards/wps-news-2020-07.jpg', 'Person carrying reeds on a river bank'],
+      ),
+      Card.new(
         title: 'WPS awarded Luxembourg Peace Prize',
-        desc: 'The Water, Peace and Security Partnership has been awarded the 2020'\
-        ' Luxembourg Peace Prize for Outstanding Environmental Peace.',
+        desc: "
+          The Water, Peace and Security Partnership has been awarded the 2020
+          Luxembourg Peace Prize for Outstanding Environmental Peace.
+        ",
         credit: 'May 2020',
         href: '/info/press-release-05-27-2020-WPS-recognized-luxembourg-peace-prize',
-        image: ['cards/news-1.jpg', 'Great Insights magazine cover'],
+        image: ['cards/wps-news-2020-05.jpg', 'Great Insights magazine cover'],
       ),
       Card.new(
         title: 'WPS toolkit launched in Geneva',
-        desc: 'During an event on December 5 in Geneva, the WPS approach was'\
-        ' showcased and Sigrid Kaag, Dutch Minister for Foreign Trade and'\
-        ' Development Cooperation, launched the global early warning system'\
-        ' for water and security.',
+        desc: "
+          During an event on December 5 in Geneva, the WPS approach was
+          showcased and Sigrid Kaag, Dutch Minister for Foreign Trade and
+          Development Cooperation, launched the global early warning system
+          for water and security.
+        ",
         credit: 'December 2019',
         href: '/info/press-release-12-05-2019-WPS-launch',
-        image: ['cards/news-3.jpg', 'Fountain in Geneva, Switzerland, Europe'],
-      ),
-      Card.new(
-        title: 'WPS at the Paris Peace Forum',
-        desc: 'IHE Delft’s Susanne Schmeier and Wetlands International’s Joyce'\
-        ' Kortlandt introduce the Water Peace and Security partnership at the'\
-        ' Paris Peace Forum.',
-        credit: 'November 2019',
-        href: 'https://parispeaceforum.org/porteurs_projet/water-peace-and-security-wps/',
-        image: ['cards/news-2.jpg', 'Presenter with powerpoint in background'],
+        image: ['cards/wps-news-2019-12.jpg', 'Fountain in Geneva, Switzerland, Europe'],
       ),
     ]
     set_pages
