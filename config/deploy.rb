@@ -5,7 +5,7 @@ set :application, 'wri-wpsi'
 set :repo_url, 'git@github.com:greenriver/wri-wpsi.git'
 
 set :rvm_custom_path, '/usr/share/rvm'
-set :rvm_ruby_version, '2.6.5'
+set :rvm_ruby_version, '2.6.6'
 
 set :puma_init_active_record, true
 
