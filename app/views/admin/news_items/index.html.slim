@@ -1,0 +1,25 @@
+h2.mb-4 Listing news_items
+
+table.table
+  thead
+    tr
+      th Title
+      th Description
+      th Article url
+      th Date
+      th Image url
+      th Image alt text
+      th
+      th
+      th
+
+  tbody
+    - @news_items.each do |news_item|
+      tr
+        td = link_to news_item.title, [:admin, news_item]
+        td = news_item.description
+        td = news_item.article_url
+        td = news_item.date
+        td = news_item.image_url
+        td = news_item.image_alt_text
+        td = link_to 'Edit', edit_admin_news_item_path(news_item)

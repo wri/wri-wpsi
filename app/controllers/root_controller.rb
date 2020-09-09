@@ -85,38 +85,25 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     # Keep these ordered chronologically, with the newest headline first
     @headlines = [
       Card.new(
-        title: 'New Tool and Report on Water Related Displacement Risk in Iraq',
-        desc: "
-          IOM and WPS partner Deltares launched their new report and web tool to
-          improve understanding of variations in water quantity and water quality
-          in Iraq and provide insight to the risks facing water quantity and water
-          quality.
-        ",
-        credit: 'July 2020',
-        href: 'https://www.deltares.nl/app/uploads/2020/07/Water-quantity-and-water-quality-in-central-and-south-Iraq-Final.pdf',
-        image: ['cards/wps-news-2020-07.jpg', 'Person carrying reeds on a river bank'],
+        title: NewsItem.find(78_363_432).title,
+        desc: NewsItem.find(78_363_432).description,
+        credit: NewsItem.find(78_363_432).date,
+        href: NewsItem.find(78_363_432).article_url,
+        image: [NewsItem.find(78_363_432).image_url, NewsItem.find(78_363_432).image_alt_text],
       ),
       Card.new(
-        title: 'WPS awarded Luxembourg Peace Prize',
-        desc: "
-          The Water, Peace and Security Partnership has been awarded the 2020
-          Luxembourg Peace Prize for Outstanding Environmental Peace.
-        ",
-        credit: 'May 2020',
-        href: '/info/press-release-05-27-2020-WPS-recognized-luxembourg-peace-prize',
-        image: ['cards/wps-news-2020-05.jpg', 'Great Insights magazine cover'],
+        title: NewsItem.find(737_919_208).title,
+        desc: NewsItem.find(737_919_208).description,
+        credit: NewsItem.find(737_919_208).date,
+        href: NewsItem.find(737_919_208).article_url,
+        image: [NewsItem.find(737_919_208).image_url, NewsItem.find(737_919_208).image_alt_text],
       ),
       Card.new(
-        title: 'WPS toolkit launched in Geneva',
-        desc: "
-          During an event on December 5 in Geneva, the WPS approach was
-          showcased and Sigrid Kaag, Dutch Minister for Foreign Trade and
-          Development Cooperation, launched the global early warning system
-          for water and security.
-        ",
-        credit: 'December 2019',
-        href: '/info/press-release-12-05-2019-WPS-launch',
-        image: ['cards/wps-news-2019-12.jpg', 'Fountain in Geneva, Switzerland, Europe'],
+        title: NewsItem.find(833_519_590).title,
+        desc: NewsItem.find(833_519_590).description,
+        credit: NewsItem.find(833_519_590).date,
+        href: NewsItem.find(833_519_590).article_url,
+        image: [NewsItem.find(833_519_590).image_url, NewsItem.find(833_519_590).image_alt_text],
       ),
     ]
     set_pages
