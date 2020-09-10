@@ -7,21 +7,7 @@ class Admin::NewsItemsController < Admin::BaseController
 
   def show; end
 
-  # def new
-  #   @news_item = NewsItem.new
-  # end
-
   def edit; end
-
-  # def create
-  #   @news_item = NewsItem.new(news_item_params)
-
-  #   if @news_item.save
-  #     redirect_to @news_item, notice: 'News item was successfully created.'
-  #   else
-  #     render :new
-  #   end
-  # end
 
   def update
     if @news_item.update(news_item_params)
@@ -30,11 +16,6 @@ class Admin::NewsItemsController < Admin::BaseController
       render :edit
     end
   end
-
-  # def destroy
-  #   @news_item.destroy
-  #   redirect_to news_items_url, notice: 'News item was successfully destroyed.'
-  # end
 
   private
 
