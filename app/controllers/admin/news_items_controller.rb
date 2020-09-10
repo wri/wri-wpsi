@@ -7,7 +7,14 @@ class Admin::NewsItemsController < Admin::BaseController
 
   def show; end
 
-  def edit; end
+  def edit
+    @options = {
+      order: %i[month year],
+      prompt: { month: 'Select month', year: 'Select year' },
+      start_year: Time.zone.today.year,
+      end_year: Time.zone.today.year - 100,
+    }
+  end
 
   def update
     if @news_item.update(news_item_params)
@@ -30,6 +37,7 @@ class Admin::NewsItemsController < Admin::BaseController
       :article_url,
       :image_url,
       :image_alt_text,
+      :date,
     )
   end
 end

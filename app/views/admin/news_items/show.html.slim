@@ -15,7 +15,7 @@ div
 
   p
     strong> Date:
-    = @news_item.date
+    = @news_item.date.strftime('%B %Y')
 
   p
     strong> Image URL:
