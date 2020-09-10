@@ -4,5 +4,5 @@ class NewsItem < ApplicationRecord
   validates :article_url, url: { allow_blank: false }
   validates :image_url, presence: true
   validates :image_alt_text, presence: true
-  # no validation for date?
+  validates :date, presence: true
 end

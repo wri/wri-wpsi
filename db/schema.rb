@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 201911081191813) do
     t.text "image_alt_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "date"
+    t.date "date"
   end
 
   create_table "pages", force: :cascade do |t|
