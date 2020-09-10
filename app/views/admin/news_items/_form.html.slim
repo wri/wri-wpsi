@@ -11,7 +11,9 @@
       = f.text_area :description, rows: 4, class: 'form-control'
   .form-group
     .field
-      = f.date_select :date, @options, { required: true }
+      = f.label :date
+      br
+      = f.date_select :date, @date_options, { required: true }
   .form-group
     .field
       = f.label :article_url

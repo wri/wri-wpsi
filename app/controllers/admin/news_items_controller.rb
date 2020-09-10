@@ -8,11 +8,11 @@ class Admin::NewsItemsController < Admin::BaseController
   def show; end
 
   def edit
-    @options = {
+    @date_options = {
       order: %i[month year],
       prompt: { month: 'Select month', year: 'Select year' },
       start_year: Time.zone.today.year,
-      end_year: Time.zone.today.year - 100,
+      end_year: Time.zone.today.year - 10,
     }
   end
 
