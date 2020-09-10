@@ -82,30 +82,16 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         credit: 'Susanne Schmeier, IHE Delft',
       ),
     ]
-    # Keep these ordered chronologically, with the newest headline first
-    @headlines = [
+    @headlines = NewsItem.all.order(date: :desc).map do |item|
       Card.new(
-        title: NewsItem.find(78_363_432).title,
-        desc: NewsItem.find(78_363_432).description,
-        credit: NewsItem.find(78_363_432).date,
-        href: NewsItem.find(78_363_432).article_url,
-        image: [NewsItem.find(78_363_432).image_url, NewsItem.find(78_363_432).image_alt_text],
-      ),
-      Card.new(
-        title: NewsItem.find(737_919_208).title,
-        desc: NewsItem.find(737_919_208).description,
-        credit: NewsItem.find(737_919_208).date,
-        href: NewsItem.find(737_919_208).article_url,
-        image: [NewsItem.find(737_919_208).image_url, NewsItem.find(737_919_208).image_alt_text],
-      ),
-      Card.new(
-        title: NewsItem.find(833_519_590).title,
-        desc: NewsItem.find(833_519_590).description,
-        credit: NewsItem.find(833_519_590).date,
-        href: NewsItem.find(833_519_590).article_url,
-        image: [NewsItem.find(833_519_590).image_url, NewsItem.find(833_519_590).image_alt_text],
-      ),
-    ]
+        title: item.title,
+        desc: item.description,
+        credit: item.date.strftime('%B %Y'),
+        href: item.article_url,
+        image: [item.image_url, item.image_alt_text],
+      )
+    end
+
     set_pages
     set_partners
   end
