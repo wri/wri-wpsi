@@ -9,6 +9,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     )
   end
 
+  # Index action is used to render the root "homepage" view
   # TODO: Move into views?
   def index # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     @action_items = [
@@ -103,6 +104,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     @categories = Category.serialized_for_react_app
   end
 
+  # For showing pages with user-defined content
   def show
     set_pages
     @page = Page.find_by(slug: params[:page_slug])
@@ -145,6 +147,9 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
   def resolve_layout
     if action_name == 'map'
       'map'
+    elsif action_name == 'show'
+      # 'cms_pages_style' # TODO: implement new styles for the CMS pages
+      'website'
     else
       'website'
     end
