@@ -10,9 +10,10 @@ gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 5.2.4'
 gem 'sass-rails', '~> 5.0'
 gem 'sentry-raven'
+gem 'slackistrano', require: false
 gem 'slim-rails'
 gem 'tinymce-rails'
 gem 'uglifier', '>= 1.3.0'
@@ -25,6 +26,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'i18n-tasks'
   gem 'simplecov'
   gem 'simplecov-console'
 end
@@ -33,9 +35,11 @@ group :development do
   gem 'capistrano-bundler', require: false
   gem 'capistrano-rails', require: false
   gem 'capistrano-rvm', require: false
-  gem 'capistrano3-puma',   require: false
+  gem 'capistrano3-puma', require: false
+  gem 'foreman', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'overcommit', require: false
+  gem 'rails-erd'
   gem 'rubocop-rails', require: false
   gem 'slim_lint'
   gem 'spring'

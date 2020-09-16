@@ -2,8 +2,8 @@
 
 This is the main repo for the Water, Peace and Security web app.
 
-[![Build Status](https://travis-ci.com/greenriver/wri-wpsi.svg?token=EQywZqAdUXLYyppSoTji&branch=master)](https://travis-ci.com/greenriver/wri-wpsi)
-[![Heroku](http://heroku-badge.herokuapp.com/?app=wri-wpsi&style=flat&svg=1)](https://dashboard.heroku.com/apps/wri-wpsi)
+[![Build Status](https://travis-ci.com/greenriver/wri-wpsi.svg?token=EQywZqAdUXLYyppSoTji&branch=production)](https://travis-ci.com/greenriver/wri-wpsi)
+[![Heroku](https://img.shields.io/badge/heroku-wri--wpsi-8967B1)](https://dashboard.heroku.com/apps/wri-wpsi)
 
 ## Ruby version
 
@@ -12,6 +12,9 @@ See [.ruby-version](/.ruby-version) definition.
 ## System dependencies
 
 See [Gemfile](/Gemfile) and [package.json](/package.json).
+
+You also need chromedriver in order to run tests. Try `brew cask install chromedriver`.
+You will need to update chromedriver when you update chrome (`brew cask upgrade chromedriver`)
 
 ## Setup
 
@@ -46,6 +49,7 @@ Staging is deployed to heroku at `https://git.heroku.com/wri-wpsi.git`. Run `git
 
 Production is deployed to a `Ubuntu 18.04.3 LTS` server at IHE Delft. Run `cap production deploy` to deploy there. Consult
 `config/deploy/production.rb` for where that is. You will need to get your credentials set up by a current deployer.
+You will also need to be on the office network in order to connect.
 
 `capistrano` tasks for starting and stopping the services are set up per https://github.com/seuros/capistrano-puma.  All necessary services are manageable via systemd and enabled on boot.
 
@@ -86,14 +90,16 @@ All widget data is loaded into the app's database for easier access and exposed 
 2. Run the task with the path to the file as a parameter, something like:
 
 ```
-rake 'import:widget_datapoints[/Users/lucas/Downloads/data_final_inputs_v5_v5_tool-table.csv]'
+rake 'import:widget_datapoints[/Users/lucas/Downloads/data_final_inputs_Y2020Q3_Y2020Q3_tool-table.csv]'
 ```
 
 In order to copy the CSV into the production database, you will need to specify the environment like this:
 
 ```bash
-RAILS_ENV=production bundle exec rake 'import:widget_datapoints[/home/amichal/csvs/data_final_inputs_v5_v5_tool-table.csv]'
+RAILS_ENV=production bundle exec rake 'import:widget_datapoints[/home/amichal/csvs/data_final_inputs_Y2020Q3_Y2020Q3_tool-table.csv]'
 ```
+
+(Takes about 1 to 2 minutes)
 
 ### Writing widget specifications
 
