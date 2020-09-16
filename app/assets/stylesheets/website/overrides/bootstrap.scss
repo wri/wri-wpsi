@@ -27,6 +27,7 @@
 
 .dropdown-toggle {
   cursor: pointer;
+  display: flex;
 }
 
 .dropdown-toggle::after {
