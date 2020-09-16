@@ -1,5 +1,13 @@
 ---
 en:
+  activerecord:
+    models:
+      news_item:
+        one: news item
+        other: news items
+      user:
+        one: admin user
+        other: admin users
   errors:
     messages:
       not_saved:

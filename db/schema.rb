@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 201911081191813) do
     t.index ["layer_id"], name: "index_layers_on_layer_id", unique: true
   end
 
+  create_table "news_items", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.text "article_url"
+    t.string "image_url"
+    t.text "image_alt_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "date"
+  end
+
   create_table "pages", force: :cascade do |t|
     t.string "name"
     t.string "slug"
