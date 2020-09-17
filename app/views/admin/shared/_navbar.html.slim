@@ -33,5 +33,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.mb-4
               aria-expanded='false' }
             strong = current_user.email
           .dropdown-menu aria-labelledby='navbarDropdown'
-            = link_to 'Edit profile', edit_user_registration_path, class: 'dropdown-item'
-            = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item'
+            = link_to 'Edit profile', edit_user_registration_path,
+                class: 'dropdown-item'
+            = link_to 'Log out', destroy_user_session_path, method: :delete,
+                class: 'dropdown-item'
