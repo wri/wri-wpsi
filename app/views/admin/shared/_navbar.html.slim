@@ -11,7 +11,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.mb-4
 
   - if user_signed_in?
     .collapse.navbar-collapse id='navbarSupportedContent'
-      ul.navbar-nav.mr-auto
+      ul.navbar-nav.w-100
         - current_controller = controller.controller_name
         li.nav-item class=('active' if current_controller == 'layers')
           = link_to 'Layers', admin_layers_path, class: 'nav-link'
