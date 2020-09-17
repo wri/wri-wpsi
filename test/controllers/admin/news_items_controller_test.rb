@@ -33,4 +33,15 @@ class NewsItemsControllerTest < ActionDispatch::IntegrationTest
     } }
     assert_redirected_to admin_news_item_url(@news_item)
   end
+
+  test 'should not update invalid news_item' do
+    patch admin_news_item_url(@news_item), params: { news_item: {
+      article_url: @news_item.article_url,
+      description: @news_item.description,
+      image_alt_text: @news_item.image_alt_text,
+      image_url: @news_item.image_url,
+      title: nil,
+    } }
+    assert_response :success
+  end
 end
