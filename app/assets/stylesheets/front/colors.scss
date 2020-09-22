@@ -1,0 +1,6 @@
+// Override any colors declared in `../website/_settings/variables`
+// Or declare map-specific variables/colors
+// We have access to all colors from website so we could
+// overwrite $link-color with $blue-d
+$link-color: blue;
+$link-hover-color: darken($link-color, 10%);
