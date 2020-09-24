@@ -30,5 +30,5 @@ $text-color: #000000;
 
 $nav-link-hover-color: $green-d;
 
-$link-color: $green-d;
-$link-hover-color: $brown;
+$link-color: $blue-d;
+$link-hover-color: darken($link-color, 10%);
