@@ -11,8 +11,6 @@
  * It is generally better to create a new file per style scope.
  *
  *= require ./vendor/website
- *= require_tree ./shared
- *= require_tree ./admin
  *= require_tree ./website/elements
  *= require_tree ./website/objects
  *= require_tree ./website/components

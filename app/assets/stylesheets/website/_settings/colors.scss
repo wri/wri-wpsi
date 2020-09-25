@@ -30,5 +30,7 @@ $text-color: #000000;
 
 $nav-link-hover-color: $green-d;
 
-$link-color: $blue-d;
+// This blue is the same blue as bootstrap is using
+// $link-color: #007bff;
+$link-color: $blue-l;
 $link-hover-color: darken($link-color, 10%);
