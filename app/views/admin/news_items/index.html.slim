@@ -1,0 +1,19 @@
+h2.mb-4 Listing #{NewsItem.model_name.human(count: 2)}
+
+table.table
+  thead
+    tr
+      th Title
+      th Description
+      th Date
+      th Image alt text
+      th
+
+  tbody
+    - @news_items.order(date: :desc).each do |news_item|
+      tr
+        td = link_to news_item.title, [:admin, news_item]
+        td = news_item.description
+        td = news_item.date.strftime('%B %Y')
+        td = news_item.image_alt_text
+        td = link_to 'Edit', edit_admin_news_item_path(news_item)

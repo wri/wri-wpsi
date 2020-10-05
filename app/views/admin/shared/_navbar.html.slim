@@ -19,9 +19,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.mb-4
           = link_to 'Categories', admin_categories_path, class: 'nav-link'
         li.nav-item class=('active' if current_controller == 'pages')
           = link_to 'Pages', admin_pages_path, class: 'nav-link'
+        li.nav-item class=('active' if current_controller == 'news_items')
+          = link_to 'News Items', admin_news_items_path, class: 'nav-link'
         li.nav-item class=('active' if current_controller == 'users')
           = link_to 'Admins', admin_users_path, class: 'nav-link'
-
         span.navbar-text.ml-lg-auto.mt-4.mt-lg-0 Logged in as
         li.nav-item.dropdown
           a.nav-link.dropdown-toggle{ href='#'
@@ -32,7 +33,5 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.mb-4
               aria-expanded='false' }
             strong = current_user.email
           .dropdown-menu aria-labelledby='navbarDropdown'
-            = link_to 'Edit profile', edit_user_registration_path,
-                class: 'dropdown-item'
-            = link_to 'Log out', destroy_user_session_path, method: :delete,
-                class: 'dropdown-item'
+            = link_to 'Edit profile', edit_user_registration_path, class: 'dropdown-item'
+            = link_to 'Log out', destroy_user_session_path, method: :delete, class: 'dropdown-item'

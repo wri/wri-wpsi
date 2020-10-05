@@ -26,6 +26,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     resources :layers
     resources :pages, param: :slug
     resources :users, only: %i[index new create destroy]
+    resources :news_items, only: %i[index show update edit]
   end
 
   # API endpoint
