@@ -23,7 +23,7 @@ default:
     - nonbreaking
     # - noneditable
     # - pagebreak
-    # - paste
+    - paste
     - preview
     # - print
     - quickbars
@@ -59,4 +59,3 @@ default:
   toolbar_drawer: 'sliding'
   toolbar_sticky: true
   content_css: '/assets/website.css'
-  init: addPasteListener
