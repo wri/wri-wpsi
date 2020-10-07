@@ -1,5 +1,6 @@
 $blue-d: #2e3348 !default;
 $blue-l: #437387 !default;
+$blue-extra-l: #1047C8 !default;
 $green-d: #5f9f7c !default;
 $green-l: #84b65b !default;
 $brown: #673320 !default;
@@ -32,3 +33,7 @@ $nav-link-hover-color: $green-d;
 
 $link-color: $green-d;
 $link-hover-color: $brown;
+
+// TODO: make these blue in the CMS style sheet
+// $link-color: $blue-extra-l;
+// $link-hover-color: $blue-extra-l;

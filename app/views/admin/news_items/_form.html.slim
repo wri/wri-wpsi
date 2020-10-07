@@ -1,0 +1,29 @@
+.mb-4 = form_for [:admin, @news_item] do |f|
+  = render 'admin/shared/error_messages', resource: @news_item
+
+  .form-group
+    .field
+      = f.label :title
+      = f.text_field :title, class: 'form-control'
+  .form-group
+    .field
+      = f.label :description
+      = f.text_area :description, rows: 4, class: 'form-control'
+  .form-group
+    .field
+      = f.label :date
+      br
+      = f.date_select :date, @date_options, { required: true }
+  .form-group
+    .field
+      = f.label :article_url
+      = f.text_area :article_url, class: 'form-control'
+  .form-group
+    .field
+      = f.label :image_url
+      = f.text_field :image_url, class: 'form-control'
+  .form-group
+    .field
+      = f.label :image_alt_text
+      = f.text_area :image_alt_text, class: 'form-control'
+  .actions = f.submit class: 'btn btn-primary'

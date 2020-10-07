@@ -9,6 +9,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     )
   end
 
+  # Index action is used to render the root "homepage" view
   # TODO: Move into views?
   def index # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     @action_items = [
@@ -82,43 +83,16 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         credit: 'Susanne Schmeier, IHE Delft',
       ),
     ]
-    # Keep these ordered chronologically, with the newest headline first
-    @headlines = [
+    @headlines = NewsItem.all.order(date: :desc).map do |item|
       Card.new(
-        title: 'New Tool and Report on Water Related Displacement Risk in Iraq',
-        desc: "
-          IOM and WPS partner Deltares launched their new report and web tool to
-          improve understanding of variations in water quantity and water quality
-          in Iraq and provide insight to the risks facing water quantity and water
-          quality.
-        ",
-        credit: 'July 2020',
-        href: 'https://www.deltares.nl/app/uploads/2020/07/Water-quantity-and-water-quality-in-central-and-south-Iraq-Final.pdf',
-        image: ['cards/wps-news-2020-07.jpg', 'Person carrying reeds on a river bank'],
-      ),
-      Card.new(
-        title: 'WPS awarded Luxembourg Peace Prize',
-        desc: "
-          The Water, Peace and Security Partnership has been awarded the 2020
-          Luxembourg Peace Prize for Outstanding Environmental Peace.
-        ",
-        credit: 'May 2020',
-        href: '/info/press-release-05-27-2020-WPS-recognized-luxembourg-peace-prize',
-        image: ['cards/wps-news-2020-05.jpg', 'Great Insights magazine cover'],
-      ),
-      Card.new(
-        title: 'WPS toolkit launched in Geneva',
-        desc: "
-          During an event on December 5 in Geneva, the WPS approach was
-          showcased and Sigrid Kaag, Dutch Minister for Foreign Trade and
-          Development Cooperation, launched the global early warning system
-          for water and security.
-        ",
-        credit: 'December 2019',
-        href: '/info/press-release-12-05-2019-WPS-launch',
-        image: ['cards/wps-news-2019-12.jpg', 'Fountain in Geneva, Switzerland, Europe'],
-      ),
-    ]
+        title: item.title,
+        desc: item.description,
+        credit: item.date.strftime('%B %Y'),
+        href: item.article_url,
+        image: [item.image_url, item.image_alt_text],
+      )
+    end
+
     set_pages
     set_partners
   end
@@ -130,6 +104,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     @categories = Category.serialized_for_react_app
   end
 
+  # For showing pages with user-defined content
   def show
     set_pages
     @page = Page.find_by(slug: params[:page_slug])
@@ -172,6 +147,9 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
   def resolve_layout
     if action_name == 'map'
       'map'
+    elsif action_name == 'show'
+      # 'cms_pages_style' # TODO: implement new styles for the CMS pages
+      'website'
     else
       'website'
     end
