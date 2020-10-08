@@ -59,3 +59,4 @@ default:
   toolbar_drawer: 'sliding'
   toolbar_sticky: true
   content_css: '/assets/website.css'
+  default_link_target: '_blank'
