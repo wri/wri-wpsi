@@ -27,5 +27,65 @@
             value: 'This page cannot display any content.', disabled: true
       - else
         = f.text_area :content, class: 'tinymce', rows: 25
-        = tinymce
   .actions = f.submit class: 'btn btn-primary'
+
+  javascript:
+    tinyMCE.init({
+      selector: 'textarea.tinymce',
+      content_css: "#{asset_url 'website.css'}",
+      plugins: [
+        'advlist',
+        'anchor',
+        'autolink',
+        'autosave',
+        // 'charmap',
+        'code',
+        // 'codesample',
+        // 'directionality',
+        // 'emoticons',
+        'fullpage',
+        'fullscreen',
+        'help',
+        'hr',
+        'image',
+        'imagetools',
+        // 'importcss',
+        // 'insertdatetime',
+        'link',
+        'lists',
+        'media',
+        'nonbreaking',
+        // 'noneditable',
+        // 'pagebreak',
+        'paste',
+        'preview',
+        // 'print',
+        'quickbars',
+        'save',
+        'searchreplace',
+        'table',
+        // 'template',
+        // 'textpattern',
+        // 'toc',
+        'visualblocks',
+        'visualchars',
+        // 'wordcount'
+      ],
+      contextmenu: "link image imagetools table",
+      menubar: "file edit view insert format table help",
+      quickbars_selection_toolbar: "bold italic quicklink h2 h3 blockquote quickimage quicktable",
+      toolbar: "undo redo bold italic underline strikethrough \
+      fontsizeselect formatselect alignleft aligncenter \
+      alignright alignjustify outdent indent numlist bullist\
+      forecolor backcolor removeformat fullscreen  \
+      preview save print image media template link anchor",
+      autosave_restore_when_empty: true,
+      autosave_retention: "1440m",
+      image_advtab: true,
+      image_caption: true,
+      relative_urls: false,
+      toolbar_drawer: 'sliding',
+      toolbar_sticky: true,
+      content_css: '/assets/website.css',
+      default_link_target: '_blank'
+    });
