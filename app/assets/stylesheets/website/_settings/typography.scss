@@ -59,12 +59,12 @@
 @mixin primary-heading {
   @include font-heading($size: 40px, $color: $white);
   text-transform: uppercase;
-  margin-bottom: space(6);
+  margin: 0, 3, 0, 5;
   @content;
 }
 
 @mixin secondary-heading {
-  @include font-heading($size: 35px, $color: get-gray('last'), $weight: 700, $lh: (40/35));
-  margin-bottom: space(6);
+  @include font-heading($size: 35px, $color: get-gray('last'), $weight: 700, $lh: (50/35));
+  margin: 0, 3, 0, 5;
   @content;
 }
