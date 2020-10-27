@@ -33,7 +33,7 @@
 }
 
 @mixin h1($color: $gray-700) {
-  @include font-heading(30px, $color, $lh: line-height(41, 30), $weight: 900);
+  // @include font-heading(30px, $color, $lh: line-height(41, 30), $weight: 900);
 }
 
 @mixin h2($color: $gray-700) {
@@ -57,7 +57,7 @@
 }
 
 @mixin primary-heading {
-  @include font-heading($size: 50px, $color: $white);
+  @include font-heading($size: 40px, $color: $white);
   text-transform: uppercase;
   margin-bottom: space(6);
   @content;
