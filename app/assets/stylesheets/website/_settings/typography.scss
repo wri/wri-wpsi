@@ -38,7 +38,7 @@
 }
 
 @mixin h2($color: $gray-700) {
-  @include font-heading(24px, $color, $lh: line-height(27, 24));
+  // @include font-heading(24px, $color, $lh: line-height(27, 24));
 }
 
 @mixin h3($color: $gray-600) {
@@ -58,14 +58,14 @@
 }
 
 @mixin primary-heading {
-  @include font-heading($size: 40px, $color: $white);
+  @include font-heading($size: 32px, $color: $white);
   text-transform: uppercase;
   margin: 0, 3, 0, 5;
   @content;
 }
 
 @mixin secondary-heading {
-  @include font-heading($size: 35px, $color: get-gray('last'), $weight: 700, $lh: (50/35));
+  @include font-heading($size: 30px, $color: get-gray('last'), $weight: 700, $lh: (50/35));
   margin: 0, 3, 0, 5;
   @content;
 }
