@@ -44,8 +44,8 @@
   @include font-heading(20px, $color, $lh: line-height(22, 20));
 }
 
-@mixin h4($color: $gray-500) {
-  @include font-heading(16px, $color, $lh: line-height(16, 14));
+@mixin h4($color: $gray-600) {
+  @include font-heading(18px, $color, $weight: bold, $lh: line-height(16, 14));
 }
 
 @mixin h5($color: $gray-500) {
