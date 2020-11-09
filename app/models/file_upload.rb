@@ -1,0 +1,2 @@
+class FileUpload < ApplicationRecord
+end
