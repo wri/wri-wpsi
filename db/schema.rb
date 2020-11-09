@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(version: 201911081191813) do
     t.index ["category_id", "layer_id"], name: "index_categories_layers_on_category_id_and_layer_id", unique: true
   end
 
+  create_table "file_uploads", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "layers", force: :cascade do |t|
     t.string "name"
     t.text "short_description"
