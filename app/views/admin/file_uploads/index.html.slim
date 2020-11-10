@@ -4,8 +4,7 @@ table.table
   thead
     tr
       th Description
-      th Created
-      th Last changed
+      th Date Uploaded
       th
 
   tbody
@@ -13,11 +12,10 @@ table.table
       tr
         td = file_upload.description
         td = file_upload.created_at.to_s(:long)
-        td = file_upload.updated_at.to_s(:long)
         td = link_to 'Delete', [:admin, file_upload],
             data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
-= link_to 'Add a new file upload', new_admin_file_upload_path,
+= link_to 'Upload a new file', new_admin_file_upload_path,
     class: 'btn btn-primary mb-4'

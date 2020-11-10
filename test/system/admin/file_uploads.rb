@@ -21,7 +21,7 @@ class FileUploadsTest < ApplicationSystemTestCase
 
   test 'creating a file upload' do
     visit admin_file_uploads_url
-    click_on 'Add a new file upload'
+    click_on 'Upload a new file'
 
     fill_in 'Description', with: 'This is a description'
     click_on "Create #{FileUpload.model_name.human}"
