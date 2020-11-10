@@ -41,6 +41,7 @@ class Admin::FileUploadsController < Admin::BaseController
   def file_upload_params
     params.require(:file_upload).permit(
       :description,
+      :file,
     ).to_h
   end
 end
