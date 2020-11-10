@@ -8,6 +8,9 @@ en:
       user:
         one: admin user
         other: admin users
+      file_upload:
+        one: file upload
+        other: file uploads
   errors:
     messages:
       not_saved:

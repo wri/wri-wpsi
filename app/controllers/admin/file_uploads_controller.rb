@@ -13,7 +13,10 @@ class Admin::FileUploadsController < Admin::BaseController
     @file_upload = FileUpload.new(file_upload_params)
 
     if @file_upload.save
-      redirect_to admin_file_uploads_url, notice: 'File Upload was successfully created.'
+      redirect_to(
+        admin_file_uploads_url,
+        notice: "#{FileUpload.model_name.human.capitalize} was successfully created.",
+      )
     else
       render :new
     end
@@ -21,10 +24,12 @@ class Admin::FileUploadsController < Admin::BaseController
 
   def destroy
     if @file_upload.destroy
-      redirect_to admin_file_uploads_url, notice: 'File Upload was successfully deleted.'
+      notice = "#{FileUpload.model_name.human.capitalize} was successfully deleted."
     else
-      redirect_to admin_file_uploads_url, notice: 'File Upload could not be deleted.'
+      notice = "#{FileUpload.model_name.human.capitalize} could not be deleted."
     end
+
+    redirect_to admin_file_uploads_url, notice: notice
   end
 
   private
