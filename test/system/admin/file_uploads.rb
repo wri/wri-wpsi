@@ -24,7 +24,9 @@ class FileUploadsTest < ApplicationSystemTestCase
     click_on 'Upload a new file'
 
     fill_in 'Description', with: 'This is a description'
-    click_on "Create #{FileUpload.model_name.human}"
+    file_path = File.join(ActionController::TestCase.fixture_path, 'files/gr_logo.png')
+    attach_file 'file_upload[file]', file_path
+    click_on I18n.t('helpers.submit.file_upload.create')
 
     assert_text 'File upload was successfully created'
   end
