@@ -11,10 +11,10 @@ table.table
     - @file_uploads.each do |file_upload|
       tr
         td = file_upload.description
+        td = link_to url_for(file_upload.file) if file_upload.file.attached?
         td = file_upload.created_at.to_s(:long)
         td = link_to 'Delete', [:admin, file_upload],
             data: { confirm: 'Are you sure?' }, method: :delete
-
 br
 
 = link_to 'Upload a new file', new_admin_file_upload_path,
