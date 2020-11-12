@@ -1,0 +1,10 @@
+global_tool:
+  name: 'Global Tool'
+  slug: 'global-tool'
+regional_tool:
+  name: 'Regional Tool'
+  slug: 'regional-tool'
+map:
+  name: 'Map'
+  slug: 'map'
+  menu: 'global-tool'

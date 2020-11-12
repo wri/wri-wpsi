@@ -1,11 +1,16 @@
 doctype html
 html
   head
+    = render 'layouts/shared/google_tag_manager_script'
     title
-      | WRI - Water, Peace and Security Initiative
+      | Water, Peace and Security
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     = csrf_meta_tags
     = csp_meta_tag
     = render 'layouts/shared/fonts'
+
+    /! Sentry
+    = render 'layouts/sentry'
 
     / Leaflet CDN
     = stylesheet_link_tag 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css', media: 'all'
@@ -25,4 +30,5 @@ html
     - key = ENV['WRI_WPSI_GOOGLE_MAPS_API_KEY']
     script src="https://maps.googleapis.com/maps/api/js?v=weekly&key=#{key}&libraries=places"
   body
+    = render 'layouts/shared/google_tag_manager_noscript'
     = yield

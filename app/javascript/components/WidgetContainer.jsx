@@ -13,35 +13,33 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
   },
-  linkContainer: {
-    padding: '15px',
-  },
-  downloadLink: {
-    textDecoration: 'none',
-    marginLeft: 'auto',
+  noWidgetMessage: {
+    fontStyle: 'italic',
+    fontSize: '13px',
+    lineHeight: '1.2',
+    paddingBottom: '0px',
   },
 }
 
 const WidgetContainer = ({ layer, region, classes }) => {
-  return (
-    <div>
+  if (layer.widget_spec && layer.widget_spec != '') {
+    return (
       <div className={classes.widgetContainer}>
         <Widget
           region={region}
           widgetSpec={layer.widget_spec}
         />
       </div>
-      <div className={classes.linkContainer}>
-        <a
-          href={`/api/v1/widget_datapoints/${region.gid_2}/all/csv`}
-          className={classes.downloadLink}
-        >
-          <i className='icon__eye' style={{marginRight: 5}} />
-          <span>Download all data for this region</span>
-        </a>
+    )
+  } else {
+    const classNames = [classes.widgetContainer, classes.noWidgetMessage]
+    return (
+      <div className={classNames.join(' ')}>
+        The dataset is not used as an input to the model
+        and therefore is not available at the administrative level.
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 import PropTypes from 'prop-types'

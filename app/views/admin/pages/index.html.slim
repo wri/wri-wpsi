@@ -5,6 +5,7 @@ table.table
     tr
       th Name
       th Slug
+      th Menu
       th Sort priority
       th Last updated
       th
@@ -15,6 +16,7 @@ table.table
       tr
         td = link_to page.name, [:admin, page]
         td = page.slug
+        td = page.menu
         td = page.sort_priority
         td = l(page.updated_at, format: :long)
         td = link_to 'Edit', edit_admin_page_path(page)

@@ -1,4 +1,6 @@
 .c-card--link {
+  flex: 1 1 100%;
+
   &:hover {
     position: relative;
     z-index: 1;
@@ -10,6 +12,7 @@
     &,
     .c-card__content,
     .c-card__title,
+    .c-card__credit,
     .c-card__text {
       text-decoration: none !important;
     }

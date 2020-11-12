@@ -1,0 +1,68 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "56601964092c09c08ba2ebadce4228e3c71fa27d8a32a819050b4ffc09c7c661",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/admin/layers/show.html.slim",
+      "line": 37,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(Layer.find(params[:id]).source_name, Layer.find(params[:id]).source_url)",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "Admin::LayersController",
+          "method": "show",
+          "line": 9,
+          "file": "app/controllers/admin/layers_controller.rb",
+          "rendered": {
+            "name": "admin/layers/show",
+            "file": "app/views/admin/layers/show.html.slim"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "admin/layers/show"
+      },
+      "user_input": "Layer.find(params[:id]).source_url",
+      "confidence": "Weak",
+      "note": "source_url is only editable by admins, so we shouldn't worry about them sabotaging their own site"
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "ad130006e4490d9b7218fd8ad5c834bc5bbd0031fb26aa85116f8bdea000dcdb",
+      "check_name": "CrossSiteScripting",
+      "message": "Unescaped model attribute",
+      "file": "app/views/admin/layers/show.html.slim",
+      "line": 19,
+      "link": "https://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "Layer.find(params[:id]).long_description",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "Admin::LayersController",
+          "method": "show",
+          "line": 9,
+          "file": "app/controllers/admin/layers_controller.rb",
+          "rendered": {
+            "name": "admin/layers/show",
+            "file": "app/views/admin/layers/show.html.slim"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "admin/layers/show"
+      },
+      "user_input": null,
+      "confidence": "High",
+      "note": "long_description is only editable by admins, so we shouldn't worry about them sabotaging their own site"
+    }
+  ],
+  "updated": "2020-02-27 15:21:17 -0500",
+  "brakeman_version": "4.8.0"
+}

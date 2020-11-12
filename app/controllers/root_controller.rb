@@ -1,54 +1,98 @@
-class RootController < ApplicationController
+class RootController < ApplicationController # rubocop:disable Metrics/ClassLength
   layout :resolve_layout
   before_action :set_partners
 
-  unless Rails.env.test?
+  if ENV['HTTP_AUTH_NAME'].present? && ENV['HTTP_AUTH_PASSWORD'].present?
     http_basic_authenticate_with(
-      name: ENV['HTTP_AUTH_NAME'] || 'test',
-      password: ENV['HTTP_AUTH_PASSWORD'] || 'test',
+      name: ENV['HTTP_AUTH_NAME'],
+      password: ENV['HTTP_AUTH_PASSWORD'],
     )
   end
 
-  def index
+  # Index action is used to render the root "homepage" view
+  # TODO: Move into views?
+  def index # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     @action_items = [
-      Card.new('Understand', 'Data and publications', href: '/info/about#Understand'),
-      Card.new('Mobilise', 'Engaging stakeholders', href: '/info/about#Mobilise'),
-      Card.new('Learn', 'Training and capacity development', href: '/info/learn'),
-      Card.new('Dialogue', 'Fostering peace and collaboration', href: 'info/dialogue'),
+      Card.new(
+        title: 'Understand',
+        desc: 'Data and publications',
+        href: '/info/map',
+      ),
+      Card.new(
+        title: 'Mobilise',
+        desc: 'Diplomats, Defence, Development & Disaster Response',
+        href: '/info/mobilise',
+      ),
+      Card.new(
+        title: 'Learn',
+        desc: 'Linking water-related challenges',
+        href: '/info/learn',
+      ),
+      Card.new(
+        title: 'Dialogue',
+        desc: 'Fostering peace and collaboration',
+        href: 'info/dialogue',
+      ),
     ]
     @social_actions = [
-      Card.new('Contact Us', href: 'info@waterpeacesecurity.org', options: { type: 'mail' }),
-      Card.new('Follow Us', href: 'http://twitter.com/WaterPeaceSec', options: { type: 'icon' }),
-      Card.new('Talk to Us', href: '', options: { type: 'button' }),
-      Card.new('Know Us', href: '', options: { type: 'button' }),
+      Card.new(
+        title: 'Contact Us',
+        href: 'info@waterpeacesecurity.org',
+        options: { type: 'mail' },
+      ),
+      Card.new(
+        title: 'Follow Us',
+        href: 'http://twitter.com/WaterPeaceSec',
+        options: { type: 'icon' },
+      ),
+      Card.new(
+        title: 'Talk to Us',
+        href: '//docs.google.com/forms/d/e/1FAIpQLSdXTKxcEFt0A4Zz'\
+        '0zlm9KfSp1Nu7W43Ztin1j9Zdsw7d92RNw/viewform',
+        options: { type: 'button' },
+      ),
+      Card.new(
+        title: 'Know Us',
+        href: '/info/about-wps',
+        options: { type: 'button' },
+      ),
     ]
     @tools = [
-      Card.new('Global Tool', '', href: '/map'),
-      Card.new('Local Tool', '', href: '/map'),
+      Card.new(title: 'Global Tool', desc: '', href: '/map'),
+      Card.new(title: 'Regional Tool', desc: '', href: '/info/regional-tool'),
     ]
     @quotes = [
       Card.new(
-        'WPS Goals',
-        'Through the WPS partnership we hope to prevent conflicts over'\
-        'water by enabling communities to take action at an early stage.',
-        credit: 'Carola van Rijnso, Dutch Ministry for Foreign Affairs.',
+        title: 'WPS Goals',
+        desc: 'Through the WPS partnership we hope to prevent conflicts over'\
+        ' water by enabling communities to take action at an early stage.',
+        credit: 'Carola van Rijnsoever, Dutch Ministry for Foreign Affairs.',
       ),
       Card.new(
-        'Crucial data',
-        'Data is fundamental to understanding where the risks are highest,'\
-        'what’s driving these risks, and they suggest what possible solutions'\
-        'might be, in order to mitigate these risks.',
+        title: 'Crucial data',
+        desc: 'Data is fundamental to understanding where the risks are highest,'\
+        ' what’s driving these risks, and they suggest what possible solutions'\
+        ' might be, in order to mitigate these risks.',
         credit: 'Charles Iceland, World Resources Institute',
       ),
       Card.new(
-        'Solving conflict',
-        'It’s important to know why conflict is happening, what the role of'\
-        'water is, and what factors you can influence either as a policy maker'\
-        'in the respective region, or as an external partner, to solve the conflict',
+        title: 'Solving conflict',
+        desc: 'It’s important to know why conflict is happening, what the role of'\
+        ' water is, and what factors you can influence either as a policy maker'\
+        ' in the respective region, or as an external partner, to solve the conflict',
         credit: 'Susanne Schmeier, IHE Delft',
       ),
     ]
-    @headlines = (0..2).map { Card.new('News Headline') }
+    @headlines = NewsItem.all.order(date: :desc).map do |item|
+      Card.new(
+        title: item.title,
+        desc: item.description,
+        credit: item.date.strftime('%B %Y'),
+        href: item.article_url,
+        image: [item.image_url, item.image_alt_text],
+      )
+    end
+
     set_pages
     set_partners
   end
@@ -60,10 +104,11 @@ class RootController < ApplicationController
     @categories = Category.serialized_for_react_app
   end
 
+  # For showing pages with user-defined content
   def show
     set_pages
     @page = Page.find_by(slug: params[:page_slug])
-    redirect_to :map if @page.contentless?
+    redirect_to :map if @page.nil? || @page.contentless?
   end
 
   def health_check
@@ -90,18 +135,21 @@ class RootController < ApplicationController
 
   def set_partners
     @partners = [
-      ['IHE', ''],
-      ['Deltares', ''],
-      ['Alert', ''],
-      ['The Hague Centre', ''],
-      ['Wetlands', ''],
-      ['WRI', ''],
+      Card.new(title: 'IHE', desc: '', href: '//www.un-ihe.org/'),
+      Card.new(title: 'Deltares', desc: '', href: '//www.deltares.nl'),
+      Card.new(title: 'Alert', desc: '', href: '//www.international-alert.org/'),
+      Card.new(title: 'The Hague Centre', desc: '', href: '//hcss.nl/'),
+      Card.new(title: 'Wetlands', desc: '', href: '//www.wetlands.org/'),
+      Card.new(title: 'WRI', desc: '', href: '//www.wri.org/'),
     ]
   end
 
   def resolve_layout
     if action_name == 'map'
       'map'
+    elsif action_name == 'show'
+      # 'cms_pages_style' # TODO: implement new styles for the CMS pages
+      'website'
     else
       'website'
     end

@@ -23,7 +23,7 @@ const styles = {
 const LayerTag = ({ history, category, classes }) => {
   return (
     <span
-      className={classes.wrapper}
+      className={`${classes.wrapper} gtm-category-label`}
       onClick={() => history.push(`/map/datasets/${category.slug}`)}
     >
       {category.title}

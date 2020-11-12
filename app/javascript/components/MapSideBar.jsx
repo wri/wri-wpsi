@@ -10,12 +10,14 @@ import styleVariables from 'components/styles/variables'
 import scrollBarStyles  from 'components/styles/scrollbar'
 import defaultButtonStyle from 'components/styles/default_button'
 
+import resourceWatchLogo from '../images/resource_watch_logo.svg'
+
 const { colors } = styleVariables()
 const styles = {
   sideBar:  {
     display: 'flex',
     flexDirection: 'column',
-    flex: '1 1 auto',
+    flex: '1 1 0px',
   },
   header: {
     display: 'flex',
@@ -29,20 +31,37 @@ const styles = {
   },
   locationHeader:  {
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     padding: '15px',
     backgroundColor: colors.accent,
     color: 'white',
     fontWeight: '600',
     fontSize: 16,
     lineHeight: 18/16,
-    marginBottom: 10,
+  },
+  downloadLinkContainer:  {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+    paddingTop: '15px',
+    fontSize: 'smaller',
+    color: 'white',
+  },
+  downloadLink:  {
+    '&:hover': {
+      color: colors.links.default,
+    },
+  },
+  downloadIcon:  {
+    marginRight: 5,
   },
   addLayerButton:  {
     ...defaultButtonStyle(),
     marginRight: -15,
     paddingRight: 15,
+    marginLeft: 15,
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
   },
@@ -66,9 +85,17 @@ const MapSideBar = ({
   onToggleLayer,
   classes
 }) => {
-
   const renderRegionInfo = (region) => {
     const className = `${classes.locationHeader} ${classes.header}`
+
+    if (!region) {
+      return (
+        <div className={className}>
+          <i>Click on the map to select a region</i>
+        </div>
+      )
+    }
+
     return (
       <div className={className}>
         <i>
@@ -76,6 +103,10 @@ const MapSideBar = ({
           {region.name_1 && `${region.name_1}, `}
           {region.name_0}
         </i>
+        <div className={classes.downloadLinkContainer}>
+          {renderDownloadDataLink(region)}
+          {renderDataReadmeLink()}
+        </div>
       </div>
     )
   }
@@ -93,7 +124,7 @@ const MapSideBar = ({
           offColor={colors.links.default}
           checkedIcon={false}
           uncheckedIcon={false}
-          className='square-switch'
+          className='square-switch gtm-water-stress-toggle'
         />
       }
     />
@@ -120,7 +151,7 @@ const MapSideBar = ({
         />
       }
     >
-      {selectedRegion && layer.widget_spec && <WidgetContainer layer={layer} region={selectedRegion} />}
+      {selectedRegion && <WidgetContainer layer={layer} region={selectedRegion} />}
     </LayerCard>
   )
 
@@ -138,31 +169,62 @@ const MapSideBar = ({
     }
     return (
       <button
-        className={classes.addLayerButton}
+        className={`gtm-add-dataset-launch-modal ${classes.addLayerButton}`}
         onClick={() => history.push('/map/datasets/water')}
         style={additionalBtnStyle}
       >
-      <i className={`icon__plus-circle ${classes.addLayerButtonIcon}`} />
+        <i className={`icon__plus-circle ${classes.addLayerButtonIcon}`} />
         Add datasets
       </button>
     )
   }
 
+  const renderDownloadDataLink = (region) => {
+    return (
+      <a
+        href={`/api/v1/widget_datapoints/${region.gid_2}/all/csv`}
+        className={classes.downloadLink}
+      >
+        <i className={`icon__download ${classes.downloadIcon}`} />
+        <span>Download all data for this region</span>
+      </a>
+    )
+  }
+
+  const renderDataReadmeLink = () => {
+    return (
+      <a
+        href={`/info/data-readme`}
+        target='_blank'
+        rel='noopener noreferrer'
+        className={classes.downloadLink}
+      >
+        <i className={`icon__info ${classes.downloadIcon}`} />
+        <span>Read me</span>
+      </a>
+    )
+  }
+
   return (
-    <div id='sideBar' className={classes.sideBar}>
+    <div id='sideBar' className={`gtm-sideBar ${classes.sideBar}`}>
       <header className={classes.header}>
         <h1 className={classes.headerTitle}>Investigation</h1>
         {renderAddLayerButton()}
       </header>
 
-      {selectedRegion && renderRegionInfo(selectedRegion)}
+      {renderRegionInfo(selectedRegion)}
 
-      {maskLayers && maskLayers.map(renderMaskLayerCard)}
-
-      <div id='sideBarContent' className={classes.sideBarContent}>
+      <div id='sideBarContent' className={`gtm-sideBarContent ${classes.sideBarContent}`}>
+        {maskLayers && maskLayers.map(renderMaskLayerCard)}
         {activeLayers.filter(layer => !layer.mask).map(renderLayerCard)}
         {renderAddLayerButton(true)}
       </div>
+      <a href='//resourcewatch.org/'
+         className='map-credit'
+         target='_blank'
+         rel='noopener noreferrer'>
+        <img src={resourceWatchLogo} />
+      </a>
     </div>
   )
 }
@@ -170,7 +232,6 @@ const MapSideBar = ({
 import PropTypes from 'prop-types'
 MapSideBar.propTypes = {
   history: PropTypes.object.isRequired,
-  setModalOpen: PropTypes.func.isRequired,
   onRemoveLayer: PropTypes.func.isRequired,
   onToggleLayer: PropTypes.func.isRequired,
   maskLayers: PropTypes.array,

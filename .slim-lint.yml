@@ -11,8 +11,10 @@ linters:
       - Layout/AlignArray
       - Layout/AlignHash
       - Layout/AlignParameters
+      - Layout/ArgumentAlignment
       - Layout/EmptyLineAfterGuardClause
       - Layout/FirstParameterIndentation
+      - Layout/HashAlignment
       - Layout/IndentArray
       - Layout/IndentationConsistency
       - Layout/IndentationWidth
@@ -25,6 +27,7 @@ linters:
       - Layout/MultilineMethodDefinitionBraceLayout
       - Layout/MultilineOperationIndentation
       - Layout/TrailingBlankLines
+      - Layout/TrailingEmptyLines
       - Layout/TrailingWhitespace
       - Lint/BlockAlignment
       - Lint/EndAlignment
@@ -39,3 +42,4 @@ linters:
       - Style/WhileUntilModifier
       # Also ignoring this cop since it is redundantly checked by brakeman
       - Rails/OutputSafety
+      - Rails/LinkToBlank

@@ -21,6 +21,7 @@
 /node_modules
 /yarn-error.log
 
+*.DS_Store
 /public/assets
 .byebug_history
 /untracked
@@ -37,3 +38,6 @@ yarn-debug.log*
 
 # Ignore generated content
 coverage
+
+# Ignore local environment settings
+.env.local

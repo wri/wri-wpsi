@@ -1,0 +1,30 @@
+- dsn = ENV['SENTRY_DSN']
+
+- if dsn.present?
+  script(
+    src="https://browser.sentry-cdn.com/5.13.2/bundle.min.js"
+    integrity="sha384-dfLJFVWgMshiEcDOKARUAYP75u71aRBwHGnklTytOvQJrhnj+l2KDLvnyMnHxWj+"
+    crossorigin="anonymous"
+  )
+
+  - user_config = current_user && { id: ERB::Util.h(current_user.id) }
+
+  javascript:
+    'use strict';
+    var dsn = #{dsn.to_json.html_safe};
+    var environment = #{Rails.env.to_s.to_json.html_safe};
+    var userConfig = #{user_config.to_json.html_safe};
+
+    Sentry.init({
+      dsn: dsn,
+      environment: environment,
+    });
+
+    Sentry.configureScope(
+      function(scope) {
+        if (userConfig) {
+          scope.setUser(userConfig);
+        }
+      }
+    );
+    window.Sentry = Sentry;

@@ -27,6 +27,7 @@
 
 .dropdown-toggle {
   cursor: pointer;
+  display: flex;
 }
 
 .dropdown-toggle::after {
@@ -38,4 +39,9 @@
 
 .dropdown-item {
   @include font-heading;
+}
+
+// Setting this for body instead of p aligns content in cards on home page
+body {
+  text-align: justify;
 }

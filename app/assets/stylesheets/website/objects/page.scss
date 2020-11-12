@@ -15,8 +15,8 @@
 .o-page div > p,
 .o-page div > ul {
   @include font-body;
-  @include media-breakpoint-up(lg) {
-    max-width: 75%;
-  }
 }
 
+.o-page li {
+  padding-top: 10px;
+}

@@ -3,12 +3,16 @@ require: rubocop-rails
 AllCops:
   Exclude:
     - 'bin/{rails,rake,webpack,webpack-dev-server,yarn}'
-    - 'config/**/*'
+    - 'config/environments/**/*'
+    - 'config/initializers/**/*'
+    - 'config/puma.rb'
     - 'db/**/*'
     - 'node_modules/**/*'
+    - 'public/**/*'
+    - 'tmp/**/*'
     - 'untracked/**/*'
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 100
 
 # Trailing commas make for clearer diffs because the last line won't appear
@@ -59,5 +63,36 @@ Style/MixinUsage:
 Layout/DotPosition:
   EnforcedStyle: trailing
 
-MultilineMethodCallIndentation:
+Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true
+

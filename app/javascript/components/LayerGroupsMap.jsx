@@ -35,13 +35,13 @@ class LayerGroupsMap extends React.Component {
         center: { lat: 0, lng: 40 },
       },
       basemap: {
-        url: BASEMAPS.light.value,
-        options: BASEMAPS.light.options,
+        url: BASEMAPS.dark.value,
+        options: BASEMAPS.dark.options,
       },
       bounds: mapLocation,
       label: {
-        url: LABELS.dark.value,
-        options: LABELS.dark.options,
+        url: LABELS.light.value,
+        options: LABELS.light.options,
       },
       onReady: (map) => {
         this.map = map
@@ -51,8 +51,14 @@ class LayerGroupsMap extends React.Component {
     }
 
     const hasInteraction = (layer) => {
-      // WRI only wants interactions to show for one layer
-      if (layer.id == '851e2470-c592-4945-a5dd-d0eaf55b2158') {
+      // WRI only wants interactions to show for some layers
+      const interactionLayers = [
+        '851e2470-c592-4945-a5dd-d0eaf55b2158',
+        '16a5729f-0f2e-4cd6-84bc-0f72c9132dda',
+        'ad4602ff-1bb7-4ded-a231-d9130f5097ff', // Water Conflicts
+        'f4ef8702-4af7-4c6c-a595-aab71874eea4', // Conflict Events (Past 90 Days)
+      ]
+      if (interactionLayers.indexOf(layer.id) !== -1) {
         return !!layer.interactionConfig
             && !!layer.interactionConfig.output
             && !!layer.interactionConfig.output.length
@@ -98,12 +104,12 @@ class LayerGroupsMap extends React.Component {
           this.selectedRegionLayer && this.map.removeLayer(this.selectedRegionLayer)
           const layer = addRegionLayerToMap(this.map, data)
           this.selectedRegionLayer = layer
+          const selectedRegion = data.features.length > 0 ? data.features[0].properties : null
 
-          if (data.features.length > 0) {
-            this.props.setSelectedRegion(data.features[0].properties)
-          } else {
-            this.props.setSelectedRegion(null)
-          }
+          // Trigger a Google Analytics event
+          window.dataLayer.push({'event': 'Region Selected', 'selectedRegion': selectedRegion})
+
+          this.props.setSelectedRegion(selectedRegion)
         })
     }
 

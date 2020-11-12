@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 201911081191813) do
     t.index ["layer_id"], name: "index_layers_on_layer_id", unique: true
   end
 
+  create_table "news_items", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.text "article_url"
+    t.string "image_url"
+    t.text "image_alt_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date "date"
+  end
+
   create_table "pages", force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -98,7 +109,7 @@ ActiveRecord::Schema.define(version: 201911081191813) do
     t.decimal "al_ethnic"
     t.decimal "al_religion"
     t.binary "election_recent"
-    t.decimal "reign"
+    t.string "reign"
     t.decimal "et_anom_month"
     t.decimal "et_act_month"
     t.decimal "et_anom_year"
@@ -136,10 +147,6 @@ ActiveRecord::Schema.define(version: 201911081191813) do
     t.decimal "rurpop"
     t.decimal "urbpop"
     t.decimal "rurratio"
-    t.decimal "spi_3"
-    t.decimal "spi_6"
-    t.decimal "spi_12"
-    t.decimal "spi_24"
     t.decimal "urbrate"
     t.decimal "wateraccess"
     t.decimal "sanitationaccess"
@@ -149,6 +156,12 @@ ActiveRecord::Schema.define(version: 201911081191813) do
     t.decimal "iav"
     t.decimal "rfr"
     t.decimal "sev"
+    t.decimal "acled_fatalities"
+    t.decimal "prediction"
+    t.decimal "prediction_prob"
+    t.string "spi_12"
+    t.string "spi_24"
+    t.string "government"
     t.index ["gid_2", "month_indep"], name: "index_widget_datapoints_on_gid_2_and_month_indep", unique: true
   end
 

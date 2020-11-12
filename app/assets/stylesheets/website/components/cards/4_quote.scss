@@ -3,6 +3,8 @@
 .c-card--quote {
   @include card-action($content: '+');
   min-height: auto;
+  margin-left: -15px;
+  margin-right: -15px;
   @for $i from 1 through length($theme) {
     $color: nth($theme, $i);
     &-#{$i} {
@@ -15,8 +17,7 @@
 
 .c-card--quote .c-card__content {
   justify-content: center;
-  margin-bottom: space(2);
-  padding: 0;
+  margin-bottom: 0;
 }
 
 .c-card--quote .c-card__title,
@@ -36,6 +37,9 @@
 
 .c-card--quote .c-card__text p {
   margin-bottom: space(4);
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .c-card__credit {

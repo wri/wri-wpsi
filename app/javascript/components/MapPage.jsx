@@ -5,7 +5,8 @@ import ResourceWatchMap from 'components/ResourceWatchMap'
 import MapSideBar from 'components/MapSideBar'
 import DatasetsModal from 'components/DatasetsModal'
 import styleVariables from 'components/styles/variables'
-import Ornamentation from './Ornamentation'
+// import Ornamentation from './Ornamentation'
+import LoadingAnimation from './LoadingAnimation'
 
 const MapPage = ({ match, history, layers, categories }) => {
   const loadingStyle = {
@@ -20,8 +21,7 @@ const MapPage = ({ match, history, layers, categories }) => {
 
   if (layers.length === 0) {
     return <div style={loadingStyle}>
-      <Ornamentation rotate={false} />
-      <span style={{marginLeft: 20}}>Loading...</span>
+      <LoadingAnimation rotate={false} />
     </div>
   }
 
@@ -29,13 +29,13 @@ const MapPage = ({ match, history, layers, categories }) => {
   const [activeLayers, setActiveLayers] = React.useState(layers.filter(layer => layer.initially_on))
   const activeLayerIds = activeLayers.map(l => l.id)
 
-  const [modalOpen, setModalOpen] = React.useState(true)
-
   const [selectedRegion, setSelectedRegion] = React.useState(null)
 
   const [layerGroupsInteraction, setMapLayerGroupsInteraction] = React.useState({})
   const [layerGroupsInteractionSelected, setMapLayerGroupsInteractionSelected] = React.useState(null)
   const [layerGroupsInteractionLatLng, setMapLayerGroupsInteractionLatLng] = React.useState(null)
+
+  const [layerListOpen, setLayerListOpen] = React.useState(false)
 
   const updateInteractions = (interaction) => {
     const newLayerGroupsInteraction = {
@@ -64,6 +64,11 @@ const MapPage = ({ match, history, layers, categories }) => {
   }
 
   const addLayer = (layer) => {
+    if (!layer.mask) {
+      // Trigger a Google Analytics event
+      window.dataLayer.push({'event': 'Dataset Added', 'dataset': layer.name})
+    }
+
     setActiveLayers([layer].concat(activeLayers))
   }
 
@@ -90,15 +95,21 @@ const MapPage = ({ match, history, layers, categories }) => {
     setActiveLayers(layers.sort((a, b) => (layerIds.indexOf(a.id) - layerIds.indexOf(b.id))))
   }
 
-  const { colors } = styleVariables()
+  const handleListToggle = (e) => {
+    const sideBar = document.querySelector('.c-drawer')
+    let actionMethod = 'add'
+    const button = e.target
+    const isActive = button.classList.contains('active')
+    if (isActive) {
+      actionMethod = 'remove'
+    }
+    sideBar.classList[actionMethod]('active')
+    button.classList[actionMethod]('active')
+    setLayerListOpen(!isActive)
+  }
+
   const sideDrawerStyle = {
-    position: 'absolute',
-    width: 500,
-    right: 0,
-    borderLeft: `1px solid ${colors.border}`,
-    height: '100%',
-    background: colors.bg,
-    display: 'flex',
+    overflow: 'auto',
   }
 
   const mainStyle = {
@@ -126,33 +137,49 @@ const MapPage = ({ match, history, layers, categories }) => {
         interactionState={interactionState}
       />
 
-      <div style={sideDrawerStyle}>
+      <Route
+        path={currentPath}
+        exact
+        render={
+          () => (
+            <button
+              data-active={layerListOpen}
+              onClick={handleListToggle}
+              className={`mobile-layer-toggle${layerListOpen ? ' active' : ''}`}
+              id='mobile-layer-toggle'
+            >
+              {layerListOpen ? 'Hide' : 'Show'} datasets list
+            </button>
+          )
+        }
+      />
+
+      <div className='c-drawer' style={sideDrawerStyle}>
         <MapSideBar
-          setModalOpen={setModalOpen}
           maskLayers={maskLayers}
           activeLayers={activeLayers}
           selectedRegion={selectedRegion}
           onRemoveLayer={removeLayer}
           onToggleLayer={handleToggleLayer}
         />
-
-        <Route
-          path={`${currentPath}/datasets/:category`}
-          render={
-            ({ match }) => (
-              <DatasetsModal
-                open={modalOpen}
-                onClose={() => history.push(currentPath)}
-                isActive={isActive}
-                onToggleLayerClick={handleToggleLayerClick}
-                tab={match.params.category}
-                layers={layers.filter(layer => !layer.mask)}
-                categories={categories}
-              />
-            )
-          }
-        />
       </div>
+
+      <Route
+        path={`${currentPath}/datasets/:category`}
+        render={
+          ({ match }) => (
+            <DatasetsModal
+              open={true}
+              onClose={() => history.push(currentPath)}
+              isActive={isActive}
+              onToggleLayerClick={handleToggleLayerClick}
+              tab={match.params.category}
+              layers={layers.filter(layer => !layer.mask)}
+              categories={categories}
+            />
+          )
+        }
+      />
     </main>
   )
 }
