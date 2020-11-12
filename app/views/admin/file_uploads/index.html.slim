@@ -16,7 +16,7 @@ table.table
           - url = url_for(file_upload.file)
           td = link_to url, url
         - else
-            td
+          td
         td = file_upload.created_at.to_s(:long)
         td = link_to 'Delete', [:admin, file_upload],
             data: { confirm: 'Are you sure?' }, method: :delete
