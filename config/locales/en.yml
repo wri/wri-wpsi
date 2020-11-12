@@ -19,4 +19,4 @@ en:
   helpers:
     submit:
       file_upload:
-        create: 'Upload file'
+        create: Upload file
