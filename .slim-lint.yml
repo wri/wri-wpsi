@@ -3,7 +3,7 @@ linters:
     max: 100
 
   RuboCop:
-    enabled: true
+    enabled: false
     ignored_cops:
       # These cops are incredibly noisy since the Ruby we extract from Slim
       # templates isn't well-formatted, so we ignore them.
