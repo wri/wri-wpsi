@@ -9,17 +9,13 @@ table.table
       th
 
   tbody
-
     - @file_uploads.each do |file_upload|
       tr
         td = file_upload.description
-        - if file_upload.file.attached?
-          / - path = url_for(file_upload.file)
-          / - url = Rails.root.join(path)
-          - url = File.join(Rails.root, url_for(file_upload.file))
-          td = link_to url, url.to_s
-        - else
-          td
+        td
+          - if file_upload.file.attached?
+            - url = "#{request.base_url}#{url_for(file_upload.file)}"
+            = link_to url, url
         td = file_upload.created_at.to_s(:long)
         td = link_to 'Delete', [:admin, file_upload],
             data: { confirm: 'Are you sure?' }, method: :delete
