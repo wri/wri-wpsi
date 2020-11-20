@@ -5,6 +5,7 @@ ruby File.read('.ruby-version').gsub('ruby-', '').strip
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3.1'
+gem 'clipboard-rails'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'jquery-rails'
