@@ -27,6 +27,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     resources :pages, param: :slug
     resources :users, only: %i[index new create destroy]
     resources :news_items, only: %i[index show update edit]
+    resources :file_uploads, only: %i[index new create destroy]
     get '/style_guides/article', to: 'style_guides#article'
   end
 

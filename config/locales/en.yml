@@ -2,6 +2,9 @@
 en:
   activerecord:
     models:
+      file_upload:
+        one: file upload
+        other: file uploads
       news_item:
         one: news item
         other: news items
@@ -13,3 +16,7 @@ en:
       not_saved:
         one: '1 error prohibited this %{resource} from being saved:'
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  helpers:
+    submit:
+      file_upload:
+        create: Upload file
