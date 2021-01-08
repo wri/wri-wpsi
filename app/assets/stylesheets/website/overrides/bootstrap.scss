@@ -41,11 +41,6 @@
   @include font-heading;
 }
 
-// This justifies paragraphs on home page and in CMS pages
-// p {
-//   text-align: justify;
-// }
-
 // This justifies the paragraphs on the home page
 .c-text {
   text-align: justify;
@@ -58,5 +53,4 @@
 div.c-card__text p {
   text-align: left;
 }
-
 
