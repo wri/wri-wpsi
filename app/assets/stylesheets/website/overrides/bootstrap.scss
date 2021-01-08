@@ -41,7 +41,16 @@
   @include font-heading;
 }
 
-// Setting this for body instead of p aligns content in cards on home page
-body {
+// This justifies the paragraphs on the home page
+.c-text {
   text-align: justify;
 }
+// This justifies everything in CMS pages, including list items, but not titles
+.o-container--page {
+  text-align: justify;
+}
+// This left justifies everything inside cards on home page
+div.c-card__text p {
+  text-align: left;
+}
+
