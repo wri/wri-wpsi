@@ -1,17 +1,19 @@
 Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
+  # Public routes
   root 'root#index'
 
-  # User defined pages
+  ## User defined pages
   get '/info/:page_slug', to: 'root#show', as: 'page', param: :slug
 
-  # Single page app endpoint
+  ## Single page app endpoint
   get '/map', to: 'root#map'
   get '/map/*ignored', to: 'root#map'
 
+  ## Static route to file uploads
+  resources :files, only: %i[show]
+
   # Admin routes
   get '/admin', to: redirect('/admin/layers'), as: 'admin'
-
-  resources :files, only: %i[show]
 
   devise_for(
     :users,
