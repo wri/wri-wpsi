@@ -164,7 +164,7 @@ GEM
     net-scp (3.0.0)
       net-ssh (>= 2.6.5, < 7.0.0)
     net-ssh (6.1.0)
-    nio4r (2.5.7)
+    nio4r (2.5.8)
     nokogiri (1.11.5)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
@@ -178,7 +178,7 @@ GEM
     pg (1.1.4)
     popper_js (1.14.5)
     public_suffix (4.0.6)
-    puma (5.3.1)
+    puma (5.5.1)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -366,7 +366,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   overcommit
   pg (>= 0.18, < 2.0)
-  puma (~> 5.3)
+  puma (~> 5.5)
   rails (~> 5.2.4)
   rails-erd
   rubocop-rails
