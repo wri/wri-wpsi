@@ -10,3 +10,6 @@ section
     .row.o-card-row
       - @news_items.each_with_index do |item, i|
         = render 'root/landing/news_item', item: item, variant: i, width: 12 / @news_items.length
+    .text-center
+      a href='/info/news-and-publications' class="c-button c-button--section"
+        span = 'More news and publications'

@@ -1,11 +1,8 @@
-- show_action_banner ||= show_action_banner.nil?
 - show_footer ||= show_footer.nil?
 
 = render 'root/header'
 
 = yield(:main_content) if content_for?(:main_content)
 
-- if show_action_banner && @action_items.present?
-  = render 'root/landing/action_banner'
 - if show_footer
   = render 'root/landing/footer'
