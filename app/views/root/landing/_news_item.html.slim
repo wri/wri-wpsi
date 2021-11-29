@@ -13,6 +13,8 @@ ruby:
       h5.card-title.c-card__title
         = item.title
       .card-text.c-card__credit
-        = item.date.strftime('%B %Y')
-      .card-text.c-card__text
-        = item.description.html_safe
+        = item.date.strftime('%b. %Y')
+      .c-card__categories
+        - item.categories.each do |category|
+          .c-card__category
+            = category

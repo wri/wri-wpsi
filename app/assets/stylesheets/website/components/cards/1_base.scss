@@ -15,6 +15,7 @@
   @include font-heading($color: white, $weight: 600, $size: 30px);
   text-transform: uppercase;
   white-space: nowrap;
+  color: lime;
 }
 
 .c-card__watermark {
