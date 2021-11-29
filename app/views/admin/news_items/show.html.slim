@@ -10,12 +10,20 @@ div
     = @news_item.description
 
   p
+    strong> Categories:
+    = @news_item.categories.join(', ')
+
+  p
     strong> Article URL:
     = @news_item.article_url
 
   p
     strong> Date:
     = @news_item.date.strftime('%B %Y')
+
+  p
+    strong> Published:
+    = @news_item.published ? 'Yes' : 'No'
 
   p
     strong> Image URL:

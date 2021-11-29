@@ -5,4 +5,17 @@ class NewsItem < ApplicationRecord
   validates :image_url, url: { allow_blank: false }
   validates :image_alt_text, presence: true
   validates :date, presence: true
+
+  before_save do
+    self.categories = categories.reject(&:empty?)
+  end
+
+  ALLOWED_CATEGORIES = %w[
+    Podcast
+    Blog
+    News
+    Video
+    Publication
+    Media
+  ].freeze
 end

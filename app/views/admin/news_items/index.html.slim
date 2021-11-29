@@ -5,7 +5,9 @@ table.table
     tr
       th Title
       th Description
+      th Categories
       th Date
+      th Published
       th Image alt text
       th
 
@@ -14,6 +16,8 @@ table.table
       tr
         td = link_to news_item.title, [:admin, news_item]
         td = news_item.description
+        td = news_item.categories.join(', ')
         td = news_item.date.strftime('%B %Y')
+        td = news_item.published ? 'Yes' : 'No'
         td = news_item.image_alt_text
         td = link_to 'Edit', edit_admin_news_item_path(news_item)

@@ -48,6 +48,8 @@ class Admin::NewsItemsController < Admin::BaseController
       :image_url,
       :image_alt_text,
       :date,
+      :published,
+      categories: [],
     )
   end
 end
