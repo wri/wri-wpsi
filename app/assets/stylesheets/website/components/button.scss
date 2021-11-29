@@ -41,6 +41,34 @@
     margin-left: auto;
     padding-left: 2px;
   }
+
+  &--section {
+    background: $blue-d;
+    color: white;
+    border: 1px solid $blue-d;
+    &:hover,
+    &:focus {
+      background: white;
+      color: $blue-d;
+      &::after {
+        transform: none;
+      }
+      span {
+        color: inherit;
+      }
+    }
+    &::after {
+      background: white;
+      color: $blue-d;
+      border-left: 1px solid $blue-d;
+    }
+
+    span {
+      color: inherit;
+      border-right: 0;
+    }
+  }
+
   @for $i from 1 through length($theme) {
     $color: nth($theme, $i);
     &--#{$i} {
