@@ -13,6 +13,8 @@ linters:
       - Layout/AlignParameters
       - Layout/ArgumentAlignment
       - Layout/EmptyLineAfterGuardClause
+      - Layout/FirstArgumentIndentation
+      - Layout/FirstArrayElementIndentation
       - Layout/FirstParameterIndentation
       - Layout/HashAlignment
       - Layout/IndentArray

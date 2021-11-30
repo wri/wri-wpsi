@@ -12,8 +12,16 @@
   .form-group
     .field
       = f.label :categories
-      .mt-1
-        = f.collection_check_boxes :categories, NewsItem::ALLOWED_CATEGORIES, :to_s, :to_s
+      .mt-1.ml-3
+        = f.collection_check_boxes :categories,
+                                   NewsItem::ALLOWED_CATEGORIES,
+                                   :to_s,
+                                   :to_s,
+                                   class: 'form-control' do |b|
+          div = b.label do
+            = b.check_box
+            = ' '
+            = b.text
 
   .form-group
     .field

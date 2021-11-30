@@ -62,7 +62,7 @@
 .c-card__categories {
   margin-top: auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: wrap-reverse;
   & .c-card__category {
     margin: 3px
   }
