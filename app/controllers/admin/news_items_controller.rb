@@ -1,5 +1,5 @@
 class Admin::NewsItemsController < Admin::BaseController
-  before_action :set_news_item, only: %i[show edit update new]
+  before_action :set_news_item, only: %i[show edit update destroy]
   before_action :set_date_options, only: %i[edit update new create]
   before_action :set_image_url_options, only: %i[show edit update new create]
 
@@ -11,7 +11,9 @@ class Admin::NewsItemsController < Admin::BaseController
 
   def edit; end
 
-  def new; end
+  def new
+    @news_item = NewsItem.new
+  end
 
   def create
     @news_item = NewsItem.new(news_item_params)
@@ -31,14 +33,15 @@ class Admin::NewsItemsController < Admin::BaseController
     end
   end
 
+  def destroy
+    @news_item.destroy
+    redirect_to admin_news_items_url, notice: 'News item was successfully deleted.'
+  end
+
   private
 
   def set_news_item
-    if action_name == 'new'
-      @news_item = NewsItem.new
-    else
-      @news_item = NewsItem.find(params[:id])
-    end
+    @news_item = NewsItem.find(params[:id])
   end
 
   def set_date_options

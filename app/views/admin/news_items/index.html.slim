@@ -10,6 +10,7 @@ table.table
       th Published
       th Image alt text
       th
+      th
 
   tbody
     - @news_items.order(date: :desc).each do |news_item|
@@ -21,6 +22,8 @@ table.table
         td = news_item.published ? 'Yes' : 'No'
         td = news_item.image_alt_text
         td = link_to 'Edit', edit_admin_news_item_path(news_item)
+        td = link_to 'Delete', [:admin, news_item],
+            data: { confirm: 'Are you sure?' }, method: :delete
 
 br
 
