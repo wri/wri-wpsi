@@ -96,11 +96,16 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     @categories = Category.serialized_for_react_app
   end
 
+  def news
+    set_pages
+  end
+
   # For showing pages with user-defined content
   def show
     set_pages
     @page = Page.find_by(slug: params[:page_slug])
-    redirect_to :map if @page.nil? || @page.contentless?
+    redirect_to @page.redirect_target if @page.redirect_target
+    redirect_to :map if @page.nil?
   end
 
   def health_check
@@ -137,11 +142,12 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
   end
 
   def resolve_layout
-    if action_name == 'map'
+    case action_name
+    when 'map'
       'map'
-    elsif action_name == 'show'
-      # 'cms_pages_style' # TODO: implement new styles for the CMS pages
-      'website'
+    # when 'show'
+    #   # 'cms_pages_style' # TODO: implement new styles for the CMS pages
+    #   'website'
     else
       'website'
     end

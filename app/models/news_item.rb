@@ -6,6 +6,8 @@ class NewsItem < ApplicationRecord
   validates :image_alt_text, presence: true
   validates :date, presence: true
 
+  scope :published, -> { where(published: true) }
+
   before_save do
     self.categories = categories.reject(&:empty?)
   end

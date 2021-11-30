@@ -1,6 +1,7 @@
 require: rubocop-rails
 
 AllCops:
+  NewCops: enable
   Exclude:
     - 'bin/{rails,rake,webpack,webpack-dev-server,yarn}'
     - 'config/environments/**/*'

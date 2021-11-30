@@ -1,0 +1,19 @@
+- content_for :main_content do
+  main.o-container.o-container--page.o-page
+  .container
+    .row
+      .col-sm-12.col-md-8.mx-auto
+        = render 'root/breadcrumbs', page: Page.news
+        h1 = 'News and Publications'
+  .container
+    section.mt-6
+      .container
+        .row.o-card-row
+          - NewsItem.published.limit(20).each_with_index do |item, i|
+            = render 'root/landing/news_item', item: item, variant: i
+        .row
+          .col-md-12.col-lg-6.mr-auto
+            a href='#' class="c-button c-button--section full-width"
+              span = 'View Archive'
+
+= render 'root/landing/page'
