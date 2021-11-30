@@ -1,0 +1,31 @@
+ruby:
+  scope = NewsItem.archived
+
+- content_for :main_content do
+  main.o-container.o-container--page.o-page
+  .container
+    .row
+      .col-sm-12.col-md-8.mx-auto
+        = render 'root/breadcrumbs', page: Page.news
+        h1 = 'Archived News & Publications'
+
+        - if scope.empty?
+          p.mt-8.mb-12.text-black-50
+            = 'No archived items'
+        - else
+            div
+              - [\
+                ['News', scope.with_category('News')],\
+                ['Publications', scope.with_category('Publication')],\
+                ['Blogs', scope.with_category('Blog')],\
+                ['Podcasts', scope.with_category('Podcast')],\
+                ['Webinars and Videos', scope.with_category('Video')],\
+                ['Media Mentions', scope.with_category('Media')],\
+              ].reject { |_label, items| items.empty? }.each do |label, items|
+                section.mt-6.mb-10
+                  h2.with-line = label
+                  .row.o-card-row.mt-4
+                    - items.each_with_index do |item, i|
+                      = render 'root/landing/news_item', item: item, variant: i, width: 6
+
+= render 'root/landing/page'

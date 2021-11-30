@@ -2,6 +2,7 @@ ruby:
   item ||= nil
   variant ||= 0
   width ||= 3
+  include_categories ||= false
 
 .o-card-row__card-wrap.col-sm-12.col-md-6 class="col-lg-#{width}"
   a.card.c-card.c-card--link.c-card--quote.c-card--headline(
@@ -14,7 +15,8 @@ ruby:
         = item.title
       .card-text.c-card__credit
         = item.date.strftime('%b. %Y')
-      .c-card__categories
-        - item.categories.each do |category|
-          .c-card__category
-            = category
+      - if include_categories
+        .c-card__categories
+          - item.categories.each do |category|
+            .c-card__category
+              = category

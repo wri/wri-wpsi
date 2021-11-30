@@ -9,8 +9,10 @@
     section.mt-6
       .container
         .row.o-card-row
-          - NewsItem.published.limit(20).each_with_index do |item, i|
-            = render 'root/landing/news_item', item: item, variant: i
+          - NewsItem.current.each_with_index do |item, i|
+            = render 'root/landing/news_item', item: item,
+                                               variant: i,
+                                               include_categories: true
         .row
           .col-md-12.col-lg-6.mr-auto
             a href='#' class="c-button c-button--section full-width"

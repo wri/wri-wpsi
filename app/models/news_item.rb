@@ -7,17 +7,27 @@ class NewsItem < ApplicationRecord
   validates :date, presence: true
 
   scope :published, -> { where(published: true) }
+  scope :current, -> { published.date_sort.limit(4) }
+  scope :archived, -> { published.where.not(id: current).date_sort }
 
   before_save do
     self.categories = categories.reject(&:empty?)
   end
 
   ALLOWED_CATEGORIES = %w[
-    Podcast
-    Blog
     News
-    Video
     Publication
+    Blog
+    Podcast
+    Video
     Media
   ].freeze
+
+  def self.date_sort
+    order(date: :desc)
+  end
+
+  def self.with_category(*args)
+    where('news_items.categories @> ARRAY[?]::varchar[]', args)
+  end
 end

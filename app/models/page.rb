@@ -7,6 +7,7 @@ class Page < ApplicationRecord
   SLUG_REDIRECTS = {
     'map' => :map,
     'news-and-publications' => :news,
+    'news-archive' => :archive,
   }.freeze
 
   def self.news
@@ -15,6 +16,10 @@ class Page < ApplicationRecord
 
   def self.map
     Page.find_by(slug: 'map')
+  end
+
+  def self.archive
+    Page.find_by(slug: 'news-archive')
   end
 
   def to_param

@@ -1,7 +1,7 @@
 class Admin::NewsItemsController < Admin::BaseController
-  before_action :set_news_item, only: %i[show edit update]
-  before_action :set_date_options, only: %i[edit update]
-  before_action :set_image_url_options, only: %i[edit update]
+  before_action :set_news_item, only: %i[show edit update new]
+  before_action :set_date_options, only: %i[edit update new create]
+  before_action :set_image_url_options, only: %i[show edit update new create]
 
   def index
     @news_items = NewsItem.all
@@ -10,6 +10,18 @@ class Admin::NewsItemsController < Admin::BaseController
   def show; end
 
   def edit; end
+
+  def new; end
+
+  def create
+    @news_item = NewsItem.new(news_item_params)
+
+    if @news_item.save
+      redirect_to [:admin, @news_item], notice: 'News item was successfully created.'
+    else
+      render :new
+    end
+  end
 
   def update
     if @news_item.update(news_item_params)
@@ -22,7 +34,11 @@ class Admin::NewsItemsController < Admin::BaseController
   private
 
   def set_news_item
-    @news_item = NewsItem.find(params[:id])
+    if action_name == 'new'
+      @news_item = NewsItem.new
+    else
+      @news_item = NewsItem.find(params[:id])
+    end
   end
 
   def set_date_options

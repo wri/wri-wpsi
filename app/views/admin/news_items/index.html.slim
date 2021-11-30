@@ -21,3 +21,8 @@ table.table
         td = news_item.published ? 'Yes' : 'No'
         td = news_item.image_alt_text
         td = link_to 'Edit', edit_admin_news_item_path(news_item)
+
+br
+
+= link_to 'Add a new news item', new_admin_news_item_path,
+    class: 'btn btn-primary mb-4'

@@ -10,6 +10,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   get '/map/*ignored', to: 'root#map'
 
   get '/news', to: 'root#news'
+  get '/archive', to: 'root#archive'
 
   ## Static route to file uploads
   resources :files, only: %i[show]
@@ -32,7 +33,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     resources :layers
     resources :pages, param: :slug
     resources :users, only: %i[index new create destroy]
-    resources :news_items, only: %i[index show update edit]
+    resources :news_items, only: %i[index show update edit new create]
     resources :file_uploads, only: %i[index new create destroy]
     get '/style_guides/article', to: 'style_guides#article'
   end
