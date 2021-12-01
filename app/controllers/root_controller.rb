@@ -15,22 +15,22 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     @action_items = [
       Card.new(
         title: 'Understand',
-        desc: 'Data and publications',
+        desc: 'Apply cutting-edge technology and participatory analysis to understand water crises',
         href: '/info/map',
       ),
       Card.new(
         title: 'Mobilise',
-        desc: 'Diplomats, Defence, Development & Disaster Response',
+        desc: 'Raise awareness to mobilise informed action for decision makers and communities',
         href: '/info/mobilise',
       ),
       Card.new(
         title: 'Learn',
-        desc: 'Linking water-related challenges',
+        desc: 'Strengthen capacities of stakeholders to address water crisis',
         href: '/info/learn',
       ),
       Card.new(
         title: 'Dialogue',
-        desc: 'Fostering peace and collaboration',
+        desc: 'Support dialogue for cooperation and peacebuilding',
         href: 'info/dialogue',
       ),
     ]
