@@ -8,7 +8,7 @@ class NewsItem < ApplicationRecord
 
   scope :published, -> { where(published: true) }
   scope :current, -> { published.date_sort }
-  scope :archived, -> { current }
+  scope :archived, -> { published.date_sort }
 
   before_save do
     self.categories = categories.reject(&:empty?)
