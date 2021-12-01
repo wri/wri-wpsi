@@ -7,8 +7,8 @@ class NewsItem < ApplicationRecord
   validates :date, presence: true
 
   scope :published, -> { where(published: true) }
-  scope :current, -> { published.date_sort.limit(4) }
-  scope :archived, -> { published.where.not(id: current).date_sort }
+  scope :current, -> { published.date_sort }
+  scope :archived, -> { current }
 
   before_save do
     self.categories = categories.reject(&:empty?)

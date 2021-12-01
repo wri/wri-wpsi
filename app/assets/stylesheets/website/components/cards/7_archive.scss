@@ -1,0 +1,60 @@
+@import '../../helpers';
+
+.c-card--archive {
+  @include card-action($content: '');
+  position: relative;
+  box-shadow: 0 0 10px 5px rgba(0,0,0,.1);
+  margin-left: 0;
+  margin-right: 0;
+  display: flex;
+  flex-direction: row;
+  // height: 100px;
+  min-height: unset;
+
+  & .c-card__image-top {
+    width: 20%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    & img {
+      border-radius: unset;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  & .c-card__content {
+    margin-left: 20%;
+    width: 80%;
+    flex-grow: 1;
+    padding: space(3);
+  }
+
+  & .c-card__title {
+    @include font-heading($weight: 500, $color: $green-d, $size: rem(16px));
+    text-transform: none;
+    margin-bottom: space(1);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: hidden;
+  }
+
+  & .c-card__description {
+    @include font-heading($weight: 500, $color: $black, $size: rem(12px));
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  & .c-card__date {
+    @include font-heading($weight: 400, $color: inherit, $size: rem(12px));
+    float: right;
+    margin-left: space(4);
+  }
+}
