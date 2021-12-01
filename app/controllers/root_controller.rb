@@ -11,7 +11,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
 
   # Index action is used to render the root "homepage" view
   # TODO: Move into views?
-  def index # rubocop:disable Metrics/MethodLength
+  def index # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     @action_items = [
       Card.new(
         title: 'Understand',
@@ -83,7 +83,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         credit: 'Susanne Schmeier, IHE Delft',
       ),
     ]
-    @news_items = NewsItem.current
+    @news_items = NewsItem.current.limit(4)
 
     set_pages
     set_partners

@@ -6,7 +6,8 @@ section
       |  Peace and Security partnership develops innovative tools and services that help
       |  identify water-related security risks, and allow stakeholders to TAKE ACTION
       |  at an early stage.
-    = render 'root/landing/text_block', id: 'news', wrapper_class: 'mb-6'
+    = render 'root/landing/text_block', id: 'news',
+                                        wrapper_class: 'mb-6'
     .row.o-card-row
       - @news_items.each_with_index do |item, i|
         = render 'root/landing/news_item', item: item, variant: i, width: 12 / @news_items.length

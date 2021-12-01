@@ -1,11 +1,12 @@
 ruby:
   wrapper_class ||= ''
   more_link ||= nil
+  width ||= 12
 
 section class=wrapper_class
   article.container
     .row
-      .col-11.mx-auto
+      .mx-auto class="col-#{width}"
         p.c-text.c-text--lead
           = content_for "#{id}_text"
         - if more_link
