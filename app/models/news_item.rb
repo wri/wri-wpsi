@@ -14,14 +14,24 @@ class NewsItem < ApplicationRecord
     self.categories = categories.reject(&:empty?)
   end
 
-  ALLOWED_CATEGORIES = %w[
-    News
-    Publication
-    Blog
-    Podcast
-    Video
-    Media
-  ].freeze
+  CATEGORY_LABELS = {
+    'News' => 'News',
+    'Publication' => 'Publications',
+    'Blog' => 'Blogs',
+    'Podcast' => 'Podcasts',
+    'Video' => 'Webinars and Videos',
+    'Media' => 'Media Mentions',
+  }.freeze
+
+  ALLOWED_CATEGORIES = CATEGORY_LABELS.keys
+
+  def self.allowed_categories
+    CATEGORY_LABELS.keys
+  end
+
+  def self.category_labels
+    CATEGORY_LABELS
+  end
 
   def self.date_sort
     order(date: :desc)
@@ -29,5 +39,13 @@ class NewsItem < ApplicationRecord
 
   def self.with_category(*args)
     where('news_items.categories @> ARRAY[?]::varchar[]', args)
+  end
+
+  def allowed_categories
+    self.class.allowed_categories
+  end
+
+  def category_labels
+    self.class.category_labels
   end
 end

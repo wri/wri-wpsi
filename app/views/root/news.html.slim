@@ -5,17 +5,22 @@
       .col-sm-12.col-md-8.mx-auto
         = render 'root/breadcrumbs', page: Page.news
         h1 = 'News and Publications'
-  .container
-    section.mt-6
-      .container
-        .row.o-card-row
-          - NewsItem.current.each_with_index do |item, i|
-            = render 'root/landing/news_item', item: item,
-                                               variant: i,
-                                               include_categories: true
-        .row
-          .col-md-12.col-lg-6.mr-auto
-            a href='/archive' class="c-button c-button--section full-width"
-              span = 'View Archive'
+    - if NewsItem.current.empty?
+      .row
+        .col-sm-12.col-md-8.mx-auto
+          p.mt-8.mb-12.text-black-50
+            = 'No news items'
+    - else
+      section.mt-6
+        .container
+          .row.o-card-row
+            - NewsItem.current.each_with_index do |item, i|
+              = render 'root/landing/news_item', item: item,
+                                                variant: i,
+                                                include_categories: true
+          .row
+            .col-md-12.col-lg-6.mr-auto
+              a href='/archive' class="c-button c-button--section full-width"
+                span = 'View Archive'
 
 = render 'root/landing/page'

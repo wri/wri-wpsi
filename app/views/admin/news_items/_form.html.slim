@@ -14,7 +14,7 @@
       = f.label :categories
       .mt-1.ml-3
         = f.collection_check_boxes :categories,
-                                   NewsItem::ALLOWED_CATEGORIES,
+                                   NewsItem.allowed_categories,
                                    :to_s,
                                    :to_s,
                                    class: 'form-control' do |b|
