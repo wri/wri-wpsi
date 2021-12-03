@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 201911081191813) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "date"
+    t.boolean "published", default: false
+    t.string "categories", default: [], array: true
   end
 
   create_table "pages", force: :cascade do |t|

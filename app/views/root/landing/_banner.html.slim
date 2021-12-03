@@ -1,17 +1,18 @@
 #hero.c-banner
   .container.c-banner__lead
     .c-banner__title
-      | The Growing Water
+      | Turning water crises
       br
-      | Crisis Increasingly
+      | into opportunities
       br
-      | Poses a Threat to:
-    .c-banner__title.c-banner__title--sub
-      | ecosystems,
-      br
-      | Livelihoods
-      br
-      | and Security
+      | for peacebuilding
   picture.c-banner__hero
-    = image_tag("hero/1/1400.jpg", alt:"Dried mud with hands", sizes:"(max-width: 1400px) 100vw), 1400px", srcset:[['hero/1/200.jpg', '200w'],['hero/1/609.jpg', '609w'],['hero/1/882.jpg', '882w'],['hero/1/1109.jpg', '1109w'],['hero/1/1322.jpg', '1322w'],['hero/1/1400.jpg', '1400w']])
-
+    = image_tag \
+      'hero/2/1400.jpg', \
+      alt: 'Ngari, China', \
+      sizes: '(max-width: 1400px) 100vw), 1400px', \
+      srcset: [\
+        ['hero/2/200.jpg', '200w'], ['hero/2/609.jpg', '609w'], \
+        ['hero/2/882.jpg', '882w'], ['hero/2/1109.jpg', '1109w'], \
+        ['hero/2/1322.jpg', '1322w'], ['hero/2/1400.jpg', '1400w'] \
+      ]

@@ -1,10 +1,24 @@
 global_tool:
   name: 'Global Tool'
   slug: 'global-tool'
+  menu: ''
 regional_tool:
   name: 'Regional Tool'
   slug: 'regional-tool'
+  menu: 'regional-tool'
 map:
   name: 'Map'
   slug: 'map'
   menu: 'global-tool'
+about:
+  name: 'About WPS'
+  slug: 'about-wps'
+  menu: ''
+news:
+  name: 'News and Publications'
+  slug: 'news-and-publications'
+  menu: 'about-wps'
+archive:
+  name: 'Archived News & Publications'
+  slug: 'news-archive'
+  menu: 'about-wps'

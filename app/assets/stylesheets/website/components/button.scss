@@ -18,6 +18,7 @@
   span {
     @include font-heading($size: 18px, $color: black, $weight: 600, $lh: 18/18);
     display: flex;
+    flex-grow: 1;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -35,11 +36,15 @@
     min-height: 35px;
     min-width: 35px;
     background: $blue-d;
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     font-size: 18px;
     line-height: 1;
     margin-left: auto;
     padding-left: 2px;
+  }
+
+  &.full-width {
+    width: 100%;
   }
 
   &--section {
@@ -66,6 +71,8 @@
     span {
       color: inherit;
       border-right: 0;
+      justify-content: flex-start;
+      text-align: left;
     }
   }
 

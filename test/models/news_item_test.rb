@@ -13,4 +13,10 @@ class NewsItemTest < ActiveSupport::TestCase
     news_item.valid?
     assert_empty(news_item.errors)
   end
+
+  test 'published scope works as expected' do
+    assert_difference('NewsItem.published.count', -1) do
+      NewsItem.first.update(published: false)
+    end
+  end
 end

@@ -9,6 +9,9 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   get '/map', to: 'root#map'
   get '/map/*ignored', to: 'root#map'
 
+  get '/news', to: 'root#news'
+  get '/archive', to: 'root#archive'
+
   ## Static route to file uploads
   resources :files, only: %i[show]
 
@@ -30,7 +33,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     resources :layers
     resources :pages, param: :slug
     resources :users, only: %i[index new create destroy]
-    resources :news_items, only: %i[index show update edit]
+    resources :news_items
     resources :file_uploads, only: %i[index new create destroy]
     get '/style_guides/article', to: 'style_guides#article'
   end
@@ -47,14 +50,14 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
           as: 'widget_datapoints',
           format: false,
           defaults: { format: 'json' },
-          constraints: { gid_2: %r{[^\/]+}, field_name: %r{[^\/]+} }
+          constraints: { gid_2: %r{[^/]+}, field_name: %r{[^/]+} }
 
       get 'widget_datapoints/:gid_2/:field_name/csv',
           to: 'widget_datapoints#index',
           as: 'widget_datapoints_csv',
           format: false,
           defaults: { format: 'csv' },
-          constraints: { gid_2: %r{[^\/]+}, field_name: %r{[^\/]+} }
+          constraints: { gid_2: %r{[^/]+}, field_name: %r{[^/]+} }
     end
   end
 

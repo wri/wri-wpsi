@@ -14,6 +14,22 @@ class RootControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should get news page' do
+    get page_path(pages(:news))
+    assert_redirected_to news_path
+
+    get news_path
+    assert_response :success
+  end
+
+  test 'should get archive page' do
+    get page_path(pages(:archive))
+    assert_redirected_to archive_path
+
+    get archive_path
+    assert_response :success
+  end
+
   test 'should get CMS pages' do
     get page_path(create(:page))
     assert_response :success

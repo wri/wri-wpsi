@@ -2,20 +2,18 @@
 
 .c-card--headline {
   @include card-action($content: '');
+  position: relative;
   box-shadow: 0 0 10px 5px rgba(0,0,0,.1);
-  min-height: auto;
+  min-height: 20vw;
   margin-left: 0;
   margin-right: 0;
   @for $i from 1 through length($theme) {
     $color: nth($theme, $i);
     &-#{$i} {
-      .c-card__title {
-        border-bottom: 3px solid $color;
-      }
       &:hover {
         .c-card__image-top {
           &::before {
-            background: rgba($color, .2);
+            background: transparent;
           }
         }
       }
@@ -24,24 +22,26 @@
 }
 
 .c-card--headline .c-card__content {
+  background: rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, rgba(0,0,0,0.75) 15%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.15) 70%, rgba(0, 0, 0, 0.75) 100%);
+  position: relative;
   justify-content: flex-start;
-  margin-bottom: space(2);
-  padding: space(4) space(6);
-}
-
-.c-card--headline .c-card__title,
-.c-card--headline .c-card__text {
+  margin-bottom: 0;
+  padding: space(4) space(4);
+  z-index: 1;
 }
 
 .c-card--headline .c-card__title {
-  @include font-body($weight: 700, $color: black, $size: rem(20px));
+  @include font-heading($weight: 500, $color: white, $size: rem(18px));
+  border-bottom: 0;
+  padding-bottom: 0;
   text-transform: none;
-  padding-bottom: space(1);
-  margin-bottom: space(3);
+  margin-bottom: space(1);
   white-space: normal;
 }
 
 .c-card--headline .c-card__credit {
+  @include font-heading($weight: 400, $color: white, $size: rem(16px));
   margin-bottom: space(1);
   font-style: italic;
   font-size: rem(14px);
@@ -55,11 +55,40 @@
   margin-bottom: space(4);
 }
 
+.c-card--headline .c-card__text p {
+  margin-bottom: space(4);
+}
+
+.c-card--headline .c-card__categories {
+  margin-top: auto;
+  display: flex;
+  flex-flow: wrap-reverse;
+  & .c-card__category {
+    margin: 3px
+  }
+}
+
+.c-card--headline .c-card__category {
+  @include font-heading($weight: 400, $color: black, $size: rem(12px));
+  display: inline-block;
+  background: white;
+  padding: 2px 8px;
+  border-radius: 1rem;
+}
+
 .c-card__credit {
   font-weight: 800;
 }
 
-.c-card__image-top {
-  position: relative;
+.c-card--headline .c-card__image-top {
+  position: absolute;
   display: block;
+  inset: 0;
+  & > img {
+    width: 100%;
+    height: 100%;
+    max-height: unset;
+    object-fit: cover;
+    object-position: top;
+  }
 }

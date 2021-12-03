@@ -1,7 +1,7 @@
 class Admin::NewsItemsController < Admin::BaseController
-  before_action :set_news_item, only: %i[show edit update]
-  before_action :set_date_options, only: %i[edit update]
-  before_action :set_image_url_options, only: %i[edit update]
+  before_action :set_news_item, only: %i[show edit update destroy]
+  before_action :set_date_options, only: %i[edit update new create]
+  before_action :set_image_url_options, only: %i[show edit update new create]
 
   def index
     @news_items = NewsItem.all
@@ -11,12 +11,31 @@ class Admin::NewsItemsController < Admin::BaseController
 
   def edit; end
 
+  def new
+    @news_item = NewsItem.new
+  end
+
+  def create
+    @news_item = NewsItem.new(news_item_params)
+
+    if @news_item.save
+      redirect_to [:admin, @news_item], notice: 'News item was successfully created.'
+    else
+      render :new
+    end
+  end
+
   def update
     if @news_item.update(news_item_params)
       redirect_to [:admin, @news_item], notice: 'News item was successfully updated.'
     else
       render :edit
     end
+  end
+
+  def destroy
+    @news_item.destroy
+    redirect_to admin_news_items_url, notice: 'News item was successfully deleted.'
   end
 
   private
@@ -48,6 +67,8 @@ class Admin::NewsItemsController < Admin::BaseController
       :image_url,
       :image_alt_text,
       :date,
+      :published,
+      categories: [],
     )
   end
 end

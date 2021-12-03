@@ -1,0 +1,47 @@
+ruby:
+  scope = NewsItem.archived
+  width ||= 12
+
+- content_for :main_content do
+  main.o-container.o-container--page.o-page
+  .container
+    .row
+      .col-sm-12.col-md-8.mx-auto
+        = render 'root/breadcrumbs', page: Page.news
+        h1 = 'Archived News & Publications'
+
+        - if scope.empty?
+          p.mt-8.mb-12.text-black-50
+            = 'No archived items'
+        - else
+            div
+              - NewsItem.category_labels.\
+                reject { |category, _l| scope.with_category(category).empty? }.\
+                each do |category, label|
+                  - items = scope.with_category(category)
+                  section.mt-6.mb-10 id="#{category}"
+                    h2.with-line = label
+                    - top_cards = items.limit(2)
+                    - small_cards = items.offset(2)
+                    .row.o-card-row.mt-4
+                      - top_cards.each_with_index do |item, i|
+                        = render 'root/landing/news_item', item: item, variant: i, width: 6
+                      - small_cards.each do |item|
+                        .o-card-row__card-wrap.col-sm-12.col-md-12 class="col-lg-#{width}"
+                          a.card.c-card.c-card--link.c-card--archive(
+                            href=item.article_url
+                            title="#{item.title} - #{item.date.strftime('%b. %Y')}")
+                            .c-card__image-top
+                              = image_tag(\
+                                item.image_url,\
+                                class: 'card-img-top',\
+                                alt: item.image_alt_text || '',\
+                              )
+                            .card-body.c-card__content
+                              .card-title.c-card__title
+                                .c-card__date.text-muted = item.date.strftime('%b. %Y')
+                                = item.title
+                              .card-text.c-card__description
+                                = item.description
+
+= render 'root/landing/page'

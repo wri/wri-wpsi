@@ -11,26 +11,26 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
 
   # Index action is used to render the root "homepage" view
   # TODO: Move into views?
-  def index # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+  def index # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     @action_items = [
       Card.new(
         title: 'Understand',
-        desc: 'Data and publications',
+        desc: 'Apply cutting-edge technology and participatory analysis to understand water crises',
         href: '/info/map',
       ),
       Card.new(
         title: 'Mobilise',
-        desc: 'Diplomats, Defence, Development & Disaster Response',
+        desc: 'Mobilse decision makers and communities to take informed actions',
         href: '/info/mobilise',
       ),
       Card.new(
         title: 'Learn',
-        desc: 'Linking water-related challenges',
+        desc: 'Strengthen capacities of stakeholders to address water crises',
         href: '/info/learn',
       ),
       Card.new(
         title: 'Dialogue',
-        desc: 'Fostering peace and collaboration',
+        desc: 'Support dialogue for cooperation and peacebuilding',
         href: 'info/dialogue',
       ),
     ]
@@ -83,7 +83,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         credit: 'Susanne Schmeier, IHE Delft',
       ),
     ]
-    @news_items = NewsItem.all.order(date: :desc)
+    @news_items = NewsItem.current.limit(4)
 
     set_pages
     set_partners
@@ -96,11 +96,20 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     @categories = Category.serialized_for_react_app
   end
 
+  def news
+    set_pages
+  end
+
+  def archive
+    set_pages
+  end
+
   # For showing pages with user-defined content
   def show
     set_pages
     @page = Page.find_by(slug: params[:page_slug])
-    redirect_to :map if @page.nil? || @page.contentless?
+    return redirect_to @page.redirect_target if @page&.redirect_target
+    return redirect_to :map if @page.nil? || @page.contentless?
   end
 
   def health_check
@@ -137,11 +146,12 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
   end
 
   def resolve_layout
-    if action_name == 'map'
+    case action_name
+    when 'map'
       'map'
-    elsif action_name == 'show'
-      # 'cms_pages_style' # TODO: implement new styles for the CMS pages
-      'website'
+    # when 'show'
+    #   # 'cms_pages_style' # TODO: implement new styles for the CMS pages
+    #   'website'
     else
       'website'
     end

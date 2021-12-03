@@ -1,7 +1,7 @@
 @import '../helpers';
 
 .c-banner {
-  height: rem(650px);
+  height: rem(560px);
   background: lightgray;
   position: relative;
 }
@@ -38,6 +38,7 @@
 
 .c-banner__hero img {
   object-fit: cover;
+  object-position: bottom;
   width: 100%;
   height: 100%;
 }

@@ -1,15 +1,11 @@
 section
   .container
-    h3.c-heading.c-heading--secondary.text-center.mb-3 News and Publications
-    - content_for 'news_text' do
-      | Water insecurity is increasing worldwide. In response to these threats the Water,
-      |  Peace and Security partnership develops innovative tools and services that help
-      |  identify water-related security risks, and allow stakeholders to TAKE ACTION
-      |  at an early stage.
-    = render 'root/landing/text_block', id: 'news', wrapper_class: 'mb-6'
     .row.o-card-row
       - @news_items.each_with_index do |item, i|
-        = render 'root/landing/news_item', item: item, variant: i, width: 12 / @news_items.length
+        = render 'root/landing/news_item', item: item,
+                                            variant: i,
+                                            width: 12 / @news_items.length,
+                                            include_categories: true
     .text-center
-      a href='/info/news-and-publications' class="c-button c-button--section"
+      a href='/news' class="c-button c-button--section"
         span = 'More news and publications'

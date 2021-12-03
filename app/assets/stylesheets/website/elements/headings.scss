@@ -16,6 +16,19 @@ h2,
     text-transform: none;
     margin-bottom: space(2);
   }
+
+  &.with-line {
+    display: flex;
+    align-items: center;
+    &:after {
+      content: ' ';
+      background-color: $brown;
+      height: 3px;
+      flex-grow: 1;
+      border-radius: 2px;
+      margin-left: space(4);
+    }
+  }
 }
 
 h3,

@@ -4,6 +4,24 @@ class Page < ApplicationRecord
 
   scope :top_level, -> { where(menu: '').ordered }
 
+  SLUG_REDIRECTS = {
+    'map' => :map,
+    'news-and-publications' => :news,
+    'news-archive' => :archive,
+  }.freeze
+
+  def self.news
+    Page.find_by(slug: 'news-and-publications')
+  end
+
+  def self.map
+    Page.find_by(slug: 'map')
+  end
+
+  def self.archive
+    Page.find_by(slug: 'news-archive')
+  end
+
   def to_param
     slug
   end
@@ -20,11 +38,15 @@ class Page < ApplicationRecord
     Page.find_by(slug: menu)
   end
 
+  def redirect_target
+    SLUG_REDIRECTS[slug]
+  end
+
   def contentless?
     return unless persisted?
 
     # Pages with children are contentless menu items
-    slug == 'map' || children.any?
+    redirect_target.present? || children.any?
   end
 
   def self.options_for_menu_select

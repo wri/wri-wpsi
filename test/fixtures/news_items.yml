@@ -9,6 +9,8 @@ iraq:
   article_url: https://www.deltares.nl/app/uploads/2020/07/Water-quantity-and-water-quality-in-central-and-south-Iraq-Final.pdf
   image_url: https://waterpeacesecurity.org/assets/cards/wps-news-2020-07-6df8d7210765e09e1ba0185b529a510e621a366eec481a9266f7b3385159a619.jpg
   image_alt_text: Person carrying reeds on a river bank
+  published: true
+  categories: ['News']
 
 peace_prize:
   title: WPS awarded Luxembourg Peace Prize
@@ -19,6 +21,8 @@ peace_prize:
   article_url: https://waterpeacesecurity.org/info/press-release-05-27-2020-WPS-recognized-luxembourg-peace-prize
   image_url: https://waterpeacesecurity.org//assets/cards/wps-news-2020-05-6990df32d6798c883679fd28ce25e6364e3cf4781c17be604e9081303908fbde.jpg
   image_alt_text: Great Insights magazine cover
+  published: true
+  categories: ['News', 'Blog']
 
 toolkit:
   title: WPS toolkit launched in Geneva
@@ -31,3 +35,22 @@ toolkit:
   article_url: https://waterpeacesecurity.org/info/press-release-12-05-2019-WPS-launch
   image_url: https://waterpeacesecurity.org/assets/cards/wps-news-2019-12-d4b0994c3b61e7ff326da601f53404c7ff8000a85083e147eb0b9946fc364e60.jpg
   image_alt_text: Fountain in Geneva, Switzerland, Europe
+  published: true
+  categories: ['News', 'Video', 'Podcast']
+
+lorem:
+  title: Lorem ipsum dolor sit amet
+  description: >
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+    sit amet mauris sit amet ipsum lacinia ornare in et orci. Ut ac suscipit
+    augue, vel congue quam. Quisque varius elementum dapibus. Morbi vel nulla
+    eget quam sodales elementum. Morbi urna magna, consectetur sit amet aliquet
+    vel, molestie sed sapien. Nunc et mi nec diam dignissim finibus. Proin
+    pellentesque aliquet felis. Nunc tincidunt volutpat varius. Phasellus
+    commodo sed metus vitae pretium.
+  date: 2020-01-01
+  article_url: https://waterpeacesecurity.org/info/press-release-12-05-2019-WPS-launch
+  image_url: https://waterpeacesecurity.org/assets/cards/wps-news-2019-12-d4b0994c3b61e7ff326da601f53404c7ff8000a85083e147eb0b9946fc364e60.jpg
+  image_alt_text: Fountain in Geneva, Switzerland, Europe
+  published: true
+  categories: ['Blog', 'Podcast', 'Video']
