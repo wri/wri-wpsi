@@ -14,7 +14,7 @@
       section.mt-6
         .container
           .row.o-card-row
-            - NewsItem.current.each_with_index do |item, i|
+            - NewsItem.current.limit(20).each_with_index do |item, i|
               = render 'root/landing/news_item', item: item,
                                                 variant: i,
                                                 include_categories: true

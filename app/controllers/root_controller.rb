@@ -21,17 +21,17 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
       Card.new(
         title: 'Mobilise',
         desc: 'Mobilse decision makers and communities to take informed actions',
-        href: '/info/mobilise',
+        href: '/info/our-approach',
       ),
       Card.new(
         title: 'Learn',
         desc: 'Strengthen capacities of stakeholders to address water crises',
-        href: '/info/learn',
+        href: '/info/e-learning',
       ),
       Card.new(
         title: 'Dialogue',
         desc: 'Support dialogue for cooperation and peacebuilding',
-        href: 'info/dialogue',
+        href: '/info/regional-tool',
       ),
     ]
     @social_actions = [
@@ -52,8 +52,8 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         options: { type: 'button' },
       ),
       Card.new(
-        title: 'Know Us',
-        href: '/info/about-wps',
+        title: 'Meet Us',
+        href: '/info/partners',
         options: { type: 'button' },
       ),
     ]

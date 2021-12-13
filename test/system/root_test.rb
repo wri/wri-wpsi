@@ -27,6 +27,18 @@ class RootTest < ApplicationSystemTestCase
     assert page.current_path == '/archive'
   end
 
+  def test_news_page_limit
+    30.times { |n| create(:news_item, title: "News Item #{n}", published: true) }
+    visit '/news'
+    NewsItem.current.each_with_index do |item, i|
+      if i >= 20
+        assert_no_text item.title
+      else
+        assert_text item.title
+      end
+    end
+  end
+
   def test_empty_news_page
     NewsItem.destroy_all
     visit '/news'
