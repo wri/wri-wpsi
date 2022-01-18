@@ -20,7 +20,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
       ),
       Card.new(
         title: 'Mobilise',
-        desc: 'Mobilse decision makers and communities to take informed actions',
+        desc: 'Mobilise decision makers and communities to take informed actions',
         href: '/info/our-approach',
       ),
       Card.new(
