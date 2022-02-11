@@ -1,0 +1,85 @@
+class UpdateWidgetDatapointColumnsFeb2022 < ActiveRecord::Migration[5.2]
+  def change
+    rename_column :widget_datapoints, :gid_2, :GID_2
+    rename_column :widget_datapoints, :month_indep, :month_date
+    rename_column :widget_datapoints, :gid_0, :GID_0
+    rename_column :widget_datapoints, :gid_1, :GID_1
+    rename_column :widget_datapoints, :acled_fatalities, :acl_sum_fatl
+    rename_column :widget_datapoints, :et_anom_year, :et_anom_y_MIN
+    rename_column :widget_datapoints, :value_i_2010, :spam_V_agg_i_sum
+    rename_column :widget_datapoints, :value_r_2010, :spam_V_agg_r_sum
+    rename_column :widget_datapoints, :value_a_2010, :spam_V_agg_t_sum
+
+    remove_column :widget_datapoints, :agreements_count_12m, :decimal
+    remove_column :widget_datapoints, :agreements_fatalities_12m, :decimal
+    remove_column :widget_datapoints, :battles_count_12m, :decimal
+    remove_column :widget_datapoints, :battles_fatalities_12m, :decimal
+    remove_column :widget_datapoints, :peaceful_protests_riots_count_12m, :decimal
+    remove_column :widget_datapoints, :peaceful_protests_riots_fatalities_12m, :decimal
+    remove_column :widget_datapoints, :remote_violence_count_12m, :decimal
+    remove_column :widget_datapoints, :remote_violence_fatalities_12m, :decimal
+    remove_column :widget_datapoints, :violent_protests_riots_count_12m, :decimal
+    remove_column :widget_datapoints, :violent_protests_riots_fatalities_12m, :decimal
+    remove_column :widget_datapoints, :strategic_development_count_12m, :decimal
+    remove_column :widget_datapoints, :strategic_development_fatalities_12m, :decimal
+    remove_column :widget_datapoints, :violence_against_civilians_count_12m, :decimal
+    remove_column :widget_datapoints, :violence_against_civilians_fatalities_12m, :decimal
+    remove_column :widget_datapoints, :election_recent, :binary
+    remove_column :widget_datapoints, :et_act_month, :decimal
+    remove_column :widget_datapoints, :et_anom_month, :decimal
+    remove_column :widget_datapoints, :government, :string
+    remove_column :widget_datapoints, :loccount, :decimal
+    remove_column :widget_datapoints, :rurpop, :decimal
+    remove_column :widget_datapoints, :rurratio, :decimal
+    remove_column :widget_datapoints, :spi_12, :string
+    remove_column :widget_datapoints, :urbpop, :decimal
+    remove_column :widget_datapoints, :prediction, :decimal
+    remove_column :widget_datapoints, :prediction_prob, :decimal
+
+    add_column :widget_datapoints, "buffalo_number", :string
+    add_column :widget_datapoints, "cattle_number", :string
+    add_column :widget_datapoints, "chicken_number", :string
+    add_column :widget_datapoints, "conflict_cat", :string
+    add_column :widget_datapoints, "Cropland2000_mean_percent", :string
+    add_column :widget_datapoints, "DeliveredkcalFraction", :string
+    add_column :widget_datapoints, "duck_number", :string
+    add_column :widget_datapoints, "EG.ELC.ACCS.ZS", :string
+    add_column :widget_datapoints, "EG.ELC.LOSS.ZS", :string
+    add_column :widget_datapoints, "EG.IMP.CONS.ZS", :string
+    add_column :widget_datapoints, "elec_expt_totl", :string
+    add_column :widget_datapoints, "elec_impt_totl", :string
+    add_column :widget_datapoints, "elect_dist_loss", :string
+    add_column :widget_datapoints, "energy_all", :string
+    add_column :widget_datapoints, "eng_cons_pcap", :string
+    add_column :widget_datapoints, "eng_cons_pgdp", :string
+    add_column :widget_datapoints, "eng_cons_totl", :string
+    add_column :widget_datapoints, "eng_prod_totl", :string
+    add_column :widget_datapoints, "EP.PMP.DESL.CD", :string
+    add_column :widget_datapoints, "fd_ex_per", :string
+    add_column :widget_datapoints, "fd_im_per", :string
+    add_column :widget_datapoints, "food_all", :string
+    add_column :widget_datapoints, "goat_number", :string
+    add_column :widget_datapoints, "horse_number", :string
+    add_column :widget_datapoints, "IC.FRM.OUTG.ZS", :string
+    add_column :widget_datapoints, "loss_ha", :string
+    add_column :widget_datapoints, "ndvi_act_avg", :string
+    add_column :widget_datapoints, "Pasture2000_mean_percent", :string
+    add_column :widget_datapoints, "pig_number", :string
+    add_column :widget_datapoints, "sheep_number", :string
+    add_column :widget_datapoints, "spam_P_i_ws", :string
+    add_column :widget_datapoints, "spam_P_r_sum", :string
+    add_column :widget_datapoints, "spi_3_f2", :string
+    add_column :widget_datapoints, "swe_area", :string
+    add_column :widget_datapoints, "water_all", :string
+    add_column :widget_datapoints, "wspowerprd", :string
+    add_column :widget_datapoints, "yield_gap_barley", :string
+    add_column :widget_datapoints, "yield_gap_maize", :string
+    add_column :widget_datapoints, "yield_gap_rice", :string
+    add_column :widget_datapoints, "yield_gap_soybean", :string
+
+    # Plus three columns they didn't tell us about that we found in the CSV
+    add_column :widget_datapoints, "month", :integer
+    add_column :widget_datapoints, "year", :integer
+    add_column :widget_datapoints, "year_date", :date
+  end
+end
