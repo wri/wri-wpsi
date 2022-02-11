@@ -53,6 +53,8 @@ You will also need to be on the office network in order to connect.
 
 `capistrano` tasks for starting and stopping the services are set up per https://github.com/seuros/capistrano-puma.  All necessary services are manageable via systemd and enabled on boot.
 
+To setup slackistrano notifications triggred by your deploys, you need to add the WRI_SLACK_WEBHOOK variable to your local environment with a valid Slack webhook URI.
+
 #### Services
 
 ```
@@ -87,18 +89,18 @@ All widget data is loaded into the app's database for easier access and exposed 
 
 1. Download the CSV file to the computer where you are running the rake task
 
-  * I usually download it locally and then rsync it to the wri server, with a command like `rsync -aP ~/Downloads/data_final_results_Y2021M12_wps_widget_data_Y2021M12.csv wri-prod:csvs/`
+  * I usually download it locally and then rsync it to the wri server, with a command like `rsync -aP ~/Downloads/data_final_results_Y2021M12_wps_widget_data_Y2021M12_v2.csv wri-prod:csvs/`
 
 2. Run the task with the path to the file as a parameter, something like:
 
 ```
-rake 'import:widget_datapoints[/Users/lucas/Downloads/data_final_results_Y2021M12_wps_widget_data_Y2021M12.csv]'
+rake 'import:widget_datapoints[/Users/lucas/Downloads/data_final_results_Y2021M12_wps_widget_data_Y2021M12_v2.csv]'
 ```
 
 In order to copy the CSV into the production database, you will need to specify the environment like this:
 
 ```bash
-cd ~/current && RAILS_ENV=production bundle exec rake 'import:widget_datapoints[/home/amichal/csvs/data_final_results_Y2021M12_wps_widget_data_Y2021M12.csv]'
+cd ~/current && RAILS_ENV=production bundle exec rake 'import:widget_datapoints[/home/amichal/csvs/data_final_results_Y2021M12_wps_widget_data_Y2021M12_v2.csv]'
 ```
 
 (Takes about 1 to 2 minutes)

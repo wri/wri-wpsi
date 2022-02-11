@@ -27,7 +27,7 @@ set :slackistrano,
     channel: '#gr-wri-notices',
     username: 'Capistrano',
     icon_emoji: ':ship:',
-    webhook: 'https://hooks.slack.com/services/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'
+    webhook: ENV['WRI_SLACK_WEBHOOK']
 
 def time_in_vermont
   tz = TZInfo::Timezone.get('US/Eastern')
