@@ -87,18 +87,18 @@ All widget data is loaded into the app's database for easier access and exposed 
 
 1. Download the CSV file to the computer where you are running the rake task
 
-  * I usually download it locally and then scp it to the wri server, with a command like `scp ~/Downloads/data_final_inputs_Y2021M06_Y2021M06_tool_inputs.csv wri-prod:csvs/`
+  * I usually download it locally and then rsync it to the wri server, with a command like `rsync -aP ~/Downloads/data_final_results_Y2021M12_wps_widget_data_Y2021M12.csv wri-prod:csvs/`
 
 2. Run the task with the path to the file as a parameter, something like:
 
 ```
-rake 'import:widget_datapoints[/Users/lucas/Downloads/data_final_inputs_Y2021M06_Y2021M06_tool_inputs.csv]'
+rake 'import:widget_datapoints[/Users/lucas/Downloads/data_final_results_Y2021M12_wps_widget_data_Y2021M12.csv]'
 ```
 
 In order to copy the CSV into the production database, you will need to specify the environment like this:
 
 ```bash
-cd ~/current && RAILS_ENV=production bundle exec rake 'import:widget_datapoints[/home/amichal/csvs/data_final_inputs_Y2021M06_Y2021M06_tool_inputs.csv]'
+cd ~/current && RAILS_ENV=production bundle exec rake 'import:widget_datapoints[/home/amichal/csvs/data_final_results_Y2021M12_wps_widget_data_Y2021M12.csv]'
 ```
 
 (Takes about 1 to 2 minutes)
