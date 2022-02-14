@@ -120,7 +120,7 @@ This is intended for use with the single-endpoint widget data API (see below).
 The api returns JSON containing an array of "data points". Each datapoint has the following fields:
 
 * gid_2
-* month_indep
+* month_date
 * year
 * `variable` (whatever variable was specified in the request)
 
@@ -133,19 +133,19 @@ Here is an example query and its result:
   "widget_datapoints": [
     {
       "gid_2": "NGA.21.9_1",
-      "month_indep": "2000-01-01",
+      "month_date": "2000-01-01",
       "year": 2000,
       "gid_0": "NGA"
     },
     {
       "gid_2": "NGA.21.9_1",
-      "month_indep": "2000-02-01",
+      "month_date": "2000-02-01",
       "year": 2000,
       "gid_0": "NGA"
     },
     {
       "gid_2": "NGA.21.9_1",
-      "month_indep": "2000-03-01",
+      "month_date": "2000-03-01",
       "year": 2000,
       "gid_0": "NGA"
     },

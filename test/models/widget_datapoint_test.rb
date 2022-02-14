@@ -9,7 +9,7 @@ class WidgetDatapointTest < ActiveSupport::TestCase
     expected = [
       {
         gid_2: 'USA.1.1',
-        month_indep: Date.new(2000, 1, 1),
+        month_date: Date.new(2000, 1, 1),
         year: 2000,
         rainfed: 0.12345,
       },
@@ -19,7 +19,7 @@ class WidgetDatapointTest < ActiveSupport::TestCase
   end
 
   test 'self.to_csv' do
-    expected = "gid_2,month_indep,rainfed\nUSA.1.1,2000-01-01,0.12345\n"
+    expected = "gid_2,month_date,rainfed\nUSA.1.1,2000-01-01,0.12345\n"
     assert_equal expected, WidgetDatapoint.to_csv('rainfed')
   end
 

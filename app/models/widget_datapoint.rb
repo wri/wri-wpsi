@@ -1,12 +1,16 @@
 require 'csv'
 
 class WidgetDatapoint < ApplicationRecord
+  alias_attribute :gid_0, :GID_0
+  alias_attribute :gid_1, :GID_1
+  alias_attribute :gid_2, :GID_2
+
   def self.serialized_for_react_app(field_name)
     all.map do |widget_datapoint|
       {
         gid_2: widget_datapoint.gid_2,
-        month_indep: widget_datapoint.month_indep,
-        year: widget_datapoint.month_indep.year,
+        month_date: widget_datapoint.month_date,
+        year: widget_datapoint.month_date.year,
         field_name.to_sym => widget_datapoint.send(field_name),
       }
     end
@@ -18,7 +22,7 @@ class WidgetDatapoint < ApplicationRecord
 
   def self.csv_attributes(field_name)
     if field_name
-      %w[gid_2 month_indep] << field_name
+      %w[gid_2 month_date] << field_name
     else
       attribute_names
     end
