@@ -51,3 +51,5 @@ end
 
 before 'deploy', 'gr:last_revision'
 after 'deploy:log_revision', :push_deploy_tag
+
+after 'deploy:finished', 'puma:restart'
