@@ -1,3 +1,5 @@
+require "tzinfo"
+
 # config valid for current version and patch releases of Capistrano
 lock '~> 3.16.0'
 
@@ -36,7 +38,7 @@ end
 
 desc 'Tag the deployed revision'
 task :push_deploy_tag do
-  on roles(:util) do
+  on roles(:app) do
     env = fetch(:rails_env)
     timestamp = fetch(:release_timestamp) || Time.now.utc.strftime('%Y%m%d%H%M')
 
