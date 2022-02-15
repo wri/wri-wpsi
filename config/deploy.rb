@@ -1,3 +1,5 @@
+require "tzinfo"
+
 # config valid for current version and patch releases of Capistrano
 lock '~> 3.16.0'
 
@@ -36,7 +38,7 @@ end
 
 desc 'Tag the deployed revision'
 task :push_deploy_tag do
-  on roles(:util) do
+  on roles(:app) do
     env = fetch(:rails_env)
     timestamp = fetch(:release_timestamp) || Time.now.utc.strftime('%Y%m%d%H%M')
 
@@ -51,3 +53,14 @@ end
 
 before 'deploy', 'gr:last_revision'
 after 'deploy:log_revision', :push_deploy_tag
+
+desc 'Restart puma to pick up latest code changes'
+task :restart_puma do
+  ruby_version = File.read(".ruby-version").chomp.split("-").last
+
+  on roles(:app) do
+    execute "bash -l -c 'cd #{fetch(:release_path)} && rvm #{ruby_version} do bundle exec pumactl -S #{fetch(:deploy_to)}/shared/tmp/pids/puma.state -F #{fetch(:deploy_to)}/shared/puma.rb restart'"
+  end
+end
+
+after 'deploy', :restart_puma
