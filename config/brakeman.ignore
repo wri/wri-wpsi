@@ -1,6 +1,42 @@
 {
   "ignored_warnings": [
     {
+      "warning_type": "Unmaintained Dependency",
+      "warning_code": 123,
+      "fingerprint": "425dcb3af9624f11f12d777d6f9fe05995719975a155c30012baa6b9dc3487df",
+      "check_name": "EOLRuby",
+      "message": "Support for Ruby 2.6.6 ends on 2022-03-31",
+      "file": "Gemfile.lock",
+      "line": 189,
+      "link": "https://brakemanscanner.org/docs/warning_types/unmaintained_dependency/",
+      "code": null,
+      "render_path": null,
+      "location": null,
+      "user_input": null,
+      "confidence": "Weak",
+      "note": "Don't have the maintenance budget to update ruby right now"
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "4ce116be6765cc8dc9cc7bb1d5f626a05899aa0a1b14c8364c3315742eb520e5",
+      "check_name": "Redirect",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/root_controller.rb",
+      "line": 111,
+      "link": "https://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(Page.find_by(:slug => params[:page_slug]).redirect_target)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "RootController",
+        "method": "show"
+      },
+      "user_input": "Page.find_by(:slug => params[:page_slug]).redirect_target",
+      "confidence": "High",
+      "note": "Redirect target must be set by someone with admin privileges"
+    },
+    {
       "warning_type": "Cross-Site Scripting",
       "warning_code": 4,
       "fingerprint": "56601964092c09c08ba2ebadce4228e3c71fa27d8a32a819050b4ffc09c7c661",
@@ -63,6 +99,6 @@
       "note": "long_description is only editable by admins, so we shouldn't worry about them sabotaging their own site"
     }
   ],
-  "updated": "2020-02-27 15:21:17 -0500",
-  "brakeman_version": "4.8.0"
+  "updated": "2022-02-15 07:24:32 -0500",
+  "brakeman_version": "5.2.1"
 }
