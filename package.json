@@ -8,7 +8,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "enzyme-to-json": "^3.4.0",
     "layer-manager": "^1.15.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "numeral": "^2.0.6",
     "promise.prototype.finally": "^3.1.1",
     "prop-types": "^15.7.2",
