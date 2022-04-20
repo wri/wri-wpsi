@@ -7,8 +7,8 @@ section class=wrapper_class
   article.container
     .row
       .mx-auto class="col-#{width}"
-        p.c-text.c-text--lead
-          = content_for "#{id}_text"
+        p.c-text.c-text--lead.mx-auto
+          = yield
         - if more_link
           .text-center.mt-6
             a href="#{more_link[:href]}" class="c-button c-button--section"

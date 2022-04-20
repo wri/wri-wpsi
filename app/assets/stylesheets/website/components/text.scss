@@ -6,11 +6,12 @@
 
 .c-text--lead {
   color: $gray-600;
-  font-size: 22px;
-  line-height: (30/22);
+  font-size: 16px;
+  line-height: (22/16);
   margin-bottom: 0;
   @include media-breakpoint-up(md) {
-    font-size: 26px;
-    line-height: (36/26);
+    font-size: 20px;
+    line-height: (32/20);
+    max-width: 70ch;
   }
 }
