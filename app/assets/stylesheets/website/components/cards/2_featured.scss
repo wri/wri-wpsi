@@ -1,7 +1,7 @@
 @import '../../helpers';
 
 .c-card--featured {
-  min-height: rem(325px);
+  min-height: rem(225px);
   &:hover {
     @include media-breakpoint-up(lg) {
       transform: scale(1.1) translateY(-5px);
@@ -23,6 +23,10 @@
   @include card-action($content: get-icon-char('plus'));
 }
 
+.c-card--featured .card-body {
+  padding: 1.25rem 0;
+}
+
 .c-card--featured .c-card__content {
   justify-content: flex-start;
   margin-bottom: space(2);
@@ -34,12 +38,7 @@
 }
 
 .c-card--featured .c-card__title {
-  @include media-breakpoint-between(lg, xl) {
-    font-size: 25px;
-  }
-  @include media-breakpoint-up(xl) {
-    font-size: 30px;
-  }
+  font-size: 20px;
 }
 
 .c-card--featured .c-card__watermark {
@@ -50,5 +49,5 @@
 }
 
 .c-card--featured .c-card__text {
-  @include font-heading($color: white, $size: 20px, $lh: 1.2);
+  @include font-heading($color: white, $size: 16px, $lh: 1.2);
 }
