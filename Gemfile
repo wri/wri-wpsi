@@ -5,7 +5,7 @@ ruby File.read('.ruby-version').gsub('ruby-', '').strip
 
 gem 'active_storage_validations'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap', '~> 4.6.1'
 gem 'clipboard-rails'
 gem 'devise'
 gem 'dotenv-rails'
@@ -13,7 +13,7 @@ gem 'jquery-rails'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 5.5'
 gem 'rails', '~> 5.2.4'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 gem 'sentry-raven'
 gem 'slackistrano', require: false
 gem 'slim-rails'
