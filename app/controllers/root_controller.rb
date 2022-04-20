@@ -63,24 +63,32 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     ]
     @quotes = [
       Card.new(
-        title: 'WPS Goals',
-        desc: 'Through the WPS partnership we hope to prevent conflicts over'\
-        ' water by enabling communities to take action at an early stage.',
-        credit: 'Carola van Rijnsoever, Dutch Ministry for Foreign Affairs.',
+        title: 'Solving conflict',
+        credit: 'Susanne Schmeier, IHE Delft',
+        desc: <<~TEXT
+          It's important to know why conflict is happening, what the role of
+          water is, and what factors you can influence either as a policy maker
+          in the respective region, or as an external partner, to solve the conflict.
+        TEXT
       ),
       Card.new(
         title: 'Crucial data',
-        desc: 'Data is fundamental to understanding where the risks are highest,'\
-        ' what’s driving these risks, and they suggest what possible solutions'\
-        ' might be, in order to mitigate these risks.',
         credit: 'Charles Iceland, World Resources Institute',
+        desc: <<~TEXT
+          Data is fundamental to understanding where the risks are highest,
+          what's driving these risks, and they suggest what possible solutions
+          might be, in order to mitigate these risks.
+        TEXT
       ),
       Card.new(
-        title: 'Solving conflict',
-        desc: 'It’s important to know why conflict is happening, what the role of'\
-        ' water is, and what factors you can influence either as a policy maker'\
-        ' in the respective region, or as an external partner, to solve the conflict',
-        credit: 'Susanne Schmeier, IHE Delft',
+        title: 'Regional impact',
+        credit: 'Karounga Keïta, Wetlands International Sahel Office',
+        desc: <<~TEXT
+          WPS helps Malian decision-makers, civil society and local communities to
+          understand the link between water, peace and security. This fosters the
+          hope for peaceful, shared and sustainable management of natural resources
+          in the Inner Niger Delta.
+        TEXT
       ),
     ]
     @news_items = NewsItem.current.limit(4)
