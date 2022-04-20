@@ -98,6 +98,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
 
   def news
     set_pages
+    @news_items = NewsItem.current.limit(12)
   end
 
   def archive
