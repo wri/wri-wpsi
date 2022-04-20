@@ -5,6 +5,7 @@
     "@babel/core": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@rails/webpacker": "5.4.0",
+    "babel-loader": "^8.2.5",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "enzyme-to-json": "^3.4.0",
     "layer-manager": "^1.15.2",
@@ -25,6 +26,8 @@
     "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.5.5",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
