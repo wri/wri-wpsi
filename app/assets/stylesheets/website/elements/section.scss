@@ -1,7 +1,7 @@
 @import '../helpers';
 
 section {
-  margin-bottom: rem(50px);
+  margin-bottom: rem(75px);
   @include media-breakpoint-up(md) {
     margin-bottom: rem(100px);
   }

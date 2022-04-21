@@ -49,5 +49,8 @@
 }
 
 .c-card--featured .c-card__text {
-  @include font-heading($color: white, $size: 16px, $lh: 1.2);
+  @include font-heading($color: white, $size: 18px, $lh: 1.2);
+  @include media-breakpoint-up(lg) {
+    font-size: 16px;
+  }
 }

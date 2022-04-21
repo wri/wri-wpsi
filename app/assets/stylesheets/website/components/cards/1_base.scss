@@ -3,9 +3,12 @@
 .c-card {
   position: relative;
   min-height: 300px;
-  margin-bottom: space(6);
+  margin-bottom: space(4);
   border-radius: 0;
   border: 0;
+  @include media-breakpoint-up(sm) {
+    margin-bottom: space(6);
+  }
   .c-card__text {
     color: black;
   }

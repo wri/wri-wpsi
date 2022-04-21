@@ -33,9 +33,12 @@
 @mixin banner-title {
   text-transform: uppercase;
   padding: space(5) space(10) space(5) space(5);
-  background: white;
+  background: rgba($white, .9);
   color: #586671;
   flex: 0 0 auto;
   line-height: 1;
-  @include font-heading($size: 2rem, $weight: 900);
+  @include font-heading($size: 1.5rem, $weight: 900, $lh: 1.25);
+  @include media-breakpoint-up(sm) {
+    @include font-heading($size: 2rem, $weight: 900, $lh: 1.25);
+  }
 }

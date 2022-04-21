@@ -7,19 +7,24 @@
 }
 
 .c-banner__lead {
-  // Need to reposition this text on smaller screens?
-  // position: absolute;
-  // bottom: 0;
   position: relative;
   padding-top: 100px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   z-index: 10;
+  @include media-breakpoint-up(sm) {
+    align-items: flex-start;
+  }
 }
 
 .c-banner__title {
   @include banner-title;
+  br {
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+  }
 }
 
 .c-banner__title--sub {

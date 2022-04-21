@@ -4,9 +4,17 @@
   @include card-action($content: '');
   position: relative;
   box-shadow: 0 0 10px 5px rgba(0,0,0,.1);
-  min-height: 20vw;
+  height: 20vh;
+  min-height: 200px;
+  max-height: 300px;
   margin-left: 0;
   margin-right: 0;
+  &:hover,
+  &:focus {
+    .c-card__content {
+      background: linear-gradient(180deg, rgba($black, .75) 0%, rgba($black, .15) 80%, rgba($black, 0) 100%);
+    }
+  }
   @for $i from 1 through length($theme) {
     $color: nth($theme, $i);
     &-#{$i} {
@@ -23,7 +31,7 @@
 
 .c-card--headline .c-card__content {
   background: rgba(0, 0, 0, 0.1);
-  background: linear-gradient(180deg, rgba(0,0,0,0.75) 15%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.15) 70%, rgba(0, 0, 0, 0.75) 100%);
+  background: linear-gradient(180deg, rgba($black, 1) 0%, rgba($black, .25) 80%, rgba($black, 0) 100%);
   position: relative;
   justify-content: flex-start;
   margin-bottom: 0;
@@ -32,7 +40,7 @@
 }
 
 .c-card--headline .c-card__title {
-  @include font-heading($weight: 500, $color: white, $size: rem(18px));
+  @include font-heading($weight: 600, $color: white, $size: rem(18px));
   border-bottom: 0;
   padding-bottom: 0;
   text-transform: none;
@@ -63,6 +71,11 @@
   margin-top: auto;
   display: flex;
   flex-flow: wrap-reverse;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  margin-bottom: -1rem;
+  padding: 1rem;
+  background: linear-gradient(0deg, rgba($black, .75) 0%, rgba($black, 0) 100%);
   & .c-card__category {
     margin: 3px
   }
@@ -84,6 +97,7 @@
   position: absolute;
   display: block;
   inset: 0;
+  background: rgba($black, 0.25);
   & > img {
     width: 100%;
     height: 100%;
