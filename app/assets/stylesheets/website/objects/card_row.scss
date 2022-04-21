@@ -1,12 +1,19 @@
-.o-card-row {
-}
+@import '../helpers';
 
 .o-card-row--bg {
   background: #9797a3;
 }
 
 .o-card-row--overlapping {
-  margin-top: -170px;
+  background: rgba($white, .75);
+  padding: space(4);
+  margin-top: -200px;
+  margin-left: - space(4);
+  margin-right: - space(4);
+  @include media-breakpoint-up(md) {
+    padding: 0;
+    margin-top: -170px;
+  }
 }
 
 .o-card-row__card-wrap {

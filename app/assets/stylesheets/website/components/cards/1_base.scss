@@ -28,7 +28,10 @@
     opacity: .4;
     margin-bottom: space(4);
     transition: .1s opacity ease-in-out;
-    font-size: 100px;
+    font-size: 75px;
+    @include media-breakpoint-up(md) {
+      font-size: 100px;
+    }
     @include font-icon;
   }
 }

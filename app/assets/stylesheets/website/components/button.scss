@@ -6,7 +6,7 @@
   text-transform: uppercase;
   text-decoration: none;
   min-height: 50px;
-  min-width: 65%;
+  min-width: 100%;
   @include media-breakpoint-up(md) {
     min-width: 20vw;
   }

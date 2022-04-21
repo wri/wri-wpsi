@@ -2,12 +2,11 @@ section
   .container
     .row.o-card-row
       .col-10.col-sm-12.mx-auto.p-0
-        .row
+        .row.mb-6
           - @news_items.each_with_index do |item, i|
             = render 'root/landing/news_item', item: item,
                                                 variant: i,
                                                 width: 12 / @news_items.length,
                                                 include_categories: true
-    .text-center
-      a href='/news' class="c-button c-button--section"
-        span = 'More news and publications'
+        a href='/news' class="c-button c-button--section"
+          span = 'More news and publications'
