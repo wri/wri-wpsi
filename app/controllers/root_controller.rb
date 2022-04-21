@@ -30,6 +30,10 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
 
   def archive
     set_pages
+    @news_items = NewsItem.archived
+    @news_items_category_labels = NewsItem.category_labels.reject do |category, _l|
+      @news_items.with_category(category).empty?
+    end
   end
 
   # For showing pages with user-defined content

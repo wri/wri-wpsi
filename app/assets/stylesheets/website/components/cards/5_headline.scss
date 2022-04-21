@@ -5,14 +5,14 @@
   position: relative;
   box-shadow: 0 0 10px 5px rgba(0,0,0,.1);
   height: 20vh;
-  min-height: 200px;
-  max-height: 300px;
+  min-height: 350px;
+  max-height: 400px;
   margin-left: 0;
   margin-right: 0;
   &:hover,
   &:focus {
     .c-card__content {
-      background: linear-gradient(180deg, rgba($black, .75) 0%, rgba($black, .15) 80%, rgba($black, 0) 100%);
+      background: linear-gradient(180deg, rgba($black, .75) 0%, rgba($black, .15) 60%, rgba($black, 0) 100%);
     }
   }
   @for $i from 1 through length($theme) {
@@ -31,7 +31,7 @@
 
 .c-card--headline .c-card__content {
   background: rgba(0, 0, 0, 0.1);
-  background: linear-gradient(180deg, rgba($black, 1) 0%, rgba($black, .25) 80%, rgba($black, 0) 100%);
+  background: linear-gradient(180deg, rgba($black, 1) 0%, rgba($black, .25) 60%, rgba($black, 0) 100%);
   position: relative;
   justify-content: flex-start;
   margin-bottom: 0;
