@@ -2,7 +2,7 @@ footer
   .c-footer
     .container.c-footer__row
       .c-footer__brand
-        = image_tag 'logo_white.svg', width: 200, class: 'mr-6'
+        = image_tag 'logo_white.svg', width: 200, class: 'mr-6 mt-2 mb-2'
         .c-footer__brand-contact
           = mail_to('info@waterpeacesecurity.org',
                     'info@waterpeacesecurity.org',
@@ -23,9 +23,11 @@ footer
 
   .c-footer.c-footer--partners
     .container
-      ul.list-unstyled.row
-        - @partners.each do |partner|
-          - title = partner.title
-          li.c-footer__item class="col-sm-#{12 / @partners.length}"
-            = link_to partner.href, target: '_blank', rel: 'noopener noreferrer' do
-              = image_tag("logos/#{title.parameterize}_white.png", alt: title, class: 'c-footer__logo')
+      .row
+        .col-10.col-md-12.mx-auto
+          ul.list-unstyled.row
+            - @partners.each do |partner|
+              - title = partner.title
+              li.c-footer__item.col-4.mb-4 class="col-md-#{12 / @partners.length}"
+                = link_to partner.href, target: '_blank', rel: 'noopener noreferrer' do
+                  = image_tag("logos/#{title.parameterize}.png", alt: title, class: 'c-footer__logo')

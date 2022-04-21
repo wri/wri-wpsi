@@ -5,6 +5,11 @@
   background: get-gray(1);
   text-transform: uppercase;
   text-decoration: none;
+  min-height: 50px;
+  min-width: 100%;
+  @include media-breakpoint-up(md) {
+    min-width: 20vw;
+  }
   &:focus,
   &:hover {
     text-decoration: none;

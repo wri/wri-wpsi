@@ -2,11 +2,11 @@
 
 .c-card--action {
   @include card-action($content: '');
-  box-shadow: 0 0 10px 5px rgba(0,0,0,.1);
   min-height: auto;
   @for $i from 1 through length($theme) {
     $color: nth($theme, $i);
     &-#{$i} {
+      border: 1px solid rgba($color, .5);
       .c-card__title {
         background-color: $color;
       }
@@ -23,24 +23,22 @@
 .c-card--action .c-card__content {
   min-height: 100px;
   padding: 0;
-  padding-bottom: space(4);
   align-items: center;
   justify-content: center;
-}
-
-.c-card--action .c-card__title,
-.c-card--action .c-card__text {
+  @include media-breakpoint-up(md) {
+    padding-bottom: space(4);
+  }
 }
 
 .c-card--action .c-card__title {
-  padding: space(6);
-  margin-bottom: space(3);
+  padding: space(2);
   text-align: center;
-  @include media-breakpoint-between(lg, xl) {
-    font-size: 25px;
-  }
-  @include media-breakpoint-up(xl) {
-    font-size: 30px;
+  font-size: 20px;
+  margin-bottom: 0;
+  @include media-breakpoint-up(md) {
+    margin-bottom: space(3);
+    padding: space(4);
+    font-size: 24px;
   }
 }
 
@@ -53,4 +51,8 @@
     text-decoration: none;
     transform: scale(1.2);
   }
+}
+
+.c-card--action .c-button {
+  min-width: auto;
 }
