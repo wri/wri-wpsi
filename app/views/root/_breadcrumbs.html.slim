@@ -1,7 +1,8 @@
-.c-breadcrumbs
-  - if page.parent
-    a.c-breadcrumbs__link href=page_path(page.parent)
-      span = page.parent.name
-    .c-breadcrumbs__divider = '>'
-  a.c-breadcrumbs__link href=page_path(page)
-    span = page.name
+- if page
+  .c-breadcrumbs
+    - if page.parent
+      a.c-breadcrumbs__link href=page_path(page.parent)
+        span = page.parent.name
+      .c-breadcrumbs__divider = '>'
+    a.c-breadcrumbs__link href=page_path(page)
+      span = page.name

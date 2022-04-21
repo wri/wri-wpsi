@@ -23,7 +23,7 @@ class RootTest < ApplicationSystemTestCase
     visit '/news'
     assert_selector 'a > img[alt="WPS logo"]'
     NewsItem.current.each { |item| assert_text item.title }
-    find_link('View Archive').click
+    find_link('More news and publications').click
     assert page.current_path == '/archive'
   end
 
@@ -44,7 +44,7 @@ class RootTest < ApplicationSystemTestCase
     visit '/news'
     assert_selector 'a > img[alt="WPS logo"]'
     assert_text 'No news items'
-    assert_no_text 'View Archive'
+    assert_no_text 'More news and publications'
   end
 
   def test_archive_page # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
