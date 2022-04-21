@@ -1,7 +1,6 @@
 main.o-container.o-container--page.o-page
   .container
     .row
-      .col-sm-12.col-md-8.mx-auto
+      .col-sm-12.col-md-8.mx-auto.c-page
         = render 'root/breadcrumbs', page: page
-
         div = raw page.content
