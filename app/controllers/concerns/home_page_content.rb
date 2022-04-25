@@ -4,7 +4,6 @@ module HomePageContent
   def setup_cards!
     cards = %i[ action_items social_actions tools quotes ]
     @cards = cards.map do |c|
-      puts c.is_a? String
       [c, send(c)]
     end.to_h
   end
