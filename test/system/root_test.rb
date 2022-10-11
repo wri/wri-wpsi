@@ -28,10 +28,10 @@ class RootTest < ApplicationSystemTestCase
   end
 
   def test_news_page_limit
-    30.times { |n| create(:news_item, title: "News Item #{n}", published: true) }
+    30.times { |n| create(:news_item, title: "News Item _#{n}_", published: true) }
     visit '/news'
     NewsItem.current.each_with_index do |item, i|
-      if i >= 20
+      if i >= 12
         assert_no_text item.title
       else
         assert_text item.title
@@ -84,16 +84,17 @@ class RootTest < ApplicationSystemTestCase
   end
 
   def retry_on_timeout
-    attempts = 0
+    yield
+    # attempts = 0
 
-    begin
-      yield
-    rescue Net::ReadTimeout => e
-      raise e if (attempts += 1) > 3
+    # begin
+    #   yield
+    # rescue Net::ReadTimeout => e
+    #   raise e if (attempts += 1) > 3
 
-      puts "Timeout (#{e}), retrying in 1 second..."
-      sleep(1)
-      retry
-    end
+    #   puts "Timeout (#{e}), retrying in 1 second..."
+    #   sleep(1)
+    #   retry
+    # end
   end
 end

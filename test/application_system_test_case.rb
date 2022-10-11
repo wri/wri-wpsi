@@ -1,36 +1,37 @@
 require 'test_helper'
+require 'e2e_tests'
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
-  if ENV['DEBUG_CHROME']
-    # Run in a new instance of chrome for visual debugging
-    Capybara.register_driver(:debug_chrome) do |app|
-      capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-        chromeOptions: { args: %w[auto-open-devtools-for-tabs] },
-      )
+  include Warden::Test::Helpers
+  self.use_transactional_tests = true
 
-      Capybara::Selenium::Driver.new(
-        app,
-        browser: :chrome,
-        desired_capabilities: capabilities,
-      )
+  SYSTEM_TEST_STRATEGY = ENV.fetch('SYSTEM_TEST_STRATEGY', 'host')
+  case SYSTEM_TEST_STRATEGY
+  when 'container_headless_chrome'
+    include E2eTests::Helpers
+    driven_by :cuprite
+    if Rails.version =~ /\A(6\.0|5\.2)/
+      setup do
+        host! E2eTests::CAPYBARA_APP_HOST
+      end
     end
+  when 'host', 'host_debug'
+    # Run tests on host, optionally with live browser debugging.
 
-    driven_by :debug_chrome
+    # Use live browser debugging if SYSTEM_TEST_STRATEGY=host_debug or if CHROME_DEBUG is set.
+    # Otherwise, use headless browser.
+    browser = (SYSTEM_TEST_STRATEGY == 'host_debug' || ENV.fetch('CHROME_DEBUG', false)) ? :chrome : :headless_chrome
+
+    driven_by :selenium, using: browser, screen_size: [1366, 768]
   else
-    # Run headless by default
-    driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]
-  end
-
-  def setup
-    super
-    Capybara.enable_aria_label = true
+    raise %(Invalid SYSTEM_TEST_STRATEGY "#{SYSTEM_TEST_STRATEGY}")
   end
 
   # `id` must be the id attribute of the editor instance e.g.
   # <textarea id="foo" ...></textarea>
   def tinymce_fill_in(id, with:)
-    assert_css("##{id}_ifr")
-    js = "tinyMCE.get('#{id}').setContent('#{with}')"
-    page.execute_script(js)
+    find("##{id}_ifr").send_keys(with)
   end
 end
+
+E2eTests::Setup.perform if ApplicationSystemTestCase::SYSTEM_TEST_STRATEGY != 'host'

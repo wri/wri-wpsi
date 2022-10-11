@@ -34,7 +34,7 @@ class NewsItem < ApplicationRecord
   end
 
   def self.date_sort
-    order(date: :desc)
+    order(date: :desc, id: :desc)
   end
 
   def self.with_category(*args)

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const widgetSpecEl = document.getElementById('layer_widget_spec')
   const previewRegionEl = document.getElementById('preview_region')
 
-  if (widgetSpecEl && previewRegionEl) {
+  if (widgetSpecEl && previewRegionEl && widgetSpecEl.value) {
     const updatePreview = () => {
       ReactDOM.render(
         <Widget region={{gid_2: previewRegionEl.value}} widgetSpec={JSON.parse(widgetSpecEl.value)} />,

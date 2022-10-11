@@ -1,0 +1,15 @@
+version: '3.7'
+x-volumes: &volumes
+  volumes:
+    - .:/app
+services:
+  web:
+    <<: *volumes
+  webpack:
+    <<: *volumes
+  shell:
+    <<: *volumes
+  chrome:
+    <<: *volumes
+  test_runner:
+    <<: *volumes

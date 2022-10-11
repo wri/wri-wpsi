@@ -41,3 +41,13 @@ coverage
 
 # Ignore local environment settings
 .env.local
+.env
+
+# vscode and vendor cache
+.vscode/
+untracked
+# vim swap
+*.sw?
+
+dev_docs/nginx-proxy/certs/*.key
+dev_docs/nginx-proxy/certs/*.crt

@@ -1,0 +1,93 @@
+name: Audit and Test
+on: pull_request
+
+# branch pushes will cancel any running jobs to the same branch
+concurrency:
+  group: ${{ github.ref }}-ci
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      RAILS_ENV: test
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_PASS: postgres
+      DB_USER: postgres
+      DISABLE_SPRING: true
+      SYSTEM_TEST_STRATEGY: container_headless_chrome
+
+    services:
+      postgres:
+        image: postgres:11-bullseye
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ["5432:5432"]
+        options: --health-cmd pg_isready --health-interval 10ms --health-timeout 500ms --health-retries 15
+
+      chrome:
+        image: browserless/chrome:1-chrome-stable
+        ports:
+          - 3333:3333
+        env:
+          # By default, it uses 3000, which is typically used by Rails.
+          PORT: 3333
+          CONNECTION_TIMEOUT: 600000
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Log run info
+        run: echo "This workflow for ref ${{ github.ref }} was triggered by ${{ github.event_name }} event, running on ${{ runner.os }}."
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.17.1
+
+      - name: Find yarn cache location
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: JS package cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install packages
+        run: |
+          yarn install --pure-lockfile
+
+      - name: Setup test database
+        run: bundle exec rails db:reset db:setup db:migrate
+
+      - name: precompile assets
+        run: bundle exec rails assets:precompile
+
+      - name: Run tests
+        run: |
+          sudo chown -R $(whoami) /tmp
+          bundle exec rails test
+
+      - name: Run E2E tests
+        env:
+          CHROME_URL: http://localhost:3333
+        run: bundle exec rails test:system
+
+      - name: Archive capybara screenshots files
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: screenshots
+          path: tmp/capybara/screenshots/
