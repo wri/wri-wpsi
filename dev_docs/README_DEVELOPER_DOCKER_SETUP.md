@@ -72,7 +72,11 @@ shell$ cp env.sample .env.local
 shell$ ./bin/setup
 ```
 
-The setup script should create an admin account called "admin-wri@example.com" - you can use the "forgot password" to get the password or reset it via the console (`rails c`).
+Use the rails console to create a new user:
+```
+$ rails c
+irb(main):001:0> User.create email:"admin-wri-1@example.com", password:"password"
+```
 
 ```
 docker-compose up
