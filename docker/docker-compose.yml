@@ -116,7 +116,7 @@ services:
       - db
 
   chrome:
-    image: browserless/chrome:1-chrome-stable
+    image: browserless/chrome:1-puppeteer-15.5.0-slim
     profiles: ["test"]
     ports:
       - "3333:3333"
