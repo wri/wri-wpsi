@@ -29,6 +29,8 @@ docker-compose up -d
 
 ##### 2) After installing nginx proxy, you will need to tell your OS to trust the self-signed cert for `*.dev.test`
 
+This step is optional, the app can run over plain http. However https is recommended to best replicate the production environment .
+
 When setting up nginx-proxy, you generated a self-signed certificate. To get your browser to use this certificate, you need to tell the OS to trust it: Open up Keychain and copy (or drag-and-drop) the dev.test.crt into your System keychain (note this must be the system keychain, not the login keychain). Open the certificate in the keychain and expand to show the trust setting. Then change the settings to always trust. [Instructions scraped from VMWare docs](https://docs.vmware.com/en/Horizon-FLEX/1.12/com.vmware.horizon.flex.admin.doc/GUID-23DDDCF8-B59A-439E-97F1-DFFE92616EF0.html)
 
 ##### 3) Add host records for this project to /etc/hosts (or you can use dnsmasq if you prefer):
@@ -48,7 +50,7 @@ When setting up nginx-proxy, you generated a self-signed certificate. To get you
 # copy and edit .env and enable the appropriate `COMPOSE_FILE`.
 cp .env.docker-compose .env
 
-cd ~/projects/wri-asset-tool
+cd ~/projects/wri-wpsi
 docker-compose build shell
 ```
 
