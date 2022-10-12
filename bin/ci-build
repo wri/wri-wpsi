@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
+export RAILS_ENV=test
 export COVERAGE=1
 
 echo -e "\n== Jest tests =========================================================================="
@@ -12,7 +13,7 @@ bundle exec brakeman -q --ensure-latest --no-pager --except PermitAttributes,Ren
 # bundle exec bundle-audit check --update
 
 echo -e "\n== Rails test environment setup ========================================================"
-bundle exec rails db:setup db:migrate RAILS_ENV=test
+bundle exec rails db:reset db:migrate RAILS_ENV=test
 bundle exec rake assets:precompile
 
 echo -e "\n== Rails tests ========================================================================="
