@@ -66,7 +66,7 @@ const MapPage = ({ match, history, layers, categories }) => {
   const addLayer = (layer) => {
     if (!layer.mask) {
       // Trigger a Google Analytics event
-      window.dataLayer.push({'event': 'Dataset Added', 'dataset': layer.name})
+      window.dataLayer.push({'event': 'dataset_added', 'dataset': layer.name});
     }
 
     setActiveLayers([layer].concat(activeLayers))
