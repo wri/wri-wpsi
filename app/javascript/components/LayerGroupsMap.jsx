@@ -107,7 +107,7 @@ class LayerGroupsMap extends React.Component {
           const selectedRegion = data.features.length > 0 ? data.features[0].properties : null
 
           // Trigger a Google Analytics event
-          window.dataLayer.push({'event': 'Region Selected', 'selectedRegion': selectedRegion})
+          window.dataLayer.push({'event': 'region_selected', 'selectedRegion': selectedRegion})
 
           this.props.setSelectedRegion(selectedRegion)
         })
