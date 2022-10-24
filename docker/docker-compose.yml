@@ -1,0 +1,138 @@
+version: '3.7'
+x-app: &app
+  stdin_open: true
+  tty: true
+  image: wri
+  build:
+    context: .
+    dockerfile: ./docker/Dockerfile
+  volumes: &volumes
+    - gems:/usr/local/bundle
+    - node_modules:/node_modules
+    - rails_cache:/rails_cache
+    - home:/home/appuser
+    - root:/root
+  environment: &env
+    RAILS_LOG_TO_STDOUT: "true"
+    WEBPACKER_DEV_SERVER_HOST: webpack
+    DB_NAME: wri_development_master
+    DB_HOST: db
+    DB_PASS: postgres
+    DB_USER: postgres
+    YARN_CACHE_FOLDER: '/node_modules/.yarn-cache'
+    WEBPACKER_DEV_SERVER_PUBLIC: wri-webpack.dev.test
+    WEBPACKER_DEV_SERVER_PORT: 80
+    SMTP_SERVER: mailhog
+    CHROME_URL: http://chrome:3333
+    SYSTEM_TEST_STRATEGY: container_headless_chrome
+secrets:
+  host_ssh_key:
+    file: ~/.ssh/id_rsa
+volumes:
+  node_modules:
+  gems:
+  home:
+  root:
+  dbdata:
+  rails_cache:
+services:
+  db:
+    image: postgres:11-bullseye
+    container_name: wri_db
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    healthcheck:
+      test: pg_isready -U postgres -h 127.0.0.1
+      interval: 5s
+
+  web: &web
+    <<: *app
+    command: bundle exec rails server -b 0.0.0.0
+    entrypoint: docker/entrypoint.sh
+    environment:
+      <<: *env
+      VIRTUAL_HOST: wri.dev.test
+      VIRTUAL_PORT: 3000
+    depends_on:
+      - db
+      - webpack
+      - mailhog
+    expose:
+      - 3000
+    networks:
+      - default
+      - nginx
+
+  webpack:
+    <<: *app
+    environment:
+      <<: *env
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+      VIRTUAL_HOST: wri-webpack.dev.test
+      VIRTUAL_PORT: 80
+    command: ./bin/webpack-dev-server --inline true
+    expose:
+      - 80
+    networks:
+      - default
+      - nginx
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    restart: always
+    environment:
+      VIRTUAL_HOST: mail-wri.dev.test
+      VIRTUAL_PORT: 8025
+    expose:
+      - 8025
+      - 1025
+    networks:
+      - default
+      - nginx
+
+  shell:
+    <<: *app
+    profiles: ["dev"]
+    environment:
+      <<: *env
+    command: /bin/bash
+    depends_on:
+      - db
+    ports:
+      - "3434:3434" # For Capybara. Make sure you run this with --service-ports flag (or just use bin/dcr)
+
+  test_runner:
+    <<: *app
+    profiles: ["test"]
+    command: ./bin/ci-build
+    depends_on:
+      - chrome
+      - db
+
+  chrome:
+    image: browserless/chrome:1-puppeteer-15.5.0-slim
+    profiles: ["test"]
+    ports:
+      - "3333:3333"
+    # Mount application source code to support file uploading
+    # (otherwise Chrome won't be able to find files).
+    # NOTE: Make sure you use absolute paths in `#attach_file`.
+    environment:
+      # By default, it uses 3000, which is typically used by Rails.
+      PORT: 3333
+      # Set connection timeout to avoid timeout exception during debugging
+      # https://docs.browserless.io/docs/docker.html#connection-timeout
+      CONNECTION_TIMEOUT: 600000
+
+networks:
+  default:
+    name: wri-wpsi
+  nginx:
+    external:
+      name: nginx-proxy

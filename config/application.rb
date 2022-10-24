@@ -17,5 +17,6 @@ module WriWpsi
     # the framework and any gems in your application.
 
     config.tinymce.install = :compile
+    config.colorize_logging = false
   end
 end

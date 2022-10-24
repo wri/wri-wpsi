@@ -24,6 +24,15 @@ default: &default
 development:
   <<: *default
   database: wri-wpsi_development
+  <% if ENV['DB_HOST'] %>
+  host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
+  <% end %>
+  <% if ENV['DB_PASS'] %>
+  password: <%= ENV.fetch("DB_PASS") %>
+  <% end %>
+  <% if ENV['DB_USER'] %>
+  username: <%= ENV.fetch("DB_USER") %>
+  <% end %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,6 +67,15 @@ development:
 test:
   <<: *default
   database: wri-wpsi_test
+  <% if ENV['DB_HOST'] %>
+  host: <%= ENV.fetch("DB_HOST") { 'localhost' } %>
+  <% end %>
+  <% if ENV['DB_PASS'] %>
+  password: <%= ENV.fetch("DB_PASS") %>
+  <% end %>
+  <% if ENV['DB_USER'] %>
+  username: <%= ENV.fetch("DB_USER") %>
+  <% end %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

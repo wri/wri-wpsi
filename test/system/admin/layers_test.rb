@@ -56,7 +56,7 @@ class LayersTest < ApplicationSystemTestCase
     check 'Mask' if @layer.mask
     check 'Published' if @layer.published
     check 'Primary' if @layer.primary
-    click_on 'Update Layer'
+    click_button 'Update Layer'
 
     assert_text 'Layer was successfully updated'
     click_on 'Back'
