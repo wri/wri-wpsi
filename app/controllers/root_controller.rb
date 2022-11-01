@@ -36,6 +36,12 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     end
   end
 
+  # scrollytelling data story
+  def causal
+    set_pages
+    render 'causal_data_story/show'
+  end
+
   # For showing pages with user-defined content
   def show
     set_pages

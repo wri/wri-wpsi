@@ -78,7 +78,7 @@ class ResourceWatchMap extends React.Component {
           throw Error(`Layer ${layerId} could not be fetched`)
         }
       })
-      .catch(console.log)
+      // .catch(console.log)
   }
 
   filterLayerGroups = () => {
