@@ -115,7 +115,7 @@ This is intended for use with the single-endpoint widget data API (see below).
 
 | Method | URL                                                  | Description
 |--------|------------------------------------------------------|------------
-| GET    | api/v1/widget_datapoints/`region_id`/`variable`/     | Returns all datapoints for the given `region_id` and `variable`:<ul><li>`region_id` should be a gid_2 like `NGA.21.9_1`</li><li>`variable` should be an identifier for one of the model variables, matching [one of the headers from the data csv](/db/schema.rb#L64-L138).</li></ul>
+| GET    | api/v1/widget_datapoints/`region_id`/`variable`/     | Returns all datapoints for the given `region_id` and `variable`:<ul><li>`region_id` should be a gid_2 like `AFG.10_1`</li><li>`variable` should be an identifier for one of the model variables, matching [one of the headers from the data csv](/db/schema.rb#L64-L138).</li></ul>
 
 The api returns JSON containing an array of "data points". Each datapoint has the following fields:
 
@@ -127,27 +127,27 @@ The api returns JSON containing an array of "data points". Each datapoint has th
 Here is an example query and its result:
 
 ```JSON
-// https://waterpeacesecurity.org/api/v1/widget_datapoints/NGA.21.9_1/gid_0/
+// https://waterpeacesecurity.org/api/v1/widget_datapoints/AFG.10_1/gid_0/
 
 {
   "widget_datapoints": [
     {
-      "gid_2": "NGA.21.9_1",
+      "gid_2": "AFG.10_1",
       "month_date": "2000-01-01",
       "year": 2000,
-      "gid_0": "NGA"
+      "gid_0": "AFG"
     },
     {
-      "gid_2": "NGA.21.9_1",
+      "gid_2": "AFG.10_1",
       "month_date": "2000-02-01",
       "year": 2000,
-      "gid_0": "NGA"
+      "gid_0": "AFG"
     },
     {
-      "gid_2": "NGA.21.9_1",
+      "gid_2": "AFG.10_1",
       "month_date": "2000-03-01",
       "year": 2000,
-      "gid_0": "NGA"
+      "gid_0": "AFG"
     },
   ]
 }

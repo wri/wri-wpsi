@@ -25,7 +25,7 @@
   "data": [
     {
       "name": "widget_datapoints",
-      "urlTemplate": "api/v1/widget_datapoints/${region.gid_2}/locdensity/",
+      "urlTemplate": "api/v1/widget_datapoints/${region.gid_1}/locdensity/",
       "format": {
         "property": "widget_datapoints",
         "type": "json",

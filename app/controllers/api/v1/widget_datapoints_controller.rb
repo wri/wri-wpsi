@@ -30,8 +30,8 @@ class Api::V1::WidgetDatapointsController < ApplicationController
   end
 
   def set_widget_datapoints
-    gid_2 = params.require(:gid_2)
-    @widget_datapoints = WidgetDatapoint.where(gid_2: gid_2).order(:month_date)
+    gid_1 = params.require(:gid_1)
+    @widget_datapoints = WidgetDatapoint.where(gid_1: gid_1).order(:month_date)
 
     return unless @field_name
 

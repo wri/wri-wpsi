@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (widgetSpecEl && previewRegionEl && widgetSpecEl.value) {
     const updatePreview = () => {
       ReactDOM.render(
-        <Widget region={{gid_2: previewRegionEl.value}} widgetSpec={JSON.parse(widgetSpecEl.value)} />,
+        <Widget region={{gid_1: previewRegionEl.value}} widgetSpec={JSON.parse(widgetSpecEl.value)} />,
         document.getElementById('vega-preview'),
       )
     }
