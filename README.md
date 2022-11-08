@@ -105,9 +105,15 @@ cd ~/current && RAILS_ENV=production bundle exec rake 'import:widget_datapoints[
 
 (Takes about 1 to 2 minutes)
 
+### Widgets API / Map Summary
+
+This app's widgets datapoints api exposes the widgets_datapoints values as CSV or json. It is used when a geographic region is selected on the map to populate the sidebar. The map will load the layer.widget_spec (vega spec) which may reference API urls in (via urlTemplate). Additionally there is a download link which uses exports all rows as CSV for the region selected region.
+
+The clickable regions (admin 1) are independent of the other datasets in the map (e.g. energy use). Many of the datasets are not even choropleths. The dataset layers in the map are pulled from an external service, [CARTO](https://resourcewatch.carto.com/u/wri-rw/me)
+
 ### Writing widget specifications
 
-The app accepts [standard vega chart specifications](https://vega.github.io/vega/docs/specification/) with just one additional feature. If the spec includes a value for `data.urlTemplate` it will set `data.url` based on that template, substituting in the currently selected region id for any occurrences of the string `${region.gid_2}`.
+The app accepts [standard vega chart specifications](https://vega.github.io/vega/docs/specification/) with just one additional feature. If the spec includes a value for `data.urlTemplate` it will set `data.url` based on that template, substituting in the currently selected region id for any occurrences of the string `${region.gid_1}`.
 
 This is intended for use with the single-endpoint widget data API (see below).
 
@@ -115,11 +121,11 @@ This is intended for use with the single-endpoint widget data API (see below).
 
 | Method | URL                                                  | Description
 |--------|------------------------------------------------------|------------
-| GET    | api/v1/widget_datapoints/`region_id`/`variable`/     | Returns all datapoints for the given `region_id` and `variable`:<ul><li>`region_id` should be a gid_2 like `AFG.10_1`</li><li>`variable` should be an identifier for one of the model variables, matching [one of the headers from the data csv](/db/schema.rb#L64-L138).</li></ul>
+| GET    | api/v1/widget_datapoints/`region_id`/`variable`/     | Returns all datapoints for the given `region_id` and `variable`:<ul><li>`region_id` should be a gid_1 like `AFG.10_1`</li><li>`variable` should be an identifier for one of the model variables, matching [one of the headers from the data csv](/db/schema.rb#L64-L138).</li></ul>
 
 The api returns JSON containing an array of "data points". Each datapoint has the following fields:
 
-* gid_2
+* gid_1 (administrative level 1)
 * month_date
 * year
 * `variable` (whatever variable was specified in the request)
@@ -132,19 +138,19 @@ Here is an example query and its result:
 {
   "widget_datapoints": [
     {
-      "gid_2": "AFG.10_1",
+      "gid_1": "AFG.10_1",
       "month_date": "2000-01-01",
       "year": 2000,
       "gid_0": "AFG"
     },
     {
-      "gid_2": "AFG.10_1",
+      "gid_1": "AFG.10_1",
       "month_date": "2000-02-01",
       "year": 2000,
       "gid_0": "AFG"
     },
     {
-      "gid_2": "AFG.10_1",
+      "gid_1": "AFG.10_1",
       "month_date": "2000-03-01",
       "year": 2000,
       "gid_0": "AFG"
