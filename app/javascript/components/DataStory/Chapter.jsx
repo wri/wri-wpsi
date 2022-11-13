@@ -4,10 +4,9 @@ import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
   body: {
     marginBottom: "2em",
-    fontSize: "1.25rem",
+    fontSize: "1rem",
   },
   title: {
-    fontSize: "32px",
   },
 });
 
