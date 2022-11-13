@@ -9,8 +9,8 @@ import { DataStoryDocumentOutline } from "./DocumentOutline";
 
 export const DataStoryRoot = () => {
   return (
-    <DataStoryDocumentOutline>
-      <DataStoryChapter title="Causal Models">
+    <DataStoryDocumentOutline title="Understanding the causes of conflict">
+      <DataStoryChapter title="Causal Models" anchor="intro">
         <DataStorySection>
           Water insecurity is increasing worldwide, straining relations between
           people, communities and entire countries. WPS aims to prevent
@@ -33,7 +33,7 @@ export const DataStoryRoot = () => {
           armed conflict.
         </DataStorySection>
       </DataStoryChapter>
-      <DataStoryChapter title="Causal Model 101">
+      <DataStoryChapter title="Causal Model 101" anchor="model101">
         <DataStorySection>
           A causal graph is a visual representation of the results of a causal
           model. We can use it to understand the main causal drivers of conflict
@@ -42,7 +42,8 @@ export const DataStoryRoot = () => {
         </DataStorySection>
         <DataStoryScroller>
           <DataStorySection figure={relationship} height={100}>
-            A are the main causal reasons for the armed conflicts and are placed at the very top of the graph 
+            A are the main causal reasons for the armed conflicts and are placed
+            at the very top of the graph:
           </DataStorySection>
           <DataStorySection figure={mediating} height={200}>
             B are the factors that mediate how A affects the outcome
@@ -51,7 +52,8 @@ export const DataStoryRoot = () => {
             C is the outcome, armed conflict.
           </DataStorySection>
           <DataStorySection figure={all} height={200}>
-            The arrows represent the direction of causal relation.  This shows that A affects B which leads to C.
+            The arrows represent the direction of causal relation. This shows
+            that A affects B which leads to C.
           </DataStorySection>
         </DataStoryScroller>
         <DataStorySection>
@@ -62,7 +64,7 @@ export const DataStoryRoot = () => {
           conflict outbreak through the mediator, density of the population.
         </DataStorySection>
       </DataStoryChapter>
-      <DataStoryChapter title="Select a Causal Model by Region">
+      <DataStoryChapter title="Causal Model by Region" anchor="region">
         A causal graph is a visual representation of the results of our a causal
         model. We can use it to understand the main causal drivers of conflict
         activities in our regions of interest. To do that, we first need to

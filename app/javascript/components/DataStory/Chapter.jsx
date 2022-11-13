@@ -1,13 +1,23 @@
 import React from "react";
+import { createUseStyles } from "react-jss";
 
-export const DataStoryChapter = ({ children, title }) => {
+const useStyles = createUseStyles({
+  body: {
+    marginBottom: "2em",
+    fontSize: "1.25rem",
+  },
+  title: {
+    fontSize: "32px",
+  },
+});
+
+export const DataStoryChapter = ({ children, title, anchor }) => {
+  const classes = useStyles();
   return (
-    <>
-      <h2>{title}</h2>
-      <div className="lead" style={{marginBottom: '5rem'}}>
-        {children}
-      </div>
-    </>
+    <section id={anchor}>
+      <h2 className={classes.title}>{title}</h2>
+      <div className={classes.body}>{children}</div>
+    </section>
   );
 };
 
@@ -16,4 +26,5 @@ DataStoryChapter.propTypes = {
   title: PropTypes.string.isRequired,
   figure: PropTypes.string,
   children: PropTypes.any.isRequired,
+  anchor: PropTypes.string.isRequired,
 };
