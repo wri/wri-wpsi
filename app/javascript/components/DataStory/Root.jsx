@@ -6,6 +6,9 @@ import mediating from "../../images/mediating.svg";
 import { DataStoryScroller } from "./Scroller";
 import { DataStoryChapter } from "./Chapter";
 import { DataStoryDocumentOutline } from "./DocumentOutline";
+import { DataStoryGalleryImage } from "./GalleryImage";
+import { DataStoryGallery } from "./Gallery";
+import { regions } from "./regions";
 
 export const DataStoryRoot = () => {
   return (
@@ -200,7 +203,16 @@ export const DataStoryRoot = () => {
         </DataStorySection>
       </DataStoryChapter>
       <DataStoryChapter title="Causal Model by Region" anchor="region">
-        hello
+        <DataStoryGallery>
+          {regions.map((region) => (
+            <DataStoryGalleryImage
+              image={region.image}
+              key={region.id}
+              title={region.name}
+              linkTo={`regions/${region.id}`}
+            ></DataStoryGalleryImage>
+          ))}
+        </DataStoryGallery>
       </DataStoryChapter>
     </DataStoryDocumentOutline>
   );

@@ -4,18 +4,17 @@ import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
   sidebar: {
-    marginBottom: "2em",
+    marginBottom: "2rem",
   },
   sidebarItem: {},
   "@media screen and (min-width: 768px)": {
     sidebar: {
-      paddingRight: "1em",
       position: "sticky",
-      top: "1em",
+      top: "1rem",
     },
   },
   title: {
-    marginBottom: "1em",
+    marginBottom: "3rem",
   },
 });
 

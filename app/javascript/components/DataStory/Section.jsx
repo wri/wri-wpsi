@@ -7,8 +7,7 @@ const useStyles = createUseStyles({
     fontSize: "1rem",
   },
   body: {
-    marginBottom: "2em",
-    fontSize: "1rem",
+    marginBottom: "3rem",
   },
 });
 

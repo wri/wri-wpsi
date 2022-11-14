@@ -3,17 +3,20 @@ import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
   body: {
-    marginBottom: "2em",
     fontSize: "1rem",
   },
   title: {
+    marginBottom: "1rem",
+  },
+  root: {
+    marginBottom: "3rem",
   },
 });
 
 export const DataStoryChapter = ({ children, title, anchor }) => {
   const classes = useStyles();
   return (
-    <section id={anchor}>
+    <section id={anchor} className={classes.root}>
       <h2 className={classes.title}>{title}</h2>
       <div className={classes.body}>{children}</div>
     </section>
