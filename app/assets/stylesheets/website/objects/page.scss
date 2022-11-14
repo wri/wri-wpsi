@@ -12,9 +12,13 @@
 #tinymce h3 {
 }
 
+.o-page {
+  line-height: 28px;
+}
+
 .o-page div > p,
 .o-page div > ul {
-  @include font-body;
+  @include font-body($lh: 28px);
 }
 
 .o-page li {
