@@ -1,11 +1,19 @@
-import thumbnail from "../../images/regional_maps/thumbnails/east_asia_and_pacific.png";
-import europe from "../../images/regional_maps/thumbnails/europe_and_central_asia.png";
+import ea_graph from "../../images/regions/causal_graphs/east_asia_and_pacific.jpg";
+import ea_thumbnail from "../../images/regions/thumbnails/east_asia_and_pacific.png";
+import eu_thumbnail from "../../images/regions/thumbnails/europe_and_central_asia.png";
 
 export const regions = [
   {
     id: "east_asia_and_pacific",
     name: "East Asia and Pacific",
-    image: thumbnail,
+    image: ea_thumbnail,
+    causalGraph: ea_graph,
+    causalRelationship:
+      "The causes of the conflict outcomes are variation in evapotranspiration and cropland. Areas with less vegetation or surface water coverage will have lower ET. Cropland has an inverse relationship to conflict, meaning areas with less cropland are associated with more conflict. Neither relationship is statistically significant. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
+    mediatingEffects:
+      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, demographic (i.e., rural population, population density, total population) and agricultural variables (i.e., irrigated crop production, presence of rice fields). None of these effects are statistically significant.",
+    conflictOutcome:
+      "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events and the reported number of fatalities from conflict events.",
     countries: [
       {
         id: "ASM",
@@ -160,11 +168,103 @@ export const regions = [
         name: "Vietnam",
       },
     ],
+    dataDetails: [
+      {
+        level: "Indirect",
+        step: 1,
+        indicator: "Cropland2000_mean_percent_s",
+        interpretation: "Less cropland",
+        dataset: "Percentage of land that is cropland",
+        sourceName: "USGS/EarthStat",
+        sourceUrl: "http://www.earthstat.org/cropland-pasture-area-2000/",
+      },
+      {
+        level: "Indirect",
+        step: 2,
+        indicator: "et_actl_m_MIN_m",
+        interpretation: "Decrease in evapotranspiration",
+        dataset: "Actual evapotranspiration",
+        sourceName: "FewsNET",
+        sourceUrl: "https://earlywarning.usgs.gov/fews/product/460",
+      },
+      {
+        level: "Mediator",
+        step: 3,
+        indicator: "rurpop_s",
+        interpretation: "Larger population in rural areas",
+        dataset: "Population in rural areas",
+        sourceName: "PBL",
+        sourceUrl:
+          "https://www.pbl.nl/en/publications/towards-an-urban-preview",
+      },
+      {
+        level: "Mediator",
+        step: 4,
+        indicator: "yield_gap_rice_s",
+        interpretation: "Active rice fields",
+        dataset: "Gap between observed and potential rice yield",
+        sourceName: "EarthStat/Univ. of Minnesota",
+        sourceUrl: "http://www.earthstat.org/data-download/",
+      },
+      {
+        level: "Mediator",
+        step: 5,
+        indicator: "spam_P_i_sum_s",
+        interpretation: "Less irrigated crop production",
+        dataset: "Metric tons of irrigated crops produced",
+        sourceName: "IFPRI",
+        sourceUrl: "http://mapspam.info/data/",
+      },
+      {
+        level: "Mediator",
+        step: 6,
+        indicator: "locdensity_y",
+        interpretation: "Higher population density",
+        dataset: "Population density",
+        sourceName: "CIESIN",
+        sourceUrl:
+          "https://beta.sedac.ciesin.columbia.edu/data/set/gpw-v4-population-density-adjusted-to-2015-unwpp-country-totals/data-download",
+      },
+      {
+        level: "Mediator",
+        step: 7,
+        indicator: "loccount_y",
+        interpretation: "Larger populations",
+        dataset: "Total population count",
+        sourceName: "CIESIN",
+        sourceUrl:
+          "https://beta.sedac.ciesin.columbia.edu/data/set/gpw-v4-population-density-adjusted-to-2015-unwpp-country-totals/data-download",
+      },
+      {
+        level: "Outcome",
+        step: 8,
+        indicator: "acl_sum_event_m",
+        interpretation: "Conflict fatalities",
+        dataset: "Total number of conflict events",
+        sourceName: "ACLED",
+        sourceUrl: "https://doi.org/10.1177/0022343310378914",
+      },
+      {
+        level: "Outcome",
+        step: 9,
+        indicator: "acl_sum_fatl_m",
+        interpretation: "Conflict events",
+        dataset: "Reported fatalities from conflict events",
+        sourceName: "ACLED",
+        sourceUrl: "https://doi.org/10.1177/0022343310378914",
+      },
+    ],
   },
   {
     id: "europe and central asia",
     name: "Europe and Central Asia",
-    image: europe,
+    image: eu_thumbnail,
+    causalRelationship:
+      "The causes of the conflict outcomes are variation in evapotranspiration and presence of livestock. Anomalies in evapotranspiration can occur when there are changes in the vegetation and/or surface water coverage. Neither relationship is statistically significant. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
+    mediatingEffects:
+      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, demographic (i.e., rural population, population density, total population) and agricultural variables (i.e., presence of barley fields, portion of calories produced for food, cropland). None of these effects are statistically significant.",
+    conflictOutcome:
+      "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events and the reported number of fatalities from conflict events.",
     countries: [
       {
         id: "ALB",
@@ -407,11 +507,104 @@ export const regions = [
         name: "Uzbekistan",
       },
     ],
+    dataDetails: [
+      {
+        level: "Indirect",
+        step: 1,
+        indicator: "et_anom_m_STD_m",
+        interpretation: "Variation in evapotranspiration patterns",
+        dataset: "Variation in evapotranspiration patterns",
+        sourceName: "FewsNET",
+        sourceUrl: "https://earlywarning.usgs.gov/fews/product/460",
+      },
+      {
+        level: "Indirect",
+        step: 2,
+        indicator: "chicken_number_s",
+        interpretation: "Fewer livestock chickens",
+        dataset: "Count of livestock chickens",
+        sourceName: "FAO/Oxford",
+        sourceUrl: "http://www.fao.org/livestock-systems/en/",
+      },
+      {
+        level: "Mediator",
+        step: 3,
+        indicator: "yield_gap_barley_s",
+        interpretation: "Under-utlized barley fields",
+        dataset: "Gap between observed and potential barley yield",
+        sourceName: "EarthStat/Univ. of Minnesota",
+        sourceUrl: "http://www.earthstat.org/data-download/",
+      },
+      {
+        level: "Mediator",
+        step: 4,
+        indicator: "DeliveredkcalFraction_s",
+        interpretation: "Portion of calories produced going toward food",
+        dataset: "Portion of calories produced going toward food",
+        sourceName: "EarthStat/Univ. of Minnesota",
+        sourceUrl:
+          "http://www.earthstat.org/crop-allocation-food-feed-nonfood/",
+      },
+      {
+        level: "Mediator",
+        step: 5,
+        indicator: "Cropland2000_mean_percent_s",
+        interpretation: "Percentage of area that is cropland",
+        dataset: "Percentage of land that is cropland",
+        sourceName: "USGS/EarthStat",
+        sourceUrl: "http://www.earthstat.org/cropland-pasture-area-2000/",
+      },
+      {
+        level: "Mediator",
+        step: 5,
+        indicator: "locdensity_y",
+        interpretation: "Higher population density",
+        dataset: "Population density",
+        sourceName: "CIESIN",
+        sourceUrl:
+          "https://beta.sedac.ciesin.columbia.edu/data/set/gpw-v4-population-density-adjusted-to-2015-unwpp-country-totals/data-download",
+      },
+      {
+        level: "Mediator",
+        step: 6,
+        indicator: "rurpop_s",
+        interpretation: "Rural population count",
+        dataset: "Population in rural areas",
+        sourceName: "PBL",
+        sourceUrl:
+          "https://www.pbl.nl/en/publications/towards-an-urban-preview",
+      },
+      {
+        level: "Mediator",
+        step: 7,
+        indicator: "loccount_y",
+        interpretation: "Larger populations",
+        dataset: "Total population count",
+        sourceName: "CIESIN",
+        sourceUrl:
+          "https://beta.sedac.ciesin.columbia.edu/data/set/gpw-v4-population-density-adjusted-to-2015-unwpp-country-totals/data-download",
+      },
+      {
+        level: "Outcome",
+        step: 8,
+        indicator: "acl_sum_event_m",
+        interpretation: "Conflict events",
+        dataset: "Total number of conflict events",
+        sourceName: "ACLED",
+        sourceUrl: "https://doi.org/10.1177/0022343310378914",
+      },
+    ],
   },
   {
     id: "Latin America and Caribbean",
     name: "Latin America and Caribbean",
-    image: thumbnail,
+    causalRelationship:
+      "All effects are mediated by at least one other variable, so there are no indirect effects.",
+    mediatingEffects:
+      "Armed conflict activity is mediated by climate (variation in evapotranspiration and precipitation), demographic (i.e., rural population, population density) and agricultural variables (i.e., count of livestock chickens, density of greenness, soybean yield). None of these effects are statistically significant.",
+    conflictOutcome:
+      "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events and the reported number of fatalities from conflict events.",
+    image: ea_thumbnail,
     countries: [
       {
         id: "ATG",
@@ -582,11 +775,113 @@ export const regions = [
         name: "Virgin Islands, U.S.",
       },
     ],
+    dataDetails: [
+      {
+        level: "Indirect",
+        step: 1,
+        indicator: "et_anom_m_STD_m",
+        interpretation: "Abnormal variation in evapotranspiration",
+        dataset: "Variation in evapotranspiration patterns",
+        sourceName: "FewsNET",
+        sourceURL: "https://earlywarning.usgs.gov/fews/product/460",
+      },
+      {
+        level: "Mediator",
+        step: 2,
+        indicator: "spi_3_m",
+        interpretation: "Variation of precipitation",
+        dataset: "Variation of precipitation over 3-month period",
+        sourceName: "ECMWF",
+        sourceURL:
+          "https://www.ecmwf.int/en/newsletter/154/meteorology/ecmwfs-new-long-range-forecasting-system-seas5",
+      },
+      {
+        level: "Mediator",
+        step: 3,
+        indicator: "chicken_number_s",
+        interpretation: "Count of livestock chickens",
+        dataset: "Count of livestock chickens",
+        sourceName: "FAO/Oxford",
+        sourceURL: "http://www.fao.org/livestock-systems/en/",
+      },
+      {
+        level: "Mediator",
+        step: 4,
+        indicator: "rurratio_s",
+        interpretation: "Percentage of population that live in rural areas",
+        dataset: "Percentage of population that live in rural areas",
+        sourceName: "PBL",
+        sourceURL:
+          "https://www.pbl.nl/en/publications/towards-an-urban-preview",
+      },
+      {
+        level: "Mediator",
+        step: 5,
+        indicator: "ndvi_act_min_m",
+        interpretation: "Lower density of greenness",
+        dataset: "Density of greenness",
+        sourceName: "MODIS",
+        sourceURL: "https://lpdaac.usgs.gov/products/mod13c2v006/",
+      },
+      {
+        level: "Mediator",
+        step: 6,
+        indicator: "locdensity_y",
+        interpretation: "Local population density",
+        dataset: "Population density",
+        sourceName: "CIESIN",
+        sourceURL:
+          "https://beta.sedac.ciesin.columbia.edu/data/set/gpw-v4-population-density-adjusted-to-2015-unwpp-country-totals/data-download",
+      },
+      {
+        level: "Mediator",
+        step: 7,
+        indicator: "yield_gap_soybean_s",
+        interpretation: "Active soybean fields",
+        dataset: "Gap between observed and potential soybean yield",
+        sourceName: "EarthStat/Univ. of Minnesota",
+        sourceURL: "http://www.earthstat.org/data-download/",
+      },
+      {
+        level: "Mediator",
+        step: 8,
+        indicator: "rurpop_s",
+        interpretation: "Rural population count",
+        dataset: "Population in rural areas",
+        sourceName: "PBL",
+        sourceURL:
+          "https://www.pbl.nl/en/publications/towards-an-urban-preview",
+      },
+      {
+        level: "Outcome",
+        step: 9,
+        indicator: "acl_sum_fatl_m",
+        interpretation: "Conflict fatalities",
+        dataset: "Reported fatalities from conflict events",
+        sourceName: "ACLED",
+        sourceURL: "https://doi.org/10.1177/0022343310378914",
+      },
+      {
+        level: "Outcome",
+        step: 10,
+        indicator: "acl_sum_event_m",
+        interpretation: "Conflict events",
+        dataset: "Total number of conflict events",
+        sourceName: "ACLED",
+        sourceURL: "https://doi.org/10.1177/0022343310378914",
+      },
+    ],
   },
   {
     id: "middle_east_and_north_africa",
     name: "Middle East and North Africa",
-    image: thumbnail,
+    image: ea_thumbnail,
+    causalRelationship:
+      "The causes of the conflict outcomes are vegetation coverage and population size. The relationship between vegetation (density of greenness) and conflict is inestimable. The percentage of the population living in rural areas has an inverse relationship with conflict, meaning areas with smaller rural populations are associated with more conflict. Neither relationship is statistically significant. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
+    mediatingEffects:
+      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, demographic (i.e., population density, rural population) and agricultural variables (i.e., portion of calories produced for food, count of cattle, irrigated crop production, presence of rice fields). None of these factors are statistically significant.",
+    conflictOutcome:
+      "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events and the reported number of fatalities from conflict events.",
     countries: [
       {
         id: "DZA",
@@ -673,11 +968,114 @@ export const regions = [
         name: "Yemen",
       },
     ],
+    dataDetails: [
+      {
+        level: "Indirect",
+        step: 1,
+        indicator: "ndvi_act_min_m",
+        interpretation: "Vegetation Index (measure of greenness)",
+        dataset: "Density of greenness",
+        sourceName: "MODIS",
+        sourceUrl: "https://lpdaac.usgs.gov/products/mod13c2v006/",
+      },
+      {
+        level: "Indirect",
+        step: 2,
+        indicator: "rurratio_s",
+        interpretation: "Population in rural areas",
+        dataset: "Percentage of population that live in rural areas",
+        sourceName: "PBL",
+        sourceUrl:
+          "https://www.pbl.nl/en/publications/towards-an-urban-preview",
+      },
+      {
+        level: "Mediator",
+        step: 3,
+        indicator: "locdensity_y",
+        interpretation: "Lower population density",
+        dataset: "Local population density",
+        sourceName: "CIESIN",
+        sourceUrl:
+          "https://beta.sedac.ciesin.columbia.edu/data/set/gpw-v4-population-density-adjusted-to-2015-unwpp-country-totals/data-download",
+      },
+      {
+        level: "Mediator",
+        step: 4,
+        indicator: "DeliveredkcalFraction_s",
+        interpretation:
+          "Higher proportion of calories produced going toward food",
+        dataset: "Portion of calories produced going toward food",
+        sourceName: "EarthStat/Univ. of Minnesota",
+        sourceUrl:
+          "http://www.earthstat.org/crop-allocation-food-feed-nonfood/",
+      },
+      {
+        level: "Mediator",
+        step: 5,
+        indicator: "yield_gap_barley_s",
+        interpretation: "Barley fields",
+        dataset: "Gap between observed and potential barley yield",
+        sourceName: "EarthStat/Univ. of Minnesota",
+        sourceUrl: "http://www.earthstat.org/data-download/",
+      },
+      {
+        level: "Mediator",
+        step: 6,
+        indicator: "chicken_number_s",
+        interpretation: "Count of livestock chickens",
+        dataset: "Count of livestock chickens",
+        sourceName: "FAO/Oxford",
+        sourceUrl: "http://www.fao.org/livestock-systems/en/",
+      },
+      {
+        level: "Mediator",
+        step: 7,
+        indicator: "spam_P_i_avg_s",
+        interpretation: "Average metric tons of irrigated crops produced",
+        dataset: "Metric tons of irrigated crops produced",
+        sourceName: "IFPRI",
+        sourceUrl: "http://mapspam.info/data/",
+      },
+      {
+        level: "Outcome",
+        step: 9,
+        indicator: "acl_sum_fatl_m",
+        interpretation: "Conflict fatalities",
+        dataset: "Reported fatalities from conflict events",
+        sourceName: "ACLED",
+        sourceUrl: "https://doi.org/10.1177/0022343310378914",
+      },
+      {
+        level: "Mediator",
+        step: 8,
+        indicator: "rurpop_s",
+        interpretation: "Population in rural areas",
+        dataset: "Population in rural areas",
+        sourceName: "PBL",
+        sourceUrl:
+          "https://www.pbl.nl/en/publications/towards-an-urban-preview",
+      },
+      {
+        level: "Outcome",
+        step: 10,
+        indicator: "acl_sum_event_m",
+        interpretation: "Conflict events",
+        dataset: "Total number of conflict events",
+        sourceName: "ACLED",
+        sourceUrl: "https://doi.org/10.1177/0022343310378914",
+      },
+    ],
   },
   {
     id: "north_america",
     name: "North America",
-    image: thumbnail,
+    image: ea_thumbnail,
+    causalRelationship:
+      "The causes of the conflict outcomes are variation in precipitation.  Higher anomalies, i.e., more variation, are connected to more conflict. This is not a statistically significant relationship. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph.",
+    mediatingEffects:
+      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, climatic (evapotranspiration anomalies), demographic (i.e., percentage of population in rural areas) and agricultural variables (i.e., density of greenness, irrigated crops produced, presence of corn fields). None of these effects are statistically significant.",
+    conflictOutcome:
+      "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events and the reported number of fatalities from conflict events.",
     countries: [
       {
         id: "BMU",
@@ -692,11 +1090,93 @@ export const regions = [
         name: "United States",
       },
     ],
+    dataDetails: [
+      {
+        level: "Indirect",
+        step: 1,
+        indicator: "spi_3_m",
+        interpretation: "Increaed variation in precipitation patterns",
+        dataset: "Variation of precipitation over 3-month period",
+        sourceName: "ECMWF",
+        sourceURL:
+          "https://www.ecmwf.int/en/newsletter/154/meteorology/ecmwfs-new-long-range-forecasting-system-seas5",
+      },
+      {
+        level: "Mediator",
+        step: 2,
+        indicator: "rainfed_s",
+        interpretation: "Less rainfed production",
+        dataset: "Percentage of crops grown that are rainfed",
+        sourceName: "IFPRI",
+        sourceURL: "http://mapspam.info/data/",
+      },
+      {
+        level: "Mediator",
+        step: 3,
+        indicator: "et_anom_m_STD_m",
+        interpretation: "Abnormal variation in evapotranspiration",
+        dataset: "Variation in evapotranspiration patterns",
+        sourceName: "FewsNET",
+        sourceURL: "https://earlywarning.usgs.gov/fews/product/460",
+      },
+      {
+        level: "Mediator",
+        step: 4,
+        indicator: "ndvi_act_min_m",
+        interpretation: "Greater density of greenness",
+        dataset: "Density of greenness",
+        sourceName: "MODIS",
+        sourceURL: "https://lpdaac.usgs.gov/products/mod13c2v006/",
+      },
+      {
+        level: "Mediator",
+        step: 5,
+        indicator: "spam_P_i_sum_s",
+        interpretation: "Total metric tons of irrigated crops produced",
+        dataset: "Metric tons of irrigated crops produced",
+        sourceName: "IFPRI",
+        sourceURL: "http://mapspam.info/data/",
+      },
+      {
+        level: "Mediator",
+        step: 6,
+        indicator: "rurratio_s",
+        interpretation: "Less rural areas",
+        dataset: "Percentage of population that live in rural areas",
+        sourceName: "PBL",
+        sourceURL:
+          "https://www.pbl.nl/en/publications/towards-an-urban-preview",
+      },
+      {
+        level: "Mediator",
+        step: 7,
+        indicator: "yield_gap_maize_s",
+        interpretation: "Corn fields",
+        dataset: "Gap between observed and potential corn yield",
+        sourceName: "EarthStat/Univ. of Minnesota",
+        sourceURL: "http://www.earthstat.org/data-download/",
+      },
+      {
+        level: "Outcome",
+        step: 8,
+        indicator: "acl_pprt_evnt_m",
+        interpretation: "Peaceful Protests",
+        dataset: "Number of peaceful protests",
+        sourceName: "ACLED",
+        sourceURL: "https://doi.org/10.1177/0022343310378914",
+      },
+    ],
   },
   {
     id: "south_asia",
     name: "South Asia",
-    image: thumbnail,
+    image: ea_thumbnail,
+    causalRelationship:
+      "The causes of the conflict outcomes are variations precipitation and evapotranspiration. The relationship between precipitation and conflict is inestimable. Anomalies in evapotranspiration have a statistically significant relationship to conflict. These anomalies can occur when there are changes in the vegetation and/or surface water coverage.  Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
+    mediatingEffects:
+      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, including climatic (i.e., vegetation index—or density of greenness), demographic (i.e., population in rural areas) and agricultural variables (i.e., calories produced for food, count of cattle, presence of rice fields). The density of greenness has an inverse relationship with conflict, meaning areas with less vegetation are associated with more conflict. This is a statistically significant relationship.",
+    conflictOutcome:
+      "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events.",
     countries: [
       {
         id: "AFG",
@@ -731,11 +1211,94 @@ export const regions = [
         name: "Sri Lanka",
       },
     ],
+    dataDetails: [
+      {
+        level: "Indirect",
+        step: 1,
+        indicator: "spi_1_f2_m",
+        interpretation: "Variation in forecasted precipitation patterns",
+        dataset: "Precipitation anomalies over a 1-month",
+        sourceName: "ECMWF",
+        sourceUrl:
+          "https://www.ecmwf.int/en/newsletter/154/meteorology/ecmwfs-new-long-range-forecasting-system-seas5",
+      },
+      {
+        level: "Indirect",
+        step: 2,
+        indicator: "et_anom_m_STD_m",
+        interpretation: "Abnormal variation in evapotranspiration",
+        dataset: "Variation in evapotranspiration patterns",
+        sourceName: "FewsNET",
+        sourceUrl: "https://earlywarning.usgs.gov/fews/product/460",
+      },
+      {
+        level: "Mediator",
+        step: 3,
+        indicator: "ndvi_act_med_m",
+        interpretation: "Lower density of greenness",
+        dataset: "Density of greenness",
+        sourceName: "MODIS",
+        sourceUrl: "https://lpdaac.usgs.gov/products/mod13c2v006/",
+      },
+      {
+        level: "Mediator",
+        step: 4,
+        indicator: "DeliveredkcalFraction_s",
+        interpretation: "Calories produced for food",
+        dataset: "Portion of calories produced going toward food",
+        sourceName: "EarthStat/Univ. of Minnesota",
+        sourceUrl:
+          "http://www.earthstat.org/crop-allocation-food-feed-nonfood/",
+      },
+      {
+        level: "Mediator",
+        step: 5,
+        indicator: "cattle_number_s",
+        interpretation: "More livestock cattle",
+        dataset: "Count of livestock cattle",
+        sourceName: "FAO/Oxford",
+        sourceUrl: "http://www.fao.org/livestock-systems/en/",
+      },
+      {
+        level: "Mediator",
+        step: 6,
+        indicator: "rurpop_s",
+        interpretation: "Population in rural areas",
+        dataset: "Population in rural areas",
+        sourceName: "PBL",
+        sourceUrl:
+          "https://www.pbl.nl/en/publications/towards-an-urban-preview",
+      },
+      {
+        level: "Mediator",
+        step: 7,
+        indicator: "yield_gap_rice_s",
+        interpretation: "Rice fields",
+        dataset: "Gap between observed and potential rice yield",
+        sourceName: "EarthStat/Univ. of Minnesota",
+        sourceUrl: "http://www.earthstat.org/data-download/",
+      },
+      {
+        level: "Outcome",
+        step: 8,
+        indicator: "acl_sum_event_m",
+        interpretation: "Conflict events",
+        dataset: "Total number of conflict events",
+        sourceName: "ACLED",
+        sourceUrl: "https://doi.org/10.1177/0022343310378914",
+      },
+    ],
   },
   {
     id: "sub-saharan_africa",
     name: "Sub-Saharan Africa",
-    image: thumbnail,
+    image: ea_thumbnail,
+    causalRelationship:
+      "The causes of the conflict outcomes are precipitation anomalies and the gap between observed and potential corn yield. Higher anomalies, i.e., more variation, are connected to more conflict. The smaller the gap between observed and potential corn yield, the more conflict is expected. This is a statistically significant relationship. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph.",
+    mediatingEffects:
+      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, including climatic (i.e., actual evapotranspiration), demographic (i.e., count of rural population) and agricultural variables (i.e., total agricultural value, count of cattle, density of greenness).",
+    conflictOutcome:
+      "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events and fatalities.",
     countries: [
       {
         id: "AGO",
@@ -928,6 +1491,91 @@ export const regions = [
       {
         id: "ZWE",
         name: "Zimbabwe",
+      },
+    ],
+    detaDetails: [
+      {
+        level: "Indirect",
+        step: 1,
+        indicator: "spi_3_m",
+        interpretation: "Increased variation in precipitation patterns",
+        dataset: "Variation in precipitation patterns over 3-month period",
+        sourceName: "ECMWF",
+        sourceUrl:
+          "https://www.ecmwf.int/en/newsletter/154/meteorology/ecmwfs-new-long-range-forecasting-system-seas5",
+      },
+      {
+        level: "Indirect",
+        step: 2,
+        indicator: "yield_gap_maize_s",
+        interpretation: "Active corn fields",
+        dataset: "Gap between observed and potential corn yield",
+        sourceName: "EarthStat/Univ. of Minnesota",
+        sourceUrl: "http://www.earthstat.org/data-download/",
+      },
+      {
+        level: "Mediator",
+        step: 3,
+        indicator: "cattle_number_s",
+        interpretation: "Count of livestock cattle",
+        dataset: "Count of livestock cattle",
+        sourceName: "FAO/Oxford",
+        sourceUrl: "http://www.fao.org/livestock-systems/en/",
+      },
+      {
+        level: "Mediator",
+        step: 4,
+        indicator: "spam_V_agg_t_sum_s",
+        interpretation: "Value (USD) of crops",
+        dataset: "Value (USD) of agriculture",
+        sourceName: "IFPRI",
+        sourceUrl: "http://mapspam.info/data/",
+      },
+      {
+        level: "Mediator",
+        step: 5,
+        indicator: "et_actl_m_MAX_m",
+        interpretation: "Increase in evapotranspiration",
+        dataset: "Actual evapotranspiration",
+        sourceName: "FewsNET",
+        sourceUrl: "https://earlywarning.usgs.gov/fews/product/460",
+      },
+      {
+        level: "Mediator",
+        step: 6,
+        indicator: "rurpop_s",
+        interpretation: "Larger population in rural areas",
+        dataset: "Population in rural areas",
+        sourceName: "PBL",
+        sourceUrl:
+          "https://www.pbl.nl/en/publications/towards-an-urban-preview",
+      },
+      {
+        level: "Mediator",
+        step: 7,
+        indicator: "ndvi_act_min_m",
+        interpretation: "Greater density of greenness",
+        dataset: "Density of greenness",
+        sourceName: "MODIS",
+        sourceUrl: "https://lpdaac.usgs.gov/products/mod13c2v006/",
+      },
+      {
+        level: "Outcome",
+        step: 8,
+        indicator: "acl_sum_event_m",
+        interpretation: "Conflict events",
+        dataset: "Total number of conflict events",
+        sourceName: "ACLED",
+        sourceUrl: "https://doi.org/10.1177/0022343310378914",
+      },
+      {
+        level: "Outcome",
+        step: 9,
+        indicator: "acl_sum_fatl_m",
+        interpretation: "Conflict fatalities",
+        dataset: "Reported fatalities from conflict events",
+        sourceName: "ACLED",
+        sourceUrl: "https://doi.org/10.1177/0022343310378914",
       },
     ],
   },

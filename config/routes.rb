@@ -13,6 +13,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   get '/archive', to: 'root#archive'
 
   get '/causal', to: 'root#causal'
+  get "/causal/*ignored", to: "root#causal"
 
   ## Static route to file uploads
   resources :files, only: %i[show]
