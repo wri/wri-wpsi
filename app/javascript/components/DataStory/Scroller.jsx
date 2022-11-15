@@ -1,7 +1,16 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { Scrollama, Step } from "react-scrollama";
 
+import { createUseStyles } from "react-jss";
+
+const useStyles = createUseStyles({
+  figure: {
+    width: "100%",
+  },
+});
+
 export const DataStoryScroller = ({ children }) => {
+  const classes = useStyles();
   const figures = useMemo(
     () =>
       React.Children.map(children, (child) => {
@@ -23,12 +32,12 @@ export const DataStoryScroller = ({ children }) => {
 
   return (
     <div className="row">
-      <div className="col-4">
+      <div className="col-sm-6 col-md-4">
         <div style={{ position: "sticky", top: 0 }}>
-          {figure && <img src={figure} />}
+          {figure && <img src={figure} className={classes.figure} />}
         </div>
       </div>
-      <div className="col-8">
+      <div className="col-sm-6 col-md-8">
         <Scrollama onStepEnter={onStepEnter}>
           {React.Children.map(children, (child, idx) => {
             return (

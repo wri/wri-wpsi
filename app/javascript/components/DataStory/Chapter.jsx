@@ -16,10 +16,10 @@ const useStyles = createUseStyles({
 export const DataStoryChapter = ({ children, title, anchor }) => {
   const classes = useStyles();
   return (
-    <section id={anchor} className={classes.root}>
+    <article id={anchor} className={classes.root}>
       <h2 className={classes.title}>{title}</h2>
       <div className={classes.body}>{children}</div>
-    </section>
+    </article>
   );
 };
 

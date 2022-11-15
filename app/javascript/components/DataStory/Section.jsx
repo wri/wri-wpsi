@@ -1,10 +1,10 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
   title: {
-    color: "#000",
-    fontSize: "1rem",
+    color: "#212529",
   },
   body: {
     marginBottom: "3rem",
@@ -25,7 +25,6 @@ export const DataStorySection = ({ children, height, title, anchor }) => {
   );
 };
 
-import PropTypes from "prop-types";
 DataStorySection.propTypes = {
   title: PropTypes.string,
   anchor: PropTypes.string,

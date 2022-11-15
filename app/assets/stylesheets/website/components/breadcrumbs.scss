@@ -12,6 +12,10 @@
   }
 }
 
+.c-breadcrumbs__item {
+  color: get-gray(2);
+}
+
 .c-breadcrumbs__divider {
   color: get-gray(2);
   margin-right: space(2);

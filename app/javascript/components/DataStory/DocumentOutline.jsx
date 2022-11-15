@@ -4,21 +4,18 @@ import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
   sidebar: {
+    marginTop: "1rem",
     marginBottom: "2rem",
   },
-  sidebarItem: {},
   "@media screen and (min-width: 768px)": {
     sidebar: {
       position: "sticky",
-      top: "1rem",
+      top: "100px",
     },
-  },
-  title: {
-    marginBottom: "3rem",
   },
 });
 
-export const DataStoryDocumentOutline = ({ children, title }) => {
+export const DataStoryDocumentOutline = ({ children,}) => {
   const classes = useStyles();
   const titles = React.useMemo(() => {
     const ret = [];
@@ -29,28 +26,26 @@ export const DataStoryDocumentOutline = ({ children, title }) => {
   }, [children]);
 
   return (
-    <>
-      <h1 className={classes.title}>{title}</h1>
-      <div className="row">
-        <div className="col-md-3">
-          <div className={classes.sidebar}>
+    <div className="row">
+      <div className="col-md-3">
+        <div className={classes.sidebar}>
+          <nav>
             <h4>Jump to</h4>
             <ul className="list-unstyled">
               {titles.map(([title, anchor]) => (
-                <li className={classes.sidebarItem} key={anchor}>
+                <li className="font-family-heading pt-0 mb-1" key={anchor}>
                   <a href={`#${anchor}`}>{title}</a>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
         </div>
-        <div className="col-md-9">{children}</div>
       </div>
-    </>
+      <div className="col-md-9">{children}</div>
+    </div>
   );
 };
 
 DataStoryDocumentOutline.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
-  title: PropTypes.string.isRequired,
 };
