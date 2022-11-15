@@ -596,7 +596,7 @@ export const regions = [
     ],
   },
   {
-    id: "Latin America and Caribbean",
+    id: "latin_america_and_caribbean",
     name: "Latin America and Caribbean",
     causalRelationship:
       "All effects are mediated by at least one other variable, so there are no indirect effects.",
@@ -1493,7 +1493,7 @@ export const regions = [
         name: "Zimbabwe",
       },
     ],
-    detaDetails: [
+    dataDetails: [
       {
         level: "Indirect",
         step: 1,

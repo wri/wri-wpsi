@@ -8,6 +8,7 @@ import { DataStoryRegionDataDetails } from "./RegionDataDetails";
 import { regions } from "./regions";
 import { DataStorySection } from "./Section";
 import { DataStoryStatsHelpContent } from "./StatsHelpContent";
+import { scrollToTop } from "util/scrollToTop";
 
 import { createUseStyles } from "react-jss";
 
@@ -33,6 +34,9 @@ const useStyles = createUseStyles({
     marginTop: "4em",
     marginBottom: "4em",
   },
+  loading: {
+    height: "700px",
+  },
 });
 
 export const DataStoryRegionPage = () => {
@@ -44,6 +48,19 @@ export const DataStoryRegionPage = () => {
   );
   if (!region) {
     return <DataStoryRegionNotFoundPage />;
+  }
+
+  const [fade, setFade] = React.useState(true);
+  React.useEffect(scrollToTop, [regionId]);
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      setFade(false);
+    }, 200);
+    return () => clearTimeout(timeout);
+  }, [regionId]);
+
+  if (fade) {
+    return <div className={classes.loading} />;
   }
 
   return (

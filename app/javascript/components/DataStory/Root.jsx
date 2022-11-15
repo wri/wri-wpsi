@@ -1,14 +1,14 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { DataStoryMainPage } from "./MainPage";
 import { DataStoryRegionNotFoundPage } from "./NotFoundPage";
 import { DataStoryRegionPage } from "./RegionPage";
-import { scrollToTop } from "util/scrollToTop";
+// import { scrollToTop } from "util/scrollToTop";
+// const { pathname } = useLocation();
+// React.useEffect(scrollToTop, [pathname]);
 
 const Inner = () => {
-  const { pathname } = useLocation();
 
-  React.useEffect(scrollToTop, [pathname]);
   return (
     <Switch>
       <Route path="/" exact>

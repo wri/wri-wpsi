@@ -9,6 +9,7 @@ const useStyles = createUseStyles({
     marginBottom: "1rem",
   },
   root: {
+    scrollMarginTop: '100px', //fixed header anchor scroll
     marginBottom: "3rem",
   },
 });
