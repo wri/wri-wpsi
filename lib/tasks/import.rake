@@ -1,17 +1,18 @@
+require 'csv'
+
 namespace :import do
   desc 'Import data for widgets from a csv file'
   task :widget_datapoints, %i[path] => :environment do |_task, args|
     start_time = Time.current
     path = args.path
-    url_prefix = 'https://www.googleapis.com/storage/'
 
-    unless path&.starts_with?(url_prefix) || path&.ends_with?('.csv')
+    unless path&.starts_with?("https://") || path&.ends_with?('.csv')
       puts 'Invalid args! Exiting...'
       puts "Usage: rake 'import:widget_datapoints[path/to/csv/file.csv]'"
       exit
     end
 
-    import_widget_datapoints(path, url_prefix)
+    import_widget_datapoints(path)
 
     puts "Done in #{Time.current - start_time} seconds."
   end
@@ -24,15 +25,17 @@ namespace :import do
   end
 end
 
-def import_widget_datapoints(path, url_prefix)
-  if path.starts_with?(url_prefix)
-    puts 'Importing from URL using curl...'
-    curl = curl_for_url(path)
-    puts curl
-    copy_csv_to_table("PROGRAM '#{curl}'", 'widget_datapoints')
+def import_widget_datapoints(path)
+
+  if path.starts_with?('https://')
+    puts 'Importing from url...'
+    csv_path = "/tmp/import-#{SecureRandom.uuid}.csv"
+    %x{wget -O #{csv_path} "#{path}"}
+    copy_csv_to_table(csv_path, 'widget_datapoints')
+    File.delete(csv_path)
   else
     puts 'Importing from file...'
-    copy_csv_to_table("'#{path}'", 'widget_datapoints')
+    copy_csv_to_table(path, 'widget_datapoints')
   end
 end
 
@@ -52,21 +55,22 @@ def curl_for_url(url)
 end
 
 def copy_csv_to_table(csv, table)
-  headers = extract_headers_from_csv(csv).join(', ')
   ActiveRecord::Base.connection.execute('DELETE FROM widget_datapoints')
-  ActiveRecord::Base.connection.execute(<<~SQL)
-    COPY #{table}
-    (#{headers})
-    FROM #{csv}
-    DELIMITERS ','
-    CSV HEADER;
-  SQL
-end
 
-def extract_headers_from_csv(csv)
-  headers = `head -n 1 #{csv}`.strip.split(',')
-  headers.map do |header|
-    WidgetDatapoint.connection.quote_column_name(header)
+  batch_size = 10000
+  batch_number = 1
+  total_rows = %x{wc -l #{csv}}.split.first.to_i
+  total_batches = total_rows / batch_size
+  puts "input file has #{total_rows} rows"
+  File.open(csv) do |file|
+    headers = file.first
+    file.lazy.each_slice(batch_size) do |lines|
+      puts "Processing batch: #{batch_number}/#{total_batches}"
+      csv_rows = CSV.parse(lines.join, headers: headers)
+      widget_datapoints = csv_rows.map { |row| row.to_h }
+      WidgetDatapoint.import(widget_datapoints, batch_size: batch_size)
+      batch_number += 1
+    end
   end
 end
 
