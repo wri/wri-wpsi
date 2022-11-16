@@ -11,7 +11,7 @@ const useStyles = createUseStyles({
   },
   "@media (min-width: 768px)": {
     root: {
-      gridTemplateColumns: "repeat(3, 1fr)",
+      gridTemplateColumns: "repeat(4, 1fr)",
     },
   },
 });

@@ -1,14 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useGoogleAnalytics } from "util/useGoogleAnalytics";
 import { DataStoryMainPage } from "./MainPage";
 import { DataStoryRegionNotFoundPage } from "./NotFoundPage";
 import { DataStoryRegionPage } from "./RegionPage";
-// import { scrollToTop } from "util/scrollToTop";
-// const { pathname } = useLocation();
-// React.useEffect(scrollToTop, [pathname]);
 
 const Inner = () => {
-
+  useGoogleAnalytics();
   return (
     <Switch>
       <Route path="/" exact>

@@ -40,7 +40,6 @@ const useStyles = createUseStyles({
   stepActive: {
     "& $nodeLead": { opacity: 1 },
   },
-  ///
   step: {
     fontSize: "1.25em",
     marginBottom: "2rem",
@@ -62,6 +61,7 @@ const useStyles = createUseStyles({
   nodeC: {
     top: "440px",
     background: "#73b85f",
+    // last node
     height: "auto",
     marginBottom: "0",
     paddingBottom: "2rem",
@@ -78,9 +78,7 @@ const StepCardRaw = ({ letter, title, label, className }, ref) => {
         <div className={classes.nodeBoxTitle}>{letter}</div>
         <div className={classes.nodeBoxTitle}>{title}</div>
       </div>
-      <div className={classes.nodeLead}>
-        {label}
-      </div>
+      <div className={classes.nodeLead}>{label}</div>
     </div>
   );
 };
@@ -103,6 +101,7 @@ export const DataStoryModelStepContent = () => {
   const onStepEnter = React.useCallback(({ data }) => {
     setStep(data);
   }, []);
+  console.info(step);
 
   return (
     <>
@@ -139,7 +138,7 @@ export const DataStoryModelStepContent = () => {
               label="Factors that mediate how A affects the outcome"
             />
           </Step>
-          <Step data="abc">
+          <Step data="abc" >
             <StepCard
               className={clsx(
                 classes.node,
