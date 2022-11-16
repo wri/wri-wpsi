@@ -5,14 +5,20 @@ import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
   root: {
     display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
+    gridTemplateColumns: "repeat(2, 1fr)",
     gap: "20px",
+    margin: '2rem 0',
+  },
+  "@media (min-width: 768px)": {
+    root: {
+      gridTemplateColumns: "repeat(3, 1fr)",
+    },
   },
 });
 
 export const DataStoryGallery = ({ children }) => {
   const classes = useStyles();
-  return <ul className={classes.root + ' list-unstyled'}>{children}</ul>;
+  return <ul className={classes.root + " list-unstyled"}>{children}</ul>;
 };
 
 DataStoryGallery.propTypes = {

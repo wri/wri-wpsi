@@ -7,7 +7,6 @@ const useStyles = createUseStyles({
     border: "1px solid rgba(0, 0, 0, 0.12)",
     gridColumnEnd: "span 1",
     gridRowEnd: "span 1",
-    borderRadius: "4px",
   },
   inner: {
     backgroundColor: "#000",

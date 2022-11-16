@@ -1,6 +1,11 @@
 import ea_graph from "../../images/regions/causal_graphs/east_asia_and_pacific.jpg";
 import ea_thumbnail from "../../images/regions/thumbnails/east_asia_and_pacific.png";
 import eu_thumbnail from "../../images/regions/thumbnails/europe_and_central_asia.png";
+import lt_thumbnail from "../../images/regions/thumbnails/latin_america_and_caribbean.png";
+import na_thumbnail from "../../images/regions/thumbnails/north_america.png";
+import sa_thumbnail from "../../images/regions/thumbnails/south_asia.png";
+import ssa_thumbnail from "../../images/regions/thumbnails/sub-saharan_africa.png";
+import me_thumbnail from "../../images/regions/thumbnails/middle_east_and_north_africa.png";
 
 export const regions = [
   {
@@ -604,7 +609,7 @@ export const regions = [
       "Armed conflict activity is mediated by climate (variation in evapotranspiration and precipitation), demographic (i.e., rural population, population density) and agricultural variables (i.e., count of livestock chickens, density of greenness, soybean yield). None of these effects are statistically significant.",
     conflictOutcome:
       "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events and the reported number of fatalities from conflict events.",
-    image: ea_thumbnail,
+    image: lt_thumbnail,
     countries: [
       {
         id: "ATG",
@@ -875,7 +880,7 @@ export const regions = [
   {
     id: "middle_east_and_north_africa",
     name: "Middle East and North Africa",
-    image: ea_thumbnail,
+    image: me_thumbnail,
     causalRelationship:
       "The causes of the conflict outcomes are vegetation coverage and population size. The relationship between vegetation (density of greenness) and conflict is inestimable. The percentage of the population living in rural areas has an inverse relationship with conflict, meaning areas with smaller rural populations are associated with more conflict. Neither relationship is statistically significant. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
     mediatingEffects:
@@ -1069,7 +1074,7 @@ export const regions = [
   {
     id: "north_america",
     name: "North America",
-    image: ea_thumbnail,
+    image: na_thumbnail,
     causalRelationship:
       "The causes of the conflict outcomes are variation in precipitation.  Higher anomalies, i.e., more variation, are connected to more conflict. This is not a statistically significant relationship. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph.",
     mediatingEffects:
@@ -1170,7 +1175,7 @@ export const regions = [
   {
     id: "south_asia",
     name: "South Asia",
-    image: ea_thumbnail,
+    image: sa_thumbnail,
     causalRelationship:
       "The causes of the conflict outcomes are variations precipitation and evapotranspiration. The relationship between precipitation and conflict is inestimable. Anomalies in evapotranspiration have a statistically significant relationship to conflict. These anomalies can occur when there are changes in the vegetation and/or surface water coverage.  Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
     mediatingEffects:
@@ -1292,7 +1297,7 @@ export const regions = [
   {
     id: "sub-saharan_africa",
     name: "Sub-Saharan Africa",
-    image: ea_thumbnail,
+    image: ssa_thumbnail,
     causalRelationship:
       "The causes of the conflict outcomes are precipitation anomalies and the gap between observed and potential corn yield. Higher anomalies, i.e., more variation, are connected to more conflict. The smaller the gap between observed and potential corn yield, the more conflict is expected. This is a statistically significant relationship. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph.",
     mediatingEffects:
