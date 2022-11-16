@@ -2,15 +2,12 @@ import clsx from "clsx";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "react-router-dom";
-import all from "../../images/all.svg";
-import mediating from "../../images/mediating.svg";
-import relationship from "../../images/relationship.svg";
 import { DataStoryChapter } from "./Chapter";
 import { DataStoryGallery } from "./Gallery";
 import { DataStoryGalleryImage } from "./GalleryImage";
 import { LayoutContainer } from "./LayoutContainer";
+import { DataStoryModelStepContent } from "./ModelStepContent";
 import { regions } from "./regions";
-import { DataStoryScroller } from "./Scroller";
 import { DataStorySection } from "./Section";
 import { DataStorySideNav } from "./SideNav";
 import { DataStoryStatsHelpContent } from "./StatsHelpContent";
@@ -94,37 +91,7 @@ export const DataStoryMainPage = () => {
             </DataStoryChapter>
             <DataStoryChapter title="Causal Model 101" anchor="model101">
               <DataStorySection>
-                <p>
-                  A causal graph is a visual representation of the results of a
-                  causal model. We can use it to understand the main causal
-                  drivers of conflict activities in our regions of interest. To
-                  do that, we first need to understand the basic structure of
-                  the causal graph:
-                </p>
-                <DataStoryScroller>
-                  <DataStorySection figure={relationship} height={100}>
-                    A are the main causal reasons for the armed conflicts and
-                    are placed at the very top of the graph:
-                  </DataStorySection>
-                  <DataStorySection figure={mediating} height={200}>
-                    B are the factors that mediate how A affects the outcome
-                  </DataStorySection>
-                  <DataStorySection figure={all} height={200}>
-                    C is the outcome, armed conflict.
-                  </DataStorySection>
-                  <DataStorySection figure={all} height={200}>
-                    The arrows represent the direction of causal relation. This
-                    shows that A affects B which leads to C.
-                  </DataStorySection>
-                </DataStoryScroller>
-                <p>
-                  Although A is the core reason for C, it is an indirect
-                  relationship. The presence of B is necessary intermediate
-                  step, called a mediating effect in order to reach the outcome
-                  . In this study the indirect relationship, water scarcity,
-                  causally influences the probability of conflict outbreak
-                  through the mediator, density of the population.
-                </p>
+                <DataStoryModelStepContent />
               </DataStorySection>
               <DataStorySection>
                 <DataStoryStatsHelpContent />
