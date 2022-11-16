@@ -10,7 +10,9 @@ export const DataStoryStatsHelpContent = () => {
       <dl>
         <dt className="font-family-heading"> Causal Coefficient </dt>
         <dd>
-          the strength of the relationship to the outcome
+          <p className="mb-0">
+            The strength of the relationship to the outcome
+          </p>
           <ul>
             <li>
               A positive value means there is a parallel connection to the
@@ -34,7 +36,7 @@ export const DataStoryStatsHelpContent = () => {
         </dd>
         <dt className="font-family-heading">Standard Error</dt>
         <dd>
-          <p> how reliable the relationship is</p>
+          <p className="mb-0">How reliable the relationship is</p>
           <ul>
             <li>
               Standard error is the standard deviation of the sampling
@@ -47,7 +49,7 @@ export const DataStoryStatsHelpContent = () => {
         </dd>
         <dt className="font-family-heading"> Statistical Significance</dt>
         <dd>
-          <p> the confidence in the finding</p>
+          <p className="mb-0">The confidence in the finding</p>
           <ul>
             <li>
               We are only working with a sample of data. We need statistics to

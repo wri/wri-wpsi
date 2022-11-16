@@ -2,54 +2,103 @@ import clsx from "clsx";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { Scrollama, Step } from "react-scrollama";
+import PropTypes from "prop-types";
 
 const useStyles = createUseStyles({
-  graph: {
-    alignSelf: "flex-start",
+  graph: {},
+  stepCard: {
+    borderTopLeftRadius: "10px",
+    borderTopRightRadius: "10px",
+    alignItems: "flex-start",
+    padding: "2rem 2rem 4rem",
+    display: "flex",
+    color: "#fff",
+    transition: "opacity linear 500ms",
+    height: "320px",
+    position: "sticky",
+    zIndex: 1,
+    marginBottom: "-2rem",
   },
+  nodeBoxTitle: {
+    fontSize: "1.25rem",
+    fontWeight: 700,
+  },
+  nodeBox: {
+    minHeight: "120px",
+    minWidth: "240px",
+    marginRight: "2.5rem",
+    textAlign: "center",
+    padding: "1rem 2rem",
+    borderRadius: "10px",
+    color: "#333",
+    background: "#fff",
+  },
+  nodeLead: {
+    fontSize: "1.25rem",
+    opacity: 0.5,
+  },
+  stepActive: {
+    "& $nodeLead": { opacity: 1 },
+  },
+  ///
   step: {
     fontSize: "1.25em",
-    height: "120px",
     marginBottom: "2rem",
     transition: "opacity linear 500ms",
     opacity: 0.0,
   },
-  stepActive: {
-    opacity: 1,
-  },
   scrolly: {
-    position: "sticky",
-    top: "70px",
-    marginBottom: "120px",
+    marginBottom: "2rem",
     marginTop: "2rem",
   },
-  node: {
-    marginBottom: "30px",
-    borderRadius: "6px",
-    padding: "1rem",
-    textAlign: "center",
-    color: "#fff",
-    height: "120px",
-    transition: "opacity linear 500ms",
-    opacity: 0.5,
-  },
   nodeA: {
+    top: "70px",
     background: "#28293e",
   },
   nodeB: {
+    top: "255px",
     background: "#486e81",
   },
   nodeC: {
+    top: "440px",
     background: "#73b85f",
-  },
-  nodeActive: {
-    opacity: 1,
+    height: "auto",
+    marginBottom: "0",
+    paddingBottom: "2rem",
+    borderBottomLeftRadius: "10px",
+    borderBottomRightRadius: "10px",
   },
 });
+
+const StepCardRaw = ({ letter, title, label, className }, ref) => {
+  const classes = useStyles();
+  return (
+    <div className={clsx(className, classes.stepCard)} ref={ref}>
+      <div className={classes.nodeBox}>
+        <div className={classes.nodeBoxTitle}>{letter}</div>
+        <div className={classes.nodeBoxTitle}>{title}</div>
+      </div>
+      <div className={classes.nodeLead}>
+        {label}
+      </div>
+    </div>
+  );
+};
+StepCardRaw.propTypes = {
+  letter: PropTypes.string,
+  title: PropTypes.string,
+  label: PropTypes.string,
+  className: PropTypes.string,
+};
+const StepCard = React.forwardRef(StepCardRaw);
 
 export const DataStoryModelStepContent = () => {
   const classes = useStyles();
   const [step, setStep] = React.useState("a");
+
+  //const onStepProgress= React.useCallback(({ data, progress }) => {
+  //  if (data  =='a') console.info(data, progress);
+  //}, []);
 
   const onStepEnter = React.useCallback(({ data }) => {
     setStep(data);
@@ -65,87 +114,46 @@ export const DataStoryModelStepContent = () => {
       </p>
 
       <div className={classes.scrolly}>
-        <div className="row">
-          <div className="col-sm-6 col-md-4">
-            <div className={classes.graph}>
-              <div
-                className={clsx(
-                  classes.node,
-                  classes.nodeA,
-                  step.match("a") && classes.nodeActive
-                )}
-              >
-                A
-                <br />
-                Indirect Relationship
-                <br />
-                <small>(main reason for conflict)</small>
-              </div>
-              <div
-                className={clsx(
-                  classes.node,
-                  classes.nodeB,
-                  step.match("b") && classes.nodeActive
-                )}
-              >
-                B
-                <br />
-                Mediating Effects
-                <br />
-                <small>armed conflict</small>
-              </div>
-              <div
-                className={clsx(
-                  classes.node,
-                  classes.nodeC,
-                  step.match("c") && classes.nodeActive
-                )}
-              >
-                C
-                <br />
-                Outcome
-                <br />
-                <small>armed conflict</small>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-6 col-md-8">
-            <Scrollama onStepEnter={onStepEnter}>
-              <Step data="a">
-                <div
-                  className={clsx(
-                    classes.step,
-                    step == "a" && classes.nodeActive
-                  )}
-                >
-                  A are the main causal reasons for the armed conflicts and are
-                  placed at the very top of the graph:
-                </div>
-              </Step>
-              <Step data="ab">
-                <div
-                  className={clsx(
-                    classes.step,
-                    step == "ab" && classes.nodeActive
-                  )}
-                >
-                  B are the factors that mediate how A affects the outcome
-                </div>
-              </Step>
-              <Step data="abc">
-                <div
-                  className={clsx(
-                    classes.step,
-                    step == "abc" && classes.nodeActive
-                  )}
-                >
-                  C is the outcome, armed conflict.
-                </div>
-              </Step>
-            </Scrollama>
-          </div>
-        </div>
+        <Scrollama onStepEnter={onStepEnter}>
+          <Step data="a">
+            <StepCard
+              className={clsx(
+                classes.node,
+                classes.nodeA,
+                step.match("a") && classes.stepActive
+              )}
+              letter="A"
+              title="Indirect Relationship"
+              label="The main causal reasons for the armed conflicts and are placed at the very top of the graph"
+            />
+          </Step>
+          <Step data="ab">
+            <StepCard
+              className={clsx(
+                classes.node,
+                classes.nodeB,
+                step.match("b") && classes.stepActive
+              )}
+              letter="B"
+              title="Mediating Effects"
+              label="Factors that mediate how A affects the outcome"
+            />
+          </Step>
+          <Step data="abc">
+            <StepCard
+              className={clsx(
+                classes.node,
+                classes.nodeC,
+                step.match("c") && classes.stepActive
+              )}
+              letter="C"
+              title="Outcome"
+              label="The outcome, armed conflict"
+            />
+          </Step>
+        </Scrollama>
       </div>
+
       <p>
         Although A is the core reason for C, it is an indirect relationship. The
         presence of B is necessary intermediate step, called a mediating effect

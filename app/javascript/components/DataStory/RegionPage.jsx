@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { scrollToTop } from "util/scrollToTop";
 import { DataStoryChapter } from "./Chapter";
 import { LayoutContainer } from "./LayoutContainer";
+import { DataStoryModelHelpContent } from "./ModelHelpContent";
 import { DataStoryRegionNotFoundPage } from "./NotFoundPage";
 import { DataStoryPageTitle } from "./PageTitle";
 import { DataStoryRegionDataDetails } from "./RegionDataDetails";
@@ -114,6 +115,9 @@ export const DataStoryRegionPage = () => {
             <DataStoryChapter title="Causal Model 101" anchor="statsHelp">
               <DataStoryStatsHelpContent />
             </DataStoryChapter>
+            <DataStorySection title="Assumptions and Limits">
+              <DataStoryModelHelpContent />
+            </DataStorySection>
           </div>
           <div className={clsx("col-md-6", classes.graphBox)}>
             <DataStorySection title={`Causal Model for ${region.name}`}>

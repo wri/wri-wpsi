@@ -5,7 +5,6 @@ import { LayoutContainer } from "./LayoutContainer";
 
 const useStyles = createUseStyles({
   title: {
-    marginTop: "0.5rem",
     fontSize: "1.25rem",
   },
   "@media (min-width: 768px)": {
@@ -19,8 +18,10 @@ export const DataStoryPageTitle = ({ title, breadcrumbs }) => {
   const classes = useStyles();
   return (
     <LayoutContainer variant="stickyTitle">
-      {breadcrumbs}
-      <h1 className={classes.title}>{title}</h1>
+      <div className="mt-2">
+        {breadcrumbs}
+        <h1 className={classes.title}>{title}</h1>
+      </div>
     </LayoutContainer>
   );
 };
