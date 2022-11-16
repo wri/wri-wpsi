@@ -11,13 +11,14 @@ import { regions } from "./regions";
 import { DataStorySection } from "./Section";
 import { DataStorySideNav } from "./SideNav";
 import { DataStoryStatsHelpContent } from "./StatsHelpContent";
+import { DataStoryPageTitle } from "./PageTitle";
 
 const useStyles = createUseStyles({
   nav: {
     marginTop: "1rem",
     marginBottom: "2rem",
   },
-  "@media screen and (min-width: 768px)": {
+  "@media (min-width: 768px)": {
     nav: {
       position: "sticky",
       top: "100px",
@@ -37,34 +38,28 @@ export const DataStoryMainPage = () => {
   const classes = useStyles();
   return (
     <>
-      <LayoutContainer variant="stickyTitle">
-        <h1>Understanding the causes of conflict</h1>
-      </LayoutContainer>
+      <DataStoryPageTitle title="Understanding the causes of conflict" />
       <LayoutContainer>
         <div className={clsx("row", classes.main)}>
-          <div className="col-md-3">
+          <div className="col-lg-3">
             <nav className={classes.nav}>
               <DataStorySideNav title="Jump To">
                 <a href="#intro">Causal Models</a>
                 <a href="#model101">Causal Model 101</a>
-                <>
+                <div>
                   <a href="#regions">Regions</a>
-                  <DataStorySideNav>
+                  <DataStorySideNav indent>
                     {regions.map((region) => (
-                      <Link
-                        key={region.id}
-                        to={`regions/${region.id}`}
-                        className="ml-4"
-                      >
+                      <Link key={region.id} to={`regions/${region.id}`}>
                         {region.name}
                       </Link>
                     ))}
                   </DataStorySideNav>
-                </>
+                </div>
               </DataStorySideNav>
             </nav>
           </div>
-          <div className="col-md-9">
+          <div className="col-lg-9">
             <DataStoryChapter title="Causal Models" anchor="intro">
               <p>
                 Water insecurity is increasing worldwide, straining relations

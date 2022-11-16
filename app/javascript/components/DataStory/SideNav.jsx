@@ -1,32 +1,25 @@
+import clsx from "clsx";
 import PropTypes from "prop-types";
 import React from "react";
-
-/*
 import { createUseStyles } from "react-jss";
+
 const useStyles = createUseStyles({
-  root: {
-    marginTop: "1rem",
-    marginBottom: "2rem",
-  },
-  "@media screen and (min-width: 768px)": {
-    root: {
-      position: "sticky",
-      top: "100px",
-    },
+  item: {
+    lineHeight: "22px",
+    marginBottom: "0.15rem",
+    paddingTop: 0,
   },
 });
-*/
 
-export const DataStorySideNav = ({ title, children }) => {
-  //const classes = useStyles();
-
+export const DataStorySideNav = ({ title, children, indent }) => {
+  const classes = useStyles();
   return (
     <>
       {title && <h4>{title}</h4>}
-      <ul className="list-unstyled">
+      <ul className={clsx("list-unstyled", indent && "ml-3")}>
         {React.Children.map(children, (child, idx) => {
           return (
-            <li className="font-family-heading pt-0 mb-1" key={idx}>
+            <li className={clsx("font-family-heading", classes.item)} key={idx}>
               {child}
             </li>
           );
@@ -39,4 +32,5 @@ export const DataStorySideNav = ({ title, children }) => {
 DataStorySideNav.propTypes = {
   title: PropTypes.string,
   children: PropTypes.array.isRequired,
+  indent: PropTypes.bool,
 };

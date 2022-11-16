@@ -1,14 +1,15 @@
 import clsx from "clsx";
 import React from "react";
 import { useParams } from "react-router-dom";
+import { scrollToTop } from "util/scrollToTop";
 import { DataStoryChapter } from "./Chapter";
 import { LayoutContainer } from "./LayoutContainer";
 import { DataStoryRegionNotFoundPage } from "./NotFoundPage";
+import { DataStoryPageTitle } from "./PageTitle";
 import { DataStoryRegionDataDetails } from "./RegionDataDetails";
 import { regions } from "./regions";
 import { DataStorySection } from "./Section";
 import { DataStoryStatsHelpContent } from "./StatsHelpContent";
-import { scrollToTop } from "util/scrollToTop";
 
 import { createUseStyles } from "react-jss";
 
@@ -65,18 +66,18 @@ export const DataStoryRegionPage = () => {
 
   return (
     <>
-      <LayoutContainer variant="stickyTitle">
-        <div className="c-breadcrumbs">
-          <a className="c-breadcrumbs__link" href="/causal">
-            <span>Causal Model</span>
-          </a>
-          <div className="c-breadcrumbs__divider">&gt;</div>
-          <span className="c-breadcrumbs__item">{region.name}</span>
-        </div>
-
-        <h1>{`Causal Modal: ${region.name}`}</h1>
-      </LayoutContainer>
-
+      <DataStoryPageTitle
+        title={`Causal Modal: ${region.name}`}
+        breadcrumbs={
+          <div className="c-breadcrumbs">
+            <a className="c-breadcrumbs__link" href="/causal">
+              <span>Causal Model</span>
+            </a>
+            <div className="c-breadcrumbs__divider">&gt;</div>
+            <span className="c-breadcrumbs__item">{region.name}</span>
+          </div>
+        }
+      />
       <LayoutContainer variant="inset">
         <div className="row">
           <div className="col-md-3">
