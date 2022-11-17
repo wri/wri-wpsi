@@ -3,7 +3,6 @@ require 'csv'
 class WidgetDatapoint < ApplicationRecord
   alias_attribute :gid_0, :GID_0
   alias_attribute :gid_1, :GID_1
-  alias_attribute :gid_2, :GID_2
 
   def self.serialized_for_react_app(field_name)
     all.map do |widget_datapoint|

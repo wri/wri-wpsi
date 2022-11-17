@@ -4,11 +4,11 @@ class WidgetDatapointsControllerTest < ActionDispatch::IntegrationTest
   include Rack::Test::Methods
 
   setup do
-    create(:widget_datapoint, buffalo_number: 1)
+    create(:widget_datapoint, rainfed: 1.0)
   end
 
   test 'simple request' do
-    get api_v1_widget_datapoints_path(gid_1: 'USA.1', field_name: 'buffalo_number')
+    get api_v1_widget_datapoints_path(gid_1: 'USA.1', field_name: 'rainfed')
     assert last_response.ok?
 
     expected_response = {
@@ -17,7 +17,7 @@ class WidgetDatapointsControllerTest < ActionDispatch::IntegrationTest
           gid_1: 'USA.1',
           month_date: '2000-01-01',
           year: 2000,
-          buffalo_number: '1',
+          rainfed: '1.0',
         },
       ],
     }.to_json
@@ -26,10 +26,10 @@ class WidgetDatapointsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'simple csv request' do
-    get api_v1_widget_datapoints_csv_path(gid_1: 'USA.1', field_name: 'buffalo_number')
+    get api_v1_widget_datapoints_csv_path(gid_1: 'USA.1', field_name: 'rainfed')
     assert last_response.ok?
 
-    expected_response = "gid_1,month_date,buffalo_number\nUSA.1,2000-01-01,1\n"
+    expected_response = "gid_1,month_date,rainfed\nUSA.1,2000-01-01,1.0\n"
     assert_equal expected_response, last_response.body
   end
 end
