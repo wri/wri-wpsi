@@ -35,7 +35,8 @@ const useStyles = createUseStyles({
   },
   nodeLead: {
     fontSize: "1.25rem",
-    opacity: 0.5,
+    transition: "opacity linear 500ms",
+    opacity: 0.0,
   },
   stepActive: {
     "& $nodeLead": { opacity: 1 },
@@ -43,12 +44,28 @@ const useStyles = createUseStyles({
   step: {
     fontSize: "1.25em",
     marginBottom: "2rem",
-    transition: "opacity linear 500ms",
-    opacity: 0.0,
+  },
+  locked: {
+    "& $stepCard": {
+      position: "relative",
+      overflow: "hidden",
+    },
+    "& $nodeA": {
+      top: "200px",
+    },
+    "& $nodeB": {
+      top: "100px",
+    },
+    "& $nodeC": {
+      top: "0px",
+    },
   },
   scrolly: {
-    marginBottom: "2rem",
     marginTop: "2rem",
+    marginBottom: "4rem",
+    "&$locked": {
+      position: "relative",
+    },
   },
   nodeA: {
     top: "70px",
@@ -92,16 +109,25 @@ const StepCard = React.forwardRef(StepCardRaw);
 
 export const DataStoryModelStepContent = () => {
   const classes = useStyles();
-  const [step, setStep] = React.useState("a");
+  const [steps, setSteps] = React.useState({
+    a: false,
+    b: false,
+    c: false,
+  });
 
-  //const onStepProgress= React.useCallback(({ data, progress }) => {
-  //  if (data  =='a') console.info(data, progress);
-  //}, []);
+  const onStepProgress = React.useCallback(({ data, progress }) => {
+    if (data =='c') console.info("progress", data, progress);
+  }, []);
 
   const onStepEnter = React.useCallback(({ data }) => {
-    setStep(data);
+    // console.info("enter", data);
+    setSteps((c) => ({ ...c, [data]: true }));
   }, []);
-  console.info(step);
+  const onStepExit = React.useCallback(({ data }) => {
+    // console.info("exit", data);
+    setSteps((c) => ({ ...c, [data]: false }));
+  }, []);
+  console.info(steps);
 
   return (
     <>
@@ -112,38 +138,43 @@ export const DataStoryModelStepContent = () => {
         understand the basic structure of the causal graph:
       </p>
 
-      <div className={classes.scrolly}>
-        <Scrollama onStepEnter={onStepEnter}>
+      <div className={clsx(classes.scrolly, steps.c && classes.locked)}>
+        <Scrollama
+          onStepEnter={onStepEnter}
+          onStepExit={onStepExit}
+          onStepProgress={onStepProgress}
+          offset={0.5}
+        >
           <Step data="a">
             <StepCard
               className={clsx(
                 classes.node,
                 classes.nodeA,
-                step.match("a") && classes.stepActive
+                steps.a && classes.stepActive
               )}
               letter="A"
               title="Indirect Relationship"
               label="The main causal reasons for the armed conflicts and are placed at the very top of the graph"
             />
           </Step>
-          <Step data="ab">
+          <Step data="b">
             <StepCard
               className={clsx(
                 classes.node,
                 classes.nodeB,
-                step.match("b") && classes.stepActive
+                steps.b && classes.stepActive
               )}
               letter="B"
               title="Mediating Effects"
               label="Factors that mediate how A affects the outcome"
             />
           </Step>
-          <Step data="abc" >
+          <Step data="c">
             <StepCard
               className={clsx(
                 classes.node,
                 classes.nodeC,
-                step.match("c") && classes.stepActive
+                steps.c && classes.stepActive
               )}
               letter="C"
               title="Outcome"
