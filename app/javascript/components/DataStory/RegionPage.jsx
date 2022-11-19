@@ -26,16 +26,10 @@ const useStyles = createUseStyles({
     alignSelf: "flex-start",
     paddingTop: "3.75rem",
   },
-  graph: ({image}) => ({
-    backgroundColor: 'red',
-    backgroundImage: `url(${image})`,
-    backgroundSize: "100% 100%",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "left top",
-    //objectFit: "cover",
-    height: "calc(100vh - 180px)",
+  graph: {
+    height: "calc(100vh - 145px)",
     width: "100%",
-  }),
+  },
   main: {
     marginTop: "4em",
     marginBottom: "4em",
@@ -125,7 +119,11 @@ export const DataStoryRegionPage = () => {
           </div>
           <div className={clsx("col-md-6", classes.graphBox)}>
             <DataStorySection title={`Causal Model for ${region.name}`}>
-              <div className={classes.graph}></div>
+              <img
+                className={classes.graph}
+                src={region.causalGraph}
+                alt={region.name}
+              />
             </DataStorySection>
           </div>
         </div>
