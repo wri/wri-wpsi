@@ -6,7 +6,7 @@ loccount_y [color=white, label="Total population count: 1.387, (0.879)"];
 locdensity_y [color=white, label="Population density: 0.772, (0.775)"];
 yield_gap_rice_s [color=white, label="Gap between observed and potential rice yield: 0.389, (0.162)"];
 et_actl_m_MIN_m [color=white, label="Actual evapotranspiration: -0.464, (0.116)"];
-acl_sum_evnt_m [color=white, label="Outcome: Total number of conflict events"];
+acl_sum_evnt_m [color=white, label="Total number of conflict events"];
 acl_sum_fatl_m [color=white, label="Reported fatalities from conflict events"];
 LINES
 

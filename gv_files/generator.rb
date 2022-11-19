@@ -22,6 +22,7 @@ class CausalModelRegionGenerator
     <<~GV
       # generated file for region: #{region[:id]} by #{self.class.name}
       strict digraph causalModel {
+      stylesheet="/region_model.css";
       nodesep = 0.4;
       concentrate = true;
       node[ shape  =  "Mrecord" , fontsize  =  "10" , fontname  =  "Arial" , margin  =  "0.07,0.05" , penwidth  =  "1.0"];
@@ -49,9 +50,10 @@ class CausalModelRegionGenerator
     ).map(&:presence)
 
     raise node.inspect if id.blank? || label.blank?
-    label_str = ApplicationController.helpers.word_wrap(label, line_width: 25, break_sequence: "<br/>")
+
+    label_str = ApplicationController.helpers.word_wrap(label, line_width: 25, break_sequence: '<br/>')
     title = <<~GV
-      <table align='center' border="0" cellspacing="0.5" cellpadding="0.25">
+      <table align="center" border="0" cellspacing="1" cellpadding="1">
       <tr><td ><b>#{label_str}</b></td></tr>
       </table>
     GV
@@ -64,14 +66,14 @@ class CausalModelRegionGenerator
 
     label = nil
     if details.any?
-      details_table = %(<table border="0" cellspacing="1" cellpadding="0.25">#{details.join("\n")}</table>)
+      details_table = %(<table border="0" cellspacing="1" cellpadding="0.5">#{details.join("\n")}</table>)
       label = "<{#{title}|#{details_table}}>"
     else
       label = "<#{title}>"
     end
 
-
-    "#{id} [label = #{label}]"
+    rank = "rank#{rank.upcase}"
+    "#{id} [label = #{label}; class=#{rank}]"
   end
 
   def regions
@@ -83,51 +85,51 @@ class CausalModelRegionGenerator
   def east_asia
     {
       id: 'east_asia_and_pacific',
-      nodes: [{:id=>"spam_P_i_sum_s",
-        :label=>"Metric tons of irrigated crops produced",
-        :effect=>"-0.342",
-        :error=>"2.209",
-        :rank=>"b"},
-       {:id=>"rurpop_s",
-        :label=>"Population in rural areas",
-        :effect=>"3.303",
-        :error=>"2.726",
-        :rank=>"b"},
-       {:id=>"Cropland2000_mean_percent_s",
-        :label=>"Percentage of land that is cropland",
-        :effect=>"-0.065",
-        :error=>"0.066",
-        :rank=>"b"},
-       {:id=>"loccount_y",
-        :label=>"Total population count",
-        :effect=>"1.387",
-        :error=>"0.879",
-        :rank=>"b"},
-       {:id=>"locdensity_y",
-        :label=>"Population density",
-        :effect=>"0.772",
-        :error=>"0.775",
-        :rank=>"b"},
-       {:id=>"yield_gap_rice_s",
-        :label=>"Gap between observed and potential rice yield",
-        :effect=>"0.389",
-        :error=>"0.162",
-        :rank=>"b"},
-       {:id=>"et_actl_m_MIN_m",
-        :label=>"Actual evapotranspiration",
-        :effect=>"-0.464",
-        :error=>"0.116",
-        :rank=>"b"},
-       {:id=>"acl_sum_evnt_m",
-        :label=>"Outcome",
-        :effect=>nil,
-        :error=>nil,
-        :rank=>"b"},
-       {:id=>"acl_sum_fatl_m",
-        :label=>"Reported fatalities from conflict events",
-        :effect=>nil,
-        :error=>nil,
-        :rank=>"c"}],
+      nodes: [{ id: 'spam_P_i_sum_s',
+                label: 'Metric tons of irrigated crops produced',
+                effect: '-0.342',
+                error: '2.209',
+                rank: 'b' },
+              { id: 'rurpop_s',
+                label: 'Population in rural areas',
+                effect: '3.303',
+                error: '2.726',
+                rank: 'b' },
+              { id: 'Cropland2000_mean_percent_s',
+                label: 'Percentage of land that is cropland',
+                effect: '-0.065',
+                error: '0.066',
+                rank: 'b' },
+              { id: 'loccount_y',
+                label: 'Total population count',
+                effect: '1.387',
+                error: '0.879',
+                rank: 'b' },
+              { id: 'locdensity_y',
+                label: 'Population density',
+                effect: '0.772',
+                error: '0.775',
+                rank: 'b' },
+              { id: 'yield_gap_rice_s',
+                label: 'Gap between observed and potential rice yield',
+                effect: '0.389',
+                error: '0.162',
+                rank: 'b' },
+              { id: 'et_actl_m_MIN_m',
+                label: 'Actual evapotranspiration',
+                effect: '-0.464',
+                error: '0.116',
+                rank: 'b' },
+              { id: 'acl_sum_evnt_m',
+                label: 'Total number of conflict events',
+                effect: nil,
+                error: nil,
+                rank: 'c' },
+              { id: 'acl_sum_fatl_m',
+                label: 'Reported fatalities from conflict events',
+                effect: nil,
+                error: nil,
+                rank: 'c' }],
       links: [
         'spam_P_i_sum_s -> loccount_y ',
         'rurpop_s -> spam_P_i_sum_s ',
