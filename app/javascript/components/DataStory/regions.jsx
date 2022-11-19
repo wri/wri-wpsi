@@ -1,4 +1,5 @@
 import ea_graph from "../../images/regions/causal_graphs/east_asia_and_pacific.svg";
+import eu_graph from "../../images/regions/causal_graphs/europe_and_central_asia.svg";
 import ea_thumbnail from "../../images/regions/thumbnails/east_asia_and_pacific.png";
 import eu_thumbnail from "../../images/regions/thumbnails/europe_and_central_asia.png";
 import lt_thumbnail from "../../images/regions/thumbnails/latin_america_and_caribbean.png";
@@ -264,6 +265,7 @@ export const regions = [
     id: "europe and central asia",
     name: "Europe and Central Asia",
     image: eu_thumbnail,
+    causalGraph: eu_graph,
     causalRelationship:
       "The causes of the conflict outcomes are variation in evapotranspiration and presence of livestock. Anomalies in evapotranspiration can occur when there are changes in the vegetation and/or surface water coverage. Neither relationship is statistically significant. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
     mediatingEffects:

@@ -26,12 +26,16 @@ const useStyles = createUseStyles({
     alignSelf: "flex-start",
     paddingTop: "3.75rem",
   },
-  graph: {
-    objectFit: "cover",
+  graph: ({image}) => ({
+    backgroundColor: 'red',
+    backgroundImage: `url(${image})`,
+    backgroundSize: "100% 100%",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "left top",
+    //objectFit: "cover",
+    height: "calc(100vh - 180px)",
     width: "100%",
-    height: "auto",
-    display: "block",
-  },
+  }),
   main: {
     marginTop: "4em",
     marginBottom: "4em",
@@ -42,7 +46,6 @@ const useStyles = createUseStyles({
 });
 
 export const DataStoryRegionPage = () => {
-  const classes = useStyles();
   const { regionId } = useParams();
   const region = React.useMemo(
     () => regions.find((r) => r.id == regionId),
@@ -51,6 +54,7 @@ export const DataStoryRegionPage = () => {
   if (!region) {
     return <DataStoryRegionNotFoundPage />;
   }
+  const classes = useStyles({ image: region.causalGraph });
 
   const [fade, setFade] = React.useState(true);
   React.useEffect(scrollToTop, [regionId]);
@@ -121,11 +125,7 @@ export const DataStoryRegionPage = () => {
           </div>
           <div className={clsx("col-md-6", classes.graphBox)}>
             <DataStorySection title={`Causal Model for ${region.name}`}>
-              <img
-                className={classes.graph}
-                src={region.causalGraph}
-                alt={region.name}
-              />
+              <div className={classes.graph}></div>
             </DataStorySection>
           </div>
         </div>

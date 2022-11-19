@@ -43,6 +43,9 @@ class CausalModelRegionGenerator
 
     doc = File.open(path) { |f| Nokogiri::XML(f) }
     doc.root.add_child "<style>#{css}</style>"
+    doc.root['preserveAspectRatio']="xMinYMin"
+    doc.root['height'] = nil
+    doc.root['width'] = nil
     File.open(path, 'w') { |file| file.write doc.to_s }
   end
 
@@ -113,6 +116,7 @@ class CausalModelRegionGenerator
   def regions
     [
       east_asia,
+      europe,
     ]
   end
 
@@ -179,6 +183,78 @@ class CausalModelRegionGenerator
         'et_actl_m_MIN_m -> locdensity_y ',
         'et_actl_m_MIN_m -> yield_gap_rice_s ',
         'acl_sum_fatl_m -> acl_sum_evnt_m ',
+      ],
+    }
+  end
+
+  # east_asia_and_pacific.png    latin_america_and_caribbean.png   north_america.png  sub-saharan_africa.png
+  # europe_and_central_asia.png  middle_east_and_north_africa.png  south_asia.png
+
+  def europe
+    {
+      id: 'europe_and_central_asia',
+      nodes: [{ id: 'et_anom_m_STD_m',
+                label: 'Variation in evapotranspiration patterns',
+                effect: nil,
+                error: nil,
+                rank: 'b' },
+              { id: 'chicken_number_s',
+                label: 'Count of livestock chickens',
+                effect: '-0.201',
+                error: '0.081',
+                rank: 'b' },
+              { id: 'yield_gap_barley_s',
+                label: 'Gap between observed and potential barley yield',
+                effect: '-0.224',
+                error: '0.062',
+                rank: 'b' },
+              { id: 'rurpop_s',
+                label: 'Population in rural areas',
+                effect: nil,
+                error: nil,
+                rank: 'b' },
+              { id: 'Cropland2000_mean_percent_s',
+                label: 'Percentage of land that is cropland',
+                effect: '0.174',
+                error: '0.072',
+                rank: 'b' },
+              { id: 'loccount_y',
+                label: 'Total population count',
+                effect: '2.366',
+                error: '0.936',
+                rank: 'b' },
+              { id: 'locdensity_y',
+                label: 'Population density',
+                effect: '0.38',
+                error: '0.259',
+                rank: 'b' },
+              { id: 'DeliveredkcalFraction_s',
+                label: 'Portion of calories produced going toward food',
+                effect: nil,
+                error: nil,
+                rank: 'b' },
+              { id: 'acl_sum_evnt_m',
+                label: 'Total number of conflict events',
+                effect: nil,
+                error: nil,
+                rank: 'c' }],
+      links: [
+        'et_anom_m_STD_m -> yield_gap_barley_s ',
+        'et_anom_m_STD_m -> rurpop_s ',
+        'et_anom_m_STD_m -> DeliveredkcalFraction_s ',
+        'chicken_number_s -> yield_gap_barley_s ',
+        'chicken_number_s -> Cropland2000_mean_percent_s ',
+        'chicken_number_s -> DeliveredkcalFraction_s ',
+        'yield_gap_barley_s -> rurpop_s ',
+        'yield_gap_barley_s -> locdensity_y ',
+        'rurpop_s -> loccount_y ',
+        'Cropland2000_mean_percent_s -> rurpop_s ',
+        'Cropland2000_mean_percent_s -> loccount_y ',
+        'loccount_y -> acl_sum_evnt_m ',
+        'locdensity_y -> Cropland2000_mean_percent_s ',
+        'locdensity_y -> loccount_y ',
+        'DeliveredkcalFraction_s -> rurpop_s ',
+        'DeliveredkcalFraction_s -> loccount_y ',
       ],
     }
   end
