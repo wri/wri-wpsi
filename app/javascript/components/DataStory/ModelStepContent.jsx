@@ -115,9 +115,9 @@ export const DataStoryModelStepContent = () => {
     c: false,
   });
 
-  const onStepProgress = React.useCallback(({ data, progress }) => {
-    if (data =='c') console.info("progress", data, progress);
-  }, []);
+  //const onStepProgress = React.useCallback(({ data, progress }) => {
+  //  if (data =='c') console.info("progress", data, progress);
+  //}, []);
 
   const onStepEnter = React.useCallback(({ data }) => {
     // console.info("enter", data);
@@ -142,7 +142,6 @@ export const DataStoryModelStepContent = () => {
         <Scrollama
           onStepEnter={onStepEnter}
           onStepExit={onStepExit}
-          onStepProgress={onStepProgress}
           offset={0.5}
         >
           <Step data="a">

@@ -7,10 +7,44 @@ class CausalModelRegionGenerator
       File.open(gv_path, 'w') { |file| file.write(gv) }
       svg_path = root = Rails.root.join(path, "#{region[:id]}.svg")
       convert_to_svg(gv_path, svg_path)
+      inject_svg_styles(svg_path)
     end
   end
 
   protected
+
+  def inject_svg_styles(path)
+    css = <<~CSS
+      .node path {
+        stroke: #fff;
+      }
+      .node text {
+        fill: #fff;
+      }
+      .rankC.node text {
+        fill: #000;
+      }
+      .node polyline {
+        stroke: #fff;
+      }
+      .rankA path {
+        fill: #292a40;
+      }
+      .rankB path {
+        fill: #4a6e81;
+      }
+      .rankC path {
+        fill: #73b85f;
+      }
+      .edge path {
+        stroke: #666;
+      };
+    CSS
+
+    doc = File.open(path) { |f| Nokogiri::XML(f) }
+    doc.root.add_child "<style>#{css}</style>"
+    File.open(path, 'w') { |file| file.write doc.to_s }
+  end
 
   def convert_to_svg(gv_path, svg_path)
     cmd = "dot -Tsvg #{gv_path} -o #{svg_path}"
@@ -22,11 +56,11 @@ class CausalModelRegionGenerator
     <<~GV
       # generated file for region: #{region[:id]} by #{self.class.name}
       strict digraph causalModel {
-      stylesheet="/region_model.css";
       nodesep = 0.4;
       concentrate = true;
-      node[ shape  =  "Mrecord" , fontsize  =  "10" , fontname  =  "Arial" , margin  =  "0.07,0.05" , penwidth  =  "1.0"];
-      edge[arrowsize = 1.2, penwidth = 2 ];
+      node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.07,0.05", penwidth = 1.0];
+      edge[arrowsize = 1.2, penwidth = 2];
+      ranksep=1;
 
       # links
       #{
@@ -54,14 +88,14 @@ class CausalModelRegionGenerator
     label_str = ApplicationController.helpers.word_wrap(label, line_width: 25, break_sequence: '<br/>')
     title = <<~GV
       <table align="center" border="0" cellspacing="1" cellpadding="1">
-      <tr><td ><b>#{label_str}</b></td></tr>
+      <tr><td><font point-size="16">#{label_str}</font></td></tr>
       </table>
     GV
 
     details = []
     %i[effect error significance].each do |key|
       value = node[key]
-      details.push("<tr><td>#{key}: #{value}</td></tr>") if value
+      details.push(%(<tr><td><font point-size="14">#{key}: #{value}</font></td></tr>)) if value
     end
 
     label = nil
@@ -72,8 +106,8 @@ class CausalModelRegionGenerator
       label = "<#{title}>"
     end
 
-    rank = "rank#{rank.upcase}"
-    "#{id} [label = #{label}; class=#{rank}]"
+    klass = "rank#{rank.upcase}"
+    "#{id} [label = #{label}, class = #{klass}]"
   end
 
   def regions
@@ -99,7 +133,7 @@ class CausalModelRegionGenerator
                 label: 'Percentage of land that is cropland',
                 effect: '-0.065',
                 error: '0.066',
-                rank: 'b' },
+                rank: 'a' },
               { id: 'loccount_y',
                 label: 'Total population count',
                 effect: '1.387',
@@ -119,7 +153,7 @@ class CausalModelRegionGenerator
                 label: 'Actual evapotranspiration',
                 effect: '-0.464',
                 error: '0.116',
-                rank: 'b' },
+                rank: 'a' },
               { id: 'acl_sum_evnt_m',
                 label: 'Total number of conflict events',
                 effect: nil,

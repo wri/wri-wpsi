@@ -1,4 +1,4 @@
-import ea_graph from "../../images/regions/causal_graphs/east_asia_and_pacific.jpg";
+import ea_graph from "../../images/regions/causal_graphs/east_asia_and_pacific.svg";
 import ea_thumbnail from "../../images/regions/thumbnails/east_asia_and_pacific.png";
 import eu_thumbnail from "../../images/regions/thumbnails/europe_and_central_asia.png";
 import lt_thumbnail from "../../images/regions/thumbnails/latin_america_and_caribbean.png";
