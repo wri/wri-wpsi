@@ -5,24 +5,6 @@ concentrate = true;
 node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.07,0.05", penwidth = 1.0];
 edge[arrowsize = 1.2, penwidth = 2];
 
-#ranks
-{rank=same; Cropland2000_mean_percent_s et_actl_m_MIN_m; }
-{rank=same; acl_sum_evnt_m acl_sum_fatl_m; }
-# links
-spam_P_i_sum_s -> loccount_y ;
-rurpop_s -> spam_P_i_sum_s ;
-rurpop_s -> loccount_y ;
-rurpop_s -> yield_gap_rice_s ;
-rurpop_s -> acl_sum_fatl_m ;
-Cropland2000_mean_percent_s -> rurpop_s ;
-loccount_y -> acl_sum_evnt_m ;
-locdensity_y -> loccount_y ;
-locdensity_y -> acl_sum_evnt_m ;
-yield_gap_rice_s -> locdensity_y ;
-et_actl_m_MIN_m -> rurpop_s ;
-et_actl_m_MIN_m -> locdensity_y ;
-et_actl_m_MIN_m -> yield_gap_rice_s ;
-acl_sum_fatl_m -> acl_sum_evnt_m ;
 # nodes
 spam_P_i_sum_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Metric tons of<br/>irrigated crops<br/>produced<br/></font></td></tr>
@@ -64,4 +46,25 @@ conflict events", class = rankC, shape=box, style=rounded, fontsize="16pt"];
 acl_sum_fatl_m [label = "Reported
 fatalities from
 conflict events", class = rankC, shape=box, style=rounded, fontsize="16pt"];
+
+#ranks
+{rank=same; Cropland2000_mean_percent_s et_actl_m_MIN_m; }
+{rank=same; acl_sum_evnt_m acl_sum_fatl_m; }
+
+# links
+spam_P_i_sum_s -> loccount_y ;
+rurpop_s -> spam_P_i_sum_s ;
+rurpop_s -> loccount_y ;
+rurpop_s -> yield_gap_rice_s ;
+rurpop_s -> acl_sum_fatl_m ;
+Cropland2000_mean_percent_s -> rurpop_s ;
+loccount_y -> acl_sum_evnt_m ;
+locdensity_y -> loccount_y ;
+locdensity_y -> acl_sum_evnt_m ;
+yield_gap_rice_s -> locdensity_y ;
+et_actl_m_MIN_m -> rurpop_s ;
+et_actl_m_MIN_m -> locdensity_y ;
+et_actl_m_MIN_m -> yield_gap_rice_s ;
+acl_sum_fatl_m -> acl_sum_evnt_m ;
+
 }

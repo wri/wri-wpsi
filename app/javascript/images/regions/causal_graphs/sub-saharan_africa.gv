@@ -5,27 +5,6 @@ concentrate = true;
 node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.07,0.05", penwidth = 1.0];
 edge[arrowsize = 1.2, penwidth = 2];
 
-#ranks
-{rank=same; spi_3_m yield_gap_maize_s; }
-{rank=same; acl_sum_evnt_m acl_sum_fatl_m; }
-# links
-et_actl_m_MAX_m -> rurpop_s;
-cattle_number_s -> et_actl_m_MAX_m;
-cattle_number_s -> rurpop_s;
-cattle_number_s -> ndvi_act_min_m;
-spi_3_m -> cattle_number_s;
-spi_3_m -> spam_V_agg_t_sum_s;
-spi_3_m -> ndvi_act_min_m;
-spam_V_agg_t_sum_s -> et_actl_m_MAX_m;
-spam_V_agg_t_sum_s -> rurpop_s;
-yield_gap_maize_s -> et_actl_m_MAX_m;
-yield_gap_maize_s -> cattle_number_s;
-yield_gap_maize_s -> spam_V_agg_t_sum_s;
-yield_gap_maize_s -> ndvi_act_min_m;
-rurpop_s -> ndvi_act_min_m;
-rurpop_s -> acl_sum_evnt_m;
-ndvi_act_min_m -> acl_sum_evnt_m;
-acl_sum_evnt_m -> acl_sum_fatl_m;
 # nodes
 et_actl_m_MAX_m [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Actual<br/>evapotranspiration<br/></font></td></tr>
@@ -65,4 +44,28 @@ events", class = rankC, shape=box, style=rounded, fontsize="16pt"];
 acl_sum_fatl_m [label = "Reported
 fatalities from
 conflicts", class = rankC, shape=box, style=rounded, fontsize="16pt"];
+
+#ranks
+{rank=same; spi_3_m yield_gap_maize_s; }
+{rank=same; acl_sum_evnt_m acl_sum_fatl_m; }
+
+# links
+et_actl_m_MAX_m -> rurpop_s;
+cattle_number_s -> et_actl_m_MAX_m;
+cattle_number_s -> rurpop_s;
+cattle_number_s -> ndvi_act_min_m;
+spi_3_m -> cattle_number_s;
+spi_3_m -> spam_V_agg_t_sum_s;
+spi_3_m -> ndvi_act_min_m;
+spam_V_agg_t_sum_s -> et_actl_m_MAX_m;
+spam_V_agg_t_sum_s -> rurpop_s;
+yield_gap_maize_s -> et_actl_m_MAX_m;
+yield_gap_maize_s -> cattle_number_s;
+yield_gap_maize_s -> spam_V_agg_t_sum_s;
+yield_gap_maize_s -> ndvi_act_min_m;
+rurpop_s -> ndvi_act_min_m;
+rurpop_s -> acl_sum_evnt_m;
+ndvi_act_min_m -> acl_sum_evnt_m;
+acl_sum_evnt_m -> acl_sum_fatl_m;
+
 }

@@ -20,7 +20,7 @@
 <text text-anchor="start" x="97.5" y="-88.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.244</text>
 </g>
 <!-- acl_pprt_evnt_m -->
-<g id="node2" class="node rankC">
+<g id="node8" class="node rankC">
 <title>acl_pprt_evnt_m</title>
 <path fill="none" stroke="#000000" d="M195.5,-44C195.5,-44 85.5,-44 85.5,-44 79.5,-44 73.5,-38 73.5,-32 73.5,-32 73.5,-12 73.5,-12 73.5,-6 79.5,0 85.5,0 85.5,0 195.5,0 195.5,0 201.5,0 207.5,-6 207.5,-12 207.5,-12 207.5,-32 207.5,-32 207.5,-38 201.5,-44 195.5,-44"/>
 <text text-anchor="middle" x="140.5" y="-27.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Total number of</text>
@@ -33,7 +33,7 @@
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="144.7001,-56.0943 140.5,-44.0943 136.3001,-56.0943 144.7001,-56.0943"/>
 </g>
 <!-- et_anom_m_STD_m -->
-<g id="node3" class="node rankB">
+<g id="node2" class="node rankB">
 <title>et_anom_m_STD_m</title>
 <path fill="none" stroke="#000000" d="M70.5,-389C70.5,-389 210.5,-389 210.5,-389 216.5,-389 222.5,-395 222.5,-401 222.5,-401 222.5,-443 222.5,-443 222.5,-449 216.5,-455 210.5,-455 210.5,-455 70.5,-455 70.5,-455 64.5,-455 58.5,-449 58.5,-443 58.5,-443 58.5,-401 58.5,-401 58.5,-395 64.5,-389 70.5,-389"/>
 <text text-anchor="start" x="95.5" y="-436.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Variation in</text>
@@ -46,7 +46,7 @@
 <path fill="none" stroke="#000000" stroke-width="2" d="M78.5834,-388.7506C43.7857,-365.0496 8.4133,-329.8506 14.5,-287"/>
 </g>
 <!-- ndvi_act_min_m -->
-<g id="node4" class="node rankB">
+<g id="node3" class="node rankB">
 <title>ndvi_act_min_m</title>
 <path fill="none" stroke="#000000" d="M98.5,-242.5C98.5,-242.5 182.5,-242.5 182.5,-242.5 188.5,-242.5 194.5,-248.5 194.5,-254.5 194.5,-254.5 194.5,-319.5 194.5,-319.5 194.5,-325.5 188.5,-331.5 182.5,-331.5 182.5,-331.5 98.5,-331.5 98.5,-331.5 92.5,-331.5 86.5,-325.5 86.5,-319.5 86.5,-319.5 86.5,-254.5 86.5,-254.5 86.5,-248.5 92.5,-242.5 98.5,-242.5"/>
 <text text-anchor="start" x="100.5" y="-312.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Density of</text>
@@ -68,7 +68,7 @@
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="144.7001,-217.7219 140.5,-205.722 136.3001,-217.722 144.7001,-217.7219"/>
 </g>
 <!-- yield_gap_maize_s -->
-<g id="node5" class="node rankB">
+<g id="node7" class="node rankB">
 <title>yield_gap_maize_s</title>
 <path fill="none" stroke="#000000" d="M394,-101C394,-101 495,-101 495,-101 501,-101 507,-107 507,-113 507,-113 507,-173 507,-173 507,-179 501,-185 495,-185 495,-185 394,-185 394,-185 388,-185 382,-179 382,-173 382,-173 382,-113 382,-113 382,-107 388,-101 394,-101"/>
 <text text-anchor="start" x="392.5" y="-166.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Gap between</text>
@@ -83,7 +83,7 @@
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="372.9205,-181.5535 381.9673,-172.6207 369.3245,-173.9621 372.9205,-181.5535"/>
 </g>
 <!-- spi_3_m -->
-<g id="node6" class="node rankA">
+<g id="node4" class="node rankA">
 <title>spi_3_m</title>
 <path fill="none" stroke="#000000" d="M12,-512.5C12,-512.5 143,-512.5 143,-512.5 149,-512.5 155,-518.5 155,-524.5 155,-524.5 155,-607.5 155,-607.5 155,-613.5 149,-619.5 143,-619.5 143,-619.5 12,-619.5 12,-619.5 6,-619.5 0,-613.5 0,-607.5 0,-607.5 0,-524.5 0,-524.5 0,-518.5 6,-512.5 12,-512.5"/>
 <text text-anchor="start" x="32.5" y="-600.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Variation of</text>
@@ -114,7 +114,7 @@
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="79.0634,-328.0944 86.3038,-317.6437 74.1266,-321.2982 79.0634,-328.0944"/>
 </g>
 <!-- rainfed_s -->
-<g id="node7" class="node rankB">
+<g id="node5" class="node rankB">
 <title>rainfed_s</title>
 <path fill="none" stroke="#000000" d="M264,-368.5C264,-368.5 389,-368.5 389,-368.5 395,-368.5 401,-374.5 401,-380.5 401,-380.5 401,-463.5 401,-463.5 401,-469.5 395,-475.5 389,-475.5 389,-475.5 264,-475.5 264,-475.5 258,-475.5 252,-469.5 252,-463.5 252,-463.5 252,-380.5 252,-380.5 252,-374.5 258,-368.5 264,-368.5"/>
 <text text-anchor="start" x="272" y="-456.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Percentage of</text>
@@ -131,7 +131,7 @@
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="206.8559,-329.9719 194.6772,-326.3222 201.9218,-336.77 206.8559,-329.9719"/>
 </g>
 <!-- spam_P_i_sum_s -->
-<g id="node8" class="node rankB">
+<g id="node6" class="node rankB">
 <title>spam_P_i_sum_s</title>
 <path fill="none" stroke="#000000" d="M273,-533C273,-533 380,-533 380,-533 386,-533 392,-539 392,-545 392,-545 392,-587 392,-587 392,-593 386,-599 380,-599 380,-599 273,-599 273,-599 267,-599 261,-593 261,-587 261,-587 261,-545 261,-545 261,-539 267,-533 273,-533"/>
 <text text-anchor="start" x="272.5" y="-580.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Metric tons of</text>
@@ -151,18 +151,18 @@
 <path fill="none" stroke="#000000" stroke-width="2" d="M283.8278,-532.9635C256.8684,-512.0916 221.8343,-484.9685 193.152,-462.7628"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="195.3551,-459.1569 183.2953,-455.1318 190.2128,-465.799 195.3551,-459.1569"/>
 </g>
-<!-- spam_P_i_sum_s&#45;&gt;yield_gap_maize_s -->
-<g id="edge14" class="edge">
-<title>spam_P_i_sum_s-&gt;yield_gap_maize_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M444.5,-287C432.4532,-258.9927 431.8841,-224.9906 434.5911,-197.0612"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="438.7677,-197.5049 435.9815,-185.1002 430.4239,-196.5349 438.7677,-197.5049"/>
-</g>
 <!-- spam_P_i_sum_s&#45;&gt;rainfed_s -->
 <g id="edge13" class="edge">
 <title>spam_P_i_sum_s-&gt;rainfed_s</title>
 <path fill="none" stroke="#000000" stroke-width="2" d="M326.5,-520.8856C326.5,-510.3787 326.5,-498.9798 326.5,-487.783"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="322.3001,-520.9635 326.5,-532.9635 330.7001,-520.9635 322.3001,-520.9635"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="330.7001,-487.7642 326.5,-475.7643 322.3001,-487.7643 330.7001,-487.7642"/>
+</g>
+<!-- spam_P_i_sum_s&#45;&gt;yield_gap_maize_s -->
+<g id="edge14" class="edge">
+<title>spam_P_i_sum_s-&gt;yield_gap_maize_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M444.5,-287C432.4532,-258.9927 431.8841,-224.9906 434.5911,-197.0612"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="438.7677,-197.5049 435.9815,-185.1002 430.4239,-196.5349 438.7677,-197.5049"/>
 </g>
 </g>
 <style>.node path {

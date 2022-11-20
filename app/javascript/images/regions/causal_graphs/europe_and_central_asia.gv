@@ -5,25 +5,6 @@ concentrate = true;
 node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.07,0.05", penwidth = 1.0];
 edge[arrowsize = 1.2, penwidth = 2];
 
-#ranks
-{rank=same; et_anom_m_STD_m chicken_number_s; }
-# links
-et_anom_m_STD_m -> yield_gap_barley_s ;
-et_anom_m_STD_m -> rurpop_s ;
-et_anom_m_STD_m -> DeliveredkcalFraction_s ;
-chicken_number_s -> yield_gap_barley_s ;
-chicken_number_s -> Cropland2000_mean_percent_s ;
-chicken_number_s -> DeliveredkcalFraction_s ;
-yield_gap_barley_s -> rurpop_s ;
-yield_gap_barley_s -> locdensity_y ;
-rurpop_s -> loccount_y ;
-Cropland2000_mean_percent_s -> rurpop_s ;
-Cropland2000_mean_percent_s -> loccount_y ;
-loccount_y -> acl_sum_evnt_m ;
-locdensity_y -> Cropland2000_mean_percent_s ;
-locdensity_y -> loccount_y ;
-DeliveredkcalFraction_s -> rurpop_s ;
-DeliveredkcalFraction_s -> loccount_y ;
 # nodes
 et_anom_m_STD_m [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Variation in<br/>evapotranspiration<br/>patterns<br/></font></td></tr>
@@ -64,4 +45,26 @@ DeliveredkcalFraction_s [label = <<table align="center" border="0" cellspacing="
 >, class = rankB];
 acl_sum_evnt_m [label = "Total number of
 conflict events", class = rankC, shape=box, style=rounded, fontsize="16pt"];
+
+#ranks
+{rank=same; et_anom_m_STD_m chicken_number_s; }
+
+# links
+et_anom_m_STD_m -> yield_gap_barley_s ;
+et_anom_m_STD_m -> rurpop_s ;
+et_anom_m_STD_m -> DeliveredkcalFraction_s ;
+chicken_number_s -> yield_gap_barley_s ;
+chicken_number_s -> Cropland2000_mean_percent_s ;
+chicken_number_s -> DeliveredkcalFraction_s ;
+yield_gap_barley_s -> rurpop_s ;
+yield_gap_barley_s -> locdensity_y ;
+rurpop_s -> loccount_y ;
+Cropland2000_mean_percent_s -> rurpop_s ;
+Cropland2000_mean_percent_s -> loccount_y ;
+loccount_y -> acl_sum_evnt_m ;
+locdensity_y -> Cropland2000_mean_percent_s ;
+locdensity_y -> loccount_y ;
+DeliveredkcalFraction_s -> rurpop_s ;
+DeliveredkcalFraction_s -> loccount_y ;
+
 }

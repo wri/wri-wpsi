@@ -102,29 +102,41 @@ class CausalModelRegionGenerator
       node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.07,0.05", penwidth = 1.0];
       edge[arrowsize = 1.2, penwidth = 2];
 
+      # nodes
+      #{render_gv_nodes(region[:nodes])}
+
       #ranks
       #{node_ranks(region[:nodes]).join("\n")}
+
       # links
-      #{
-        region[:links].map do |link|
-          "#{link};"
-        end.join("\n")
-      }
-      # nodes
-      #{
-        region[:nodes].map do |node|
-          "#{render_gv_node(node)};"
-        end.join("\n")
-      }
+      #{render_gv_links(region[:links])}
+
       }
     GV
   end
 
   def node_ranks(nodes)
     %w[a c].map do |rank|
-      ids = nodes.select {|n| n[:rank] == rank}.map {|n| n[:id]}
+      ids = nodes.select { |n| n[:rank] == rank }.map { |n| n[:id] }
       ids.many? ? "{rank=same; #{ids.join(' ')}; }" : nil
     end.compact
+  end
+
+  def render_gv_links(links)
+    parts = links.map do |link|
+      link.split(/ *-> */, 2)
+    end
+
+    parts.map do |a, b|
+      # could add options
+      "#{a} -> #{b};"
+    end.join("\n")
+  end
+
+  def render_gv_nodes(nodes)
+    nodes.map do |node|
+      "#{render_gv_node(node)};"
+    end.join("\n")
   end
 
   def render_gv_node(node)
@@ -133,12 +145,14 @@ class CausalModelRegionGenerator
     ).map(&:presence)
 
     raise node.inspect if id.blank? || label.blank?
-    line_width=18
+
+    line_width = 18
 
     if node[:rank] == 'c'
+      # rank c has edges within same rank so we can't use html record lables
       label_str = ApplicationController.helpers.word_wrap(label, line_width: line_width, break_sequence: "\n")
       klass = "rank#{rank.upcase}"
-      return %{#{id} [label = "#{label_str}", class = #{klass}, shape=box, style=rounded, fontsize="16pt"]}
+      return %(#{id} [label = "#{label_str}", class = #{klass}, shape=box, style=rounded, fontsize="16pt"])
     end
 
     label_str = ApplicationController.helpers.word_wrap(label, line_width: line_width, break_sequence: '<br/>')

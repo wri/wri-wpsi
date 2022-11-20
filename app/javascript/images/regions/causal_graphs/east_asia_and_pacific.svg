@@ -7,105 +7,8 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 750)">
 <title>causalModel</title>
 <polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-750 461,-750 461,4 -4,4"/>
-<!-- Cropland2000_mean_percent_s -->
-<g id="node1" class="node rankA">
-<title>Cropland2000_mean_percent_s</title>
-<path fill="none" stroke="#000000" d="M112.5,-656.5C112.5,-656.5 251.5,-656.5 251.5,-656.5 257.5,-656.5 263.5,-662.5 263.5,-668.5 263.5,-668.5 263.5,-733.5 263.5,-733.5 263.5,-739.5 257.5,-745.5 251.5,-745.5 251.5,-745.5 112.5,-745.5 112.5,-745.5 106.5,-745.5 100.5,-739.5 100.5,-733.5 100.5,-733.5 100.5,-668.5 100.5,-668.5 100.5,-662.5 106.5,-656.5 112.5,-656.5"/>
-<text text-anchor="start" x="108" y="-726.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Percentage of land</text>
-<text text-anchor="start" x="120.5" y="-708.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">that is cropland</text>
-<polyline fill="none" stroke="#000000" points="100.5,-697.5 263.5,-697.5 "/>
-<text text-anchor="start" x="134" y="-680.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: -0.065</text>
-<text text-anchor="start" x="139" y="-664.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.066</text>
-</g>
-<!-- rurpop_s -->
-<g id="node7" class="node rankB">
-<title>rurpop_s</title>
-<path fill="none" stroke="#000000" d="M179.5,-530.5C179.5,-530.5 272.5,-530.5 272.5,-530.5 278.5,-530.5 284.5,-536.5 284.5,-542.5 284.5,-542.5 284.5,-607.5 284.5,-607.5 284.5,-613.5 278.5,-619.5 272.5,-619.5 272.5,-619.5 179.5,-619.5 179.5,-619.5 173.5,-619.5 167.5,-613.5 167.5,-607.5 167.5,-607.5 167.5,-542.5 167.5,-542.5 167.5,-536.5 173.5,-530.5 179.5,-530.5"/>
-<text text-anchor="start" x="175" y="-600.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Population in</text>
-<text text-anchor="start" x="182.5" y="-582.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">rural areas</text>
-<polyline fill="none" stroke="#000000" points="167.5,-571.5 284.5,-571.5 "/>
-<text text-anchor="start" x="181" y="-554.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 3.303</text>
-<text text-anchor="start" x="183.5" y="-538.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 2.726</text>
-</g>
-<!-- Cropland2000_mean_percent_s&#45;&gt;rurpop_s -->
-<g id="edge6" class="edge">
-<title>Cropland2000_mean_percent_s-&gt;rurpop_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M197.6366,-656.2223C200.4896,-648.0525 203.4988,-639.4354 206.4485,-630.9885"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="210.4226,-632.3473 210.4137,-619.6335 202.4923,-629.5779 210.4226,-632.3473"/>
-</g>
-<!-- et_actl_m_MIN_m -->
-<g id="node2" class="node rankA">
-<title>et_actl_m_MIN_m</title>
-<path fill="none" stroke="#000000" d="M305,-656.5C305,-656.5 445,-656.5 445,-656.5 451,-656.5 457,-662.5 457,-668.5 457,-668.5 457,-733.5 457,-733.5 457,-739.5 451,-745.5 445,-745.5 445,-745.5 305,-745.5 305,-745.5 299,-745.5 293,-739.5 293,-733.5 293,-733.5 293,-668.5 293,-668.5 293,-662.5 299,-656.5 305,-656.5"/>
-<text text-anchor="start" x="350" y="-726.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Actual</text>
-<text text-anchor="start" x="300" y="-708.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">evapotranspiration</text>
-<polyline fill="none" stroke="#000000" points="293,-697.5 457,-697.5 "/>
-<text text-anchor="start" x="327" y="-680.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: -0.464</text>
-<text text-anchor="start" x="332" y="-664.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.116</text>
-</g>
-<!-- et_actl_m_MIN_m&#45;&gt;rurpop_s -->
-<g id="edge11" class="edge">
-<title>et_actl_m_MIN_m-&gt;rurpop_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M322.0486,-656.2223C311.0701,-646.9384 299.4084,-637.0769 288.1353,-627.544"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="290.6558,-624.175 278.7808,-619.6335 285.2318,-630.5891 290.6558,-624.175"/>
-</g>
-<!-- yield_gap_rice_s -->
-<g id="node8" class="node rankB">
-<title>yield_gap_rice_s</title>
-<path fill="none" stroke="#000000" d="M221,-368.5C221,-368.5 319,-368.5 319,-368.5 325,-368.5 331,-374.5 331,-380.5 331,-380.5 331,-481.5 331,-481.5 331,-487.5 325,-493.5 319,-493.5 319,-493.5 221,-493.5 221,-493.5 215,-493.5 209,-487.5 209,-481.5 209,-481.5 209,-380.5 209,-380.5 209,-374.5 215,-368.5 221,-368.5"/>
-<text text-anchor="start" x="217.5" y="-474.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Gap between</text>
-<text text-anchor="start" x="216" y="-456.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">observed and</text>
-<text text-anchor="start" x="217" y="-438.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">potential rice</text>
-<text text-anchor="start" x="251" y="-420.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">yield</text>
-<polyline fill="none" stroke="#000000" points="209,-409.5 331,-409.5 "/>
-<text text-anchor="start" x="225" y="-392.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 0.389</text>
-<text text-anchor="start" x="227.5" y="-376.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.162</text>
-</g>
-<!-- et_actl_m_MIN_m&#45;&gt;yield_gap_rice_s -->
-<g id="edge13" class="edge">
-<title>et_actl_m_MIN_m-&gt;yield_gap_rice_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M378.7627,-656.3532C379.8649,-632.1084 379.7174,-601.7116 375,-575"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M375,-575C370.1252,-547.3972 355.5512,-521.2972 338.7532,-499.0931"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="341.9085,-496.3118 331.1739,-489.4994 335.3173,-501.5191 341.9085,-496.3118"/>
-</g>
-<!-- locdensity_y -->
-<g id="node9" class="node rankB">
-<title>locdensity_y</title>
-<path fill="none" stroke="#000000" d="M307.5,-242.5C307.5,-242.5 442.5,-242.5 442.5,-242.5 448.5,-242.5 454.5,-248.5 454.5,-254.5 454.5,-254.5 454.5,-301.5 454.5,-301.5 454.5,-307.5 448.5,-313.5 442.5,-313.5 442.5,-313.5 307.5,-313.5 307.5,-313.5 301.5,-313.5 295.5,-307.5 295.5,-301.5 295.5,-301.5 295.5,-254.5 295.5,-254.5 295.5,-248.5 301.5,-242.5 307.5,-242.5"/>
-<text text-anchor="start" x="303" y="-294.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Population density</text>
-<polyline fill="none" stroke="#000000" points="295.5,-283.5 454.5,-283.5 "/>
-<text text-anchor="start" x="330" y="-266.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 0.772</text>
-<text text-anchor="start" x="332.5" y="-250.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.775</text>
-</g>
-<!-- et_actl_m_MIN_m&#45;&gt;locdensity_y -->
-<g id="edge12" class="edge">
-<title>et_actl_m_MIN_m-&gt;locdensity_y</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M375,-575C359.6696,-488.1941 364.8144,-384.8776 369.9245,-325.8134"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="374.1355,-325.8819 371.0407,-313.5505 365.7701,-325.1204 374.1355,-325.8819"/>
-</g>
-<!-- acl_sum_evnt_m -->
-<g id="node3" class="node rankC">
-<title>acl_sum_evnt_m</title>
-<path fill="none" stroke="#000000" d="M307,-53C307,-53 197,-53 197,-53 191,-53 185,-47 185,-41 185,-41 185,-21 185,-21 185,-15 191,-9 197,-9 197,-9 307,-9 307,-9 313,-9 319,-15 319,-21 319,-21 319,-41 319,-41 319,-47 313,-53 307,-53"/>
-<text text-anchor="middle" x="252" y="-36.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Total number of</text>
-<text text-anchor="middle" x="252" y="-18.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">conflict events</text>
-</g>
-<!-- acl_sum_fatl_m -->
-<g id="node4" class="node rankC">
-<title>acl_sum_fatl_m</title>
-<path fill="none" stroke="#000000" d="M114,-62C114,-62 12,-62 12,-62 6,-62 0,-56 0,-50 0,-50 0,-12 0,-12 0,-6 6,0 12,0 12,0 114,0 114,0 120,0 126,-6 126,-12 126,-12 126,-50 126,-50 126,-56 120,-62 114,-62"/>
-<text text-anchor="middle" x="63" y="-45.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Reported</text>
-<text text-anchor="middle" x="63" y="-27.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">fatalities from</text>
-<text text-anchor="middle" x="63" y="-9.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">conflict events</text>
-</g>
-<!-- acl_sum_fatl_m&#45;&gt;acl_sum_evnt_m -->
-<g id="edge14" class="edge">
-<title>acl_sum_fatl_m-&gt;acl_sum_evnt_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M126.123,-31C141.5132,-31 156.9034,-31 172.2936,-31"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="172.6362,-35.2001 184.6362,-31 172.6361,-26.8001 172.6362,-35.2001"/>
-</g>
 <!-- spam_P_i_sum_s -->
-<g id="node5" class="node rankB">
+<g id="node1" class="node rankB">
 <title>spam_P_i_sum_s</title>
 <path fill="none" stroke="#000000" d="M88.5,-224.5C88.5,-224.5 195.5,-224.5 195.5,-224.5 201.5,-224.5 207.5,-230.5 207.5,-236.5 207.5,-236.5 207.5,-319.5 207.5,-319.5 207.5,-325.5 201.5,-331.5 195.5,-331.5 195.5,-331.5 88.5,-331.5 88.5,-331.5 82.5,-331.5 76.5,-325.5 76.5,-319.5 76.5,-319.5 76.5,-236.5 76.5,-236.5 76.5,-230.5 82.5,-224.5 88.5,-224.5"/>
 <text text-anchor="start" x="88" y="-312.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Metric tons of</text>
@@ -116,7 +19,7 @@
 <text text-anchor="start" x="99" y="-232.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 2.209</text>
 </g>
 <!-- loccount_y -->
-<g id="node6" class="node rankB">
+<g id="node4" class="node rankB">
 <title>loccount_y</title>
 <path fill="none" stroke="#000000" d="M194,-98.5C194,-98.5 310,-98.5 310,-98.5 316,-98.5 322,-104.5 322,-110.5 322,-110.5 322,-175.5 322,-175.5 322,-181.5 316,-187.5 310,-187.5 310,-187.5 194,-187.5 194,-187.5 188,-187.5 182,-181.5 182,-175.5 182,-175.5 182,-110.5 182,-110.5 182,-104.5 188,-98.5 194,-98.5"/>
 <text text-anchor="start" x="189" y="-168.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Total population</text>
@@ -131,18 +34,15 @@
 <path fill="none" stroke="#000000" stroke-width="2" d="M185.791,-224.2565C193.0068,-215.4008 200.4913,-206.2152 207.719,-197.3449"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="211.112,-199.8298 215.4361,-187.8739 204.6,-194.5237 211.112,-199.8298"/>
 </g>
-<!-- loccount_y&#45;&gt;acl_sum_evnt_m -->
-<g id="edge7" class="edge">
-<title>loccount_y-&gt;acl_sum_evnt_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M252,-98.4128C252,-87.3971 252,-75.7662 252,-65.3242"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="256.2001,-65.2981 252,-53.2982 247.8001,-65.2982 256.2001,-65.2981"/>
-</g>
-<!-- rurpop_s&#45;&gt;acl_sum_fatl_m -->
-<g id="edge5" class="edge">
-<title>rurpop_s-&gt;acl_sum_fatl_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M198.5572,-530.3149C182.9128,-502.6972 164.406,-465.96 154,-431"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M154,-431C136.8641,-373.4304 83.9659,-387.9053 62,-332 28.1015,-245.7253 41.6598,-134.4965 53.1842,-74.3166"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="57.357,-74.8681 55.5946,-62.277 49.1205,-73.2189 57.357,-74.8681"/>
+<!-- rurpop_s -->
+<g id="node2" class="node rankB">
+<title>rurpop_s</title>
+<path fill="none" stroke="#000000" d="M179.5,-530.5C179.5,-530.5 272.5,-530.5 272.5,-530.5 278.5,-530.5 284.5,-536.5 284.5,-542.5 284.5,-542.5 284.5,-607.5 284.5,-607.5 284.5,-613.5 278.5,-619.5 272.5,-619.5 272.5,-619.5 179.5,-619.5 179.5,-619.5 173.5,-619.5 167.5,-613.5 167.5,-607.5 167.5,-607.5 167.5,-542.5 167.5,-542.5 167.5,-536.5 173.5,-530.5 179.5,-530.5"/>
+<text text-anchor="start" x="175" y="-600.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Population in</text>
+<text text-anchor="start" x="182.5" y="-582.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">rural areas</text>
+<polyline fill="none" stroke="#000000" points="167.5,-571.5 284.5,-571.5 "/>
+<text text-anchor="start" x="181" y="-554.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 3.303</text>
+<text text-anchor="start" x="183.5" y="-538.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 2.726</text>
 </g>
 <!-- rurpop_s&#45;&gt;spam_P_i_sum_s -->
 <g id="edge2" class="edge">
@@ -156,11 +56,88 @@
 <path fill="none" stroke="#000000" stroke-width="2" d="M154,-431C139.7126,-379.568 200.7601,-380.9719 222,-332 240.2509,-289.9198 247.5417,-238.2587 250.3858,-199.5889"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="254.5832,-199.7635 251.1613,-187.5189 246.2005,-199.2249 254.5832,-199.7635"/>
 </g>
+<!-- yield_gap_rice_s -->
+<g id="node6" class="node rankB">
+<title>yield_gap_rice_s</title>
+<path fill="none" stroke="#000000" d="M221,-368.5C221,-368.5 319,-368.5 319,-368.5 325,-368.5 331,-374.5 331,-380.5 331,-380.5 331,-481.5 331,-481.5 331,-487.5 325,-493.5 319,-493.5 319,-493.5 221,-493.5 221,-493.5 215,-493.5 209,-487.5 209,-481.5 209,-481.5 209,-380.5 209,-380.5 209,-374.5 215,-368.5 221,-368.5"/>
+<text text-anchor="start" x="217.5" y="-474.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Gap between</text>
+<text text-anchor="start" x="216" y="-456.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">observed and</text>
+<text text-anchor="start" x="217" y="-438.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">potential rice</text>
+<text text-anchor="start" x="251" y="-420.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">yield</text>
+<polyline fill="none" stroke="#000000" points="209,-409.5 331,-409.5 "/>
+<text text-anchor="start" x="225" y="-392.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 0.389</text>
+<text text-anchor="start" x="227.5" y="-376.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.162</text>
+</g>
 <!-- rurpop_s&#45;&gt;yield_gap_rice_s -->
 <g id="edge4" class="edge">
 <title>rurpop_s-&gt;yield_gap_rice_s</title>
 <path fill="none" stroke="#000000" stroke-width="2" d="M239.6807,-530.2269C242.1088,-522.2803 244.6955,-513.8148 247.2953,-505.3064"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="251.3449,-506.4255 250.835,-493.722 243.3116,-503.9708 251.3449,-506.4255"/>
+</g>
+<!-- acl_sum_fatl_m -->
+<g id="node9" class="node rankC">
+<title>acl_sum_fatl_m</title>
+<path fill="none" stroke="#000000" d="M114,-62C114,-62 12,-62 12,-62 6,-62 0,-56 0,-50 0,-50 0,-12 0,-12 0,-6 6,0 12,0 12,0 114,0 114,0 120,0 126,-6 126,-12 126,-12 126,-50 126,-50 126,-56 120,-62 114,-62"/>
+<text text-anchor="middle" x="63" y="-45.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Reported</text>
+<text text-anchor="middle" x="63" y="-27.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">fatalities from</text>
+<text text-anchor="middle" x="63" y="-9.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">conflict events</text>
+</g>
+<!-- rurpop_s&#45;&gt;acl_sum_fatl_m -->
+<g id="edge5" class="edge">
+<title>rurpop_s-&gt;acl_sum_fatl_m</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M198.5572,-530.3149C182.9128,-502.6972 164.406,-465.96 154,-431"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M154,-431C136.8641,-373.4304 83.9659,-387.9053 62,-332 28.1015,-245.7253 41.6598,-134.4965 53.1842,-74.3166"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="57.357,-74.8681 55.5946,-62.277 49.1205,-73.2189 57.357,-74.8681"/>
+</g>
+<!-- Cropland2000_mean_percent_s -->
+<g id="node3" class="node rankA">
+<title>Cropland2000_mean_percent_s</title>
+<path fill="none" stroke="#000000" d="M112.5,-656.5C112.5,-656.5 251.5,-656.5 251.5,-656.5 257.5,-656.5 263.5,-662.5 263.5,-668.5 263.5,-668.5 263.5,-733.5 263.5,-733.5 263.5,-739.5 257.5,-745.5 251.5,-745.5 251.5,-745.5 112.5,-745.5 112.5,-745.5 106.5,-745.5 100.5,-739.5 100.5,-733.5 100.5,-733.5 100.5,-668.5 100.5,-668.5 100.5,-662.5 106.5,-656.5 112.5,-656.5"/>
+<text text-anchor="start" x="108" y="-726.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Percentage of land</text>
+<text text-anchor="start" x="120.5" y="-708.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">that is cropland</text>
+<polyline fill="none" stroke="#000000" points="100.5,-697.5 263.5,-697.5 "/>
+<text text-anchor="start" x="134" y="-680.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: -0.065</text>
+<text text-anchor="start" x="139" y="-664.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.066</text>
+</g>
+<!-- Cropland2000_mean_percent_s&#45;&gt;rurpop_s -->
+<g id="edge6" class="edge">
+<title>Cropland2000_mean_percent_s-&gt;rurpop_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M197.6366,-656.2223C200.4896,-648.0525 203.4988,-639.4354 206.4485,-630.9885"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="210.4226,-632.3473 210.4137,-619.6335 202.4923,-629.5779 210.4226,-632.3473"/>
+</g>
+<!-- acl_sum_evnt_m -->
+<g id="node8" class="node rankC">
+<title>acl_sum_evnt_m</title>
+<path fill="none" stroke="#000000" d="M307,-53C307,-53 197,-53 197,-53 191,-53 185,-47 185,-41 185,-41 185,-21 185,-21 185,-15 191,-9 197,-9 197,-9 307,-9 307,-9 313,-9 319,-15 319,-21 319,-21 319,-41 319,-41 319,-47 313,-53 307,-53"/>
+<text text-anchor="middle" x="252" y="-36.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Total number of</text>
+<text text-anchor="middle" x="252" y="-18.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">conflict events</text>
+</g>
+<!-- loccount_y&#45;&gt;acl_sum_evnt_m -->
+<g id="edge7" class="edge">
+<title>loccount_y-&gt;acl_sum_evnt_m</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M252,-98.4128C252,-87.3971 252,-75.7662 252,-65.3242"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="256.2001,-65.2981 252,-53.2982 247.8001,-65.2982 256.2001,-65.2981"/>
+</g>
+<!-- locdensity_y -->
+<g id="node5" class="node rankB">
+<title>locdensity_y</title>
+<path fill="none" stroke="#000000" d="M307.5,-242.5C307.5,-242.5 442.5,-242.5 442.5,-242.5 448.5,-242.5 454.5,-248.5 454.5,-254.5 454.5,-254.5 454.5,-301.5 454.5,-301.5 454.5,-307.5 448.5,-313.5 442.5,-313.5 442.5,-313.5 307.5,-313.5 307.5,-313.5 301.5,-313.5 295.5,-307.5 295.5,-301.5 295.5,-301.5 295.5,-254.5 295.5,-254.5 295.5,-248.5 301.5,-242.5 307.5,-242.5"/>
+<text text-anchor="start" x="303" y="-294.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Population density</text>
+<polyline fill="none" stroke="#000000" points="295.5,-283.5 454.5,-283.5 "/>
+<text text-anchor="start" x="330" y="-266.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 0.772</text>
+<text text-anchor="start" x="332.5" y="-250.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.775</text>
+</g>
+<!-- locdensity_y&#45;&gt;loccount_y -->
+<g id="edge8" class="edge">
+<title>locdensity_y-&gt;loccount_y</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M342.3612,-242.1769C329.6294,-228.203 314.7635,-211.8867 300.8089,-196.5707"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="303.9076,-193.7355 292.721,-187.6938 297.6983,-199.3928 303.9076,-193.7355"/>
+</g>
+<!-- locdensity_y&#45;&gt;acl_sum_evnt_m -->
+<g id="edge9" class="edge">
+<title>locdensity_y-&gt;acl_sum_evnt_m</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M374.2235,-242.2309C371.8805,-203.8966 363.652,-142.5559 336,-98 326.9764,-83.4603 313.6338,-70.7376 300.226,-60.3968"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="302.6787,-56.9872 290.5125,-53.2961 297.7215,-63.7685 302.6787,-56.9872"/>
 </g>
 <!-- yield_gap_rice_s&#45;&gt;locdensity_y -->
 <g id="edge10" class="edge">
@@ -168,17 +145,40 @@
 <path fill="none" stroke="#000000" stroke-width="2" d="M313.0105,-368.3276C323.3101,-353.3196 334.1138,-337.5771 343.764,-323.5153"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="347.2361,-325.8785 350.5633,-313.6078 340.3102,-321.1254 347.2361,-325.8785"/>
 </g>
-<!-- locdensity_y&#45;&gt;acl_sum_evnt_m -->
-<g id="edge9" class="edge">
-<title>locdensity_y-&gt;acl_sum_evnt_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M374.5098,-242.2089C372.4547,-203.8558 364.6306,-142.4991 337,-98 327.9074,-83.3563 314.4167,-70.6042 300.8475,-60.2683"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="303.2045,-56.7899 291.0149,-53.1768 298.2908,-63.6028 303.2045,-56.7899"/>
+<!-- et_actl_m_MIN_m -->
+<g id="node7" class="node rankA">
+<title>et_actl_m_MIN_m</title>
+<path fill="none" stroke="#000000" d="M305,-656.5C305,-656.5 445,-656.5 445,-656.5 451,-656.5 457,-662.5 457,-668.5 457,-668.5 457,-733.5 457,-733.5 457,-739.5 451,-745.5 445,-745.5 445,-745.5 305,-745.5 305,-745.5 299,-745.5 293,-739.5 293,-733.5 293,-733.5 293,-668.5 293,-668.5 293,-662.5 299,-656.5 305,-656.5"/>
+<text text-anchor="start" x="350" y="-726.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Actual</text>
+<text text-anchor="start" x="300" y="-708.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">evapotranspiration</text>
+<polyline fill="none" stroke="#000000" points="293,-697.5 457,-697.5 "/>
+<text text-anchor="start" x="327" y="-680.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: -0.464</text>
+<text text-anchor="start" x="332" y="-664.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.116</text>
 </g>
-<!-- locdensity_y&#45;&gt;loccount_y -->
-<g id="edge8" class="edge">
-<title>locdensity_y-&gt;loccount_y</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M342.3612,-242.1769C329.6294,-228.203 314.7635,-211.8867 300.8089,-196.5707"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="303.9076,-193.7355 292.721,-187.6938 297.6983,-199.3928 303.9076,-193.7355"/>
+<!-- et_actl_m_MIN_m&#45;&gt;rurpop_s -->
+<g id="edge11" class="edge">
+<title>et_actl_m_MIN_m-&gt;rurpop_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M322.0486,-656.2223C311.0701,-646.9384 299.4084,-637.0769 288.1353,-627.544"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="290.6558,-624.175 278.7808,-619.6335 285.2318,-630.5891 290.6558,-624.175"/>
+</g>
+<!-- et_actl_m_MIN_m&#45;&gt;locdensity_y -->
+<g id="edge12" class="edge">
+<title>et_actl_m_MIN_m-&gt;locdensity_y</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M375,-575C359.6696,-488.1941 364.8144,-384.8776 369.9245,-325.8134"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="374.1355,-325.8819 371.0407,-313.5505 365.7701,-325.1204 374.1355,-325.8819"/>
+</g>
+<!-- et_actl_m_MIN_m&#45;&gt;yield_gap_rice_s -->
+<g id="edge13" class="edge">
+<title>et_actl_m_MIN_m-&gt;yield_gap_rice_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M378.7627,-656.3532C379.8649,-632.1084 379.7174,-601.7116 375,-575"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M375,-575C370.1252,-547.3972 355.5512,-521.2972 338.7532,-499.0931"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="341.9085,-496.3118 331.1739,-489.4994 335.3173,-501.5191 341.9085,-496.3118"/>
+</g>
+<!-- acl_sum_fatl_m&#45;&gt;acl_sum_evnt_m -->
+<g id="edge14" class="edge">
+<title>acl_sum_fatl_m-&gt;acl_sum_evnt_m</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M126.123,-31C141.5132,-31 156.9034,-31 172.2936,-31"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="172.6362,-35.2001 184.6362,-31 172.6361,-26.8001 172.6362,-35.2001"/>
 </g>
 </g>
 <style>.node path {

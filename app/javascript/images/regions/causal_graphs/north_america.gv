@@ -5,23 +5,6 @@ concentrate = true;
 node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.07,0.05", penwidth = 1.0];
 edge[arrowsize = 1.2, penwidth = 2];
 
-#ranks
-
-# links
-rurratio_s -> acl_pprt_evnt_m;
-et_anom_m_STD_m -> rurratio_s;
-et_anom_m_STD_m -> ndvi_act_min_m;
-ndvi_act_min_m -> rurratio_s;
-ndvi_act_min_m -> yield_gap_maize_s;
-spi_3_m -> rurratio_s;
-spi_3_m -> et_anom_m_STD_m;
-spi_3_m -> ndvi_act_min_m;
-rainfed_s -> ndvi_act_min_m;
-rainfed_s -> spam_P_i_sum_s;
-spam_P_i_sum_s -> rurratio_s;
-spam_P_i_sum_s -> et_anom_m_STD_m;
-spam_P_i_sum_s -> rainfed_s;
-spam_P_i_sum_s -> yield_gap_maize_s;
 # nodes
 rurratio_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Percentage of<br/>population that<br/>live in rural<br/>areas<br/></font></td></tr>
@@ -57,4 +40,24 @@ yield_gap_maize_s [label = <<table align="center" border="0" cellspacing="1" cel
 >, class = rankB];
 acl_pprt_evnt_m [label = "Total number of
 protest events", class = rankC, shape=box, style=rounded, fontsize="16pt"];
+
+#ranks
+
+
+# links
+rurratio_s -> acl_pprt_evnt_m;
+et_anom_m_STD_m -> rurratio_s;
+et_anom_m_STD_m -> ndvi_act_min_m;
+ndvi_act_min_m -> rurratio_s;
+ndvi_act_min_m -> yield_gap_maize_s;
+spi_3_m -> rurratio_s;
+spi_3_m -> et_anom_m_STD_m;
+spi_3_m -> ndvi_act_min_m;
+rainfed_s -> ndvi_act_min_m;
+rainfed_s -> spam_P_i_sum_s;
+spam_P_i_sum_s -> rurratio_s;
+spam_P_i_sum_s -> et_anom_m_STD_m;
+spam_P_i_sum_s -> rainfed_s;
+spam_P_i_sum_s -> yield_gap_maize_s;
+
 }

@@ -7,8 +7,112 @@
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 771)">
 <title>causalModel</title>
 <polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-771 604.0942,-771 604.0942,4 -4,4"/>
+<!-- DeliveredkcalFraction_s -->
+<g id="node1" class="node rankB">
+<title>DeliveredkcalFraction_s</title>
+<path fill="none" stroke="#000000" d="M302.5942,-371.5C302.5942,-371.5 436.5942,-371.5 436.5942,-371.5 442.5942,-371.5 448.5942,-377.5 448.5942,-383.5 448.5942,-383.5 448.5942,-466.5 448.5942,-466.5 448.5942,-472.5 442.5942,-478.5 436.5942,-478.5 436.5942,-478.5 302.5942,-478.5 302.5942,-478.5 296.5942,-478.5 290.5942,-472.5 290.5942,-466.5 290.5942,-466.5 290.5942,-383.5 290.5942,-383.5 290.5942,-377.5 296.5942,-371.5 302.5942,-371.5"/>
+<text text-anchor="start" x="331.5942" y="-459.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Portion of</text>
+<text text-anchor="start" x="298.5942" y="-441.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">calories produced</text>
+<text text-anchor="start" x="297.5942" y="-423.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">going toward food</text>
+<polyline fill="none" stroke="#000000" points="290.5942,-412.5 448.5942,-412.5 "/>
+<text text-anchor="start" x="324.5942" y="-395.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 0.056</text>
+<text text-anchor="start" x="327.0942" y="-379.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.143</text>
+</g>
+<!-- chicken_number_s -->
+<g id="node2" class="node rankB">
+<title>chicken_number_s</title>
+<path fill="none" stroke="#000000" d="M289.5942,-286.5C289.5942,-286.5 421.5942,-286.5 421.5942,-286.5 427.5942,-286.5 433.5942,-292.5 433.5942,-298.5 433.5942,-298.5 433.5942,-322.5 433.5942,-322.5 433.5942,-328.5 427.5942,-334.5 421.5942,-334.5 421.5942,-334.5 289.5942,-334.5 289.5942,-334.5 283.5942,-334.5 277.5942,-328.5 277.5942,-322.5 277.5942,-322.5 277.5942,-298.5 277.5942,-298.5 277.5942,-292.5 283.5942,-286.5 289.5942,-286.5"/>
+<text text-anchor="start" x="284.5942" y="-315.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Count of livestock</text>
+<text text-anchor="start" x="321.0942" y="-297.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">chickens</text>
+</g>
+<!-- DeliveredkcalFraction_s&#45;&gt;chicken_number_s -->
+<g id="edge1" class="edge">
+<title>DeliveredkcalFraction_s-&gt;chicken_number_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M363.0451,-371.4377C362.0206,-363.0592 360.9832,-354.5749 360.0212,-346.7067"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="364.1623,-345.9688 358.5369,-334.5673 355.8244,-346.9883 364.1623,-345.9688"/>
+</g>
+<!-- spam_P_i_avg_s -->
+<g id="node3" class="node rankB">
+<title>spam_P_i_avg_s</title>
+<path fill="none" stroke="#000000" d="M38.0942,-183.5C38.0942,-183.5 145.0942,-183.5 145.0942,-183.5 151.0942,-183.5 157.0942,-189.5 157.0942,-195.5 157.0942,-195.5 157.0942,-237.5 157.0942,-237.5 157.0942,-243.5 151.0942,-249.5 145.0942,-249.5 145.0942,-249.5 38.0942,-249.5 38.0942,-249.5 32.0942,-249.5 26.0942,-243.5 26.0942,-237.5 26.0942,-237.5 26.0942,-195.5 26.0942,-195.5 26.0942,-189.5 32.0942,-183.5 38.0942,-183.5"/>
+<text text-anchor="start" x="37.5942" y="-230.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Metric tons of</text>
+<text text-anchor="start" x="33.5942" y="-212.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">irrigated crops</text>
+<text text-anchor="start" x="54.5942" y="-194.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">produced</text>
+</g>
+<!-- DeliveredkcalFraction_s&#45;&gt;spam_P_i_avg_s -->
+<g id="edge2" class="edge">
+<title>DeliveredkcalFraction_s-&gt;spam_P_i_avg_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M290.2893,-380.2841C261.2779,-361.3375 229.693,-337.3973 205.5942,-310.5"/>
+</g>
+<!-- chicken_number_s&#45;&gt;spam_P_i_avg_s -->
+<g id="edge3" class="edge">
+<title>chicken_number_s-&gt;spam_P_i_avg_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M287.9504,-286.4147C251.5381,-273.4497 206.4755,-257.4047 168.707,-243.9568"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="169.9512,-239.9416 157.2376,-239.873 167.1335,-247.8549 169.9512,-239.9416"/>
+</g>
+<!-- rurpop_s -->
+<g id="node4" class="node rankB">
+<title>rurpop_s</title>
+<path fill="none" stroke="#000000" d="M129.0942,-98.5C129.0942,-98.5 222.0942,-98.5 222.0942,-98.5 228.0942,-98.5 234.0942,-104.5 234.0942,-110.5 234.0942,-110.5 234.0942,-134.5 234.0942,-134.5 234.0942,-140.5 228.0942,-146.5 222.0942,-146.5 222.0942,-146.5 129.0942,-146.5 129.0942,-146.5 123.0942,-146.5 117.0942,-140.5 117.0942,-134.5 117.0942,-134.5 117.0942,-110.5 117.0942,-110.5 117.0942,-104.5 123.0942,-98.5 129.0942,-98.5"/>
+<text text-anchor="start" x="124.5942" y="-127.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Population in</text>
+<text text-anchor="start" x="132.0942" y="-109.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">rural areas</text>
+</g>
+<!-- chicken_number_s&#45;&gt;rurpop_s -->
+<g id="edge4" class="edge">
+<title>chicken_number_s-&gt;rurpop_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M333.6961,-286.339C317.5202,-267.904 295.4719,-241.5036 278.5942,-216.5"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M278.5942,-216.5C262.575,-192.7684 239.3735,-170.9014 219.0449,-154.2414"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="221.64,-150.9389 209.6427,-146.731 216.3974,-157.5021 221.64,-150.9389"/>
+</g>
+<!-- acl_sum_evnt_m -->
+<g id="node9" class="node rankC">
+<title>acl_sum_evnt_m</title>
+<path fill="none" stroke="#000000" d="M282.5942,-53C282.5942,-53 172.5942,-53 172.5942,-53 166.5942,-53 160.5942,-47 160.5942,-41 160.5942,-41 160.5942,-21 160.5942,-21 160.5942,-15 166.5942,-9 172.5942,-9 172.5942,-9 282.5942,-9 282.5942,-9 288.5942,-9 294.5942,-15 294.5942,-21 294.5942,-21 294.5942,-41 294.5942,-41 294.5942,-47 288.5942,-53 282.5942,-53"/>
+<text text-anchor="middle" x="227.5942" y="-36.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Total number of</text>
+<text text-anchor="middle" x="227.5942" y="-18.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">conflict events</text>
+</g>
+<!-- chicken_number_s&#45;&gt;acl_sum_evnt_m -->
+<g id="edge5" class="edge">
+<title>chicken_number_s-&gt;acl_sum_evnt_m</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M278.5942,-216.5C248.1986,-171.4704 263.391,-150.2744 248.5942,-98 245.5397,-87.2092 241.9685,-75.5213 238.6464,-64.9746"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="242.5523,-63.3983 234.9069,-53.2401 234.5489,-65.9488 242.5523,-63.3983"/>
+</g>
+<!-- spam_P_i_avg_s&#45;&gt;rurpop_s -->
+<g id="edge6" class="edge">
+<title>spam_P_i_avg_s-&gt;rurpop_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M121.2094,-183.3591C129.2024,-174.4146 137.8526,-164.7346 145.8525,-155.7824"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="149.0347,-158.5245 153.899,-146.778 142.7712,-152.9273 149.0347,-158.5245"/>
+</g>
+<!-- rurpop_s&#45;&gt;acl_sum_evnt_m -->
+<g id="edge7" class="edge">
+<title>rurpop_s-&gt;acl_sum_evnt_m</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M189.2566,-98.4595C195.3223,-87.7861 202.5543,-75.0605 209.0941,-63.5531"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="212.8137,-65.5083 215.0913,-53.0002 205.5107,-61.3579 212.8137,-65.5083"/>
+</g>
+<!-- yield_gap_barley_s -->
+<g id="node5" class="node rankB">
+<title>yield_gap_barley_s</title>
+<path fill="none" stroke="#000000" d="M134.0942,-383C134.0942,-383 249.0942,-383 249.0942,-383 255.0942,-383 261.0942,-389 261.0942,-395 261.0942,-395 261.0942,-455 261.0942,-455 261.0942,-461 255.0942,-467 249.0942,-467 249.0942,-467 134.0942,-467 134.0942,-467 128.0942,-467 122.0942,-461 122.0942,-455 122.0942,-455 122.0942,-395 122.0942,-395 122.0942,-389 128.0942,-383 134.0942,-383"/>
+<text text-anchor="start" x="139.5942" y="-448.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Gap between</text>
+<text text-anchor="start" x="138.0942" y="-430.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">observed and</text>
+<text text-anchor="start" x="129.5942" y="-412.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">potential barley</text>
+<text text-anchor="start" x="173.0942" y="-394.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">yield</text>
+</g>
+<!-- yield_gap_barley_s&#45;&gt;chicken_number_s -->
+<g id="edge8" class="edge">
+<title>yield_gap_barley_s-&gt;chicken_number_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M252.1958,-382.6897C271.6602,-369.1002 292.8542,-354.3032 310.9577,-341.6639"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="313.5091,-345.005 320.944,-334.6918 308.7004,-338.1175 313.5091,-345.005"/>
+</g>
+<!-- yield_gap_barley_s&#45;&gt;spam_P_i_avg_s -->
+<g id="edge9" class="edge">
+<title>yield_gap_barley_s-&gt;spam_P_i_avg_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M211.1482,-382.9055C219.1148,-358.8891 222.9001,-329.8156 205.5942,-310.5"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M205.5942,-310.5C188.3879,-291.2956 167.118,-272.6802 147.6284,-257.152"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="149.9682,-253.6497 137.9308,-249.558 144.7892,-260.2632 149.9682,-253.6497"/>
+</g>
 <!-- rurratio_s -->
-<g id="node1" class="node rankA">
+<g id="node6" class="node rankA">
 <title>rurratio_s</title>
 <path fill="none" stroke="#000000" d="M477.0942,-641.5C477.0942,-641.5 588.0942,-641.5 588.0942,-641.5 594.0942,-641.5 600.0942,-647.5 600.0942,-653.5 600.0942,-653.5 600.0942,-754.5 600.0942,-754.5 600.0942,-760.5 594.0942,-766.5 588.0942,-766.5 588.0942,-766.5 477.0942,-766.5 477.0942,-766.5 471.0942,-766.5 465.0942,-760.5 465.0942,-754.5 465.0942,-754.5 465.0942,-653.5 465.0942,-653.5 465.0942,-647.5 471.0942,-641.5 477.0942,-641.5"/>
 <text text-anchor="start" x="478.0942" y="-747.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Percentage of</text>
@@ -19,26 +123,12 @@
 <text text-anchor="start" x="484.5942" y="-665.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: -0.489</text>
 <text text-anchor="start" x="489.5942" y="-649.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.255</text>
 </g>
-<!-- chicken_number_s -->
-<g id="node6" class="node rankB">
-<title>chicken_number_s</title>
-<path fill="none" stroke="#000000" d="M289.5942,-286.5C289.5942,-286.5 421.5942,-286.5 421.5942,-286.5 427.5942,-286.5 433.5942,-292.5 433.5942,-298.5 433.5942,-298.5 433.5942,-322.5 433.5942,-322.5 433.5942,-328.5 427.5942,-334.5 421.5942,-334.5 421.5942,-334.5 289.5942,-334.5 289.5942,-334.5 283.5942,-334.5 277.5942,-328.5 277.5942,-322.5 277.5942,-322.5 277.5942,-298.5 277.5942,-298.5 277.5942,-292.5 283.5942,-286.5 289.5942,-286.5"/>
-<text text-anchor="start" x="284.5942" y="-315.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Count of livestock</text>
-<text text-anchor="start" x="321.0942" y="-297.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">chickens</text>
-</g>
 <!-- rurratio_s&#45;&gt;chicken_number_s -->
 <g id="edge10" class="edge">
 <title>rurratio_s-&gt;chicken_number_s</title>
 <path fill="none" stroke="#000000" stroke-width="2" d="M551.2455,-641.226C565.1697,-583.2589 577.7192,-495.701 551.5942,-425"/>
 <path fill="none" stroke="#000000" stroke-width="2" d="M551.5942,-425C533.0623,-380.5001 487.4926,-352.3846 444.9538,-335.1557"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="446.3514,-331.1932 433.6439,-330.7937 443.3287,-339.0305 446.3514,-331.1932"/>
-</g>
-<!-- rurpop_s -->
-<g id="node8" class="node rankB">
-<title>rurpop_s</title>
-<path fill="none" stroke="#000000" d="M129.0942,-98.5C129.0942,-98.5 222.0942,-98.5 222.0942,-98.5 228.0942,-98.5 234.0942,-104.5 234.0942,-110.5 234.0942,-110.5 234.0942,-134.5 234.0942,-134.5 234.0942,-140.5 228.0942,-146.5 222.0942,-146.5 222.0942,-146.5 129.0942,-146.5 129.0942,-146.5 123.0942,-146.5 117.0942,-140.5 117.0942,-134.5 117.0942,-134.5 117.0942,-110.5 117.0942,-110.5 117.0942,-104.5 123.0942,-98.5 129.0942,-98.5"/>
-<text text-anchor="start" x="124.5942" y="-127.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Population in</text>
-<text text-anchor="start" x="132.0942" y="-109.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">rural areas</text>
 </g>
 <!-- rurratio_s&#45;&gt;rurpop_s -->
 <g id="edge11" class="edge">
@@ -47,7 +137,7 @@
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="245.5789,-147.8356 232.9305,-146.5478 242.0152,-155.4422 245.5789,-147.8356"/>
 </g>
 <!-- locdensity_y -->
-<g id="node10" class="node rankB">
+<g id="node7" class="node rankB">
 <title>locdensity_y</title>
 <path fill="none" stroke="#000000" d="M309.0942,-515.5C309.0942,-515.5 430.0942,-515.5 430.0942,-515.5 436.0942,-515.5 442.0942,-521.5 442.0942,-527.5 442.0942,-527.5 442.0942,-592.5 442.0942,-592.5 442.0942,-598.5 436.0942,-604.5 430.0942,-604.5 430.0942,-604.5 309.0942,-604.5 309.0942,-604.5 303.0942,-604.5 297.0942,-598.5 297.0942,-592.5 297.0942,-592.5 297.0942,-527.5 297.0942,-527.5 297.0942,-521.5 303.0942,-515.5 309.0942,-515.5"/>
 <text text-anchor="start" x="304.5942" y="-585.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Local population</text>
@@ -62,23 +152,24 @@
 <path fill="none" stroke="#000000" stroke-width="2" d="M464.8836,-644.182C453.1504,-633.8166 441.0246,-623.1042 429.5172,-612.9381"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="432.2144,-609.7167 420.4404,-604.9194 426.6529,-616.012 432.2144,-609.7167"/>
 </g>
+<!-- locdensity_y&#45;&gt;DeliveredkcalFraction_s -->
+<g id="edge13" class="edge">
+<title>locdensity_y-&gt;DeliveredkcalFraction_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M369.5942,-515.4218C369.5942,-507.5784 369.5942,-499.2665 369.5942,-490.985"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="373.7943,-490.9315 369.5942,-478.9315 365.3943,-490.9316 373.7943,-490.9315"/>
+</g>
+<!-- locdensity_y&#45;&gt;yield_gap_barley_s -->
+<g id="edge14" class="edge">
+<title>locdensity_y-&gt;yield_gap_barley_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M310.817,-515.4218C293.4723,-502.2671 274.3898,-487.7944 256.6733,-474.3578"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="259.0903,-470.9196 246.9911,-467.0145 254.0142,-477.6124 259.0903,-470.9196"/>
+</g>
 <!-- ndvi_act_min_m -->
-<g id="node2" class="node rankA">
+<g id="node8" class="node rankA">
 <title>ndvi_act_min_m</title>
 <path fill="none" stroke="#000000" d="M333.5942,-680C333.5942,-680 405.5942,-680 405.5942,-680 411.5942,-680 417.5942,-686 417.5942,-692 417.5942,-692 417.5942,-716 417.5942,-716 417.5942,-722 411.5942,-728 405.5942,-728 405.5942,-728 333.5942,-728 333.5942,-728 327.5942,-728 321.5942,-722 321.5942,-716 321.5942,-716 321.5942,-692 321.5942,-692 321.5942,-686 327.5942,-680 333.5942,-680"/>
 <text text-anchor="start" x="329.5942" y="-709.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Density of</text>
 <text text-anchor="start" x="328.5942" y="-691.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">greenness</text>
-</g>
-<!-- DeliveredkcalFraction_s -->
-<g id="node5" class="node rankB">
-<title>DeliveredkcalFraction_s</title>
-<path fill="none" stroke="#000000" d="M302.5942,-371.5C302.5942,-371.5 436.5942,-371.5 436.5942,-371.5 442.5942,-371.5 448.5942,-377.5 448.5942,-383.5 448.5942,-383.5 448.5942,-466.5 448.5942,-466.5 448.5942,-472.5 442.5942,-478.5 436.5942,-478.5 436.5942,-478.5 302.5942,-478.5 302.5942,-478.5 296.5942,-478.5 290.5942,-472.5 290.5942,-466.5 290.5942,-466.5 290.5942,-383.5 290.5942,-383.5 290.5942,-377.5 296.5942,-371.5 302.5942,-371.5"/>
-<text text-anchor="start" x="331.5942" y="-459.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Portion of</text>
-<text text-anchor="start" x="298.5942" y="-441.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">calories produced</text>
-<text text-anchor="start" x="297.5942" y="-423.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">going toward food</text>
-<polyline fill="none" stroke="#000000" points="290.5942,-412.5 448.5942,-412.5 "/>
-<text text-anchor="start" x="324.5942" y="-395.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 0.056</text>
-<text text-anchor="start" x="327.0942" y="-379.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.143</text>
 </g>
 <!-- ndvi_act_min_m&#45;&gt;DeliveredkcalFraction_s -->
 <g id="edge15" class="edge">
@@ -91,14 +182,6 @@
 <title>ndvi_act_min_m-&gt;chicken_number_s</title>
 <path fill="none" stroke="#000000" stroke-width="2" d="M399.5254,-679.7037C419.5853,-661.4781 444.4677,-634.6496 456.5942,-605 495.9815,-508.6968 516.2007,-460.7677 463.5942,-371 456.5345,-358.9534 446.1022,-349.1247 434.4638,-341.164"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="436.3876,-337.4144 423.9801,-334.6404 431.9496,-344.5463 436.3876,-337.4144"/>
-</g>
-<!-- spam_P_i_avg_s -->
-<g id="node7" class="node rankB">
-<title>spam_P_i_avg_s</title>
-<path fill="none" stroke="#000000" d="M38.0942,-183.5C38.0942,-183.5 145.0942,-183.5 145.0942,-183.5 151.0942,-183.5 157.0942,-189.5 157.0942,-195.5 157.0942,-195.5 157.0942,-237.5 157.0942,-237.5 157.0942,-243.5 151.0942,-249.5 145.0942,-249.5 145.0942,-249.5 38.0942,-249.5 38.0942,-249.5 32.0942,-249.5 26.0942,-243.5 26.0942,-237.5 26.0942,-237.5 26.0942,-195.5 26.0942,-195.5 26.0942,-189.5 32.0942,-183.5 38.0942,-183.5"/>
-<text text-anchor="start" x="37.5942" y="-230.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Metric tons of</text>
-<text text-anchor="start" x="33.5942" y="-212.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">irrigated crops</text>
-<text text-anchor="start" x="54.5942" y="-194.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">produced</text>
 </g>
 <!-- ndvi_act_min_m&#45;&gt;spam_P_i_avg_s -->
 <g id="edge17" class="edge">
@@ -114,15 +197,6 @@
 <path fill="none" stroke="#000000" stroke-width="2" d="M91.5942,-310.5C78.2536,-267.9648 31.4506,-289.9116 11.5942,-250 -1.6697,-223.3394 -5.4326,-207.4296 11.5942,-183 23.02,-166.6065 66.0883,-151.0695 105.221,-139.8459"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="106.5003,-143.8494 116.9297,-136.5784 104.2424,-135.7586 106.5003,-143.8494"/>
 </g>
-<!-- yield_gap_barley_s -->
-<g id="node9" class="node rankB">
-<title>yield_gap_barley_s</title>
-<path fill="none" stroke="#000000" d="M134.0942,-383C134.0942,-383 249.0942,-383 249.0942,-383 255.0942,-383 261.0942,-389 261.0942,-395 261.0942,-395 261.0942,-455 261.0942,-455 261.0942,-461 255.0942,-467 249.0942,-467 249.0942,-467 134.0942,-467 134.0942,-467 128.0942,-467 122.0942,-461 122.0942,-455 122.0942,-455 122.0942,-395 122.0942,-395 122.0942,-389 128.0942,-383 134.0942,-383"/>
-<text text-anchor="start" x="139.5942" y="-448.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Gap between</text>
-<text text-anchor="start" x="138.0942" y="-430.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">observed and</text>
-<text text-anchor="start" x="129.5942" y="-412.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">potential barley</text>
-<text text-anchor="start" x="173.0942" y="-394.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">yield</text>
-</g>
 <!-- ndvi_act_min_m&#45;&gt;yield_gap_barley_s -->
 <g id="edge19" class="edge">
 <title>ndvi_act_min_m-&gt;yield_gap_barley_s</title>
@@ -135,15 +209,8 @@
 <path fill="none" stroke="#000000" stroke-width="2" d="M369.5942,-679.8976C369.5942,-662.6837 369.5942,-638.7847 369.5942,-616.8504"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="373.7943,-616.5763 369.5942,-604.5763 365.3943,-616.5764 373.7943,-616.5763"/>
 </g>
-<!-- acl_sum_evnt_m -->
-<g id="node3" class="node rankC">
-<title>acl_sum_evnt_m</title>
-<path fill="none" stroke="#000000" d="M282.5942,-53C282.5942,-53 172.5942,-53 172.5942,-53 166.5942,-53 160.5942,-47 160.5942,-41 160.5942,-41 160.5942,-21 160.5942,-21 160.5942,-15 166.5942,-9 172.5942,-9 172.5942,-9 282.5942,-9 282.5942,-9 288.5942,-9 294.5942,-15 294.5942,-21 294.5942,-21 294.5942,-41 294.5942,-41 294.5942,-47 288.5942,-53 282.5942,-53"/>
-<text text-anchor="middle" x="227.5942" y="-36.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Total number of</text>
-<text text-anchor="middle" x="227.5942" y="-18.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">conflict events</text>
-</g>
 <!-- acl_sum_fatl_m -->
-<g id="node4" class="node rankC">
+<g id="node10" class="node rankC">
 <title>acl_sum_fatl_m</title>
 <path fill="none" stroke="#000000" d="M119.5942,-62C119.5942,-62 17.5942,-62 17.5942,-62 11.5942,-62 5.5942,-56 5.5942,-50 5.5942,-50 5.5942,-12 5.5942,-12 5.5942,-6 11.5942,0 17.5942,0 17.5942,0 119.5942,0 119.5942,0 125.5942,0 131.5942,-6 131.5942,-12 131.5942,-12 131.5942,-50 131.5942,-50 131.5942,-56 125.5942,-62 119.5942,-62"/>
 <text text-anchor="middle" x="68.5942" y="-45.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Reported</text>
@@ -155,73 +222,6 @@
 <title>acl_sum_fatl_m-&gt;acl_sum_evnt_m</title>
 <path fill="none" stroke="#000000" stroke-width="2" d="M131.6352,-31C137.1973,-31 142.7593,-31 148.3214,-31"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="148.4978,-35.1999 160.4979,-31 148.4979,-26.7999 148.4978,-35.1999"/>
-</g>
-<!-- DeliveredkcalFraction_s&#45;&gt;chicken_number_s -->
-<g id="edge1" class="edge">
-<title>DeliveredkcalFraction_s-&gt;chicken_number_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M363.0451,-371.4377C362.0206,-363.0592 360.9832,-354.5749 360.0212,-346.7067"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="364.1623,-345.9688 358.5369,-334.5673 355.8244,-346.9883 364.1623,-345.9688"/>
-</g>
-<!-- DeliveredkcalFraction_s&#45;&gt;spam_P_i_avg_s -->
-<g id="edge2" class="edge">
-<title>DeliveredkcalFraction_s-&gt;spam_P_i_avg_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M290.2893,-380.2841C261.2779,-361.3375 229.693,-337.3973 205.5942,-310.5"/>
-</g>
-<!-- chicken_number_s&#45;&gt;acl_sum_evnt_m -->
-<g id="edge5" class="edge">
-<title>chicken_number_s-&gt;acl_sum_evnt_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M278.5942,-216.5C248.1986,-171.4704 263.391,-150.2744 248.5942,-98 245.5397,-87.2092 241.9685,-75.5213 238.6464,-64.9746"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="242.5523,-63.3983 234.9069,-53.2401 234.5489,-65.9488 242.5523,-63.3983"/>
-</g>
-<!-- chicken_number_s&#45;&gt;spam_P_i_avg_s -->
-<g id="edge3" class="edge">
-<title>chicken_number_s-&gt;spam_P_i_avg_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M287.9504,-286.4147C251.5381,-273.4497 206.4755,-257.4047 168.707,-243.9568"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="169.9512,-239.9416 157.2376,-239.873 167.1335,-247.8549 169.9512,-239.9416"/>
-</g>
-<!-- chicken_number_s&#45;&gt;rurpop_s -->
-<g id="edge4" class="edge">
-<title>chicken_number_s-&gt;rurpop_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M333.6961,-286.339C317.5202,-267.904 295.4719,-241.5036 278.5942,-216.5"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M278.5942,-216.5C262.575,-192.7684 239.3735,-170.9014 219.0449,-154.2414"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="221.64,-150.9389 209.6427,-146.731 216.3974,-157.5021 221.64,-150.9389"/>
-</g>
-<!-- spam_P_i_avg_s&#45;&gt;rurpop_s -->
-<g id="edge6" class="edge">
-<title>spam_P_i_avg_s-&gt;rurpop_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M121.2094,-183.3591C129.2024,-174.4146 137.8526,-164.7346 145.8525,-155.7824"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="149.0347,-158.5245 153.899,-146.778 142.7712,-152.9273 149.0347,-158.5245"/>
-</g>
-<!-- rurpop_s&#45;&gt;acl_sum_evnt_m -->
-<g id="edge7" class="edge">
-<title>rurpop_s-&gt;acl_sum_evnt_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M189.2566,-98.4595C195.3223,-87.7861 202.5543,-75.0605 209.0941,-63.5531"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="212.8137,-65.5083 215.0913,-53.0002 205.5107,-61.3579 212.8137,-65.5083"/>
-</g>
-<!-- yield_gap_barley_s&#45;&gt;chicken_number_s -->
-<g id="edge8" class="edge">
-<title>yield_gap_barley_s-&gt;chicken_number_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M252.1958,-382.6897C271.6602,-369.1002 292.8542,-354.3032 310.9577,-341.6639"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="313.5091,-345.005 320.944,-334.6918 308.7004,-338.1175 313.5091,-345.005"/>
-</g>
-<!-- yield_gap_barley_s&#45;&gt;spam_P_i_avg_s -->
-<g id="edge9" class="edge">
-<title>yield_gap_barley_s-&gt;spam_P_i_avg_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M211.1482,-382.9055C219.1148,-358.8891 222.9001,-329.8156 205.5942,-310.5"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M205.5942,-310.5C188.3879,-291.2956 167.118,-272.6802 147.6284,-257.152"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="149.9682,-253.6497 137.9308,-249.558 144.7892,-260.2632 149.9682,-253.6497"/>
-</g>
-<!-- locdensity_y&#45;&gt;DeliveredkcalFraction_s -->
-<g id="edge13" class="edge">
-<title>locdensity_y-&gt;DeliveredkcalFraction_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M369.5942,-515.4218C369.5942,-507.5784 369.5942,-499.2665 369.5942,-490.985"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="373.7943,-490.9315 369.5942,-478.9315 365.3943,-490.9316 373.7943,-490.9315"/>
-</g>
-<!-- locdensity_y&#45;&gt;yield_gap_barley_s -->
-<g id="edge14" class="edge">
-<title>locdensity_y-&gt;yield_gap_barley_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M310.817,-515.4218C293.4723,-502.2671 274.3898,-487.7944 256.6733,-474.3578"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="259.0903,-470.9196 246.9911,-467.0145 254.0142,-477.6124 259.0903,-470.9196"/>
 </g>
 </g>
 <style>.node path {

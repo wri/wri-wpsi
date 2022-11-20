@@ -5,38 +5,6 @@ concentrate = true;
 node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.07,0.05", penwidth = 1.0];
 edge[arrowsize = 1.2, penwidth = 2];
 
-#ranks
-{rank=same; acl_sum_evnt_m acl_sum_fatl_m; }
-# links
-et_anom_m_STD_m -> spi_3_m;
-et_anom_m_STD_m -> rurratio_s;
-et_anom_m_STD_m -> locdensity_y;
-et_anom_m_STD_m -> ndvi_act_min_m;
-chicken_number_s -> spi_3_m;
-chicken_number_s -> yield_gap_soybean_s;
-chicken_number_s -> rurratio_s;
-chicken_number_s -> ndvi_act_min_m;
-spi_3_m -> et_anom_m_STD_m;
-spi_3_m -> chicken_number_s;
-spi_3_m -> rurpop_s;
-spi_3_m -> rurratio_s;
-spi_3_m -> locdensity_y;
-spi_3_m -> ndvi_act_min_m;
-rurpop_s -> acl_sum_evnt_m;
-rurpop_s -> acl_sum_fatl_m;
-yield_gap_soybean_s -> rurpop_s;
-rurratio_s -> rurpop_s;
-rurratio_s -> locdensity_y;
-rurratio_s -> ndvi_act_min_m;
-rurratio_s -> acl_sum_fatl_m;
-locdensity_y -> rurpop_s;
-locdensity_y -> yield_gap_soybean_s;
-locdensity_y -> acl_sum_evnt_m;
-locdensity_y -> acl_sum_fatl_m;
-ndvi_act_min_m -> rurpop_s;
-ndvi_act_min_m -> yield_gap_soybean_s;
-ndvi_act_min_m -> rurratio_s;
-acl_sum_fatl_m -> acl_sum_evnt_m;
 # nodes
 et_anom_m_STD_m [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Variation in<br/>evapotranspiration<br/>patterns<br/></font></td></tr>
@@ -78,4 +46,39 @@ conflict events", class = rankC, shape=box, style=rounded, fontsize="16pt"];
 acl_sum_fatl_m [label = "Reported
 fatalities from
 conflict events", class = rankC, shape=box, style=rounded, fontsize="16pt"];
+
+#ranks
+{rank=same; acl_sum_evnt_m acl_sum_fatl_m; }
+
+# links
+et_anom_m_STD_m -> spi_3_m;
+et_anom_m_STD_m -> rurratio_s;
+et_anom_m_STD_m -> locdensity_y;
+et_anom_m_STD_m -> ndvi_act_min_m;
+chicken_number_s -> spi_3_m;
+chicken_number_s -> yield_gap_soybean_s;
+chicken_number_s -> rurratio_s;
+chicken_number_s -> ndvi_act_min_m;
+spi_3_m -> et_anom_m_STD_m;
+spi_3_m -> chicken_number_s;
+spi_3_m -> rurpop_s;
+spi_3_m -> rurratio_s;
+spi_3_m -> locdensity_y;
+spi_3_m -> ndvi_act_min_m;
+rurpop_s -> acl_sum_evnt_m;
+rurpop_s -> acl_sum_fatl_m;
+yield_gap_soybean_s -> rurpop_s;
+rurratio_s -> rurpop_s;
+rurratio_s -> locdensity_y;
+rurratio_s -> ndvi_act_min_m;
+rurratio_s -> acl_sum_fatl_m;
+locdensity_y -> rurpop_s;
+locdensity_y -> yield_gap_soybean_s;
+locdensity_y -> acl_sum_evnt_m;
+locdensity_y -> acl_sum_fatl_m;
+ndvi_act_min_m -> rurpop_s;
+ndvi_act_min_m -> yield_gap_soybean_s;
+ndvi_act_min_m -> rurratio_s;
+acl_sum_fatl_m -> acl_sum_evnt_m;
+
 }

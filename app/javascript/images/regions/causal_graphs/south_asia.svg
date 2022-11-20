@@ -35,7 +35,7 @@
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="237.9384,-527.4768 227.7483,-519.8739 230.9731,-532.172 237.9384,-527.4768"/>
 </g>
 <!-- yield_gap_rice_s -->
-<g id="node4" class="node rankB">
+<g id="node6" class="node rankB">
 <title>yield_gap_rice_s</title>
 <path fill="none" stroke="#000000" d="M260.5,-80.5C260.5,-80.5 358.5,-80.5 358.5,-80.5 364.5,-80.5 370.5,-86.5 370.5,-92.5 370.5,-92.5 370.5,-152.5 370.5,-152.5 370.5,-158.5 364.5,-164.5 358.5,-164.5 358.5,-164.5 260.5,-164.5 260.5,-164.5 254.5,-164.5 248.5,-158.5 248.5,-152.5 248.5,-152.5 248.5,-92.5 248.5,-92.5 248.5,-86.5 254.5,-80.5 260.5,-80.5"/>
 <text text-anchor="start" x="257" y="-145.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Gap between</text>
@@ -50,7 +50,7 @@
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="368.5828,-170.4451 357.2723,-164.6388 362.4933,-176.2311 368.5828,-170.4451"/>
 </g>
 <!-- rurpop_s -->
-<g id="node5" class="node rankB">
+<g id="node7" class="node rankB">
 <title>rurpop_s</title>
 <path fill="none" stroke="#000000" d="M114,-98.5C114,-98.5 207,-98.5 207,-98.5 213,-98.5 219,-104.5 219,-110.5 219,-110.5 219,-134.5 219,-134.5 219,-140.5 213,-146.5 207,-146.5 207,-146.5 114,-146.5 114,-146.5 108,-146.5 102,-140.5 102,-134.5 102,-134.5 102,-110.5 102,-110.5 102,-104.5 108,-98.5 114,-98.5"/>
 <text text-anchor="start" x="109.5" y="-127.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Population in</text>
@@ -64,7 +64,7 @@
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="213.3285,-148.8685 200.8167,-146.6114 209.1901,-156.1783 213.3285,-148.8685"/>
 </g>
 <!-- acl_sum_evnt_m -->
-<g id="node6" class="node rankC">
+<g id="node8" class="node rankC">
 <title>acl_sum_evnt_m</title>
 <path fill="none" stroke="#000000" d="M215.5,-44C215.5,-44 105.5,-44 105.5,-44 99.5,-44 93.5,-38 93.5,-32 93.5,-32 93.5,-12 93.5,-12 93.5,-6 99.5,0 105.5,0 105.5,0 215.5,0 215.5,0 221.5,0 227.5,-6 227.5,-12 227.5,-12 227.5,-32 227.5,-32 227.5,-38 221.5,-44 215.5,-44"/>
 <text text-anchor="middle" x="160.5" y="-27.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Total number of</text>
@@ -76,22 +76,16 @@
 <path fill="none" stroke="#000000" stroke-width="2" d="M414.5,-246C384.2792,-177.4727 436.3171,-135.0173 385.5,-80 365.6644,-58.5249 296.1653,-42.775 239.5973,-33.1513"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="240.2697,-29.0055 227.7451,-31.1909 238.8988,-37.2929 240.2697,-29.0055"/>
 </g>
-<!-- spi_1_f2_m -->
-<g id="node2" class="node rankA">
-<title>spi_1_f2_m</title>
-<path fill="none" stroke="#000000" d="M12,-577C12,-577 139,-577 139,-577 145,-577 151,-583 151,-589 151,-589 151,-631 151,-631 151,-637 145,-643 139,-643 139,-643 12,-643 12,-643 6,-643 0,-637 0,-631 0,-631 0,-589 0,-589 0,-583 6,-577 12,-577"/>
-<text text-anchor="start" x="26" y="-624.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Precipitation</text>
-<text text-anchor="start" x="7.5" y="-606.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">anomalies over a</text>
-<text text-anchor="start" x="42.5" y="-588.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">1-month</text>
-</g>
-<!-- spi_1_f2_m&#45;&gt;ndvi_act_med_m -->
-<g id="edge13" class="edge">
-<title>spi_1_f2_m-&gt;ndvi_act_med_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M105.3446,-576.9753C118.4986,-562.4196 134.2947,-544.9402 149.0638,-528.5975"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="152.2101,-531.38 157.1398,-519.6609 145.9779,-525.748 152.2101,-531.38"/>
+<!-- DeliveredkcalFraction_s -->
+<g id="node2" class="node rankB">
+<title>DeliveredkcalFraction_s</title>
+<path fill="none" stroke="#000000" d="M130.5,-327.5C130.5,-327.5 264.5,-327.5 264.5,-327.5 270.5,-327.5 276.5,-333.5 276.5,-339.5 276.5,-339.5 276.5,-381.5 276.5,-381.5 276.5,-387.5 270.5,-393.5 264.5,-393.5 264.5,-393.5 130.5,-393.5 130.5,-393.5 124.5,-393.5 118.5,-387.5 118.5,-381.5 118.5,-381.5 118.5,-339.5 118.5,-339.5 118.5,-333.5 124.5,-327.5 130.5,-327.5"/>
+<text text-anchor="start" x="159.5" y="-374.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Portion of</text>
+<text text-anchor="start" x="126.5" y="-356.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">calories produced</text>
+<text text-anchor="start" x="125.5" y="-338.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">going toward food</text>
 </g>
 <!-- cattle_number_s -->
-<g id="node8" class="node rankB">
+<g id="node4" class="node rankB">
 <title>cattle_number_s</title>
 <path fill="none" stroke="#000000" d="M101.5,-201.5C101.5,-201.5 233.5,-201.5 233.5,-201.5 239.5,-201.5 245.5,-207.5 245.5,-213.5 245.5,-213.5 245.5,-278.5 245.5,-278.5 245.5,-284.5 239.5,-290.5 233.5,-290.5 233.5,-290.5 101.5,-290.5 101.5,-290.5 95.5,-290.5 89.5,-284.5 89.5,-278.5 89.5,-278.5 89.5,-213.5 89.5,-213.5 89.5,-207.5 95.5,-201.5 101.5,-201.5"/>
 <text text-anchor="start" x="96.5" y="-271.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Count of livestock</text>
@@ -100,44 +94,11 @@
 <text text-anchor="start" x="122.5" y="-225.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 1.846</text>
 <text text-anchor="start" x="125" y="-209.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.278</text>
 </g>
-<!-- spi_1_f2_m&#45;&gt;cattle_number_s -->
-<g id="edge14" class="edge">
-<title>spi_1_f2_m-&gt;cattle_number_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M73.1244,-576.7786C70.4823,-522.4233 70.383,-412.0277 104.5,-327 108.1317,-317.949 113.0909,-309.065 118.6439,-300.6905"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="122.1714,-302.9763 125.6625,-290.7512 115.3097,-298.131 122.1714,-302.9763"/>
-</g>
-<!-- ndvi_act_med_m&#45;&gt;yield_gap_rice_s -->
-<g id="edge8" class="edge">
-<title>ndvi_act_med_m-&gt;yield_gap_rice_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M251.8006,-439.9812C266.9224,-427.388 281.6231,-411.8244 290.5,-394 324.8423,-325.0422 323.1482,-233.7987 317.3891,-176.6244"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="321.5547,-176.0805 316.0684,-164.6114 313.205,-176.9985 321.5547,-176.0805"/>
-</g>
-<!-- ndvi_act_med_m&#45;&gt;acl_sum_evnt_m -->
-<g id="edge9" class="edge">
-<title>ndvi_act_med_m-&gt;acl_sum_evnt_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M143.0254,-436.6438C128.8102,-424.407 114.6493,-409.8748 104.5,-394 37.9855,-289.9622 21.3427,-243.597 45.5,-122.5"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M45.5,-122.5C51.8761,-91.3354 77.5322,-67.3087 102.9975,-50.5742"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="105.485,-53.9734 113.4614,-44.0729 101.052,-46.8383 105.485,-53.9734"/>
-</g>
-<!-- DeliveredkcalFraction_s -->
-<g id="node7" class="node rankB">
-<title>DeliveredkcalFraction_s</title>
-<path fill="none" stroke="#000000" d="M130.5,-327.5C130.5,-327.5 264.5,-327.5 264.5,-327.5 270.5,-327.5 276.5,-333.5 276.5,-339.5 276.5,-339.5 276.5,-381.5 276.5,-381.5 276.5,-387.5 270.5,-393.5 264.5,-393.5 264.5,-393.5 130.5,-393.5 130.5,-393.5 124.5,-393.5 118.5,-387.5 118.5,-381.5 118.5,-381.5 118.5,-339.5 118.5,-339.5 118.5,-333.5 124.5,-327.5 130.5,-327.5"/>
-<text text-anchor="start" x="159.5" y="-374.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Portion of</text>
-<text text-anchor="start" x="126.5" y="-356.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">calories produced</text>
-<text text-anchor="start" x="125.5" y="-338.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">going toward food</text>
-</g>
-<!-- ndvi_act_med_m&#45;&gt;DeliveredkcalFraction_s -->
-<g id="edge7" class="edge">
-<title>ndvi_act_med_m-&gt;DeliveredkcalFraction_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M197.5,-430.4034C197.5,-422.4092 197.5,-414.0684 197.5,-406.0478"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="201.7001,-405.8032 197.5,-393.8032 193.3001,-405.8032 201.7001,-405.8032"/>
-</g>
-<!-- rurpop_s&#45;&gt;acl_sum_evnt_m -->
-<g id="edge15" class="edge">
-<title>rurpop_s-&gt;acl_sum_evnt_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M160.5,-98.4277C160.5,-85.8011 160.5,-70.1149 160.5,-56.2452"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="164.7001,-56.1581 160.5,-44.1582 156.3001,-56.1582 164.7001,-56.1581"/>
+<!-- DeliveredkcalFraction_s&#45;&gt;cattle_number_s -->
+<g id="edge5" class="edge">
+<title>DeliveredkcalFraction_s-&gt;cattle_number_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M188.8228,-327.3819C186.7527,-319.481 184.4859,-310.8295 182.2274,-302.2095"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="186.2763,-301.0915 179.1719,-290.5479 178.1506,-303.2206 186.2763,-301.0915"/>
 </g>
 <!-- DeliveredkcalFraction_s&#45;&gt;rurpop_s -->
 <g id="edge6" class="edge">
@@ -145,11 +106,24 @@
 <path fill="none" stroke="#000000" stroke-width="2" d="M236.6206,-327.2661C246.2855,-316.7615 255.3418,-304.3707 260.5,-291 274.8971,-253.6808 277.9934,-236.9719 260.5,-201 251.14,-181.753 234.5231,-165.8239 217.4898,-153.4607"/>
 <polygon fill="#000000" stroke="#000000" stroke-width="2" points="219.7386,-149.9103 207.4645,-146.5954 214.9924,-156.841 219.7386,-149.9103"/>
 </g>
-<!-- DeliveredkcalFraction_s&#45;&gt;cattle_number_s -->
-<g id="edge5" class="edge">
-<title>DeliveredkcalFraction_s-&gt;cattle_number_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M188.8228,-327.3819C186.7527,-319.481 184.4859,-310.8295 182.2274,-302.2095"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="186.2763,-301.0915 179.1719,-290.5479 178.1506,-303.2206 186.2763,-301.0915"/>
+<!-- ndvi_act_med_m&#45;&gt;DeliveredkcalFraction_s -->
+<g id="edge7" class="edge">
+<title>ndvi_act_med_m-&gt;DeliveredkcalFraction_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M197.5,-430.4034C197.5,-422.4092 197.5,-414.0684 197.5,-406.0478"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="201.7001,-405.8032 197.5,-393.8032 193.3001,-405.8032 201.7001,-405.8032"/>
+</g>
+<!-- ndvi_act_med_m&#45;&gt;yield_gap_rice_s -->
+<g id="edge8" class="edge">
+<title>ndvi_act_med_m-&gt;yield_gap_rice_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M251.9234,-440.5102C267.3825,-427.8529 282.458,-412.1191 291.5,-394 325.8898,-325.0874 323.7771,-233.8315 317.7077,-176.6422"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="321.8691,-176.0651 316.3207,-164.6259 313.5245,-177.0284 321.8691,-176.0651"/>
+</g>
+<!-- ndvi_act_med_m&#45;&gt;acl_sum_evnt_m -->
+<g id="edge9" class="edge">
+<title>ndvi_act_med_m-&gt;acl_sum_evnt_m</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M143.0254,-436.6438C128.8102,-424.407 114.6493,-409.8748 104.5,-394 37.9855,-289.9622 21.3427,-243.597 45.5,-122.5"/>
+<path fill="none" stroke="#000000" stroke-width="2" d="M45.5,-122.5C51.8761,-91.3354 77.5322,-67.3087 102.9975,-50.5742"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="105.485,-53.9734 113.4614,-44.0729 101.052,-46.8383 105.485,-53.9734"/>
 </g>
 <!-- cattle_number_s&#45;&gt;yield_gap_rice_s -->
 <g id="edge10" class="edge">
@@ -167,6 +141,32 @@
 <g id="edge12" class="edge">
 <title>cattle_number_s-&gt;acl_sum_evnt_m</title>
 <path fill="none" stroke="#000000" stroke-width="2" d="M89.2215,-204.4319C61.6242,-183.6274 38.8669,-155.7507 45.5,-122.5"/>
+</g>
+<!-- spi_1_f2_m -->
+<g id="node5" class="node rankA">
+<title>spi_1_f2_m</title>
+<path fill="none" stroke="#000000" d="M12,-577C12,-577 139,-577 139,-577 145,-577 151,-583 151,-589 151,-589 151,-631 151,-631 151,-637 145,-643 139,-643 139,-643 12,-643 12,-643 6,-643 0,-637 0,-631 0,-631 0,-589 0,-589 0,-583 6,-577 12,-577"/>
+<text text-anchor="start" x="26" y="-624.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Precipitation</text>
+<text text-anchor="start" x="7.5" y="-606.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">anomalies over a</text>
+<text text-anchor="start" x="42.5" y="-588.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">1-month</text>
+</g>
+<!-- spi_1_f2_m&#45;&gt;ndvi_act_med_m -->
+<g id="edge13" class="edge">
+<title>spi_1_f2_m-&gt;ndvi_act_med_m</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M105.3446,-576.9753C118.4986,-562.4196 134.2947,-544.9402 149.0638,-528.5975"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="152.2101,-531.38 157.1398,-519.6609 145.9779,-525.748 152.2101,-531.38"/>
+</g>
+<!-- spi_1_f2_m&#45;&gt;cattle_number_s -->
+<g id="edge14" class="edge">
+<title>spi_1_f2_m-&gt;cattle_number_s</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M73.1244,-576.7786C70.4823,-522.4233 70.383,-412.0277 104.5,-327 108.1317,-317.949 113.0909,-309.065 118.6439,-300.6905"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="122.1714,-302.9763 125.6625,-290.7512 115.3097,-298.131 122.1714,-302.9763"/>
+</g>
+<!-- rurpop_s&#45;&gt;acl_sum_evnt_m -->
+<g id="edge15" class="edge">
+<title>rurpop_s-&gt;acl_sum_evnt_m</title>
+<path fill="none" stroke="#000000" stroke-width="2" d="M160.5,-98.4277C160.5,-85.8011 160.5,-70.1149 160.5,-56.2452"/>
+<polygon fill="#000000" stroke="#000000" stroke-width="2" points="164.7001,-56.1581 160.5,-44.1582 156.3001,-56.1582 164.7001,-56.1581"/>
 </g>
 </g>
 <style>.node path {
