@@ -1,8 +1,12 @@
 # generated file for region: sub-saharan_africa by CausalModelRegionGenerator
 strict digraph causalModel {
+fontname="Helvetica, Arial, sans-serif";
+label="
+Causal Model: Sub-Saharan Africa";
+labelloc = b;
 nodesep = 0.4;
 concentrate = true;
-node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.07,0.05", penwidth = 1.0];
+node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.10,0.06", penwidth = 1.0];
 edge[arrowsize = 1.2, penwidth = 2];
 
 # nodes

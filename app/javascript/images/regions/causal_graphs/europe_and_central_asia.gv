@@ -1,8 +1,12 @@
 # generated file for region: europe_and_central_asia by CausalModelRegionGenerator
 strict digraph causalModel {
+fontname="Helvetica, Arial, sans-serif";
+label="
+Causal Model: Europe and Central Asia";
+labelloc = b;
 nodesep = 0.4;
 concentrate = true;
-node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.07,0.05", penwidth = 1.0];
+node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.10,0.06", penwidth = 1.0];
 edge[arrowsize = 1.2, penwidth = 2];
 
 # nodes

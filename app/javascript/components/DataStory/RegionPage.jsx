@@ -21,25 +21,33 @@ const useStyles = createUseStyles({
     border: "1px solid rgba(0, 0, 0, 0.12)",
     width: "100%",
   },
-  graphBox: {
-    position: "sticky",
-    top: "50px",
-    alignSelf: "flex-start",
-    paddingTop: "3.75rem",
-  },
+  graphBox: {},
+  article: {},
   graph: {
-    height: "calc(100vh - 145px)",
     width: "100%",
+  },
+  "@media (min-width: 992px)": {
+    graphBox: {
+      position: "sticky",
+      top: "50px",
+      alignSelf: "flex-start",
+      paddingTop: "4rem",
+    },
+    article: {
+      paddingRight: "2rem",
+    },
+    graph: {
+      height: "calc(100vh - 145px)",
+    },
   },
   main: {
     marginTop: "4em",
-    marginBottom: "4em",
   },
   loading: {
     height: "700px",
   },
   title: {
-    color: '#212529',
+    color: "#212529",
     padding: "0.5rem 0",
     borderBottom: "4px solid",
   },
@@ -113,8 +121,12 @@ export const DataStoryRegionPage = () => {
 
       <LayoutContainer>
         <div className={clsx(classes.main, "row")}>
-          <div className={clsx("col-md-6", classes.article)}>
-            <DataStoryChapter title="Overview" anchor="overview">
+          <div className="col-lg-6">
+            <DataStoryChapter
+              title="Overview"
+              anchor="overview"
+              className={classes.article}
+            >
               <DataStorySection
                 title="Indirect Causal Relationships"
                 titleProps={{
@@ -138,6 +150,15 @@ export const DataStoryRegionPage = () => {
                 {region.conflictOutcome}
               </DataStorySection>
             </DataStoryChapter>
+          </div>
+          <div className={clsx("col-lg-6", classes.graphBox)}>
+            <img
+              className={classes.graph}
+              src={region.causalGraph}
+              alt={`Causal Model for ${region.name}`}
+            />
+          </div>
+          <div className="col-lg-6">
             <DataStoryChapter title="Data Details" anchor="details">
               <DataStoryRegionDataDetails region={region} />
             </DataStoryChapter>
@@ -146,15 +167,6 @@ export const DataStoryRegionPage = () => {
             </DataStoryChapter>
             <DataStorySection title="Assumptions and Limits">
               <DataStoryModelHelpContent />
-            </DataStorySection>
-          </div>
-          <div className={clsx("col-md-6", classes.graphBox)}>
-            <DataStorySection title={`Causal Model for ${region.name}`}>
-              <img
-                className={classes.graph}
-                src={region.causalGraph}
-                alt={region.name}
-              />
             </DataStorySection>
           </div>
         </div>

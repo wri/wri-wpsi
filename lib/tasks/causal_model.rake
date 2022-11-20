@@ -93,13 +93,20 @@ class CausalModelRegionGenerator
     raise unless system(cmd)
   end
 
+  def font_name
+    "Helvetica, Arial, sans-serif"
+  end
+
   def generate_gv(region)
     <<~GV
       # generated file for region: #{region[:id]} by #{self.class.name}
       strict digraph causalModel {
+      fontname="#{font_name}";
+      label="\nCausal Model: #{region[:name]}";
+      labelloc = b;
       nodesep = 0.4;
       concentrate = true;
-      node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.07,0.05", penwidth = 1.0];
+      node[shape = Mrecord, fontname = "#{font_name}", margin = "0.10,0.06", penwidth = 1.0];
       edge[arrowsize = 1.2, penwidth = 2];
 
       # nodes
@@ -195,6 +202,7 @@ class CausalModelRegionGenerator
   def east_asia
     {
       id: 'east_asia_and_pacific',
+      name: 'East Asia and Pacific',
       nodes: [{ id: 'spam_P_i_sum_s',
                 label: 'Metric tons of irrigated crops produced',
                 effect: '-0.342',
@@ -259,12 +267,10 @@ class CausalModelRegionGenerator
     }
   end
 
-  # east_asia_and_pacific.png    latin_america_and_caribbean.png   north_america.png  sub-saharan_africa.png
-  # europe_and_central_asia.png  middle_east_and_north_africa.png  south_asia.png
-
   def europe
     {
       id: 'europe_and_central_asia',
+      name: 'Europe and Central Asia',
       nodes: [{ id: 'et_anom_m_STD_m',
                 label: 'Variation in evapotranspiration patterns',
                 effect: nil,
@@ -334,6 +340,7 @@ class CausalModelRegionGenerator
   def latin_america_and_caribbean
     {
       id: 'latin_america_and_caribbean',
+      name: 'Latin America and Caribbean',
       nodes: [{ id: 'et_anom_m_STD_m',
                 label: 'Variation in evapotranspiration patterns',
                 effect: '-0.032',
@@ -421,6 +428,7 @@ class CausalModelRegionGenerator
   def middle_east_and_north_africa
     {
       id: 'middle_east_and_north_africa',
+      name: 'Middle East and North Africa',
       nodes: [{ id: 'DeliveredkcalFraction_s',
                 label: 'Portion of calories produced going toward food',
                 effect: '0.056',
@@ -500,6 +508,7 @@ class CausalModelRegionGenerator
   def north_america
     {
       id: 'north_america',
+      name: 'North America',
       nodes: [{ id: 'rurratio_s',
                 label: 'Percentage of population that live in rural areas',
                 effect: '-2.086',
@@ -561,7 +570,9 @@ class CausalModelRegionGenerator
   end
 
   def south_asia
-    { id: 'south_asia',
+    {
+      id: 'south_asia',
+      name: 'South Asia',
       nodes: [{ id: 'et_anom_m_STD_m',
                 label: 'Variation in evapotranspiration patterns',
                 effect: '-0.053',
@@ -618,12 +629,14 @@ class CausalModelRegionGenerator
         'spi_1_f2_m -> ndvi_act_med_m',
         'spi_1_f2_m -> cattle_number_s',
         'rurpop_s -> acl_sum_evnt_m',
-      ] }
+      ],
+    }
   end
 
   def sub_saharan_africa
     {
       id: 'sub-saharan_africa',
+      name: 'Sub-Saharan Africa',
       nodes: [{ id: 'et_actl_m_MAX_m',
                 label: 'Actual evapotranspiration',
                 effect: '0.514',
