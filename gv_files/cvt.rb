@@ -1,12 +1,12 @@
 lines = <<~LINES
-et_anom_m_STD_m [color=white, label="Variation in evapotranspiration patterns: -0.032, (0.044)"];
+DeliveredkcalFraction_s [color=white, label="Portion of calories produced going toward food: 0.056, (0.143)"];
 chicken_number_s [color=white, label="Count of livestock chickens"];
-spi_3_m [color=white, label="Variation of precipitation over 3-month period"];
+spam_P_i_avg_s [color=white, label="Metric tons of irrigated crops produced"];
 rurpop_s [color=white, label="Population in rural areas"];
-yield_gap_soybean_s [color=white, label="Gap between observed and potential soybean yield: 0.022, (0.031)"];
-rurratio_s [color=white, label="Percentage of population that live in rural areas"];
-locdensity_y [color=white, label="Population density"];
-ndvi_act_min_m [color=white, label="Density of greenness: 0.044, (0.1)"];
+yield_gap_barley_s [color=white, label="Gap between observed and potential barley yield"];
+rurratio_s [color=white, label="Percentage of population that live in rural areas: -0.489, (0.255)"];
+locdensity_y [color=white, label="Local population density: -1.263, (0.68)"];
+ndvi_act_min_m [color=white, label="Density of greenness"];
 acl_sum_evnt_m [color=white, label="Outcome: Total number of conflict events"];
 acl_sum_fatl_m [color=white, label="Reported fatalities from conflict events"];
 LINES

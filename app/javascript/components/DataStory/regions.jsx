@@ -1,5 +1,7 @@
 import ea_graph from "../../images/regions/causal_graphs/east_asia_and_pacific.svg";
 import eu_graph from "../../images/regions/causal_graphs/europe_and_central_asia.svg";
+import la_graph from "../../images/regions/causal_graphs/latin_america_and_caribbean.svg";
+import me_graph from "../../images/regions/causal_graphs/middle_east_and_north_africa.svg";
 import ea_thumbnail from "../../images/regions/thumbnails/east_asia_and_pacific.png";
 import eu_thumbnail from "../../images/regions/thumbnails/europe_and_central_asia.png";
 import lt_thumbnail from "../../images/regions/thumbnails/latin_america_and_caribbean.png";
@@ -605,6 +607,7 @@ export const regions = [
   {
     id: "latin_america_and_caribbean",
     name: "Latin America and Caribbean",
+    causalGraph: la_graph,
     causalRelationship:
       "All effects are mediated by at least one other variable, so there are no indirect effects.",
     mediatingEffects:
@@ -883,6 +886,7 @@ export const regions = [
     id: "middle_east_and_north_africa",
     name: "Middle East and North Africa",
     image: me_thumbnail,
+    causalGraph: me_graph,
     causalRelationship:
       "The causes of the conflict outcomes are vegetation coverage and population size. The relationship between vegetation (density of greenness) and conflict is inestimable. The percentage of the population living in rural areas has an inverse relationship with conflict, meaning areas with smaller rural populations are associated with more conflict. Neither relationship is statistically significant. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
     mediatingEffects:
