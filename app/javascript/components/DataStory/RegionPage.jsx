@@ -11,6 +11,7 @@ import { DataStoryRegionDataDetails } from "./RegionDataDetails";
 import { regions } from "./regions";
 import { DataStorySection } from "./Section";
 import { DataStoryStatsHelpContent } from "./StatsHelpContent";
+import { palette } from "./constants";
 
 import { createUseStyles } from "react-jss";
 
@@ -36,6 +37,23 @@ const useStyles = createUseStyles({
   },
   loading: {
     height: "700px",
+  },
+  title: {
+    color: '#212529',
+    padding: "0.5rem 0",
+    borderBottom: "4px solid",
+  },
+  indirect: {
+    borderColor: palette.indirect,
+    color: palette.indirect,
+  },
+  mediating: {
+    borderColor: palette.mediating,
+    color: palette.mediating,
+  },
+  outcome: {
+    borderColor: palette.outcome,
+    color: palette.outcome,
   },
 });
 
@@ -97,13 +115,26 @@ export const DataStoryRegionPage = () => {
         <div className={clsx(classes.main, "row")}>
           <div className={clsx("col-md-6", classes.article)}>
             <DataStoryChapter title="Overview" anchor="overview">
-              <DataStorySection title="Indirect Causal Relationships">
+              <DataStorySection
+                title="Indirect Causal Relationships"
+                titleProps={{
+                  className: clsx(classes.title, classes.indirect),
+                }}
+              >
                 {region.causalRelationship}
               </DataStorySection>
-              <DataStorySection title="Mediating Effects">
+              <DataStorySection
+                title="Mediating Effects"
+                titleProps={{
+                  className: clsx(classes.title, classes.mediating),
+                }}
+              >
                 {region.mediatingEffects}
               </DataStorySection>
-              <DataStorySection title="Conflict Outcome">
+              <DataStorySection
+                title="Conflict Outcome"
+                titleProps={{ className: clsx(classes.title, classes.outcome) }}
+              >
                 {region.conflictOutcome}
               </DataStorySection>
             </DataStoryChapter>

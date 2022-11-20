@@ -11,15 +11,15 @@ const useStyles = createUseStyles({
   },
 });
 
-export const DataStorySection = ({ children, height, title, anchor }) => {
+export const DataStorySection = ({ children, title, anchor, titleProps }) => {
   const classes = useStyles();
-  const style = React.useMemo(
-    () => (height ? { minHeight: height + "px" } : undefined),
-    [height]
-  );
   return (
-    <div className={classes.body} style={style} id={anchor}>
-      {title && <h4 className={classes.title}>{title}</h4>}
+    <div className={classes.body} id={anchor}>
+      {title && (
+        <h4 className={classes.title} {...titleProps}>
+          {title}
+        </h4>
+      )}
       {children}
     </div>
   );
@@ -28,7 +28,6 @@ export const DataStorySection = ({ children, height, title, anchor }) => {
 DataStorySection.propTypes = {
   title: PropTypes.string,
   anchor: PropTypes.string,
-  figure: PropTypes.string,
-  height: PropTypes.number,
+  titleProps: PropTypes.object,
   children: PropTypes.any.isRequired,
 };

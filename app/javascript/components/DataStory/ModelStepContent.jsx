@@ -3,9 +3,9 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import { Scrollama, Step } from "react-scrollama";
 import PropTypes from "prop-types";
+import { palette } from "./constants";
 
 const useStyles = createUseStyles({
-  graph: {},
   stepCard: {
     borderTopLeftRadius: "10px",
     borderTopRightRadius: "10px",
@@ -69,15 +69,15 @@ const useStyles = createUseStyles({
   },
   nodeA: {
     top: "70px",
-    background: "#28293e",
+    background: palette.indirect,
   },
   nodeB: {
     top: "255px",
-    background: "#486e81",
+    background: palette.mediating,
   },
   nodeC: {
     top: "440px",
-    background: "#73b85f",
+    background: palette.outcome,
     // last node
     height: "auto",
     marginBottom: "0",

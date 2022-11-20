@@ -189,20 +189,17 @@
 .node text {
   fill: #fff;
 }
-.rankC.node text {
-  fill: #000;
-}
 .node polyline {
   stroke: #fff;
 }
 .rankA path {
-  fill: #292a40;
+  fill: #2e3348;
 }
 .rankB path {
-  fill: #4a6e81;
+  fill: #437387;
 }
 .rankC path {
-  fill: #73b85f;
+  fill: #1b6002;
 }
 .edge path {
   stroke: #666;
