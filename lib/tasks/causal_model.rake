@@ -101,8 +101,9 @@ class CausalModelRegionGenerator
       concentrate = true;
       node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.07,0.05", penwidth = 1.0];
       edge[arrowsize = 1.2, penwidth = 2];
-      ranksep=1;
 
+      #ranks
+      #{node_ranks(region[:nodes]).join("\n")}
       # links
       #{
         region[:links].map do |link|
@@ -119,14 +120,28 @@ class CausalModelRegionGenerator
     GV
   end
 
+  def node_ranks(nodes)
+    %w[a c].map do |rank|
+      ids = nodes.select {|n| n[:rank] == rank}.map {|n| n[:id]}
+      ids.many? ? "{rank=same; #{ids.join(' ')}; }" : nil
+    end.compact
+  end
+
   def render_gv_node(node)
     (id, label, rank, effect, error, significance) = node.values_at(
       :id, :label, :rank, :effect, :error, :significance
     ).map(&:presence)
 
     raise node.inspect if id.blank? || label.blank?
+    line_width=18
 
-    label_str = ApplicationController.helpers.word_wrap(label, line_width: 25, break_sequence: '<br/>')
+    if node[:rank] == 'c'
+      label_str = ApplicationController.helpers.word_wrap(label, line_width: line_width, break_sequence: "\n")
+      klass = "rank#{rank.upcase}"
+      return %{#{id} [label = "#{label_str}", class = #{klass}, shape=box, style=rounded, fontsize="16pt"]}
+    end
+
+    label_str = ApplicationController.helpers.word_wrap(label, line_width: line_width, break_sequence: '<br/>')
     title = <<~GV
       <table align="center" border="0" cellspacing="1" cellpadding="1">
       <tr><td><font point-size="16">#{label_str}</font></td></tr>

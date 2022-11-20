@@ -4,8 +4,9 @@ nodesep = 0.4;
 concentrate = true;
 node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.07,0.05", penwidth = 1.0];
 edge[arrowsize = 1.2, penwidth = 2];
-ranksep=1;
 
+#ranks
+{rank=same; acl_sum_evnt_m acl_sum_fatl_m; }
 # links
 et_anom_m_STD_m -> spi_3_m;
 et_anom_m_STD_m -> rurratio_s;
@@ -51,16 +52,16 @@ spi_3_m [label = <<table align="center" border="0" cellspacing="1" cellpadding="
 </table>
 >, class = rankB];
 rurpop_s [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
-<tr><td><font point-size="16">Population in rural areas</font></td></tr>
+<tr><td><font point-size="16">Population in<br/>rural areas<br/></font></td></tr>
 </table>
 >, class = rankB];
 yield_gap_soybean_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
-<tr><td><font point-size="16">Gap between observed and<br/>potential soybean yield<br/></font></td></tr>
+<tr><td><font point-size="16">Gap between<br/>observed and<br/>potential soybean<br/>yield<br/></font></td></tr>
 </table>
 |<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: 0.022</font></td></tr>
 <tr><td><font point-size="14">error: 0.031</font></td></tr></table>}>, class = rankB];
 rurratio_s [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
-<tr><td><font point-size="16">Percentage of population<br/>that live in rural areas<br/></font></td></tr>
+<tr><td><font point-size="16">Percentage of<br/>population that<br/>live in rural<br/>areas<br/></font></td></tr>
 </table>
 >, class = rankB];
 locdensity_y [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
@@ -68,16 +69,13 @@ locdensity_y [label = <<table align="center" border="0" cellspacing="1" cellpadd
 </table>
 >, class = rankB];
 ndvi_act_min_m [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
-<tr><td><font point-size="16">Density of greenness</font></td></tr>
+<tr><td><font point-size="16">Density of<br/>greenness<br/></font></td></tr>
 </table>
 |<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: 0.044</font></td></tr>
 <tr><td><font point-size="14">error: 0.1</font></td></tr></table>}>, class = rankB];
-acl_sum_evnt_m [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
-<tr><td><font point-size="16">Total number of conflict<br/>events<br/></font></td></tr>
-</table>
->, class = rankC];
-acl_sum_fatl_m [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
-<tr><td><font point-size="16">Reported fatalities from<br/>conflict events<br/></font></td></tr>
-</table>
->, class = rankC];
+acl_sum_evnt_m [label = "Total number of
+conflict events", class = rankC, shape=box, style=rounded, fontsize="16pt"];
+acl_sum_fatl_m [label = "Reported
+fatalities from
+conflict events", class = rankC, shape=box, style=rounded, fontsize="16pt"];
 }
