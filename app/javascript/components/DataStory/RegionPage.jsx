@@ -85,7 +85,7 @@ export const DataStoryRegionPage = () => {
     return () => clearTimeout(timeout);
   }, [regionId]);
 
-  if (fade && 1 == 2) {
+  if (fade) {
     return <div className={classes.loading} />;
   }
 

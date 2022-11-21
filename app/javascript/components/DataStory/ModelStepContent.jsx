@@ -6,19 +6,23 @@ import PropTypes from "prop-types";
 import { palette } from "./constants";
 import arrowSouth from "images/arrow_south.svg";
 
+const stepHeightPx = 200;
+const stepStretchPx = 200;
+const headerHeightPx = 70;
 const useStyles = createUseStyles({
   stepCard: {
-    borderTopLeftRadius: "10px",
-    borderTopRightRadius: "10px",
+    //borderTopLeftRadius: "10px",
+    //borderTopRightRadius: "10px",
+    bordertRadius: "10px",
     alignItems: "flex-start",
-    padding: "2rem 2rem 4rem",
+    padding: "2rem",
     display: "flex",
     color: "#fff",
-    transition: "opacity linear 500ms",
-    height: "320px",
+    height: `${stepHeightPx}px`,
     position: "sticky",
     zIndex: 1,
-    marginBottom: "-2rem",
+    marginBottom: `${stepStretchPx}px`,
+    //marginBottom: "-2rem",
   },
   nodeBoxTitle: {
     fontSize: "1.25rem",
@@ -36,6 +40,8 @@ const useStyles = createUseStyles({
   },
   nodeArrow: {
     position: "relative",
+  },
+  foo: {
     "&:after": {
       content: `url(${arrowSouth})`,
       position: "absolute",
@@ -53,48 +59,52 @@ const useStyles = createUseStyles({
     "& $nodeLead": { opacity: 1 },
   },
   step: {
-    fontSize: "1.25em",
+    fontSize: "1.25rem",
     marginBottom: "2rem",
   },
   locked: {
     "& $stepCard": {
+      marginBottom: 0,
+      top: `${(stepHeightPx * 2) }px`,
       position: "relative",
       overflow: "hidden",
     },
-    "& $nodeA": {
-      top: "200px",
-    },
-    "& $nodeB": {
-      top: "100px",
-    },
-    "& $nodeC": {
-      top: "0px",
-    },
+    //"& $nodeA": {
+    //  top: `${stepHeightPx * 1}px`,
+    //},
+    //"& $nodeB": {
+    //  top: `${0}px`,
+    //},
+    //"& $nodeC": {
+    //  top: `${0}px`,
+    //},
   },
-  scrolly: {
+  root: {
+    background: 'red',
     marginTop: "2rem",
     marginBottom: "4rem",
+    height: `${stepHeightPx * 2 * 3}px`,
     "&$locked": {
       position: "relative",
     },
   },
   nodeA: {
-    top: "70px",
+    top: `${stepHeightPx * 0 + headerHeightPx}px`,
     background: palette.indirect,
   },
   nodeB: {
-    top: "255px",
+    top: `${stepHeightPx * 1 + headerHeightPx}px`,
     background: palette.mediating,
   },
   nodeC: {
-    top: "440px",
+    top: `${stepHeightPx * 2 + headerHeightPx}px`,
     background: palette.outcome,
-    // last node
-    height: "auto",
     marginBottom: "0",
-    paddingBottom: "2rem",
-    borderBottomLeftRadius: "10px",
-    borderBottomRightRadius: "10px",
+    // last node
+    //height: "auto",
+    //paddingBottom: "2rem",
+    //borderBottomLeftRadius: "10px",
+    //borderBottomRightRadius: "10px",
   },
 });
 
@@ -104,7 +114,7 @@ const StepCard = ({
   label,
   className,
   arrow,
-  offset,
+  offsetPx,
   onStepEnter,
   onStepExit,
 }) => {
@@ -113,13 +123,13 @@ const StepCard = ({
     <Scrollama
       onStepEnter={onStepEnter}
       onStepExit={onStepExit}
-      offset={offset}
+      offset={`${offsetPx + 10}px`}
     >
-      <Step data={letter.toLowerCase()}>
+      <Step data={letter}>
         <div className={clsx(className, classes.stepCard)}>
           <div className={clsx(classes.nodeBox, arrow && classes.nodeArrow)}>
             <div className={classes.nodeBoxTitle}>{letter}</div>
-            <div className={classes.nodeBoxTitle}>{title}</div>
+            <div className={classes.nodeBoxTitle}>{offsetPx || title}</div>
           </div>
           <div className={classes.nodeLead}>{label}</div>
         </div>
@@ -133,30 +143,77 @@ StepCard.propTypes = {
   label: PropTypes.string,
   arrow: PropTypes.bool,
   className: PropTypes.string,
-  offset: PropTypes.any,
+  offsetPx: PropTypes.number,
   onStepEnter: PropTypes.any,
   onStepExit: PropTypes.any,
 };
 
+/*
+const txState = (state) => {
+  console.info(state);
+  const newState = { ...state };
+  if (newState.a) newState.seenA = true;
+  if (newState.b) newState.seenB = true;
+  if (newState.b) newState.seenC = true;
+
+  //if (newState.seenA && newState.seenB && newState.seenC) {
+  //  newState.locked = true;
+  //} else {
+  //  newState.locked = false;
+  //}
+  if (newState.a && newState.b && newState.c) {
+    newState.locked = true;
+  } else {
+    newState.locked = false;
+  }
+
+  return newState;
+};
+*/
+
+const reducer = (state, action) => {
+  const { type, data } = action;
+  const newState = { ...state };
+
+  switch (type) {
+    case "enter":
+      //newState[`seen${data}`] = true; // persisted
+      newState[data] = true;
+      break;
+    case "exit":
+      newState[data] = false;
+      break;
+    default:
+      throw new Error();
+  }
+
+  if (newState.a && newState.b && newState.c && type == 'enter') {
+    newState.locked = true;
+    console.info('locking', newState);
+  //} else { newState.locked = false;
+  }
+  return newState;
+};
+const initialState = {
+  a: false,
+  b: false,
+  c: false,
+  locked: false,
+};
+
 export const DataStoryModelStepContent = () => {
   const classes = useStyles();
-  const [steps, setSteps] = React.useState({
-    a: false,
-    b: false,
-    c: false,
-  });
+  const [steps, dispatch] = React.useReducer(reducer, initialState);
 
   // const onStepProgress = React.useCallback(({ data, ...progress }) => {
   //   if (data =='c') console.info("progress", data, progress);
   // }, []);
 
   const onStepEnter = React.useCallback(({ data }) => {
-     console.info("enter", data);
-    setSteps((c) => ({ ...c, [data]: true }));
-  }, []);
+    dispatch({ type: "enter", data });
+  });
   const onStepExit = React.useCallback(({ data }) => {
-     console.info("exit", data);
-    setSteps((c) => ({ ...c, [data]: false }));
+    dispatch({ type: "exit", data });
   }, []);
 
   return (
@@ -167,19 +224,19 @@ export const DataStoryModelStepContent = () => {
         activities in our regions of interest. To do that, we first need to
         understand the basic structure of the causal graph:
       </p>
-
-      <div className={clsx(classes.scrolly, steps.c && classes.locked)}>
+      <div className={clsx(classes.root, steps.locked && classes.locked)}>
         <StepCard
           arrow
           onStepEnter={onStepEnter}
           onStepExit={onStepExit}
-          offset="100px"
+          offsetPx={stepHeightPx * 0 + headerHeightPx}
           className={clsx(
             classes.node,
             classes.nodeA,
-            steps.a && classes.stepActive
+            steps.a && classes.stepActive,
+            steps.seenA && classes.stepSeen
           )}
-          letter="A"
+          letter="a"
           title="Indirect Relationship"
           label="The main causal reasons for the armed conflicts and are placed at the very top of the graph"
         />
@@ -187,26 +244,28 @@ export const DataStoryModelStepContent = () => {
           arrow
           onStepEnter={onStepEnter}
           onStepExit={onStepExit}
-          offset="300px"
+          offsetPx={stepHeightPx * 1 + headerHeightPx}
           className={clsx(
             classes.node,
             classes.nodeB,
-            steps.b && classes.stepActive
+            steps.b && classes.stepActive,
+            steps.seenB && classes.stepSeen
           )}
-          letter="B"
+          letter="b"
           title="Mediating Effects"
           label="Factors that mediate how A affects the outcome"
         />
         <StepCard
           onStepEnter={onStepEnter}
           onStepExit={onStepExit}
-          offset="500px"
+          offsetPx={stepHeightPx * 2 + headerHeightPx}
           className={clsx(
             classes.node,
             classes.nodeC,
-            steps.c && classes.stepActive
+            steps.c && classes.stepActive,
+            steps.seenC && classes.stepSeen
           )}
-          letter="C"
+          letter="c"
           title="Outcome"
           label="The outcome, armed conflict"
         />
