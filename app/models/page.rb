@@ -39,7 +39,7 @@ class Page < ApplicationRecord
   end
 
   def redirect_target
-    SLUG_REDIRECTS[slug]
+    attributes['location'].presence || SLUG_REDIRECTS[slug]
   end
 
   def contentless?

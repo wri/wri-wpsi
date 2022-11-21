@@ -267,7 +267,7 @@ export const regions = [
     ],
   },
   {
-    id: "europe and central asia",
+    id: "europe_and_central_asia",
     name: "Europe and Central Asia",
     image: eu_thumbnail,
     causalGraph: eu_graph,

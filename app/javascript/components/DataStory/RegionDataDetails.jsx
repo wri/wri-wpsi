@@ -6,6 +6,7 @@ import { palette } from "./constants";
 const useStyles = createUseStyles({
   item: {
     marginBottom: "1em",
+    paddingTop: 0,
   },
   title: {
     padding: '0.5rem 0',
