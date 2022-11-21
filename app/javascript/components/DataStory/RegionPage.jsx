@@ -85,7 +85,7 @@ export const DataStoryRegionPage = () => {
     return () => clearTimeout(timeout);
   }, [regionId]);
 
-  if (fade) {
+  if (fade && 1 == 2) {
     return <div className={classes.loading} />;
   }
 
@@ -160,7 +160,28 @@ export const DataStoryRegionPage = () => {
           </div>
           <div className="col-lg-6">
             <DataStoryChapter title="Data Details" anchor="details">
-              <DataStoryRegionDataDetails region={region} />
+              <DataStorySection
+                title="Indirect Causal Relationships"
+                titleProps={{
+                  className: clsx(classes.title, classes.indirect),
+                }}
+              >
+                <DataStoryRegionDataDetails region={region} level="indirect" />
+              </DataStorySection>
+              <DataStorySection
+                title="Mediating Effects"
+                titleProps={{
+                  className: clsx(classes.title, classes.mediating),
+                }}
+              >
+                <DataStoryRegionDataDetails region={region} level="mediator" />
+              </DataStorySection>
+              <DataStorySection
+                title="Conflict Outcome"
+                titleProps={{ className: clsx(classes.title, classes.outcome) }}
+              >
+                <DataStoryRegionDataDetails region={region} level="mediator" />
+              </DataStorySection>
             </DataStoryChapter>
             <DataStoryChapter title="Causal Model 101" anchor="statsHelp">
               <DataStoryStatsHelpContent />
