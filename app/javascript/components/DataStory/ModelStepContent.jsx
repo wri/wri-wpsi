@@ -4,6 +4,7 @@ import { createUseStyles } from "react-jss";
 import { Scrollama, Step } from "react-scrollama";
 import PropTypes from "prop-types";
 import { palette } from "./constants";
+import arrowSouth from "images/arrow_south.svg";
 
 const useStyles = createUseStyles({
   stepCard: {
@@ -32,6 +33,16 @@ const useStyles = createUseStyles({
     borderRadius: "10px",
     color: "#333",
     background: "#fff",
+  },
+  nodeArrow: {
+    position: "relative",
+    "&:after": {
+      content: `url(${arrowSouth})`,
+      position: "absolute",
+      zIndex: 999999,
+      left: "100px",
+      bottom: "-80px",
+    },
   },
   nodeLead: {
     fontSize: "1.25rem",
@@ -87,25 +98,45 @@ const useStyles = createUseStyles({
   },
 });
 
-const StepCardRaw = ({ letter, title, label, className }, ref) => {
+const StepCard = ({
+  letter,
+  title,
+  label,
+  className,
+  arrow,
+  offset,
+  onStepEnter,
+  onStepExit,
+}) => {
   const classes = useStyles();
   return (
-    <div className={clsx(className, classes.stepCard)} ref={ref}>
-      <div className={classes.nodeBox}>
-        <div className={classes.nodeBoxTitle}>{letter}</div>
-        <div className={classes.nodeBoxTitle}>{title}</div>
-      </div>
-      <div className={classes.nodeLead}>{label}</div>
-    </div>
+    <Scrollama
+      onStepEnter={onStepEnter}
+      onStepExit={onStepExit}
+      offset={offset}
+    >
+      <Step data={letter.toLowerCase()}>
+        <div className={clsx(className, classes.stepCard)}>
+          <div className={clsx(classes.nodeBox, arrow && classes.nodeArrow)}>
+            <div className={classes.nodeBoxTitle}>{letter}</div>
+            <div className={classes.nodeBoxTitle}>{title}</div>
+          </div>
+          <div className={classes.nodeLead}>{label}</div>
+        </div>
+      </Step>
+    </Scrollama>
   );
 };
-StepCardRaw.propTypes = {
+StepCard.propTypes = {
   letter: PropTypes.string,
   title: PropTypes.string,
   label: PropTypes.string,
+  arrow: PropTypes.bool,
   className: PropTypes.string,
+  offset: PropTypes.any,
+  onStepEnter: PropTypes.any,
+  onStepExit: PropTypes.any,
 };
-const StepCard = React.forwardRef(StepCardRaw);
 
 export const DataStoryModelStepContent = () => {
   const classes = useStyles();
@@ -115,19 +146,18 @@ export const DataStoryModelStepContent = () => {
     c: false,
   });
 
-  //const onStepProgress = React.useCallback(({ data, progress }) => {
-  //  if (data =='c') console.info("progress", data, progress);
-  //}, []);
+  // const onStepProgress = React.useCallback(({ data, ...progress }) => {
+  //   if (data =='c') console.info("progress", data, progress);
+  // }, []);
 
   const onStepEnter = React.useCallback(({ data }) => {
-    // console.info("enter", data);
+     console.info("enter", data);
     setSteps((c) => ({ ...c, [data]: true }));
   }, []);
   const onStepExit = React.useCallback(({ data }) => {
-    // console.info("exit", data);
+     console.info("exit", data);
     setSteps((c) => ({ ...c, [data]: false }));
   }, []);
-  console.info(steps);
 
   return (
     <>
@@ -139,48 +169,47 @@ export const DataStoryModelStepContent = () => {
       </p>
 
       <div className={clsx(classes.scrolly, steps.c && classes.locked)}>
-        <Scrollama
+        <StepCard
+          arrow
           onStepEnter={onStepEnter}
           onStepExit={onStepExit}
-          offset={0.5}
-        >
-          <Step data="a">
-            <StepCard
-              className={clsx(
-                classes.node,
-                classes.nodeA,
-                steps.a && classes.stepActive
-              )}
-              letter="A"
-              title="Indirect Relationship"
-              label="The main causal reasons for the armed conflicts and are placed at the very top of the graph"
-            />
-          </Step>
-          <Step data="b">
-            <StepCard
-              className={clsx(
-                classes.node,
-                classes.nodeB,
-                steps.b && classes.stepActive
-              )}
-              letter="B"
-              title="Mediating Effects"
-              label="Factors that mediate how A affects the outcome"
-            />
-          </Step>
-          <Step data="c">
-            <StepCard
-              className={clsx(
-                classes.node,
-                classes.nodeC,
-                steps.c && classes.stepActive
-              )}
-              letter="C"
-              title="Outcome"
-              label="The outcome, armed conflict"
-            />
-          </Step>
-        </Scrollama>
+          offset="100px"
+          className={clsx(
+            classes.node,
+            classes.nodeA,
+            steps.a && classes.stepActive
+          )}
+          letter="A"
+          title="Indirect Relationship"
+          label="The main causal reasons for the armed conflicts and are placed at the very top of the graph"
+        />
+        <StepCard
+          arrow
+          onStepEnter={onStepEnter}
+          onStepExit={onStepExit}
+          offset="300px"
+          className={clsx(
+            classes.node,
+            classes.nodeB,
+            steps.b && classes.stepActive
+          )}
+          letter="B"
+          title="Mediating Effects"
+          label="Factors that mediate how A affects the outcome"
+        />
+        <StepCard
+          onStepEnter={onStepEnter}
+          onStepExit={onStepExit}
+          offset="500px"
+          className={clsx(
+            classes.node,
+            classes.nodeC,
+            steps.c && classes.stepActive
+          )}
+          letter="C"
+          title="Outcome"
+          label="The outcome, armed conflict"
+        />
       </div>
 
       <p>
