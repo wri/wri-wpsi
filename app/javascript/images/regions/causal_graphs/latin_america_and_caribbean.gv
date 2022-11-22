@@ -7,7 +7,7 @@ labelloc = b;
 nodesep = 0.4;
 concentrate = true;
 node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.10,0.06", penwidth = 1.0];
-edge[arrowsize = 1.2, penwidth = 2];
+edge[arrowsize = 1.2 penwidth = 2 color="#666666"];
 
 # nodes
 et_anom_m_STD_m [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">

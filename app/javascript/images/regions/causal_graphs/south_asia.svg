@@ -32,8 +32,8 @@
 <!-- et_anom_m_STD_m&#45;&gt;ndvi_act_med_m -->
 <g id="edge1" class="edge">
 <title>et_anom_m_STD_m-&gt;ndvi_act_med_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M256.8748,-601.2565C250.9682,-592.5892 244.8462,-583.6059 238.9212,-574.9115"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="242.3093,-572.425 232.0807,-564.8739 235.3678,-577.1554 242.3093,-572.425"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M256.8748,-601.2565C250.9682,-592.5892 244.8462,-583.6059 238.9212,-574.9115"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="242.3093,-572.425 232.0807,-564.8739 235.3678,-577.1554 242.3093,-572.425"/>
 </g>
 <!-- yield_gap_rice_s -->
 <g id="node6" class="node rankB">
@@ -47,8 +47,8 @@
 <!-- et_anom_m_STD_m&#45;&gt;yield_gap_rice_s -->
 <g id="edge2" class="edge">
 <title>et_anom_m_STD_m-&gt;yield_gap_rice_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M422.5,-291C411.4519,-264.1474 392.1338,-239.025 372.9248,-218.5419"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="375.7937,-215.4669 364.4313,-209.7627 369.7565,-221.3075 375.7937,-215.4669"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M422.5,-291C411.4519,-264.1474 392.1338,-239.025 372.9248,-218.5419"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="375.7937,-215.4669 364.4313,-209.7627 369.7565,-221.3075 375.7937,-215.4669"/>
 </g>
 <!-- rurpop_s -->
 <g id="node7" class="node rankB">
@@ -60,9 +60,9 @@
 <!-- et_anom_m_STD_m&#45;&gt;rurpop_s -->
 <g id="edge3" class="edge">
 <title>et_anom_m_STD_m-&gt;rurpop_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M337.4792,-601.3253C390.4688,-529.7606 467.1428,-399.5048 422.5,-291"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M422.5,-291C385.9964,-209.4458 318.4722,-249.8503 238.5,-210 230.6861,-206.1063 222.53,-201.8066 214.5838,-197.4821"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="216.4661,-193.7238 203.93,-191.6056 212.409,-201.0791 216.4661,-193.7238"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M337.4792,-601.3253C390.4688,-529.7606 467.1428,-399.5048 422.5,-291"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M422.5,-291C385.9964,-209.4458 318.4722,-249.8503 238.5,-210 230.6861,-206.1063 222.53,-201.8066 214.5838,-197.4821"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="216.4661,-193.7238 203.93,-191.6056 212.409,-201.0791 216.4661,-193.7238"/>
 </g>
 <!-- acl_sum_evnt_m -->
 <g id="node8" class="node rankC">
@@ -74,8 +74,8 @@
 <!-- et_anom_m_STD_m&#45;&gt;acl_sum_evnt_m -->
 <g id="edge4" class="edge">
 <title>et_anom_m_STD_m-&gt;acl_sum_evnt_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M422.5,-291C391.9022,-222.6402 444.1548,-180.1668 393.5,-125 372.7986,-102.4547 299.1939,-85.6308 240.5627,-75.4244"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="241.2135,-71.2749 228.6802,-73.4095 239.8091,-79.5567 241.2135,-71.2749"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M422.5,-291C391.9022,-222.6402 444.1548,-180.1668 393.5,-125 372.7986,-102.4547 299.1939,-85.6308 240.5627,-75.4244"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="241.2135,-71.2749 228.6802,-73.4095 239.8091,-79.5567 241.2135,-71.2749"/>
 </g>
 <!-- DeliveredkcalFraction_s -->
 <g id="node2" class="node rankB">
@@ -98,50 +98,50 @@
 <!-- DeliveredkcalFraction_s&#45;&gt;cattle_number_s -->
 <g id="edge5" class="edge">
 <title>DeliveredkcalFraction_s-&gt;cattle_number_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M192.8228,-372.3819C190.7527,-364.481 188.4859,-355.8295 186.2274,-347.2095"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="190.2763,-346.0915 183.1719,-335.5479 182.1506,-348.2206 190.2763,-346.0915"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M192.8228,-372.3819C190.7527,-364.481 188.4859,-355.8295 186.2274,-347.2095"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="190.2763,-346.0915 183.1719,-335.5479 182.1506,-348.2206 190.2763,-346.0915"/>
 </g>
 <!-- DeliveredkcalFraction_s&#45;&gt;rurpop_s -->
 <g id="edge6" class="edge">
 <title>DeliveredkcalFraction_s-&gt;rurpop_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M241.8416,-372.4624C251.813,-361.9609 261.1618,-349.5227 266.5,-336 281.1872,-298.794 284.3336,-281.8045 266.5,-246 256.8044,-226.5342 239.7251,-210.6183 222.1747,-198.3311"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="224.1694,-194.6156 211.8391,-191.5166 219.5456,-201.6285 224.1694,-194.6156"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M241.8416,-372.4624C251.813,-361.9609 261.1618,-349.5227 266.5,-336 281.1872,-298.794 284.3336,-281.8045 266.5,-246 256.8044,-226.5342 239.7251,-210.6183 222.1747,-198.3311"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="224.1694,-194.6156 211.8391,-191.5166 219.5456,-201.6285 224.1694,-194.6156"/>
 </g>
 <!-- ndvi_act_med_m&#45;&gt;DeliveredkcalFraction_s -->
 <g id="edge7" class="edge">
 <title>ndvi_act_med_m-&gt;DeliveredkcalFraction_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M201.5,-475.4034C201.5,-467.4092 201.5,-459.0684 201.5,-451.0478"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="205.7001,-450.8032 201.5,-438.8032 197.3001,-450.8032 205.7001,-450.8032"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M201.5,-475.4034C201.5,-467.4092 201.5,-459.0684 201.5,-451.0478"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="205.7001,-450.8032 201.5,-438.8032 197.3001,-450.8032 205.7001,-450.8032"/>
 </g>
 <!-- ndvi_act_med_m&#45;&gt;yield_gap_rice_s -->
 <g id="edge8" class="edge">
 <title>ndvi_act_med_m-&gt;yield_gap_rice_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M257.5686,-485.3151C273.1789,-472.7376 288.3502,-457.0989 297.5,-439 332.2474,-370.267 330.0368,-278.962 323.8492,-221.7133"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="328.0076,-221.1118 322.436,-209.6838 319.6649,-222.092 328.0076,-221.1118"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M257.5686,-485.3151C273.1789,-472.7376 288.3502,-457.0989 297.5,-439 332.2474,-370.267 330.0368,-278.962 323.8492,-221.7133"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="328.0076,-221.1118 322.436,-209.6838 319.6649,-222.092 328.0076,-221.1118"/>
 </g>
 <!-- ndvi_act_med_m&#45;&gt;acl_sum_evnt_m -->
 <g id="edge9" class="edge">
 <title>ndvi_act_med_m-&gt;acl_sum_evnt_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M145.4076,-482.1859C130.6478,-469.9121 115.95,-455.2249 105.5,-439 38.6873,-335.2648 24.6383,-288.753 47.5,-167.5"/>
-<path fill="none" stroke="#000000" stroke-width="2" d="M47.5,-167.5C53.4504,-137.0312 77.4678,-112.978 102.0259,-95.7578"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="104.4862,-99.1659 112.1616,-89.0304 99.8408,-92.1672 104.4862,-99.1659"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M145.4076,-482.1859C130.6478,-469.9121 115.95,-455.2249 105.5,-439 38.6873,-335.2648 24.6383,-288.753 47.5,-167.5"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M47.5,-167.5C53.4504,-137.0312 77.4678,-112.978 102.0259,-95.7578"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="104.4862,-99.1659 112.1616,-89.0304 99.8408,-92.1672 104.4862,-99.1659"/>
 </g>
 <!-- cattle_number_s&#45;&gt;yield_gap_rice_s -->
 <g id="edge10" class="edge">
 <title>cattle_number_s-&gt;yield_gap_rice_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M223.4873,-246.4137C234.4385,-237.0215 246.0607,-227.0538 257.2256,-217.4784"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="260.0972,-220.5487 266.4718,-209.5485 254.6287,-214.1725 260.0972,-220.5487"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M223.4873,-246.4137C234.4385,-237.0215 246.0607,-227.0538 257.2256,-217.4784"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="260.0972,-220.5487 266.4718,-209.5485 254.6287,-214.1725 260.0972,-220.5487"/>
 </g>
 <!-- cattle_number_s&#45;&gt;rurpop_s -->
 <g id="edge11" class="edge">
 <title>cattle_number_s-&gt;rurpop_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M168.2508,-246.4137C167.2282,-232.3815 166.112,-217.0649 165.1374,-203.6907"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="169.3151,-203.2315 164.254,-191.5685 160.9374,-203.8421 169.3151,-203.2315"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M168.2508,-246.4137C167.2282,-232.3815 166.112,-217.0649 165.1374,-203.6907"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="169.3151,-203.2315 164.254,-191.5685 160.9374,-203.8421 169.3151,-203.2315"/>
 </g>
 <!-- cattle_number_s&#45;&gt;acl_sum_evnt_m -->
 <g id="edge12" class="edge">
 <title>cattle_number_s-&gt;acl_sum_evnt_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M91.207,-248.9178C63.7338,-228.2619 41.2513,-200.6418 47.5,-167.5"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M91.207,-248.9178C63.7338,-228.2619 41.2513,-200.6418 47.5,-167.5"/>
 </g>
 <!-- spi_1_f2_m -->
 <g id="node5" class="node rankA">
@@ -154,20 +154,20 @@
 <!-- spi_1_f2_m&#45;&gt;ndvi_act_med_m -->
 <g id="edge13" class="edge">
 <title>spi_1_f2_m-&gt;ndvi_act_med_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M107.8338,-621.9753C121.2035,-607.4196 137.2586,-589.9402 152.2697,-573.5975"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="155.4538,-576.3397 160.4782,-564.6609 149.2674,-570.6574 155.4538,-576.3397"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M107.8338,-621.9753C121.2035,-607.4196 137.2586,-589.9402 152.2697,-573.5975"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="155.4538,-576.3397 160.4782,-564.6609 149.2674,-570.6574 155.4538,-576.3397"/>
 </g>
 <!-- spi_1_f2_m&#45;&gt;cattle_number_s -->
 <g id="edge14" class="edge">
 <title>spi_1_f2_m-&gt;cattle_number_s</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M74.7564,-621.6965C71.5661,-567.2246 70.5819,-456.667 105.5,-372 109.2368,-362.9392 114.3363,-354.0949 120.0568,-345.7794"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="123.5789,-348.0788 127.2926,-335.9195 116.8068,-343.109 123.5789,-348.0788"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M74.7564,-621.6965C71.5661,-567.2246 70.5819,-456.667 105.5,-372 109.2368,-362.9392 114.3363,-354.0949 120.0568,-345.7794"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="123.5789,-348.0788 127.2926,-335.9195 116.8068,-343.109 123.5789,-348.0788"/>
 </g>
 <!-- rurpop_s&#45;&gt;acl_sum_evnt_m -->
 <g id="edge15" class="edge">
 <title>rurpop_s-&gt;acl_sum_evnt_m</title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M162.5,-143.4949C162.5,-131.0589 162.5,-115.5879 162.5,-101.6083"/>
-<polygon fill="#000000" stroke="#000000" stroke-width="2" points="166.7001,-101.3189 162.5,-89.3189 158.3001,-101.319 166.7001,-101.3189"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M162.5,-143.4949C162.5,-131.0589 162.5,-115.5879 162.5,-101.6083"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="166.7001,-101.3189 162.5,-89.3189 158.3001,-101.319 166.7001,-101.3189"/>
 </g>
 </g>
 <style>.node path {
@@ -188,7 +188,4 @@
 .rankC path {
   fill: #1b6002;
 }
-.edge path {
-  stroke: #666;
-};
 </style></svg>

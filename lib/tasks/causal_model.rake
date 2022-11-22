@@ -74,9 +74,6 @@ class CausalModelRegionGenerator
       .rankC path {
         fill: #1b6002;
       }
-      .edge path {
-        stroke: #666;
-      };
     CSS
 
     doc = File.open(path) { |f| Nokogiri::XML(f) }
@@ -107,7 +104,7 @@ class CausalModelRegionGenerator
       nodesep = 0.4;
       concentrate = true;
       node[shape = Mrecord, fontname = "#{font_name}", margin = "0.10,0.06", penwidth = 1.0];
-      edge[arrowsize = 1.2, penwidth = 2];
+      edge[arrowsize = 1.2 penwidth = 2 color="#666666"];
 
       # nodes
       #{render_gv_nodes(region[:nodes])}
