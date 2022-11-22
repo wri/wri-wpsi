@@ -8256,10 +8256,10 @@ react-input-autosize@^2.2.1:
   dependencies:
     prop-types "^15.5.8"
 
-react-intersection-observer@^9.3.5:
-  version "9.4.0"
-  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-9.4.0.tgz#f6b6e616e625f9bf255857c5cba9dbf7b1825ec7"
-  integrity sha512-v0403CmomOVlzhqFXlzOxg0ziLcVq8mfbP0AwAcEQWgZmR2OulOT79Ikznw4UlB3N+jlUYqLMe4SDHUOyp0t2A==
+react-intersection-observer@^9.4.1:
+  version "9.4.1"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-9.4.1.tgz#4ccb21e16acd0b9cf5b28d275af7055bef878f6b"
+  integrity sha512-IXpIsPe6BleFOEHKzKh5UjwRUaz/JYS0lT/HPsupWEQou2hDqjhLMStc5zyE3eQVT4Fk3FufM8Fw33qW1uyeiw==
 
 react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.8.6"
@@ -8315,13 +8315,6 @@ react-router@5.3.4:
     react-is "^16.6.0"
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
-
-react-scrollama@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/react-scrollama/-/react-scrollama-2.3.2.tgz#4f22311ce68438a556ab6d50746e1b6d65c111a4"
-  integrity sha512-gJo+sO09Xp069taAMzWRsg/WuMWyNqRCQnw+PIyjBBkxWH4ImEZIC4z1nwwJy1eQ0oqHauEqYlrAlDClH6pzdA==
-  dependencies:
-    react-intersection-observer "^9.3.5"
 
 react-select@^3.0.4:
   version "3.0.4"

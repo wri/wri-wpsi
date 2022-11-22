@@ -1,7 +1,8 @@
 import clsx from "clsx";
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { Scrollama, Step } from "react-scrollama";
+import { useInView } from "react-intersection-observer";
+
 import PropTypes from "prop-types";
 import { palette } from "./constants";
 import arrowSouth from "images/arrow_south.svg";
@@ -10,9 +11,14 @@ const stepHeightPx = 200;
 const stepStretchPx = 200;
 const headerHeightPx = 70;
 const useStyles = createUseStyles({
+  conceal: {
+    position: "sticky",
+    top: "60px",
+    zIndex: 1,
+    background: "#fff",
+    height: "1rem",
+  },
   stepCard: {
-    //borderTopLeftRadius: "10px",
-    //borderTopRightRadius: "10px",
     bordertRadius: "10px",
     alignItems: "flex-start",
     padding: "2rem",
@@ -40,55 +46,57 @@ const useStyles = createUseStyles({
   },
   nodeArrow: {
     position: "relative",
-  },
-  foo: {
     "&:after": {
       content: `url(${arrowSouth})`,
+      transition: "opacity linear 500ms",
       position: "absolute",
-      zIndex: 999999,
+      zIndex: 1,
       left: "100px",
-      bottom: "-80px",
+      top: "-134px",
+      opacity: 0,
     },
   },
   nodeLead: {
     fontSize: "1.25rem",
     transition: "opacity linear 500ms",
-    opacity: 0.0,
+    opacity: 0.3,
   },
   stepActive: {
     "& $nodeLead": { opacity: 1 },
+    "& $nodeArrow:after": {
+      opacity: 1.0,
+    },
   },
-  step: {
-    fontSize: "1.25rem",
-    marginBottom: "2rem",
+  stepStuck: {
+    "&$nodeA": {
+      marginBottom: `${stepStretchPx * 2}px`,
+    },
   },
   locked: {
     "& $stepCard": {
       marginBottom: 0,
-      top: `${(stepHeightPx * 2) }px`,
+      top: `${stepHeightPx * 2}px`,
       position: "relative",
       overflow: "hidden",
     },
-    //"& $nodeA": {
-    //  top: `${stepHeightPx * 1}px`,
-    //},
-    //"& $nodeB": {
-    //  top: `${0}px`,
-    //},
-    //"& $nodeC": {
-    //  top: `${0}px`,
-    //},
   },
   root: {
-    background: 'red',
     marginTop: "2rem",
     marginBottom: "4rem",
     height: `${stepHeightPx * 2 * 3}px`,
-    "&$locked": {
-      position: "relative",
-    },
+    position: "relative",
+    background: `linear-gradient(
+      to bottom,
+      white 16.6%,
+      ${palette.indirect} 16.6% 49.8%,
+      ${palette.mediating} 66.7%
+    )`,
+    //white 33.3% 49.9%,
+    //${palette.outcome} 66.6%
   },
   nodeA: {
+    borderTopLeftRadius: "10px",
+    borderTopRightRadius: "10px",
     top: `${stepHeightPx * 0 + headerHeightPx}px`,
     background: palette.indirect,
   },
@@ -99,12 +107,9 @@ const useStyles = createUseStyles({
   nodeC: {
     top: `${stepHeightPx * 2 + headerHeightPx}px`,
     background: palette.outcome,
-    marginBottom: "0",
-    // last node
-    //height: "auto",
-    //paddingBottom: "2rem",
-    //borderBottomLeftRadius: "10px",
-    //borderBottomRightRadius: "10px",
+    marginBottom: 0,
+    borderBottomLeftRadius: "10px",
+    borderBottomRightRadius: "10px",
   },
 });
 
@@ -115,26 +120,37 @@ const StepCard = ({
   className,
   arrow,
   offsetPx,
-  onStepEnter,
-  onStepExit,
 }) => {
   const classes = useStyles();
+
+  ///const { ref, inView, entry } = useInView({ rootMargin: "0% 0% -30%" });
+  const entry = useInView({ rootMargin: "0% 0% -30%"  });
+  const sticky = useInView({ rootMargin: `0px 0px -${offsetPx}px 0px` });
+
+  const ref = React.useCallback((node) => {
+    entry.ref(node)
+    sticky.ref(node)
+  }, [entry.ref, sticky.ref]);
+
+  console.info(letter, entry.inView, sticky.inView, offsetPx)
+
   return (
-    <Scrollama
-      onStepEnter={onStepEnter}
-      onStepExit={onStepExit}
-      offset={`${offsetPx + 10}px`}
+    <div
+      className={clsx(
+        classes.node,
+        className,
+        entry.inView && classes.stepActive,
+        sticky.inView && classes.stepStuck,
+        classes.stepCard
+      )}
+      ref={ref}
     >
-      <Step data={letter}>
-        <div className={clsx(className, classes.stepCard)}>
-          <div className={clsx(classes.nodeBox, arrow && classes.nodeArrow)}>
-            <div className={classes.nodeBoxTitle}>{letter}</div>
-            <div className={classes.nodeBoxTitle}>{offsetPx || title}</div>
-          </div>
-          <div className={classes.nodeLead}>{label}</div>
-        </div>
-      </Step>
-    </Scrollama>
+      <div className={clsx(classes.nodeBox, arrow && classes.nodeArrow)}>
+        <div className={classes.nodeBoxTitle}>{letter}</div>
+        <div className={classes.nodeBoxTitle}>{title}</div>
+      </div>
+      <div className={classes.nodeLead}>{label}</div>
+    </div>
   );
 };
 StepCard.propTypes = {
@@ -148,72 +164,36 @@ StepCard.propTypes = {
   onStepExit: PropTypes.any,
 };
 
-/*
-const txState = (state) => {
-  console.info(state);
-  const newState = { ...state };
-  if (newState.a) newState.seenA = true;
-  if (newState.b) newState.seenB = true;
-  if (newState.b) newState.seenC = true;
-
-  //if (newState.seenA && newState.seenB && newState.seenC) {
-  //  newState.locked = true;
-  //} else {
-  //  newState.locked = false;
-  //}
-  if (newState.a && newState.b && newState.c) {
-    newState.locked = true;
-  } else {
-    newState.locked = false;
-  }
-
-  return newState;
-};
-*/
-
 const reducer = (state, action) => {
   const { type, data } = action;
-  const newState = { ...state };
+  var newState = { ...state };
 
-  switch (type) {
-    case "enter":
-      //newState[`seen${data}`] = true; // persisted
-      newState[data] = true;
-      break;
-    case "exit":
-      newState[data] = false;
-      break;
-    default:
-      throw new Error();
+  if (type == "enter") {
+    newState[data] = true;
+  } else if (type == "exit") {
+    //newState[data] = false;
+  } else {
+    throw new Error();
   }
-
-  if (newState.a && newState.b && newState.c && type == 'enter') {
-    newState.locked = true;
-    console.info('locking', newState);
-  //} else { newState.locked = false;
-  }
+  console.info(newState);
   return newState;
 };
 const initialState = {
   a: false,
   b: false,
   c: false,
-  locked: false,
+  root: false,
 };
 
 export const DataStoryModelStepContent = () => {
   const classes = useStyles();
   const [steps, dispatch] = React.useReducer(reducer, initialState);
 
-  // const onStepProgress = React.useCallback(({ data, ...progress }) => {
-  //   if (data =='c') console.info("progress", data, progress);
-  // }, []);
-
-  const onStepEnter = React.useCallback(({ data }) => {
-    dispatch({ type: "enter", data });
+  const onStepEnter = React.useCallback(({ data, direction }) => {
+    dispatch({ type: "enter", data, direction });
   });
-  const onStepExit = React.useCallback(({ data }) => {
-    dispatch({ type: "exit", data });
+  const onStepExit = React.useCallback(({ data, direction }) => {
+    dispatch({ type: "exit", data, direction });
   }, []);
 
   return (
@@ -224,18 +204,13 @@ export const DataStoryModelStepContent = () => {
         activities in our regions of interest. To do that, we first need to
         understand the basic structure of the causal graph:
       </p>
-      <div className={clsx(classes.root, steps.locked && classes.locked)}>
+      <div className={classes.conceal} />
+      <div className={(classes.root, steps.locked && classes.locked)}>
         <StepCard
-          arrow
           onStepEnter={onStepEnter}
           onStepExit={onStepExit}
           offsetPx={stepHeightPx * 0 + headerHeightPx}
-          className={clsx(
-            classes.node,
-            classes.nodeA,
-            steps.a && classes.stepActive,
-            steps.seenA && classes.stepSeen
-          )}
+          className={classes.nodeA}
           letter="a"
           title="Indirect Relationship"
           label="The main causal reasons for the armed conflicts and are placed at the very top of the graph"
@@ -245,26 +220,17 @@ export const DataStoryModelStepContent = () => {
           onStepEnter={onStepEnter}
           onStepExit={onStepExit}
           offsetPx={stepHeightPx * 1 + headerHeightPx}
-          className={clsx(
-            classes.node,
-            classes.nodeB,
-            steps.b && classes.stepActive,
-            steps.seenB && classes.stepSeen
-          )}
+          className={classes.nodeB}
           letter="b"
           title="Mediating Effects"
           label="Factors that mediate how A affects the outcome"
         />
         <StepCard
+          arrow
           onStepEnter={onStepEnter}
           onStepExit={onStepExit}
           offsetPx={stepHeightPx * 2 + headerHeightPx}
-          className={clsx(
-            classes.node,
-            classes.nodeC,
-            steps.c && classes.stepActive,
-            steps.seenC && classes.stepSeen
-          )}
+          className={classes.nodeC}
           letter="c"
           title="Outcome"
           label="The outcome, armed conflict"
