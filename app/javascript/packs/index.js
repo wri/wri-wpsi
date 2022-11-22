@@ -1,6 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from '../components/App'
+import { ErrorHandler } from "util/ErrorHandler";
+
+const Root = () => {
+  return <ErrorHandler><App /></ErrorHandler>
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   let container = document.getElementById('map-container')
@@ -13,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   ReactDOM.render(
-    <App/>,
+    <Root/>,
     container
   )
 })
