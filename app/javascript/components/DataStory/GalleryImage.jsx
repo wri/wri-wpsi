@@ -43,12 +43,13 @@ const useStyles = createUseStyles({
 
 export const DataStoryGalleryImage = ({ title, image, path }) => {
   const classes = useStyles();
+  const shortTitle = title.replace(/ and /g, ' & ')
   return (
     <li className={classes.root + " p-0"}>
       <Link className={classes.inner} to={path}>
         {image && <img className={classes.image} src={image} alt={title} />}
         <div className={classes.body}>
-          {title && <h4 className={classes.title}>{title}</h4>}
+          {title && <h4 className={classes.title}>{shortTitle}</h4>}
         </div>
       </Link>
     </li>
