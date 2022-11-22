@@ -13,12 +13,6 @@ const trackPage = (location) => {
 export const useGoogleAnalytics = () => {
   const history = useHistory();
 
-  //const initialized = useRef(false);
-  //if (!initialized.current) {
-  //  trackPage(history.location);
-  //  initialized.current = true;
-  //}
-
   useEffect(() => {
     const unlisten = history.listen((location) => {
       trackPage(location);
