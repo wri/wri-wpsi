@@ -11,10 +11,10 @@ const headerHeightPx = 70;
 const useStyles = createUseStyles({
   conceal: {
     position: "sticky",
-    top: "60px",
+    top: "46px",
     zIndex: 1,
     background: "#fff",
-    height: "1rem",
+    height: "25px",
   },
   nodeBoxTitle: {
     fontSize: "1.25rem",
@@ -22,7 +22,7 @@ const useStyles = createUseStyles({
   },
   nodeBox: {
     minHeight: "120px",
-    minWidth: "240px",
+    minWidth: "215px",
     marginRight: "2.5rem",
     textAlign: "center",
     padding: "1rem 2rem",
@@ -35,10 +35,9 @@ const useStyles = createUseStyles({
     "&:before": {
       content: '""',
       width: "30px",
-      //height: "245px",
       position: "absolute",
       zIndex: 1,
-      left: "111px",
+      left: "94px",
       background: "#fff",
       top: "115px",
     },
@@ -54,8 +53,8 @@ const useStyles = createUseStyles({
       borderTop: "30px solid #fff",
       position: "absolute",
       zIndex: 1,
-      left: "96px",
-      top: "-44px",
+      left: "79px",
+      top: "-47px",
     },
   },
   nodeLead: {
@@ -81,8 +80,8 @@ const useStyles = createUseStyles({
     background: `linear-gradient(
       to bottom,
       white 16.6%,
-      ${palette.indirect} 16.6% 33.3%,
-      ${palette.mediating} 33.3% 83.4%,
+      ${palette.indirect} 16.6% 50%,
+      ${palette.mediating} 50% 83.4%,
       white 83.4%
     )`,
   },
@@ -101,7 +100,7 @@ const useStyles = createUseStyles({
     background: palette.mediating,
     marginBottom: `${stepHeightPx * 1}px`,
     "& $nodeArrowShaft:before": {
-      height: "225px",
+      height: "245px",
     },
   },
   nodeC: {
@@ -135,7 +134,7 @@ const StepCard = ({ letter, title, label, className }) => {
           (letter == "b" || letter == "c") && classes.nodeArrowHead
         )}
       >
-        <div className={classes.nodeBoxTitle}>{letter}</div>
+        <div className={classes.nodeBoxTitle}>{letter.toUpperCase()}</div>
         <div className={classes.nodeBoxTitle}>{title}</div>
       </div>
       <div className={classes.nodeLead}>{label}</div>
@@ -147,7 +146,6 @@ StepCard.propTypes = {
   title: PropTypes.string,
   label: PropTypes.string,
   className: PropTypes.string,
-  offsetPx: PropTypes.number,
 };
 
 export const DataStoryModelStepContent = () => {
@@ -164,27 +162,24 @@ export const DataStoryModelStepContent = () => {
       <div className={classes.conceal} />
       <div className={classes.root}>
         <StepCard
-          offsetPx={stepHeightPx * 0 + headerHeightPx}
           className={classes.nodeA}
           letter="a"
           title="Indirect Relationship"
-          label="The main causal reasons for the armed conflicts and are placed at the very top of the graph"
+          label="A are the main causal reasons for the armed conflicts and are placed at the very top of the graph"
         />
         <StepCard
           arrow
-          offsetPx={stepHeightPx * 1 + headerHeightPx}
           className={classes.nodeB}
           letter="b"
           title="Mediating Effects"
-          label="Factors that mediate how A affects the outcome"
+          label="B are the factors that mediate how A affects the outcome"
         />
         <StepCard
           arrow
-          offsetPx={stepHeightPx * 2 + headerHeightPx}
           className={classes.nodeC}
           letter="c"
           title="Outcome"
-          label="The outcome, armed conflict"
+          label="C is the outcome, armed conflict"
         />
       </div>
 
