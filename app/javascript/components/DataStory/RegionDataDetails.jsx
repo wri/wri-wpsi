@@ -4,8 +4,8 @@ import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
   item: {
-    marginBottom: "0em",
-    paddingTop: 0,
+    marginBottom: "1em",
+    paddingTop: '0 !important' ,
     lineHeight: "24px",
   },
 });

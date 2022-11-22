@@ -51,6 +51,7 @@ const useStyles = createUseStyles({
     color: "#212529",
     padding: "0.5rem 0",
     borderBottom: "4px solid",
+    marginBottom: "1.5rem"
   },
   indirect: {
     borderColor: palette.indirect,
