@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import React from "react";
-import { createUseStyles } from "react-jss";
 import { useInView } from "react-intersection-observer";
+import { createUseStyles } from "react-jss";
 
+import arrowSouth from "images/arrow_south.svg";
 import PropTypes from "prop-types";
 import { palette } from "./constants";
-import arrowSouth from "images/arrow_south.svg";
 
 const stepHeightPx = 200;
 const stepStretchPx = 200;
@@ -113,26 +113,20 @@ const useStyles = createUseStyles({
   },
 });
 
-const StepCard = ({
-  letter,
-  title,
-  label,
-  className,
-  arrow,
-  offsetPx,
-}) => {
+const StepCard = ({ letter, title, label, className, arrow, offsetPx }) => {
   const classes = useStyles();
 
   ///const { ref, inView, entry } = useInView({ rootMargin: "0% 0% -30%" });
-  const entry = useInView({ rootMargin: "0% 0% -30%"  });
+  const entry = useInView({ rootMargin: "0% 0% -30%" });
   const sticky = useInView({ rootMargin: `0px 0px -${offsetPx}px 0px` });
 
-  const ref = React.useCallback((node) => {
-    entry.ref(node)
-    sticky.ref(node)
-  }, [entry.ref, sticky.ref]);
-
-  console.info(letter, entry.inView, sticky.inView, offsetPx)
+  const ref = React.useCallback(
+    (node) => {
+      entry.ref(node);
+      sticky.ref(node);
+    },
+    [entry.ref, sticky.ref]
+  );
 
   return (
     <div
@@ -160,41 +154,10 @@ StepCard.propTypes = {
   arrow: PropTypes.bool,
   className: PropTypes.string,
   offsetPx: PropTypes.number,
-  onStepEnter: PropTypes.any,
-  onStepExit: PropTypes.any,
-};
-
-const reducer = (state, action) => {
-  const { type, data } = action;
-  var newState = { ...state };
-
-  if (type == "enter") {
-    newState[data] = true;
-  } else if (type == "exit") {
-    //newState[data] = false;
-  } else {
-    throw new Error();
-  }
-  console.info(newState);
-  return newState;
-};
-const initialState = {
-  a: false,
-  b: false,
-  c: false,
-  root: false,
 };
 
 export const DataStoryModelStepContent = () => {
   const classes = useStyles();
-  const [steps, dispatch] = React.useReducer(reducer, initialState);
-
-  const onStepEnter = React.useCallback(({ data, direction }) => {
-    dispatch({ type: "enter", data, direction });
-  });
-  const onStepExit = React.useCallback(({ data, direction }) => {
-    dispatch({ type: "exit", data, direction });
-  }, []);
 
   return (
     <>
@@ -205,10 +168,8 @@ export const DataStoryModelStepContent = () => {
         understand the basic structure of the causal graph:
       </p>
       <div className={classes.conceal} />
-      <div className={(classes.root, steps.locked && classes.locked)}>
+      <div className={classes.root}>
         <StepCard
-          onStepEnter={onStepEnter}
-          onStepExit={onStepExit}
           offsetPx={stepHeightPx * 0 + headerHeightPx}
           className={classes.nodeA}
           letter="a"
@@ -217,8 +178,6 @@ export const DataStoryModelStepContent = () => {
         />
         <StepCard
           arrow
-          onStepEnter={onStepEnter}
-          onStepExit={onStepExit}
           offsetPx={stepHeightPx * 1 + headerHeightPx}
           className={classes.nodeB}
           letter="b"
@@ -227,8 +186,6 @@ export const DataStoryModelStepContent = () => {
         />
         <StepCard
           arrow
-          onStepEnter={onStepEnter}
-          onStepExit={onStepExit}
           offsetPx={stepHeightPx * 2 + headerHeightPx}
           className={classes.nodeC}
           letter="c"
