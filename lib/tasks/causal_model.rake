@@ -159,7 +159,7 @@ class CausalModelRegionGenerator
       # rank c has edges within same rank so we can't use html record lables
       label_str = ApplicationController.helpers.word_wrap(label, line_width: line_width, break_sequence: "\n")
       klass = "rank#{rank.upcase}"
-      return %(#{id} [label = "#{label_str}", class = #{klass}, shape=box, style=rounded, fontsize="16pt"])
+      return %(#{id} [label = "#{label_str}" class = #{klass} shape=box style=rounded fontsize="16pt" margin = "0.05,0.10"])
     end
 
     label_str = ApplicationController.helpers.word_wrap(label, line_width: line_width, break_sequence: '<br/>')

@@ -44,10 +44,10 @@ ndvi_act_min_m [label = <{<table align="center" border="0" cellspacing="1" cellp
 |<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: -0.613</font></td></tr>
 <tr><td><font point-size="14">error: 0.443</font></td></tr></table>}>, class = rankB];
 acl_sum_evnt_m [label = "Total conflict
-events", class = rankC, shape=box, style=rounded, fontsize="16pt"];
+events" class = rankC shape=box style=rounded fontsize="16pt" margin = "0.05,0.10"];
 acl_sum_fatl_m [label = "Reported
 fatalities from
-conflicts", class = rankC, shape=box, style=rounded, fontsize="16pt"];
+conflicts" class = rankC shape=box style=rounded fontsize="16pt" margin = "0.05,0.10"];
 
 #ranks
 {rank=same; spi_3_m yield_gap_maize_s; }
