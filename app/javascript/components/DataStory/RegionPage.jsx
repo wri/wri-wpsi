@@ -12,6 +12,7 @@ import { regions } from "./regions";
 import { DataStorySection } from "./Section";
 import { DataStoryStatsHelpContent } from "./StatsHelpContent";
 import { palette } from "./constants";
+import { useWindowSize } from "util/useWindowSize";
 
 import { createUseStyles } from "react-jss";
 
@@ -85,9 +86,83 @@ export const DataStoryRegionPage = () => {
     return () => clearTimeout(timeout);
   }, [regionId]);
 
+  const [, width] = useWindowSize();
+
   if (fade) {
     return <div className={classes.loading} />;
   }
+
+  const mainContent = (
+    <DataStoryChapter
+      title="Overview"
+      anchor="overview"
+      className={classes.article}
+    >
+      <DataStorySection
+        title="Indirect Causal Relationships"
+        titleProps={{
+          className: clsx(classes.title, classes.indirect),
+        }}
+      >
+        {region.causalRelationship}
+      </DataStorySection>
+      <DataStorySection
+        title="Mediating Effects"
+        titleProps={{
+          className: clsx(classes.title, classes.mediating),
+        }}
+      >
+        {region.mediatingEffects}
+      </DataStorySection>
+      <DataStorySection
+        title="Conflict Outcome"
+        titleProps={{ className: clsx(classes.title, classes.outcome) }}
+      >
+        {region.conflictOutcome}
+      </DataStorySection>
+    </DataStoryChapter>
+  );
+  const graphContent = (
+    <img
+      className={classes.graph}
+      src={region.causalGraph}
+      alt={`Causal Model for ${region.name}`}
+    />
+  );
+  const detailsContent = (
+    <>
+      <DataStoryChapter title="Data Details" anchor="details">
+        <DataStorySection
+          title="Indirect Causal Relationships"
+          titleProps={{
+            className: clsx(classes.title, classes.indirect),
+          }}
+        >
+          <DataStoryRegionDataDetails region={region} level="indirect" />
+        </DataStorySection>
+        <DataStorySection
+          title="Mediating Effects"
+          titleProps={{
+            className: clsx(classes.title, classes.mediating),
+          }}
+        >
+          <DataStoryRegionDataDetails region={region} level="mediator" />
+        </DataStorySection>
+        <DataStorySection
+          title="Conflict Outcome"
+          titleProps={{ className: clsx(classes.title, classes.outcome) }}
+        >
+          <DataStoryRegionDataDetails region={region} level="mediator" />
+        </DataStorySection>
+      </DataStoryChapter>
+      <DataStoryChapter title="Causal Model 101" anchor="statsHelp">
+        <DataStoryStatsHelpContent />
+      </DataStoryChapter>
+      <DataStorySection title="Assumptions and Limits">
+        <DataStoryModelHelpContent />
+      </DataStorySection>
+    </>
+  );
 
   return (
     <>
@@ -120,77 +195,26 @@ export const DataStoryRegionPage = () => {
       </LayoutContainer>
 
       <LayoutContainer>
-        <div className={clsx(classes.main, "row")}>
-          <div className="col-lg-6">
-            <DataStoryChapter
-              title="Overview"
-              anchor="overview"
-              className={classes.article}
-            >
-              <DataStorySection
-                title="Indirect Causal Relationships"
-                titleProps={{
-                  className: clsx(classes.title, classes.indirect),
-                }}
-              >
-                {region.causalRelationship}
-              </DataStorySection>
-              <DataStorySection
-                title="Mediating Effects"
-                titleProps={{
-                  className: clsx(classes.title, classes.mediating),
-                }}
-              >
-                {region.mediatingEffects}
-              </DataStorySection>
-              <DataStorySection
-                title="Conflict Outcome"
-                titleProps={{ className: clsx(classes.title, classes.outcome) }}
-              >
-                {region.conflictOutcome}
-              </DataStorySection>
-            </DataStoryChapter>
+        {width < 992 && (
+          <div className={clsx(classes.main, "row")}>
+            <div className="col-lg-6">{mainContent}</div>
+            <div className={clsx("col-lg-6", classes.graphBox)}>
+              {graphContent}
+            </div>
+            <div className="col-lg-6">{detailsContent}</div>
           </div>
-          <div className={clsx("col-lg-6", classes.graphBox)}>
-            <img
-              className={classes.graph}
-              src={region.causalGraph}
-              alt={`Causal Model for ${region.name}`}
-            />
+        )}
+        {width >= 992 && (
+          <div className={clsx(classes.main, "row")}>
+            <div className="col-lg-6">
+              {mainContent}
+              {detailsContent}
+            </div>
+            <div className={clsx("col-lg-6", classes.graphBox)}>
+              {graphContent}
+            </div>
           </div>
-          <div className="col-lg-6">
-            <DataStoryChapter title="Data Details" anchor="details">
-              <DataStorySection
-                title="Indirect Causal Relationships"
-                titleProps={{
-                  className: clsx(classes.title, classes.indirect),
-                }}
-              >
-                <DataStoryRegionDataDetails region={region} level="indirect" />
-              </DataStorySection>
-              <DataStorySection
-                title="Mediating Effects"
-                titleProps={{
-                  className: clsx(classes.title, classes.mediating),
-                }}
-              >
-                <DataStoryRegionDataDetails region={region} level="mediator" />
-              </DataStorySection>
-              <DataStorySection
-                title="Conflict Outcome"
-                titleProps={{ className: clsx(classes.title, classes.outcome) }}
-              >
-                <DataStoryRegionDataDetails region={region} level="mediator" />
-              </DataStorySection>
-            </DataStoryChapter>
-            <DataStoryChapter title="Causal Model 101" anchor="statsHelp">
-              <DataStoryStatsHelpContent />
-            </DataStoryChapter>
-            <DataStorySection title="Assumptions and Limits">
-              <DataStoryModelHelpContent />
-            </DataStorySection>
-          </div>
-        </div>
+        )}
       </LayoutContainer>
     </>
   );
