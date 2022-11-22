@@ -110,9 +110,22 @@ const useStyles = createUseStyles({
     borderBottomLeftRadius: "10px",
     borderBottomRightRadius: "10px",
   },
+  chatter: {
+    color: '#fff',
+    position: 'absolute',
+    width: '280px',
+    top: '308px',
+    left: '204px',
+    transition: "opacity linear 500ms",
+    opacity:0,
+  },
+  chatterActive: {
+    opacity:1,
+  }
+
 });
 
-const StepCard = ({ letter, title, label, className }) => {
+const StepCard = ({ letter, title, label, className, chatter }) => {
   const classes = useStyles();
 
   const entry = useInView({ rootMargin: "0% 0% -30%" });
@@ -138,6 +151,7 @@ const StepCard = ({ letter, title, label, className }) => {
         <div className={classes.nodeBoxTitle}>{title}</div>
       </div>
       <div className={classes.nodeLead}>{label}</div>
+      {chatter}
     </div>
   );
 };
@@ -146,6 +160,22 @@ StepCard.propTypes = {
   title: PropTypes.string,
   label: PropTypes.string,
   className: PropTypes.string,
+  chatter: PropTypes.any,
+};
+
+const ArrowChatter = () => {
+  const classes = useStyles();
+  const entry = useInView({ rootMargin: "0% 0% -30%" });
+
+  return (
+    <div
+      className={clsx(classes.chatter, entry.inView && classes.chatterActive)}
+      ref={entry.ref}
+    >
+      The arrows represent the direction of causal relation. This shows that A
+      affects B which leads to C.
+    </div>
+  );
 };
 
 export const DataStoryModelStepContent = () => {
@@ -166,6 +196,7 @@ export const DataStoryModelStepContent = () => {
           letter="a"
           title="Indirect Relationship"
           label="A are the main causal reasons for the armed conflicts and are placed at the very top of the graph"
+          chatter={<ArrowChatter />}
         />
         <StepCard
           arrow
