@@ -54,11 +54,11 @@ export const DataStoryStatsHelpContent = () => {
             <li>
               We are only working with a sample of data. We need statistics to
               help us understand how the sample will compare to the population,
-              or to all situations, not those just observed in this work.
+              or to all situations, not those just observed in this work
             </li>
             <li>
               The statistical significance tells us if we can expect to see this
-              relationship in the population or if is due to random chance alone
+              relationship in the population or if it is due to random chance alone
             </li>
             <li>
               The higher the statistical significance, the more confidence that

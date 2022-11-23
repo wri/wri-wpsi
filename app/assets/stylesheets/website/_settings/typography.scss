@@ -45,15 +45,15 @@
   @include font-heading(20px, $color, $lh: line-height(22, 20));
 }
 
-@mixin h4($color: $gray-600) {
+@mixin h4($color: $gray-700) {
   @include font-heading(18px, $color, $weight: bold, $lh: line-height(16, 14));
 }
 
-@mixin h5($color: $gray-600) {
+@mixin h5($color: $gray-700) {
   @include font-heading(14px, $color, $weight: bold, $lh: line-height(18, 16));
 }
 
-@mixin h6($color: $gray-600) {
+@mixin h6($color: $gray-700) {
   @include font-body(12px, $color, $weight: bold, $lh: line-height(16, 14));
 }
 

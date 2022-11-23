@@ -20,7 +20,7 @@ export const regions = [
     image: ea_thumbnail,
     causalGraph: ea_graph,
     causalRelationship:
-      "The causes of the conflict outcomes are variation in evapotranspiration and cropland. Areas with less vegetation or surface water coverage will have lower ET. Cropland has an inverse relationship to conflict, meaning areas with less cropland are associated with more conflict. Neither relationship is statistically significant. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
+      "The causes of the conflict outcomes are variation in evapotranspiration and cropland. Areas with less vegetation or surface water coverage will have lower ET. Cropland has an inverse relationship to conflict, meaning areas with less cropland are associated with more conflict. Neither relationship is statistically significant. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph.",
     mediatingEffects:
       "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, demographic (i.e., rural population, population density, total population) and agricultural variables (i.e., irrigated crop production, presence of rice fields). None of these effects are statistically significant.",
     conflictOutcome:
@@ -796,7 +796,7 @@ export const regions = [
         interpretation: "Abnormal variation in evapotranspiration",
         dataset: "Variation in evapotranspiration patterns",
         sourceName: "FewsNET",
-        sourceURL: "https://earlywarning.usgs.gov/fews/product/460",
+        sourceUrl: "https://earlywarning.usgs.gov/fews/product/460",
       },
       {
         level: "Mediator",
@@ -805,7 +805,7 @@ export const regions = [
         interpretation: "Variation of precipitation",
         dataset: "Variation of precipitation over 3-month period",
         sourceName: "ECMWF",
-        sourceURL:
+        sourceUrl:
           "https://www.ecmwf.int/en/newsletter/154/meteorology/ecmwfs-new-long-range-forecasting-system-seas5",
       },
       {
@@ -815,7 +815,7 @@ export const regions = [
         interpretation: "Count of livestock chickens",
         dataset: "Count of livestock chickens",
         sourceName: "FAO/Oxford",
-        sourceURL: "http://www.fao.org/livestock-systems/en/",
+        sourceUrl: "http://www.fao.org/livestock-systems/en/",
       },
       {
         level: "Mediator",
@@ -824,7 +824,7 @@ export const regions = [
         interpretation: "Percentage of population that live in rural areas",
         dataset: "Percentage of population that live in rural areas",
         sourceName: "PBL",
-        sourceURL:
+        sourceUrl:
           "https://www.pbl.nl/en/publications/towards-an-urban-preview",
       },
       {
@@ -834,7 +834,7 @@ export const regions = [
         interpretation: "Lower density of greenness",
         dataset: "Density of greenness",
         sourceName: "MODIS",
-        sourceURL: "https://lpdaac.usgs.gov/products/mod13c2v006/",
+        sourceUrl: "https://lpdaac.usgs.gov/products/mod13c2v006/",
       },
       {
         level: "Mediator",
@@ -843,7 +843,7 @@ export const regions = [
         interpretation: "Local population density",
         dataset: "Population density",
         sourceName: "CIESIN",
-        sourceURL:
+        sourceUrl:
           "https://beta.sedac.ciesin.columbia.edu/data/set/gpw-v4-population-density-adjusted-to-2015-unwpp-country-totals/data-download",
       },
       {
@@ -853,7 +853,7 @@ export const regions = [
         interpretation: "Active soybean fields",
         dataset: "Gap between observed and potential soybean yield",
         sourceName: "EarthStat/Univ. of Minnesota",
-        sourceURL: "http://www.earthstat.org/data-download/",
+        sourceUrl: "http://www.earthstat.org/data-download/",
       },
       {
         level: "Mediator",
@@ -862,7 +862,7 @@ export const regions = [
         interpretation: "Rural population count",
         dataset: "Population in rural areas",
         sourceName: "PBL",
-        sourceURL:
+        sourceUrl:
           "https://www.pbl.nl/en/publications/towards-an-urban-preview",
       },
       {
@@ -872,7 +872,7 @@ export const regions = [
         interpretation: "Conflict fatalities",
         dataset: "Reported fatalities from conflict events",
         sourceName: "ACLED",
-        sourceURL: "https://doi.org/10.1177/0022343310378914",
+        sourceUrl: "https://doi.org/10.1177/0022343310378914",
       },
       {
         level: "Outcome",
@@ -881,7 +881,7 @@ export const regions = [
         interpretation: "Conflict events",
         dataset: "Total number of conflict events",
         sourceName: "ACLED",
-        sourceURL: "https://doi.org/10.1177/0022343310378914",
+        sourceUrl: "https://doi.org/10.1177/0022343310378914",
       },
     ],
   },
@@ -1113,7 +1113,7 @@ export const regions = [
         interpretation: "Increaed variation in precipitation patterns",
         dataset: "Variation of precipitation over 3-month period",
         sourceName: "ECMWF",
-        sourceURL:
+        sourceUrl:
           "https://www.ecmwf.int/en/newsletter/154/meteorology/ecmwfs-new-long-range-forecasting-system-seas5",
       },
       {
@@ -1123,7 +1123,7 @@ export const regions = [
         interpretation: "Less rainfed production",
         dataset: "Percentage of crops grown that are rainfed",
         sourceName: "IFPRI",
-        sourceURL: "http://mapspam.info/data/",
+        sourceUrl: "http://mapspam.info/data/",
       },
       {
         level: "Mediator",
@@ -1132,7 +1132,7 @@ export const regions = [
         interpretation: "Abnormal variation in evapotranspiration",
         dataset: "Variation in evapotranspiration patterns",
         sourceName: "FewsNET",
-        sourceURL: "https://earlywarning.usgs.gov/fews/product/460",
+        sourceUrl: "https://earlywarning.usgs.gov/fews/product/460",
       },
       {
         level: "Mediator",
@@ -1141,7 +1141,7 @@ export const regions = [
         interpretation: "Greater density of greenness",
         dataset: "Density of greenness",
         sourceName: "MODIS",
-        sourceURL: "https://lpdaac.usgs.gov/products/mod13c2v006/",
+        sourceUrl: "https://lpdaac.usgs.gov/products/mod13c2v006/",
       },
       {
         level: "Mediator",
@@ -1150,7 +1150,7 @@ export const regions = [
         interpretation: "Total metric tons of irrigated crops produced",
         dataset: "Metric tons of irrigated crops produced",
         sourceName: "IFPRI",
-        sourceURL: "http://mapspam.info/data/",
+        sourceUrl: "http://mapspam.info/data/",
       },
       {
         level: "Mediator",
@@ -1159,7 +1159,7 @@ export const regions = [
         interpretation: "Less rural areas",
         dataset: "Percentage of population that live in rural areas",
         sourceName: "PBL",
-        sourceURL:
+        sourceUrl:
           "https://www.pbl.nl/en/publications/towards-an-urban-preview",
       },
       {
@@ -1169,7 +1169,7 @@ export const regions = [
         interpretation: "Corn fields",
         dataset: "Gap between observed and potential corn yield",
         sourceName: "EarthStat/Univ. of Minnesota",
-        sourceURL: "http://www.earthstat.org/data-download/",
+        sourceUrl: "http://www.earthstat.org/data-download/",
       },
       {
         level: "Outcome",
@@ -1178,7 +1178,7 @@ export const regions = [
         interpretation: "Peaceful Protests",
         dataset: "Number of peaceful protests",
         sourceName: "ACLED",
-        sourceURL: "https://doi.org/10.1177/0022343310378914",
+        sourceUrl: "https://doi.org/10.1177/0022343310378914",
       },
     ],
   },
