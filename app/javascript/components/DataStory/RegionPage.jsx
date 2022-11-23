@@ -168,7 +168,7 @@ export const DataStoryRegionPage = () => {
   return (
     <>
       <DataStoryPageTitle
-        title={`Causal Modal: ${region.name}`}
+        title={`Causal Model: ${region.name}`}
         breadcrumbs={
           <div className="c-breadcrumbs">
             <a className="c-breadcrumbs__link" href="/causal">
