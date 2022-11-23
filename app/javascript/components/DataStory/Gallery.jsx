@@ -7,11 +7,11 @@ const useStyles = createUseStyles({
     display: "grid",
     gridTemplateColumns: "repeat(2, 1fr)",
     gap: "20px",
-    margin: '2rem 0',
+    margin: '3rem 0',
   },
   "@media (min-width: 768px)": {
     root: {
-      gridTemplateColumns: "repeat(4, 1fr)",
+      gridTemplateColumns: "repeat(3, 1fr)",
     },
   },
 });

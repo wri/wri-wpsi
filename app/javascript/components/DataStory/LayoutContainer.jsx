@@ -14,7 +14,7 @@ const useStyles = createUseStyles({
     position: "sticky",
     top: 0,
     alignSelf: "flex-start",
-    zIndex: 99,
+    zIndex: 999,
     paddingTop: "0.25rem",
     paddingBottom: "0.25rem",
     boxShadow: 'rgb(0 0 0 / 20%) 0px 2px 4px -1px',
