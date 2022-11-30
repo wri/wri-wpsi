@@ -161,7 +161,7 @@ export const DataStoryRegionPage = () => {
           titleProps={{ className: clsx(classes.title, classes.outcome) }}
         >
           <div className={classes.paddedArticle}>
-            <DataStoryRegionDataDetails region={region} level="mediator" />
+            <DataStoryRegionDataDetails region={region} level="outcome" />
           </div>
         </DataStorySection>
       </DataStoryChapter>
