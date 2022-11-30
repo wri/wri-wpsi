@@ -10,11 +10,8 @@ const useStyles = createUseStyles({
   },
 });
 
-export const DataStoryRegionDataDetails = ({ region, level }) => {
+export const DataStoryRegionDataDetails = ({ items }) => {
   const classes = useStyles();
-  const items = region.dataDetails.filter(
-    (d) => d.level.toLowerCase() == level
-  );
   return (
     <ul className="list-unstyled">
       {items.map(({ dataset, sourceName, sourceUrl }, idx) => (
@@ -38,6 +35,5 @@ export const DataStoryRegionDataDetails = ({ region, level }) => {
 };
 
 DataStoryRegionDataDetails.propTypes = {
-  region: PropTypes.object.isRequired,
-  level: PropTypes.string.isRequired,
+  items: PropTypes.array.isRequired,
 };

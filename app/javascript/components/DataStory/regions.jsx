@@ -612,9 +612,9 @@ export const regions = [
     name: "Latin America and Caribbean",
     causalGraph: la_graph,
     causalRelationship:
-      "All effects are mediated by at least one other variable, so there are no indirect effects.",
+      "None of the effects qualify as indirect causes",
     mediatingEffects:
-      "Armed conflict activity is mediated by climate (variation in evapotranspiration and precipitation), demographic (rural population, population density) and agricultural variables (count of livestock chickens, density of greenness, soybean yield). None of these effects are statistically significant.",
+      "Armed conflict activity is mediated by climatic (variation in evapotranspiration and precipitation), demographic (rural population, population density) and agricultural variables (count of livestock chickens, density of greenness, soybean yield).",
     conflictOutcome:
       "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events and the reported number of fatalities from conflict events.",
     image: lt_thumbnail,
@@ -790,11 +790,11 @@ export const regions = [
     ],
     dataDetails: [
       {
-        level: "Indirect",
+        level: "Mediating",
         step: 1,
         indicator: "et_anom_m_STD_m",
         interpretation: "Abnormal variation in evapotranspiration",
-        dataset: "Variation in evapotranspiration patterns",
+        dataset: "Variation in evapotranspiration",
         sourceName: "FewsNET",
         sourceUrl: "https://earlywarning.usgs.gov/fews/product/460",
       },
@@ -803,7 +803,7 @@ export const regions = [
         step: 2,
         indicator: "spi_3_m",
         interpretation: "Variation of precipitation",
-        dataset: "Variation of precipitation over 3-month period",
+        dataset: "Variation in precipitation",
         sourceName: "ECMWF",
         sourceUrl:
           "https://www.ecmwf.int/en/newsletter/154/meteorology/ecmwfs-new-long-range-forecasting-system-seas5",

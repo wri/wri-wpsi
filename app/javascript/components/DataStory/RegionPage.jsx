@@ -61,7 +61,7 @@ const useStyles = createUseStyles({
   indirect: {
     background: palette.indirect,
   },
-  mediating: {
+  mediator: {
     background: palette.mediating,
   },
   outcome: {
@@ -113,7 +113,7 @@ export const DataStoryRegionPage = () => {
       <DataStorySection
         title="Mediating Effects"
         titleProps={{
-          className: clsx(classes.title, classes.mediating),
+          className: clsx(classes.title, classes.mediator),
         }}
       >
         <div className={classes.paddedArticle}>{region.mediatingEffects}</div>
@@ -136,34 +136,39 @@ export const DataStoryRegionPage = () => {
   const detailsContent = (
     <>
       <DataStoryChapter title="Data Details" anchor="details">
-        <DataStorySection
-          title="Indirect Causal Relationships"
-          titleProps={{
-            className: clsx(classes.title, classes.indirect),
-          }}
-        >
-          <div className={classes.paddedArticle}>
-            <DataStoryRegionDataDetails region={region} level="indirect" />
-          </div>
-        </DataStorySection>
-        <DataStorySection
-          title="Mediating Effects"
-          titleProps={{
-            className: clsx(classes.title, classes.mediating),
-          }}
-        >
-          <div className={classes.paddedArticle}>
-            <DataStoryRegionDataDetails region={region} level="mediator" />
-          </div>
-        </DataStorySection>
-        <DataStorySection
-          title="Conflict Outcome"
-          titleProps={{ className: clsx(classes.title, classes.outcome) }}
-        >
-          <div className={classes.paddedArticle}>
-            <DataStoryRegionDataDetails region={region} level="outcome" />
-          </div>
-        </DataStorySection>
+        {[
+          {
+            title: "Indirect Causal Relationships",
+            level: "indirect",
+          },
+          {
+            title: "Mediating Effects",
+            level: "mediator",
+          },
+          {
+            title: "Conflict Outcome",
+            level: "outcome",
+          },
+        ].map(({ title, level }) => {
+          const items = region.dataDetails.filter(
+            (d) => d.level.toLowerCase() == level
+          );
+
+          if (items.length ===0) return null
+          return (
+            <DataStorySection
+              key={level}
+              title={title}
+              titleProps={{
+                className: clsx(classes.title, classes[level]),
+              }}
+            >
+              <div className={classes.paddedArticle}>
+                <DataStoryRegionDataDetails items={items} />
+              </div>
+            </DataStorySection>
+          );
+        })}
       </DataStoryChapter>
       <DataStoryChapter title="Causal Model 101" anchor="statsHelp">
         <DataStoryStatsHelpContent />
