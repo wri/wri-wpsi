@@ -22,7 +22,7 @@ export const regions = [
     causalRelationship:
       "The causes of the conflict outcomes are variations in evapotranspiration and cropland. Areas with less vegetation or surface water coverage will have lower ET. Cropland has an inverse relationship to conflict, meaning areas with less cropland are associated with more conflict. Both relationships are statistically significant. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph.",
     mediatingEffects:
-      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, demographic (rural population, population density, total population) and agricultural variables (irrigated crop production, presence of rice fields). The rice yield gap, population density, and population count are all statistically significant mediators.",
+      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, demographic (rural population, population density, total population) and agricultural variables (irrigated crop production, productivity of rice fields). The rice yield gap, population density, and population count are all statistically significant mediators.",
     conflictOutcome:
       "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events and the reported number of fatalities from conflict events.",
     countries: [
