@@ -48,22 +48,24 @@ const useStyles = createUseStyles({
     height: "700px",
   },
   title: {
-    color: "#212529",
-    padding: "0.5rem 0",
-    borderBottom: "4px solid",
-    marginBottom: "1.5rem"
+    color: "#fff",
+    padding: "0.5rem 0.6rem",
+    marginBottom: "1rem",
+    marginTop: "1.75rem",
+    borderRadius: "10px",
+    fontSize: "1.25rem",
+  },
+  paddedArticle: {
+    padding: "0 0.6rem",
   },
   indirect: {
-    borderColor: palette.indirect,
-    color: palette.indirect,
+    background: palette.indirect,
   },
   mediating: {
-    borderColor: palette.mediating,
-    color: palette.mediating,
+    background: palette.mediating,
   },
   outcome: {
-    borderColor: palette.outcome,
-    color: palette.outcome,
+    background: palette.outcome,
   },
 });
 
@@ -104,8 +106,9 @@ export const DataStoryRegionPage = () => {
         titleProps={{
           className: clsx(classes.title, classes.indirect),
         }}
+        className={classes.paddedArticle}
       >
-        {region.causalRelationship}
+        <div className={classes.paddedArticle}>{region.causalRelationship}</div>
       </DataStorySection>
       <DataStorySection
         title="Mediating Effects"
@@ -113,13 +116,13 @@ export const DataStoryRegionPage = () => {
           className: clsx(classes.title, classes.mediating),
         }}
       >
-        {region.mediatingEffects}
+        <div className={classes.paddedArticle}>{region.mediatingEffects}</div>
       </DataStorySection>
       <DataStorySection
         title="Conflict Outcome"
         titleProps={{ className: clsx(classes.title, classes.outcome) }}
       >
-        {region.conflictOutcome}
+        <div className={classes.paddedArticle}>{region.conflictOutcome}</div>
       </DataStorySection>
     </DataStoryChapter>
   );
@@ -139,7 +142,9 @@ export const DataStoryRegionPage = () => {
             className: clsx(classes.title, classes.indirect),
           }}
         >
-          <DataStoryRegionDataDetails region={region} level="indirect" />
+          <div className={classes.paddedArticle}>
+            <DataStoryRegionDataDetails region={region} level="indirect" />
+          </div>
         </DataStorySection>
         <DataStorySection
           title="Mediating Effects"
@@ -147,13 +152,17 @@ export const DataStoryRegionPage = () => {
             className: clsx(classes.title, classes.mediating),
           }}
         >
-          <DataStoryRegionDataDetails region={region} level="mediator" />
+          <div className={classes.paddedArticle}>
+            <DataStoryRegionDataDetails region={region} level="mediator" />
+          </div>
         </DataStorySection>
         <DataStorySection
           title="Conflict Outcome"
           titleProps={{ className: clsx(classes.title, classes.outcome) }}
         >
-          <DataStoryRegionDataDetails region={region} level="mediator" />
+          <div className={classes.paddedArticle}>
+            <DataStoryRegionDataDetails region={region} level="mediator" />
+          </div>
         </DataStorySection>
       </DataStoryChapter>
       <DataStoryChapter title="Causal Model 101" anchor="statsHelp">
