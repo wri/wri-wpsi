@@ -1188,9 +1188,9 @@ export const regions = [
     image: sa_thumbnail,
     causalGraph: sa_graph,
     causalRelationship:
-      "The causes of the conflict outcomes are variations precipitation and evapotranspiration. The relationship between precipitation and conflict is inestimable. Anomalies in evapotranspiration have a statistically significant relationship to conflict. These anomalies can occur when there are changes in the vegetation and/or surface water coverage.  Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
+      "The causes of the conflict outcomes are variations in precipitation and evapotranspiration. The relationship between precipitation and conflict is inestimable. Anomalies in evapotranspiration have a statistically significant relationship to conflict. These anomalies can occur when there are changes in the vegetation and/or surface water coverage.  Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph.",
     mediatingEffects:
-      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, including climatic (vegetation index—or density of greenness), demographic (population in rural areas) and agricultural variables (calories produced for food, count of cattle, presence of rice fields). The density of greenness has an inverse relationship with conflict, meaning areas with less vegetation are associated with more conflict. This is a statistically significant relationship.",
+      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, including climatic (vegetation index—or density of greenness), demographic (population in rural areas) and agricultural variables (calories produced for food, count of cattle, presence of rice fields). The density of greenness has an inverse relationship with conflict, meaning areas with less vegetation are associated with more conflict. This is a statistically significant relationship, along with the density of greenness and count of cattle.",
     conflictOutcome:
       "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events.",
     countries: [
@@ -1233,7 +1233,7 @@ export const regions = [
         step: 1,
         indicator: "spi_1_f2_m",
         interpretation: "Variation in forecasted precipitation patterns",
-        dataset: "Precipitation anomalies over a 1-month",
+        dataset: "Variation in precipitation",
         sourceName: "ECMWF",
         sourceUrl:
           "https://www.ecmwf.int/en/newsletter/154/meteorology/ecmwfs-new-long-range-forecasting-system-seas5",
@@ -1243,7 +1243,7 @@ export const regions = [
         step: 2,
         indicator: "et_anom_m_STD_m",
         interpretation: "Abnormal variation in evapotranspiration",
-        dataset: "Variation in evapotranspiration patterns",
+        dataset: "Variation in evapotranspiration",
         sourceName: "FewsNET",
         sourceUrl: "https://earlywarning.usgs.gov/fews/product/460",
       },
