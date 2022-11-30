@@ -1,6 +1,4 @@
-import clsx from "clsx";
 import React from "react";
-import { useInView } from "react-intersection-observer";
 import { createUseStyles } from "react-jss";
 import { palette } from "./constants";
 import { DataStoryModelStepCard } from "./ModelStepCard";
@@ -17,34 +15,7 @@ const useStyles = createUseStyles({
       white 83.4%
     )`,
   },
-  chatter: {
-    color: "#fff",
-    position: "absolute",
-    width: "280px",
-    top: "308px",
-    left: "204px",
-    transition: "opacity linear 500ms",
-    opacity: 0,
-  },
-  chatterActive: {
-    opacity: 1,
-  },
 });
-
-const ArrowChatter = () => {
-  const classes = useStyles();
-  const entry = useInView({ rootMargin: "0% 0% -30%" });
-
-  return (
-    <div
-      className={clsx(classes.chatter, entry.inView && classes.chatterActive)}
-      ref={entry.ref}
-    >
-      The arrows represent the direction of causal relation. This shows that A
-      affects B which leads to C.
-    </div>
-  );
-};
 
 export const DataStoryModelStepContent = () => {
   const classes = useStyles();
@@ -64,20 +35,20 @@ export const DataStoryModelStepContent = () => {
         <DataStoryModelStepCard
           letter="a"
           title="Indirect Relationships"
-          label="A are the main causal reasons for the armed conflicts and are placed at the very top of the graph"
-          chatter={<ArrowChatter />}
+          label="are the main causal reasons for the armed conflicts and are placed at the very top of the graph"
+          chatter={true}
         />
         <DataStoryModelStepCard
           arrow
           letter="b"
           title="Mediating Effects"
-          label="B are the factors that mediate how A affects the outcome"
+          label="are the factors that mediate how A affects the outcome"
         />
         <DataStoryModelStepCard
           arrow
           letter="c"
           title="Outcome"
-          label="C is the outcome, armed conflict"
+          label="is the outcome, armed conflict"
         />
       </div>
 
