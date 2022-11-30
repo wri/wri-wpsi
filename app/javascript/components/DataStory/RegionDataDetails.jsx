@@ -5,11 +5,10 @@ import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
   item: {
     marginBottom: "1em",
-    paddingTop: '0 !important' ,
+    paddingTop: "0 !important",
     lineHeight: "24px",
   },
 });
-
 
 export const DataStoryRegionDataDetails = ({ region, level }) => {
   const classes = useStyles();
@@ -23,7 +22,13 @@ export const DataStoryRegionDataDetails = ({ region, level }) => {
           <div className={classes.content}>
             <div>{dataset}</div>
             <div>
-              {sourceUrl ? <a href={sourceUrl}>{sourceName}</a> : sourceName}
+              {sourceUrl ? (
+                <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
+                  {sourceName}
+                </a>
+              ) : (
+                sourceName
+              )}
             </div>
           </div>
         </li>
