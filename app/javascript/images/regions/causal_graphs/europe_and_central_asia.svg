@@ -11,10 +11,9 @@
 <!-- et_anom_m_STD_m -->
 <g id="node1" class="node rankA">
 <title>et_anom_m_STD_m</title>
-<path fill="none" stroke="#000000" d="M12,-800C12,-800 156,-800 156,-800 162,-800 168,-806 168,-812 168,-812 168,-854 168,-854 168,-860 162,-866 156,-866 156,-866 12,-866 12,-866 6,-866 0,-860 0,-854 0,-854 0,-812 0,-812 0,-806 6,-800 12,-800"/>
-<text text-anchor="start" x="39" y="-847.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Variation in</text>
-<text text-anchor="start" x="9" y="-829.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">evapotranspiration</text>
-<text text-anchor="start" x="50.5" y="-811.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">patterns</text>
+<path fill="none" stroke="#000000" d="M12,-809C12,-809 156,-809 156,-809 162,-809 168,-815 168,-821 168,-821 168,-845 168,-845 168,-851 162,-857 156,-857 156,-857 12,-857 12,-857 6,-857 0,-851 0,-845 0,-845 0,-821 0,-821 0,-815 6,-809 12,-809"/>
+<text text-anchor="start" x="39" y="-838.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Variation in</text>
+<text text-anchor="start" x="9" y="-820.2" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">evapotranspiration</text>
 </g>
 <!-- yield_gap_barley_s -->
 <g id="node3" class="node rankB">
@@ -32,8 +31,8 @@
 <!-- et_anom_m_STD_m&#45;&gt;yield_gap_barley_s -->
 <g id="edge1" class="edge">
 <title>et_anom_m_STD_m-&gt;yield_gap_barley_s</title>
-<path fill="none" stroke="#666666" stroke-width="2" d="M129.7913,-799.8479C156.715,-780.3556 191.5522,-755.1342 223.0623,-732.3214"/>
-<polygon fill="#666666" stroke="#666666" stroke-width="2" points="225.9047,-735.4488 233.1617,-725.0096 220.9787,-728.6447 225.9047,-735.4488"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M117.5651,-808.6994C145.4896,-788.4827 186.4271,-758.8446 222.9256,-732.4204"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="225.8307,-735.5023 233.0878,-725.0632 220.9047,-728.6983 225.8307,-735.5023"/>
 </g>
 <!-- rurpop_s -->
 <g id="node4" class="node rankB">
@@ -45,7 +44,7 @@
 <!-- et_anom_m_STD_m&#45;&gt;rurpop_s -->
 <g id="edge2" class="edge">
 <title>et_anom_m_STD_m-&gt;rurpop_s</title>
-<path fill="none" stroke="#666666" stroke-width="2" d="M72.1311,-799.7805C62.0042,-767.5463 49.8375,-717.1621 55,-673"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M75.0432,-808.7467C64.5667,-777.5234 49.3295,-721.5082 55,-673"/>
 <path fill="none" stroke="#666666" stroke-width="2" d="M55,-673C72.5611,-522.7746 56.6358,-454.3428 168,-352 183.8575,-337.4271 203.8598,-325.7151 223.2697,-316.6224"/>
 <polygon fill="#666666" stroke="#666666" stroke-width="2" points="225.0337,-320.4344 234.2765,-311.7045 221.607,-312.7651 225.0337,-320.4344"/>
 </g>

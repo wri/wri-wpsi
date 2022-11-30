@@ -272,9 +272,9 @@ export const regions = [
     image: eu_thumbnail,
     causalGraph: eu_graph,
     causalRelationship:
-      "The causes of the conflict outcomes are variation in evapotranspiration and presence of livestock. Anomalies in evapotranspiration can occur when there are changes in the vegetation and/or surface water coverage. Neither relationship is statistically significant. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
+      "The causes of the conflict outcomes are variations in evapotranspiration and presence of livestock. Anomalies in evapotranspiration can occur when there are changes in the vegetation and/or surface water coverage. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
     mediatingEffects:
-      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, demographic (rural population, population density, total population) and agricultural variables (presence of barley fields, portion of calories produced for food, cropland). None of these effects are statistically significant.",
+      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, demographic (rural population, population density, total population) and agricultural variables (presence of barley fields, portion of calories produced for food, cropland). The barley yield gap, amount of cropland, and population count are all statistically significant mediators.",
     conflictOutcome:
       "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events and the reported number of fatalities from conflict events.",
     countries: [
@@ -524,8 +524,8 @@ export const regions = [
         level: "Indirect",
         step: 1,
         indicator: "et_anom_m_STD_m",
-        interpretation: "Variation in evapotranspiration patterns",
-        dataset: "Variation in evapotranspiration patterns",
+        interpretation: "Variation in evapotranspiration",
+        dataset: "Variation in evapotranspiration",
         sourceName: "FewsNET",
         sourceUrl: "https://earlywarning.usgs.gov/fews/product/460",
       },

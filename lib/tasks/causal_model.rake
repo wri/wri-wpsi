@@ -274,7 +274,7 @@ class CausalModelRegionGenerator
       id: 'europe_and_central_asia',
       name: 'Europe and Central Asia',
       nodes: [{ id: 'et_anom_m_STD_m',
-                label: 'Variation in evapotranspiration patterns',
+                label: 'Variation in evapotranspiration',
                 effect: nil,
                 error: nil,
                 rank: 'a' },

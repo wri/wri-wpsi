@@ -11,7 +11,7 @@ edge[arrowsize = 1.2 penwidth = 2 color="#666666"];
 
 # nodes
 et_anom_m_STD_m [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
-<tr><td><font point-size="16">Variation in<br/>evapotranspiration<br/>patterns<br/></font></td></tr>
+<tr><td><font point-size="16">Variation in<br/>evapotranspiration<br/></font></td></tr>
 </table>
 >, class = rankA];
 chicken_number_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
