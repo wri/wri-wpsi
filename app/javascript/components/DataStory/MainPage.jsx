@@ -61,13 +61,12 @@ export const DataStoryMainPage = () => {
           <div className="col-lg-9">
             <DataStoryChapter title="Causal Models" anchor="intro">
               <p>
-                Water insecurity is increasing worldwide, straining relations
-                between people, communities and entire countries. WPS aims to
-                prevent water-related conflict. To prevent conflicts, we need to
-                better understand what causes those conflicts to target
-                interventions, so WPS researched and created causal models to
-                expose and quantify the complex connections that underpin the
-                specific outcome of armed conflict.
+                In order to prevent water-related conflicts, we need to better
+                understand what causes those conflicts and target interventions.
+                WPS has sought to create causal models to identify the causes of
+                conflicts in regions throughout the world. Doing so exposes and
+                quantifies the complex connections that underpin the specific
+                outcome of armed conflict.
               </p>
               <p>
                 Typically, causal inference requires experimentation in a
@@ -80,7 +79,11 @@ export const DataStoryMainPage = () => {
                 of statistical experiments, testing the causal linkages against
                 a vast variety of hypotheses based on current climate conflict
                 research to establish strong linkages between our input
-                variables and armed conflict.
+                variables and armed conflict. Based on this, we are able to
+                identify factors that contribute to conflict and the extent that
+                they do so. Below we explain how the causal model works in more
+                detail, and you can select links to see the findings from
+                different regions of the world.
               </p>
             </DataStoryChapter>
             <DataStoryChapter title="Causal Model 101" anchor="model101">
@@ -106,13 +109,14 @@ export const DataStoryMainPage = () => {
                 create the static causal models. In all, we created three
                 analytical models to benchmark each other in place of running
                 controlled experiments. These are described in detail in the WPS
-                Causal Model Technical Note [link].
+                Causal Model Technical Note [forthcoming].
               </p>
               <p>
                 We zeroed-in on data that had a strong correlation to conflict
                 in our predictive modeling. While correlation does not equal
                 causation, the absence of correlation does indicate the absence
-                of causation. Therefore, data that was not found to be
+                of causation, helping us to rule out potential indirect factors
+                and mediating effects. Therefore, data that was not found to be
                 correlated to the conflict outcome was left out of the analysis.
               </p>
             </DataStoryChapter>
@@ -120,6 +124,10 @@ export const DataStoryMainPage = () => {
               title="Select a Causal Model by Region"
               anchor="regions"
             >
+              <p>
+                You can explore the causal models for the following World Bank
+                regions.
+              </p>
               <DataStoryGallery>
                 {regions.map((region) => (
                   <DataStoryGalleryImage
