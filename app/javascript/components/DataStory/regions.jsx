@@ -891,9 +891,9 @@ export const regions = [
     image: me_thumbnail,
     causalGraph: me_graph,
     causalRelationship:
-      "The causes of the conflict outcomes are vegetation coverage and population size. The relationship between vegetation (density of greenness) and conflict is inestimable. The percentage of the population living in rural areas has an inverse relationship with conflict, meaning areas with smaller rural populations are associated with more conflict. Neither relationship is statistically significant. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
+      "The causes of the conflict outcomes are vegetation coverage and population size. The relationship between vegetation (density of greenness) and conflict is inestimable. The percentage of the population living in rural areas has an inverse relationship with conflict, meaning areas with smaller rural populations are associated with more conflict. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph",
     mediatingEffects:
-      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, demographic (population density, rural population) and agricultural variables (portion of calories produced for food, count of cattle, irrigated crop production, presence of rice fields). None of these factors are statistically significant.",
+      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, demographic (population density, rural population) and agricultural variables (portion of calories produced for food, count of cattle, irrigated crop production, presence of rice fields).",
     conflictOutcome:
       "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events and the reported number of fatalities from conflict events.",
     countries: [
