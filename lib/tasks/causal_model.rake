@@ -72,7 +72,7 @@ class CausalModelRegionGenerator
         fill: #437387;
       }
       .rankC path {
-        fill: #1b6002;
+        fill: #8a3c00;
       }
     CSS
 
