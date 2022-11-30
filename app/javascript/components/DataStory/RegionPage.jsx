@@ -89,7 +89,7 @@ export const DataStoryRegionPage = () => {
     return () => clearTimeout(timeout);
   }, [regionId]);
 
-  const [, width] = useWindowSize();
+  const [width] = useWindowSize();
 
   if (fade) {
     return <div className={classes.loading} />;
