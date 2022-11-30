@@ -88,8 +88,8 @@ export const DataStoryModelStepContent = () => {
 
       <p>
         Although A is the core reason for C, it is an indirect relationship. The
-        presence of B is necessary intermediate step, called a mediating effect
-        in order to reach the outcome. In this study the indirect relationship,
+        presence of B is a necessary intermediate step, called a mediating effect
+        in order to reach the outcome. In this study, the indirect relationship,
         water scarcity, causally influences the probability of conflict outbreak
         through the mediator, density of the population.
       </p>

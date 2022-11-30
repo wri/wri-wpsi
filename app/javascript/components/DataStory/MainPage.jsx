@@ -96,13 +96,10 @@ export const DataStoryMainPage = () => {
                 food, governance, and water, we created causal models for each
                 World Bank region. It was necessary to use these large regions
                 to ensure that we had enough data units to run the models. The
-                data units were{" "}
-                <em>
-                  the district level (administrative level 2), and monthly time
-                  step. The data range in resolution from near-real time to
-                  annual to static, from spatial grids to watersheds to national
-                  statistics.
-                </em>
+                data units were the district level (administrative level 2), and
+                monthly time step. The data range in resolution from near-real
+                time to annual to static, from spatial grids to watersheds to
+                national statistics.
               </p>
               <p>
                 We took a cross-section of data from <b>November 2021</b> to
@@ -113,7 +110,7 @@ export const DataStoryMainPage = () => {
               </p>
               <p>
                 We zeroed-in on data that had a strong correlation to conflict
-                in our predictive modeling. While correlation does NOT equal
+                in our predictive modeling. While correlation does not equal
                 causation, the absence of correlation does indicate the absence
                 of causation. Therefore, data that was not found to be
                 correlated to the conflict outcome was left out of the analysis.
