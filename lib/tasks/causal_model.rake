@@ -654,7 +654,7 @@ class CausalModelRegionGenerator
                 error: nil,
                 rank: 'b' },
               { id: 'spi_3_m',
-                label: 'Variation in precipitation patterns over 3-month period',
+                label: 'Variation in precipitation',
                 effect: '0.393',
                 error: '0.568',
                 rank: 'a' },

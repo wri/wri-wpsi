@@ -1516,7 +1516,7 @@ export const regions = [
         step: 1,
         indicator: "spi_3_m",
         interpretation: "Increased variation in precipitation patterns",
-        dataset: "Variation in precipitation patterns over 3-month period",
+        dataset: "Variation in precipitation",
         sourceName: "ECMWF",
         sourceUrl:
           "https://www.ecmwf.int/en/newsletter/154/meteorology/ecmwfs-new-long-range-forecasting-system-seas5",
