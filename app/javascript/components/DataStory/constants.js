@@ -1,5 +1,5 @@
 export const palette = {
-  indirect: "#2e3348",
+  indirect: "#1b6002",
   mediating: "#437387",
-  outcome: "#8a3c00",
+  outcome: "#2e3348",
 };
