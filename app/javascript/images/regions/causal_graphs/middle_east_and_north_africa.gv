@@ -1,8 +1,7 @@
 # generated file for region: middle_east_and_north_africa by CausalModelRegionGenerator
 strict digraph causalModel {
 fontname="Helvetica, Arial, sans-serif";
-label="
-Causal Model: Middle East and North Africa";
+label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD></TD></TR><TR><TD ALIGN="LEFT"><B>Causal Model: Middle East and North Africa</B></TD></TR></TABLE>>;
 labelloc = b;
 nodesep = 0.4;
 concentrate = true;
@@ -15,22 +14,22 @@ DeliveredkcalFraction_s [label = <{<table align="center" border="0" cellspacing=
 </table>
 |<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: 0.056</font></td></tr>
 <tr><td><font point-size="14">error: 0.143</font></td></tr></table>}>, class = rankB];
-chicken_number_s [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
+chicken_number_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Count of livestock<br/>chickens<br/></font></td></tr>
 </table>
->, class = rankB];
-spam_P_i_avg_s [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: Inestimable</font></td></tr></table>}>, class = rankB];
+spam_P_i_avg_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Metric tons of<br/>irrigated crops<br/>produced<br/></font></td></tr>
 </table>
->, class = rankB];
-rurpop_s [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: Inestimable</font></td></tr></table>}>, class = rankB];
+rurpop_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Population in<br/>rural areas<br/></font></td></tr>
 </table>
->, class = rankB];
-yield_gap_barley_s [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: Inestimable</font></td></tr></table>}>, class = rankB];
+yield_gap_barley_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Gap between<br/>observed and<br/>potential barley<br/>yield<br/></font></td></tr>
 </table>
->, class = rankB];
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: Inestimable</font></td></tr></table>}>, class = rankB];
 rurratio_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Percentage of<br/>population that<br/>live in rural<br/>areas<br/></font></td></tr>
 </table>
@@ -41,10 +40,10 @@ locdensity_y [label = <{<table align="center" border="0" cellspacing="1" cellpad
 </table>
 |<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: -1.263</font></td></tr>
 <tr><td><font point-size="14">error: 0.68</font></td></tr></table>}>, class = rankB];
-ndvi_act_min_m [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
+ndvi_act_min_m [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Density of<br/>greenness<br/></font></td></tr>
 </table>
->, class = rankA];
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: Inestimable</font></td></tr></table>}>, class = rankA];
 acl_sum_evnt_m [label = "Total number of
 conflict events" class = rankC shape=box style=rounded fontsize="16pt" margin = "0.05,0.10"];
 acl_sum_fatl_m [label = "Reported

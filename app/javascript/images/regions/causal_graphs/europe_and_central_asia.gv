@@ -1,8 +1,7 @@
 # generated file for region: europe_and_central_asia by CausalModelRegionGenerator
 strict digraph causalModel {
 fontname="Helvetica, Arial, sans-serif";
-label="
-Causal Model: Europe and Central Asia";
+label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD></TD></TR><TR><TD ALIGN="LEFT"><B>Causal Model: Europe and Central Asia</B></TD></TR><TR><TD ALIGN="LEFT">***significance of 0.1%</TD></TR></TABLE>>;
 labelloc = b;
 nodesep = 0.4;
 concentrate = true;
@@ -10,47 +9,43 @@ node[shape = Mrecord, fontname = "Helvetica, Arial, sans-serif", margin = "0.10,
 edge[arrowsize = 1.2 penwidth = 2 color="#666666"];
 
 # nodes
-et_anom_m_STD_m [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
+et_anom_m_STD_m [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Variation in<br/>evapotranspiration<br/></font></td></tr>
 </table>
->, class = rankA];
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: Inestimable</font></td></tr></table>}>, class = rankA];
 chicken_number_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Count of livestock<br/>chickens<br/></font></td></tr>
 </table>
-|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: -0.201</font></td></tr>
-<tr><td><font point-size="14">error: 0.081</font></td></tr>
-<tr><td><font point-size="14">significance: 0.1</font></td></tr></table>}>, class = rankA];
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: -0.201***</font></td></tr>
+<tr><td><font point-size="14">error: 0.081</font></td></tr></table>}>, class = rankA];
 yield_gap_barley_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Gap between<br/>observed and<br/>potential barley<br/>yield<br/></font></td></tr>
 </table>
-|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: -0.224</font></td></tr>
-<tr><td><font point-size="14">error: 0.062</font></td></tr>
-<tr><td><font point-size="14">significance: 0.1</font></td></tr></table>}>, class = rankB];
-rurpop_s [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: -0.224***</font></td></tr>
+<tr><td><font point-size="14">error: 0.062</font></td></tr></table>}>, class = rankB];
+rurpop_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Population in<br/>rural areas<br/></font></td></tr>
 </table>
->, class = rankB];
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: Inestimable</font></td></tr></table>}>, class = rankB];
 Cropland2000_mean_percent_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Percentage of land<br/>that is cropland<br/></font></td></tr>
 </table>
-|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: 0.174</font></td></tr>
-<tr><td><font point-size="14">error: 0.072</font></td></tr>
-<tr><td><font point-size="14">significance: 0.1</font></td></tr></table>}>, class = rankB];
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: 0.174***</font></td></tr>
+<tr><td><font point-size="14">error: 0.072</font></td></tr></table>}>, class = rankB];
 loccount_y [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Total population<br/>count<br/></font></td></tr>
 </table>
-|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: 2.366</font></td></tr>
-<tr><td><font point-size="14">error: 0.936</font></td></tr>
-<tr><td><font point-size="14">significance: 0.1</font></td></tr></table>}>, class = rankB];
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: 2.366***</font></td></tr>
+<tr><td><font point-size="14">error: 0.936</font></td></tr></table>}>, class = rankB];
 locdensity_y [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Population density</font></td></tr>
 </table>
 |<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: 0.38</font></td></tr>
 <tr><td><font point-size="14">error: 0.259</font></td></tr></table>}>, class = rankB];
-DeliveredkcalFraction_s [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
+DeliveredkcalFraction_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Portion of<br/>calories produced<br/>going toward food<br/></font></td></tr>
 </table>
->, class = rankB];
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: Inestimable</font></td></tr></table>}>, class = rankB];
 acl_sum_evnt_m [label = "Total number of
 conflict events" class = rankC shape=box style=rounded fontsize="16pt" margin = "0.05,0.10"];
 

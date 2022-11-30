@@ -91,7 +91,7 @@ class CausalModelRegionGenerator
   end
 
   def font_name
-    "Helvetica, Arial, sans-serif"
+    'Helvetica, Arial, sans-serif'
   end
 
   def generate_gv(region)
@@ -99,7 +99,7 @@ class CausalModelRegionGenerator
       # generated file for region: #{region[:id]} by #{self.class.name}
       strict digraph causalModel {
       fontname="#{font_name}";
-      label="\nCausal Model: #{region[:name]}";
+      label=#{render_legend(region)};
       labelloc = b;
       nodesep = 0.4;
       concentrate = true;
@@ -143,6 +143,19 @@ class CausalModelRegionGenerator
     end.join("\n")
   end
 
+  SYMBOLS = { '0.1' => '***', '5' => '*', '' => nil }.freeze
+
+  def render_legend(region)
+    keys = region[:nodes].group_by {|n| n[:significance]}
+    rows = []
+    rows.push "<TR><TD></TD></TR>"
+    rows.push %(<TR><TD ALIGN="LEFT"><B>Causal Model: #{region[:name]}</B></TD></TR>)
+    rows += SYMBOLS.each_pair.map do |key, value|
+      %(<TR><TD ALIGN="LEFT">#{value}significance of #{key}%</TD></TR>) if value && keys[key]
+    end
+    %(<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">#{rows.compact.join}</TABLE>>)
+  end
+
   def render_gv_node(node)
     (id, label, rank, effect, error, significance) = node.values_at(
       :id, :label, :rank, :effect, :error, :significance
@@ -167,10 +180,8 @@ class CausalModelRegionGenerator
     GV
 
     details = []
-    %i[effect error significance].each do |key|
-      value = node[key]
-      details.push(%(<tr><td><font point-size="14">#{key}: #{value}</font></td></tr>)) if value
-    end
+    details.push(%(<tr><td><font point-size="14">effect: #{effect || 'Inestimable'}#{SYMBOLS.fetch(significance.to_s)}</font></td></tr>))
+    details.push(%(<tr><td><font point-size="14">error: #{error}</font></td></tr>)) if error
 
     label = nil
     if details.any?
