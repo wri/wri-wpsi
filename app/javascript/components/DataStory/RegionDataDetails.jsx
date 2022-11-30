@@ -5,17 +5,13 @@ import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
   item: {
     marginBottom: "1em",
-    paddingTop: '0 !important' ,
+    paddingTop: "0 !important",
     lineHeight: "24px",
   },
 });
 
-
-export const DataStoryRegionDataDetails = ({ region, level }) => {
+export const DataStoryRegionDataDetails = ({ items }) => {
   const classes = useStyles();
-  const items = region.dataDetails.filter(
-    (d) => d.level.toLowerCase() == level
-  );
   return (
     <ul className="list-unstyled">
       {items.map(({ dataset, sourceName, sourceUrl }, idx) => (
@@ -23,7 +19,13 @@ export const DataStoryRegionDataDetails = ({ region, level }) => {
           <div className={classes.content}>
             <div>{dataset}</div>
             <div>
-              {sourceUrl ? <a href={sourceUrl}>{sourceName}</a> : sourceName}
+              {sourceUrl ? (
+                <a href={sourceUrl} target="_blank" rel="noopener noreferrer">
+                  {sourceName}
+                </a>
+              ) : (
+                sourceName
+              )}
             </div>
           </div>
         </li>
@@ -33,6 +35,5 @@ export const DataStoryRegionDataDetails = ({ region, level }) => {
 };
 
 DataStoryRegionDataDetails.propTypes = {
-  region: PropTypes.object.isRequired,
-  level: PropTypes.string.isRequired,
+  items: PropTypes.array.isRequired,
 };

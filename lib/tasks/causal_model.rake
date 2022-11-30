@@ -66,13 +66,13 @@ class CausalModelRegionGenerator
         stroke: #fff;
       }
       .rankA path {
-        fill: #2e3348;
+        fill: #1b6002;
       }
       .rankB path {
         fill: #437387;
       }
       .rankC path {
-        fill: #1b6002;
+        fill: #2e3348;
       }
     CSS
 
@@ -91,7 +91,7 @@ class CausalModelRegionGenerator
   end
 
   def font_name
-    "Helvetica, Arial, sans-serif"
+    'Helvetica, Arial, sans-serif'
   end
 
   def generate_gv(region)
@@ -99,7 +99,7 @@ class CausalModelRegionGenerator
       # generated file for region: #{region[:id]} by #{self.class.name}
       strict digraph causalModel {
       fontname="#{font_name}";
-      label="\nCausal Model: #{region[:name]}";
+      label=#{render_legend(region)};
       labelloc = b;
       nodesep = 0.4;
       concentrate = true;
@@ -143,6 +143,19 @@ class CausalModelRegionGenerator
     end.join("\n")
   end
 
+  SYMBOLS = { '0.1' => '***', '5' => '*', '' => nil }.freeze
+
+  def render_legend(region)
+    keys = region[:nodes].group_by {|n| n[:significance]}
+    rows = []
+    rows.push "<TR><TD></TD></TR>"
+    rows.push %(<TR><TD ALIGN="LEFT"><B>Causal Model: #{region[:name]}</B></TD></TR>)
+    rows += SYMBOLS.each_pair.map do |key, value|
+      %(<TR><TD ALIGN="LEFT">#{value}significance of #{key}%</TD></TR>) if value && keys[key]
+    end
+    %(<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">#{rows.compact.join}</TABLE>>)
+  end
+
   def render_gv_node(node)
     (id, label, rank, effect, error, significance) = node.values_at(
       :id, :label, :rank, :effect, :error, :significance
@@ -167,10 +180,8 @@ class CausalModelRegionGenerator
     GV
 
     details = []
-    %i[effect error significance].each do |key|
-      value = node[key]
-      details.push(%(<tr><td><font point-size="14">#{key}: #{value}</font></td></tr>)) if value
-    end
+    details.push(%(<tr><td><font point-size="14">effect: #{effect || 'Inestimable'}#{SYMBOLS.fetch(significance.to_s)}</font></td></tr>))
+    details.push(%(<tr><td><font point-size="14">error: #{error}</font></td></tr>)) if error
 
     label = nil
     if details.any?
@@ -213,26 +224,31 @@ class CausalModelRegionGenerator
               { id: 'Cropland2000_mean_percent_s',
                 label: 'Percentage of land that is cropland',
                 effect: '-0.065',
+                significance: '0.1',
                 error: '0.066',
                 rank: 'a' },
               { id: 'loccount_y',
                 label: 'Total population count',
                 effect: '1.387',
+                significance: '0.1',
                 error: '0.879',
                 rank: 'b' },
               { id: 'locdensity_y',
                 label: 'Population density',
                 effect: '0.772',
+                significance: '0.1',
                 error: '0.775',
                 rank: 'b' },
               { id: 'yield_gap_rice_s',
                 label: 'Gap between observed and potential rice yield',
                 effect: '0.389',
+                significance: '5',
                 error: '0.162',
                 rank: 'b' },
               { id: 'et_actl_m_MIN_m',
                 label: 'Actual evapotranspiration',
                 effect: '-0.464',
+                significance: '0.1',
                 error: '0.116',
                 rank: 'a' },
               { id: 'acl_sum_evnt_m',
@@ -269,18 +285,20 @@ class CausalModelRegionGenerator
       id: 'europe_and_central_asia',
       name: 'Europe and Central Asia',
       nodes: [{ id: 'et_anom_m_STD_m',
-                label: 'Variation in evapotranspiration patterns',
+                label: 'Variation in evapotranspiration',
                 effect: nil,
                 error: nil,
                 rank: 'a' },
               { id: 'chicken_number_s',
                 label: 'Count of livestock chickens',
                 effect: '-0.201',
+                significance: '0.1',
                 error: '0.081',
                 rank: 'a' },
               { id: 'yield_gap_barley_s',
                 label: 'Gap between observed and potential barley yield',
                 effect: '-0.224',
+                significance: '0.1',
                 error: '0.062',
                 rank: 'b' },
               { id: 'rurpop_s',
@@ -291,11 +309,13 @@ class CausalModelRegionGenerator
               { id: 'Cropland2000_mean_percent_s',
                 label: 'Percentage of land that is cropland',
                 effect: '0.174',
+                significance: '0.1',
                 error: '0.072',
                 rank: 'b' },
               { id: 'loccount_y',
                 label: 'Total population count',
                 effect: '2.366',
+                significance: '0.1',
                 error: '0.936',
                 rank: 'b' },
               { id: 'locdensity_y',
@@ -339,7 +359,7 @@ class CausalModelRegionGenerator
       id: 'latin_america_and_caribbean',
       name: 'Latin America and Caribbean',
       nodes: [{ id: 'et_anom_m_STD_m',
-                label: 'Variation in evapotranspiration patterns',
+                label: 'Variation in evapotranspiration',
                 effect: '-0.032',
                 error: '0.044',
                 rank: 'b' },
@@ -349,7 +369,7 @@ class CausalModelRegionGenerator
                 error: nil,
                 rank: 'b' },
               { id: 'spi_3_m',
-                label: 'Variation of precipitation over 3-month period',
+                label: 'Variation of precipitation',
                 effect: nil,
                 error: nil,
                 rank: 'b' },
@@ -512,7 +532,7 @@ class CausalModelRegionGenerator
                 error: '0.244',
                 rank: 'b' },
               { id: 'et_anom_m_STD_m',
-                label: 'Variation in evapotranspiration patterns',
+                label: 'Variation in evapotranspiration',
                 effect: nil,
                 error: nil,
                 rank: 'b' },
@@ -522,7 +542,7 @@ class CausalModelRegionGenerator
                 error: '0.125',
                 rank: 'b' },
               { id: 'spi_3_m',
-                label: 'Variation of precipitation over 3-month period',
+                label: 'Variation of precipitation',
                 effect: '0.703',
                 error: '0.232',
                 rank: 'a' },
@@ -571,7 +591,7 @@ class CausalModelRegionGenerator
       id: 'south_asia',
       name: 'South Asia',
       nodes: [{ id: 'et_anom_m_STD_m',
-                label: 'Variation in evapotranspiration patterns',
+                label: 'Variation in evapotranspiration',
                 effect: '-0.053',
                 error: '0.075',
                 rank: 'a' },
@@ -591,7 +611,7 @@ class CausalModelRegionGenerator
                 error: '0.278',
                 rank: 'b' },
               { id: 'spi_1_f2_m',
-                label: 'Precipitation anomalies over a 1-month',
+                label: 'Variation in precipitation',
                 effect: nil,
                 error: nil,
                 rank: 'a' },
@@ -645,7 +665,7 @@ class CausalModelRegionGenerator
                 error: nil,
                 rank: 'b' },
               { id: 'spi_3_m',
-                label: 'Variation in precipitation patterns over 3-month period',
+                label: 'Variation in precipitation',
                 effect: '0.393',
                 error: '0.568',
                 rank: 'a' },

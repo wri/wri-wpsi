@@ -1,8 +1,7 @@
 # generated file for region: south_asia by CausalModelRegionGenerator
 strict digraph causalModel {
 fontname="Helvetica, Arial, sans-serif";
-label="
-Causal Model: South Asia";
+label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD></TD></TR><TR><TD ALIGN="LEFT"><B>Causal Model: South Asia</B></TD></TR></TABLE>>;
 labelloc = b;
 nodesep = 0.4;
 concentrate = true;
@@ -11,14 +10,14 @@ edge[arrowsize = 1.2 penwidth = 2 color="#666666"];
 
 # nodes
 et_anom_m_STD_m [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
-<tr><td><font point-size="16">Variation in<br/>evapotranspiration<br/>patterns<br/></font></td></tr>
+<tr><td><font point-size="16">Variation in<br/>evapotranspiration<br/></font></td></tr>
 </table>
 |<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: -0.053</font></td></tr>
 <tr><td><font point-size="14">error: 0.075</font></td></tr></table>}>, class = rankA];
-DeliveredkcalFraction_s [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
+DeliveredkcalFraction_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Portion of<br/>calories produced<br/>going toward food<br/></font></td></tr>
 </table>
->, class = rankB];
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: Inestimable</font></td></tr></table>}>, class = rankB];
 ndvi_act_med_m [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Density of<br/>greenness<br/></font></td></tr>
 </table>
@@ -29,18 +28,18 @@ cattle_number_s [label = <{<table align="center" border="0" cellspacing="1" cell
 </table>
 |<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: 1.846</font></td></tr>
 <tr><td><font point-size="14">error: 0.278</font></td></tr></table>}>, class = rankB];
-spi_1_f2_m [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
-<tr><td><font point-size="16">Precipitation<br/>anomalies over a<br/>1-month<br/></font></td></tr>
+spi_1_f2_m [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
+<tr><td><font point-size="16">Variation in<br/>precipitation<br/></font></td></tr>
 </table>
->, class = rankA];
-yield_gap_rice_s [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: Inestimable</font></td></tr></table>}>, class = rankA];
+yield_gap_rice_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Gap between<br/>observed and<br/>potential rice<br/>yield<br/></font></td></tr>
 </table>
->, class = rankB];
-rurpop_s [label = <<table align="center" border="0" cellspacing="1" cellpadding="1">
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: Inestimable</font></td></tr></table>}>, class = rankB];
+rurpop_s [label = <{<table align="center" border="0" cellspacing="1" cellpadding="1">
 <tr><td><font point-size="16">Population in<br/>rural areas<br/></font></td></tr>
 </table>
->, class = rankB];
+|<table border="0" cellspacing="1" cellpadding="0.5"><tr><td><font point-size="14">effect: Inestimable</font></td></tr></table>}>, class = rankB];
 acl_sum_evnt_m [label = "Total number of
 conflict events" class = rankC shape=box style=rounded fontsize="16pt" margin = "0.05,0.10"];
 

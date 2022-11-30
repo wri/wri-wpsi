@@ -48,22 +48,24 @@ const useStyles = createUseStyles({
     height: "700px",
   },
   title: {
-    color: "#212529",
-    padding: "0.5rem 0",
-    borderBottom: "4px solid",
-    marginBottom: "1.5rem"
+    color: "#fff",
+    padding: "0.5rem 0.6rem",
+    marginBottom: "1rem",
+    marginTop: "1.75rem",
+    borderRadius: "10px",
+    fontSize: "1.25rem",
+  },
+  paddedArticle: {
+    padding: "0 0.6rem",
   },
   indirect: {
-    borderColor: palette.indirect,
-    color: palette.indirect,
+    background: palette.indirect,
   },
-  mediating: {
-    borderColor: palette.mediating,
-    color: palette.mediating,
+  mediator: {
+    background: palette.mediating,
   },
   outcome: {
-    borderColor: palette.outcome,
-    color: palette.outcome,
+    background: palette.outcome,
   },
 });
 
@@ -87,7 +89,7 @@ export const DataStoryRegionPage = () => {
     return () => clearTimeout(timeout);
   }, [regionId]);
 
-  const [, width] = useWindowSize();
+  const [width] = useWindowSize();
 
   if (fade) {
     return <div className={classes.loading} />;
@@ -104,22 +106,23 @@ export const DataStoryRegionPage = () => {
         titleProps={{
           className: clsx(classes.title, classes.indirect),
         }}
+        className={classes.paddedArticle}
       >
-        {region.causalRelationship}
+        <div className={classes.paddedArticle}>{region.causalRelationship}</div>
       </DataStorySection>
       <DataStorySection
         title="Mediating Effects"
         titleProps={{
-          className: clsx(classes.title, classes.mediating),
+          className: clsx(classes.title, classes.mediator),
         }}
       >
-        {region.mediatingEffects}
+        <div className={classes.paddedArticle}>{region.mediatingEffects}</div>
       </DataStorySection>
       <DataStorySection
         title="Conflict Outcome"
         titleProps={{ className: clsx(classes.title, classes.outcome) }}
       >
-        {region.conflictOutcome}
+        <div className={classes.paddedArticle}>{region.conflictOutcome}</div>
       </DataStorySection>
     </DataStoryChapter>
   );
@@ -133,28 +136,39 @@ export const DataStoryRegionPage = () => {
   const detailsContent = (
     <>
       <DataStoryChapter title="Data Details" anchor="details">
-        <DataStorySection
-          title="Indirect Causal Relationships"
-          titleProps={{
-            className: clsx(classes.title, classes.indirect),
-          }}
-        >
-          <DataStoryRegionDataDetails region={region} level="indirect" />
-        </DataStorySection>
-        <DataStorySection
-          title="Mediating Effects"
-          titleProps={{
-            className: clsx(classes.title, classes.mediating),
-          }}
-        >
-          <DataStoryRegionDataDetails region={region} level="mediator" />
-        </DataStorySection>
-        <DataStorySection
-          title="Conflict Outcome"
-          titleProps={{ className: clsx(classes.title, classes.outcome) }}
-        >
-          <DataStoryRegionDataDetails region={region} level="mediator" />
-        </DataStorySection>
+        {[
+          {
+            title: "Indirect Causal Relationships",
+            level: "indirect",
+          },
+          {
+            title: "Mediating Effects",
+            level: "mediator",
+          },
+          {
+            title: "Conflict Outcome",
+            level: "outcome",
+          },
+        ].map(({ title, level }) => {
+          const items = region.dataDetails.filter(
+            (d) => d.level.toLowerCase() == level
+          );
+
+          if (items.length ===0) return null
+          return (
+            <DataStorySection
+              key={level}
+              title={title}
+              titleProps={{
+                className: clsx(classes.title, classes[level]),
+              }}
+            >
+              <div className={classes.paddedArticle}>
+                <DataStoryRegionDataDetails items={items} />
+              </div>
+            </DataStorySection>
+          );
+        })}
       </DataStoryChapter>
       <DataStoryChapter title="Causal Model 101" anchor="statsHelp">
         <DataStoryStatsHelpContent />

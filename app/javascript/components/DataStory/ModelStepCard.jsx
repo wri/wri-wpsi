@@ -12,6 +12,30 @@ const useStyles = createUseStyles({
     fontSize: "1.25rem",
     fontWeight: 700,
   },
+  heroLetter: {
+    fontFamily: "Lato, sans-serif",
+    borderRadius: "50%",
+    height: "28px",
+    width: "28px",
+    position: "relative",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    lineHeight: 1,
+    userSelect: "none",
+    fontSize: "1.05rem",
+    color: "#fff",
+    border: "1px solid #fff",
+    "&.a": {
+      background: palette.indirect,
+    },
+    "&.b": {
+      background: palette.mediating,
+    },
+    "&.c": {
+      background: palette.outcome,
+    },
+  },
   nodeBox: {
     minHeight: "120px",
     minWidth: "215px",
@@ -91,7 +115,39 @@ const useStyles = createUseStyles({
     borderBottomLeftRadius: "10px",
     borderBottomRightRadius: "10px",
   },
+  chatter: {
+    color: "#fff",
+    position: "absolute",
+    width: "300px",
+    top: "308px",
+    left: "204px",
+    transition: "opacity linear 500ms",
+    opacity: 0,
+  },
+  chatterActive: {
+    opacity: 1,
+  },
 });
+
+const ArrowChatter = () => {
+  const classes = useStyles();
+  const entry = useInView({ rootMargin: "0% 0% -30%" });
+
+  return (
+    <div
+      className={clsx(classes.chatter, entry.inView && classes.chatterActive)}
+      ref={entry.ref}
+    >
+      {`The arrows represent the direction of causal relation. This shows that`}
+      <br />
+      <div className={clsx(classes.heroLetter, "a", "mr-2")}>A</div>
+      {`affects`}
+      <div className={clsx(classes.heroLetter, "b", "mx-2")}>B</div>
+      {`which leads to`}
+      <div className={clsx(classes.heroLetter, "c", "ml-2")}>C</div>
+    </div>
+  );
+};
 
 export const DataStoryModelStepCard = ({ letter, title, label, chatter }) => {
   const classes = useStyles();
@@ -116,11 +172,19 @@ export const DataStoryModelStepCard = ({ letter, title, label, chatter }) => {
           (letter == "b" || letter == "c") && classes.nodeArrowHead
         )}
       >
-        <div className={classes.nodeBoxTitle}>{letter.toUpperCase()}</div>
+        <div className={clsx(classes.heroLetter, letter, "mb-2")}>
+          {letter.toUpperCase()}
+        </div>
         <div className={classes.nodeBoxTitle}>{title}</div>
       </div>
-      <div className={classes.nodeLead}>{label}</div>
-      {chatter}
+      <div className={classes.nodeLead}>
+        <div className={clsx(classes.heroLetter, letter, "mr-2")}>
+          {letter.toUpperCase()}
+        </div>
+
+        {label}
+      </div>
+      {chatter && <ArrowChatter />}
     </div>
   );
 };
