@@ -1086,9 +1086,9 @@ export const regions = [
     image: na_thumbnail,
     causalGraph: na_graph,
     causalRelationship:
-      "The causes of the conflict outcomes are variation in precipitation.  Higher anomalies, more variation, are connected to more conflict. This is not a statistically significant relationship. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph.",
+      "The cause of the conflict outcomes is variation in precipitation.  Higher anomalies, more variation, are connected to more conflict. Since the armed conflict activity is only indirectly caused by these causes, their effects on the armed conflict activity are mediated by the remaining variables in the graph.",
     mediatingEffects:
-      "The indirect effects on the armed conflict activity are mediated by the remaining variables in the graph, climatic (evapotranspiration anomalies), demographic (percentage of population in rural areas) and agricultural variables (density of greenness, irrigated crops produced, presence of corn fields). None of these effects are statistically significant.",
+      "The indirect effect on the armed conflict activity is mediated by the remaining variables in the graph, climatic (evapotranspiration anomalies), demographic (percentage of population in rural areas) and agricultural variables (density of greenness, irrigated crops produced, presence of corn fields).",
     conflictOutcome:
       "The causal graph examines the causality of armed conflict activity. Armed conflict is described by the total count of armed conflict events and the reported number of fatalities from conflict events.",
     countries: [
@@ -1111,7 +1111,7 @@ export const regions = [
         step: 1,
         indicator: "spi_3_m",
         interpretation: "Increaed variation in precipitation patterns",
-        dataset: "Variation of precipitation over 3-month period",
+        dataset: "Variation of precipitation",
         sourceName: "ECMWF",
         sourceUrl:
           "https://www.ecmwf.int/en/newsletter/154/meteorology/ecmwfs-new-long-range-forecasting-system-seas5",
@@ -1130,7 +1130,7 @@ export const regions = [
         step: 3,
         indicator: "et_anom_m_STD_m",
         interpretation: "Abnormal variation in evapotranspiration",
-        dataset: "Variation in evapotranspiration patterns",
+        dataset: "Variation in evapotranspiration",
         sourceName: "FewsNET",
         sourceUrl: "https://earlywarning.usgs.gov/fews/product/460",
       },
