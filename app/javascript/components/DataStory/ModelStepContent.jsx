@@ -6,20 +6,13 @@ import { palette } from "./constants";
 import { DataStoryModelStepCard } from "./ModelStepCard";
 
 const useStyles = createUseStyles({
-  conceal: {
-    position: "sticky",
-    top: "46px",
-    zIndex: 1,
-    background: "#fff",
-    height: "25px",
-  },
   root: {
     marginBottom: "2rem",
     position: "relative",
+    borderRadius: "10px",
     background: `linear-gradient(
       to bottom,
-      white 16.6%,
-      ${palette.indirect} 16.6% 50%,
+      ${palette.indirect} 50%,
       ${palette.mediating} 50% 83.4%,
       white 83.4%
     )`,
@@ -67,7 +60,6 @@ export const DataStoryModelStepContent = () => {
         activities in our regions of interest. A schematic of how the causal
         graph looks is shown below:
       </p>
-      <div className={classes.conceal} />
       <div className={classes.root}>
         <DataStoryModelStepCard
           letter="a"
