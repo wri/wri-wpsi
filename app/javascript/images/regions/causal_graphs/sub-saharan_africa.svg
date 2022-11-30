@@ -72,20 +72,18 @@
 <!-- spi_3_m -->
 <g id="node3" class="node rankA">
 <title>spi_3_m</title>
-<path fill="none" stroke="#000000" d="M57.3635,-606.5C57.3635,-606.5 173.3635,-606.5 173.3635,-606.5 179.3635,-606.5 185.3635,-612.5 185.3635,-618.5 185.3635,-618.5 185.3635,-719.5 185.3635,-719.5 185.3635,-725.5 179.3635,-731.5 173.3635,-731.5 173.3635,-731.5 57.3635,-731.5 57.3635,-731.5 51.3635,-731.5 45.3635,-725.5 45.3635,-719.5 45.3635,-719.5 45.3635,-618.5 45.3635,-618.5 45.3635,-612.5 51.3635,-606.5 57.3635,-606.5"/>
-<text text-anchor="start" x="70.3635" y="-712.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Variation in</text>
-<text text-anchor="start" x="65.3635" y="-694.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">precipitation</text>
-<text text-anchor="start" x="61.8635" y="-676.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">patterns over</text>
-<text text-anchor="start" x="54.3635" y="-658.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">3-month period</text>
-<polyline fill="none" stroke="#000000" points="45.3635,-647.5 185.3635,-647.5 "/>
-<text text-anchor="start" x="70.3635" y="-630.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 0.393</text>
-<text text-anchor="start" x="72.8635" y="-614.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.568</text>
+<path fill="none" stroke="#000000" d="M68.3635,-624.5C68.3635,-624.5 162.3635,-624.5 162.3635,-624.5 168.3635,-624.5 174.3635,-630.5 174.3635,-636.5 174.3635,-636.5 174.3635,-701.5 174.3635,-701.5 174.3635,-707.5 168.3635,-713.5 162.3635,-713.5 162.3635,-713.5 68.3635,-713.5 68.3635,-713.5 62.3635,-713.5 56.3635,-707.5 56.3635,-701.5 56.3635,-701.5 56.3635,-636.5 56.3635,-636.5 56.3635,-630.5 62.3635,-624.5 68.3635,-624.5"/>
+<text text-anchor="start" x="70.3635" y="-694.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Variation in</text>
+<text text-anchor="start" x="65.3635" y="-676.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">precipitation</text>
+<polyline fill="none" stroke="#000000" points="56.3635,-665.5 174.3635,-665.5 "/>
+<text text-anchor="start" x="70.3635" y="-648.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 0.393</text>
+<text text-anchor="start" x="72.8635" y="-632.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.568</text>
 </g>
 <!-- spi_3_m&#45;&gt;cattle_number_s -->
 <g id="edge5" class="edge">
 <title>spi_3_m-&gt;cattle_number_s</title>
-<path fill="none" stroke="#666666" stroke-width="2" d="M115.3635,-606.1646C115.3635,-597.8428 115.3635,-589.5473 115.3635,-581.8828"/>
-<polygon fill="#666666" stroke="#666666" stroke-width="2" points="119.5636,-581.6867 115.3635,-569.6868 111.1636,-581.6868 119.5636,-581.6867"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M115.3635,-624.4137C115.3635,-610.3815 115.3635,-595.0649 115.3635,-581.6907"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="119.5636,-581.5685 115.3635,-569.5685 111.1636,-581.5685 119.5636,-581.5685"/>
 </g>
 <!-- spam_V_agg_t_sum_s -->
 <g id="node4" class="node rankB">
@@ -97,13 +95,13 @@
 <!-- spi_3_m&#45;&gt;spam_V_agg_t_sum_s -->
 <g id="edge6" class="edge">
 <title>spi_3_m-&gt;spam_V_agg_t_sum_s</title>
-<path fill="none" stroke="#666666" stroke-width="2" d="M185.5343,-619.4794C206.0739,-604.9844 227.9405,-589.5528 246.3589,-576.5546"/>
-<polygon fill="#666666" stroke="#666666" stroke-width="2" points="248.8236,-579.9559 256.2063,-569.6052 243.9802,-573.0928 248.8236,-579.9559"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M174.6105,-627.1885C198.0652,-610.6362 224.554,-591.9427 246.2673,-576.6193"/>
+<polygon fill="#666666" stroke="#666666" stroke-width="2" points="248.8106,-579.9651 256.1933,-569.6144 243.9672,-573.102 248.8106,-579.9651"/>
 </g>
 <!-- spi_3_m&#45;&gt;ndvi_act_min_m -->
 <g id="edge7" class="edge">
 <title>spi_3_m-&gt;ndvi_act_min_m</title>
-<path fill="none" stroke="#666666" stroke-width="2" d="M45.2752,-609.8955C35.1091,-597.818 26.141,-584.3652 20.3635,-570 -22.3821,-463.7175 10.4107,-421.3636 50.3635,-314"/>
+<path fill="none" stroke="#666666" stroke-width="2" d="M58.6705,-624.4512C43.2686,-609.0378 28.5853,-590.4428 20.3635,-570 -22.3821,-463.7175 10.4107,-421.3636 50.3635,-314"/>
 <path fill="none" stroke="#666666" stroke-width="2" d="M50.3635,-314C58.4503,-289.7514 70.788,-264.5122 82.6168,-243.0479"/>
 <polygon fill="#666666" stroke="#666666" stroke-width="2" points="86.3194,-245.0324 88.5457,-232.515 78.9994,-240.912 86.3194,-245.0324"/>
 </g>
