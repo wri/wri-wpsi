@@ -28,7 +28,7 @@
 <text text-anchor="start" x="189" y="-243.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Total population</text>
 <text text-anchor="start" x="229.5" y="-225.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">count</text>
 <polyline fill="none" stroke="#000000" points="180,-214.5 324,-214.5 "/>
-<text text-anchor="start" x="196" y="-197.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 1.387***</text>
+<text text-anchor="start" x="207" y="-197.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 1.387</text>
 <text text-anchor="start" x="209.5" y="-181.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.879</text>
 </g>
 <!-- spam_P_i_sum_s&#45;&gt;loccount_y -->
@@ -99,7 +99,7 @@
 <text text-anchor="start" x="108" y="-801.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Percentage of land</text>
 <text text-anchor="start" x="120.5" y="-783.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">that is cropland</text>
 <polyline fill="none" stroke="#000000" points="98.5,-772.5 265.5,-772.5 "/>
-<text text-anchor="start" x="123" y="-755.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: -0.065***</text>
+<text text-anchor="start" x="134" y="-755.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: -0.065</text>
 <text text-anchor="start" x="139" y="-739.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.066</text>
 </g>
 <!-- Cropland2000_mean_percent_s&#45;&gt;rurpop_s -->
@@ -127,7 +127,7 @@
 <path fill="none" stroke="#000000" d="M308.5,-317.5C308.5,-317.5 447.5,-317.5 447.5,-317.5 453.5,-317.5 459.5,-323.5 459.5,-329.5 459.5,-329.5 459.5,-376.5 459.5,-376.5 459.5,-382.5 453.5,-388.5 447.5,-388.5 447.5,-388.5 308.5,-388.5 308.5,-388.5 302.5,-388.5 296.5,-382.5 296.5,-376.5 296.5,-376.5 296.5,-329.5 296.5,-329.5 296.5,-323.5 302.5,-317.5 308.5,-317.5"/>
 <text text-anchor="start" x="306" y="-369.7" font-family="Helvetica, Arial, sans-serif" font-size="16.00" fill="#000000">Population density</text>
 <polyline fill="none" stroke="#000000" points="296.5,-358.5 459.5,-358.5 "/>
-<text text-anchor="start" x="322" y="-341.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 0.772***</text>
+<text text-anchor="start" x="333" y="-341.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">effect: 0.772</text>
 <text text-anchor="start" x="335.5" y="-325.8" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">error: 0.775</text>
 </g>
 <!-- locdensity_y&#45;&gt;loccount_y -->
