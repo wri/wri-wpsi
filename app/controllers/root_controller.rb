@@ -36,11 +36,19 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     end
   end
 
+  # scrollytelling data story
+  def causal
+    set_pages
+    render 'causal_data_story/show'
+  end
+
   # For showing pages with user-defined content
   def show
     set_pages
     @page = Page.find_by(slug: params[:page_slug])
-    return redirect_to @page.redirect_target if @page&.redirect_target
+    if helpers.page_redirect_target(@page)
+      return redirect_to(helpers.page_redirect_target(@page))
+    end
     return redirect_to :map if @page.nil? || @page.contentless?
   end
 

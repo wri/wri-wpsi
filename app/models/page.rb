@@ -46,7 +46,7 @@ class Page < ApplicationRecord
     return unless persisted?
 
     # Pages with children are contentless menu items
-    redirect_target.present? || children.any?
+    redirect_target.present? || children.any? || location.present?
   end
 
   def self.options_for_menu_select

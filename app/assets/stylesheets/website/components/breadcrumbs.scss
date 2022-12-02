@@ -5,11 +5,15 @@
 }
 
 .c-breadcrumbs__link {
-  color: get-gray(2);
+  color: get-gray(3);
   &:hover,
   &:focus {
     color: $green-d;
   }
+}
+
+.c-breadcrumbs__item {
+  color: get-gray(3);
 }
 
 .c-breadcrumbs__divider {

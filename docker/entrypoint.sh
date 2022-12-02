@@ -12,8 +12,5 @@ yarn config set cache-folder /node_modules/.yarn-cache
 if [[ ! -d /app/node_modules ]]; then
   ln -sf /node_modules /app
 fi
-if [[ ! -d /app/tmp/cache/rails_cache ]]; then
-  ln -sf /rails_cache /app/tmp/cache
-fi
 
 exec "$@"
