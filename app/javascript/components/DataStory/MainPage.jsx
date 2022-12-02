@@ -116,8 +116,20 @@ export const DataStoryMainPage = () => {
                 in our predictive modeling. While correlation does not equal
                 causation, the absence of correlation does indicate the absence
                 of causation, helping us to rule out potential indirect factors
-                and mediating effects. Therefore, data that was not found to be
-                correlated to the conflict outcome was left out of the analysis.
+                and mediating effects. For data that did have a causal linkage
+                to conflict, we estimated the strength, reliability, and
+                significance of the relationship. An estimate is statistically
+                significant at the significance level: 5%: *; 1%: **; 0.1%: ***.
+                All estimations were conducted with generalized (g) formula. For
+                a detailed explanation of g computation please refer to
+                {` `}
+                <a
+                  href="https://www.nature.com/articles/s41598-020-65917-x"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Chatton et al., (2020).
+                </a>
               </p>
             </DataStoryChapter>
             <DataStoryChapter
