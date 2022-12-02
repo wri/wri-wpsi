@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_02_020648) do
+ActiveRecord::Schema.define(version: 2022_12_02_031800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 2022_12_02_020648) do
     t.datetime "updated_at", null: false
     t.decimal "sort_priority"
     t.string "menu"
+    t.string "location"
     t.index ["slug"], name: "index_pages_on_slug", unique: true
   end
 
@@ -180,6 +181,7 @@ ActiveRecord::Schema.define(version: 2022_12_02_020648) do
     t.string "pig_number"
     t.string "sheep_number"
     t.string "lstm_2m_forecast"
+    t.index ["GID_1", "month_date"], name: "widget_datapoints_idx_GID_1_date", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
