@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_20_204758) do
+ActiveRecord::Schema.define(version: 2022_12_02_020648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,13 +102,6 @@ ActiveRecord::Schema.define(version: 2022_11_20_204758) do
     t.index ["slug"], name: "index_pages_on_slug", unique: true
   end
 
-  create_table "team_member_tags", force: :cascade do |t|
-    t.string "name"
-    t.string "color"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -176,6 +169,18 @@ ActiveRecord::Schema.define(version: 2022_11_20_204758) do
     t.integer "month"
     t.integer "year"
     t.date "year_date"
+    t.string "IC-FRM-OUTG-ZS"
+    t.string "spam_V_agg_t_sum"
+    t.string "Cropland2000_mean_percent"
+    t.string "buffalo_number"
+    t.string "cattle_number"
+    t.string "chicken_number"
+    t.string "duck_number"
+    t.string "goat_number"
+    t.string "horse_number"
+    t.string "pig_number"
+    t.string "sheep_number"
+    t.string "lstm_2m_forecast"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
