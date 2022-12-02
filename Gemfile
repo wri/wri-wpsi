@@ -54,3 +54,5 @@ group :test do
   gem 'capybara', "~> 3.36.0"
   gem 'cuprite'
 end
+
+gem "activerecord-import", "~> 1.4"

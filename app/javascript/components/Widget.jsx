@@ -5,7 +5,7 @@ const interpolateRegion = (spec, region) => {
   try {
     spec.data.forEach(dataSpec => {
       if (dataSpec.urlTemplate) {
-        dataSpec.url = dataSpec.urlTemplate.replace("${region.gid_2}", region.gid_2)
+        dataSpec.url = dataSpec.urlTemplate.replace("${region.gid_1}", region.gid_1)
       }
     })
     return spec

@@ -47,7 +47,9 @@ const styles = {
     justifyContent: 'space-between',
     paddingTop: '15px',
     fontSize: 'smaller',
-    color: 'white',
+    '& a': {
+      color: 'white',
+    },
   },
   downloadLink:  {
     '&:hover': {
@@ -182,7 +184,7 @@ const MapSideBar = ({
   const renderDownloadDataLink = (region) => {
     return (
       <a
-        href={`/api/v1/widget_datapoints/${region.gid_2}/all/csv`}
+        href={`/api/v1/widget_datapoints/${region.gid_1}/all/csv`}
         className={classes.downloadLink}
       >
         <i className={`icon__download ${classes.downloadIcon}`} />
