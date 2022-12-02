@@ -96,7 +96,9 @@ class LayerGroupsMap extends React.Component {
       const lat = coordiates.lat
       const lng = coordiates.lng
       const whereSql = `where ST_Contains(the_geom, ST_GeometryFromText('POINT(${lng} ${lat})', 4326));`
-      const url = `https://wri-rw.carto.com/api/v2/sql?format=geojson&q=select * from "wri-rw".wpsi_gadm36_2_display ${whereSql}`
+      //const url = `https://wri-rw.carto.com/api/v2/sql?format=geojson&q=select * from "wri-rw".wpsi_gadm36_2_display ${whereSql}`
+      //https://resourcewatch.carto.com/u/wri-rw/tables/gadm36_1/public
+      const url = `https://wri-rw.carto.com/api/v2/sql?format=geojson&q=select * from "wri-rw".wpsi_display_gadm36_1 ${whereSql}`
 
       fetch(url)
         .then(response => response.json())
