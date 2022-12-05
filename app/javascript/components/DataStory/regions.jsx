@@ -790,7 +790,7 @@ export const regions = [
     ],
     dataDetails: [
       {
-        level: "Mediating",
+        level: "Mediator",
         step: 1,
         indicator: "et_anom_m_STD_m",
         interpretation: "Abnormal variation in evapotranspiration",

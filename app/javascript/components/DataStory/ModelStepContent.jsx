@@ -63,7 +63,7 @@ export const DataStoryModelStepContent = () => {
         The causal graphs also show two numbers for each indirect factor and
         mediating effect. These numbers include an effect and error and
         represent how strong the causal relationship is between the variable and
-        resulting conflict
+        resulting conflict.
       </p>
     </>
   );
