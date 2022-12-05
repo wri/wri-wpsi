@@ -26,11 +26,12 @@ const useStyles = createUseStyles({
   article: {},
   graph: {
     width: "100%",
+    maxHeight: '900px'
   },
   "@media (min-width: 992px)": {
     graphBox: {
       position: "sticky",
-      top: "50px",
+      top: "40px",
       alignSelf: "flex-start",
       paddingTop: "4rem",
     },
@@ -38,7 +39,7 @@ const useStyles = createUseStyles({
       paddingRight: "2rem",
     },
     graph: {
-      height: "calc(100vh - 145px)",
+      height: "calc(100vh - 115px)",
     },
   },
   main: {

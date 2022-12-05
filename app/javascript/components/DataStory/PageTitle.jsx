@@ -7,7 +7,7 @@ const useStyles = createUseStyles({
   title: {
     fontSize: "1.25rem",
   },
-  "@media (min-width: 768px)": {
+  "@media (min-width: 992px)": {
     title: {
       fontSize: "2rem",
     },
