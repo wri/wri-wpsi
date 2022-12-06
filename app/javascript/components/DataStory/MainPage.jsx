@@ -10,20 +10,24 @@ import { DataStoryModelStepContent } from "./ModelStepContent";
 import { DataStoryPageTitle } from "./PageTitle";
 import { regions } from "./regions";
 import { DataStorySideNav } from "./SideNav";
+import { breakpoints } from "./constants";
 
 const useStyles = createUseStyles({
   nav: {
     marginTop: "1rem",
     marginBottom: "2rem",
   },
-  "@media (min-width: 768px)": {
+  main: {
+    marginTop: "1rem",
+  },
+  [`@media (min-width: ${breakpoints.lg}px)`]: {
     nav: {
       position: "sticky",
       top: "100px",
     },
-  },
-  main: {
-    marginTop: "3rem",
+    main: {
+      marginTop: "3rem",
+    },
   },
   "@global": {
     html: {

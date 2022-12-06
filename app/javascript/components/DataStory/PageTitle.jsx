@@ -2,12 +2,18 @@ import PropTypes from "prop-types";
 import React from "react";
 import { createUseStyles } from "react-jss";
 import { LayoutContainer } from "./LayoutContainer";
+import { breakpoints } from "./constants";
 
 const useStyles = createUseStyles({
   title: {
-    fontSize: "1.25rem",
+    fontSize: "0.938rem",
   },
-  "@media (min-width: 992px)": {
+  [`@media (min-width: ${breakpoints.sm}px)`]: {
+    title: {
+      fontSize: "1.25rem",
+    },
+  },
+  [`@media (min-width: ${breakpoints.lg}px)`]: {
     title: {
       fontSize: "2rem",
     },

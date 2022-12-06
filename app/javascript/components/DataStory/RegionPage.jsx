@@ -13,6 +13,7 @@ import { DataStorySection } from "./Section";
 import { DataStoryStatsHelpContent } from "./StatsHelpContent";
 import { palette } from "./constants";
 import { useWindowSize } from "util/useWindowSize";
+import { breakpoints } from "./constants";
 
 import { createUseStyles } from "react-jss";
 
@@ -28,7 +29,7 @@ const useStyles = createUseStyles({
     width: "100%",
     maxHeight: '900px'
   },
-  "@media (min-width: 992px)": {
+  [`@media (min-width: ${breakpoints.lg}px)`]: {
     graphBox: {
       position: "sticky",
       top: "40px",
