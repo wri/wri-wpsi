@@ -22,17 +22,24 @@ const useStyles = createUseStyles({
     display: "block",
     border: "1px solid rgba(0, 0, 0, 0.12)",
     width: "100%",
+    marginBottom: "2rem",
+  },
+  [`@media (min-width: ${breakpoints.sm}px)`]: {
+    image: {
+      marginBottom: 0,
+    },
   },
   graphBox: {},
   article: {},
   graph: {
     width: "100%",
     maxHeight: "900px",
+    marginBottom: "2rem",
   },
   [`@media (min-width: ${breakpoints.lg}px)`]: {
     graphBox: {
       position: "sticky",
-      top: "40px",
+      top: "0px",
       alignSelf: "flex-start",
       paddingTop: "4rem",
     },
@@ -41,6 +48,7 @@ const useStyles = createUseStyles({
     },
     graph: {
       height: "calc(100vh - 115px)",
+      marginBottom: 0,
     },
   },
   main: {
