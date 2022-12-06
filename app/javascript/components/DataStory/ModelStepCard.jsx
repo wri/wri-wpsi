@@ -7,7 +7,7 @@ import { palette } from "./constants";
 import { breakpoints } from "./constants";
 
 const stepHeightPx = 200;
-const headerHeightPx = 70;
+const headerHeightPx = 36;
 const useStyles = createUseStyles({
   heroLetter: {
     fontFamily: "Lato, sans-serif",
