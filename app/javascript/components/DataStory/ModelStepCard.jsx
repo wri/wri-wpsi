@@ -82,6 +82,9 @@ const useStyles = createUseStyles({
     borderRadius: "5px",
     color: "#333",
     background: "#fff",
+    '& $heroLetter': {
+      borderWidth: 0
+    },
   },
   nodeBoxTitle: {
     fontSize: "1rem",
@@ -135,6 +138,8 @@ const useStyles = createUseStyles({
     },
     nodeLead: {
       fontSize: "1.25rem",
+      lineHeight: 1.7,
+      marginTop: "1px",
     },
     nodeBox: {
       minHeight: "120px",
@@ -172,14 +177,14 @@ const useStyles = createUseStyles({
     },
     nodeA: {
       "& $nodeArrowShaft:before": {
-        height: "445px",
+        height: "438px",
       },
     },
     nodeB: {
       "& $nodeArrowShaft:before": {
         height: "245px",
       },
-    }
+    },
   },
 });
 
