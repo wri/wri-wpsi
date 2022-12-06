@@ -4,6 +4,7 @@ export const palette = {
   outcome: "#2e3348",
 };
 
+// bootstrap 4.6 breakpoints
 export const breakpoints = {
   xl: 1200,
   lg: 992,

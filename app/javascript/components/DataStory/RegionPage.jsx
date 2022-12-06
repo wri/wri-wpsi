@@ -27,7 +27,7 @@ const useStyles = createUseStyles({
   article: {},
   graph: {
     width: "100%",
-    maxHeight: '900px'
+    maxHeight: "900px",
   },
   [`@media (min-width: ${breakpoints.lg}px)`]: {
     graphBox: {
@@ -68,6 +68,17 @@ const useStyles = createUseStyles({
   },
   outcome: {
     background: palette.outcome,
+  },
+  breadcrumb: {
+    "& > a": {
+      fontSize: "15px",
+      color: "#586671",
+      "&:before": {
+        content: '"« "',
+      },
+    },
+    fontFamily: "Lato, sans-serif",
+    marginTop: "0.5rem",
   },
 });
 
@@ -156,7 +167,7 @@ export const DataStoryRegionPage = () => {
             (d) => d.level.toLowerCase() == level
           );
 
-          if (items.length ===0) return null
+          if (items.length === 0) return null;
           return (
             <DataStorySection
               key={level}
@@ -183,18 +194,12 @@ export const DataStoryRegionPage = () => {
 
   return (
     <>
-      <DataStoryPageTitle
-        title={`Causal Model: ${region.name}`}
-        breadcrumbs={
-          <div className="c-breadcrumbs">
-            <a className="c-breadcrumbs__link" href="/causal">
-              <span>Causal Model</span>
-            </a>
-            <div className="c-breadcrumbs__divider">&gt;</div>
-            <span className="c-breadcrumbs__item">{region.name}</span>
-          </div>
-        }
-      />
+      <LayoutContainer>
+        <div className={classes.breadcrumb}>
+          <a href="/causal">Causal Model</a>
+        </div>
+      </LayoutContainer>
+      <DataStoryPageTitle title={`Causal Model: ${region.name}`} />
       <LayoutContainer variant="inset">
         <div className="row">
           <div className="col-md-3">

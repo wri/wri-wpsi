@@ -20,19 +20,16 @@ const useStyles = createUseStyles({
   },
 });
 
-export const DataStoryPageTitle = ({ title, breadcrumbs }) => {
+export const DataStoryPageTitle = ({ title }) => {
   const classes = useStyles();
+  const shortTitle = title.replace(" and ", " & ");
   return (
     <LayoutContainer variant="stickyTitle">
-      <div className="mt-2">
-        {breadcrumbs}
-        <h1 className={classes.title}>{title}</h1>
-      </div>
+      <h1 className={classes.title}>{shortTitle}</h1>
     </LayoutContainer>
   );
 };
 
 DataStoryPageTitle.propTypes = {
   title: PropTypes.string,
-  breadcrumbs: PropTypes.element,
 };
