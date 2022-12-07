@@ -4,14 +4,11 @@ import { useInView } from "react-intersection-observer";
 import { createUseStyles } from "react-jss";
 import PropTypes from "prop-types";
 import { palette } from "./constants";
+import { breakpoints } from "./constants";
 
 const stepHeightPx = 200;
-const headerHeightPx = 70;
+const headerHeightPx = 36;
 const useStyles = createUseStyles({
-  nodeBoxTitle: {
-    fontSize: "1.25rem",
-    fontWeight: 700,
-  },
   heroLetter: {
     fontFamily: "Lato, sans-serif",
     borderRadius: "50%",
@@ -36,26 +33,74 @@ const useStyles = createUseStyles({
       background: palette.outcome,
     },
   },
+  stepActive: {
+    "& $nodeLead": { opacity: 1 },
+  },
+  nodeA: {
+    borderTopLeftRadius: "10px",
+    borderTopRightRadius: "10px",
+    top: `${stepHeightPx * 0 + headerHeightPx}px`,
+    background: palette.indirect,
+    marginBottom: `${stepHeightPx * 2}px`,
+    "& $nodeArrowShaft:before": {
+      height: "480px",
+    },
+  },
+  nodeB: {
+    top: `${stepHeightPx * 1 + headerHeightPx}px`,
+    background: palette.mediating,
+    marginBottom: `${stepHeightPx * 1}px`,
+    "& $nodeArrowShaft:before": {
+      height: "281px",
+    },
+  },
+  nodeC: {
+    top: `${stepHeightPx * 2 + headerHeightPx}px`,
+    background: palette.outcome,
+    marginBottom: 0,
+    borderBottomLeftRadius: "10px",
+    borderBottomRightRadius: "10px",
+  },
+  chatter: {
+    color: "#fff",
+    position: "absolute",
+    width: "200px",
+    top: "228px",
+    left: "116px",
+    transition: "opacity linear 500ms",
+    opacity: 0,
+  },
+  chatterActive: {
+    opacity: 1,
+  },
   nodeBox: {
-    minHeight: "120px",
-    minWidth: "215px",
-    marginRight: "2.5rem",
+    minHeight: "80px",
+    minWidth: "135px",
+    marginRight: "1.5rem",
     textAlign: "center",
-    padding: "1rem 2rem",
-    borderRadius: "10px",
+    padding: "0.5rem 1rem",
+    borderRadius: "5px",
     color: "#333",
     background: "#fff",
+    '& $heroLetter': {
+      borderWidth: 0
+    },
+  },
+  nodeBoxTitle: {
+    fontSize: "1rem",
+    fontWeight: 700,
+    lineHeight: 1.25,
   },
   nodeArrowShaft: {
     position: "relative",
     "&:before": {
       content: '""',
-      width: "30px",
+      width: "20px",
       position: "absolute",
       zIndex: 1,
-      left: "94px",
+      left: "57px",
       background: "#fff",
-      top: "115px",
+      top: "89px",
     },
   },
   nodeArrowHead: {
@@ -69,63 +114,77 @@ const useStyles = createUseStyles({
       borderTop: "30px solid #fff",
       position: "absolute",
       zIndex: 1,
-      left: "79px",
-      top: "-47px",
+      left: "37px",
+      top: "-32px",
     },
   },
   nodeLead: {
-    fontSize: "1.25rem",
+    fontSize: "1rem",
     transition: "opacity linear 500ms",
     opacity: 0.3,
   },
-  stepActive: {
-    "& $nodeLead": { opacity: 1 },
-  },
   stepCard: {
     alignItems: "flex-start",
-    padding: "2rem",
+    padding: "1rem",
     display: "flex",
     color: "#fff",
     height: `${stepHeightPx}px`,
     position: "sticky",
     zIndex: 1,
   },
-  nodeA: {
-    borderTopLeftRadius: "10px",
-    borderTopRightRadius: "10px",
-    top: `${stepHeightPx * 0 + headerHeightPx}px`,
-    background: palette.indirect,
-    marginBottom: `${stepHeightPx * 2}px`,
-    "& $nodeArrowShaft:before": {
-      height: "445px",
+  [`@media (min-width: ${breakpoints.sm}px)`]: {
+    stepCard: {
+      padding: "2rem",
     },
-  },
-  nodeB: {
-    top: `${stepHeightPx * 1 + headerHeightPx}px`,
-    background: palette.mediating,
-    marginBottom: `${stepHeightPx * 1}px`,
-    "& $nodeArrowShaft:before": {
-      height: "245px",
+    nodeLead: {
+      fontSize: "1.25rem",
+      lineHeight: 1.7,
+      marginTop: "1px",
     },
-  },
-  nodeC: {
-    top: `${stepHeightPx * 2 + headerHeightPx}px`,
-    background: palette.outcome,
-    marginBottom: 0,
-    borderBottomLeftRadius: "10px",
-    borderBottomRightRadius: "10px",
-  },
-  chatter: {
-    color: "#fff",
-    position: "absolute",
-    width: "300px",
-    top: "308px",
-    left: "204px",
-    transition: "opacity linear 500ms",
-    opacity: 0,
-  },
-  chatterActive: {
-    opacity: 1,
+    nodeBox: {
+      minHeight: "120px",
+      minWidth: "215px",
+      marginRight: "2.5rem",
+      borderRadius: "10px",
+      padding: "1rem 2rem",
+    },
+    nodeBoxTitle: {
+      fontSize: "1.25rem",
+      lineHeight: 1.7,
+    },
+    nodeArrowShaft: {
+      position: "relative",
+      "&:before": {
+        width: "30px",
+        left: "94px",
+        top: "115px",
+      },
+    },
+    nodeArrowHead: {
+      position: "relative",
+      "&:after": {
+        borderLeft: "30px solid transparent",
+        borderRight: "30px solid transparent",
+        borderTop: "30px solid #fff",
+        left: "79px",
+        top: "-47px",
+      },
+    },
+    chatter: {
+      width: "300px",
+      top: "308px",
+      left: "204px",
+    },
+    nodeA: {
+      "& $nodeArrowShaft:before": {
+        height: "438px",
+      },
+    },
+    nodeB: {
+      "& $nodeArrowShaft:before": {
+        height: "245px",
+      },
+    },
   },
 });
 

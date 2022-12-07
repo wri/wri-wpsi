@@ -5,9 +5,9 @@ import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles({
   inset: {
     background: "#efefef",
+    borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
     paddingTop: "2rem",
     paddingBottom: "2rem",
-    borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
   },
   stickyTitle: {
     background: "#fff",

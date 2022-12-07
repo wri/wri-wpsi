@@ -6,7 +6,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="" height="" viewBox="0.00 0.00 539.50 1089.00" preserveAspectRatio="xMinYMin">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1085)">
 <title>causalModel</title>
-<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-1085 535.5,-1085 535.5,4 -4,4"/>
 <text text-anchor="start" x="86.75" y="-10.3" font-family="Helvetica, Arial, sans-serif" font-weight="bold" font-size="14.00" fill="#000000">Causal Model: Latin America and Caribbean</text>
 <!-- et_anom_m_STD_m -->
 <g id="node1" class="node rankB">

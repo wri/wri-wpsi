@@ -1,15 +1,16 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { breakpoints } from "./constants";
 
 const useStyles = createUseStyles({
   root: {
     display: "grid",
     gridTemplateColumns: "repeat(2, 1fr)",
     gap: "20px",
-    margin: '3rem 0',
+    margin: "3rem 0",
   },
-  "@media (min-width: 768px)": {
+  [`@media (min-width: ${breakpoints.md}px)`]: {
     root: {
       gridTemplateColumns: "repeat(3, 1fr)",
     },

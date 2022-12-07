@@ -13,6 +13,7 @@ import { DataStorySection } from "./Section";
 import { DataStoryStatsHelpContent } from "./StatsHelpContent";
 import { palette } from "./constants";
 import { useWindowSize } from "util/useWindowSize";
+import { breakpoints } from "./constants";
 
 import { createUseStyles } from "react-jss";
 
@@ -21,25 +22,41 @@ const useStyles = createUseStyles({
     display: "block",
     border: "1px solid rgba(0, 0, 0, 0.12)",
     width: "100%",
+    marginBottom: "2rem",
+  },
+  [`@media (min-width: ${breakpoints.sm}px)`]: {
+    image: {
+      marginBottom: 0,
+    },
   },
   graphBox: {},
   article: {},
   graph: {
     width: "100%",
-    maxHeight: '900px'
+    maxHeight: "900px",
+    marginBottom: "2rem",
   },
-  "@media (min-width: 992px)": {
+  graphScroll: {},
+  [`@media (min-width: ${breakpoints.lg}px)`]: {
+    graphScroll: {
+      background: "#efefef",
+      padding: "0.5rem",
+      overflowY: 'auto',
+      height: "calc(100vh - 70px)",
+      border: "1px solid rgba(0, 0, 0, 0.12)",
+
+    },
     graphBox: {
       position: "sticky",
-      top: "40px",
+      top: "-1rem",
       alignSelf: "flex-start",
-      paddingTop: "4rem",
+      paddingTop: "4.27rem",
     },
     article: {
       paddingRight: "2rem",
     },
     graph: {
-      height: "calc(100vh - 115px)",
+      marginBottom: 0,
     },
   },
   main: {
@@ -67,6 +84,17 @@ const useStyles = createUseStyles({
   },
   outcome: {
     background: palette.outcome,
+  },
+  breadcrumb: {
+    "& > a": {
+      fontSize: "15px",
+      color: "#586671",
+      "&:before": {
+        content: '"« "',
+      },
+    },
+    fontFamily: "Lato, sans-serif",
+    marginTop: "0.5rem",
   },
 });
 
@@ -155,7 +183,7 @@ export const DataStoryRegionPage = () => {
             (d) => d.level.toLowerCase() == level
           );
 
-          if (items.length ===0) return null
+          if (items.length === 0) return null;
           return (
             <DataStorySection
               key={level}
@@ -182,18 +210,12 @@ export const DataStoryRegionPage = () => {
 
   return (
     <>
-      <DataStoryPageTitle
-        title={`Causal Model: ${region.name}`}
-        breadcrumbs={
-          <div className="c-breadcrumbs">
-            <a className="c-breadcrumbs__link" href="/causal">
-              <span>Causal Model</span>
-            </a>
-            <div className="c-breadcrumbs__divider">&gt;</div>
-            <span className="c-breadcrumbs__item">{region.name}</span>
-          </div>
-        }
-      />
+      <LayoutContainer>
+        <div className={classes.breadcrumb}>
+          <a href="/causal">Causal Model</a>
+        </div>
+      </LayoutContainer>
+      <DataStoryPageTitle title={`Causal Model: ${region.name}`} />
       <LayoutContainer variant="inset">
         <div className="row">
           <div className="col-md-3">
@@ -227,7 +249,7 @@ export const DataStoryRegionPage = () => {
               {detailsContent}
             </div>
             <div className={clsx("col-lg-6", classes.graphBox)}>
-              {graphContent}
+              <div className={classes.graphScroll}>{graphContent}</div>
             </div>
           </div>
         )}

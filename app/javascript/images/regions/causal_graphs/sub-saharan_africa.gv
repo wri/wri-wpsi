@@ -1,5 +1,6 @@
 # generated file for region: sub-saharan_africa by CausalModelRegionGenerator
 strict digraph causalModel {
+bgcolor = transparent;
 fontname="Helvetica, Arial, sans-serif";
 label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD></TD></TR><TR><TD ALIGN="LEFT"><B>Causal Model: Sub-Saharan Africa</B></TD></TR><TR><TD ALIGN="LEFT">***significance of 0.1%</TD></TR></TABLE>>;
 labelloc = b;
