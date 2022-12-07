@@ -98,6 +98,7 @@ class CausalModelRegionGenerator
     <<~GV
       # generated file for region: #{region[:id]} by #{self.class.name}
       strict digraph causalModel {
+      bgcolor = transparent;
       fontname="#{font_name}";
       label=#{render_legend(region)};
       labelloc = b;

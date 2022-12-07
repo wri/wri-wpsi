@@ -1,5 +1,6 @@
 # generated file for region: latin_america_and_caribbean by CausalModelRegionGenerator
 strict digraph causalModel {
+bgcolor = transparent;
 fontname="Helvetica, Arial, sans-serif";
 label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD></TD></TR><TR><TD ALIGN="LEFT"><B>Causal Model: Latin America and Caribbean</B></TD></TR></TABLE>>;
 labelloc = b;

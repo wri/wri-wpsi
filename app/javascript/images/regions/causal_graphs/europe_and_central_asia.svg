@@ -6,7 +6,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="" height="" viewBox="0.00 0.00 639.50 905.00" preserveAspectRatio="xMinYMin">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 901)">
 <title>causalModel</title>
-<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-901 635.5,-901 635.5,4 -4,4"/>
 <text text-anchor="start" x="156.75" y="-48.3" font-family="Helvetica, Arial, sans-serif" font-weight="bold" font-size="14.00" fill="#000000">Causal Model: Europe and Central Asia</text>
 <text text-anchor="start" x="156.75" y="-28.3" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">***significance of 0.1%</text>
 <text text-anchor="start" x="156.75" y="-9.3" font-family="Helvetica, Arial, sans-serif" font-size="14.00" fill="#000000">**significance of 1%</text>

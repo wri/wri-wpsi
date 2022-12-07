@@ -1,5 +1,6 @@
 # generated file for region: middle_east_and_north_africa by CausalModelRegionGenerator
 strict digraph causalModel {
+bgcolor = transparent;
 fontname="Helvetica, Arial, sans-serif";
 label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD></TD></TR><TR><TD ALIGN="LEFT"><B>Causal Model: Middle East and North Africa</B></TD></TR><TR><TD ALIGN="LEFT">**significance of 1%</TD></TR></TABLE>>;
 labelloc = b;

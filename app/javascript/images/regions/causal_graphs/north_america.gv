@@ -1,5 +1,6 @@
 # generated file for region: north_america by CausalModelRegionGenerator
 strict digraph causalModel {
+bgcolor = transparent;
 fontname="Helvetica, Arial, sans-serif";
 label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD></TD></TR><TR><TD ALIGN="LEFT"><B>Causal Model: North America</B></TD></TR><TR><TD ALIGN="LEFT">***significance of 0.1%</TD></TR></TABLE>>;
 labelloc = b;

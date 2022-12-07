@@ -36,18 +36,26 @@ const useStyles = createUseStyles({
     maxHeight: "900px",
     marginBottom: "2rem",
   },
+  graphScroll: {},
   [`@media (min-width: ${breakpoints.lg}px)`]: {
+    graphScroll: {
+      background: "#efefef",
+      padding: "0.5rem",
+      overflowY: 'auto',
+      height: "calc(100vh - 70px)",
+      border: "1px solid rgba(0, 0, 0, 0.12)",
+
+    },
     graphBox: {
       position: "sticky",
-      top: "0px",
+      top: "-1rem",
       alignSelf: "flex-start",
-      paddingTop: "4rem",
+      paddingTop: "4.27rem",
     },
     article: {
       paddingRight: "2rem",
     },
     graph: {
-      height: "calc(100vh - 115px)",
       marginBottom: 0,
     },
   },
@@ -241,7 +249,7 @@ export const DataStoryRegionPage = () => {
               {detailsContent}
             </div>
             <div className={clsx("col-lg-6", classes.graphBox)}>
-              {graphContent}
+              <div className={classes.graphScroll}>{graphContent}</div>
             </div>
           </div>
         )}

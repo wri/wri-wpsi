@@ -1,5 +1,6 @@
 # generated file for region: east_asia_and_pacific by CausalModelRegionGenerator
 strict digraph causalModel {
+bgcolor = transparent;
 fontname="Helvetica, Arial, sans-serif";
 label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0"><TR><TD></TD></TR><TR><TD ALIGN="LEFT"><B>Causal Model: East Asia and Pacific</B></TD></TR><TR><TD ALIGN="LEFT">***significance of 0.1%</TD></TR><TR><TD ALIGN="LEFT">*significance of 5%</TD></TR></TABLE>>;
 labelloc = b;
