@@ -4,7 +4,7 @@ require "tzinfo"
 lock '~> 3.16.0'
 
 set :application, 'wri-wpsi'
-set :repo_url, 'git@github.com:greenriver/wri-wpsi.git'
+set :repo_url, 'git@github.com:wri/wri-wpsi.git'
 
 set :rvm_custom_path, '/usr/share/rvm'
 set :rvm_ruby_version, '2.6.6'
@@ -23,13 +23,13 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/syst
 # Default value for keep_releases is 5
 set :keep_releases, 5
 
-require_relative '../lib/capistrano/slack'
-set :slackistrano,
-    klass: Slackistrano::CustomMessaging,
-    channel: '#gr-wri-notices',
-    username: 'Capistrano',
-    icon_emoji: ':ship:',
-    webhook: ENV['WRI_SLACK_WEBHOOK']
+# require_relative '../lib/capistrano/slack'
+# set :slackistrano,
+#     klass: Slackistrano::CustomMessaging,
+#     channel: '#gr-wri-notices',
+#     username: 'Capistrano',
+#     icon_emoji: ':ship:',
+#     webhook: ENV['WRI_SLACK_WEBHOOK']
 
 def time_in_vermont
   tz = TZInfo::Timezone.get('US/Eastern')
