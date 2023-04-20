@@ -17,4 +17,11 @@
     .field
       = f.label :location
       = f.text_field :location, class: 'form-control'
+  .form-group
+    .field
+      = f.hidden_field(:time_zone, value: nil)
+  
   .actions = f.submit class: 'btn btn-primary'
+
+javascript:
+  document.getElementById('event_time_zone').value = new Date().getTimezoneOffset();

@@ -47,6 +47,7 @@ class Admin::EventsController < Admin::BaseController
       :start,
       :ends,
       :location,
+      :time_zone
     ).to_h
   end
 end
