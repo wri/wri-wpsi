@@ -11,6 +11,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
 
   get '/news', to: 'root#news'
   get '/archive', to: 'root#archive'
+  get '/events', to: 'root#events'
 
   get '/causal', to: 'root#causal'
   get "/causal/*ignored", to: "root#causal"
