@@ -1,0 +1,8 @@
+section
+  .container.auto
+    - @events.each_with_index do |event, index|
+      = render 'root/landing/event_item', event: event, index: index, last: @events.length - 1
+
+    .text-center.mt-6
+      a href='/events' class="c-button c-button--section"
+        span = 'Events'

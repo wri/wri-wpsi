@@ -1,0 +1,48 @@
+ruby:
+  event ||= nil
+  index ||= nil
+  last ||= 0
+
+.d-flex.justify-content-center
+  - if index == 0 && last == 0          
+    .p-3.c-event.border.border-secondary.border-right-0
+      .col
+        .row
+          .col.text-center
+            = event.start.day
+        .row
+          .col.text-center 
+            = event.start.strftime("%^b")
+    .p-3.col-sm-8.border.border-secondary
+      .h4
+        = event.title
+      .div
+        = event.time + " " + event.location
+  - elsif index < last
+    .p-3.c-event.border.border-secondary.border-right-0.border-bottom-0
+      .col
+        .row
+          .col.text-center
+            = event.start.day
+        .row
+          .col.text-center 
+            = event.start.strftime("%^b")
+    .p-3.col-sm-8.border.border-secondary.border-bottom-0
+      .h4
+        = event.title
+      .div
+        = event.time + " " + event.location
+  - else 
+    .p-3.c-event.border.border-secondary.border-right-0
+      .col
+        .row
+          .col.text-center
+            = event.start.day
+        .row
+          .col.text-center 
+            = event.start.strftime("%^b")
+    .p-3.col-sm-8.border.border-secondary
+      .h4
+        = event.title
+      .div
+        = event.time + " " + event.location

@@ -19,6 +19,8 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.mb-4
           = link_to 'Categories', admin_categories_path, class: 'nav-link'
         li.nav-item class=('active' if current_controller == 'pages')
           = link_to 'Pages', admin_pages_path, class: 'nav-link'
+        li.nav-item class=('active' if current_controller == 'pages')
+          = link_to 'Events', admin_events_path, class: 'nav-link'
         li.nav-item class=('active' if current_controller == 'news_items')
           = link_to 'News Items', admin_news_items_path, class: 'nav-link'
         li.nav-item class=('active' if current_controller == 'users')

@@ -13,6 +13,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
   def index
     setup_cards!
     @news_items = NewsItem.current.limit(4)
+    @events = Event.ordered_by_start_date
     set_pages
   end
 
