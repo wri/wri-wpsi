@@ -29,6 +29,11 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     @news_items = NewsItem.current.limit(12)
   end
 
+  def events
+    set_pages
+    @events = Event.ordered_by_start_date
+  end
+
   def archive
     set_pages
     @news_items = NewsItem.archived
