@@ -31,6 +31,7 @@ group :development, :test do
   gem 'i18n-tasks'
   gem 'simplecov'
   gem 'simplecov-console'
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do
