@@ -34,6 +34,8 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
 
   namespace :admin do
     resources :events
+    resources :team_members
+    resources :tags
     resources :categories
     resources :layers
     resources :pages, param: :slug

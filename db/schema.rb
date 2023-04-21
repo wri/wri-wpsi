@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 2023_04_20_202816) do
     t.string "name"
     t.string "description"
     t.string "email"
+    t.string "profile_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

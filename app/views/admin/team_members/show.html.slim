@@ -1,0 +1,30 @@
+div
+  h2 = @team_member.name
+
+.mt-3
+  p
+    strong> Name:
+    = @team_member.name
+  p
+    strong> Description:
+    = @team_member.description
+
+  p
+    strong> Email:
+    = @team_member.email
+
+  p
+    strong> Profile Image:
+    .profile-image-div style="background-image: url(#{@team_member.profile_image})"
+
+  p
+    strong> Tags:
+    = @team_member.tags.map(&:name).join(', ')
+
+  / p
+  /   strong> Preview:
+  /   = render 'root/landing/team_member', item: @team_member
+
+=> link_to 'Edit', edit_admin_team_member_path(@team_member)
+'|
+=< link_to 'Back', admin_team_members_path
