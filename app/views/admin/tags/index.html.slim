@@ -1,0 +1,20 @@
+h2.mb-4 Listing admin tags
+
+table.table
+  thead
+    tr
+      th Name
+      th
+
+  tbody
+    - @tags.each do |tag|
+      tr
+        td = tag.name
+          
+        td = link_to 'Delete', [:admin, tag],
+            data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'Add tag', new_admin_tag_path,
+    class: 'btn btn-primary mb-4'

@@ -4,3 +4,20 @@
   background-color: $green-d;
   color: white;
 }
+
+.tag-checkboxes {
+  input[type="checkbox"] {
+    margin: 10px;
+    margin-right: 5px;
+    margin-left: 15px;
+  }
+  border: 1px solid #ced4da
+}
+
+.profile-image-div {
+  width: 120px;
+  height: 120px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
