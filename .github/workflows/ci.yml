@@ -80,6 +80,11 @@ jobs:
           sudo chown -R $(whoami) /tmp
           bundle exec rails test
 
+      - name: Run Rspec tests
+        run: |
+          sudo chown -R $(whoami) /tmp
+          bundle exec rspec
+
       - name: Run E2E tests
         env:
           CHROME_URL: http://localhost:3333
