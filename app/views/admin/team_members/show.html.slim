@@ -21,9 +21,9 @@ div
     strong> Tags:
     = @team_member.tags.map(&:name).join(', ')
 
-  / p
-  /   strong> Preview:
-  /   = render 'root/landing/team_member', item: @team_member
+  p
+    strong> Preview:
+    = render 'root/landing/team_member', team_member: @team_member
 
 => link_to 'Edit', edit_admin_team_member_path(@team_member)
 '|
