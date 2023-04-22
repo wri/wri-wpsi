@@ -2,47 +2,47 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="gtm-sideBar MapSideBar-sideBar-0-1-1"
+  className="gtm-sideBar MapSideBar-sideBar-0-2-1"
   id="sideBar"
 >
   <header
-    className="MapSideBar-header-0-1-2"
+    className="MapSideBar-header-0-2-2"
   >
     <h1
-      className="MapSideBar-headerTitle-0-1-3"
+      className="MapSideBar-headerTitle-0-2-3"
     >
       Investigation
     </h1>
     <button
-      className="gtm-add-dataset-launch-modal MapSideBar-addLayerButton-0-1-8"
+      className="gtm-add-dataset-launch-modal MapSideBar-addLayerButton-0-2-8"
       onClick={[Function]}
       style={Object {}}
     >
       <i
-        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-9"
+        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-2-9"
       />
       Add datasets
     </button>
   </header>
   <div
-    className="MapSideBar-locationHeader-0-1-4 MapSideBar-header-0-1-2"
+    className="MapSideBar-locationHeader-0-2-4 MapSideBar-header-0-2-2"
   >
     <i>
       Click on the map to select a region
     </i>
   </div>
   <div
-    className="gtm-sideBarContent MapSideBar-sideBarContent-0-1-10"
+    className="gtm-sideBarContent MapSideBar-sideBarContent-0-2-10"
     id="sideBarContent"
   >
     <div
-      className="LayerCard-container-0-1-11 LayerCard-toggle-0-1-13"
+      className="LayerCard-container-0-2-11 LayerCard-toggle-0-2-13"
     >
       <header
-        className="LayerCard-header-0-1-14"
+        className="LayerCard-header-0-2-14"
       >
         <h2
-          className="LayerCard-title-0-1-15"
+          className="LayerCard-title-0-2-15"
         >
           Highlight areas of water stress
         </h2>
@@ -140,13 +140,13 @@ exports[`renders correctly 1`] = `
         </div>
       </header>
       <div
-        className="LayerCard-content-0-1-16"
+        className="LayerCard-content-0-2-16"
       >
         <p
-          className="LayerCard-contentDescription-0-1-17"
+          className="LayerCard-contentDescription-0-2-17"
         >
           <a
-            className="LayerCard-moreLink-0-1-18 gtm-learn-more"
+            className="LayerCard-moreLink-0-2-18 gtm-learn-more"
             href="/map/learn_more/123"
             onClick={[Function]}
           >
@@ -164,15 +164,15 @@ exports[`renders correctly 1`] = `
           </a>
         </p>
         <p
-          className="LayerCard-source-0-1-19"
+          className="LayerCard-source-0-2-19"
         >
           <a
-            className="LayerCard-sourceLink-0-1-20"
+            className="LayerCard-sourceLink-0-2-20"
             rel="noopener noreferrer"
             target="_blank"
           />
           <span
-            className="LayerCard-sourceDescription-0-1-21"
+            className="LayerCard-sourceDescription-0-2-21"
           />
         </p>
         <div
@@ -185,7 +185,7 @@ exports[`renders correctly 1`] = `
       </div>
     </div>
     <button
-      className="gtm-add-dataset-launch-modal MapSideBar-addLayerButton-0-1-8"
+      className="gtm-add-dataset-launch-modal MapSideBar-addLayerButton-0-2-8"
       onClick={[Function]}
       style={
         Object {
@@ -199,7 +199,7 @@ exports[`renders correctly 1`] = `
       }
     >
       <i
-        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-1-9"
+        className="icon__plus-circle MapSideBar-addLayerButtonIcon-0-2-9"
       />
       Add datasets
     </button>

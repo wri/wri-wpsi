@@ -2,25 +2,25 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="LayerCard-container-0-1-1 "
+  className="LayerCard-container-0-2-1 "
 >
   <header
-    className="LayerCard-header-0-1-4"
+    className="LayerCard-header-0-2-4"
   >
     <h2
-      className="LayerCard-title-0-1-5"
+      className="LayerCard-title-0-2-5"
     >
       My test layer
     </h2>
   </header>
   <div
-    className="LayerCard-content-0-1-6"
+    className="LayerCard-content-0-2-6"
   >
     <p
-      className="LayerCard-contentDescription-0-1-7"
+      className="LayerCard-contentDescription-0-2-7"
     >
       <Link
-        className="LayerCard-moreLink-0-1-8 gtm-learn-more"
+        className="LayerCard-moreLink-0-2-8 gtm-learn-more"
         to="/map/learn_more/123"
       >
         <i
@@ -37,10 +37,10 @@ exports[`renders correctly 1`] = `
       </Link>
     </p>
     <p
-      className="LayerCard-source-0-1-9"
+      className="LayerCard-source-0-2-9"
     >
       <a
-        className="LayerCard-sourceLink-0-1-10"
+        className="LayerCard-sourceLink-0-2-10"
         href="www.wikipedia.org"
         rel="noopener noreferrer"
         target="_blank"
@@ -48,7 +48,7 @@ exports[`renders correctly 1`] = `
         Wikipedia
       </a>
       <span
-        className="LayerCard-sourceDescription-0-1-11"
+        className="LayerCard-sourceDescription-0-2-11"
       />
     </p>
     <div
