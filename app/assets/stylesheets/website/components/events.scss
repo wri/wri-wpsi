@@ -23,8 +23,7 @@
 }
 
 .profile-card {
-  max-width: 500px;
-  min-width: 400px;
+  width: 400px;
 }
 
 .profile-image-card-section {
@@ -32,8 +31,8 @@
   max-width: 180px;
   max-height: 180px;
   min-height: 150px;
-  background-position: right;
-  background-size: contain;
+  background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 

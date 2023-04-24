@@ -8,6 +8,7 @@ class Page < ApplicationRecord
     'map' => :map,
     'news-and-publications' => :news,
     'news-archive' => :archive,
+    'our-team' => :our_team
   }.freeze
 
   def self.news
@@ -20,6 +21,10 @@ class Page < ApplicationRecord
 
   def self.archive
     Page.find_by(slug: 'news-archive')
+  end
+
+  def self.our_team
+    Page.find_by(slug: 'our_team')
   end
 
   def to_param

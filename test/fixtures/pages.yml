@@ -22,3 +22,7 @@ archive:
   name: 'Archived News & Publications'
   slug: 'news-archive'
   menu: 'about-wps'
+our_team:
+  name: 'Our Team'
+  slug: 'our_team'
+  menu: 'about-wps'

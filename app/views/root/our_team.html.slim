@@ -1,0 +1,20 @@
+- content_for :main_content do
+  main.o-container.o-container--page.o-page
+    .container.c-page
+      .row
+        .col-sm-12.col-md-8.mx-auto
+          = render 'root/breadcrumbs', page: Page.our_team
+          h1 = 'Our Team'
+      - if @team_members.any?
+        section
+          .container.mb-10.auto.team_members
+            - @team_members.each_with_index do |team_member, index|
+              = render 'root/landing/team_member', team_member: team_member
+
+      - else
+        .row
+          .col-sm-12.col-md-8.mx-auto
+            p.mt-8.mb-12.text-black-50
+              = 'No team members'
+
+= render 'root/landing/page'

@@ -34,6 +34,11 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     @events = Event.ordered_by_start_date
   end
 
+  def our_team
+    set_pages
+    @team_members = TeamMember.all
+  end
+
   def archive
     set_pages
     @news_items = NewsItem.archived

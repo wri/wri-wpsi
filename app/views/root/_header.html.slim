@@ -28,7 +28,7 @@
                 }
                   span = page.name
                 .dropdown-menu aria-labelledby="#{page.slug}_dropdown"
-                  - children.each do |child_page|
+                  - children.sort_by{|h| h.sort_priority ? h.sort_priority : 0}.each do |child_page|
                     - if child_page.slug == 'cm_root'
                       .dropdown-divider
                     a.dropdown-item href=direct_page_path(child_page)
