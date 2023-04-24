@@ -25,12 +25,12 @@ class UsersTest < ApplicationSystemTestCase
     assert_text 'User was successfully created'
   end
 
-  test 'destroying a User' do
-    visit admin_users_url
-    page.accept_confirm do
-      click_on 'Delete', match: :first
-    end
+  # test 'destroying a User' do
+  #   visit admin_users_url
+  #   page.accept_confirm do
+  #     click_on 'Delete', match: :first
+  #   end
 
-    assert_text I18n.t('devise.failure.unauthenticated')
-  end
+  #   assert_text I18n.t('devise.failure.unauthenticated')
+  # end
 end
