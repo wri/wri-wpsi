@@ -3,6 +3,7 @@ FactoryBot.define do
     name { Faker::Name.name }
     description { Faker::Lorem.sentence }
     email { Faker::Internet.email }
+    profile_image { 'image_url' }
     tags { Tag.all.limit(3) }
 
     trait :with_new_tags do
