@@ -6,18 +6,18 @@ class RootTest < ApplicationSystemTestCase
     assert_text 'OK'
   end
 
-  # def test_landing_page
-  #   retry_on_timeout do
-  #     visit '/'
-  #     assert_selector 'a > img[alt="WPS logo"]'
-  #     assert_selector '#hero'
-  #     create(:news_item, title: 'News Item 1')
-  #     create(:news_item, title: 'News Item 2')
-  #     NewsItem.current.each_with_index do |item, i|
-  #       i < 4 ? assert_text(item.title) : assert_no_text(item.title)
-  #     end
-  #   end
-  # end
+  def test_landing_page
+    retry_on_timeout do
+      visit '/'
+      assert_selector 'a > img[alt="WPS logo"]'
+      assert_selector '#hero'
+      create(:news_item, title: 'News Item 1')
+      create(:news_item, title: 'News Item 2')
+      NewsItem.current.each_with_index do |item, i|
+        i < 4 ? assert_text(item.title) : assert_no_text(item.title)
+      end
+    end
+  end
 
   def test_news_page
     visit '/news'
