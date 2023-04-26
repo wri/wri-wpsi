@@ -2,6 +2,8 @@ class Page < ApplicationRecord
   validates :name, presence: true
   validates :slug, presence: true, uniqueness: true
 
+  has_and_belongs_to_many :team_members, join_table: :page_team_members
+
   scope :top_level, -> { where(menu: '').ordered }
 
   SLUG_REDIRECTS = {
