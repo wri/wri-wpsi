@@ -36,7 +36,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
 
   def our_team
     set_pages
-    @team_members = TeamMember.all
+    @team_members = TeamMember.ordered_by_name
   end
 
   def archive

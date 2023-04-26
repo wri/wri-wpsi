@@ -15,6 +15,7 @@ class Admin::PagesController < Admin::BaseController
 
   def create
     @page = Page.new(page_params)
+    set_page_team_members
 
     if @page.save
       redirect_to [:admin, @page], notice: 'Page was successfully created.'
@@ -24,6 +25,7 @@ class Admin::PagesController < Admin::BaseController
   end
 
   def update
+    set_page_team_members
     if @page.update(page_params)
       redirect_to [:admin, @page], notice: 'Page was successfully updated.'
     else
@@ -44,5 +46,9 @@ class Admin::PagesController < Admin::BaseController
 
   def page_params
     params.require(:page).permit(:name, :slug, :menu, :content, :sort_priority)
+  end
+
+  def set_page_team_members
+    @page.team_members = TeamMember.where(id: params[:team_members][:team_member_id].map(&:to_i))
   end
 end

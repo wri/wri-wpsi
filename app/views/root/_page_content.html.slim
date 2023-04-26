@@ -5,10 +5,11 @@ main.o-container.o-container--page.o-page
         .col-sm-12.col-md-8
           = render 'root/breadcrumbs', page: page
           div = raw page.content
-        .col-md-2 
+        .col-md-2
           h4 = 'Contact'
-          - page.team_members.each do |tm|
-            = render 'root/landing/team_member', team_member: tm
+          .team_members_container
+            - page.team_members.each do |tm|
+              = render 'root/landing/team_member', team_member: tm
       - else 
         .col-sm-12.col-md-8.mx-auto.c-page
           = render 'root/breadcrumbs', page: page

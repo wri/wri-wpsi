@@ -21,6 +21,11 @@
       = f.text_field :sort_priority, class: 'form-control'
   .form-group
     .field
+      = f.label :team_members
+      .p-3.tag-checkboxes.rounded
+        = collection_check_boxes(:team_members, :team_member_id, TeamMember.ordered_by_name,:id, :name, { checked: @page.team_members.map(&:to_param) })
+  .form-group
+    .field
       = f.label :content
       - if @page.contentless?
         = f.text_field :content, class: 'form-control',

@@ -3,7 +3,7 @@ class Admin::TeamMembersController < Admin::BaseController
   before_action :set_image_url_options, only: %i[edit update new create]
 
   def index
-    @team_members = TeamMember.all
+    @team_members = TeamMember.ordered_by_name
   end
 
   def new

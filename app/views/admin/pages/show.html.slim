@@ -16,6 +16,9 @@ div
     strong> #{Page.human_attribute_name(:sort_priority)}:
     = @page.sort_priority
   p
+    strong> #{Page.human_attribute_name(:team_members)}:
+    = @page.team_members.map(&:name).join(', ')
+  p
     strong> #{Page.human_attribute_name(:content)}:
     .p-4.border
       = render 'root/page_content', page: @page, admin: true
