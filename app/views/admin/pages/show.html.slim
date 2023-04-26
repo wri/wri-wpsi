@@ -18,7 +18,7 @@ div
   p
     strong> #{Page.human_attribute_name(:content)}:
     .p-4.border
-      = render 'root/page_content', page: @page
+      = render 'root/page_content', page: @page, admin: true
 
 => link_to 'Edit', edit_admin_page_path(@page)
 '|

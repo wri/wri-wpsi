@@ -22,9 +22,6 @@
   background-repeat: no-repeat;
 }
 
-.profile-card {
-  width: 400px;
-}
 
 .profile-image-card-section {
   min-width: 150px;
@@ -43,10 +40,11 @@
   justify-content: center;
   .h4 {
     color: $blue-d;
+    font-size: 15px;
   }
   .description {
     font-family: "Lato", sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     color: grey;
     line-height: 1.2;
     -webkit-font-smoothing: antialiased;
@@ -78,7 +76,7 @@
     }
   }
   span {
-    font-size: 0.75rem;
+    font-size: 12px;
     color: white;
     padding: 3px;
     margin-right: 5px;
