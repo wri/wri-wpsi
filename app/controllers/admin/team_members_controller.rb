@@ -15,7 +15,7 @@ class Admin::TeamMembersController < Admin::BaseController
   def edit; end
 
   def update
-    @team_member.tags = Tag.where(id: params[:tags][:tag_id].map(&:to_i))
+    set_team_member_tags
     if @team_member.update(team_member_params)
       redirect_to [:admin, @team_member], notice: 'News item was successfully updated.'
     else
@@ -25,7 +25,7 @@ class Admin::TeamMembersController < Admin::BaseController
 
   def create
     @team_member = TeamMember.new(team_member_params)
-    @team_member.tags = Tag.where(id: params[:tags][:tag_id].map(&:to_i))
+    set_team_member_tags
 
     if @team_member.save
       redirect_to admin_team_members_url, notice: 'Team member was successfully created.'
@@ -61,5 +61,9 @@ class Admin::TeamMembersController < Admin::BaseController
     @image_url_options = FileUpload.all.map do |file_upload|
       [file_upload.description, url_for(file_upload.file)]
     end
+  end
+
+  def set_team_member_tags
+    @team_member.tags = Tag.where(id: params.dig(:tags, :tag_id)&.map(&:to_i))
   end
 end

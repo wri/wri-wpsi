@@ -49,6 +49,6 @@ class Admin::PagesController < Admin::BaseController
   end
 
   def set_page_team_members
-    @page.team_members = TeamMember.where(id: params[:team_members][:team_member_id].map(&:to_i))
+    @page.team_members = TeamMember.where(id: params.dig(:team_members,:team_member_id)&.map(&:to_i))
   end
 end
