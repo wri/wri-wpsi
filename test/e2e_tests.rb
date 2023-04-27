@@ -57,7 +57,6 @@ module E2eTests
             timeout: 15
           }.merge(remote_options),
         )
-        ::Capybara.javascript_driver = :cuprite
       end
     end
   end
