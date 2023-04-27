@@ -13,7 +13,7 @@ module E2eTests
   module Setup
     # The setup to be run prior to the test suite
     def self.perform(
-      process_timeout: 30,
+      process_timeout: 10,
       default_max_wait_time: 15,
       default_normalize_ws: true,
       enable_aria_label: true,
@@ -54,7 +54,7 @@ module E2eTests
             # js_errors: true,
             logger: FerrumLogger.new,
             inspector: true,
-            timeout: 15
+            timeout: 10
           }.merge(remote_options),
         )
       end
