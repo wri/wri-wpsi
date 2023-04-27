@@ -13,7 +13,7 @@ module E2eTests
   module Setup
     # The setup to be run prior to the test suite
     def self.perform(
-      process_timeout: 10,
+      process_timeout: 30,
       default_max_wait_time: 15,
       default_normalize_ws: true,
       enable_aria_label: true,
@@ -54,9 +54,10 @@ module E2eTests
             # js_errors: true,
             logger: FerrumLogger.new,
             inspector: true,
-            timeout: 10
+            timeout: 15
           }.merge(remote_options),
         )
+        ::Capybara.javascript_driver = :cuprite
       end
     end
   end
