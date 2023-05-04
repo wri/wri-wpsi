@@ -21,7 +21,7 @@ namespace 'e2e' do
   end
 
   task :docker do
-    puts "Running E2E tests with Docker on #{ENV['CHROME_URL']}"
+    puts "Running E2E tests with Docker on http://localhost:3333"
     file = ARGV[1]
     set_envs
     if file
