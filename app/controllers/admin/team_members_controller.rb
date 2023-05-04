@@ -17,7 +17,7 @@ class Admin::TeamMembersController < Admin::BaseController
   def update
     set_team_member_tags
     if @team_member.update(team_member_params)
-      redirect_to [:admin, @team_member], notice: 'News item was successfully updated.'
+      redirect_to [:admin, @team_member], notice: 'Team member was successfully updated.'
     else
       render :edit
     end
