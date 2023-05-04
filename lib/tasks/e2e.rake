@@ -1,3 +1,17 @@
+def delete_previous_tmp_files
+  begin
+    sh('rm -r tmp/capybara')
+  rescue => exception
+    puts 'tmp/capybara empty'
+  end
+
+  begin
+    sh('rm -r tmp/screenshots')
+  rescue => exception
+    puts 'tmp/screenshots empty'
+  end
+end
+
 def set_envs
   ENV['RAILS_ENV'] = 'test'
   ENV['DB_HOST'] = 'localhost'
@@ -11,6 +25,7 @@ namespace 'e2e' do
   task :local do
     puts "Running E2E tests with VcXserv"
     file = ARGV[1]
+    delete_previous_tmp_files
     set_envs
     if file
       puts "Running file: #{file}"
@@ -21,8 +36,9 @@ namespace 'e2e' do
   end
 
   task :docker do
-    puts "Running E2E tests with Docker on #{ENV['CHROME_URL']}"
+    puts "Running E2E tests with Docker on http://localhost:3333"
     file = ARGV[1]
+    delete_previous_tmp_files
     set_envs
     if file
       puts "Running file: #{file}"
@@ -36,6 +52,7 @@ namespace 'e2e' do
     task :local do
       puts "Running E2E tests with VcXserv"
       file = ARGV[1]
+      delete_previous_tmp_files
       set_envs
       if file
         puts "Running file: #{file}"
