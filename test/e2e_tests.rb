@@ -40,23 +40,14 @@ module E2eTests
       ::Capybara.save_path = ENV.fetch("CAPYBARA_ARTIFACTS", Rails.root.join("tmp/capybara").to_s)
 
       raise "can't connect to chrome run `docker-compose up -d chrome`" unless RemoteChrome.connected?
-
-      remote_options = RemoteChrome.options
       ::Capybara.register_driver(:cuprite) do |app|
         ::Capybara::Cuprite::Driver.new(
           app,
-          **{
-            window_size: [1400, 1400],
-            browser_options: RemoteChrome.connected? ? { 'no-sandbox' => nil } : {},
-            headless: ENV.fetch('CI', 'true') == 'true',
-            process_timeout: process_timeout,
-            # FIXME - enable js errors
-            # js_errors: true,
-            logger: FerrumLogger.new,
-            inspector: true,
-            timeout: 20
-          }.merge(remote_options),
-        )
+          browser_options: { 'no-sandbox': nil },
+          headless: true,
+          inspector: true,
+          timeout: 20,
+          )
       end
     end
   end

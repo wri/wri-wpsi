@@ -54,6 +54,8 @@ end
 group :test do
   gem 'capybara', "~> 3.36.0"
   gem 'cuprite'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 gem "activerecord-import", "~> 1.4"
