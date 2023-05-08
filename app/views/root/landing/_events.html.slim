@@ -1,8 +1,12 @@
-section
+ruby:
+  index_page ||= false
+
+section.events-section.pt-10.pb-7.mb-5
   .container.auto
     - @events.each_with_index do |event, index|
-      = render 'root/landing/event_item', event: event, index: index, last: @events.length - 1
+      = render 'root/landing/event_item', event: event
 
-    .text-center.mt-6
-      a href='/events' class="c-button c-button--section"
-        span = 'Events'
+- if index_page
+  .text-center.mb-10
+    a href='/events' class="c-button c-button--section"
+      span = 'Events'
