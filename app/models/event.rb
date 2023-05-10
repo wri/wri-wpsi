@@ -10,7 +10,11 @@ class Event < ApplicationRecord
   scope :ordered_by_start_date, -> { order(start: :asc) }
 
   def time
-    start.strftime('%-l:%M') + " - " + ends.strftime('%-l:%M%P')
+    if (ends - start)/3600 > 22  # if time difference > 22 hrs
+      start.strftime('%b %d') + ' - ' + ends.strftime('%b %d')
+    else
+      start.strftime('%-l:%M') + ' - ' + ends.strftime('%-l:%M%P')
+    end
   end
 
   def start_time_should_be_in_future

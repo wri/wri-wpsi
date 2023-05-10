@@ -25,7 +25,22 @@ class EventsTest < ApplicationSystemTestCase
     click_on "Create #{Event.model_name.human}"
 
     assert_text 'Event was successfully created.'
-  end  
+  end
+
+  test 'updating an event' do
+    create(:event)
+
+    visit admin_events_url
+    click_on 'Edit', match: :first
+
+    fill_in 'Title', with: @event.title
+    fill_in 'Location', with: @event.location
+    fill_in 'Link', with: @event.link
+    click_on "Update #{Event.model_name.human}"
+
+    assert_text 'The event was successfully updated'
+    click_on 'Back'
+  end
 
   test 'deleting an event' do
     create(:event)

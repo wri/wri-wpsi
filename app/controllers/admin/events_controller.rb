@@ -1,5 +1,5 @@
 class Admin::EventsController < Admin::BaseController
-  before_action :set_event, only: %i[destroy]
+  before_action :set_event, only: %i[show edit update destroy]
 
   def index
     @events = Event.ordered_by_start_date
@@ -7,6 +7,18 @@ class Admin::EventsController < Admin::BaseController
 
   def new
     @event = Event.new
+  end
+
+  def show; end
+
+  def edit; end
+
+  def update
+    if @event.update(event_params)
+      redirect_to [:admin, @event], notice: 'The event was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def create
@@ -46,7 +58,8 @@ class Admin::EventsController < Admin::BaseController
       :title,
       :start,
       :ends,
-      :location
+      :location,
+      :link
     ).to_h
   end
 end

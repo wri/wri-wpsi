@@ -13,6 +13,21 @@
   font-display: block;
 }
 
+@font-face {
+  font-family: 'inter-regular';
+  src: url('Inter-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'inter-extra-light';
+  src: url('Inter-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: 'inter-bold';
+  src: url('Inter-Bold.ttf');
+}
+
 [class^="icon-"], [class*=" icon-"] {
   @include font-icon;
 }

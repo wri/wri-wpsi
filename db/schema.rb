@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2023_04_25_164055) do
     t.datetime "start"
     t.datetime "ends"
     t.string "location"
+    t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

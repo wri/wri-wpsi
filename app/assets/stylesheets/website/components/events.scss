@@ -1,6 +1,54 @@
 @import '../helpers';
 
+.events-section {
+  background-color: #E5E5E5;
+  .event_item:nth-child(2n) {
+    .c-event {
+      background-color: $blue-d;
+    }
+  }
+}
+
 .c-event {
   background-color: $green-d;
   color: white;
+  width: 139px;
+  height: 115px;
+  .date-text {
+    font-family: 'inter-extra-light';
+    font-size: 55px;
+    margin-bottom: -15px;
+  }
+  .month-text {
+    font-family: 'inter-regular';
+    font-size: 24px;
+  }
+}
+
+.event-content {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  padding-left: 35px;
+  font-family: 'inter-bold';
+  font-size: 13px;
+  color: #848484;
+  min-width: 300px;
+  .h4 {
+    font-weight: bold;
+    font-size: 27px;
+    color: #848484;
+  }
+  .event-content-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(100% - 20px);
+  }
+  .event-content-arrow {
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
