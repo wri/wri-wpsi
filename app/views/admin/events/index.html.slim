@@ -8,7 +8,8 @@ table.table
       th Ends
       th Location
       th Link
-      th 
+      th
+      th
 
   tbody
     - @events.each do |event|
@@ -18,6 +19,7 @@ table.table
         td = event.ends.to_s
         td = event.location
         td = event.link
+        td = link_to 'Edit', edit_admin_event_path(event)
         td = link_to 'Delete', [:admin, event],
             data: { confirm: 'Are you sure?' }, method: :delete
 
