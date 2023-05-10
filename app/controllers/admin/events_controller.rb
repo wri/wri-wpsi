@@ -46,7 +46,8 @@ class Admin::EventsController < Admin::BaseController
       :title,
       :start,
       :ends,
-      :location
+      :location,
+      :link
     ).to_h
   end
 end
