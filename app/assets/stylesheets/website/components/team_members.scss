@@ -8,7 +8,7 @@
 }
 
 .profile-card {
-  width: 350px;
+  width: 400px;
 }
 
 .team_members_container {
@@ -51,7 +51,7 @@
 }
 
 .profile-data-section {
-  max-width: 200px;
+  max-width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -83,7 +83,6 @@
       width: 26px;
       position: relative;
       height: 26px;
-      margin-right: 3px;
       top: 5px;
       svg {
         position: absolute;
@@ -99,6 +98,7 @@
     margin-right: 5px;
     margin-bottom: 3px;
     border-radius: 3px;
+    line-height: 1.5;
   }
   span:nth-child(6n) {  background-color:  $blue-d;}
   span:nth-child(6n+1) { background-color:  $green-d;}
