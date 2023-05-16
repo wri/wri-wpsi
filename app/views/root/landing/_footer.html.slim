@@ -1,33 +1,8 @@
 footer
-  .c-footer
-    .container.c-footer__row
-      .c-footer__brand
-        = image_tag 'logo_white.svg', width: 200, class: 'mr-6 mt-2 mb-2'
-        .c-footer__brand-contact
-          = mail_to('info@waterpeacesecurity.org',
-                    'info@waterpeacesecurity.org',
-                    class: 'c-footer__link')
-          = link_to '@WaterPeaceSec', '//twitter.com/WaterPeaceSec',
-            class: 'c-footer__link', target: '_blank', rel: 'noopener noreferrer'
-      .c-footer__brand
-        span.pb-2.mr-6
-          | In collaboration
-          br
-          | with the
-        = link_to '//www.government.nl/ministries/ministry-of-foreign-affairs',
-        target: '_blank', rel: 'noopener noreferrer' do
-          = image_tag('logos/ministry-netherlands.svg',
-                      alt: '',
-                      class: 'c-footer__logo',
-                      width: 200)
-
   .c-footer.c-footer--partners
-    .container
-      .row
-        .col-10.col-md-12.mx-auto
-          ul.list-unstyled.row
-            - @partners.each do |partner|
-              - title = partner.title
-              li.c-footer__item.col-4.mb-4 class="col-md-#{12 / @partners.length}"
-                = link_to partner.href, target: '_blank', rel: 'noopener noreferrer' do
-                  = image_tag("logos/#{title.parameterize}_white.png", alt: title, class: 'c-footer__logo')
+    .footer-container
+      - @partners.each do |partner|
+        - title = partner.title
+        .c-footer__item.mb-4
+          = link_to partner.href, target: '_blank', rel: 'noopener noreferrer' do
+            = image_tag("logos/#{title.parameterize}_white.png", alt: title, class: 'c-footer__logo')
