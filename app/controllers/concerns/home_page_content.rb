@@ -10,12 +10,13 @@ module HomePageContent
 
   def set_partner_cards!
     @partners = [
-      Card.new(title: 'IHE', desc: '', href: '//www.un-ihe.org/'),
-      Card.new(title: 'Deltares', desc: '', href: '//www.deltares.nl'),
-      Card.new(title: 'Alert', desc: '', href: '//www.international-alert.org/'),
+      Card.new(title: 'WRI', desc: '', href: '//www.wri.org/'),
+      Card.new(title: 'Deltares', desc: '', href: '//www.deltares.nl/en'),
       Card.new(title: 'The Hague Centre', desc: '', href: '//hcss.nl/'),
       Card.new(title: 'Wetlands', desc: '', href: '//www.wetlands.org/'),
-      Card.new(title: 'WRI', desc: '', href: '//www.wri.org/'),
+      Card.new(title: 'Alert', desc: '', href: '//www.international-alert.org/'),
+      Card.new(title: 'Ministry Netherlands', desc: '', href: '//www.government.nl/ministries/ministry-of-foreign-affairs'),
+      Card.new(title: 'Luxemburg price', desc: '', href: '//luxembourgpeaceprize.org/'),
     ]
   end
 
