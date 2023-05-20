@@ -6,7 +6,6 @@ lock '~> 3.16.0'
 set :application, 'wri-wpsi'
 set :repo_url, 'git@github.com:wri/wri-wpsi.git'
 
-set :rvm_custom_path, '/usr/share/rvm'
 set :rvm_ruby_version, '2.6.6'
 
 set :puma_init_active_record, true
@@ -15,7 +14,6 @@ set :nginx_ssl_certificate, '/etc/ssl/certs/waterpeacesecurity_org.crt'
 set :nginx_ssl_certificate_key, '/etc/ssl/private/waterpeacesecurity_org.key'
 set :nginx_use_ssl, true
 # Default value for :linked_files is []
-append :linked_files, '.env.production'
 
 # Default value for linked_dirs is []
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'

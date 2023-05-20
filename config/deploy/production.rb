@@ -7,4 +7,8 @@ server 'wri-prod', roles: %w[app db web]
 
 set :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
+set :rvm_custom_path, '/usr/share/rvm'
+
 append :linked_dirs, 'storage'
+
+append :linked_files, '.env.production'
