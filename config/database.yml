@@ -108,4 +108,4 @@ staging:
   <<: *default
   database: wri-wpsi_staging
   username: wri-wpsi
-  password: postgres
+  password: <%= ENV.fetch("WRI-WPSI_DATABASE_PASSWORD") %>
