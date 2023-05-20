@@ -104,3 +104,8 @@ production:
   username: wri-wpsi
   password: <%= ENV['WRI-WPSI_DATABASE_PASSWORD'] %>
 
+staging:
+  <<: *default
+  database: wri-wpsi_staging
+  username: wri-wpsi
+  password: postgres
