@@ -106,6 +106,6 @@ production:
 
 staging:
   <<: *default
-  database: wri-wpsi_staging
+  database: wri_wpsi_staging
   username: wri-wpsi
   password: postgres
