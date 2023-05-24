@@ -15,6 +15,6 @@ append :linked_dirs, 'storage'
 
 append :linked_files, '.env.staging'
 
-set :keep_releases, 5
+set :keep_releases, 2
 
 after "deploy:restart", "deploy:cleanup"
