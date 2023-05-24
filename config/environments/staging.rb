@@ -83,6 +83,8 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  config.secret_key_base = '99d999143067cdda3b4fc97b63018a61f2d45f25e510766b2fcfa200cd4eec3fb7eb77eb544f7904e6c7ebe2e0182addeaf32c885098947819efcdd6fa1a701a'
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
