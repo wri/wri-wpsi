@@ -3,7 +3,8 @@
     .container.c-page
       .row
         .col-sm-12.col-md-8.mx-auto
-          = render 'root/breadcrumbs', page: Page.news
+          = render 'root/breadcrumbs', page: Page.events
+          h1 = 'Upcomming events'
       - if @events.any?
         = render 'root/landing/events'
 
