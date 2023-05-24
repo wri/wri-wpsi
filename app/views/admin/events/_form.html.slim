@@ -1,0 +1,31 @@
+.mb-4 = form_for [:admin, @event] do |f|
+  = render 'admin/shared/error_messages', resource: @event
+
+  .form-group
+    .field
+      = f.label :title
+      = f.text_field :title, class: 'form-control'
+  .form-group
+    .field
+      = f.label :start
+      = f.datetime_field :start, class: 'form-control'
+  .form-group
+    .field
+      = f.label :ends
+      = f.datetime_field :ends, class: 'form-control'
+  .form-group
+    .field
+      = f.label :location
+      = f.text_field :location, class: 'form-control'
+  .form-group
+    .field
+      = f.label :link
+      = f.text_field :link, class: 'form-control'
+  .form-group
+    .field
+      = f.hidden_field(:time_zone, value: nil)
+  
+  .actions = f.submit class: 'btn btn-primary'
+
+javascript:
+  document.getElementById('event_time_zone').value = new Date().getTimezoneOffset();

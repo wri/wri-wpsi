@@ -19,7 +19,8 @@ class MapTest < ApplicationSystemTestCase
 
       add_button = find("#layer-#{layer.layer_id}")
       add_button.click
-      click_button 'Close'
+      close_btn = find("button[aria-label='Close']")
+      close_btn.click
     end
   end
 
@@ -37,7 +38,8 @@ class MapTest < ApplicationSystemTestCase
     within '#modal > header' do
       assert_selector 'h1', text: mask_layer.name.upcase
       # assert_text mask_layer.long_description
-      click_button 'Close'
+      close_btn = find("button[aria-label='Close']")
+      close_btn.click
     end
 
     assert_selector 'a > img[alt="WPS logo"]'

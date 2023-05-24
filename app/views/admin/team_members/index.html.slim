@@ -1,0 +1,37 @@
+h2.mb-4 Listing admin team members
+
+table.table
+  thead
+    tr
+      th Picture
+      th Name
+      th Description
+      th Email
+      th Tags
+      th
+
+  tbody
+    - @team_members.each do |tm|
+      tr
+        td
+          .profile-image-div style="background-image: url(#{tm.profile_image})"
+
+        td = link_to tm.name, [:admin, tm]
+        td = tm.description
+        td = tm.email
+        td
+          ul
+            - tm.tags.each do |tag|
+              li
+                = tag.name
+          
+        td 
+          => link_to 'Edit', edit_admin_team_member_path(tm)
+          '|
+          =< link_to 'Delete', [:admin, tm],
+            data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'Add a new team member', new_admin_team_member_path,
+    class: 'btn btn-primary mb-4'

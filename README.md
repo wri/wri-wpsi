@@ -33,7 +33,10 @@ Ruby code is linted by `rubocop` and JS code is linted by `eslint`. Both are run
 
 * `bin/ci-build` runs code audits and the test suite and is what TravisCI runs. Check it out for things you might test locally.
   * Use `rails test` to run ruby unit tests.
-  * Use `rails test:system` to run ruby system tests.
+  * Use `rake e2e:docker` to run ruby system tests. within the docker browserless/chrome
+  * Use `rake e2e:local` to run ruby system tests. within the local browser (Vcxsrv) in headless mode
+  * Use `rake e2e:debug:local` to run ruby system tests. within the local browser (Vcxsrv) and see the tests running
+  * Use `rake e2e:local <test_file>` to run ruby system tests for a particular `test_file`. within the local browser (Vcxsrv) in headless mode
   * Run system tests with `DEBUG_CHROME=1` to watch them execute in real time.
   * Use `yarn test` to run JS tests with Jest.
 

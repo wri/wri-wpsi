@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_02_031800) do
+ActiveRecord::Schema.define(version: 2023_04_25_164055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 2022_12_02_031800) do
     t.index ["category_id", "layer_id"], name: "index_categories_layers_on_category_id_and_layer_id", unique: true
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.datetime "start"
+    t.datetime "ends"
+    t.string "location"
+    t.string "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "file_uploads", force: :cascade do |t|
     t.string "description"
     t.datetime "created_at", null: false
@@ -90,6 +100,15 @@ ActiveRecord::Schema.define(version: 2022_12_02_031800) do
     t.string "categories", default: [], array: true
   end
 
+  create_table "page_team_members", force: :cascade do |t|
+    t.bigint "page_id"
+    t.bigint "team_member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_page_team_members_on_page_id"
+    t.index ["team_member_id"], name: "index_page_team_members_on_team_member_id"
+  end
+
   create_table "pages", force: :cascade do |t|
     t.string "name"
     t.string "slug"
@@ -100,6 +119,30 @@ ActiveRecord::Schema.define(version: 2022_12_02_031800) do
     t.string "menu"
     t.string "location"
     t.index ["slug"], name: "index_pages_on_slug", unique: true
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "team_member_tags", force: :cascade do |t|
+    t.bigint "team_member_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_team_member_tags_on_tag_id"
+    t.index ["team_member_id"], name: "index_team_member_tags_on_team_member_id"
+  end
+
+  create_table "team_members", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "email"
+    t.string "profile_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -185,4 +228,8 @@ ActiveRecord::Schema.define(version: 2022_12_02_031800) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "page_team_members", "pages"
+  add_foreign_key "page_team_members", "team_members"
+  add_foreign_key "team_member_tags", "tags"
+  add_foreign_key "team_member_tags", "team_members"
 end

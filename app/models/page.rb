@@ -2,12 +2,16 @@ class Page < ApplicationRecord
   validates :name, presence: true
   validates :slug, presence: true, uniqueness: true
 
+  has_and_belongs_to_many :team_members, join_table: :page_team_members
+
   scope :top_level, -> { where(menu: '').ordered }
 
   SLUG_REDIRECTS = {
     'map' => :map,
     'news-and-publications' => :news,
     'news-archive' => :archive,
+    'our-team' => :our_team,
+    'events' => :events
   }.freeze
 
   def self.news
@@ -20,6 +24,14 @@ class Page < ApplicationRecord
 
   def self.archive
     Page.find_by(slug: 'news-archive')
+  end
+
+  def self.our_team
+    Page.find_by(slug: 'our-team')
+  end
+
+  def self.events
+    Page.find_by(slug: 'events')
   end
 
   def to_param
