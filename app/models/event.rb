@@ -3,11 +3,14 @@ class Event < ApplicationRecord
   validates :ends, presence: true
   validates :title, presence: true
   validates :location, presence: true
-  validate :end_time_should_be_in_future, on: :create
-  validate :start_time_should_be_in_future, on: :create
+  # it is possible to add events in the past
+  # validate :end_time_should_be_in_future, on: :create
+  # validate :start_time_should_be_in_future, on: :create
   validate :end_time_should_be_later_than_starts
 
   scope :ordered_by_start_date, -> { order(start: :asc) }
+  scope :past, -> { where('ends <= ?', Time.now) }
+  scope :future, -> { where('start >= ?', Time.now) }
 
   def time
     if (ends - start)/3600 > 22  # if time difference > 22 hrs
