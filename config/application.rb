@@ -18,5 +18,6 @@ module WriWpsi
 
     config.tinymce.install = :compile
     config.colorize_logging = false
+    config.assets.enabled = true
   end
 end
