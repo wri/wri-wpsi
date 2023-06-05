@@ -51,7 +51,7 @@ class Admin::TeamMembersController < Admin::BaseController
   def team_member_params
     params.require(:team_member).permit(
       :name,
-      :description,
+      :position,
       :email,
       :profile_image
     ).to_h

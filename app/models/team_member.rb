@@ -1,6 +1,6 @@
 class TeamMember < ApplicationRecord
   validates :name, presence: true
-  validates :description, presence: true
+  validates :position, presence: true
   validates :email, presence: true
   validates :profile_image, presence: true
 

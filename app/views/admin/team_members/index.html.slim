@@ -5,7 +5,7 @@ table.table
     tr
       th Picture
       th Name
-      th Description
+      th Position
       th Email
       th Tags
       th
@@ -17,7 +17,7 @@ table.table
           .profile-image-div style="background-image: url(#{tm.profile_image})"
 
         td = link_to tm.name, [:admin, tm]
-        td = tm.description
+        td = tm.position
         td = tm.email
         td
           ul
