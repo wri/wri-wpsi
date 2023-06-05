@@ -9,7 +9,7 @@
 
 .profile-card {
   width: 400px;
-  div {
+  > div {
     justify-content: space-between;
   }
 }
