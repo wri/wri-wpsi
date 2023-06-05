@@ -4,18 +4,14 @@
       .row
         .col-sm-12.col-md-8.mx-auto
           = render 'root/breadcrumbs', page: Page.events
+      - if @events.future.any?
+        h1 = 'Upcoming events'
+        = render 'root/landing/events', events: @events.future
+      
       - if @events.past.any?
         h1 = 'Past events'
         = render 'root/landing/events', events: @events.past
         
-      - if @events.future.any?
-        h1 = 'Upcomming events'
-        = render 'root/landing/events', events: @events.future
-
-        .row
-          .col-md-12.col-lg-6.mx-auto
-            a href='/archive' class="c-button c-button--section full-width"
-              span = 'More news and publications'
       - else
         .row
           .col-sm-12.col-md-8.mx-auto

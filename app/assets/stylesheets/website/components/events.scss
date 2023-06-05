@@ -14,6 +14,10 @@
   color: white;
   width: 139px;
   height: 115px;
+  min-width: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   .date-text {
     font-family: 'inter-extra-light';
     font-size: 55px;
@@ -33,7 +37,6 @@
   font-family: 'inter-bold';
   font-size: 13px;
   color: #848484;
-  min-width: 300px;
   .h4 {
     font-weight: bold;
     font-size: 27px;
@@ -51,4 +54,23 @@
     flex-direction: column;
     justify-content: center;
   }
+}
+
+@media (max-width: 500px) {
+  .c-event {
+    .date-text {
+      font-size: 24px;
+    }
+    .month-text {
+      font-size: 16px;
+    }
+  }
+
+  .event-content {
+    padding-left: 10px;
+    .h4 {
+      font-size: 16px;
+    }
+  }
+  
 }
