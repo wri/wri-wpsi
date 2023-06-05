@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :team_member do
     name { Faker::Name.name }
-    description { Faker::Lorem.sentence }
+    position { Faker::Lorem.sentence }
     email { Faker::Internet.email }
     profile_image { Rack::Test::UploadedFile.new('test/fixtures/files/gr_logo.png', 'image/png') }
     tags { Tag.all.limit(3) }

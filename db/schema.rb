@@ -138,9 +138,10 @@ ActiveRecord::Schema.define(version: 2023_04_25_164055) do
 
   create_table "team_members", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.string "position"
     t.string "email"
     t.string "profile_image"
+    t.integer "priority", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

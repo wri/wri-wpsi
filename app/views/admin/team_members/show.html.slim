@@ -6,13 +6,16 @@ div
     strong> Name:
     = @team_member.name
   p
-    strong> Description:
-    = @team_member.description
+    strong> Position:
+    = @team_member.position
 
   p
     strong> Email:
     = @team_member.email
 
+  p
+    strong> Priority:
+    = @team_member.priority
   p
     strong> Profile Image:
     .profile-image-div style="background-image: url(#{@team_member.profile_image})"
