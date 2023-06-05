@@ -20,7 +20,7 @@ class TeamMembersTest < ApplicationSystemTestCase
     click_on 'Add a new team member'
 
     fill_in 'Name', with: @team_member.name
-    fill_in 'Description', with: @team_member.description
+    fill_in 'Position', with: @team_member.position
     fill_in 'Email', with: @team_member.email
     select @file_upload.description, from: 'Image'
     
@@ -38,7 +38,7 @@ class TeamMembersTest < ApplicationSystemTestCase
     click_on 'Edit', match: :first
 
     fill_in 'Name', with: @new_team_member.name
-    fill_in 'Description', with: @new_team_member.description
+    fill_in 'Position', with: @new_team_member.position
     fill_in 'Email', with: @new_team_member.email
     select @file_upload.description, from: 'Image'
 
