@@ -14,6 +14,9 @@ div
     = @team_member.email
 
   p
+    strong> Priority:
+    = @team_member.priority
+  p
     strong> Profile Image:
     .profile-image-div style="background-image: url(#{@team_member.profile_image})"
 

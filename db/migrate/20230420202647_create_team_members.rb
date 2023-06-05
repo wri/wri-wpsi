@@ -5,6 +5,7 @@ class CreateTeamMembers < ActiveRecord::Migration[5.2]
       t.string :position
       t.string :email
       t.string :profile_image
+      t.integer :priority, default: 0
 
       t.timestamps
     end

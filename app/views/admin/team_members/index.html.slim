@@ -7,6 +7,7 @@ table.table
       th Name
       th Position
       th Email
+      th Priority
       th Tags
       th
 
@@ -19,6 +20,7 @@ table.table
         td = link_to tm.name, [:admin, tm]
         td = tm.position
         td = tm.email
+        td = tm.priority
         td
           ul
             - tm.tags.each do |tag|

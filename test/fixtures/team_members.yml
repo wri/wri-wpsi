@@ -2,4 +2,30 @@ carlos:
   name: Carlos Humberto Del Real Estrada
   position: Fullstack Developer
   email: carlos@email.com
+  priority: 2
+  profile_image: 'https://waterpeacesecurity.org/assets/cards/wps-news-2020-07-6df8d7210765e09e1ba0185b529a510e621a366eec481a9266f7b3385159a619.jpg'
+
+elizabeth:
+  name: Elizabeth Sacoccia
+  position: Water Security Associate
+  email: elizabeth.saccoccia@wri.org
+  priority: 2
+  profile_image: 'https://waterpeacesecurity.org/assets/cards/wps-news-2020-07-6df8d7210765e09e1ba0185b529a510e621a366eec481a9266f7b3385159a619.jpg'
+
+samantha:
+  name: Samantha Kuzma
+  position: Associate Water Program
+  email: Samantha.Kuzma@wri.org
+  profile_image: 'https://waterpeacesecurity.org/assets/cards/wps-news-2020-07-6df8d7210765e09e1ba0185b529a510e621a366eec481a9266f7b3385159a619.jpg'
+
+zablon:
+  name: Zablon Adane
+  position: Associate Water Program
+  email: Zablon.Adane@wri.org
+  profile_image: 'https://waterpeacesecurity.org/assets/cards/wps-news-2020-07-6df8d7210765e09e1ba0185b529a510e621a366eec481a9266f7b3385159a619.jpg'
+
+marlena:
+  name: Marlena Chertock
+  position: Communications Manager, Water Program
+  email: Marlena.Chertock@wri.org
   profile_image: 'https://waterpeacesecurity.org/assets/cards/wps-news-2020-07-6df8d7210765e09e1ba0185b529a510e621a366eec481a9266f7b3385159a619.jpg'
