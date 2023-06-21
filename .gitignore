@@ -40,6 +40,7 @@ yarn-debug.log*
 coverage
 
 # Ignore local environment settings
+.env.production
 .env.local
 .env
 

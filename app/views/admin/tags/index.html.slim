@@ -11,7 +11,10 @@ table.table
       tr
         td = tag.name
           
-        td = link_to 'Delete', [:admin, tag],
+        td 
+          => link_to 'Edit', edit_admin_tag_path(tag)
+          '|
+          =< link_to 'Delete', [:admin, tag],
             data: { confirm: 'Are you sure?' }, method: :delete
 
 br

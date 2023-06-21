@@ -1,5 +1,5 @@
 class Admin::TagsController < Admin::BaseController
-  before_action :set_tag, only: %i[destroy]
+  before_action :set_tag, only: %i[show edit update destroy]
 
   def index
     @tags = Tag.all
@@ -9,8 +9,20 @@ class Admin::TagsController < Admin::BaseController
     @tag = Tag.new
   end
 
+  def show; end
+
+  def edit; end
+
+  def update
+    if @tag.update(tag_params)
+      redirect_to [:admin, @tag], notice: 'The Tag was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   def create
-    @tag = Tag.new(team_member_params)
+    @tag = Tag.new(tag_params)
 
     if @tag.save
       redirect_to admin_tags_url, notice: 'The tag was successfully created.'
@@ -33,7 +45,7 @@ class Admin::TagsController < Admin::BaseController
     @tag = Tag.find(params[:id])
   end
 
-  def team_member_params
+  def tag_params
     params.require(:tag).permit(
       :name
     ).to_h
