@@ -1,6 +1,16 @@
 main.o-container.o-container--page.o-page
   .container
     .row
-      .col-sm-12.col-md-8.mx-auto.c-page
-        = render 'root/breadcrumbs', page: page
-        div = raw page.content
+      - if page.team_members.any? && !admin
+        .col-sm-12.col-md-8
+          = render 'root/breadcrumbs', page: page
+          div = raw page.content
+        .col-md-2
+          h4 = 'Contact'
+          .team_members_container
+            - page.team_members.ordered_by_name.each do |tm|
+              = render 'root/landing/team_member', team_member: tm
+      - else 
+        .col-sm-12.col-md-8.mx-auto.c-page
+          = render 'root/breadcrumbs', page: page
+          div = raw page.content

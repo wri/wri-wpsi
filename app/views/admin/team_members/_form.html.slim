@@ -1,0 +1,37 @@
+.mb-4 = form_for [:admin, @team_member] do |f|
+  = render 'admin/shared/error_messages', resource: @team_member
+
+  .form-group
+    .field
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+  .form-group
+    .field
+      = f.label :position
+      = f.text_field :position, class: 'form-control'
+  .form-group
+    .field
+      = f.label :email
+      = f.text_field :email, class: 'form-control'
+  .form-group
+    .field
+      = f.label :priority
+      = f.number_field :priority, step: 1, class: 'form-control'
+  .form-group
+    .field
+      = f.label :profile_image, 'Image'
+      = f.select :profile_image, @image_url_options, {}, class: 'form-control'
+    .pt-2
+      = link_to 'Upload a new image', new_admin_file_upload_path,
+          target: '_blank', rel: 'noopener noreferrer'
+  .form-group
+    .field
+      = f.label :tags
+      .p-3.tag-checkboxes.rounded
+        = collection_check_boxes(:tags, :tag_id, Tag.all,:id, :name, { checked: @team_member.tags.map(&:to_param) })
+    .pt-2
+      = link_to 'Manage tags', admin_tags_path,
+          target: '_blank', rel: 'noopener noreferrer'
+
+  
+  .actions = f.submit class: 'btn btn-primary'

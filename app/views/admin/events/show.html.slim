@@ -1,0 +1,32 @@
+div
+  h2 = @event.title
+
+.mt-3
+  p
+    strong> Title:
+    = @event.title
+  p
+    strong> Start:
+    = @event.start
+
+  p
+    strong> Ends:
+    = @event.ends
+
+  p
+    strong> Location
+    = @event.location
+
+  p
+    strong> Link
+    = @event.link
+
+  p
+    strong> Preview:
+    section.events-section.pt-10.pb-7.mb-5
+      .container.auto
+        = render 'root/landing/event_item', event: @event
+
+=> link_to 'Edit', edit_admin_event_path(@event)
+'|
+=< link_to 'Back', admin_events_path

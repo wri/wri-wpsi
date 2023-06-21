@@ -31,6 +31,7 @@ group :development, :test do
   gem 'i18n-tasks'
   gem 'simplecov'
   gem 'simplecov-console'
+  gem 'rspec-rails', '~> 5.0.0'
 end
 
 group :development do
@@ -52,7 +53,8 @@ end
 
 group :test do
   gem 'capybara', "~> 3.36.0"
-  gem 'cuprite'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 gem "activerecord-import", "~> 1.4"

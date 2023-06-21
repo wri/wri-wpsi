@@ -1,0 +1,11 @@
+div
+  h2 = @tag.name
+
+.mt-3
+  p
+    strong> Name:
+    = @tag.name
+
+=> link_to 'Edit', edit_admin_tag_path(@tag)
+'|
+=< link_to 'Back', admin_team_members_path

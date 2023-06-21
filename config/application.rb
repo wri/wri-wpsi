@@ -16,7 +16,7 @@ module WriWpsi
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    config.tinymce.install = :compile
+    config.tinymce.install = :copy
     config.colorize_logging = false
   end
 end

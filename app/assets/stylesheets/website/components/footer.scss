@@ -42,7 +42,7 @@
 }
 
 .c-footer--partners {
-  padding-top: space(2);
+  padding-top: space(6);
 }
 
 .c-footer--partners li {
@@ -61,6 +61,7 @@
 .c-footer__item img {
   height: 100%;
   width: 100%;
+  max-width: 150px;
   max-height: 100px;
   object-fit: contain;
 }
@@ -77,7 +78,6 @@
 
 @media (max-width: 850px) {
   .footer-container {
-    min-width: 500px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

@@ -2,10 +2,10 @@ global_tool:
   name: 'Global Tool'
   slug: 'global-tool'
   menu: ''
-regional_tool:
-  name: 'Regional Tool'
-  slug: 'regional-tool'
-  menu: 'regional-tool'
+regional_work:
+  name: 'Regional Work'
+  slug: 'regional-work'
+  menu: ''
 map:
   name: 'Map'
   slug: 'map'
@@ -14,11 +14,23 @@ about:
   name: 'About WPS'
   slug: 'about-wps'
   menu: ''
-news:
-  name: 'News and Publications'
-  slug: 'news-and-publications'
-  menu: 'about-wps'
 archive:
   name: 'Archived News & Publications'
   slug: 'news-archive'
   menu: 'about-wps'
+  sort_priority: 1
+news:
+  name: 'News and Publications'
+  slug: 'news-and-publications'
+  menu: 'about-wps'
+  sort_priority: 2
+our_team:
+  name: 'Our Team'
+  slug: 'our-team'
+  menu: 'about-wps'
+  sort_priority: 3
+mali:
+  name: 'Mali'
+  slug: 'mali'
+  menu: 'regional-work'
+  content: <!DOCTYPE html><html><head></head><body><p><span lang=\"EN-US\">Since 2012, Mali has been experiencing continuous water insecurity and conflicts. Initially spared from instability, the Inner Niger Delta &ndash; the largest floodplain in Africa situated in Central Mali &ndash; has become a hotspot of inter-communal violence and an operational base for armed groups and militias.</span></p><p><span lang=\"EN-US\">The Delta is home to more than 2 million people whose farming, fishing and cattle-raising livelihoods strongly depend on the Delta&rsquo;s ecosystems. The use of shared resources for these people, such as access to floodplains, has primarily been managed through local governance and traditional structures. However, the ecosystems and people&rsquo;s livelihoods are affected by the increasing variability in water availability due to climate change and upstream water allocation decisions.</span></p><p><span lang=\"EN-US\">Control over water resources in this context is straining relations between farmer, pastoralist and fishermen communities. Shared resources management is also challenged by shifting power dynamics in the region, as local governance is being captured by groups with various ethnic or religious agendas, which instrumentalize deeply seated grievances around access to resources.</span>&nbsp;&nbsp;</p></body></html>
