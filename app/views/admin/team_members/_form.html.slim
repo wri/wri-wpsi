@@ -28,7 +28,7 @@
     .field
       = f.label :tags
       .p-3.tag-checkboxes.rounded
-        = collection_check_boxes(:tags, :tag_id, Tag.all,:id, :name, { checked: @team_member.tags.map(&:to_param) })
+        = collection_check_boxes(:tags, :tag_id, Tag.ordered_by_name,:id, :name, { checked: @team_member.tags.map(&:to_param) })
     .pt-2
       = link_to 'Manage tags', admin_tags_path,
           target: '_blank', rel: 'noopener noreferrer'

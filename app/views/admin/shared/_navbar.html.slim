@@ -23,6 +23,8 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.mb-4
           = link_to 'Events', admin_events_path, class: 'nav-link'
         li.nav-item class=('active' if current_controller == 'team_members')
           = link_to 'Team Members', admin_team_members_path, class: 'nav-link'
+        li.nav-item class=('active' if current_controller == 'tags')
+          = link_to 'Tags', admin_tags_path, class: 'nav-link'
         li.nav-item class=('active' if current_controller == 'news_items')
           = link_to 'News Items', admin_news_items_path, class: 'nav-link'
         li.nav-item class=('active' if current_controller == 'users')
