@@ -8,7 +8,7 @@ main.o-container.o-container--page.o-page
         .col-md-2
           h4 = 'Contact'
           .team_members_container
-            - page.team_members.ordered_by_name.each do |tm|
+            - page.team_members.ordered_by_name_and_country.each do |tm|
               = render 'root/landing/team_member', team_member: tm
       - else 
         .col-sm-12.col-md-8.mx-auto.c-page

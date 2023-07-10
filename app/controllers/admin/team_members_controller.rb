@@ -54,7 +54,8 @@ class Admin::TeamMembersController < Admin::BaseController
       :position,
       :email,
       :profile_image,
-      :priority
+      :priority,
+      :country_priority
     ).to_h
   end
 

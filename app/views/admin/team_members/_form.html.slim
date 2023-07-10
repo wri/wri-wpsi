@@ -19,6 +19,10 @@
       = f.number_field :priority, step: 1, class: 'form-control'
   .form-group
     .field
+      = f.label :country_priority
+      = f.number_field :country_priority, step: 1, class: 'form-control'
+  .form-group
+    .field
       = f.label :profile_image, 'Image'
       = f.select :profile_image, @image_url_options, {}, class: 'form-control'
     .pt-2

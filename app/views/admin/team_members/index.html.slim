@@ -8,6 +8,7 @@ table.table
       th Position
       th Email
       th Priority
+      th Country priority
       th Tags
       th
 
@@ -21,6 +22,7 @@ table.table
         td = tm.position
         td = tm.email
         td = tm.priority
+        td = tm.country_priority
         td
           ul
             - tm.tags.each do |tag|
