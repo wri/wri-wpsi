@@ -10,6 +10,8 @@ table.table
     - @tags.each do |tag|
       tr
         td = tag.name
+
+        td style="background-color: #{tag.tag_color};" = tag.tag_color
           
         td 
           => link_to 'Edit', edit_admin_tag_path(tag)

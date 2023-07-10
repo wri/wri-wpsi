@@ -16,7 +16,9 @@ ruby:
             </svg>
         = team_member.email
       .tags
-        - team_member.tags.map(&:name).each do |tag|
-          span 
-            = tag
+        - team_member.tags.each do |tag|
+          - if tag.tag_color != '#ffffff'
+            span style="background-color: #{tag.tag_color};" = tag.name
+          - else
+            span = tag.name
     .profile-image-card-section style="background-image: url(#{team_member.profile_image});"

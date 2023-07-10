@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_25_164055) do
+ActiveRecord::Schema.define(version: 2023_07_10_163945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 2023_04_25_164055) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tag_color", default: "#ffffff"
   end
 
   create_table "team_member_tags", force: :cascade do |t|

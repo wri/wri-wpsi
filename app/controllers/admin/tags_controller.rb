@@ -2,7 +2,7 @@ class Admin::TagsController < Admin::BaseController
   before_action :set_tag, only: %i[show edit update destroy]
 
   def index
-    @tags = Tag.all
+    @tags = Tag.ordered_by_name
   end
 
   def new
@@ -47,7 +47,8 @@ class Admin::TagsController < Admin::BaseController
 
   def tag_params
     params.require(:tag).permit(
-      :name
+      :name,
+      :tag_color
     ).to_h
   end
 end
