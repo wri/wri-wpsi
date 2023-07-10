@@ -36,6 +36,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   namespace :admin do
     resources :events
     resources :team_members
+    get '/tags/reset-colors', to: 'tags#reset_colors'
     resources :tags
     resources :categories
     resources :layers

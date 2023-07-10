@@ -39,7 +39,20 @@ class Admin::TagsController < Admin::BaseController
     end
   end
 
+  def reset_colors
+    Tag.ordered_by_name.each_with_index{ | t, index |
+      t.tag_color = color_by_index(index)
+      t.save
+    }
+    redirect_to admin_tags_url, notice: 'Tag colors have been redefined'
+  end
+
   private
+
+  def color_by_index(index)
+    tag_colors = ['#2e3348', '#437387', '#5f9f7c', '#84b65b', '#673320']
+    tag_colors[index%tag_colors.length]
+  end
 
   def set_tag
     @tag = Tag.find(params[:id])
