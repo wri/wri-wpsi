@@ -19,6 +19,10 @@
       = f.number_field :priority, step: 1, class: 'form-control'
   .form-group
     .field
+      = f.label :country_priority
+      = f.number_field :country_priority, step: 1, class: 'form-control'
+  .form-group
+    .field
       = f.label :profile_image, 'Image'
       = f.select :profile_image, @image_url_options, {}, class: 'form-control'
     .pt-2
@@ -28,7 +32,7 @@
     .field
       = f.label :tags
       .p-3.tag-checkboxes.rounded
-        = collection_check_boxes(:tags, :tag_id, Tag.all,:id, :name, { checked: @team_member.tags.map(&:to_param) })
+        = collection_check_boxes(:tags, :tag_id, Tag.ordered_by_name,:id, :name, { checked: @team_member.tags.map(&:to_param) })
     .pt-2
       = link_to 'Manage tags', admin_tags_path,
           target: '_blank', rel: 'noopener noreferrer'

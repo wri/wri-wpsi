@@ -5,5 +5,9 @@
     .field
       = f.label :name
       = f.text_field :name, class: 'form-control'
+
+    .field
+      = f.label :tag_color
+      = f.color_field :tag_color, class: 'form-control', style: "padding: 0px;"
   
   .actions = f.submit class: 'btn btn-primary'
