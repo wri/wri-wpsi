@@ -21,7 +21,7 @@ class NewsItem < ApplicationRecord
     'Podcast' => 'Podcasts',
     'Video' => 'Webinars and Videos',
     'Media' => 'Media Mentions',
-    'ImpactStory' => 'Impact Story',
+    'Impact Story' => 'Impact Story',
   }.freeze
 
   ALLOWED_CATEGORIES = CATEGORY_LABELS.keys
