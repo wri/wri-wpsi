@@ -161,3 +161,7 @@ Here is an example query and its result:
   ]
 }
 ```
+
+# Resources
+
+staging deployed on WaterPowerUser EC2 Ohio
