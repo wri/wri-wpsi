@@ -10,7 +10,7 @@ class Event < ApplicationRecord
 
   scope :ordered_by_start_date, -> { order(start: :asc) }
   scope :past, -> { where('ends <= ?', Time.now) }
-  scope :future, -> { where('start >= ?', Time.now) }
+  scope :future, -> { where('ends >= ?', Time.now) }
 
   def time
     if (ends - start)/3600 > 22  # if time difference > 22 hrs
