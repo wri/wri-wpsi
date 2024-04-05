@@ -18,6 +18,7 @@ jobs:
       DB_USER: postgres
       DISABLE_SPRING: true
       SYSTEM_TEST_STRATEGY: container_headless_chrome
+      NODE_OPTIONS: --openssl-legacy-provider
 
     services:
       postgres:
