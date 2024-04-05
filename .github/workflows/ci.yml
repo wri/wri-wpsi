@@ -18,7 +18,6 @@ jobs:
       DB_USER: postgres
       DISABLE_SPRING: true
       SYSTEM_TEST_STRATEGY: container_headless_chrome
-      NODE_OPTIONS: "--openssl-legacy-provider"
 
     services:
       postgres:
@@ -74,7 +73,7 @@ jobs:
         run: bundle exec rails db:reset db:setup db:migrate
 
       - name: precompile assets
-        run: bundle exec rails assets:precompile
+        run: NODE_OPTIONS=--openssl-legacy-provider bundle exec rails assets:precompile
 
       - name: Run tests
         run: |

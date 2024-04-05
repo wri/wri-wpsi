@@ -13,19 +13,19 @@ services:
     ports:
       - '5432:5432'
 
-  chrome:
-    image: browserless/chrome:1-puppeteer-15.5.0-slim
-    ports:
-      - "3333:3333"
-    # Mount application source code to support file uploading
-    # (otherwise Chrome won't be able to find files).
-    # NOTE: Make sure you use absolute paths in `#attach_file`.
-    environment:
-      # By default, it uses 3000, which is typically used by Rails.
-      PORT: 3333
-      # Set connection timeout to avoid timeout exception during debugging
-      # https://docs.browserless.io/docs/docker.html#connection-timeout
-      CONNECTION_TIMEOUT: 600000
+  # chrome:
+  #   image: browserless/chrome:1-puppeteer-15.5.0-slim
+  #   ports:
+  #     - "3333:3333"
+  #   # Mount application source code to support file uploading
+  #   # (otherwise Chrome won't be able to find files).
+  #   # NOTE: Make sure you use absolute paths in `#attach_file`.
+  #   environment:
+  #     # By default, it uses 3000, which is typically used by Rails.
+  #     PORT: 3333
+  #     # Set connection timeout to avoid timeout exception during debugging
+  #     # https://docs.browserless.io/docs/docker.html#connection-timeout
+  #     CONNECTION_TIMEOUT: 600000
 
 volumes:
   dbdata:
