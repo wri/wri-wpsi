@@ -38,7 +38,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Ruby and install gems
         uses: ruby/setup-ruby@v1
@@ -49,9 +49,9 @@ jobs:
         run: echo "This workflow for ref ${{ github.ref }} was triggered by ${{ github.event_name }} event, running on ${{ runner.os }}."
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.17.1
+          node-version-file: '.nvmrc'
 
       - name: Find yarn cache location
         id: yarn-cache
@@ -73,7 +73,7 @@ jobs:
         run: bundle exec rails db:reset db:setup db:migrate
 
       - name: precompile assets
-        run: bundle exec rails assets:precompile
+        run: NODE_OPTIONS=--openssl-legacy-provider bundle exec rails assets:precompile
 
       - name: Run tests
         run: |
