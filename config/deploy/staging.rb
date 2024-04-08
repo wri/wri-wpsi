@@ -7,7 +7,7 @@ server 'wri-staging', roles: %w[app db web]
 
 set :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-set :default_env, { PATH: '$HOME/.nvm/versions/node/v16.20.0/bin/:$PATH' }
+set :default_env, { PATH: '$HOME/.nvm/versions/node/v20.2.0/bin/:$PATH' }
 
 set :rvm_custom_path, '/home/ubuntu/.rvm'
 
