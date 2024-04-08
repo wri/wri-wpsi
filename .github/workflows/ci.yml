@@ -61,7 +61,9 @@ jobs:
         run: bundle exec rails db:reset db:setup db:migrate
 
       - name: precompile assets
-        run: NODE_OPTIONS=--openssl-legacy-provider bundle exec rails assets:precompile
+        run: bundle exec rails assets:precompile
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
 
       - name: Run tests
         run: |
