@@ -1,5 +1,6 @@
 - if Rails.env.production? # || Rails.env.development?
   /! Start GTM dataLayer initialization
+  script src="https://cmp.osano.com/AzyfddTRtqi1560Dk/8f09cd07-e39e-42b5-9333-08196867bcbb/osano.js"
   javascript:
     dataLayer = [{
       'visitorType': '#{current_user.present? ? 'admin' : 'guest'}',
