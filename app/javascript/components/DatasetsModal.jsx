@@ -226,6 +226,7 @@ DatasetsModal.propTypes = {
   history: PropTypes.object.isRequired,
   layers: PropTypes.array.isRequired,
   categories: PropTypes.array.isRequired,
+  classes: PropTypes.object,
 }
 
 export default withRouter(injectSheet(styles)(DatasetsModal))

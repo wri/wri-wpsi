@@ -7,11 +7,11 @@ div
     = @event.title
   p
     strong> Start:
-    = @event.start
+    span.time-field = @event.start
 
   p
     strong> Ends:
-    = @event.ends
+    span.time-field = @event.ends
 
   p
     strong> Location
@@ -30,3 +30,6 @@ div
 => link_to 'Edit', edit_admin_event_path(@event)
 '|
 =< link_to 'Back', admin_events_path
+
+javascript:
+  document.querySelectorAll('.time-field').forEach(d => { d.innerText = new Date(d.innerText) })

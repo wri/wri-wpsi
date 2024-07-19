@@ -8,11 +8,11 @@
   .form-group
     .field
       = f.label :start
-      = f.datetime_field :start, class: 'form-control'
+      = f.datetime_field :start, class: 'form-control time-field'
   .form-group
     .field
       = f.label :ends
-      = f.datetime_field :ends, class: 'form-control'
+      = f.datetime_field :ends, class: 'form-control time-field'
   .form-group
     .field
       = f.label :location
@@ -28,4 +28,9 @@
   .actions = f.submit class: 'btn btn-primary'
 
 javascript:
-  document.getElementById('event_time_zone').value = new Date().getTimezoneOffset();
+  document.getElementById('event_time_zone').value = new Date().getTimezoneOffset()
+  document.querySelectorAll('.time-field').forEach(d => { 
+    const offsetMins = new Date().getTimezoneOffset()
+    const localTime = new Date(new Date(d.value).getTime() - 2*(offsetMins * 60 * 1000))
+    d.value = localTime.toISOString().slice(0, 16)
+  })
