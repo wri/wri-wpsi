@@ -14,7 +14,11 @@ class Admin::EventsController < Admin::BaseController
   def edit; end
 
   def update
-    if @event.update(event_params)
+    if @event.update(event_params.except(:time_zone))
+      @event.start = @event.start + event_params[:time_zone].to_i * 60 # timezones are in minutes
+      @event.ends = @event.ends + event_params[:time_zone].to_i * 60 # timezones are in minutes
+      @event.save
+      
       redirect_to [:admin, @event], notice: 'The event was successfully updated.'
     else
       render :edit
@@ -22,7 +26,9 @@ class Admin::EventsController < Admin::BaseController
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = Event.new(event_params.except(:time_zone))
+    @event.start = @event.start + event_params[:time_zone].to_i * 60 # timezones are in minutes
+    @event.ends = @event.ends + event_params[:time_zone].to_i * 60 # timezones are in minutes
 
     if @event.save
       redirect_to admin_events_url, notice: 'Event was successfully created.'
@@ -59,7 +65,8 @@ class Admin::EventsController < Admin::BaseController
       :start,
       :ends,
       :location,
-      :link
+      :link,
+      :time_zone
     ).to_h
   end
 end
