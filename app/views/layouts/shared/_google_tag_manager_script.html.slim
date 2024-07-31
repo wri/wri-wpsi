@@ -1,4 +1,18 @@
 - if Rails.env.production? # || Rails.env.development?
+  javascript:
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{
+      'ad_storage':'denied',
+      'analytics_storage':'denied',
+      'ad_user_data':'denied',
+      'ad_personalization':'denied',
+      'personalization_storage':'denied',
+      'functionality_storage':'granted',
+      'security_storage':'granted',
+      'wait_for_update': 500
+    })
+    gtag("set", "ads_data_redaction", true);
   /! Start GTM dataLayer initialization
   script src="https://cmp.osano.com/AzyfddTRtqi1560Dk/8f09cd07-e39e-42b5-9333-08196867bcbb/osano.js"
   javascript:
