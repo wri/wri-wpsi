@@ -64,7 +64,7 @@ jobs:
     - name: 'auth'
       uses: 'google-github-actions/auth@v2'
       with:
-        workload_identity_provider: 'projects/297470958436/locations/global/workloadIdentityPools/wps-github-action-automations'
+        workload_identity_provider: 'projects/297470958436/locations/global/workloadIdentityPools/wps-github-action-automations/providers/wps-github'
         service_account: 'wps-automation@wpsi-208318.iam.gserviceaccount.com'
 
     - name: 'Use gcloud CLI'
