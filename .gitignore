@@ -44,6 +44,8 @@ coverage
 .env.local
 .env
 
+.secrets
+
 # vscode and vendor cache
 .vscode/
 untracked
