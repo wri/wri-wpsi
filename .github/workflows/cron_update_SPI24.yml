@@ -60,8 +60,6 @@ jobs:
     - name: 'auth'
       uses: 'google-github-actions/auth@v2'
       with:
-        token_format: 'access_token'
-        project_id: ${{ secrets.GCP_PROJECT_ID }}
         workload_identity_provider: 'projects/297470958436/locations/global/workloadIdentityPools/wps-github-action-automations'
         service_account: 'wps-automation@wpsi-208318.iam.gserviceaccount.com'
 
