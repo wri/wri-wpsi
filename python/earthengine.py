@@ -1,8 +1,8 @@
 import ee
-import sys
+import os
 
 service_account="wps-automation@wpsi-208318.iam.gserviceaccount.com"
-credential_path=sys.environ["GOOGLE_APPLICATION_CREDENTIALS"]
+credential_path=os.environ["GOOGLE_APPLICATION_CREDENTIALS"]
 auth = ee.ServiceAccountCredentials(service_account, credential_path)
 
 ee.Authenticate()
