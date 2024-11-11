@@ -51,7 +51,7 @@ jobs:
           ls -la
           python python/project.py
 
-      - name: Project downloaded file
+      - name: Running earth engine script
         run: |
           ls -la
           python python/earthengine.py
