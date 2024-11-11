@@ -48,6 +48,7 @@ jobs:
       # Get file source name and put it on env
       - name: Project downloaded file
         run: |
+          ls -la
           python python/project.py
 
       # # # Upload to Google storage
