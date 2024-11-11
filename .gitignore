@@ -54,3 +54,5 @@ untracked
 
 dev_docs/nginx-proxy/certs/*.key
 dev_docs/nginx-proxy/certs/*.crt
+
+automationvenv
