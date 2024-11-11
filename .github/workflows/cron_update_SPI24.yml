@@ -50,15 +50,15 @@ jobs:
         run: |
           python python/project.py
 
-      # # Upload to Google storage
-      - name: Upload to Google storage
-        uses: actions-hub/gcloud@master
-        env:
-          PROJECT_ID: ${{secrets.GCP_PROJECT_ID}}
-          APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-        with:
-          args: cp $WPS_24_MONTH_FILENAME $WPS_24_MONTH_GS_PROJ
-          cli: gsutil
+      # # # Upload to Google storage
+      # - name: Upload to Google storage
+      #   uses: actions-hub/gcloud@master
+      #   env:
+      #     PROJECT_ID: ${{secrets.GCP_PROJECT_ID}}
+      #     APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+      #   with:
+      #     args: cp $WPS_24_MONTH_FILENAME $WPS_24_MONTH_GS_PROJ
+      #     cli: gsutil
 
       - name: "auth"
         uses: "google-github-actions/auth@v2"
