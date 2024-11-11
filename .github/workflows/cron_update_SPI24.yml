@@ -58,7 +58,7 @@ jobs:
         run: |
           ls -la
           SA_FILE=$(ls gha-creds-* | head -n 1)
-          earthengine --service_account_file $SA_FILE upload image --asset_id=projects/wpsi-208318/assets/wpsi/$WPS_24_MONTH_FILENAME $WPS_24_MONTH_FILENAME.tif
+          earthengine --service_account_file $SA_FILE upload image --asset_id=projects/wpsi-208318/assets/wpsi/$WPS_24_MONTH_FILENAME $WPS_24_MONTH_FILENAME.tif --force
 
       # - name: "Use earthengine"
       #   run: "earthengine upload image --asset_id=projects/wpsi-208318/assets/testaction $WPS_24_MONTH_GS_PROJ"
