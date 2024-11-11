@@ -54,6 +54,7 @@ jobs:
       - name: Running earth engine script
         run: |
           ls -la
+          cat $(ls gh-asdfa-* | head -n 1)
           python python/earthengine.py
 
       # - name: "Use earthengine"
