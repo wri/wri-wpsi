@@ -36,6 +36,10 @@ jobs:
           workload_identity_provider: "projects/297470958436/locations/global/workloadIdentityPools/wps-github-action-automations/providers/wps-github"
           service_account: "wps-automation@wpsi-208318.iam.gserviceaccount.com"
 
+      - uses: "google-github-actions/auth@v2"
+        with:
+          credentials_json: "${{ secrets.GOOGLE_CREDENTIALS }}"
+
       # Get file source name and put it on env
       - name: Run Python Script on File
         run: |
