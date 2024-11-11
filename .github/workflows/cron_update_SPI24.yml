@@ -4,70 +4,67 @@ on:
   workflow_dispatch:
     # Allows manual triggering of the action
   schedule:
-    - cron: '0 12 * * *' # Runs daily at 12:00 UTC, adjust as needed
+    - cron: "0 12 * * *" # Runs daily at 12:00 UTC, adjust as needed
 
 jobs:
   spi-24-month:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: 'read'
-      id-token: 'write'
+      contents: "read"
+      id-token: "write"
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-    - uses: actions/setup-python@v3
-      with:
-        python-version: '3.13'
-    
-    - name: Upgrade pip & Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        echo "Installing Python dependencies"
-        if [ -f ./python/requirements.txt ]; then pip install -r ./python/requirements.txt; fi
-        pip install rasterio
-        pip install earthengine-api
-        pip install earthengine-api --upgrade
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - uses: actions/setup-python@v3
+        with:
+          python-version: "3.13"
 
-    # Get file source name and put it on env
-    - name: Run Python Script on File
-      run: |
-        python python/getFilename24month.py
+      - name: Upgrade pip & Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          echo "Installing Python dependencies"
+          if [ -f ./python/requirements.txt ]; then pip install -r ./python/requirements.txt; fi
+          pip install rasterio
+          pip install earthengine-api
+          pip install earthengine-api --upgrade
 
-    # # Copy from Google storage to local
-    - name: Copy from Google storage to local
-      uses: actions-hub/gcloud@master
-      env:
-        PROJECT_ID: ${{secrets.GCP_PROJECT_ID}}
-        APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-      with:
-        args: cp $WPS_24_MONTH_GS $WPS_24_MONTH_FILENAME
-        cli: gsutil
+      # Get file source name and put it on env
+      - name: Run Python Script on File
+        run: |
+          python python/getFilename24month.py
 
-    # Get file source name and put it on env
-    - name: Project downloaded file
-      run: |
-        python python/project.py
-          
-    # # Upload to Google storage
-    - name: Upload to Google storage
-      uses: actions-hub/gcloud@master
-      env:
-        PROJECT_ID: ${{secrets.GCP_PROJECT_ID}}
-        APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-      with:
-        args: cp $WPS_24_MONTH_FILENAME $WPS_24_MONTH_GS_PROJ
-        cli: gsutil
-      
-    
-    - name: 'auth'
-      uses: 'google-github-actions/auth@v2'
-      with:
-        workload_identity_provider: 'projects/297470958436/locations/global/workloadIdentityPools/wps-github-action-automations/providers/wps-github'
-        service_account: 'wps-automation@wpsi-208318.iam.gserviceaccount.com'
+      # # Copy from Google storage to local
+      - name: Copy from Google storage to local
+        uses: actions-hub/gcloud@master
+        env:
+          PROJECT_ID: ${{secrets.GCP_PROJECT_ID}}
+          APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+        with:
+          args: cp $WPS_24_MONTH_GS $WPS_24_MONTH_FILENAME
+          cli: gsutil
 
-    - name: 'Use earthengine'
-      run: 'earthengine upload image --asset_id=projects/wpsi-208318/assets/testaction $WPS_24_MONTH_GS_PROJ
-    
+      # Get file source name and put it on env
+      - name: Project downloaded file
+        run: |
+          python python/project.py
 
+      # # Upload to Google storage
+      - name: Upload to Google storage
+        uses: actions-hub/gcloud@master
+        env:
+          PROJECT_ID: ${{secrets.GCP_PROJECT_ID}}
+          APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+        with:
+          args: cp $WPS_24_MONTH_FILENAME $WPS_24_MONTH_GS_PROJ
+          cli: gsutil
+
+      - name: "auth"
+        uses: "google-github-actions/auth@v2"
+        with:
+          workload_identity_provider: "projects/297470958436/locations/global/workloadIdentityPools/wps-github-action-automations/providers/wps-github"
+          service_account: "wps-automation@wpsi-208318.iam.gserviceaccount.com"
+
+      - name: "Use earthengine"
+        run: "earthengine upload image --asset_id=projects/wpsi-208318/assets/testaction $WPS_24_MONTH_GS_PROJ"
