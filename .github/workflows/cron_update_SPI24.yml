@@ -70,9 +70,12 @@ jobs:
     - name: 'Use gcloud CLI'
       run: 'gcloud info'
 
-    # upload to GEE
-    - name: Upload to GEE
-      run: |
-        python python/earthengine.py
+    - name: 'Use earthengine'
+      run: 'earthengine'
+
+    # # upload to GEE
+    # - name: Upload to GEE
+    #   run: |
+    #     python python/earthengine.py
     
 
