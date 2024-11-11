@@ -3,6 +3,7 @@ from rasterio.crs import CRS
 import os
 
 FILE = os.environ["WPS_24_MONTH_FILENAME"]
+EXTENTION = ".tif"
 
 
 if FILE:
@@ -10,5 +11,5 @@ if FILE:
 else:
     print('Please check the env WPS_24_MONTH_FILENAME was not loaded')
 
-with rasterio.open(FILE, "r+") as rds:
+with rasterio.open(f"{FILE}{EXTENTION}", "r+") as rds:
     rds.crs = CRS.from_epsg(4326)
