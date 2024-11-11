@@ -52,14 +52,13 @@ jobs:
       # Get file source name and put it on env
       - name: Project downloaded file
         run: |
-          ls -la
           python python/project.py
 
       - name: Running earth engine script
         run: |
           ls -la
-          cat $(ls gha-creds-* | head -n 1)
-          python python/earthengine.py
+          SA_FILE=$(ls gha-creds-* | head -n 1)
+          earthengine --service_account_file $SA_FILE upload image --asset_id=projects/wpsi-208318/assets/testaction $WPS_24_MONTH_GS_PROJ
 
       # - name: "Use earthengine"
       #   run: "earthengine upload image --asset_id=projects/wpsi-208318/assets/testaction $WPS_24_MONTH_GS_PROJ"
