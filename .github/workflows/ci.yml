@@ -62,8 +62,6 @@ jobs:
 
       - name: precompile assets
         run: bundle exec rails assets:precompile
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
 
       - name: Run tests
         run: |
