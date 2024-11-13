@@ -5,6 +5,7 @@ import eeUtil as eu
 
 FILE = os.environ["WPS_3_MONTH_FILENAME"]
 EXTENTION = ".tif"
+BUCKET='wps_pillar1a'
 
 
 if FILE:
