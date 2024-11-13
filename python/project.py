@@ -5,7 +5,7 @@ import eeUtil as eu
 
 FILE = os.environ["WPS_24_MONTH_FILENAME"]
 EXTENTION = ".tif"
-BUCKET ='wps_pillar1a'
+BUCKET='wps_pillar1a'
 GEE_FILE = f"projects/wpsi-208318/assets/wpsi/{FILE}"
 
 if FILE:
@@ -18,6 +18,5 @@ with rasterio.open(f"{FILE}{EXTENTION}", "r+") as rds:
 
 eu.init(bucket=BUCKET)
 
-eu.uploadAsset(f"{FILE}{EXTENTION}", GEE_FILE)
-
-eu.setAcl(GEE_FILE, 'public')
+eu.uploadAssets([f"{FILE}{EXTENTION}"], [GEE_FILE], gs_prefix='wpsstaging', dates=[], public=True,
+                timeout=300, clean=True, bands=[])
