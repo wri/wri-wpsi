@@ -33,12 +33,6 @@ jobs:
           pip install earthengine-api
           pip install earthengine-api --upgrade
 
-      # - name: "auth"
-      #   uses: "google-github-actions/auth@v2"
-      #   with:
-      #     workload_identity_provider: "projects/297470958436/locations/global/workloadIdentityPools/wps-github-action-automations/providers/wps-github"
-      #     service_account: "wps-automation@wpsi-208318.iam.gserviceaccount.com"
-
       - uses: "google-github-actions/auth@v2"
         with:
           credentials_json: "${{ secrets.GOOGLE_CREDENTIALS }}"
@@ -55,17 +49,5 @@ jobs:
       # Get file source name and put it on env
       - name: Project downloaded file
         run: |
-          python python/project.py
+          python python/project24month.py
 
-      # - name: Copy to Google storage to
-      #   run: |
-      #     gcloud storage cp $WPS_24_MONTH_FILENAME.tif $WPS_24_MONTH_GS_PROJ
-
-      # - name: Running earth engine script
-      #   run: |
-      #     ls -la
-      #     SA_FILE=$(ls gha-creds-* | head -n 1)
-      #     earthengine --service_account_file $SA_FILE upload image --asset_id=projects/wpsi-208318/assets/wpsi/$WPS_24_MONTH_FILENAME $WPS_24_MONTH_GS_PROJ --force
-
-      # - name: "Use earthengine"
-      #   run: "earthengine upload image --asset_id=projects/wpsi-208318/assets/testaction $WPS_24_MONTH_GS_PROJ"

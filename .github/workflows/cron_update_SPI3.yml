@@ -26,18 +26,12 @@ jobs:
 
       - name: Upgrade pip & Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          pip3 install --upgrade pip==22.0
           echo "Installing Python dependencies"
           if [ -f ./python/requirements.txt ]; then pip install -r ./python/requirements.txt; fi
           pip install rasterio
           pip install earthengine-api
           pip install earthengine-api --upgrade
-
-      # - name: "auth"
-      #   uses: "google-github-actions/auth@v2"
-      #   with:
-      #     workload_identity_provider: "projects/297470958436/locations/global/workloadIdentityPools/wps-github-action-automations/providers/wps-github"
-      #     service_account: "wps-automation@wpsi-208318.iam.gserviceaccount.com"
 
       - uses: "google-github-actions/auth@v2"
         with:
