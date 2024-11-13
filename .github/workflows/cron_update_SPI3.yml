@@ -1,6 +1,9 @@
 name: Update 3-month SPI Anomaly (Long-term)
 
 on:
+  push:
+    branches:
+    - earthengine-actions 
   workflow_dispatch:
     # Allows manual triggering of the action
   schedule:
