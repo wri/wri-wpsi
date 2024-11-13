@@ -18,5 +18,5 @@ with rasterio.open(f"{FILE}{EXTENTION}", "r+") as rds:
 
 eu.init(bucket=BUCKET)
 
-eu.uploadAssets([f"{FILE}{EXTENTION}"], [GEE_FILE], gs_prefix='wpsstaging', dates=[], public=True,
+eu.upload([f"{FILE}{EXTENTION}"], [GEE_FILE], gs_prefix='wpsstaging', dates=[], public=True,
                 timeout=300, clean=True, bands=[])
