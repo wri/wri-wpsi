@@ -1,6 +1,9 @@
 name: Update 24-month SPI Anomaly (Long-term)
 
 on:
+  push:
+    branches:
+    - earthengine-actions    
   workflow_dispatch:
     # Allows manual triggering of the action
   schedule:
@@ -23,6 +26,7 @@ jobs:
 
       - name: Upgrade pip & Install dependencies
         run: |
+          pip3 install --upgrade pip==22.0
           echo "Installing Python dependencies"
           if [ -f ./python/requirements.txt ]; then pip install -r ./python/requirements.txt; fi
           pip install rasterio
