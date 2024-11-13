@@ -17,4 +17,18 @@ act -P ubuntu-latest=ubuntu-builder --pull=false --container-architecture linux/
 
 ```
 python3 -m venv automationvenv
+source ./automationvenv/bin/activate
+
+# check if virtual env working
+pip list
+
+pip install -r python/requirements.txt
+
+
 ```
+
+
+## Documentation
+
+- pipreqs to update requirements.txt [pipreqs](https://github.com/bndr/pipreqs)
+- pyenv [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#set-up-your-shell-environment-for-pyenv)

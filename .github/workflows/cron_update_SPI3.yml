@@ -1,4 +1,4 @@
-name: Update 24-month SPI Anomaly (Long-term)
+name: Update 3-month SPI Anomaly (Long-term)
 
 on:
   workflow_dispatch:
@@ -43,16 +43,16 @@ jobs:
       # Get file source name and put it on env
       - name: Run Python Script on File
         run: |
-          python python/getFilename24month.py
+          python python/getFilename3month.py
 
       - name: Copy from Google storage to local
         run: |
-          gcloud storage cp $WPS_24_MONTH_GS $WPS_24_MONTH_FILENAME.tif
+          gcloud storage cp $WPS_3_MONTH_GS $WPS_3_MONTH_FILENAME.tif
 
       # Get file source name and put it on env
       - name: Project downloaded file
         run: |
-          python python/project.py
+          python python/project3month.py
 
       # - name: Copy to Google storage to
       #   run: |
