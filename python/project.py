@@ -18,4 +18,4 @@ with rasterio.open(f"{FILE}{EXTENTION}", "r+") as rds:
 
 eu.init(bucket=BUCKET)
 
-eu.upload([f"{FILE}{EXTENTION}"], [GEE_FILE], gs_prefix='wpsstaging', public=True)
+eu.upload([f"{FILE}{EXTENTION}"], [GEE_FILE], gs_prefix='wpsstaging', public=True, clean=False)
