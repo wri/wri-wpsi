@@ -1,9 +1,9 @@
-import ee
-from google.auth import compute_engine
+import eeUtil as eu
 
-scopes = [
-    "https://www.googleapis.com/auth/earthengine"
-]
+eu.init()
 
-credentials = compute_engine.Credentials(scopes=scopes)
-ee.Initialize(credentials)
+for asset in eu.ls('wpsi'):
+  print(str(asset))
+  eu.setAcl("wpsi/"+ asset, "public")
+
+
