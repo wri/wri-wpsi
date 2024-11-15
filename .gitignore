@@ -57,3 +57,5 @@ dev_docs/nginx-proxy/certs/*.crt
 
 automationvenv
 gcloud-key.json
+*.pyc
+__pycache__
