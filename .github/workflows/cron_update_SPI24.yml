@@ -37,7 +37,7 @@ jobs:
         run: |
           pip3 install --upgrade pip==22.0
           echo "Installing Python dependencies"
-          if [ -f ./python/requirements.txt ]; then pip install -r ./python/requirements.txt; fi
+          if [ -f ./automation/requirements.txt ]; then pip install -r ./automation/requirements.txt; fi
           pip install rasterio
           pip install earthengine-api
           pip install earthengine-api --upgrade
