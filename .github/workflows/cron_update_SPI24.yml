@@ -55,4 +55,4 @@ jobs:
           echo "GEE_PROJECT_FOLDER"
           echo "RW_API_KEY"
           echo "MONTH_24_LAYER_ID"
-          automation/month_24_automation.py
+          python automation/month_24_automation.py
