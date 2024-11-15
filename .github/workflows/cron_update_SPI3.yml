@@ -40,13 +40,12 @@ jobs:
       # Get file source name and put it on env
       - name: Run Python Script on File
         run: |
-          python python/getFilename3month.py
-
-      - name: Copy from Google storage to local
-        run: |
-          gcloud storage cp $WPS_3_MONTH_GS $WPS_3_MONTH_FILENAME.tif
-
-      # Get file source name and put it on env
-      - name: Project downloaded file
-        run: |
-          python python/project3month.py
+          echo "ENVS TO USE"
+          echo "BUCKET"
+          echo "IMAGES_PREFIX_PATH"
+          echo "GS_STAGING_PREFIX"
+          echo "GEE_PROJECT_FOLDER"
+          echo "RW_API_KEY"
+          echo "MONTH_3_LAYER_ID"
+          automation/month_3_automation.py
+      

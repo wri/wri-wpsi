@@ -34,5 +34,8 @@ pip install -r python/requirements.txt
 - pipreqs to update requirements.txt [pipreqs](https://github.com/bndr/pipreqs)
 - pyenv [pyenv](https://github.com/pyenv/pyenv?tab=readme-ov-file#set-up-your-shell-environment-for-pyenv)
 
+## Tests
 
-
+```bash
+python -m unittest discover -s automation
+```

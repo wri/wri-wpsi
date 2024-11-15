@@ -1,5 +1,6 @@
 import os
 import eeUtil as eu
+from src.services.resourcewatch import layer_set_asset_id
 from src.services.path import strip_extension
 from src.services.cloudstorage import latest_24_month, download
 from src.services.project import project
@@ -7,6 +8,8 @@ from src.services.project import project
 # define constants
 BUCKET=os.environ["BUCKET"]
 GS_STAGING_PREFIX=os.environ["GS_STAGING_PREFIX"]
+MONTH_24_LAYER_ID=os.environ["MONTH_24_LAYER_ID"]
+GEE_PROJECT_FOLDER=os.environ["GEE_PROJECT_FOLDER"]
 
 # Login to gcloud and gee properly
 
@@ -24,6 +27,8 @@ download(blob_name, filename)
 project(filename)
 
 # upload it to GEE and make it public
-eu.upload(filename, f"projects/wpsi-208318/assets/wpsi/{strip_extension(filename)}", gs_prefix=GS_STAGING_PREFIX, public=True, clean=False)
+imageId = f"{GEE_PROJECT_FOLDER}/{strip_extension(filename)}"
+eu.upload(filename, imageId, gs_prefix=GS_STAGING_PREFIX, public=True, clean=False)
 
 # update the layerConfig.assetId in the given layerId from resourcewatch
+layer_set_asset_id(MONTH_24_LAYER_ID, imageId)
