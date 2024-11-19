@@ -31,7 +31,7 @@ def updateLayer(datasetId, layerId, layerData):
         rw_api_url = 'https://api.resourcewatch.org/v1/dataset/{}/layer/{}'.format(datasetId, layerId)
         print(rw_api_url)
         res = requests.patch(rw_api_url, data=json.dumps(layerData), headers=create_headers())
-        print(res.json()["data"]["attributes"]["layerConfig"]["assetId"])
+        print(res.json()["data"]["attributes"]["layerConfig"])
     except:
         raise ValueError('Failed to update layer data')
 
@@ -59,4 +59,16 @@ def layer_set_asset_id(layerId, assetIdContent):
     ### updated assetId
     layerData["attributes"]["layerConfig"]["assetId"] = assetIdContent
 
+    updateLayer(datasetId, layerId, layerData["attributes"])
+
+def layer_set_sql(layerId, sql):
+    layerData = getLayerData(layerId)
+
+    datasetId = layerData["attributes"]["dataset"]
+    layerId = layerData["id"]
+    print(layerData["attributes"]["layerConfig"]["body"]["layers"][0]["options"]["sql"])
+
+    layerData["attributes"]["layerConfig"]["body"]["layers"][0]["options"]["sql"] = sql
+
+    print(layerData["attributes"]["layerConfig"]["body"]["layers"][0]["options"]["sql"])
     updateLayer(datasetId, layerId, layerData["attributes"])

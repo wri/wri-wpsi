@@ -44,6 +44,18 @@ def main():
     if command == 'latestFiles':
       from src.services.cloudstorage import latest_24_month, latest_3_month
       print(latest_3_month(), latest_24_month())
+    if command == 'layerSql':
+      from src.services.resourcewatch import layer_set_sql
+      try:
+          layerId = sys.argv[2]
+          sql = sys.argv[3]
+          assert(layerId and sql)
+
+      except:
+          print('sql was not passed as argument')
+          print(r'example: python automation.py layerSql cdd0000b-34a9-4b3d-9640-8f57422f264d "SELECT * FROM wps_spi24_mask WHERE value > -1.5"')
+          return
+      layer_set_sql(layerId, sql)
         
 
 if __name__ == '__main__':
