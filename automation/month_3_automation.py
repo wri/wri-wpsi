@@ -28,7 +28,7 @@ project(filename)
 
 # upload it to GEE and make it public
 imageId = f"{GEE_PROJECT_FOLDER}/{strip_extension(filename)}"
-eu.upload(filename, imageId, gs_prefix=GS_STAGING_PREFIX, public=True, clean=False)
+eu.upload(filename, imageId, gs_prefix=GS_STAGING_PREFIX, public=True, clean=False, ingest_params={"pyramidingPolicy": "MODE"})
 
 # update the layerConfig.assetId in the given layerId from resourcewatch
 layer_set_asset_id(MONTH_3_LAYER_ID, imageId)
