@@ -17,6 +17,15 @@ jobs:
       contents: "read"
       id-token: "write"
 
+    env:
+      RW_API_KEY: ${{ secrets.RW_API_KEY }}
+      BUCKET: ${{ vars.BUCKET }}
+      IMAGES_PREFIX_PATH: ${{ vars.IMAGES_PREFIX_PATH }}
+      GS_STAGING_PREFIX: ${{ vars.GS_STAGING_PREFIX }}
+      GEE_PROJECT_FOLDER: ${{ vars.GEE_PROJECT_FOLDER }}
+      MONTH_3_LAYER_ID: ${{ vars.MONTH_3_LAYER_ID }}
+      MONTH_24_LAYER_ID: ${{ vars.MONTH_24_LAYER_ID }}
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -28,7 +37,7 @@ jobs:
         run: |
           pip3 install --upgrade pip==22.0
           echo "Installing Python dependencies"
-          if [ -f ./python/requirements.txt ]; then pip install -r ./python/requirements.txt; fi
+          if [ -f ./automation/requirements.txt ]; then pip install -r ./automation/requirements.txt; fi
           pip install rasterio
           pip install earthengine-api
           pip install earthengine-api --upgrade
@@ -39,11 +48,11 @@ jobs:
       # Get file source name and put it on env
       - name: Run Python Script on File
         run: |
-          python python/getFilename24month.py
-      - name: Copy from Google storage to local
-        run: |
-          gcloud storage cp $WPS_24_MONTH_GS $WPS_24_MONTH_FILENAME.tif
-      # Get file source name and put it on env
-      - name: Project downloaded file
-        run: |
-          python python/project24month.py
+          echo "ENVS TO USE"
+          echo "BUCKET"
+          echo "IMAGES_PREFIX_PATH"
+          echo "GS_STAGING_PREFIX"
+          echo "GEE_PROJECT_FOLDER"
+          echo "RW_API_KEY"
+          echo "MONTH_24_LAYER_ID"
+          python automation/month_24_automation.py
