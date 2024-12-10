@@ -1,4 +1,4 @@
-
+from datetime import datetime
 
 def prev_month(month, delta):
     """
@@ -14,3 +14,17 @@ def prev_month(month, delta):
         return month+delta+12
     else:
         return (month+delta)%12
+    
+def get_month_year(date_str):
+  """
+  Converts a date string in the format 'YYYYMM' to a string with the full month name and year.
+  Args:
+    date_str (str): A string representing a date in the format 'YYYYMM'.
+  Returns:
+    str: A string with the full month name followed by the year, e.g., 'January 2023'.
+  Raises:
+    ValueError: If the input string does not match the format 'YYYYMM'.
+  """
+
+  date_obj = datetime.strptime(date_str, "%Y%m")
+  return date_obj.strftime("%B %Y")

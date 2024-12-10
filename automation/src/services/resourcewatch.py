@@ -61,6 +61,31 @@ def layer_set_asset_id(layerId, assetIdContent):
 
     updateLayer(datasetId, layerId, layerData["attributes"])
 
+def layer_set_name(layerId, name):
+    """
+    Updates the name of a layer with the given layerId.
+    Args:
+        layerId (str): The ID of the layer to be updated.
+        name (str): The new name to set for the layer.
+    Returns:
+        None
+    Raises:
+        KeyError: If the layer data does not contain the expected keys.
+        Exception: If there is an error updating the layer.
+    Example:
+        layer_set_name("12345", "New Layer Name")
+    """
+
+    layerData = getLayerData(layerId)
+
+    datasetId = layerData["attributes"]["dataset"]
+    layerId = layerData["id"]
+    print(layerData["attributes"]["name"])
+
+    layerData["attributes"]["name"] = name
+
+    updateLayer(datasetId, layerId, layerData["attributes"])
+
 def layer_set_sql(layerId, sql):
     layerData = getLayerData(layerId)
 

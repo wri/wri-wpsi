@@ -24,6 +24,19 @@ def main():
       print('example: python automation.py <command> ...args')
       return
 
+    if command == 'updateLayerName':
+      from src.services.resourcewatch import layer_set_name
+      try:
+        layerId = sys.argv[2]
+        name = sys.argv[3]
+        assert(layerId and name)
+        print(f'layer id: {layerId} and name {name} successfully loaded')
+      except:
+        print('layer id or name were not passed as arguments')
+        print(r'example: python automation.py updateLayerName cdd0000b-34a9-4b3d-9640-8f57422f264d "New Layer Name"')
+        return
+      layer_set_name(layerId, name)
+
     if command == 'updateLayer':
       from src.services.resourcewatch import layer_set_asset_id
       try:

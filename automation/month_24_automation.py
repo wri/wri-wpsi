@@ -1,6 +1,7 @@
 import os
 import eeUtil as eu
-from src.services.resourcewatch import layer_set_asset_id
+from src.services.dates import get_month_year
+from src.services.resourcewatch import layer_set_asset_id, layer_set_name
 from src.services.path import strip_extension
 from src.services.cloudstorage import latest_24_month, download
 from src.services.project import project
@@ -32,3 +33,4 @@ eu.upload(filename, imageId, gs_prefix=GS_STAGING_PREFIX, public=True, clean=Fal
 
 # update the layerConfig.assetId in the given layerId from resourcewatch
 layer_set_asset_id(MONTH_24_LAYER_ID, imageId)
+layer_set_name(MONTH_24_LAYER_ID, f"24 Month Standardized Precipitation Index (SPI) Forecast {get_month_year(strip_extension(filename)[-6:])}")

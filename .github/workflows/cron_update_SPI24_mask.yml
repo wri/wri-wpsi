@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     # Allows manual triggering of the action
   schedule:
-    - cron: "0 12 * * *" # Runs daily at 12:00 UTC, adjust as needed
+    - cron: "0 12 * * 2" # Runs every Tuesday at 12:00 UTC
 
 jobs:
   spi-24-month:
