@@ -3,9 +3,9 @@
 this folder contains the code that it is used to perform updates in the file sources and the wps platform, it is a python package that holds the logic for performing periodic updates in the content.
 
 ### Automation statuses
-![badge](https://github.com/wri/wri-wpsi/actions/workflows/cron_update_SPI24_mask/badge.svg)
-![badge](https://github.com/wri/wri-wpsi/actions/workflows/cron_update_SPI24/badge.svg)
-![badge](https://github.com/wri/wri-wpsi/actions/workflows/cron_update_SPI3/badge.svg)
+![badge](https://github.com/wri/wri-wpsi/actions/workflows/cron_update_SPI24_mask.yml/badge.svg)
+![badge](https://github.com/wri/wri-wpsi/actions/workflows/cron_update_SPI24.yml/badge.svg)
+![badge](https://github.com/wri/wri-wpsi/actions/workflows/cron_update_SPI3.yml/badge.svg)
 
 ## Quick usage guide
 
