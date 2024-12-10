@@ -1,4 +1,4 @@
-name: Update 3-month SPI Anomaly (Long-term)
+name: Update 24-month SPI Anomaly Mask (Long-term)
 
 on:
   push:
