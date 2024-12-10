@@ -1,6 +1,6 @@
 import os
 import eeUtil as eu
-from automation.src.services.resourcewatch import layer_set_name
+from src.services.resourcewatch import layer_set_name
 from src.services.mask import mask
 from src.services.dates import get_mask_date_str
 from src.services.cloudstorage import latest_24_month, download
