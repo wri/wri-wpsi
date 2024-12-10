@@ -10,13 +10,21 @@ export RW_API_KEY=
 
 # depending on the script
 export MONTH_24_LAYER_ID="cdd0000b-34a9-4b3d-9640-8f574321223d"
+export MASK_LAYER_ID="b5e0343e-ebe9-4e65-b162-244190b6c1ce"
 export MONTH_3_LAYER_ID="cdd0000b-34a9-4b3d-9640-8f57422f264d"
+
+# Carto
+export CARTO_USER="WRI-RW"
+export CARTO_KEY=
+export CARTO_MASK_TABLE_NAME=
 
 ## to inspect data
 # python automation/earthengine.py
 # python automation/automation.py listBlobs
 python automation/automation.py latestFiles
 # python automation/automation.py updateLayer cdd0000b-34a9-4b3d-9640-8f57422f264d projects/ee-lizsaccoccia/assets/spi3_112024
+# python automation/automation.py updateLayerName cdd0000b-34a9-4b3d-9640-8f57422f264d "3 Month Standardized Precipitation Index (SPI) Forecast December 2024"
+# python automation/automation.py layerSql b5e0343e-ebe9-4e65-b162-244190b6c1ce 'SELECT * FROM wps_spi24_mask_copy WHERE value > -1.5'
 # python automation/automation.py updateLayer cdd0000b-34a9-4b3d-9640-8f57422f264d helo
 
 ## automations
