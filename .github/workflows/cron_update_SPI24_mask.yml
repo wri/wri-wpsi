@@ -25,7 +25,10 @@ jobs:
       GEE_PROJECT_FOLDER: ${{ vars.GEE_PROJECT_FOLDER }}
       MONTH_3_LAYER_ID: ${{ vars.MONTH_3_LAYER_ID }}
       MONTH_24_LAYER_ID: ${{ vars.MONTH_24_LAYER_ID }}
+      CARTO_USER: ${{ secrets.CARTO_USER }}
+      CARTO_KEY: ${{ secrets.CARTO_KEY }}
       CARTO_MASK_TABLE_NAME: ${{ vars.CARTO_MASK_TABLE_NAME }}
+      MASK_LAYER_ID: ${{ vars.MASK_LAYER_ID }}
 
     steps:
       - name: Checkout Repository
@@ -58,5 +61,8 @@ jobs:
           echo "RW_API_KEY"
           echo "MONTH_24_LAYER_ID"
           echo "CARTO_MASK_TABLE_NAME"
+          echo "CARTO_USER"
+          echo "CARTO_KEY"
+          echo "MASK_LAYER_ID"
           python automation/mask_automation.py
       
