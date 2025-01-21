@@ -10,7 +10,7 @@ on:
     - cron: "0 12 * * 2" # Runs every Tuesday at 12:00 UTC
 
 jobs:
-  spi-24-month:
+  spi-24-month_mask:
     runs-on: ubuntu-latest
 
     permissions:
