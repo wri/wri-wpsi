@@ -2,7 +2,7 @@ import os
 import eeUtil as eu
 from src.services.resourcewatch import layer_set_name
 from src.services.mask import mask
-from src.services.dates import get_mask_date_str
+from src.services.dates import get_month_year
 from src.services.cloudstorage import latest_24_month, download
 from src.services.path import strip_extension
 from src.services.project import project
@@ -38,4 +38,4 @@ masked_df = mask(filename)
 init()
 deleteRows(CARTO_MASK_TABLE_NAME, "true")
 upload_to_carto(CARTO_MASK_TABLE_NAME, masked_df)
-layer_set_name(MASK_LAYER_ID, f"Moderate to Severe Drought - 24 Month SPI ({get_mask_date_str(strip_extension(filename)[-6:])})")
+layer_set_name(MASK_LAYER_ID, f"Moderate to Severe Drought - 24 Month SPI ({get_month_year(strip_extension(filename)[-6:])})")
