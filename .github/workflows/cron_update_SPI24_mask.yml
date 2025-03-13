@@ -1,4 +1,4 @@
-name: Update 24-month SPI Anomaly (Long-term)
+name: Update 24-month SPI Anomaly Mask (Long-term)
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
     - cron: "0 12 * * 2" # Runs every Tuesday at 12:00 UTC
 
 jobs:
-  spi-24-month:
+  spi-24-month_mask:
     runs-on: ubuntu-latest
 
     permissions:
@@ -25,6 +25,10 @@ jobs:
       GEE_PROJECT_FOLDER: ${{ vars.GEE_PROJECT_FOLDER }}
       MONTH_3_LAYER_ID: ${{ vars.MONTH_3_LAYER_ID }}
       MONTH_24_LAYER_ID: ${{ vars.MONTH_24_LAYER_ID }}
+      CARTO_USER: ${{ secrets.CARTO_USER }}
+      CARTO_KEY: ${{ secrets.CARTO_KEY }}
+      CARTO_MASK_TABLE_NAME: ${{ vars.CARTO_MASK_TABLE_NAME }}
+      MASK_LAYER_ID: ${{ vars.MASK_LAYER_ID }}
 
     steps:
       - name: Checkout Repository
@@ -41,6 +45,7 @@ jobs:
           pip install rasterio
           pip install earthengine-api
           pip install earthengine-api --upgrade
+
       - uses: "google-github-actions/auth@v2"
         with:
           credentials_json: "${{ secrets.GOOGLE_CREDENTIALS }}"
@@ -55,4 +60,9 @@ jobs:
           echo "GEE_PROJECT_FOLDER"
           echo "RW_API_KEY"
           echo "MONTH_24_LAYER_ID"
-          python automation/month_24_automation.py
+          echo "CARTO_MASK_TABLE_NAME"
+          echo "CARTO_USER"
+          echo "CARTO_KEY"
+          echo "MASK_LAYER_ID"
+          python automation/mask_automation.py
+      

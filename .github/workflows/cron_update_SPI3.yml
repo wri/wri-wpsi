@@ -1,4 +1,4 @@
-name: Update 24-month SPI Anomaly (Long-term)
+name: Update 3-month SPI Anomaly (Long-term)
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
     - cron: "0 12 * * 2" # Runs every Tuesday at 12:00 UTC
 
 jobs:
-  spi-24-month:
+  spi-3-month:
     runs-on: ubuntu-latest
 
     permissions:
@@ -41,6 +41,7 @@ jobs:
           pip install rasterio
           pip install earthengine-api
           pip install earthengine-api --upgrade
+
       - uses: "google-github-actions/auth@v2"
         with:
           credentials_json: "${{ secrets.GOOGLE_CREDENTIALS }}"
@@ -54,5 +55,6 @@ jobs:
           echo "GS_STAGING_PREFIX"
           echo "GEE_PROJECT_FOLDER"
           echo "RW_API_KEY"
-          echo "MONTH_24_LAYER_ID"
-          python automation/month_24_automation.py
+          echo "MONTH_3_LAYER_ID"
+          python automation/month_3_automation.py
+      
