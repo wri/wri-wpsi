@@ -29,11 +29,27 @@ def getLayerData(layerId):
 def updateLayer(datasetId, layerId, layerData):
     try:
         rw_api_url = 'https://api.resourcewatch.org/v1/dataset/{}/layer/{}'.format(datasetId, layerId)
-        print(rw_api_url)
+        print(f"Making PATCH request to: {rw_api_url}")
         res = requests.patch(rw_api_url, data=json.dumps(layerData), headers=create_headers())
-        print(res.json()["data"]["attributes"]["layerConfig"])
-    except:
-        raise ValueError('Failed to update layer data')
+        # Print response details for debugging
+        print(f"Response status code: {res.status_code}")
+        print(f"Response content: {res.text}")
+        
+        try:
+            response_data = res.json()
+            print("Response data:", json.dumps(response_data, indent=2))
+            return response_data["data"]["attributes"]["layerConfig"]
+        except json.JSONDecodeError as e:
+            print(f"Failed to parse JSON response: {e}")
+            print(f"Raw response content: {res.text}")
+            raise ValueError('Failed to parse API response as JSON')
+            
+    except requests.exceptions.RequestException as e:
+        print(f"Request failed: {str(e)}")
+        raise ValueError(f'Failed to update layer data: {str(e)}')
+    except Exception as e:
+        print(f"Unexpected error: {str(e)}")
+        raise ValueError(f'Failed to update layer data: {str(e)}')
 
 def layer_set_asset_id(layerId, assetIdContent):
     """
