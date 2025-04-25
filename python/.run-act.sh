@@ -1,1 +1,0 @@
-act -P ubuntu-latest=ubuntu-builder --pull=false --container-architecture linux/amd64 --secret-file .secrets workflow_dispatch --workflows '.github/workflows/cron_update_SPI24.yml'
