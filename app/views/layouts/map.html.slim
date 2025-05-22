@@ -20,11 +20,9 @@ html lang='en'
 
     / Regular asset pipeline
     = stylesheet_link_tag 'front', media: 'all'
-    = javascript_include_tag 'application'
-
-    / Webpacker pipeline
-    = javascript_pack_tag 'application'
-    = stylesheet_pack_tag 'application'
+    
+    / Importmap JavaScript
+    = javascript_importmap_tags
 
     / Google places API
     - key = ENV['WRI_WPSI_GOOGLE_MAPS_API_KEY']

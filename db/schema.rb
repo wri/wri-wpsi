@@ -2,16 +2,15 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_10_195354) do
-
+ActiveRecord::Schema[7.1].define(version: 2025_05_20_180205) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +19,7 @@ ActiveRecord::Schema.define(version: 2023_07_10_195354) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -31,42 +30,49 @@ ActiveRecord::Schema.define(version: 2023_07_10_195354) do
     t.string "content_type"
     t.text "metadata"
     t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
+    t.string "checksum"
+    t.datetime "created_at", precision: nil, null: false
+    t.string "service_name", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
   create_table "categories_layers", id: false, force: :cascade do |t|
     t.bigint "category_id", null: false
     t.bigint "layer_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["category_id", "layer_id"], name: "index_categories_layers_on_category_id_and_layer_id", unique: true
   end
 
   create_table "events", force: :cascade do |t|
     t.string "title"
-    t.datetime "start"
-    t.datetime "ends"
+    t.datetime "start", precision: nil
+    t.datetime "ends", precision: nil
     t.string "location"
     t.string "link"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "file_uploads", force: :cascade do |t|
     t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "layers", force: :cascade do |t|
@@ -75,8 +81,8 @@ ActiveRecord::Schema.define(version: 2023_07_10_195354) do
     t.string "layer_id"
     t.string "dataset_id"
     t.boolean "published", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.boolean "primary", default: false, null: false
     t.text "long_description"
     t.string "source_name"
@@ -93,8 +99,8 @@ ActiveRecord::Schema.define(version: 2023_07_10_195354) do
     t.text "article_url"
     t.string "image_url"
     t.text "image_alt_text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.date "date"
     t.boolean "published", default: false
     t.string "categories", default: [], array: true
@@ -103,8 +109,8 @@ ActiveRecord::Schema.define(version: 2023_07_10_195354) do
   create_table "page_team_members", force: :cascade do |t|
     t.bigint "page_id"
     t.bigint "team_member_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["page_id"], name: "index_page_team_members_on_page_id"
     t.index ["team_member_id"], name: "index_page_team_members_on_team_member_id"
   end
@@ -113,8 +119,8 @@ ActiveRecord::Schema.define(version: 2023_07_10_195354) do
     t.string "name"
     t.string "slug"
     t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.decimal "sort_priority"
     t.string "menu"
     t.string "location"
@@ -123,16 +129,16 @@ ActiveRecord::Schema.define(version: 2023_07_10_195354) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "tag_color", default: "#ffffff"
   end
 
   create_table "team_member_tags", force: :cascade do |t|
     t.bigint "team_member_id"
     t.bigint "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["tag_id"], name: "index_team_member_tags_on_tag_id"
     t.index ["team_member_id"], name: "index_team_member_tags_on_team_member_id"
   end
@@ -143,8 +149,8 @@ ActiveRecord::Schema.define(version: 2023_07_10_195354) do
     t.string "email"
     t.string "profile_image"
     t.integer "priority", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "country_priority", default: 0
   end
 
@@ -152,10 +158,10 @@ ActiveRecord::Schema.define(version: 2023_07_10_195354) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -231,6 +237,7 @@ ActiveRecord::Schema.define(version: 2023_07_10_195354) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "page_team_members", "pages"
   add_foreign_key "page_team_members", "team_members"
   add_foreign_key "team_member_tags", "tags"

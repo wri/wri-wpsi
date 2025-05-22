@@ -9,11 +9,10 @@ html
     = render 'layouts/shared/fonts'
 
     = stylesheet_link_tag 'website', media: 'all'
-    = javascript_include_tag 'application'
-
-    / Webpacker pipeline
-    = javascript_pack_tag 'admin'
-  body
+    
+    / Importmap JavaScript
+    = javascript_importmap_tags
+  body.admin-layout
     = render 'layouts/shared/google_tag_manager_noscript'
     .container
       = render 'admin/shared/navbar'

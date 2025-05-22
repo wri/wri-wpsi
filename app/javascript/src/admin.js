@@ -1,0 +1,23 @@
+// Admin-specific JavaScript for widget preview functionality
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Widget from '../components/Widget'
+
+document.addEventListener('DOMContentLoaded', () => {
+  const widgetSpecEl = document.getElementById('layer_widget_spec')
+  const previewRegionEl = document.getElementById('preview_region')
+
+  if (widgetSpecEl && previewRegionEl && widgetSpecEl.value) {
+    const updatePreview = () => {
+      ReactDOM.render(
+        <Widget region={{gid_1: previewRegionEl.value}} widgetSpec={JSON.parse(widgetSpecEl.value)} />,
+        document.getElementById('vega-preview'),
+      )
+    }
+
+    widgetSpecEl.addEventListener("input", updatePreview)
+    previewRegionEl.addEventListener("input", updatePreview)
+
+    updatePreview()
+  }
+}) 
