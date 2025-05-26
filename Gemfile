@@ -12,6 +12,7 @@ gem 'dotenv-rails'
 gem 'jquery-rails'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 5.5'
+gem 'nokogiri', '~> 1.13.10'
 gem 'rails', '~> 5.2.4'
 gem 'sass-rails', '~> 6.0'
 gem 'sentry-raven'
@@ -26,7 +27,7 @@ group :development, :test do
   gem 'brakeman', '>= 4.6.1', require: false
   gem 'bundle-audit', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', '~> 5.2.0'
   gem 'faker'
   gem 'i18n-tasks'
   gem 'simplecov'

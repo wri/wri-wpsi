@@ -1,16 +1,8 @@
 #!/bin/bash
 set -e
 
-if [[ $@ == *"rails server"* ]]; then
-  echo "removing pid for $@"
-  rm -f /app/tmp/pids/server.pid
-fi
+# Remove a potentially pre-existing server.pid for Rails
+rm -f /app/tmp/pids/server.pid
 
-mkdir -p /node_modules/.yarn-cache
-yarn config set cache-folder /node_modules/.yarn-cache
-
-if [[ ! -d /app/node_modules ]]; then
-  ln -sf /node_modules /app
-fi
-
-exec "$@"
+# Then exec the container's main process (what's set as CMD in the Dockerfile)
+exec "$@" 
