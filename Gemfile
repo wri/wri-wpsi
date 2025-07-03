@@ -21,7 +21,6 @@ gem 'tinymce-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'validate_url'
 gem 'webpacker'
-gem 'mini_racer'
 
 group :development, :test do
   gem 'brakeman', '>= 4.6.1', require: false
