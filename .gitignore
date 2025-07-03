@@ -43,8 +43,9 @@ coverage
 .env.production
 .env.local
 .env
-
+.env.map2
 .env.react
+
 
 .secrets
 
