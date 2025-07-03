@@ -12,3 +12,5 @@ set :rvm_custom_path, '/usr/share/rvm'
 append :linked_dirs, 'storage'
 
 append :linked_files, '.env.production'
+
+append :linked_files, '.env.react'

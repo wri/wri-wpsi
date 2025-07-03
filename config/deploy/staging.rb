@@ -15,6 +15,8 @@ append :linked_dirs, 'storage'
 
 append :linked_files, '.env.staging'
 
+append :linked_files, '.env.react'
+
 set :keep_releases, 2
 
 after "deploy:restart", "deploy:cleanup"

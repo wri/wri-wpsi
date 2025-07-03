@@ -44,6 +44,8 @@ coverage
 .env.local
 .env
 
+.env.react
+
 .secrets
 
 # vscode and vendor cache
@@ -60,3 +62,4 @@ gcloud-key.json
 *.pyc
 __pycache__
 automation/.run-ee.sh
+/public/map-anomalies
