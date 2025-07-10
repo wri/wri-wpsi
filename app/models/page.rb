@@ -8,6 +8,7 @@ class Page < ApplicationRecord
 
   SLUG_REDIRECTS = {
     'map' => :map,
+    'map-anomalies' => 'map-anomalies',
     'news-and-publications' => :news,
     'news-archive' => :archive,
     'our-team' => :our_team,
@@ -20,6 +21,10 @@ class Page < ApplicationRecord
 
   def self.map
     Page.find_by(slug: 'map')
+  end
+
+  def self.map_anomalies
+    Page.find_by(slug: 'map-anomalies')
   end
 
   def self.archive

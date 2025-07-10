@@ -20,14 +20,10 @@ namespace :react do
           # Clone the Next.js repository
           execute :git, 'clone', '-b', react_branch, react_repo_url, temp_dir
 
-          # Copy .env.map2 to .env in the cloned repository
-          puts "📄 Copying .env.map2 to .env..."
-          if test("[ -f #{temp_dir}/.env.map2 ]")
-            execute :cp, "#{temp_dir}/.env.map2", "#{temp_dir}/.env"
-            puts "✅ .env file created from .env.map2"
-          else
-            puts "⚠️  Warning: .env.map2 not found in repository"
-          end
+          # Copy .env.map2 from local to temp_dir and rename to .env
+          puts "📄 Copying .env.map2 from local to server..."
+          upload! '.env.map2', "#{temp_dir}/.env"
+          puts "✅ .env file created from local .env.map2"
           
           # Verify the directory was created
           unless test("[ -d \"#{temp_dir}\" ]")
