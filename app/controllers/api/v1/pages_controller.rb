@@ -14,7 +14,7 @@ class Api::V1::PagesController < ApplicationController
       
       pages_by_menu[menu_key] << {
         name: page.name,
-        slug: page.slug,
+        slug: page.url_path,
         sort_priority: page.sort_priority
       }
     end

@@ -15,6 +15,12 @@ class Page < ApplicationRecord
     'events' => :events
   }.freeze
 
+  # Array of slugs that should be passed without /info/ prefix
+  SLUGS_WITHOUT_PREFIX = [
+    'causal',
+    'causal/*',
+  ].freeze
+
   def self.news
     Page.find_by(slug: 'news-and-publications')
   end
@@ -64,6 +70,15 @@ class Page < ApplicationRecord
 
     # Pages with children are contentless menu items
     redirect_target.present? || children.any? || location.present?
+  end
+
+  # Get the proper URL path for this page
+  def url_path
+    if SLUG_REDIRECTS[slug] || !parent.present? || SLUGS_WITHOUT_PREFIX.include?(slug)
+      "#{slug}"
+    else
+      "info/#{slug}"
+    end
   end
 
   def self.options_for_menu_select
