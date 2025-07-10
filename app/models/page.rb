@@ -17,6 +17,7 @@ class Page < ApplicationRecord
 
   # Array of slugs that should be passed without /info/ prefix
   SLUGS_WITHOUT_PREFIX = [
+    'our-team',
     'causal',
     'causal/*',
   ].freeze
@@ -74,7 +75,11 @@ class Page < ApplicationRecord
 
   # Get the proper URL path for this page
   def url_path
-    if SLUG_REDIRECTS[slug] || !parent.present? || SLUGS_WITHOUT_PREFIX.include?(slug)
+    if SLUGS_WITHOUT_PREFIX.include?(slug)
+      "#{slug}"
+    elsif SLUG_REDIRECTS[slug]
+      "#{SLUG_REDIRECTS[slug]}"
+    elsif !parent.present?
       "#{slug}"
     else
       "info/#{slug}"
