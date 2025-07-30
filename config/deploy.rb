@@ -19,7 +19,7 @@ set :nginx_use_ssl, true
 # Default value for :linked_files is []
 
 # Default value for linked_dirs is []
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/map-anomalies/anomalies'
 
 # React build configuration
 set :react_repo_url, ENV['REACT_REPO_URL'] || 'git@github.com:your-org/your-react-app.git'

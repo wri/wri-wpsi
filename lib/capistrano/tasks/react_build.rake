@@ -65,6 +65,8 @@ namespace :react do
                 execute :cp, "#{react_public_dir}/404.html", backup_dir, '2>/dev/null', '||', 'true'
                 execute :cp, "#{react_public_dir}/422.html", backup_dir, '2>/dev/null', '||', 'true'
                 execute :cp, "#{react_public_dir}/500.html", backup_dir, '2>/dev/null', '||', 'true'
+                # Copy map-anomalies directory to backup (if it exists)
+                execute :cp, '-r', "#{react_public_dir}/map-anomalies", backup_dir, '2>/dev/null', '||', 'true'
               end
               
               # Create public directory if it doesn't exist
@@ -75,7 +77,7 @@ namespace :react do
               # Copy React build artifacts to public directory
               execute :cp, '-r', "#{temp_dir}/#{react_build_dir}/*", react_public_dir
               
-              # Restore Rails assets from backup
+              # Restore Rails assets and map-anomalies from backup
               if test("[ -d \"#{backup_dir}\" ]")
                 execute :cp, '-r', "#{backup_dir}/*", react_public_dir
                 execute :rm, '-rf', backup_dir
@@ -115,11 +117,11 @@ namespace :react do
         if test("[ -d \"#{react_public_dir}\" ]")
           puts "🧹 Cleaning up Next.js build artifacts..."
           
-          # Remove only React-specific files, preserve Rails assets
-          execute :find, react_public_dir, '-name', '*.js', '-not', '-path', '*/assets/*', '-not', '-path', '*/packs/*', '-delete'
-          execute :find, react_public_dir, '-name', '*.css', '-not', '-path', '*/assets/*', '-not', '-path', '*/packs/*', '-delete'
+          # Remove only React-specific files, preserve Rails assets and map-anomalies
+          execute :find, react_public_dir, '-name', '*.js', '-not', '-path', '*/assets/*', '-not', '-path', '*/packs/*', '-not', '-path', '*/map-anomalies/*', '-delete'
+          execute :find, react_public_dir, '-name', '*.css', '-not', '-path', '*/assets/*', '-not', '-path', '*/packs/*', '-not', '-path', '*/map-anomalies/*', '-delete'
           execute :find, react_public_dir, '-name', '*.html', '-not', '-name', '404.html', '-not', '-name', '422.html', '-not', '-name', '500.html', '-delete'
-          execute :find, react_public_dir, '-name', 'static', '-type', 'd', '-exec', 'rm', '-rf', '{}', '+'
+          execute :find, react_public_dir, '-name', 'static', '-type', 'd', '-not', '-path', '*/map-anomalies/*', '-exec', 'rm', '-rf', '{}', '+'
           
           puts "✅ Next.js build artifacts cleaned up"
         end
