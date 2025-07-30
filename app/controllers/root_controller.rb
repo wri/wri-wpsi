@@ -29,6 +29,16 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     render file: Rails.root.join('public', 'map-anomalies', 'index.html'), layout: false
   end
 
+  def serve_anomaly_file
+    file_path = Rails.root.join('public', 'map-anomalies', 'anomalies', params[:file])
+    
+    if File.exist?(file_path)
+      send_file file_path, disposition: 'inline'
+    else
+      render plain: 'File not found', status: :not_found
+    end
+  end
+
   def news
     set_pages
     @news_items = NewsItem.current.limit(12)
