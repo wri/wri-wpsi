@@ -108,6 +108,37 @@ namespace :anomalies do
     end
   end
   
+  desc 'Copy GeoJSON files from shared directory to current deployment'
+  task :copy_to_current do
+    on roles(:app) do
+      within release_path do
+        shared_anomalies_dir = "#{fetch(:deploy_to)}/shared/public/map-anomalies/anomalies"
+        current_anomalies_dir = "#{release_path}/public/map-anomalies/anomalies"
+        
+        # Create current deployment anomalies directory if it doesn't exist
+        execute :mkdir, '-p', current_anomalies_dir
+        
+        puts "📁 Copying GeoJSON files from shared to current deployment..."
+        puts "📂 From: #{shared_anomalies_dir}"
+        puts "📂 To: #{current_anomalies_dir}"
+        
+        # Check if shared directory exists and has files
+        if test("[ -d \"#{shared_anomalies_dir}\" ]")
+          # Copy all files from shared to current deployment
+          execute :cp, '-r', "#{shared_anomalies_dir}/*", current_anomalies_dir, '2>/dev/null', '||', 'true'
+          puts "✅ GeoJSON files copied to current deployment"
+          
+          # List copied files
+          puts "📋 Files in current deployment:"
+          execute :ls, '-la', current_anomalies_dir
+        else
+          puts "❌ Shared anomalies directory does not exist: #{shared_anomalies_dir}"
+          puts "💡 Run 'cap production anomalies:upload_files' first to upload files to shared directory"
+        end
+      end
+    end
+  end
+  
   desc 'List all JSON files in the map-anomalies/anomalies directory'
   task :list do
     on roles(:app) do
@@ -116,7 +147,7 @@ namespace :anomalies do
         
         if test("[ -d \"#{anomalies_dir}\" ]")
           puts "📋 JSON files in map-anomalies/anomalies directory:"
-          execute :find, anomalies_dir, '-name', '*.json', '-o', '-name', '*.geojson', '-type', 'f', '-exec', 'ls', '-lh', '{}', ';'
+          execute :ls, '-la', anomalies_dir
         else
           puts "❌ Map-anomalies/anomalies directory does not exist: #{anomalies_dir}"
         end

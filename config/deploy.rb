@@ -64,6 +64,9 @@ after 'deploy:log_revision', :push_deploy_tag
 # Build Next.js application after deployment
 after 'deploy:updated', 'react:build'
 
+# Copy GeoJSON files from shared to current deployment
+after 'deploy:updated', 'anomalies:copy_to_current'
+
 desc 'Restart puma to pick up latest code changes'
 task :restart_puma do
   ruby_version = File.read(".ruby-version").chomp.split("-").last
