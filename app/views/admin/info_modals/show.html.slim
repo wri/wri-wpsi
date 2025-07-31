@@ -1,0 +1,24 @@
+h2.mb-4 Info Modal Details
+
+.card
+  .card-body
+    .row.mt-3
+      .col-md-3
+        strong Info Modal ID:
+      .col-md-9
+        = @info_modal.info_modal_id
+    .row
+      .col-md-3
+        strong Title:
+      .col-md-9
+        = @info_modal.title
+    .row.mt-3
+      .col-md-3
+        strong Content:
+      .col-md-9
+        .border.p-3.bg-light
+          = simple_format(@info_modal.content)
+
+.mt-4
+  = link_to 'Edit', edit_admin_info_modal_path(@info_modal), class: 'btn btn-primary'
+  = link_to 'Back to list', admin_info_modals_path, class: 'btn btn-secondary ml-2' 

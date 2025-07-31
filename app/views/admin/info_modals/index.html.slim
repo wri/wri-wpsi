@@ -1,0 +1,25 @@
+h2.mb-4 Listing info modals
+
+table.table
+  thead
+    tr
+      th Info Modal ID
+      th Title
+      th Content
+      th
+      th
+
+  tbody
+    - @info_modals.each do |info_modal|
+      tr
+        td = info_modal.info_modal_id
+        td = link_to info_modal.title, [:admin, info_modal]
+        td = truncate(info_modal.content, length: 100)
+        td = link_to 'Edit', edit_admin_info_modal_path(info_modal)
+        td = link_to 'Delete', [:admin, info_modal],
+            data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'Add a new info modal', new_admin_info_modal_path,
+    class: 'btn btn-primary mb-4' 
