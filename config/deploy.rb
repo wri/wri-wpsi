@@ -22,12 +22,6 @@ set :nginx_use_ssl, true
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/map-anomalies/anomalies'
 
 # React build configuration
-set :react_repo_url, ENV['REACT_REPO_URL'] || 'git@github.com:your-org/your-react-app.git'
-set :react_branch, ENV['REACT_BRANCH'] || 'main'
-set :react_build_dir, ENV['REACT_BUILD_DIR'] || 'build'
-set :react_public_dir, ENV['REACT_PUBLIC_DIR'] || 'public'
-
-# React build configuration
 set :react_repo_url, 'git@github.com:wri/wri-wpsi-2.git'
 set :react_branch, 'main'
 set :react_build_dir, 'dist'
@@ -79,6 +73,3 @@ task :restart_puma do
 end
 
 after 'deploy', :restart_puma
-
-before 'deploy', 'gr:last_revision'
-after 'deploy:log_revision', :push_deploy_tag
