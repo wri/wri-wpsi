@@ -19,9 +19,6 @@ append :linked_dirs, 'storage'
 
 append :linked_files, '.env.staging'
 
-# It is read from /var/www/wri-wpsi/shared/.env.react
-# append :linked_files, '.env.react'
-
 set :keep_releases, 2
 
 after "deploy:restart", "deploy:cleanup"
