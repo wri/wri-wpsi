@@ -1,6 +1,9 @@
 name: Deploy Staging Frontend
 on:
   workflow_dispatch:
+  push:
+    branches:
+    - staging
 
 # branch pushes will cancel any running jobs to the same branch
 concurrency:
@@ -8,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy-staging:
+  deploy-staging-frontend:
     runs-on: ubuntu-latest
 
     steps:
