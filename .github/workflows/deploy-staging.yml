@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  deploy-staging:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,6 +22,9 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+
+      - name: Install development gems
+        run: bundle install --with development
 
       - name: Log run info
         run: echo "This workflow for ref ${{ github.ref }} was triggered by ${{ github.event_name }} event, running on ${{ runner.os }}."
