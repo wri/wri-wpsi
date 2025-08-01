@@ -4,10 +4,10 @@ namespace :react do
     on roles(:app) do
       within release_path do
         # Configuration variables - customize these for your React repo
-        react_repo_url = fetch(:react_repo_url, 'git@github.com:your-org/your-react-app.git')
-        react_branch = fetch(:react_branch, 'main')
-        react_build_dir = fetch(:react_build_dir, 'build')
-        react_public_dir = fetch(:react_public_dir, 'public')
+        react_repo_url = fetch(:react_repo_url)
+        react_branch = fetch(:react_branch)
+        react_build_dir = fetch(:react_build_dir)
+        react_public_dir = fetch(:react_public_dir)
         
         # Create temporary directory for React build
         timestamp = fetch(:release_timestamp) || Time.now.utc.strftime('%Y%m%d%H%M%S')
