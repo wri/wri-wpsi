@@ -65,19 +65,20 @@ namespace :react do
                 execute :cp, "#{react_public_dir}/404.html", backup_dir, '2>/dev/null', '||', 'true'
                 execute :cp, "#{react_public_dir}/422.html", backup_dir, '2>/dev/null', '||', 'true'
                 execute :cp, "#{react_public_dir}/500.html", backup_dir, '2>/dev/null', '||', 'true'
-                # Copy map-anomalies directory to backup (if it exists)
-                execute :cp, '-r', "#{react_public_dir}/map-anomalies", backup_dir, '2>/dev/null', '||', 'true'
               end
               
               # Create public directory if it doesn't exist
               execute :mkdir, '-p', react_public_dir
-              # Clear public directory
-              execute :rm, '-rf', "#{react_public_dir}/*"
+              
+              # Clear public directory but preserve the map-anomalies symlink
+              puts "🗑️  Clearing public directory while preserving map-anomalies symlink..."
+              # Remove everything except the map-anomalies directory
+              execute :find, react_public_dir, '-mindepth', '1', '-not', '-path', "#{react_public_dir}/map-anomalies*", '-delete'
               
               # Copy React build artifacts to public directory
               execute :cp, '-r', "#{temp_dir}/#{react_build_dir}/*", react_public_dir
               
-              # Restore Rails assets and map-anomalies from backup
+              # Restore Rails assets from backup (map-anomalies symlink is preserved)
               if test("[ -d \"#{backup_dir}\" ]")
                 execute :cp, '-r', "#{backup_dir}/*", react_public_dir
                 execute :rm, '-rf', backup_dir
@@ -85,6 +86,20 @@ namespace :react do
               
               # Ensure proper permissions
               execute :chmod, '-R', '755', react_public_dir
+              
+              # Verify map-anomalies symlink is still intact
+              map_anomalies_path = "#{react_public_dir}/anomalies"
+              if test("[ -L \"#{map_anomalies_path}\" ]")
+                puts "✅ Map-anomalies symlink preserved after build"
+                execute :ls, '-la', map_anomalies_path
+              else
+                puts "⚠️  Map-anomalies symlink may have been affected, attempting to recreate..."
+                # Try to recreate the symlink if it was broken
+                shared_anomalies_path = "#{shared_path}/public/map-anomalies/anomalies"
+                execute :rm, '-rf', map_anomalies_path, '2>/dev/null', '||', 'true'
+                execute :ln, '-sf', shared_anomalies_path, map_anomalies_path
+                puts "✅ Map-anomalies symlink recreated"
+              end
               
               puts "✅ Next.js application built and deployed to #{react_public_dir}"
             else
