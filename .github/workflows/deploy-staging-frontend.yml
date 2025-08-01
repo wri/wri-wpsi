@@ -1,14 +1,16 @@
 name: Deploy Staging Frontend
-on: 
-  push:
-    branches:
-    - frontend-staging
+on:
   workflow_dispatch:
-
-# branch pushes will cancel any running jobs to the same branch
-concurrency:
-  group: ${{ github.ref }}-ci
-  cancel-in-progress: true
+    inputs:
+      branch:
+        description: 'Target deployment environment'
+        required: true
+        default: 'main'
+        type: 'choice'
+        options:
+          - 'development'
+          - 'staging'
+          - 'main'
 
 jobs:
   deploy-staging-frontend:
