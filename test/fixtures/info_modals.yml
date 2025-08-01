@@ -1,0 +1,9 @@
+one:
+  title: 'Sample Info Modal'
+  content: 'This is a sample info modal content for testing purposes.'
+  info_modal_id: 'sample-modal-1'
+
+two:
+  title: 'Another Info Modal'
+  content: 'This is another sample info modal with different content.'
+  info_modal_id: 'sample-modal-2' 

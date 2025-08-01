@@ -43,6 +43,9 @@ coverage
 .env.production
 .env.local
 .env
+.env.map2
+.env.react
+
 
 .secrets
 
@@ -60,3 +63,4 @@ gcloud-key.json
 *.pyc
 __pycache__
 automation/.run-ee.sh
+/public/map-anomalies

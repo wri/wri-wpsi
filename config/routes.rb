@@ -9,6 +9,10 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   get '/map', to: 'root#map'
   get '/map/*ignored', to: 'root#map'
 
+  get '/map-anomalies', to: 'root#map_anomalies'
+  get '/map-anomalies/anomalies/*file', to: 'root#serve_anomaly_file'
+  get '/map-anomalies/*ignored', to: 'root#map_anomalies'
+
   get '/news', to: 'root#news'
   get '/our-team', to: 'root#our_team'
   get '/archive', to: 'root#archive'
@@ -45,6 +49,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
     resources :users, only: %i[index new create destroy]
     resources :news_items
     resources :file_uploads, only: %i[index new create destroy]
+    resources :info_modals, param: :id
     get '/style_guides/article', to: 'style_guides#article'
   end
 
@@ -54,6 +59,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
       resources :categories, only: [:index]
       resources :layers, only: [:index]
       resources :pages, only: [:index]
+      resources :info_modals, only: [:index]
 
       get 'widget_datapoints/:gid_1/:field_name',
           to: 'widget_datapoints#index',
