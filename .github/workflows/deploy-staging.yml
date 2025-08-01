@@ -44,6 +44,15 @@ jobs:
         run: |
           yarn install --pure-lockfile
 
+      - name: Create .env.map2 file for build of wri-wpsi-2
+        run: |
+          cat > .env.map2 << EOF
+          NEXT_PUBLIC_MAPBOX_API_ACCESS_TOKEN=${{ secrets.NEXT_PUBLIC_MAPBOX_API_ACCESS_TOKEN }}
+          WRI_API_URL=${{ vars.WRI_API_URL_STAGING }}
+          NEXT_PUBLIC_MEASUREMENT_ID=${{ secrets.NEXT_PUBLIC_MEASUREMENT_ID }}
+          EOF
+          echo "Created .env.map2 file with environment variables"
+
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
