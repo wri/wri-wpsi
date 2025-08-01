@@ -1,6 +1,5 @@
 name: Deploy Staging Frontend
-on:
-  workflow_dispatch:
+on: workflow_dispatch
 
 # branch pushes will cancel any running jobs to the same branch
 concurrency:
