@@ -59,6 +59,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
       resources :categories, only: [:index]
       resources :layers, only: [:index]
       resources :pages, only: [:index]
+      resources :info_modals, only: [:index]
 
       get 'widget_datapoints/:gid_1/:field_name',
           to: 'widget_datapoints#index',
