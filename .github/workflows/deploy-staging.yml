@@ -24,7 +24,13 @@ jobs:
           bundler-cache: true
 
       - name: Install development gems
-        run: bundle install --with development
+        run: bundle install --with=development
+
+      - name: Verify Capistrano installation
+        run: |
+          bundle list | grep capistrano
+          which cap || echo "cap command not found in PATH"
+          bundle exec which cap || echo "cap command not found via bundle exec"
 
       - name: Log run info
         run: echo "This workflow for ref ${{ github.ref }} was triggered by ${{ github.event_name }} event, running on ${{ runner.os }}."
@@ -53,4 +59,4 @@ jobs:
       - name: Deploy to staging
         env:
           RAILS_SERVE_STATIC_FILES: enabled
-        run: cap staging deploy
+        run: bundle exec cap staging deploy

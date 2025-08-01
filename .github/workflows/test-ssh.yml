@@ -1,0 +1,26 @@
+name: Test SSH Connection
+on:
+  workflow_dispatch:
+
+jobs:
+  test-ssh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.STAGING_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.STAGING_HOST }} >> ~/.ssh/known_hosts
+          echo "Host wri-staging" >> ~/.ssh/config
+          echo "  HostName ${{ secrets.STAGING_HOST }}" >> ~/.ssh/config
+          echo "  User ${{ secrets.STAGING_USER }}" >> ~/.ssh/config
+          echo "  IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
+          echo "  IdentitiesOnly yes" >> ~/.ssh/config
+
+      - name: Test SSH Connection
+        run: |
+          ssh wri-staging "echo 'SSH connection successful' && whoami && pwd" 
