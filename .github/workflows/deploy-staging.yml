@@ -55,6 +55,11 @@ jobs:
           echo "  User ${{ secrets.STAGING_USER }}" >> ~/.ssh/config
           echo "  IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
           echo "  IdentitiesOnly yes" >> ~/.ssh/config
+          echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+          echo "  UserKnownHostsFile /dev/null" >> ~/.ssh/config
+
+      - name: Test SSH connection
+        run: ssh wri-staging "echo 'SSH connection successful' && whoami && pwd"
 
       - name: Deploy to staging
         env:

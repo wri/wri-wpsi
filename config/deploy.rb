@@ -64,16 +64,10 @@ task :push_deploy_tag do
   end
 end
 
-before 'deploy', 'gr:last_revision'
-after 'deploy:log_revision', :push_deploy_tag
-
 # Build Next.js application after deployment
 after 'deploy:updated', 'react:build'
 
 append :linked_dirs, 'public/map-anomalies/anomalies'
-
-# Copy GeoJSON files from shared to current deployment
-after 'deploy:updated', 'anomalies:copy_to_current'
 
 desc 'Restart puma to pick up latest code changes'
 task :restart_puma do
@@ -85,3 +79,6 @@ task :restart_puma do
 end
 
 after 'deploy', :restart_puma
+
+before 'deploy', 'gr:last_revision'
+after 'deploy:log_revision', :push_deploy_tag
