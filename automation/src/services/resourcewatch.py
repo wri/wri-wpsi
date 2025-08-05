@@ -22,8 +22,9 @@ def getLayerData(layerId):
     try:
         rw_api_url = 'https://api.resourcewatch.org/v1/layer/{}'.format(layerId)
         print(f"Making GET request to: {rw_api_url}")
-        data = requests.request("GET", rw_api_url, headers=create_headers()).json()["data"]
-        return data
+        data = requests.request("GET", rw_api_url, headers=create_headers()).json()
+        print(data)
+        return data["data"]
     except:
         raise ValueError('Failed getting layer data')
 
