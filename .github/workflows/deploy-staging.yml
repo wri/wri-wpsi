@@ -13,6 +13,7 @@ concurrency:
 jobs:
   deploy-staging:
     runs-on: ubuntu-latest
+    environment: wri-staging
 
     steps:
       - name: Checkout code
