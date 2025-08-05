@@ -23,9 +23,10 @@ def init(user=None, key=None, auth=True):
     global CARTO_USER, CARTO_KEY
     CARTO_USER = user or os.environ.get('CARTO_USER')
     CARTO_KEY = key or os.environ.get('CARTO_KEY')
+    CARTO_MASK_TABLE_NAME = os.environ.get('CARTO_MASK_TABLE_NAME')
     if auth:
         try:
-            get('SELECT * FROM CDB_UserTables() LIMIT 1')
+            get('SELECT * FROM {} LIMIT 1'.format(CARTO_MASK_TABLE_NAME))
             return True
         except requests.HTTPError as e:
             logging.warning('Failed to authenticate')
