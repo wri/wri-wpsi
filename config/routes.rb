@@ -9,9 +9,9 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   get '/map', to: 'root#map'
   get '/map/*ignored', to: 'root#map'
 
-  get '/map-anomalies', to: 'root#map_anomalies'
-  get '/map-anomalies/anomalies/*file', to: 'root#serve_anomaly_file'
-  get '/map-anomalies/*ignored', to: 'root#map_anomalies'
+  get '/map-reservoir-surface-anomalies', to: 'root#map_anomalies'
+  get '/map-reservoir-surface-anomalies/anomalies/*file', to: 'root#serve_anomaly_file'
+  get '/map-reservoir-surface-anomalies/*ignored', to: 'root#map_anomalies'
 
   get '/news', to: 'root#news'
   get '/our-team', to: 'root#our_team'
