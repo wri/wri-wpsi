@@ -25,12 +25,12 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
   end
 
   def map_anomalies
-    # Serve static content from public/map-anomalies folder
-    render file: Rails.root.join('public', 'map-anomalies', 'index.html'), layout: false
+    # Serve static content from public/map-reservoir-surface-anomalies folder
+    render file: Rails.root.join('public', 'map-reservoir-surface-anomalies', 'index.html'), layout: false
   end
 
   def serve_anomaly_file
-    file_path = Rails.root.join('public', 'map-anomalies', 'anomalies', params[:file])
+    file_path = Rails.root.join('public', 'map-reservoir-surface-anomalies', 'anomalies', params[:file])
     
     if File.exist?(file_path)
       send_file file_path, disposition: 'inline'

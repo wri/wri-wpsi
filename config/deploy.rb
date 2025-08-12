@@ -14,13 +14,13 @@ set :nginx_use_ssl, true
 # Default value for :linked_files is []
 
 # Default value for linked_dirs is []
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/map-anomalies/anomalies'
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/map-reservoir-surface-anomalies/anomalies'
 
 # React build configuration
 set :react_repo_url, 'git@github.com:wri/wri-wpsi-2.git'
 set :react_branch, 'main'
 set :react_build_dir, 'dist'
-set :react_public_dir, 'public/map-anomalies'
+set :react_public_dir, 'public/map-reservoir-surface-anomalies'
 
 # Default value for keep_releases is 5
 set :keep_releases, 5

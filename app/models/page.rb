@@ -8,7 +8,7 @@ class Page < ApplicationRecord
 
   SLUG_REDIRECTS = {
     'map' => :map,
-    'map-anomalies' => 'map-anomalies',
+    'map-reservoir-surface-anomalies' => 'map-reservoir-surface-anomalies',
     'news-and-publications' => :news,
     'news-archive' => :archive,
     'our-team' => :our_team,
@@ -31,7 +31,7 @@ class Page < ApplicationRecord
   end
 
   def self.map_anomalies
-    Page.find_by(slug: 'map-anomalies')
+    Page.find_by(slug: 'map-reservoir-surface-anomalies')
   end
 
   def self.archive
