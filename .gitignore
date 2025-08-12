@@ -63,4 +63,4 @@ gcloud-key.json
 *.pyc
 __pycache__
 automation/.run-ee.sh
-/public/map-anomalies
+/public/map-reservoir-surface-anomalies
