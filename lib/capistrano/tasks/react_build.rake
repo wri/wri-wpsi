@@ -73,7 +73,7 @@ namespace :react do
               # Clear public directory but preserve the map-anomalies symlink
               puts "🗑️  Clearing public directory while preserving map-anomalies symlink..."
               # Remove everything except the map-anomalies directory
-              execute :find, react_public_dir, '-mindepth', '1', '-not', '-path', "#{react_public_dir}/map-anomalies*", '-delete'
+              execute :find, react_public_dir, '-mindepth', '1', '-not', '-path', "#{react_public_dir}/map-reservoir-surface-anomalies*", '-delete'
               
               # Copy React build artifacts to public directory
               execute :cp, '-r', "#{temp_dir}/#{react_build_dir}/*", react_public_dir
@@ -95,7 +95,7 @@ namespace :react do
               else
                 puts "⚠️  Map-anomalies symlink may have been affected, attempting to recreate..."
                 # Try to recreate the symlink if it was broken
-                shared_anomalies_path = "#{shared_path}/public/map-anomalies/anomalies"
+                shared_anomalies_path = "#{shared_path}/public/map-reservoir-surface-anomalies/anomalies"
                 execute :rm, '-rf', map_anomalies_path, '2>/dev/null', '||', 'true'
                 execute :ln, '-sf', shared_anomalies_path, map_anomalies_path
                 puts "✅ Map-anomalies symlink recreated"
