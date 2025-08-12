@@ -6,6 +6,10 @@ regional_work:
   name: 'Regional Work'
   slug: 'regional-work'
   menu: ''
+map-reservoir-surface-anomalies:
+  name: 'Map Reservoir Surface Anomalies'
+  slug: 'map-reservoir-surface-anomalies'
+  menu: 'global-tool'
 map:
   name: 'Map'
   slug: 'map'
