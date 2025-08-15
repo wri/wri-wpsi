@@ -8,6 +8,7 @@ namespace :react do
         react_branch = fetch(:react_branch)
         react_build_dir = fetch(:react_build_dir)
         react_public_dir = fetch(:react_public_dir)
+        stage = fetch(:stage)
         
         # Create temporary directory for React build
         timestamp = fetch(:release_timestamp) || Time.now.utc.strftime('%Y%m%d%H%M%S')
@@ -36,18 +37,26 @@ namespace :react do
           # Navigate to React project directory
           puts "📂 Checking repository contents..."
           execute :ls, '-la', temp_dir
+
+          execute :cat, "#{temp_dir}/.env"
           
           puts "📦 Checking for package.json..."
           if test("[ -f #{temp_dir}/package.json ]")
             puts "📦 Installing dependencies..."
 
-            # Source NVM and use Node.js version from .nvmrc
-            execute "cd #{temp_dir} && source ~/.nvm/nvm.sh && nvm use"
-            execute "cd #{temp_dir} && source ~/.nvm/nvm.sh && node -v"
-            execute "cd #{temp_dir} && source ~/.nvm/nvm.sh && npm install --force"
-            puts "🔨 Building Next.js application with npm..."
-            execute "cd #{temp_dir} && source ~/.nvm/nvm.sh && npm run build"
-            
+            if stage == :staging
+              # Source NVM and use Node.js version from .nvmrc
+              execute "cd #{temp_dir} && source ~/.nvm/nvm.sh && nvm use"
+              execute "cd #{temp_dir} && source ~/.nvm/nvm.sh && node -v"
+              execute "cd #{temp_dir} && source ~/.nvm/nvm.sh && npm install --force"
+              puts "🔨 Building Next.js application with npm..."
+              execute "cd #{temp_dir} && source ~/.nvm/nvm.sh && npm run build"
+            else
+              execute "cd #{temp_dir} && npm install --force"
+              puts "🔨 Building Next.js application with npm..."
+              execute "cd #{temp_dir} && npm run build"
+            end
+
             # Ensure build directory exists
             if test("[ -d #{temp_dir}/#{react_build_dir} ]")
               puts "📁 Build completed successfully"
