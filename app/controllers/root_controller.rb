@@ -24,6 +24,21 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     @categories = Category.serialized_for_react_app
   end
 
+  def map_anomalies
+    # Serve static content from public/map-reservoir-surface-anomalies folder
+    render file: Rails.root.join('public', 'map-reservoir-surface-anomalies', 'index.html'), layout: false
+  end
+
+  def serve_anomaly_file
+    file_path = Rails.root.join('public', 'map-reservoir-surface-anomalies', 'anomalies', params[:file])
+    
+    if File.exist?(file_path)
+      send_file file_path, disposition: 'inline'
+    else
+      render plain: 'File not found', status: :not_found
+    end
+  end
+
   def news
     set_pages
     @news_items = NewsItem.current.limit(12)
@@ -93,6 +108,8 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
     case action_name
     when 'map'
       'map'
+    when 'map_anomalies'
+      false # No layout for static content
     # when 'show'
     #   # 'cms_pages_style' # TODO: implement new styles for the CMS pages
     #   'website'

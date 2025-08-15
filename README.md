@@ -165,3 +165,36 @@ Here is an example query and its result:
 # Resources
 
 staging deployed on WaterPowerUser EC2 Ohio
+
+## developing with docker commands
+
+docker compose up -d --build --remove-orphans
+docker compose up -d --remove-orphans
+
+docker compose logs -f app
+
+docker exec -it wri_app bash
+
+docker compose run --rm app bash
+
+
+## Tests
+rails db:environment:set RAILS_ENV=test
+
+docker compose run app rake db:test:prepare
+docker compose run app bundle exec rspec
+docker compose run app rails test
+
+docker compose run app rails db:drop
+docker compose run app rails db:create
+docker compose run app rails db:migrate
+docker compose run app rails db:seed
+
+docker compose run app rake db:fixtures:load
+
+mv .git/hooks .git/hooks.disabled
+mv .git/hooks.disabled .git/hooks
+
+git config --global user.email "carloshdelreal@gmail.com"
+git config --global user.name "Carlos Del Real"
+

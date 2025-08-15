@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_10_195354) do
+ActiveRecord::Schema.define(version: 2024_12_20_120000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,15 @@ ActiveRecord::Schema.define(version: 2023_07_10_195354) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "info_modals", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.string "info_modal_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["info_modal_id"], name: "index_info_modals_on_info_modal_id", unique: true
   end
 
   create_table "layers", force: :cascade do |t|

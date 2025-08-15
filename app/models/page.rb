@@ -8,11 +8,19 @@ class Page < ApplicationRecord
 
   SLUG_REDIRECTS = {
     'map' => :map,
+    'map-reservoir-surface-anomalies' => 'map-reservoir-surface-anomalies',
     'news-and-publications' => :news,
     'news-archive' => :archive,
     'our-team' => :our_team,
     'events' => :events
   }.freeze
+
+  # Array of slugs that should be passed without /info/ prefix
+  SLUGS_WITHOUT_PREFIX = [
+    'our-team',
+    'causal',
+    'causal/*',
+  ].freeze
 
   def self.news
     Page.find_by(slug: 'news-and-publications')
@@ -20,6 +28,10 @@ class Page < ApplicationRecord
 
   def self.map
     Page.find_by(slug: 'map')
+  end
+
+  def self.map_anomalies
+    Page.find_by(slug: 'map-reservoir-surface-anomalies')
   end
 
   def self.archive
@@ -59,6 +71,19 @@ class Page < ApplicationRecord
 
     # Pages with children are contentless menu items
     redirect_target.present? || children.any? || location.present?
+  end
+
+  # Get the proper URL path for this page
+  def url_path
+    if SLUGS_WITHOUT_PREFIX.include?(slug)
+      "#{slug}"
+    elsif SLUG_REDIRECTS[slug]
+      "#{SLUG_REDIRECTS[slug]}"
+    elsif !parent.present?
+      "#{slug}"
+    else
+      "info/#{slug}"
+    end
   end
 
   def self.options_for_menu_select
