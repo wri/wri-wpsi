@@ -1,4 +1,4 @@
-class Api::V1::LayersController < ApplicationController
+class Api::V1::LayersController < Api::BaseController
   def index
     render json: {
       layers: Layer.serialized_for_react_app,
