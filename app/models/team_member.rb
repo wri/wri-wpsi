@@ -5,6 +5,8 @@ class TeamMember < ApplicationRecord
   validates :profile_image, presence: true
 
   has_and_belongs_to_many :tags, join_table: :team_member_tags
+  has_many :page_team_members, dependent: :delete_all
+  has_many :pages, through: :page_team_members
 
   scope :ordered_by_name, -> { order(priority: :desc, name: :asc) }
   scope :ordered_by_name_and_country, -> { order(country_priority: :desc, priority: :desc, name: :asc) }
