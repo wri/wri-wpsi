@@ -36,4 +36,14 @@ set :keep_releases, 5
 # Build Next.js application after deployment
 after 'deploy:updated', 'react:build'
 
-after 'deploy', :restart_puma
+# Custom task for conditional restart
+task :conditional_restart do
+  if fetch(:stage) == :staging
+    invoke :restart_puma
+  else
+    invoke :restart_puma_prod
+  end
+end
+
+# Run conditional restart after deploy
+after 'deploy', 'conditional_restart'

@@ -1,4 +1,4 @@
-class Api::V1::WidgetDatapointsController < ApplicationController
+class Api::V1::WidgetDatapointsController < Api::BaseController
   def index
     set_field_name
     set_widget_datapoints

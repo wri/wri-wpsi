@@ -20,10 +20,36 @@ COPY docker/Aptfile /tmp/Aptfile
 RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -yq dist-upgrade && \
   DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
     build-essential \
+    openssh-server \
+    openssh-client \
     $(cat /tmp/Aptfile | xargs) && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     truncate -s 0 /var/log/*log
+
+# SSH Configuration
+RUN mkdir -p /var/run/sshd
+RUN echo 'root:password' | chpasswd
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+# SSH login fix. Otherwise user is kicked off after login
+RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+
+# Copy custom SSH configuration
+COPY docker/sshd_config /etc/ssh/sshd_config
+
+# Copy SSH client configuration
+COPY docker/ssh_config /etc/ssh/ssh_config
+
+# Generate SSH host keys
+RUN ssh-keygen -A
+
+# Create SSH directory structure for outbound connections
+RUN mkdir -p /root/.ssh && \
+    chmod 700 /root/.ssh
+
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
 
 # Create a directory for the app code
 RUN mkdir -p /app
@@ -37,6 +63,11 @@ RUN gem install rubygems-update -v '3.4.13'
 RUN update_rubygems
 RUN apt install graphviz
 RUN gem install bundler -v '1.17.3'
+
+# Install SSH-related gems for ED25519 support
+RUN gem install ed25519 -v '~> 1.2'
+RUN gem install bcrypt_pbkdf -v '~> 1.0'
+
 RUN bundle install
 RUN yarn install
 
