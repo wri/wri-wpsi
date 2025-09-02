@@ -1,4 +1,4 @@
-class Api::V1::InfoModalsController < ApplicationController
+class Api::V1::InfoModalsController < Api::BaseController
   def index
     info_modals = InfoModal.all.map do |info_modal|
       {
