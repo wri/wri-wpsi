@@ -1,4 +1,4 @@
-class Api::V1::PagesController < ApplicationController
+class Api::V1::PagesController < Api::BaseController
   def index
     render json: group_pages_by_menu.to_json
   end

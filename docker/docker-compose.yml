@@ -22,6 +22,7 @@ services:
       - .:/app
     ports:
       - '3010:3000'
+      - '3022:22'
     environment:
       - RAILS_ENV=development
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/wri-wpsi_development
@@ -36,6 +37,7 @@ services:
     user: root
     command: >
       bash -c "
+        service ssh start &&
         bundle exec rails db:create db:migrate &&
         bundle exec rails server -b 0.0.0.0 -p 3000
       "
