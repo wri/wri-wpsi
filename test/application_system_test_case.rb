@@ -11,7 +11,6 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   browser = (ENV.fetch('CHROME_DEBUG', false)) ? :chrome : :headless_chrome
 
   driven_by :selenium, using: browser, screen_size: [1366, 768]
-  
 
   # `id` must be the id attribute of the editor instance e.g.
   # <textarea id="foo" ...></textarea>

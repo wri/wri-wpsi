@@ -2,7 +2,7 @@ module HomePageContent
   extend ActiveSupport::Concern
 
   def setup_cards!
-    cards = %i[ action_items social_actions tools quotes ]
+    cards = %i[action_items social_actions tools quotes]
     @cards = cards.map do |c|
       [c, send(c)]
     end.to_h
@@ -113,6 +113,4 @@ module HomePageContent
       ),
     ]
   end
-
-
 end

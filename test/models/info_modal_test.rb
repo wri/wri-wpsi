@@ -42,4 +42,4 @@ class InfoModalTest < ActiveSupport::TestCase
     @info_modal.save
     assert_equal @info_modal.info_modal_id, @info_modal.to_param
   end
-end 
+end

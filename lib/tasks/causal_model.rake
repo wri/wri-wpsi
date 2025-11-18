@@ -147,7 +147,7 @@ class CausalModelRegionGenerator
   SYMBOLS = { '0.1' => '***', '1' => '**', '5' => '*', '' => nil }.freeze
 
   def render_legend(region)
-    keys = region[:nodes].group_by {|n| n[:significance]}
+    keys = region[:nodes].group_by { |n| n[:significance] }
     rows = []
     rows.push "<TR><TD></TD></TR>"
     rows.push %(<TR><TD ALIGN="LEFT"><B>Causal Model: #{region[:name]}</B></TD></TR>)

@@ -18,7 +18,7 @@ class Admin::EventsController < Admin::BaseController
       @event.start = @event.start + event_params[:time_zone].to_i * 60 # timezones are in minutes
       @event.ends = @event.ends + event_params[:time_zone].to_i * 60 # timezones are in minutes
       @event.save
-      
+
       redirect_to [:admin, @event], notice: 'The event was successfully updated.'
     else
       render :edit

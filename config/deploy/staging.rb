@@ -8,7 +8,7 @@ server 'wri-staging', roles: %w[app db web]
 set :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Set Node.js environment - use the specific version we know exists
-set :default_env, { 
+set :default_env, {
   PATH: '/home/ubuntu/.nvm/versions/node/v16.15.0/bin:$PATH',
   NODE_ENV: 'production'
 }

@@ -49,4 +49,4 @@ class Admin::InfoModalsController < Admin::BaseController
       :info_modal_id,
     )
   end
-end 
+end
