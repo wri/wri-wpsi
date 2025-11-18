@@ -7,7 +7,7 @@ FactoryBot.define do
     tags { Tag.all.limit(3) }
 
     trait :with_new_tags do
-      tags {  FactoryBot.build_list :tag, 3 }
+      tags { FactoryBot.build_list :tag, 3 }
     end
   end
 end

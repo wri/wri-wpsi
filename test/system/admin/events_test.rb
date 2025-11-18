@@ -21,7 +21,7 @@ class EventsTest < ApplicationSystemTestCase
     fill_in 'Start', with: @event.start
     fill_in 'Ends', with: @event.ends
     fill_in 'Location', with: @event.location
-    
+
     click_on "Create #{Event.model_name.human}"
 
     assert_text 'Event was successfully created.'

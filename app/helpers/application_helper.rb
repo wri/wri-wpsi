@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def page_redirect_target(page)
     return nil unless page
 
@@ -9,5 +8,4 @@ module ApplicationHelper
   def direct_page_path(page)
     page_redirect_target(page) || page_path(page)
   end
-
 end

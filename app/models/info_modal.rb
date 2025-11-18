@@ -6,4 +6,4 @@ class InfoModal < ApplicationRecord
   def to_param
     info_modal_id
   end
-end 
+end

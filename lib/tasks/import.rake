@@ -26,7 +26,6 @@ namespace :import do
 end
 
 def import_widget_datapoints(path)
-
   if path.starts_with?('https://')
     puts 'Importing from url...'
     csv_path = "/tmp/import-#{SecureRandom.uuid}.csv"

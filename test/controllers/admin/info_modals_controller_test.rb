@@ -60,4 +60,4 @@ class Admin::InfoModalsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to admin_info_modals_url
   end
-end 
+end

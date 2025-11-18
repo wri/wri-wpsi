@@ -10,4 +10,4 @@ class Api::V1::InfoModalsController < Api::BaseController
 
     render json: info_modals
   end
-end 
+end
