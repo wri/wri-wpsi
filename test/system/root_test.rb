@@ -61,7 +61,8 @@ class RootTest < ApplicationSystemTestCase
     assert_text 'No archived items'
   end
 
-  def test_map_page, skip: 'skipped until map is re-enabled' do
+  def test_map_page do
+    skip 'skipped until map is re-enabled'
     retry_on_timeout do
       visit '/map'
       assert_selector 'a > img[alt="WPS logo"]'
