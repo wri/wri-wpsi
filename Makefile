@@ -14,3 +14,12 @@ install:
 
 clean:
 	rm -rf automationvenv/
+
+bash:
+	docker exec -it wri_app bash
+
+console:
+	docker exec -it wri_app bash -c "cd /app && bundle exec rails console"
+
+logs:
+	docker compose logs -f app

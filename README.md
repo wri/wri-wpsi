@@ -2,8 +2,6 @@
 
 This is the main repo for the Water, Peace and Security web app.
 
-[![Build Status](https://travis-ci.com/greenriver/wri-wpsi.svg?token=EQywZqAdUXLYyppSoTji&branch=production)](https://travis-ci.com/greenriver/wri-wpsi)
-[![Heroku](https://img.shields.io/badge/heroku-wri--wpsi-8967B1)](https://dashboard.heroku.com/apps/wri-wpsi)
 
 ## Ruby version
 
@@ -46,9 +44,9 @@ Jest tests will fail whenever a snapshot becomes out of date. This does not mean
 
 If the changes all look good, update the failing snapshots by running `yarn test -u`.
 
-## Deploying
+# Deploying
 
-Staging is deployed to heroku at `https://git.heroku.com/wri-wpsi.git`. Run `git push heroku staging:main` to deploy the staging branch there.
+Staging is deployed to an aws EC2 in the water account, to deploy `cap staging deploy`
 
 Production is deployed to a `Ubuntu 18.04.3 LTS` server at IHE Delft. Run `cap production deploy` to deploy there. Consult
 `config/deploy/production.rb` for where that is. You will need to get your credentials set up by a current deployer.
@@ -57,6 +55,12 @@ You will also need to be on the office network in order to connect.
 `capistrano` tasks for starting and stopping the services are set up per https://github.com/seuros/capistrano-puma.  All necessary services are manageable via systemd and enabled on boot.
 
 To setup slackistrano notifications triggred by your deploys, you need to add the WRI_SLACK_WEBHOOK variable to your local environment with a valid Slack webhook URI.
+
+## Prod Deploy using capistrano and docker
+
+./docker/setup_ec2_ssh.sh copy-key ~/.ssh/id_rsa_wri
+./docker/setup_ec2_ssh.sh add-instance wri-prod 194.171.38.130 cdelreal id_rsa_wri
+docker exec -it wri_app bash
 
 #### Services
 
