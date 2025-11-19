@@ -64,6 +64,12 @@ RUN update_rubygems
 RUN apt install graphviz
 RUN gem install bundler -v '1.17.3'
 
+# Fix RVM permission issues by creating necessary directories
+RUN mkdir -p /usr/share/rvm/log && \
+    chmod 755 /usr/share/rvm/log && \
+    mkdir -p /usr/share/rvm/wrappers && \
+    chmod 755 /usr/share/rvm/wrappers
+
 # Install SSH-related gems for ED25519 support
 RUN gem install ed25519 -v '~> 1.2'
 RUN gem install bcrypt_pbkdf -v '~> 1.0'

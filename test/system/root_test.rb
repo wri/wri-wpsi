@@ -62,6 +62,7 @@ class RootTest < ApplicationSystemTestCase
   end
 
   def test_map_page
+    skip 'skipped until map is re-enabled'
     retry_on_timeout do
       visit '/map'
       assert_selector 'a > img[alt="WPS logo"]'
