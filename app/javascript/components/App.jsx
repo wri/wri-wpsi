@@ -1,11 +1,12 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import withLayers from 'components/withLayers'
-import MapPage from 'components/MapPage'
+// import MapPage from 'components/MapPage'
 import LayerInfoPage from 'components/LayerInfoPage'
 import { Icons } from 'vizzuality-components'
 import { ThemeProvider } from 'react-jss'
 import styleVariables from './styles/variables'
+import Shutdown from './Shutdown'
 
 // Fix LayerManager-Firefox compatability issue
 import promiseFinally from 'promise.prototype.finally'
@@ -31,8 +32,14 @@ const App = ({ layers }) => {
           {/* Landing page with map */}
           <Route
             path="/map"
+            render={() => <Shutdown />}
+          />
+          {/* Map page (disabled for now) 
+          <Route
+            path="/map"
             render={() => <MapPage layers={layers} />}
           />
+          */}
           <Route
             path="/map/learn_more/:layerId"
             render={() => <LayerInfoPage layers={layers} />}
