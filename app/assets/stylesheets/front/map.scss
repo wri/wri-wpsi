@@ -94,3 +94,41 @@ $side-bar-width: 500px;
     width: 100% !important;
   }
 }
+
+
+.wps-shutdown-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.wps-shutdown-image {
+  width: calc(100% - 400px);
+  height: 100%;
+}
+
+.wps-shutdown-text-panel {
+  min-width: 400px;
+  width: 30%;
+  padding: 2rem;
+}
+
+@media (max-width: 1000px) {
+
+  .wps-shutdown-image {
+    width: 100%;
+    order: 2;
+  }
+
+  .wps-shutdown-text-panel {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    order: 1;
+    padding: 4rem;
+  }
+
+  .wps-shutdown-container {
+    flex-wrap: wrap;
+  }
+}
