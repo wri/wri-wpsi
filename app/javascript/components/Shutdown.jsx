@@ -46,6 +46,9 @@ const Shutdown = () => (
           or questions please contact us at{` `}
           <a href="mailto:info@waterpeacesecurity.org">info@waterpeacesecurity.org</a>. 
         </p>
+        <p style={paragraphStyle}>
+          We apologize for any inconvenience. Please check back later for updates.
+        </p>
     </div>
   </div>
 )
