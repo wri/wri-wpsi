@@ -43,7 +43,7 @@ const Shutdown = () => (
         </p>
         <p style={paragraphStyle}>
           The tool is anticipated to return in mid-2026. For any data access
-          or questions please contact us at 
+          or questions please contact us at{` `}
           <a href="mailto:info@waterpeacesecurity.org">info@waterpeacesecurity.org</a>. 
         </p>
     </div>
