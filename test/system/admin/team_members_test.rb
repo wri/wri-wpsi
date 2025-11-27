@@ -23,7 +23,7 @@ class TeamMembersTest < ApplicationSystemTestCase
     fill_in 'Position', with: @team_member.position
     fill_in 'Email', with: @team_member.email
     select @file_upload.description, from: 'Image'
-    
+
     click_on "Create #{TeamMember.model_name.human}"
 
     assert_text 'Team member was successfully created.'
@@ -45,7 +45,7 @@ class TeamMembersTest < ApplicationSystemTestCase
     click_on "Update #{TeamMember.model_name.human}"
 
     assert_text 'Team member was successfully updated.'
-  end  
+  end
 
   test 'deleting a news item' do
     create(:team_member)

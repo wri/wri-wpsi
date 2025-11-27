@@ -13,7 +13,7 @@ class Event < ApplicationRecord
   scope :future, -> { where('ends >= ?', Time.now) }
 
   def time
-    if (ends - start)/3600 > 22  # if time difference > 22 hrs
+    if (ends - start) / 3600 > 22 # if time difference > 22 hrs
       start.strftime('%b %d') + ' - ' + ends.strftime('%b %d')
     else
       start.strftime('%-l:%M') + ' - ' + ends.strftime('%-l:%M%P')

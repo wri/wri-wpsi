@@ -31,7 +31,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
 
   def serve_anomaly_file
     file_path = Rails.root.join('public', 'map-reservoir-surface-anomalies', 'anomalies', params[:file])
-    
+
     if File.exist?(file_path)
       send_file file_path, disposition: 'inline'
     else

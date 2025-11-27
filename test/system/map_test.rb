@@ -2,6 +2,7 @@ require 'application_system_test_case'
 
 class MapTest < ApplicationSystemTestCase
   test 'adding a dataset' do
+    skip 'skipped until map is re-enabled'
     layer = layers(:employment_in_agriculture)
 
     visit map_url
@@ -25,6 +26,7 @@ class MapTest < ApplicationSystemTestCase
   end
 
   test 'viewing a dataset\'s long description' do
+    skip 'skipped until map is re-enabled'
     mask_layer = layers(:mask)
     conflict_layer = layers(:risk_of_conflict)
 
