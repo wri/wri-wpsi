@@ -1,4 +1,4 @@
 eeUtil==0.3.0
 geopandas==1.0.1
-protobuf==5.28.3
+protobuf==7.34.0rc1
 rasterio==1.4.2
