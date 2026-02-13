@@ -20,6 +20,7 @@ services:
     container_name: wri_app
     volumes:
       - .:/app
+      - ~/.ssh/id_rsa_wri:/root/.ssh/id_rsa_wri:ro
     ports:
       - '3010:3000'
       - '3022:22'
