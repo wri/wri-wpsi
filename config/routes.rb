@@ -23,6 +23,7 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   get "/causal/*ignored", to: "root#causal"
 
   ## Static route to file uploads
+  get '/files/627', to: redirect('/files/628')
   resources :files, only: %i[show]
 
   # Admin routes
