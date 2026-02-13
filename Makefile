@@ -23,3 +23,6 @@ console:
 
 logs:
 	docker compose logs -f app
+	
+deploy-prod:
+	docker exec -it wri_app bash -c "cap production deploy"
