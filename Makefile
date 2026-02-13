@@ -22,11 +22,7 @@ console:
 	docker exec -it wri_app bash -c "cd /app && bundle exec rails console"
 
 logs:
-<<<<<<< HEAD
-	docker compose logs -f app
-=======
 	docker compose logs -f app
 	
 deploy-prod:
 	docker exec -it wri_app bash -c "cap production deploy"
->>>>>>> staging
