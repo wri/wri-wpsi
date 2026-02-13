@@ -1,0 +1,7 @@
+# SSH client configuration for Docker container
+
+# Global settings
+Host *
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+    LogLevel ERROR
