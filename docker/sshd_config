@@ -1,0 +1,51 @@
+# SSH daemon configuration for Docker container
+# Based on default Debian sshd_config with modifications for container use
+
+# Permit root login with password (needed for Docker development)
+PermitRootLogin yes
+
+# Allow password authentication
+PasswordAuthentication yes
+
+# Disable PAM for container environments
+UsePAM yes
+
+# Allow empty passwords (for development)
+PermitEmptyPasswords no
+
+# Disable DNS lookup for faster connections
+UseDNS no
+
+# Logging
+SyslogFacility AUTH
+LogLevel INFO
+
+# Authentication
+LoginGraceTime 120
+StrictModes yes
+
+# Host keys
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+
+# Port
+Port 22
+
+# Protocol
+Protocol 2
+
+# Allow X11 forwarding
+X11Forwarding yes
+X11DisplayOffset 10
+X11UseLocalhost yes
+
+# Allow TCP forwarding
+AllowTcpForwarding yes
+
+# Print motd
+PrintMotd no
+PrintLastLog yes
+
+# Subsystem
+Subsystem sftp /usr/lib/openssh/sftp-server

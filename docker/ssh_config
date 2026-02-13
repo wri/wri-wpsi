@@ -5,3 +5,10 @@ Host *
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
     LogLevel ERROR
+
+# WRI Production server
+Host wri-prod
+    HostName 194.171.38.130
+    User cdelreal
+    ForwardAgent yes
+    IdentityFile ~/.ssh/id_rsa_wri
